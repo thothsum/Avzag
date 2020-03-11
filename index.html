@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/site.css">
+    <link rel="stylesheet" type="text/css" href="styles/catalogue.css">
+    <link rel="stylesheet" type="text/css" href="styles/converter.css">
+    <link rel="stylesheet" type="text/css" href="styles/alphabet.css">
+    <script type="module" src="scripts/startup.mjs"></script>
+</head>
+
 <body>
 
     <h1>My First Heading</h1>
     <p>My REALLY???!! paragraph.</p>
 
-    <script>
-        function getUrlVars() {
-            var vars = {};
-            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-                vars[key] = value;
-            });
-            return vars;
-        }
+    <div id="alphabet" class="section">
+        <h1>Alphabet</h1>
+        <div id="tables">
+            <!-- @foreach(var category in new string[] {"vowel", "consonant"})
+            {
+            <div class=@("table " + category)>
+            @foreach (var letter in Language.Letters.Where(l=>l.Tags.Contains(category)))
+            {
+            <div class=" button letter" @onclick=@(()=> selected = letter)>@letter.Grapheme</div>
+            } -->
+        </div>
+        <div id="details">
+            <!-- <h2>@($"{selected.Grapheme} • {Language.Converters[0].Convert(selected.Grapheme)}")</h2>
+            <p class="tags">@selected.Tags.Aggregate((s, t) => $"{s} {t}")</p>
+            @foreach(var sample in selected.Samples)
+            {
+            <span class="button sample" @onclick=@(()=> Play(sample))>
+                @((MarkupString)Highlight(sample))
+            </span>
+            } -->
+        </div>
+    </div>
 
-        function codeAddress() {
-            console.log("argument: " + getUrlVars()["x"]);
+    <!-- // function getUrlVars() {
+        //     var vars = {};
+        //     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        //         vars[key] = value;
+        //     });
+        //     return vars;
+        // }
 
-        }
+        // function codeAddress() {
+        //     console.log("argument: " + getUrlVars()["x"]);
 
-        function loadJSON(callback) {
-            var xobj = new XMLHttpRequest();
-            xobj.overrideMimeType("application/json");
-            xobj.open('GET', 'languages/catalogue.json', true);
-            xobj.onreadystatechange = function () {
-                if (xobj.readyState == 4 && xobj.status == "200") {
-                    callback(JSON.parse(xobj.responseText));
-                }
-            };
-            xobj.send(null);
-        }
-
-        window.onload = loadJSON(function (json) {
-            console.log(json); // this will log out the json object
-        });
-    </script>
+        // } -->
 </body>
 
 </html>
