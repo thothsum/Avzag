@@ -1,0 +1,290 @@
+[
+    {
+        "grapheme": "а",
+        "tags": [
+            "vowel"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ӕ",
+        "tags": [
+            "vowel"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "е",
+        "tags": [
+            "vowel"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "и",
+        "tags": [
+            "vowel"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "о",
+        "tags": [
+            "vowel"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ы",
+        "tags": [
+            "vowel"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "у",
+        "tags": [
+            "vowel"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "б",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "д",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "г",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "гу",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "п",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "пъ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "т",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "тъ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "к",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "къ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ку",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "къу",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "хъ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "хъу",
+        "tags": [
+            "consonant",
+            "stop",
+            "uvular",
+            "voiceless",
+            "labialized"
+        ],
+        "samples": [
+            "хъу",
+            "хъуыдытæ",
+            "лæхъуæн"
+        ]
+    },
+    {
+        "grapheme": "дз",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "дж",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ц",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "цъ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ч",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "чъ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "в",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "з",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "гъ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ф",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "с",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "х",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ху",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "м",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "н",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "л",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "р",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "й",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "у",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    }
+]

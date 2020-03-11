@@ -1,0 +1,8 @@
+#catalogue {
+    user-select: none;
+}
+
+#catalogue div {
+    display: inline-block;
+    margin: 10px;
+}

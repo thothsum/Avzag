@@ -4,7 +4,7 @@
 <body>
 
     <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
+    <p>My REALLY???!! paragraph.</p>
 
     <script>
         function getUrlVars() {
@@ -16,10 +16,25 @@
         }
 
         function codeAddress() {
-            console.log(getUrlVars()["x"]);
+            console.log("argument: " + getUrlVars()["x"]);
+
         }
 
-        window.onload = codeAddress;
+        function loadJSON(callback) {
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', 'languages/catalogue.json', true);
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState == 4 && xobj.status == "200") {
+                    callback(JSON.parse(xobj.responseText));
+                }
+            };
+            xobj.send(null);
+        }
+
+        window.onload = loadJSON(function (json) {
+            console.log(json); // this will log out the json object
+        });
     </script>
 </body>
 

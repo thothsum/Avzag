@@ -1,0 +1,974 @@
+[
+    {
+        "grapheme": "и",
+        "tags": [
+            "vowel",
+            "front",
+            "close"
+        ],
+        "samples": [
+            "и",
+            "ила",
+            "шин"
+        ]
+    },
+    {
+        "grapheme": "у",
+        "tags": [
+            "vowel",
+            "back",
+            "close"
+        ],
+        "samples": [
+            "у",
+            "уцци",
+            "букье"
+        ]
+    },
+    {
+        "grapheme": "э",
+        "tags": [
+            "vowel",
+            "front",
+            "close-mid"
+        ],
+        "samples": [
+            "э",
+            "эркӏ",
+            "чэв"
+        ]
+    },
+    {
+        "grapheme": "а",
+        "tags": [
+            "vowel",
+            "front",
+            "open"
+        ],
+        "samples": [
+            "а",
+            "азир",
+            "цула"
+        ]
+    },
+    {
+        "grapheme": "я",
+        "tags": [
+            "vowel",
+            "front",
+            "near-open"
+        ],
+        "samples": [
+            "я",
+            "гӏяхӏле",
+            "ця"
+        ]
+    },
+    {
+        "grapheme": "б",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "labial"
+        ],
+        "samples": [
+            "б",
+            "бекӏ",
+            "гӏябал"
+        ]
+    },
+    {
+        "grapheme": "п",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "labial"
+        ],
+        "samples": [
+            "п",
+            "пикре",
+            "кулпет"
+        ]
+    },
+    {
+        "grapheme": "пп",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "geminate",
+            "labial"
+        ],
+        "samples": [
+            "пп",
+            "ппала",
+            "тӏиппе"
+        ]
+    },
+    {
+        "grapheme": "пӏ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "labial"
+        ],
+        "samples": [
+            "пӏ",
+            "пӏялцӏикӏ",
+            "шипӏяй"
+        ]
+    },
+    {
+        "grapheme": "в",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "labial"
+        ],
+        "samples": [
+            "в",
+            "варси",
+            "ццав"
+        ]
+    },
+    {
+        "grapheme": "ф",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "labial"
+        ],
+        "samples": [
+            "гьуфбарара"
+        ]
+    },
+    {
+        "grapheme": "м",
+        "tags": [
+            "consonant",
+            "sonorant",
+            "nasal",
+            "labial"
+        ],
+        "samples": [
+            "м",
+            "мургьи",
+            "хьулум"
+        ]
+    },
+    {
+        "grapheme": "д",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "dental"
+        ],
+        "samples": [
+            "д",
+            "дуцца",
+            "мейдам"
+        ]
+    },
+    {
+        "grapheme": "т",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "dental"
+        ],
+        "samples": [
+            "т",
+            "талхъан",
+            "уста"
+        ]
+    },
+    {
+        "grapheme": "тт",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "geminate",
+            "dental"
+        ],
+        "samples": [
+            "тт",
+            "ттура",
+            "атта"
+        ]
+    },
+    {
+        "grapheme": "тӏ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "dental"
+        ],
+        "samples": [
+            "тӏ",
+            "тӏал",
+            "кӏултӏа"
+        ]
+    },
+    {
+        "grapheme": "ц",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "dental"
+        ],
+        "samples": [
+            "ц",
+            "цикӏал",
+            "бац"
+        ]
+    },
+    {
+        "grapheme": "цц",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "geminate",
+            "dental"
+        ],
+        "samples": [
+            "цц",
+            "цце",
+            "луццум"
+        ]
+    },
+    {
+        "grapheme": "цӏ",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "dental"
+        ],
+        "samples": [
+            "цӏ",
+            "цӏалип",
+            "вецӏал"
+        ]
+    },
+    {
+        "grapheme": "з",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "dental"
+        ],
+        "samples": [
+            "з",
+            "зарадехь",
+            "муза"
+        ]
+    },
+    {
+        "grapheme": "с",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "dental"
+        ],
+        "samples": [
+            "с",
+            "сагъли",
+            "бурсибил"
+        ]
+    },
+    {
+        "grapheme": "сс",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "dental"
+        ],
+        "samples": [
+            "сс",
+            "нисса",
+            "гьассара"
+        ]
+    },
+    {
+        "grapheme": "н",
+        "tags": [
+            "consonant",
+            "sonorant",
+            "nasal",
+            "dental"
+        ],
+        "samples": [
+            "н",
+            "някъ",
+            "манзи"
+        ]
+    },
+    {
+        "grapheme": "л",
+        "tags": [
+            "consonant",
+            "sonorant",
+            "liquid",
+            "dental"
+        ],
+        "samples": [
+            "л",
+            "палтар",
+            "хьацӏил"
+        ]
+    },
+    {
+        "grapheme": "хь",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "palatal"
+        ],
+        "samples": [
+            "хь",
+            "хьуне",
+            "дирихь"
+        ]
+    },
+    {
+        "grapheme": "хьв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "palatal",
+            "labialized"
+        ],
+        "samples": [
+            "хьв",
+            "белхьвана",
+            "дехьвана"
+        ]
+    },
+    {
+        "grapheme": "хьхь",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "palatal"
+        ],
+        "samples": [
+            "хьхь",
+            "кабихьхьара",
+            "дивхьхьара"
+        ]
+    },
+    {
+        "grapheme": "хьхьв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "palatal",
+            "labialized"
+        ],
+        "samples": [
+            "хьхьв",
+            "нихьхьва",
+            "чицахьхьвара"
+        ]
+    },
+    {
+        "grapheme": "й",
+        "tags": [
+            "consonant",
+            "sonorant",
+            "liquid",
+            "palatal"
+        ],
+        "samples": [
+            "й",
+            "чуйна",
+            "гъай"
+        ]
+    },
+    {
+        "grapheme": "ч",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "alveolar"
+        ],
+        "samples": [
+            "ч",
+            "чехъил",
+            "мичи"
+        ]
+    },
+    {
+        "grapheme": "чв",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "alveolar",
+            "labialized"
+        ],
+        "samples": [
+            "чв",
+            "чваква",
+            "берчвахана"
+        ]
+    },
+    {
+        "grapheme": "ччв",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "geminate",
+            "alveolar"
+        ],
+        "samples": [
+            "ччв",
+            "ччве",
+            "биччвахара"
+        ]
+    },
+    {
+        "grapheme": "чч",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "geminate",
+            "alveolar",
+            "labialized"
+        ],
+        "samples": [
+            "чч",
+            "ччашин",
+            "дучче"
+        ]
+    },
+    {
+        "grapheme": "чӏ",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "alveolar"
+        ],
+        "samples": [
+            "чӏ",
+            "чӏала",
+            "урчӏе"
+        ]
+    },
+    {
+        "grapheme": "чӏв",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "alveolar",
+            "labialized"
+        ],
+        "samples": [
+            "чӏв",
+            "чӏвел",
+            "белчӏвахана"
+        ]
+    },
+    {
+        "grapheme": "ж",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "alveolar"
+        ],
+        "samples": [
+            "ж",
+            "житӏа",
+            "хӏяжлачӏе"
+        ]
+    },
+    {
+        "grapheme": "жв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "alveolar",
+            "labialized"
+        ],
+        "samples": [
+            "жв",
+            "кержвахара",
+            "бевжвахана"
+        ]
+    },
+    {
+        "grapheme": "ш",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "alveolar"
+        ],
+        "samples": [
+            "ш",
+            "шалал",
+            "урши"
+        ]
+    },
+    {
+        "grapheme": "шв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "alveolar",
+            "labialized"
+        ],
+        "samples": [
+            "шв",
+            "швел",
+            "бершвахара"
+        ]
+    },
+    {
+        "grapheme": "шш",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "alveolar"
+        ],
+        "samples": [
+            "шш",
+            "шшери",
+            "нишша"
+        ]
+    },
+    {
+        "grapheme": "шшв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "alveolar",
+            "labialized"
+        ],
+        "samples": [
+            "шшв",
+            "ишшвахара",
+            "кабишшвахара"
+        ]
+    },
+    {
+        "grapheme": "р",
+        "tags": [
+            "consonant",
+            "sonorant",
+            "liquid",
+            "alveolar"
+        ],
+        "samples": [
+            "р",
+            "рицци",
+            "баргьул"
+        ]
+    },
+    {
+        "grapheme": "г",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "velar"
+        ],
+        "samples": [
+            "г",
+            "гуневла",
+            "чибиган"
+        ]
+    },
+    {
+        "grapheme": "гв",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "velar",
+            "labialized"
+        ],
+        "samples": [
+            "гв",
+            "гванадехь",
+            "делгвана"
+        ]
+    },
+    {
+        "grapheme": "к",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "velar"
+        ],
+        "samples": [
+            "к",
+            "катӏара",
+            "гъукле"
+        ]
+    },
+    {
+        "grapheme": "кв",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "velar",
+            "labialized"
+        ],
+        "samples": [
+            "кв",
+            "квацци",
+            "берквана"
+        ]
+    },
+    {
+        "grapheme": "кк",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "geminate",
+            "velar"
+        ],
+        "samples": [
+            "кк",
+            "ккуртте",
+            "бейкку"
+        ]
+    },
+    {
+        "grapheme": "ккв",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "geminate",
+            "velar",
+            "labialized"
+        ],
+        "samples": [
+            "ккв",
+            "рангакквар",
+            "ччвакква"
+        ]
+    },
+    {
+        "grapheme": "кӏ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "velar"
+        ],
+        "samples": [
+            "кӏ",
+            "кӏана",
+            "декӏле"
+        ]
+    },
+    {
+        "grapheme": "кӏв",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "velar",
+            "labialized"
+        ],
+        "samples": [
+            "к1в",
+            "никӏва",
+            "белкӏвана"
+        ]
+    },
+    {
+        "grapheme": "къ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "uvular"
+        ],
+        "samples": [
+            "къ",
+            "къатта",
+            "вегъивкъел"
+        ]
+    },
+    {
+        "grapheme": "къв",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "uvular",
+            "labialized"
+        ],
+        "samples": [
+            "къв",
+            "къвяна",
+            "милкъвя"
+        ]
+    },
+    {
+        "grapheme": "хъ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "uvular"
+        ],
+        "samples": [
+            "хъ",
+            "хъале",
+            "бихъна"
+        ]
+    },
+    {
+        "grapheme": "хъв",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "uvular",
+            "labialized"
+        ],
+        "samples": [
+            "хъв",
+            "хъвянтӏ",
+            "махъва"
+        ]
+    },
+    {
+        "grapheme": "къкъ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "geminate",
+            "uvular"
+        ],
+        "samples": [
+            "къкъ",
+            "цакъкъара",
+            "шукъкъа"
+        ]
+    },
+    {
+        "grapheme": "кь",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "ejective",
+            "uvular"
+        ],
+        "samples": [
+            "кь",
+            "кьаст",
+            "мукьара"
+        ]
+    },
+    {
+        "grapheme": "кьв",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "ejective",
+            "uvular",
+            "labialized"
+        ],
+        "samples": [
+            "кьв",
+            "кьвял",
+            "чӏвакьва"
+        ]
+    },
+    {
+        "grapheme": "гъ",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "uvular"
+        ],
+        "samples": [
+            "гъ",
+            "гъизбе",
+            "къабагъ"
+        ]
+    },
+    {
+        "grapheme": "гъв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "uvular",
+            "labialized"
+        ],
+        "samples": [
+            "гъв",
+            "гъвярцӏил",
+            "бергъвара"
+        ]
+    },
+    {
+        "grapheme": "х",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "uvular"
+        ],
+        "samples": [
+            "х",
+            "халича",
+            "чух"
+        ]
+    },
+    {
+        "grapheme": "хв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "uvular",
+            "labialized"
+        ],
+        "samples": [
+            "хв",
+            "хвя",
+            "керхвара"
+        ]
+    },
+    {
+        "grapheme": "хх",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "uvular"
+        ],
+        "samples": [
+            "хх",
+            "ххярбе",
+            "ирххе"
+        ]
+    },
+    {
+        "grapheme": "гӏ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiced",
+            "pharyngeal"
+        ],
+        "samples": [
+            "гӏ",
+            "гӏямру",
+            "лягӏ"
+        ]
+    },
+    {
+        "grapheme": "хӏ",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "pharyngeal"
+        ],
+        "samples": [
+            "хӏ",
+            "хӏянчи",
+            "дярхӏя"
+        ]
+    },
+    {
+        "grapheme": "гь",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "laryngeal"
+        ],
+        "samples": [
+            "гь",
+            "гьинце",
+            "вагьла"
+        ]
+    },
+    {
+        "grapheme": "гьв",
+        "tags": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "laryngeal",
+            "labialized"
+        ],
+        "samples": [
+            "гьв",
+            "белгьвана",
+            "диргьвар"
+        ]
+    },
+    {
+        "grapheme": "ъ",
+        "tags": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "laryngeal"
+        ],
+        "samples": [
+            "маъ",
+            "баълабай"
+        ]
+    }
+]

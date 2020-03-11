@@ -1,0 +1,45 @@
+﻿#alphabet #tables {
+    display: grid;
+    grid-template-columns: 110px 1fr 200px;
+    gap: 20px;
+}
+
+#alphabet .table {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    margin: -5px;
+}
+
+#alphabet .letter {
+    width: 50px;
+    margin: 5px;
+}
+
+#alphabet .letter:hover {
+    font-weight: bold;
+}
+
+#alphabet #details h2 {
+    word-spacing: 15px;
+    margin-top: 0;
+}
+
+#alphabet #details .tags {
+    font-size: 14px;
+    font-style: italic;
+    word-spacing: 10px;
+}
+
+#alphabet #details .sample {
+    padding: 5px;
+    margin: 10px 0;
+}
+
+@media only screen and (max-width: 600px) {
+    #alphabet #tables {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+}
