@@ -26,5 +26,14 @@ function start() {
     let args = getUrlVars();
     let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
     window["language"] = lang;
+    
     loadJSON(json => phonologyStart(json), `/languages/${lang}/phonemes.json`)
+    loadJSON(json => displayInfo(json), `/languages/${lang}/index.json`)
+}
+
+function displayInfo(data) {
+    let infoDiv = document.querySelector("#info");
+    infoDiv.querySelector("h1").innerText = data["title"];
+    infoDiv.querySelector("h3").innerText = data["tags"].reduce((a, t) => a = `${a} • ${t}`);
+    infoDiv.querySelector("div").innerText = data["description"];
 }
