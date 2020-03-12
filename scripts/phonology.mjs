@@ -1,8 +1,13 @@
-// import { Howl, Howler } from "./howler.js";
+import "./howler.min.js";
 
-// let player = new Howl();
+let player;
 
-function loadLetters(data) {
+function start(data) {
+    loadTable(data);
+    viewLetter(data[0]);
+}
+
+function loadTable(data) {
     let table = document.querySelector("#alphabet #tables");
     for (const category of ["consonant", "vowel"]) {
         let subTable = document.createElement("div");
@@ -16,8 +21,6 @@ function loadLetters(data) {
         }
         table.prepend(subTable);
     }
-
-    viewLetter(data[0]);
 }
 
 function viewLetter(phoneme) {
@@ -41,12 +44,11 @@ function viewLetter(phoneme) {
 }
 
 function playSample(sample) {
-    let url = `languages/${window["language"]}/audio/${sample}.m4a`
-    console.log(url);
+    if (player != null)
+        player.stop();
 
-    // player.stop();
-    // player.src = [url];
-    // player.play();
+    player = new Howl({ src: [`languages/${window["language"]}/audio/${sample}.m4a`] });
+    player.play();
 }
 
-export { loadLetters };
+export { start };

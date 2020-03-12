@@ -1,4 +1,4 @@
-import { loadLetters } from './phonology.mjs';
+import { start as phonologyStart } from './phonology.mjs';
 
 document.addEventListener("DOMContentLoaded", start);
 
@@ -26,5 +26,5 @@ function start() {
     let args = getUrlVars();
     let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
     window["language"] = lang;
-    loadJSON(json => loadLetters(json), `/languages/${lang}/phonemes.json`)
+    loadJSON(json => phonologyStart(json), `/languages/${lang}/phonemes.json`)
 }
