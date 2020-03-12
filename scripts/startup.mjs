@@ -1,4 +1,4 @@
-import { loadLetters } from './alphabet.mjs';
+import { loadLetters } from './phonology.mjs';
 
 document.addEventListener("DOMContentLoaded", start);
 
@@ -14,6 +14,17 @@ function loadJSON(callback, url) {
     xobj.send(null);
 }
 
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
 function start() {
-    loadJSON(json => loadLetters(json), '/languages/Kaitag/letters.json')
+    let args = getUrlVars();
+    let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
+    window["language"] = lang;
+    loadJSON(json => loadLetters(json), `/languages/${lang}/phonemes.json`)
 }

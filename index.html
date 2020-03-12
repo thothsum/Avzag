@@ -7,15 +7,15 @@
     <link rel="stylesheet" type="text/css" href="styles/converter.css">
     <link rel="stylesheet" type="text/css" href="styles/alphabet.css">
     <script type="module" src="scripts/startup.mjs"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.min.js"></script>
 </head>
 
 <body>
-
     <h1>My First Heading</h1>
     <p>My REALLY???!! paragraph.</p>
 
     <div id="alphabet" class="section">
-        <h1>Alphabet</h1>
+        <h1>Phonology</h1>
         <div id="tables">
             <!-- @foreach(var category in new string[] {"vowel", "consonant"})
             {
@@ -24,19 +24,21 @@
             {
             <div class=" button letter" @onclick=@(()=> selected = letter)>@letter.Grapheme</div>
             } -->
-        </div>
-        <div id="details">
-            <!-- <h2>@($"{selected.Grapheme} • {Language.Converters[0].Convert(selected.Grapheme)}")</h2>
-            <p class="tags">@selected.Tags.Aggregate((s, t) => $"{s} {t}")</p>
-            @foreach(var sample in selected.Samples)
+            <div id="details">
+                <h2></h2>
+                <p class="tags"></p>
+                <div id="samples"></div>
+                <!-- @foreach(var sample in selected.Samples)
             {
             <span class="button sample" @onclick=@(()=> Play(sample))>
                 @((MarkupString)Highlight(sample))
             </span>
             } -->
+            </div>
         </div>
     </div>
-
+    <script>
+    </script>
     <!-- // function getUrlVars() {
         //     var vars = {};
         //     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
