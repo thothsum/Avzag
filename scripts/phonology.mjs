@@ -69,7 +69,9 @@ function viewLetter(phoneme) {
 
 function playSample(sample) {
     player.stop();
-    player = new Howl({ src: [`languages/${window["language"]}/audio/${sample}.m4a`] });
+    player = new Howl({
+        src: [window["langRoot"] + "audio/${sample}.m4a"]
+    });
     player.play();
 }
 
