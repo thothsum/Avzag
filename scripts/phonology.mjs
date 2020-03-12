@@ -70,7 +70,7 @@ function viewLetter(phoneme) {
 function playSample(sample) {
     player.stop();
     player = new Howl({
-        src: [window["langRoot"] + "audio/${sample}.m4a"]
+        src: [`${window["langRoot"]}audio/${sample}.m4a`]
     });
     player.play();
 }
