@@ -16,7 +16,7 @@ function loadJSON(callback, url) {
 
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (_m, key, value) {
         vars[key] = value;
     });
     return vars;
@@ -27,8 +27,7 @@ function start() {
     let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
 
     window["language"] = lang;
-    if (lang != null)
-        loadLanguage();
+    loadLanguage();
 }
 
 function loadLanguage() {
@@ -42,7 +41,8 @@ function displayInfo(data) {
     let infoDiv = document.querySelector("#info");
     infoDiv.querySelector("h1").innerText = data["title"];
     infoDiv.querySelector("h3").innerText = data["tags"].reduce((a, t) => a = `${a} • ${t}`);
-    infoDiv.querySelector("div").innerText = data["description"];
+    infoDiv.querySelector("p").innerText = data["description"];
+    infoDiv.querySelector("img").src = `/languages/${window["language"]}/image.png`;
 }
 
 function displayCatalogue(data) {
