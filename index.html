@@ -7,54 +7,24 @@
     <link rel="stylesheet" type="text/css" href="styles/converter.css">
     <link rel="stylesheet" type="text/css" href="styles/alphabet.css">
     <script type="module" src="scripts/startup.mjs"></script>
-    <!-- <script src="scripts/howler.min.js"></script> -->
 </head>
 
 <body>
-    <!-- <script>
-        var pong = new Howl({ src: ['languages/Kaitag/audio/азир.m4a'] });
-        pong.play();
-    </script> -->
     <h1>My First Heading</h1>
     <p>My REALLY???!! paragraph.</p>
 
     <div id="alphabet" class="section">
         <h1>Phonology</h1>
         <div id="tables">
-            <!-- @foreach(var category in new string[] {"vowel", "consonant"})
-            {
-            <div class=@("table " + category)>
-            @foreach (var letter in Language.Letters.Where(l=>l.Tags.Contains(category)))
-            {
-            <div class=" button letter" @onclick=@(()=> selected = letter)>@letter.Grapheme</div>
-            } -->
             <div id="details">
                 <h2></h2>
                 <p class="tags"></p>
                 <div id="samples"></div>
-                <!-- @foreach(var sample in selected.Samples)
-            {
-            <span class="button sample" @onclick=@(()=> Play(sample))>
-                @((MarkupString)Highlight(sample))
-            </span>
-            } -->
             </div>
         </div>
     </div>
     <script>
     </script>
-    <!-- // function getUrlVars() {
-        //     var vars = {};
-        //     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-        //         vars[key] = value;
-        //     });
-        //     return vars;
-        // }
-
-        // function codeAddress() {
-        //     console.log("argument: " + getUrlVars()["x"]);
-
-        // } -->
 </body>
 
 </html>
