@@ -27,7 +27,7 @@ function start() {
     let args = getUrlVars();
     let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
 
-    window["langRoot"] = `/languages/${lang}/`;
+    window["langRoot"] = `./languages/${lang}/`;
     console.log(window["langRoot"]);
     loadLanguage();
 }
@@ -36,7 +36,7 @@ function loadLanguage() {
     let root = window["langRoot"];
     loadJSON(json => phonologyStart(json), root + "phonemes.json");
     loadJSON(json => displayInfo(json), root + "index.json");
-    loadJSON(json => displayCatalogue(json), "/languages/catalogue.json");
+    loadJSON(json => displayCatalogue(json), "./languages/catalogue.json");
 }
 
 function displayInfo(data) {
