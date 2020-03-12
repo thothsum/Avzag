@@ -27,6 +27,11 @@ h3 {
     font-style: italic;
 }
 
+hr {
+    height: 2px;
+    background-color: #D8DEE9;
+}
+
 .section {
     margin: auto auto 50px auto;
     width: 100%;

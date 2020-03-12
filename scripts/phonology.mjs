@@ -42,9 +42,7 @@ function loadTable(data) {
 
 function viewLetter(phoneme) {
     let detailsDiv = document.querySelector("#alphabet #tables #details");
-    detailsDiv.appendChild(document.createElement("h2"))
     detailsDiv.querySelector("h2").innerText = `${phoneme["grapheme"]} • ${phoneme["phoneme"] ?? '-'}`;
-
     let tags = phoneme["tags"];
     detailsDiv.querySelector(".tags").innerText = tags.reduce((a, t) => a = `${a} ${t}`);
 

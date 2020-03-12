@@ -25,10 +25,17 @@ function getUrlVars() {
 function start() {
     let args = getUrlVars();
     let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
+
     window["language"] = lang;
-    
+    if (lang != null)
+        loadLanguage();
+}
+
+function loadLanguage() {
+    let lang = window["language"];
     loadJSON(json => phonologyStart(json), `/languages/${lang}/phonemes.json`)
     loadJSON(json => displayInfo(json), `/languages/${lang}/index.json`)
+    loadJSON(json => displayCatalogue(json), `/languages/catalogue.json`)
 }
 
 function displayInfo(data) {
@@ -36,4 +43,15 @@ function displayInfo(data) {
     infoDiv.querySelector("h1").innerText = data["title"];
     infoDiv.querySelector("h3").innerText = data["tags"].reduce((a, t) => a = `${a} • ${t}`);
     infoDiv.querySelector("div").innerText = data["description"];
+}
+
+function displayCatalogue(data) {
+    let catalogueDiv = document.querySelector("#footer #catalogue");
+    for (const language of data) {
+        let languageDiv = document.createElement("div");
+        languageDiv.className = "language link";
+        languageDiv.innerText = language;
+        languageDiv.onclick = () => window.location.search = `&language=${language}`;
+        catalogueDiv.appendChild(languageDiv);
+    }
 }
