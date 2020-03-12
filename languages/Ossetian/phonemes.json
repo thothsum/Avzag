@@ -1,7 +1,7 @@
 [
     {
         "grapheme": "а",
-        "phoneme": "χʷ",
+        "phoneme": "a",
         "tags": [
             "vowel"
         ],
@@ -9,7 +9,7 @@
     },
     {
         "grapheme": "ӕ",
-        "phoneme": "χʷ",
+        "phoneme": "ɐ",
         "tags": [
             "vowel"
         ],
@@ -17,7 +17,7 @@
     },
     {
         "grapheme": "е",
-        "phoneme": "χʷ",
+        "phoneme": "e",
         "tags": [
             "vowel"
         ],
@@ -25,7 +25,7 @@
     },
     {
         "grapheme": "и",
-        "phoneme": "χʷ",
+        "phoneme": "i",
         "tags": [
             "vowel"
         ],
@@ -33,7 +33,7 @@
     },
     {
         "grapheme": "о",
-        "phoneme": "χʷ",
+        "phoneme": "o",
         "tags": [
             "vowel"
         ],
@@ -41,7 +41,7 @@
     },
     {
         "grapheme": "ы",
-        "phoneme": "χʷ",
+        "phoneme": "ɘ",
         "tags": [
             "vowel"
         ],
@@ -49,7 +49,7 @@
     },
     {
         "grapheme": "у",
-        "phoneme": "χʷ",
+        "phoneme": "u",
         "tags": [
             "vowel"
         ],
@@ -57,7 +57,7 @@
     },
     {
         "grapheme": "б",
-        "phoneme": "χʷ",
+        "phoneme": "b",
         "tags": [
             "consonant"
         ],
@@ -65,7 +65,7 @@
     },
     {
         "grapheme": "д",
-        "phoneme": "χʷ",
+        "phoneme": "d",
         "tags": [
             "consonant"
         ],
@@ -73,7 +73,7 @@
     },
     {
         "grapheme": "г",
-        "phoneme": "χʷ",
+        "phoneme": "ɡ",
         "tags": [
             "consonant"
         ],
@@ -81,7 +81,7 @@
     },
     {
         "grapheme": "гу",
-        "phoneme": "χʷ",
+        "phoneme": "ɡʷ",
         "tags": [
             "consonant"
         ],
@@ -89,7 +89,7 @@
     },
     {
         "grapheme": "п",
-        "phoneme": "χʷ",
+        "phoneme": "p",
         "tags": [
             "consonant"
         ],
@@ -97,7 +97,7 @@
     },
     {
         "grapheme": "пъ",
-        "phoneme": "χʷ",
+        "phoneme": "pʼ",
         "tags": [
             "consonant"
         ],
@@ -105,7 +105,7 @@
     },
     {
         "grapheme": "т",
-        "phoneme": "χʷ",
+        "phoneme": "t",
         "tags": [
             "consonant"
         ],
@@ -113,7 +113,7 @@
     },
     {
         "grapheme": "тъ",
-        "phoneme": "χʷ",
+        "phoneme": "tʼ",
         "tags": [
             "consonant"
         ],
@@ -121,7 +121,7 @@
     },
     {
         "grapheme": "к",
-        "phoneme": "χʷ",
+        "phoneme": "k",
         "tags": [
             "consonant"
         ],
@@ -129,7 +129,7 @@
     },
     {
         "grapheme": "къ",
-        "phoneme": "χʷ",
+        "phoneme": "kʼ",
         "tags": [
             "consonant"
         ],
@@ -137,7 +137,7 @@
     },
     {
         "grapheme": "ку",
-        "phoneme": "χʷ",
+        "phoneme": "kʷ",
         "tags": [
             "consonant"
         ],
@@ -145,7 +145,7 @@
     },
     {
         "grapheme": "къу",
-        "phoneme": "χʷ",
+        "phoneme": "kʼʷ",
         "tags": [
             "consonant"
         ],
@@ -153,7 +153,7 @@
     },
     {
         "grapheme": "хъ",
-        "phoneme": "χʷ",
+        "phoneme": "q",
         "tags": [
             "consonant"
         ],
@@ -161,7 +161,7 @@
     },
     {
         "grapheme": "хъу",
-        "phoneme": "χʷ",
+        "phoneme": "qʷ",
         "tags": [
             "consonant",
             "stop",
@@ -177,7 +177,7 @@
     },
     {
         "grapheme": "дз",
-        "phoneme": "χʷ",
+        "phoneme": "d͡z",
         "tags": [
             "consonant"
         ],
@@ -185,7 +185,7 @@
     },
     {
         "grapheme": "дж",
-        "phoneme": "χʷ",
+        "phoneme": "d͡ʒ",
         "tags": [
             "consonant"
         ],
@@ -193,7 +193,7 @@
     },
     {
         "grapheme": "ц",
-        "phoneme": "χʷ",
+        "phoneme": "t͡s",
         "tags": [
             "consonant"
         ],
@@ -201,7 +201,7 @@
     },
     {
         "grapheme": "цъ",
-        "phoneme": "χʷ",
+        "phoneme": "t͡sʼ",
         "tags": [
             "consonant"
         ],
@@ -209,7 +209,7 @@
     },
     {
         "grapheme": "ч",
-        "phoneme": "χʷ",
+        "phoneme": "t͡ʃ",
         "tags": [
             "consonant"
         ],
@@ -217,7 +217,7 @@
     },
     {
         "grapheme": "чъ",
-        "phoneme": "χʷ",
+        "phoneme": "t͡ʃʼ",
         "tags": [
             "consonant"
         ],
@@ -225,7 +225,23 @@
     },
     {
         "grapheme": "в",
-        "phoneme": "χʷ",
+        "phoneme": "v",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ж",
+        "phoneme": "ʒ",
+        "tags": [
+            "consonant"
+        ],
+        "samples": []
+    },
+    {
+        "grapheme": "ш",
+        "phoneme": "ʃ",
         "tags": [
             "consonant"
         ],
@@ -233,7 +249,7 @@
     },
     {
         "grapheme": "з",
-        "phoneme": "χʷ",
+        "phoneme": "z",
         "tags": [
             "consonant"
         ],
@@ -241,7 +257,7 @@
     },
     {
         "grapheme": "гъ",
-        "phoneme": "χʷ",
+        "phoneme": "ʁ",
         "tags": [
             "consonant"
         ],
@@ -249,7 +265,7 @@
     },
     {
         "grapheme": "ф",
-        "phoneme": "χʷ",
+        "phoneme": "f",
         "tags": [
             "consonant"
         ],
@@ -257,7 +273,7 @@
     },
     {
         "grapheme": "с",
-        "phoneme": "χʷ",
+        "phoneme": "s",
         "tags": [
             "consonant"
         ],
@@ -265,7 +281,7 @@
     },
     {
         "grapheme": "х",
-        "phoneme": "χʷ",
+        "phoneme": "χ",
         "tags": [
             "consonant"
         ],
@@ -281,7 +297,7 @@
     },
     {
         "grapheme": "м",
-        "phoneme": "χʷ",
+        "phoneme": "m",
         "tags": [
             "consonant"
         ],
@@ -289,7 +305,7 @@
     },
     {
         "grapheme": "н",
-        "phoneme": "χʷ",
+        "phoneme": "n",
         "tags": [
             "consonant"
         ],
@@ -297,7 +313,7 @@
     },
     {
         "grapheme": "л",
-        "phoneme": "χʷ",
+        "phoneme": "l",
         "tags": [
             "consonant"
         ],
@@ -305,7 +321,7 @@
     },
     {
         "grapheme": "р",
-        "phoneme": "χʷ",
+        "phoneme": "r",
         "tags": [
             "consonant"
         ],
@@ -313,7 +329,7 @@
     },
     {
         "grapheme": "й",
-        "phoneme": "χʷ",
+        "phoneme": "j",
         "tags": [
             "consonant"
         ],
@@ -321,7 +337,7 @@
     },
     {
         "grapheme": "у",
-        "phoneme": "χʷ",
+        "phoneme": "w",
         "tags": [
             "consonant"
         ],

@@ -3,6 +3,15 @@ import "./howler.min.js";
 let player;
 
 function start(data) {
+    data.sort(function (a, b) {
+        if (a["grapheme"] < b["grapheme"]) { return -1; }
+        if (a["grapheme"] > b["grapheme"]) { return 1; }
+        return 0;
+    })
+    data.forEach(e => {
+        if (e["phoneme"] == null) e["phoneme"] = '-';
+    });
+
     try {
         player = new Howl({ src: [""] });
         player.play();
@@ -27,7 +36,7 @@ function loadTable(data) {
 
             let pp = document.createElement("span");
             pp.id = "phoneme";
-            pp.innerText = phoneme["phonene"] ?? "-";
+            pp.innerText = phoneme["phoneme"];
 
             el.appendChild(gp);
             el.appendChild(document.createElement("br"));
@@ -42,7 +51,7 @@ function loadTable(data) {
 
 function viewLetter(phoneme) {
     let detailsDiv = document.querySelector("#alphabet #tables #details");
-    detailsDiv.querySelector("h2").innerText = `${phoneme["grapheme"]} • ${phoneme["phoneme"] ?? '-'}`;
+    detailsDiv.querySelector("h2").innerText = `${phoneme["grapheme"]} • ${phoneme["phoneme"]}`;
     let tags = phoneme["tags"];
     detailsDiv.querySelector(".tags").innerText = tags.reduce((a, t) => a = `${a} ${t}`);
 
