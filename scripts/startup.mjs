@@ -3,6 +3,7 @@ import { start as phonologyStart } from './phonology.mjs';
 document.addEventListener("DOMContentLoaded", start);
 
 function loadJSON(callback, url) {
+    console.log(url);
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', url, true);
@@ -26,7 +27,8 @@ function start() {
     let args = getUrlVars();
     let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
 
-    window["langRoot"] = `./languages/${lang}/`;
+    window["langRoot"] = `/languages/${lang}/`;
+    console.log(window["langRoot"]);
     loadLanguage();
 }
 
@@ -34,7 +36,7 @@ function loadLanguage() {
     let root = window["langRoot"];
     loadJSON(json => phonologyStart(json), root + "phonemes.json");
     loadJSON(json => displayInfo(json), root + "index.json");
-    loadJSON(json => displayCatalogue(json), "languages/catalogue.json");
+    loadJSON(json => displayCatalogue(json), "/languages/catalogue.json");
 }
 
 function displayInfo(data) {
