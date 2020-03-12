@@ -38,7 +38,7 @@ function viewLetter(phoneme) {
         let button = document.createElement("span");
         button.classList = "button sample";
         button.onclick = () => playSample(sample);
-        button.innerHTML = sample;
+        button.innerHTML = hightlight(sample, phoneme["grapheme"]);
         samplesDiv.appendChild(button);
     }
 }
@@ -49,6 +49,10 @@ function playSample(sample) {
 
     player = new Howl({ src: [`languages/${window["language"]}/audio/${sample}.m4a`] });
     player.play();
+}
+
+function hightlight(sample, grapheme) {
+    return sample.replace(new RegExp(grapheme, 'g'), `<b>${grapheme}</b>`);
 }
 
 export { start };
