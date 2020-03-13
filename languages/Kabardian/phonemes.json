@@ -5,7 +5,11 @@
         "tags": [
             "vowel"
         ],
-        "samples": []
+        "samples": [
+            "а",
+            "адакъэ",
+            "маржэ"
+        ]
     },
     {
         "grapheme": "э",
@@ -13,7 +17,11 @@
         "tags": [
             "vowel"
         ],
-        "samples": []
+        "samples": [
+            "э",
+            "мащӏэ",
+            "ӏэфӏ"
+        ]
     },
     {
         "grapheme": "б",
@@ -117,7 +125,11 @@
         "tags": [
             "vowel"
         ],
-        "samples": []
+        "samples": [
+            "и",
+            "иджы",
+            "бэли"
+        ]
     },
     {
         "grapheme": "й",
@@ -251,7 +263,11 @@
         "tags": [
             "vowel"
         ],
-        "samples": []
+        "samples": [
+            "о",
+            "ӏоху",
+            "мобде"
+        ]
     },
     {
         "grapheme": "п",
@@ -307,7 +323,11 @@
         "tags": [
             "vowel"
         ],
-        "samples": []
+        "samples": [
+            "у",
+            "тӏу",
+            "гу"
+        ]
     },
     {
         "grapheme": "у",
@@ -435,7 +455,11 @@
         "tags": [
             "vowel"
         ],
-        "samples": []
+        "samples": [
+            "ы",
+            "мыӏэрысэ",
+            "шыпс"
+        ]
     },
     {
         "grapheme": "ӏ",
