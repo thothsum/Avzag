@@ -21,16 +21,25 @@ function start(data) {
         el.value = index++;
         select.appendChild(el);
     }
-    select.onchange = e => {
-        selected = e.target.value;
-        fromField.dispatchEvent(new Event("input"));
-    }
+    select.onchange = e => selectProfile(e.target.value);
+    selectProfile(selected);
 
 
     let file = document.querySelector("#converter #file");
     file.addEventListener('change', handleFiles);
     document.querySelector("#converter #options #upload").onclick = () => file.click();
     document.querySelector("#converter #options #copy").onclick = copy;
+}
+
+function selectProfile(index) {
+    selected = index;
+    fromField.dispatchEvent(new Event("input"));
+
+    let mapping = document.querySelector("#converter #mapping");
+    mapping.innerHTML = "";
+    for (const [from, to] of Object.entries(profiles[selected]["mapping"])) {
+        mapping.innerHTML += `<p>${from} › ${to}</p>`;
+    }
 }
 
 function process(source) {
