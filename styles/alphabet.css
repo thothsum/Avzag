@@ -38,8 +38,8 @@
 }
 
 #alphabet #details .sample {
-    padding: 5px;
     margin: 10px 0;
+    padding: 5px;
 }
 
 @media only screen and (max-width: 600px) {
