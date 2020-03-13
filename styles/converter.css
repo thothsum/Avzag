@@ -24,11 +24,11 @@
 }
 
 #converter .split :nth-child(1) {
-    border-radius: 5px 0 0 5px;
+    border-radius: 4px 0 0 4px;
 }
 
 #converter .split :nth-child(2) {
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 4px 4px 0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -39,10 +39,10 @@
         align-items: stretch;
     }
     #converter .split :nth-child(1) {
-        border-radius: 5px 5px 0 0;
+        border-radius: 4px 4px 0 0;
     }
     #converter .split :nth-child(2) {
-        border-radius: 0 0 5px 5px;
+        border-radius: 0 0 4px 4px;
     }
     #converter #options {
         margin-top: 5px;
