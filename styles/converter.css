@@ -33,8 +33,6 @@
 
 #converter #mapping {
     margin: 10px;
-    font-size: 10px;
-    font-weight: lighter;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -42,6 +40,8 @@
 }
 
 #converter #mapping p {
+    font-size: 12px;
+    font-weight: 500;
     flex-direction: row;
     align-items: center;
     width: 70px;

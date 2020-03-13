@@ -7,6 +7,12 @@ function start(data) {
     profiles = data;
 
 
+    let mapping = document.querySelector("#converter #mapping");
+    document.querySelector("#converter #hide").onclick =
+        () => mapping.style.display =
+            (mapping.style.display == "none" ? "flex" : "none");
+
+
     fromField = document.querySelector("#converter #from");
     toField = document.querySelector("#converter #to");
     fromField.addEventListener("input", e => to.value = process(e.target.value))
