@@ -10,7 +10,8 @@ function start(data) {
     fromField.addEventListener("input", e => to.value = process(e.target.value))
     fromField.dispatchEvent(new Event("input"));
 
-    document.querySelector("#converter #copy").onclick = copy;
+    // document.querySelector("#converter #copy").onclick = copy;
+    // document.querySelector("#converter #input").addEventListener('change', handleFiles)
 }
 
 function process(source) {
@@ -27,6 +28,32 @@ function process(source) {
 function copy() {
     toField.select();
     document.execCommand('copy');
+}
+
+function handleFiles(event) {
+    console.log(event.target.files[0]);
+    var reader = new FileReader();
+    reader.onload = e => processFiles(e.target.result);
+    reader.readAsText(event.target.files[0]);
+}
+
+function processFiles(text)
+{
+    console.log(text);
+    download("hello.txt", process(text));
+}
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
 }
 
 export { start };
