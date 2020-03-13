@@ -11,7 +11,7 @@
     border: 0;
 }
 
-button {
+button, select {
     border: 1px solid #0000;
     background-color: #E5E9F0;
     cursor: pointer;
@@ -23,11 +23,11 @@ button {
     margin: 10px 0;
 }
 
-button:hover {
+button:hover, select:hover {
     border-color: #4C566A;
 }
 
-button:active {
+button:active, select:active {
     color: #FFF;
     background-color: #4C566A;
 }
