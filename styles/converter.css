@@ -3,6 +3,24 @@
     height: 250px;
 }
 
+#converter>* {
+    margin: 15px
+}
+
+#converter #options select {
+    width: 200px;
+}
+
+#converter #options {
+    display: flex;
+    justify-content: space-between;
+}
+
+#converter .button, input, select {
+    display: inline;
+    padding: 5px;
+}
+
 #converter .split {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

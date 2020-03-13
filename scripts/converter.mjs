@@ -10,8 +10,8 @@ function start(data) {
     fromField.addEventListener("input", e => to.value = process(e.target.value))
     fromField.dispatchEvent(new Event("input"));
 
-    // document.querySelector("#converter #copy").onclick = copy;
-    // document.querySelector("#converter #input").addEventListener('change', handleFiles)
+    document.querySelector("#converter #options #copy").onclick = copy;
+    document.querySelector("#converter #options #input").addEventListener('change', handleFiles)
 }
 
 function process(source) {
