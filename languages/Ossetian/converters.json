@@ -2,6 +2,7 @@
     {
         "title": "Latin Diacritical",
         "mapping": {
+            "æ": "ӕ",
             "ae": "æ",
             "хъ": "q",
             "ъ": "h",

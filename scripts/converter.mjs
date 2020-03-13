@@ -50,15 +50,9 @@ function copy() {
 }
 
 function handleFiles(event) {
-    console.log(event.target.files[0]);
     var reader = new FileReader();
-    reader.onload = e => processFiles(e.target.result);
+    reader.onload = e => download(event.target.files[0].name, e.target.result);
     reader.readAsText(event.target.files[0]);
-}
-
-function processFiles(text) {
-    console.log(text);
-    download("hello.txt", process(text));
 }
 
 function download(filename, text) {
