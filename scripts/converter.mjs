@@ -10,8 +10,11 @@ function start(data) {
     fromField.addEventListener("input", e => to.value = process(e.target.value))
     fromField.dispatchEvent(new Event("input"));
 
+
+    var file = document.querySelector("#converter #file");
+    file.addEventListener('change', handleFiles);
+    document.querySelector("#converter #options #upload").onclick = () => file.click();
     document.querySelector("#converter #options #copy").onclick = copy;
-    document.querySelector("#converter #options #input").addEventListener('change', handleFiles)
 }
 
 function process(source) {
@@ -37,8 +40,7 @@ function handleFiles(event) {
     reader.readAsText(event.target.files[0]);
 }
 
-function processFiles(text)
-{
+function processFiles(text) {
     console.log(text);
     download("hello.txt", process(text));
 }
