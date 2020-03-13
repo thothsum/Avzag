@@ -1,9 +1,11 @@
 let profiles;
+let selected = 0;
 let fromField;
 let toField;
 
 function start(data) {
     profiles = data;
+
 
     fromField = document.querySelector("#converter #from");
     toField = document.querySelector("#converter #to");
@@ -11,7 +13,21 @@ function start(data) {
     fromField.dispatchEvent(new Event("input"));
 
 
-    var file = document.querySelector("#converter #file");
+    let select = document.querySelector("#converter #profile");
+    let index = 0;
+    for (const profile of profiles) {
+        let el = document.createElement("option");
+        el.textContent = profile["title"];
+        el.value = index++;
+        select.appendChild(el);
+    }
+    select.onchange = e => {
+        selected = e.target.value;
+        fromField.dispatchEvent(new Event("input"));
+    }
+
+
+    let file = document.querySelector("#converter #file");
     file.addEventListener('change', handleFiles);
     document.querySelector("#converter #options #upload").onclick = () => file.click();
     document.querySelector("#converter #options #copy").onclick = copy;
@@ -21,7 +37,7 @@ function process(source) {
     const uppercase = (str) => str.charAt(0).toUpperCase() + str.slice(1)
     const convert = (str, from, to) => str.replace(new RegExp(from, 'g'), to);
 
-    for (const [from, to] of Object.entries(profiles[0]["mapping"])) {
+    for (const [from, to] of Object.entries(profiles[selected]["mapping"])) {
         source = convert(source, from, to);
         source = convert(source, uppercase(from), uppercase(to));
     }
