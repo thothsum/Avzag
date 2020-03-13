@@ -1,13 +1,16 @@
-
 let profiles;
+let fromField;
+let toField;
 
 function start(data) {
     profiles = data;
 
-    let from = document.querySelector("#converter #from");
-    let to = document.querySelector("#converter #to");
-    from.addEventListener("input", e => to.value = process(e.target.value))
-    from.dispatchEvent(new Event("input"));
+    fromField = document.querySelector("#converter #from");
+    toField = document.querySelector("#converter #to");
+    fromField.addEventListener("input", e => to.value = process(e.target.value))
+    fromField.dispatchEvent(new Event("input"));
+
+    document.querySelector("#converter #copy").onclick = copy;
 }
 
 function process(source) {
@@ -21,4 +24,9 @@ function process(source) {
     return source;
 }
 
-export { start, process };
+function copy() {
+    toField.select();
+    document.execCommand('copy');
+}
+
+export { start };
