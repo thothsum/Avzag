@@ -1,14 +1,15 @@
 import { start as phonologyStart } from './phonology.mjs';
+import { start as converterStart } from './converter.mjs';
 
 document.addEventListener("DOMContentLoaded", start);
 
-function loadJSON(callback, url) {
+function loadJSON(callback, url, json = true) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open('GET', url, true);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(JSON.parse(xobj.responseText));
+            callback(json ? JSON.parse(xobj.responseText) : xobj.responseText);
         }
     };
     xobj.send(null);
@@ -32,9 +33,17 @@ function start() {
 
 function loadLanguage() {
     let root = window["langRoot"];
-    loadJSON(json => phonologyStart(json), root + "phonemes.json");
     loadJSON(json => displayInfo(json), root + "index.json");
+    loadJSON(json => phonologyStart(json), root + "phonemes.json");
+    loadJSON(json => converterStart(json), root + "converters.json");
+    loadJSON(text => displaySample(text), root + "sample.txt", false);
     loadJSON(json => displayCatalogue(json), "./languages/catalogue.json");
+}
+
+function displaySample(text) {
+    let el = document.querySelector("#converter #from");
+    el.value = text;
+    el.dispatchEvent(new Event("input"));
 }
 
 function displayInfo(data) {

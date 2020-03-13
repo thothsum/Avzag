@@ -75,8 +75,6 @@ function playSample(sample) {
     player.play();
 }
 
-function hightlight(sample, grapheme) {
-    return sample.replace(new RegExp(grapheme, 'g'), `<b>${grapheme}</b>`);
-}
+const hightlight = (sample, grapheme) => sample.replace(new RegExp(grapheme, 'g'), `<b>${grapheme}</b>`);
 
 export { start };
