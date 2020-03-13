@@ -16,11 +16,6 @@
     display: none;
 }
 
-#converter .button, select {
-    padding: 5px;
-    margin: 10px 0;
-}
-
 #converter .split {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

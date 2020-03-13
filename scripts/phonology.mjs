@@ -27,8 +27,8 @@ function loadTable(data) {
         let subTable = document.createElement("div");
         subTable.className = `table ${category}`;
         for (const phoneme of data.filter(l => l["tags"].includes(category))) {
-            var el = document.createElement("div");
-            el.className = "button letter";
+            var el = document.createElement("button");
+            el.className = "letter";
 
             let gp = document.createElement("span");
             gp.id = "grapheme";
@@ -59,8 +59,8 @@ function viewLetter(phoneme) {
     samplesDiv.innerHTML = "";
 
     for (const sample of phoneme["samples"]) {
-        let button = document.createElement("span");
-        button.classList = "button sample";
+        let button = document.createElement("button");
+        button.classList = "sample";
         button.onclick = () => playSample(sample);
         button.innerHTML = hightlight(sample, phoneme["grapheme"]);
         samplesDiv.appendChild(button);

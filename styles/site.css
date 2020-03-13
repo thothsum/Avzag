@@ -11,6 +11,31 @@
     border: 0;
 }
 
+button {
+    border: 1px solid #0000;
+    background-color: #E5E9F0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    user-select: none;
+    margin: 10px 0;
+}
+
+button:hover {
+    border-color: #4C566A;
+}
+
+button:active {
+    color: #FFF;
+    background-color: #4C566A;
+}
+
+button:active>* {
+    color: #FFF;
+}
+
 h1 {
     font-size: 20px;
     font-weight: bold;
@@ -36,30 +61,6 @@ hr {
     margin: auto auto 50px auto;
     width: 100%;
     max-width: 960px;
-}
-
-.button {
-    border: 1px solid #0000;
-    background-color: #E5E9F0;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    user-select: none;
-}
-
-.button:hover {
-    border-color: #4C566A;
-}
-
-.button:active {
-    color: #FFF;
-    background-color: #4C566A;
-}
-
-.button:active>* {
-    color: #FFF;
 }
 
 .link {
