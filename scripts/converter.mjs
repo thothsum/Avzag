@@ -60,7 +60,7 @@ function copy() {
 
 function handleFiles(event) {
     var reader = new FileReader();
-    reader.onload = e => download(event.target.files[0].name, e.target.result);
+    reader.onload = e => download(event.target.files[0].name, process(e.target.result));
     reader.readAsText(event.target.files[0]);
 }
 
