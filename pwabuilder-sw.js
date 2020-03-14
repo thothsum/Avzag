@@ -292,11 +292,9 @@ async function fromCache(request) {
     // Check to see if you have it in the cache
     // Return response
     // If not in the cache, then return
-    console.log(request);
     const cache = await caches.open(CACHE);
     const matching = await cache.match(request);
     if (!matching || matching.status === 404) {
-        console.log("not found");
         return Promise.reject("no-match");
     }
     return matching;
