@@ -1,8 +1,17 @@
 // This is the service worker with the Cache-first network
 
 const CACHE = "pwabuilder-precache";
-const precacheFiles = [
-    /* Add an array of files to precache for your app */
+const precacheFiles = ['index.html',
+    'icon.png, manifest.json',
+    'scripts/converter.mjs',
+    'scripts/howler.min.js',
+    'scripts/phonology.mjs',
+    'scripts/pwabuilder-sw.js',
+    'scripts/startup.mjs',
+    'styles/alphabet.css',
+    'styles/catalogue.css',
+    'styles/converter.css',
+    'styles/site.css',
     'languages/catalogue.json',
     'languages/Kabardian/converters.json',
     'languages/Kabardian/image.png',
@@ -217,7 +226,7 @@ const precacheFiles = [
     'languages/Ossetian/index.json',
     'languages/Ossetian/phonemes.json',
     'languages/Ossetian/sample.txt',
-];
+]
 
 self.addEventListener("install", function (event) {
     console.log("[PWA Builder] Install Event processing");
