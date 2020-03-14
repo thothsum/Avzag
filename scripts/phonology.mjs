@@ -19,6 +19,7 @@ function start(data) {
 
     loadTable(data);
     viewLetter(data[0]);
+    playSample("");
 }
 
 function loadTable(data) {
