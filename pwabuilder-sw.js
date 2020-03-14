@@ -2,6 +2,7 @@
 
 const CACHE = "pwabuilder-adv-cache";
 const precacheFiles = [
+    /languages\/.*?\S*/g
     /* Add an array of files to precache for your app */
 ];
 
@@ -11,7 +12,6 @@ const offlineFallbackPage = "index.html";
 const networkFirstPaths = [
     /* Add an array of regex of paths that should go network first */
     // Example: /\/api\/.*/
-    /languages\/.*?\S*/g
 ];
 
 const avoidCachingPaths = [
