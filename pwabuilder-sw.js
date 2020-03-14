@@ -2,7 +2,8 @@
 
 const CACHE = "pwabuilder-adv-cache";
 const precacheFiles = [
-    /languages\/.*?\S*/g
+    /\/languages\/.*?\S*/g,
+    /\/languages\/.*?\S*/g
     /* Add an array of files to precache for your app */
 ];
 
