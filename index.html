@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#5E81AC" />
     <link rel="icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.png">
     <title>Ævzag</title>
 
     <link rel="stylesheet" type="text/css" href="styles/site.css">
@@ -16,10 +19,33 @@
 </head>
 
 <body>
+    <script>
+        // This is the "Offline page" service worker
+
+        // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            } else {
+                // Register the service worker
+                navigator.serviceWorker
+                    .register("pwabuilder-sw.js", {
+                        scope: "./"
+                    })
+                    .then(function (reg) {
+                        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                    });
+            }
+        }
+    </script>
+
+
     <div id="info" class="section">
         <h1></h1>
         <h3></h3>
-        <img style="height: 64px; box-shadow: 0 0 5px #D8DEE9;" src="">
+        <img style="height: 64px; box-shadow: 0 0 5px #D8DEE9;" src="" alt="Banner">
         <p></p>
     </div>
     <div id="alphabet" class="section">

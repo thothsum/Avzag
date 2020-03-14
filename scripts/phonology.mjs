@@ -31,11 +31,11 @@ function loadTable(data) {
             el.className = "letter";
 
             let gp = document.createElement("span");
-            gp.id = "grapheme";
+            gp.className = "grapheme";
             gp.innerText = phoneme["grapheme"];
 
             let pp = document.createElement("span");
-            pp.id = "phoneme";
+            pp.className = "phoneme";
             pp.innerText = phoneme["phoneme"];
 
             el.appendChild(gp);

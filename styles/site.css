@@ -66,17 +66,17 @@ hr {
 .link {
     font-weight: bold;
     cursor: pointer;
-    color: #5E81AC;
     user-select: none;
     padding: 10px;
-}
-
-.link:hover {
     text-decoration: underline;
 }
 
+.link:hover {
+    text-decoration-color: #BF616A;
+}
+
 .link:active {
-    color: #8FBCBB;
+    color: #BF616A;
 }
 
 textarea {

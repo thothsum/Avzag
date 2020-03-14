@@ -22,7 +22,7 @@
     line-height: 50%;
 }
 
-#alphabet .letter #phoneme {
+#alphabet .letter .phoneme {
     font-weight: 400;
     font-size: 12px;
 }
