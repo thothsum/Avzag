@@ -1,6 +1,6 @@
 import glob
 
-cache = ['index.html', 'icon.png', 'manifest.json']
+cache = ['index.html', 'icon.png', 'manifest.json', 'pwabuilder-sw.js']
 roots = ['scripts', 'styles', 'languages']
 for root in roots:
     cache.extend(glob.glob(root + '/**/*.*', recursive=True))
