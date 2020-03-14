@@ -2,9 +2,9 @@
     "dir": "ltr",
     "lang": "English",
     "name": "Ævzag - sounds & scripts",
-    "scope": "./",
+    "scope": ".",
     "display": "standalone",
-    "start_url": "./",
+    "start_url": ".",
     "short_name": "Ævzag",
     "theme_color": "#4C566A",
     "description": "An attempt to help our languages.",
@@ -14,11 +14,11 @@
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "./icon.png",
+            "src": "icon.png",
             "type": "image/png",
             "sizes": "512x512"
         }
     ],
-    "url": "./",
+    "url": ".",
     "screenshots": []
 }
