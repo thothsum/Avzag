@@ -53,7 +53,7 @@ function uppercase(str) {
     while (str[i] == ' ') {
         i++;
     }
-    return ' '.repeat(i) + str[i].toUpperCase() + str.slice(i + 1);
+    return ' '.repeat(i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
 }
 
 function process(source) {
