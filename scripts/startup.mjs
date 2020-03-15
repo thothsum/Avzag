@@ -47,11 +47,13 @@ function displaySample(text) {
 }
 
 function displayInfo(data) {
+    let headerDiv = document.querySelector("#header");
+    headerDiv.querySelector("#titles h1").innerText = data["title"];
+    headerDiv.querySelector("#titles h3").innerText = data["tags"].reduce((a, t) => a = `${a} • ${t}`);
+    headerDiv.querySelector("img").src = window["langRoot"] + "image.png";
+
     let infoDiv = document.querySelector("#info");
-    infoDiv.querySelector("h1").innerText = data["title"];
-    infoDiv.querySelector("h3").innerText = data["tags"].reduce((a, t) => a = `${a} • ${t}`);
     infoDiv.querySelector("p").innerText = data["description"];
-    infoDiv.querySelector("img").src = window["langRoot"] + "image.png";
 }
 
 function displayCatalogue(data) {
