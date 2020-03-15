@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Fira Sans';
-    src: url('fonts/FiraSans-ThinItalic.ttf'), url('fonts/FiraSans-Thin.ttf'), url('fonts/FiraSans-SemiBoldItalic.ttf'), url('fonts/FiraSans-SemiBold.ttf'), url('fonts/FiraSans-Regular.ttf'), url('fonts/FiraSans-MediumItalic.ttf'), url('fonts/FiraSans-Medium.ttf'), url('fonts/FiraSans-Light.ttf'), url('fonts/FiraSans-LightItalic.ttf'), url('fonts/FiraSans-Italic.ttf'), url('fonts/FiraSans-ExtraLightItalic.ttf'), url('fonts/FiraSans-ExtraLight.ttf'), url('fonts/FiraSans-ExtraBoldItalic.ttf'), url('fonts/FiraSans-ExtraBold.ttf'), url('fonts/FiraSans-BoldItalic.ttf'), url('fonts/FiraSans-Bold.ttf'), url('fonts/FiraSans-BlackItalic.ttf'), url('fonts/FiraSans-Black.ttf')
+    src: url('./../fonts/FiraSans-ThinItalic.ttf'), url('./../fonts/FiraSans-Thin.ttf'), url('./../fonts/FiraSans-SemiBoldItalic.ttf'), url('./../fonts/FiraSans-SemiBold.ttf'), url('./../fonts/FiraSans-Regular.ttf'), url('./../fonts/FiraSans-MediumItalic.ttf'), url('./../fonts/FiraSans-Medium.ttf'), url('./../fonts/FiraSans-Light.ttf'), url('./../fonts/FiraSans-LightItalic.ttf'), url('./../fonts/FiraSans-Italic.ttf'), url('./../fonts/FiraSans-ExtraLightItalic.ttf'), url('./../fonts/FiraSans-ExtraLight.ttf'), url('./../fonts/FiraSans-ExtraBoldItalic.ttf'), url('./../fonts/FiraSans-ExtraBold.ttf'), url('./../fonts/FiraSans-BoldItalic.ttf'), url('./../fonts/FiraSans-Bold.ttf'), url('./../fonts/FiraSans-BlackItalic.ttf'), url('./../fonts/FiraSans-Black.ttf')
 }
 
 * {
