@@ -1,6 +1,7 @@
 [
     {
         "grapheme": "и",
+        "phoneme": "i",
         "tags": [
             "vowel",
             "front",
@@ -14,6 +15,7 @@
     },
     {
         "grapheme": "у",
+        "phoneme" : "u",
         "tags": [
             "vowel",
             "back",
@@ -27,6 +29,7 @@
     },
     {
         "grapheme": "э",
+        "phoneme": "e",
         "tags": [
             "vowel",
             "front",
@@ -40,6 +43,7 @@
     },
     {
         "grapheme": "а",
+        "phoneme": "a",
         "tags": [
             "vowel",
             "front",
@@ -53,6 +57,7 @@
     },
     {
         "grapheme": "я",
+        "phoneme": "æ",
         "tags": [
             "vowel",
             "front",
@@ -222,6 +227,7 @@
     },
     {
         "grapheme": "ц",
+        "phoneme": "t͡s",
         "tags": [
             "consonant",
             "affricate",
@@ -236,6 +242,7 @@
     },
     {
         "grapheme": "цц",
+        "phoneme": "t͡sː",
         "tags": [
             "consonant",
             "affricate",
@@ -251,6 +258,7 @@
     },
     {
         "grapheme": "цӏ",
+        "phoneme": "t͡sʼ",
         "tags": [
             "consonant",
             "affricate",
@@ -337,6 +345,7 @@
     },
     {
         "grapheme": "хь",
+        "phoneme": "ç",
         "tags": [
             "consonant",
             "fricative",
@@ -351,6 +360,7 @@
     },
     {
         "grapheme": "хьв",
+        "phoneme": "çʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -366,6 +376,7 @@
     },
     {
         "grapheme": "хьхь",
+        "phoneme": "çː",
         "tags": [
             "consonant",
             "fricative",
@@ -381,6 +392,7 @@
     },
     {
         "grapheme": "хьхьв",
+        "phoneme": "çːʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -411,6 +423,7 @@
     },
     {
         "grapheme": "ч",
+        "phoneme": "t͡ʃ",
         "tags": [
             "consonant",
             "affricate",
@@ -425,6 +438,7 @@
     },
     {
         "grapheme": "чв",
+        "phoneme": "t͡ʃʷ",
         "tags": [
             "consonant",
             "affricate",
@@ -439,22 +453,8 @@
         ]
     },
     {
-        "grapheme": "ччв",
-        "tags": [
-            "consonant",
-            "affricate",
-            "voiceless",
-            "geminate",
-            "alveolar"
-        ],
-        "samples": [
-            "ччв",
-            "ччве",
-            "биччвахара"
-        ]
-    },
-    {
         "grapheme": "чч",
+        "phoneme": "t͡ʃː",
         "tags": [
             "consonant",
             "affricate",
@@ -470,7 +470,24 @@
         ]
     },
     {
+        "grapheme": "ччв",
+        "phoneme": "t͡ʃːʷ",
+        "tags": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "geminate",
+            "alveolar"
+        ],
+        "samples": [
+            "ччв",
+            "ччве",
+            "биччвахара"
+        ]
+    },
+    {
         "grapheme": "чӏ",
+        "phoneme": "t͡ʃʼ",
         "tags": [
             "consonant",
             "affricate",
@@ -486,6 +503,7 @@
     },
     {
         "grapheme": "чӏв",
+        "phoneme": "t͡ʃʼʷ",
         "tags": [
             "consonant",
             "affricate",
@@ -531,6 +549,7 @@
     },
     {
         "grapheme": "ш",
+        "phoneme": "ʃ",
         "tags": [
             "consonant",
             "fricative",
@@ -545,6 +564,7 @@
     },
     {
         "grapheme": "шв",
+        "phoneme": "ʃʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -560,6 +580,7 @@
     },
     {
         "grapheme": "шш",
+        "phoneme": "ʃː",
         "tags": [
             "consonant",
             "fricative",
@@ -575,6 +596,7 @@
     },
     {
         "grapheme": "шшв",
+        "phoneme": "ʃːʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -916,6 +938,7 @@
     },
     {
         "grapheme": "хӏ",
+        "phoneme": "ħ",
         "tags": [
             "consonant",
             "fricative",
@@ -959,6 +982,7 @@
     },
     {
         "grapheme": "ъ",
+        "phoneme": "ʔ",
         "tags": [
             "consonant",
             "stop",
