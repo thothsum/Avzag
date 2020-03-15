@@ -274,6 +274,7 @@
     },
     {
         "grapheme": "з",
+        "phoneme": "z",
         "tags": [
             "consonant",
             "fricative",
@@ -520,6 +521,7 @@
     },
     {
         "grapheme": "ж",
+        "phoneme": "ʒ",
         "tags": [
             "consonant",
             "fricative",
@@ -534,6 +536,7 @@
     },
     {
         "grapheme": "жв",
+        "phoneme": "ʒʷ",
         "tags": [
             "consonant",
             "fricative",
