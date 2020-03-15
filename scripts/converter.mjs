@@ -49,11 +49,13 @@ function selectProfile(index) {
 }
 
 function uppercase(str) {
+    let base = '';
     let i = 0;
-    while (str[i] == ' ') {
-        i++;
+    if (str.charAt(0) == ' ') {
+        base = ' ';
+        i = 1;
     }
-    return ' '.repeat(i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
+    return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
 }
 
 function process(source) {
