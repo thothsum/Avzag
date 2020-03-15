@@ -4,6 +4,10 @@
     gap: 20px;
 }
 
+#alphabet>* {
+    text-align: center;
+}
+
 #alphabet #tables #letters {
     display: grid;
     gap: 20px;

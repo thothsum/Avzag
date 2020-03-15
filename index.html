@@ -16,6 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="styles/nord.css">
     <link rel="stylesheet" type="text/css" href="styles/site.css">
     <link rel="stylesheet" type="text/css" href="styles/catalogue.css">
     <link rel="stylesheet" type="text/css" href="styles/converter.css">
@@ -49,15 +50,14 @@
             <h1></h1>
             <h3></h3>
         </div>
-        <button>Info</button>
-        <button>Phonology</button>
-        <button>Converter</button>
+        <button class="tab-nav">Info</button>
+        <button class="tab-nav">Alphabet</button>
+        <button class="tab-nav">Converter</button>
     </div>
     <div id="info" class="section">
         <p></p>
     </div>
     <div id="alphabet" class="section">
-        <h2>Phonology</h2>
         <div id="tables">
             <div id="letters"></div>
             <div id="details">
@@ -68,7 +68,6 @@
         </div>
     </div>
     <div id="converter" class="section split">
-        <h2>Converter</h2>
         <div class="split">
             <textarea id="from"></textarea>
             <textarea id="to" readonly></textarea>
@@ -85,11 +84,11 @@
     <div id="footer" class="section">
         <hr>
         <div id="catalogue"></div>
+        <span style="font-size: 12px; font-family: monospace;" class="link"
+            onclick="window.open('https://www.github.com/alkaitagi/Aevzag', '_blank');">
+            [link to source]
+        </span>
     </div>
-    <span style="font-size: 12px; font-family: monospace;" class="link"
-        onclick="window.open('https://www.github.com/alkaitagi/Aevzag', '_blank');">
-        [link to source]
-    </span>
 </body>
 
 </html>
