@@ -1,15 +1,20 @@
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('fonts/FiraSans-ThinItalic.ttf'), url('fonts/FiraSans-Thin.ttf'), url('fonts/FiraSans-SemiBoldItalic.ttf'), url('fonts/FiraSans-SemiBold.ttf'), url('fonts/FiraSans-Regular.ttf'), url('fonts/FiraSans-MediumItalic.ttf'), url('fonts/FiraSans-Medium.ttf'), url('fonts/FiraSans-Light.ttf'), url('fonts/FiraSans-LightItalic.ttf'), url('fonts/FiraSans-Italic.ttf'), url('fonts/FiraSans-ExtraLightItalic.ttf'), url('fonts/FiraSans-ExtraLight.ttf'), url('fonts/FiraSans-ExtraBoldItalic.ttf'), url('fonts/FiraSans-ExtraBold.ttf'), url('fonts/FiraSans-BoldItalic.ttf'), url('fonts/FiraSans-Bold.ttf'), url('fonts/FiraSans-BlackItalic.ttf'), url('fonts/FiraSans-Black.ttf')
+}
+
 * {
     box-sizing: border-box;
     outline: none;
     resize: none;
     text-align: center;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     color: #4C566A;
     border-radius: 4px;
     transition: 0.15s;
     border: 0;
-    font-family: Calibri, sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 button, select {
