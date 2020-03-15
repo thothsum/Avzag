@@ -33,7 +33,7 @@
 
 #converter #mapping {
     background-color: #ECEFF4;
-    margin: 10px;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;

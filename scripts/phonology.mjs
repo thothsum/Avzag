@@ -23,7 +23,7 @@ function start(data) {
 }
 
 function loadTable(data) {
-    let table = document.querySelector("#alphabet #tables");
+    let table = document.querySelector("#alphabet #tables #letters");
     for (const category of ["consonant", "vowel"]) {
         let subTable = document.createElement("div");
         subTable.className = `table ${category}`;
