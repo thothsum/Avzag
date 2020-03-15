@@ -48,15 +48,23 @@ function selectProfile(index) {
     }
 }
 
+function uppercase(str) {
+    let i = 0;
+    while (str[i] == ' ') {
+        i++;
+    }
+    return ' '.repeat(i) + str[i].toUpperCase() + str.slice(i + 1);
+}
+
 function process(source) {
-    const uppercase = (str) => str.charAt(0).toUpperCase() + str.slice(1)
     const convert = (str, from, to) => str.replace(new RegExp(from, 'g'), to);
 
+    source = " " + source.replace(new RegExp("\n", 'g'), "\n ").trim();
     for (const [from, to] of Object.entries(profiles[selected]["mapping"])) {
         source = convert(source, from, to);
         source = convert(source, uppercase(from), uppercase(to));
     }
-    return source;
+    return source.replace(new RegExp("\n ", 'g'), "\n").trim();
 }
 
 function copy() {
