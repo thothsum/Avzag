@@ -10,13 +10,6 @@ function start(data) {
         if (e["phoneme"] == null) e["phoneme"] = '-';
     });
 
-    try {
-        player = new Howl({ src: [""] });
-        player.play();
-    } catch{ }
-
-    // fetch(url).then(obj => obj.json()).then(x => { })
-
     player = new Audio();
 
     loadTable(data);
