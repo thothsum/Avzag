@@ -24,6 +24,7 @@ button, select {
     height: 30px;
     user-select: none;
     margin: 10px 0;
+    padding: 0 10px;
 }
 
 button:hover, select:hover {

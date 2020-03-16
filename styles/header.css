@@ -9,7 +9,15 @@
 }
 
 #header button {
-    border-width: 2px;
+    padding: 0 15px;
+    height: 40px;
+    font-size: 16px;
+    border-width: 0 0 4px 0;
+    border-color: var(--nord4);
+}
+
+#header button:hover {
+    border-color: var(--nord0);
 }
 
 #header .current {
