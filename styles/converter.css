@@ -32,7 +32,7 @@
 }
 
 #converter #mapping {
-    background-color: #ECEFF4;
+    background-color: var(--nord6);
     margin: 0;
     display: flex;
     flex-wrap: wrap;
