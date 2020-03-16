@@ -17,14 +17,6 @@ function start() {
 
     window["langRoot"] = `./languages/${lang}/`;
     loadLanguage();
-
-    let tabNavs = document.querySelectorAll("#header .tab-nav");
-    for (const tabNav of tabNavs) {
-        let tabTarget = document.querySelector(`#${tabNav.innerText.toLowerCase()}`);
-        tabTarget.style.display = "none";
-        tabNav.onclick = () => switchTab(tabTarget);
-    }
-    tabNavs[0].click();
 }
 
 function loadLanguage() {
@@ -61,13 +53,4 @@ function displayCatalogue(data) {
         languageDiv.onclick = () => window.location.search = `&language=${language}`;
         catalogueDiv.appendChild(languageDiv);
     }
-}
-
-
-let currentTab;
-function switchTab(tab) {
-    if (currentTab != null)
-        currentTab.style.display = "none";
-    currentTab = tab;
-    currentTab.style.display = "block";
 }
