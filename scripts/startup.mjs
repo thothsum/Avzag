@@ -47,8 +47,8 @@ function displayInfo(data) {
 function displayCatalogue(data) {
     let catalogueDiv = document.querySelector("#footer #catalogue");
     for (const language of data) {
-        let languageDiv = document.createElement("div");
-        languageDiv.className = "language link";
+        let languageDiv = document.createElement("a");
+        languageDiv.className = "language";
         languageDiv.innerText = language;
         languageDiv.onclick = () => window.location.search = `&language=${language}`;
         catalogueDiv.appendChild(languageDiv);

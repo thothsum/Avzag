@@ -1,8 +1,8 @@
 #catalogue {
     user-select: none;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
-#catalogue div {
-    display: inline-block;
+#catalogue {
+    display: flex;
 }
