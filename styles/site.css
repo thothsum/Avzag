@@ -1,10 +1,13 @@
+body {
+    margin-top: 0;
+}
+
 * {
     box-sizing: border-box;
     outline: none;
     resize: none;
-    text-align: center;
     font-size: 14px;
-    color: #4C566A;
+    color: var(--nord0);
     border-radius: 4px;
     transition: 0.15s;
     border: 0;
@@ -13,7 +16,7 @@
 
 button, select {
     border: 1px solid #0000;
-    background-color: #E5E9F0;
+    background-color: var(--nord5);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -24,12 +27,12 @@ button, select {
 }
 
 button:hover, select:hover {
-    border-color: #4C566A;
+    border-color: var(--nord0);
 }
 
 button:active, select:active {
     color: #FFF;
-    background-color: #4C566A;
+    background-color: var(--nord0);
 }
 
 button:active>* {
@@ -54,7 +57,7 @@ h3 {
 
 hr {
     height: 2px;
-    background-color: #E5E9F0;
+    background-color: var(--nord5);
 }
 
 .section {
@@ -72,23 +75,23 @@ hr {
 }
 
 .link:hover {
-    text-decoration-color: #BF616A;
+    text-decoration-color: var(--nord11);
 }
 
 .link:active {
-    color: #BF616A;
+    color: var(--nord11);
 }
 
 textarea {
-    border: 1px solid #E5E9F0;
+    border: 1px solid var(--nord5);
     text-align: left;
 }
 
 textarea:read-only {
-    border-color: #E5E9F0;
-    background-color: #E5E9F0;
+    border-color: var(--nord5);
+    background-color: var(--nord5);
 }
 
 textarea:read-write:hover, textarea:read-write:focus {
-    border-color: #4C566A;
+    border-color: var(--nord0);
 }
