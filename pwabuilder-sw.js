@@ -1,7 +1,14 @@
-// This is the service worker with the Cache-first network
+//This is the service worker with the Advanced caching
 
-const CACHE = "pwabuilder-precache";
+const CACHE = "pwabuilder-adv-cache";
 const precacheFiles = [
+    /* Add an array of files to precache for your app */
+];
+
+// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+const offlineFallbackPage = "ToDo-replace-this-name.html";
+
+const networkFirstPaths = [
     "index.html",
     "icon.png",
     "manifest.json",
@@ -231,7 +238,29 @@ const precacheFiles = [
     "languages/Ossetian/index.json",
     "languages/Ossetian/phonemes.json",
     "languages/Ossetian/sample.txt",
-]
+];
+
+const avoidCachingPaths = [
+    /* Add an array of regex of paths that shouldn't be cached */
+    // Example: /\/api\/.*/
+];
+
+function pathComparer(requestUrl, pathRegEx) {
+    return requestUrl.match(new RegExp(pathRegEx));
+}
+
+function comparePaths(requestUrl, pathsArray) {
+    if (requestUrl) {
+        for (let index = 0; index < pathsArray.length; index++) {
+            const pathRegEx = pathsArray[index];
+            if (pathComparer(requestUrl, pathRegEx)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
 
 self.addEventListener("install", function (event) {
     console.log("[PWA Builder] Install Event processing");
@@ -240,9 +269,14 @@ self.addEventListener("install", function (event) {
     self.skipWaiting();
 
     event.waitUntil(
-        caches.open(CACHE).then(function (cache) {
+        caches.open(CACHE).then(async function (cache) {
             console.log("[PWA Builder] Caching pages during install");
-            return cache.addAll(precacheFiles);
+
+            await cache.addAll(precacheFiles);
+            if (offlineFallbackPage === "ToDo-replace-this-name.html") {
+                return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
+            }
+            return cache.add(offlineFallbackPage);
         })
     );
 });
@@ -257,6 +291,14 @@ self.addEventListener("activate", function (event) {
 self.addEventListener("fetch", function (event) {
     if (event.request.method !== "GET") return;
 
+    if (comparePaths(event.request.url, networkFirstPaths)) {
+        networkFirstFetch(event);
+    } else {
+        cacheFirstFetch(event);
+    }
+});
+
+function cacheFirstFetch(event) {
     event.respondWith(
         fromCache(event.request).then(
             function (response) {
@@ -281,17 +323,38 @@ self.addEventListener("fetch", function (event) {
                     return response;
                 }
                 catch (error) {
+                    // The following validates that the request was for a navigation to a new document
+                    if (event.request.destination !== "document" || event.request.mode !== "navigate") {
+                        return;
+                    }
                     console.log("[PWA Builder] Network request failed and no cache." + error);
+                    const cache = await caches.open(CACHE);
+                    cache.match(offlineFallbackPage);
                 }
             }
         )
     );
-});
+}
+
+function networkFirstFetch(event) {
+    event.respondWith(
+        fetch(event.request)
+            .then(function (response) {
+                // If request was success, add or update it in the cache
+                event.waitUntil(updateCache(event.request, response.clone()));
+                return response;
+            })
+            .catch(function (error) {
+                console.log("[PWA Builder] Network request Failed. Serving content from cache: " + error);
+                return fromCache(event.request);
+            })
+    );
+}
 
 async function fromCache(request) {
     // Check to see if you have it in the cache
     // Return response
-    // If not in the cache, then return
+    // If not in the cache, then return error page
     const cache = await caches.open(CACHE);
     const matching = await cache.match(request);
     if (!matching || matching.status === 404) {
@@ -301,6 +364,10 @@ async function fromCache(request) {
 }
 
 async function updateCache(request, response) {
-    const cache = await caches.open(CACHE);
-    return cache.put(request, response);
+    if (!comparePaths(request.url, avoidCachingPaths)) {
+        const cache = await caches.open(CACHE);
+        return cache.put(request, response);
+    }
+
+    return Promise.resolve();
 }
