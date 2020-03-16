@@ -1,6 +1,6 @@
 #header {
     border-radius: 0 0 4px 4px;
-    box-shadow: 0px 5px 10px #D8DEE9;
+    box-shadow: 0px 5px 10px var(--nord4);
     height: 75px;
     padding: 10px 0 10px 10px;
     display: flex;
@@ -10,7 +10,7 @@
 
 #header #banner {
     height: 100%;
-    box-shadow: 0 0 10px #D8DEE9;
+    box-shadow: 0 0 10px var(--nord4);
 }
 
 #header>* {
@@ -33,9 +33,3 @@
     font-weight: bold;
     text-decoration: underline;
 }
-
-/* #header p {
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: underline;
-} */
