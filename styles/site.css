@@ -7,7 +7,7 @@ body {
     outline: none;
     resize: none;
     font-size: 14px;
-    color: var(--nord3);
+    color: var(--nord0);
     border-radius: 4px;
     transition: 0.15s;
     border: 0;
@@ -27,12 +27,12 @@ button, select {
 }
 
 button:hover, select:hover {
-    border-color: var(--nord3);
+    border-color: var(--nord0);
 }
 
 button:active, select:active {
     color: #FFF;
-    background-color: var(--nord3);
+    background-color: var(--nord0);
 }
 
 button:active>* {
@@ -93,5 +93,5 @@ textarea:read-only {
 }
 
 textarea:read-write:hover, textarea:read-write:focus {
-    border-color: var(--nord3);
+    border-color: var(--nord0);
 }

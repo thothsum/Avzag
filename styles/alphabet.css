@@ -40,9 +40,10 @@
 }
 
 #alphabet #details .tags {
-    font-size: 14px;
+    font-size: 12px;
     font-style: italic;
     word-spacing: 10px;
+    color: var(--nord3);
 }
 
 #alphabet #details .sample {
