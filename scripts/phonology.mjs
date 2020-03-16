@@ -1,5 +1,3 @@
-import "./howler.min.js";
-
 let player;
 
 function start(data) {
@@ -17,9 +15,12 @@ function start(data) {
         player.play();
     } catch{ }
 
+    // fetch(url).then(obj => obj.json()).then(x => { })
+
+    player = new Audio();
+
     loadTable(data);
     viewLetter(data[0]);
-    playSample("");
 }
 
 function loadTable(data) {
@@ -69,10 +70,7 @@ function viewLetter(phoneme) {
 }
 
 function playSample(sample) {
-    player.stop();
-    player = new Howl({
-        src: [`${window["langRoot"]}audio/${sample}.m4a`]
-    });
+    player.src = `${window["langRoot"]}audio/${sample}.m4a`;
     player.play();
 }
 
