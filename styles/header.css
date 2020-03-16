@@ -8,6 +8,12 @@
     align-items: center;
 }
 
+#header .current {
+    border-color: var(--nord0);
+    border-width: 2px;
+    font-weight: bold;
+}
+
 #header #banner {
     height: 100%;
     box-shadow: 0 0 10px var(--nord4);
