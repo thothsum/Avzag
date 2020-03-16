@@ -8,9 +8,12 @@
     padding: 10px 5px;
 }
 
+#header button {
+    border-width: 2px;
+}
+
 #header .current {
     border-color: var(--nord0);
-    border-width: 2px;
     font-weight: bold;
 }
 
