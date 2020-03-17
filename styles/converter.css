@@ -32,6 +32,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
+    place-content: center;
 }
 
 #converter #mapping p {
@@ -40,6 +41,7 @@
     flex-direction: row;
     align-items: center;
     width: 50px;
+    text-align: center;
     margin: 5px;
 }
 
