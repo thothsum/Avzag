@@ -25,4 +25,4 @@ for (const tabNav of tabNavs) {
     if (tabNav.innerText == currentSavedTab)
         currentTabNav = tabNav;
 }
-currentTabNav.click();
+(currentTabNav ?? tabNavs[0]).click();
