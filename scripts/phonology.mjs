@@ -1,3 +1,5 @@
+import "./howler.min.js";
+
 let player;
 
 function start(data) {
@@ -10,10 +12,13 @@ function start(data) {
         if (e["phoneme"] == null) e["phoneme"] = '-';
     });
 
-    player = new Audio();
-
     loadTable(data);
     viewLetter(data[0]);
+
+    try {
+        player = new Howl({ src: [""] });
+        player.play();
+    } catch{ }
 }
 
 function loadTable(data) {
@@ -63,7 +68,10 @@ function viewLetter(phoneme) {
 }
 
 function playSample(sample) {
-    player.src = `${window["langRoot"]}audio/${sample}.m4a`;
+    player.stop();
+    player = new Howl({
+        src: [`${window["langRoot"]}audio/${sample}.m4a`]
+    });
     player.play();
 }
 

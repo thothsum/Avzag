@@ -13,8 +13,11 @@ function getUrlVars() {
 
 function start() {
     let args = getUrlVars();
-    let lang = (args != null && 'language' in args) ? args['language'] : 'Kaitag';
+    let lang = (args != null && 'language' in args)
+        ? args['language']
+        : (window.localStorage.getItem("lang") ?? 'Kaitag');
 
+    window.localStorage.setItem("lang", lang);
     window["langRoot"] = `./languages/${lang}/`;
     loadLanguage();
 }
