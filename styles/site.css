@@ -3,6 +3,7 @@ body {
 }
 
 * {
+    -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
     outline: none;
     resize: none;
