@@ -20,6 +20,7 @@ function start(data) {
 
 
     let select = document.querySelector("#converter #profile");
+    select.innerHTML = "";
     let index = 0;
     for (const profile of profiles) {
         let el = document.createElement("option");
