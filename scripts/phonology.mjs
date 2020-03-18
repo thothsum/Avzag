@@ -23,9 +23,13 @@ function start(data) {
 
 function loadTable(data) {
     let table = document.querySelector("#alphabet #tables #letters");
+
+    for (const ltc of table.querySelectorAll(".letter") ?? []) {
+        ltc.remove();
+    }
+
     for (const category of ["consonant", "vowel"]) {
-        let subTable = document.createElement("div");
-        subTable.className = `table ${category}`;
+        let subTable = table.querySelector(`.table#${category}`);
         for (const phoneme of data.filter(l => l["tags"].includes(category))) {
             var el = document.createElement("button");
             el.className = "letter";
@@ -45,7 +49,6 @@ function loadTable(data) {
 
             subTable.appendChild(el);
         }
-        table.prepend(subTable);
     }
 }
 

@@ -1,21 +1,12 @@
 import { start as phonologyStart } from './phonology.mjs';
 import { start as converterStart } from './converter.mjs';
 
-document.addEventListener("DOMContentLoaded", start);
+document.addEventListener("DOMContentLoaded", () => start());
 
-function getUrlVars() {
-    var vars = {};
-    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (_m, key, value) {
-        vars[key] = value;
-    });
-    return vars;
-}
-
-function start() {
-    let args = getUrlVars();
-    let lang = (args != null && 'language' in args)
-        ? args['language']
-        : (window.localStorage.getItem("lang") ?? 'Kaitag');
+function start(lang = null) {
+    window.scrollTo(0, 0);
+    if (lang == null)
+        lang = window.localStorage.getItem("lang") ?? 'Kaitag';
 
     window.localStorage.setItem("lang", lang);
     window["langRoot"] = `./languages/${lang}/`;
@@ -49,11 +40,12 @@ function displayInfo(data) {
 
 function displayCatalogue(data) {
     let catalogueDiv = document.querySelector("#footer #catalogue");
-    for (const language of data) {
+    catalogueDiv.innerHTML = "";
+    for (const lang of data) {
         let languageDiv = document.createElement("a");
         languageDiv.className = "language";
-        languageDiv.innerText = language;
-        languageDiv.onclick = () => window.location.search = `&language=${language}`;
+        languageDiv.innerText = lang;
+        languageDiv.onclick = () => start(lang);
         catalogueDiv.appendChild(languageDiv);
     }
 }
