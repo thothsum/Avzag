@@ -1,22 +1,27 @@
 let profiles;
-let selected = 0;
+let selected;
 let fromField;
 let toField;
 
+let first = true
+
 function start(data) {
+    selected = 0;
     profiles = data;
 
 
-    let mapping = document.querySelector("#converter #mapping");
-    document.querySelector("#converter #hide").onclick =
-        () => mapping.style.display =
-            (mapping.style.display == "none" ? "flex" : "none");
+    if (first) {
+        let mapping = document.querySelector("#converter #mapping");
+        document.querySelector("#converter #hide").onclick =
+            () => mapping.style.display =
+                (mapping.style.display == "none" ? "flex" : "none");
+    }
 
 
     fromField = document.querySelector("#converter #from");
     toField = document.querySelector("#converter #to");
-    fromField.addEventListener("input", e => to.value = process(e.target.value))
-    fromField.dispatchEvent(new Event("input"));
+    if (first)
+        fromField.addEventListener("input", e => to.value = process(e.target.value))
 
 
     let select = document.querySelector("#converter #profile");
@@ -28,14 +33,21 @@ function start(data) {
         el.value = index++;
         select.appendChild(el);
     }
-    select.onchange = e => selectProfile(e.target.value);
+    if (first)
+        select.onchange = e => selectProfile(e.target.value);
+
     selectProfile(selected);
 
 
     let file = document.querySelector("#converter #file");
-    file.addEventListener('change', handleFiles);
-    document.querySelector("#converter #options #upload").onclick = () => file.click();
-    document.querySelector("#converter #options #copy").onclick = copy;
+    if (first) {
+        file.addEventListener('change', handleFiles);
+        document.querySelector("#converter #options #upload").onclick = () => file.click();
+        document.querySelector("#converter #options #copy").onclick = copy;
+    }
+
+    fromField.dispatchEvent(new Event("input"));
+    first = false;
 }
 
 function selectProfile(index) {
