@@ -45,7 +45,7 @@ function selectProfile(index) {
     let mapping = document.querySelector("#converter #mapping");
     mapping.innerHTML = "";
     for (const [from, to] of Object.entries(profiles[selected]["mapping"])) {
-        mapping.innerHTML += `<p>${from} › ${to}</p>`;
+        mapping.innerHTML += `<p>${from.replace(' ', '_')} › ${to.replace(' ', '_')}</p>`;
     }
 }
 
