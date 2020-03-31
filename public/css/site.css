@@ -2,6 +2,12 @@ body {
     margin: 0 10px;
 }
 
+.section {
+    margin: auto auto 50px auto;
+    width: 100%;
+    max-width: 960px;
+}
+
 * {
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
@@ -61,12 +67,6 @@ hr {
     height: 2px;
     background-color: var(--nord5);
     margin-bottom: 25px;
-}
-
-.section {
-    margin: auto auto 50px auto;
-    width: 100%;
-    max-width: 960px;
 }
 
 a {

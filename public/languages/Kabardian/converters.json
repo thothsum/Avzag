@@ -1,6 +1,6 @@
 [
     {
-        "title": "Latin Diacritical",
+        "name": "Latin Diacritical",
         "mapping": {
             "ӏ": "ʼ",
             "кхъ": "qẋ",

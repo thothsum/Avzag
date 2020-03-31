@@ -1,7 +1,7 @@
 [
     {
-        "grapheme": "а",
-        "phoneme": "aː",
+        "str": "а",
+        "ipa": "aː",
         "tags": [
             "vowel"
         ],
@@ -12,8 +12,8 @@
         ]
     },
     {
-        "grapheme": "э",
-        "phoneme": "a",
+        "str": "э",
+        "ipa": "a",
         "tags": [
             "vowel"
         ],
@@ -24,104 +24,104 @@
         ]
     },
     {
-        "grapheme": "б",
-        "phoneme": "b",
+        "str": "б",
+        "ipa": "b",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "в",
-        "phoneme": "v",
+        "str": "в",
+        "ipa": "v",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "г",
-        "phoneme": "ɣ",
+        "str": "г",
+        "ipa": "ɣ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "гу",
-        "phoneme": "ɡʷ",
+        "str": "гу",
+        "ipa": "ɡʷ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "гъ",
-        "phoneme": "ʁ",
+        "str": "гъ",
+        "ipa": "ʁ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "гъу",
-        "phoneme": "ʁʷ",
+        "str": "гъу",
+        "ipa": "ʁʷ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "д",
-        "phoneme": "d",
+        "str": "д",
+        "ipa": "d",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "дж",
-        "phoneme": "d͡ʒ",
+        "str": "дж",
+        "ipa": "d͡ʒ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "дз",
-        "phoneme": "d͡z",
+        "str": "дз",
+        "ipa": "d͡z",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ж",
-        "phoneme": "ʒ",
+        "str": "ж",
+        "ipa": "ʒ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "жь",
-        "phoneme": "ʑ",
+        "str": "жь",
+        "ipa": "ʑ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "з",
-        "phoneme": "z",
+        "str": "з",
+        "ipa": "z",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "и",
-        "phoneme": "jə",
+        "str": "и",
+        "ipa": "jə",
         "tags": [
             "vowel"
         ],
@@ -132,48 +132,48 @@
         ]
     },
     {
-        "grapheme": "й",
-        "phoneme": "j",
+        "str": "й",
+        "ipa": "j",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "к",
-        "phoneme": "k",
+        "str": "к",
+        "ipa": "k",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "к",
-        "phoneme": "kʷ",
+        "str": "к",
+        "ipa": "kʷ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "къ",
-        "phoneme": "q",
+        "str": "къ",
+        "ipa": "q",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "къу",
-        "phoneme": "kʷ",
+        "str": "къу",
+        "ipa": "kʷ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "кхъ",
-        "phoneme": "q͡χ",
+        "str": "кхъ",
+        "ipa": "q͡χ",
         "tags": [
             "consonant",
             "voiceless",
@@ -186,8 +186,8 @@
         ]
     },
     {
-        "grapheme": "кхъу",
-        "phoneme": "q͡χʷ",
+        "str": "кхъу",
+        "ipa": "q͡χʷ",
         "tags": [
             "consonant",
             "voiceless",
@@ -202,64 +202,64 @@
         ]
     },
     {
-        "grapheme": "кӏ",
-        "phoneme": "t͡ʃʼ",
+        "str": "кӏ",
+        "ipa": "t͡ʃʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "кӏу",
-        "phoneme": "kʷʼ",
+        "str": "кӏу",
+        "ipa": "kʷʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "л",
-        "phoneme": "ɮ",
+        "str": "л",
+        "ipa": "ɮ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "лъ",
-        "phoneme": "ɬ",
+        "str": "лъ",
+        "ipa": "ɬ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "лӏ",
-        "phoneme": "ɬʼ",
+        "str": "лӏ",
+        "ipa": "ɬʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "м",
-        "phoneme": "m",
+        "str": "м",
+        "ipa": "m",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "н",
-        "phoneme": "n",
+        "str": "н",
+        "ipa": "n",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "о",
-        "phoneme": "aw",
+        "str": "о",
+        "ipa": "aw",
         "tags": [
             "vowel"
         ],
@@ -270,56 +270,56 @@
         ]
     },
     {
-        "grapheme": "п",
-        "phoneme": "p",
+        "str": "п",
+        "ipa": "p",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "пӏ",
-        "phoneme": "pʼ",
+        "str": "пӏ",
+        "ipa": "pʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "р",
-        "phoneme": "r",
+        "str": "р",
+        "ipa": "r",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "с",
-        "phoneme": "s",
+        "str": "с",
+        "ipa": "s",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "т",
-        "phoneme": "t",
+        "str": "т",
+        "ipa": "t",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "тӏ",
-        "phoneme": "tʼ",
+        "str": "тӏ",
+        "ipa": "tʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "у",
-        "phoneme": "əw",
+        "str": "у",
+        "ipa": "əw",
         "tags": [
             "vowel"
         ],
@@ -330,128 +330,128 @@
         ]
     },
     {
-        "grapheme": "у",
-        "phoneme": "w",
+        "str": "у",
+        "ipa": "w",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ф",
-        "phoneme": "f",
+        "str": "ф",
+        "ipa": "f",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "фӏ",
-        "phoneme": "fʼ",
+        "str": "фӏ",
+        "ipa": "fʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "х",
-        "phoneme": "x",
+        "str": "х",
+        "ipa": "x",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ху",
-        "phoneme": "xʷ",
+        "str": "ху",
+        "ipa": "xʷ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "хъ",
-        "phoneme": "χ",
+        "str": "хъ",
+        "ipa": "χ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "хъу",
-        "phoneme": "χʷ",
+        "str": "хъу",
+        "ipa": "χʷ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "хь",
-        "phoneme": "ħ",
+        "str": "хь",
+        "ipa": "ħ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ц",
-        "phoneme": "t͡s",
+        "str": "ц",
+        "ipa": "t͡s",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "цӏ",
-        "phoneme": "t͡sʼ",
+        "str": "цӏ",
+        "ipa": "t͡sʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ч",
-        "phoneme": "t͡ʃ",
+        "str": "ч",
+        "ipa": "t͡ʃ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "чӏ",
-        "phoneme": "t͡ʃʼ",
+        "str": "чӏ",
+        "ipa": "t͡ʃʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ш",
-        "phoneme": "ʃ",
+        "str": "ш",
+        "ipa": "ʃ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "щ",
-        "phoneme": "щ",
+        "str": "щ",
+        "ipa": "щ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "щӏ",
-        "phoneme": "ɕʼ",
+        "str": "щӏ",
+        "ipa": "ɕʼ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ы",
-        "phoneme": "ə",
+        "str": "ы",
+        "ipa": "ə",
         "tags": [
             "vowel"
         ],
@@ -462,16 +462,16 @@
         ]
     },
     {
-        "grapheme": "ӏ",
-        "phoneme": "ʔ",
+        "str": "ӏ",
+        "ipa": "ʔ",
         "tags": [
             "consonant"
         ],
         "samples": []
     },
     {
-        "grapheme": "ӏу",
-        "phoneme": "ʔʷ",
+        "str": "ӏу",
+        "ipa": "ʔʷ",
         "tags": [
             "consonant"
         ],

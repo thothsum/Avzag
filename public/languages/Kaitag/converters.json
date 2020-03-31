@@ -1,6 +1,6 @@
 [
     {
-        "title": "Latin Diacritical",
+        "name": "Latin Diacritical",
         "mapping": {
             "гъв": "ĝw",
             "хъв": "q̂w",
@@ -57,7 +57,7 @@
         }
     },
     {
-        "title": "Latin Standard",
+        "name": "Latin Standard",
         "mapping": {
             "гъв": "ghw",
             "хъв": "qhw",

@@ -1,0 +1,165 @@
+<template>
+  <div class="section" v-if="converters">
+    <div class="split">
+      <textarea v-model="source"></textarea>
+      <textarea ref="resTxt" :value="result" readonly></textarea>
+    </div>
+    <div id="options">
+      <button @click="$refs.file.click()">Upload .txt file</button>
+      <select v-model="selected">
+        <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+      </select>
+      <button @click="showMapping = !showMapping">Show mappings</button>
+      <button @click="copy">Copy to clipboard</button>
+    </div>
+    <div id="mapping" v-if="showMapping">
+      <MappingItem :key="i" :mapping="map" v-for="(map, i) in mapping" />
+    </div>
+    <input v-show="false" type="file" ref="file" @change="handleFiles" />
+  </div>
+</template>
+
+<script>
+import MappingItem from "./MappingItem";
+
+export default {
+  name: "Converter",
+  props: ["langRoot"],
+  watch: {
+    langRoot: {
+      handler: async function(langRoot) {
+        const res = await fetch(langRoot + "converters.json");
+        this.converters = await res.json();
+        const smp = await fetch(langRoot + "sample.txt");
+        this.source = await smp.text();
+      },
+      immediate: true
+    }
+  },
+  data() {
+    return {
+      converters: null,
+      selected: 0,
+      source: "",
+      showMapping: false
+    };
+  },
+  components: {
+    MappingItem
+  },
+  computed: {
+    mapping: function() {
+      return Object.entries(this.converters[this.selected].mapping);
+    },
+    result: function() {
+      return this.convert(this.source);
+    }
+  },
+  methods: {
+    uppercase(str) {
+      let base = "";
+      let i = 0;
+      if (str.charAt(0) == " ") {
+        base = " ";
+        i = 1;
+      }
+      return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
+    },
+    replace(str, from, to) {
+      return str.replace(new RegExp(from, "g"), to);
+    },
+    convert(str) {
+      str = " " + this.replace(str, "\n", "\n ").trim();
+      for (const [from, to] of this.mapping) {
+        str = this.replace(str, from, to);
+        str = this.replace(str, this.uppercase(from), this.uppercase(to));
+      }
+      return this.replace(str, "\n ", "\n").trim();
+    },
+    copy() {
+      this.$refs.resTxt.select();
+      document.execCommand("copy");
+    },
+    handleFiles(event) {
+      var reader = new FileReader();
+      reader.onload = e =>
+        this.download(
+          event.target.files[0].name,
+          this.convert(e.target.result)
+        );
+      reader.readAsText(event.target.files[0]);
+    },
+    download(filename, text) {
+      var element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+      );
+      element.setAttribute("download", filename);
+
+      element.style.display = "none";
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+  }
+};
+</script>
+
+<style scoped>
+textarea {
+  padding: 10px;
+  height: 250px;
+}
+
+#options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  align-items: stretch;
+}
+
+.split :nth-child(1) {
+  border-radius: 4px 0 0 4px;
+}
+
+.split :nth-child(2) {
+  border-radius: 0 4px 4px 0;
+}
+
+#mapping {
+  background-color: var(--nord6);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  place-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .split {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: stretch;
+  }
+  .split :nth-child(1) {
+    border-radius: 4px 4px 0 0;
+  }
+  .split :nth-child(2) {
+    border-radius: 0 0 4px 4px;
+  }
+  #options {
+    flex-flow: column;
+  }
+  #options > * {
+    margin: 5px 0;
+  }
+}
+</style>

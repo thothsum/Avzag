@@ -1,7 +1,7 @@
 [
     {
-        "grapheme": "и",
-        "phoneme": "i",
+        "str": "и",
+        "ipa": "i",
         "tags": [
             "vowel",
             "front",
@@ -14,8 +14,8 @@
         ]
     },
     {
-        "grapheme": "у",
-        "phoneme" : "u",
+        "str": "у",
+        "ipa": "u",
         "tags": [
             "vowel",
             "back",
@@ -28,8 +28,8 @@
         ]
     },
     {
-        "grapheme": "э",
-        "phoneme": "e",
+        "str": "э",
+        "ipa": "e",
         "tags": [
             "vowel",
             "front",
@@ -42,8 +42,8 @@
         ]
     },
     {
-        "grapheme": "а",
-        "phoneme": "a",
+        "str": "а",
+        "ipa": "a",
         "tags": [
             "vowel",
             "front",
@@ -56,8 +56,8 @@
         ]
     },
     {
-        "grapheme": "я",
-        "phoneme": "æ",
+        "str": "я",
+        "ipa": "æ",
         "tags": [
             "vowel",
             "front",
@@ -70,7 +70,7 @@
         ]
     },
     {
-        "grapheme": "б",
+        "str": "б",
         "tags": [
             "consonant",
             "stop",
@@ -84,7 +84,7 @@
         ]
     },
     {
-        "grapheme": "п",
+        "str": "п",
         "tags": [
             "consonant",
             "stop",
@@ -98,7 +98,7 @@
         ]
     },
     {
-        "grapheme": "пп",
+        "str": "пп",
         "tags": [
             "consonant",
             "stop",
@@ -113,7 +113,7 @@
         ]
     },
     {
-        "grapheme": "пӏ",
+        "str": "пӏ",
         "tags": [
             "consonant",
             "stop",
@@ -128,7 +128,7 @@
         ]
     },
     {
-        "grapheme": "в",
+        "str": "в",
         "tags": [
             "consonant",
             "fricative",
@@ -142,7 +142,7 @@
         ]
     },
     {
-        "grapheme": "ф",
+        "str": "ф",
         "tags": [
             "consonant",
             "fricative",
@@ -154,7 +154,7 @@
         ]
     },
     {
-        "grapheme": "м",
+        "str": "м",
         "tags": [
             "consonant",
             "sonorant",
@@ -168,7 +168,7 @@
         ]
     },
     {
-        "grapheme": "д",
+        "str": "д",
         "tags": [
             "consonant",
             "stop",
@@ -182,7 +182,7 @@
         ]
     },
     {
-        "grapheme": "т",
+        "str": "т",
         "tags": [
             "consonant",
             "stop",
@@ -196,7 +196,7 @@
         ]
     },
     {
-        "grapheme": "тт",
+        "str": "тт",
         "tags": [
             "consonant",
             "stop",
@@ -211,7 +211,7 @@
         ]
     },
     {
-        "grapheme": "тӏ",
+        "str": "тӏ",
         "tags": [
             "consonant",
             "stop",
@@ -226,8 +226,8 @@
         ]
     },
     {
-        "grapheme": "ц",
-        "phoneme": "t͡s",
+        "str": "ц",
+        "ipa": "t͡s",
         "tags": [
             "consonant",
             "affricate",
@@ -241,8 +241,8 @@
         ]
     },
     {
-        "grapheme": "цц",
-        "phoneme": "t͡sː",
+        "str": "цц",
+        "ipa": "t͡sː",
         "tags": [
             "consonant",
             "affricate",
@@ -257,8 +257,8 @@
         ]
     },
     {
-        "grapheme": "цӏ",
-        "phoneme": "t͡sʼ",
+        "str": "цӏ",
+        "ipa": "t͡sʼ",
         "tags": [
             "consonant",
             "affricate",
@@ -273,8 +273,8 @@
         ]
     },
     {
-        "grapheme": "з",
-        "phoneme": "z",
+        "str": "з",
+        "ipa": "z",
         "tags": [
             "consonant",
             "fricative",
@@ -288,7 +288,7 @@
         ]
     },
     {
-        "grapheme": "с",
+        "str": "с",
         "tags": [
             "consonant",
             "fricative",
@@ -302,7 +302,7 @@
         ]
     },
     {
-        "grapheme": "сс",
+        "str": "сс",
         "tags": [
             "consonant",
             "fricative",
@@ -317,7 +317,7 @@
         ]
     },
     {
-        "grapheme": "н",
+        "str": "н",
         "tags": [
             "consonant",
             "sonorant",
@@ -331,7 +331,7 @@
         ]
     },
     {
-        "grapheme": "л",
+        "str": "л",
         "tags": [
             "consonant",
             "sonorant",
@@ -345,8 +345,8 @@
         ]
     },
     {
-        "grapheme": "хь",
-        "phoneme": "ç",
+        "str": "хь",
+        "ipa": "ç",
         "tags": [
             "consonant",
             "fricative",
@@ -360,8 +360,8 @@
         ]
     },
     {
-        "grapheme": "хьв",
-        "phoneme": "çʷ",
+        "str": "хьв",
+        "ipa": "çʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -376,8 +376,8 @@
         ]
     },
     {
-        "grapheme": "хьхь",
-        "phoneme": "çː",
+        "str": "хьхь",
+        "ipa": "çː",
         "tags": [
             "consonant",
             "fricative",
@@ -392,8 +392,8 @@
         ]
     },
     {
-        "grapheme": "хьхьв",
-        "phoneme": "çːʷ",
+        "str": "хьхьв",
+        "ipa": "çːʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -409,7 +409,7 @@
         ]
     },
     {
-        "grapheme": "й",
+        "str": "й",
         "tags": [
             "consonant",
             "sonorant",
@@ -423,8 +423,8 @@
         ]
     },
     {
-        "grapheme": "ч",
-        "phoneme": "t͡ʃ",
+        "str": "ч",
+        "ipa": "t͡ʃ",
         "tags": [
             "consonant",
             "affricate",
@@ -438,8 +438,8 @@
         ]
     },
     {
-        "grapheme": "чв",
-        "phoneme": "t͡ʃʷ",
+        "str": "чв",
+        "ipa": "t͡ʃʷ",
         "tags": [
             "consonant",
             "affricate",
@@ -454,8 +454,8 @@
         ]
     },
     {
-        "grapheme": "чч",
-        "phoneme": "t͡ʃː",
+        "str": "чч",
+        "ipa": "t͡ʃː",
         "tags": [
             "consonant",
             "affricate",
@@ -471,8 +471,8 @@
         ]
     },
     {
-        "grapheme": "ччв",
-        "phoneme": "t͡ʃːʷ",
+        "str": "ччв",
+        "ipa": "t͡ʃːʷ",
         "tags": [
             "consonant",
             "affricate",
@@ -487,8 +487,8 @@
         ]
     },
     {
-        "grapheme": "чӏ",
-        "phoneme": "t͡ʃʼ",
+        "str": "чӏ",
+        "ipa": "t͡ʃʼ",
         "tags": [
             "consonant",
             "affricate",
@@ -503,8 +503,8 @@
         ]
     },
     {
-        "grapheme": "чӏв",
-        "phoneme": "t͡ʃʼʷ",
+        "str": "чӏв",
+        "ipa": "t͡ʃʼʷ",
         "tags": [
             "consonant",
             "affricate",
@@ -520,8 +520,8 @@
         ]
     },
     {
-        "grapheme": "ж",
-        "phoneme": "ʒ",
+        "str": "ж",
+        "ipa": "ʒ",
         "tags": [
             "consonant",
             "fricative",
@@ -535,8 +535,8 @@
         ]
     },
     {
-        "grapheme": "жв",
-        "phoneme": "ʒʷ",
+        "str": "жв",
+        "ipa": "ʒʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -551,8 +551,8 @@
         ]
     },
     {
-        "grapheme": "ш",
-        "phoneme": "ʃ",
+        "str": "ш",
+        "ipa": "ʃ",
         "tags": [
             "consonant",
             "fricative",
@@ -566,8 +566,8 @@
         ]
     },
     {
-        "grapheme": "шв",
-        "phoneme": "ʃʷ",
+        "str": "шв",
+        "ipa": "ʃʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -582,8 +582,8 @@
         ]
     },
     {
-        "grapheme": "шш",
-        "phoneme": "ʃː",
+        "str": "шш",
+        "ipa": "ʃː",
         "tags": [
             "consonant",
             "fricative",
@@ -598,8 +598,8 @@
         ]
     },
     {
-        "grapheme": "шшв",
-        "phoneme": "ʃːʷ",
+        "str": "шшв",
+        "ipa": "ʃːʷ",
         "tags": [
             "consonant",
             "fricative",
@@ -615,7 +615,7 @@
         ]
     },
     {
-        "grapheme": "р",
+        "str": "р",
         "tags": [
             "consonant",
             "sonorant",
@@ -629,7 +629,7 @@
         ]
     },
     {
-        "grapheme": "г",
+        "str": "г",
         "tags": [
             "consonant",
             "stop",
@@ -643,7 +643,7 @@
         ]
     },
     {
-        "grapheme": "гв",
+        "str": "гв",
         "tags": [
             "consonant",
             "stop",
@@ -658,7 +658,7 @@
         ]
     },
     {
-        "grapheme": "к",
+        "str": "к",
         "tags": [
             "consonant",
             "stop",
@@ -672,7 +672,7 @@
         ]
     },
     {
-        "grapheme": "кв",
+        "str": "кв",
         "tags": [
             "consonant",
             "stop",
@@ -687,7 +687,7 @@
         ]
     },
     {
-        "grapheme": "кк",
+        "str": "кк",
         "tags": [
             "consonant",
             "stop",
@@ -702,7 +702,7 @@
         ]
     },
     {
-        "grapheme": "ккв",
+        "str": "ккв",
         "tags": [
             "consonant",
             "stop",
@@ -718,7 +718,7 @@
         ]
     },
     {
-        "grapheme": "кӏ",
+        "str": "кӏ",
         "tags": [
             "consonant",
             "stop",
@@ -733,7 +733,7 @@
         ]
     },
     {
-        "grapheme": "кӏв",
+        "str": "кӏв",
         "tags": [
             "consonant",
             "stop",
@@ -749,7 +749,7 @@
         ]
     },
     {
-        "grapheme": "къ",
+        "str": "къ",
         "tags": [
             "consonant",
             "stop",
@@ -763,7 +763,7 @@
         ]
     },
     {
-        "grapheme": "къв",
+        "str": "къв",
         "tags": [
             "consonant",
             "stop",
@@ -778,7 +778,7 @@
         ]
     },
     {
-        "grapheme": "хъ",
+        "str": "хъ",
         "tags": [
             "consonant",
             "stop",
@@ -792,7 +792,7 @@
         ]
     },
     {
-        "grapheme": "хъв",
+        "str": "хъв",
         "tags": [
             "consonant",
             "stop",
@@ -807,7 +807,7 @@
         ]
     },
     {
-        "grapheme": "къкъ",
+        "str": "къкъ",
         "tags": [
             "consonant",
             "stop",
@@ -822,7 +822,7 @@
         ]
     },
     {
-        "grapheme": "кь",
+        "str": "кь",
         "tags": [
             "consonant",
             "stop",
@@ -837,7 +837,7 @@
         ]
     },
     {
-        "grapheme": "кьв",
+        "str": "кьв",
         "tags": [
             "consonant",
             "stop",
@@ -853,7 +853,7 @@
         ]
     },
     {
-        "grapheme": "гъ",
+        "str": "гъ",
         "tags": [
             "consonant",
             "fricative",
@@ -867,7 +867,7 @@
         ]
     },
     {
-        "grapheme": "гъв",
+        "str": "гъв",
         "tags": [
             "consonant",
             "fricative",
@@ -882,7 +882,7 @@
         ]
     },
     {
-        "grapheme": "х",
+        "str": "х",
         "tags": [
             "consonant",
             "fricative",
@@ -896,7 +896,7 @@
         ]
     },
     {
-        "grapheme": "хв",
+        "str": "хв",
         "tags": [
             "consonant",
             "fricative",
@@ -911,7 +911,7 @@
         ]
     },
     {
-        "grapheme": "хх",
+        "str": "хх",
         "tags": [
             "consonant",
             "fricative",
@@ -926,7 +926,7 @@
         ]
     },
     {
-        "grapheme": "гӏ",
+        "str": "гӏ",
         "tags": [
             "consonant",
             "stop",
@@ -940,8 +940,8 @@
         ]
     },
     {
-        "grapheme": "хӏ",
-        "phoneme": "ħ",
+        "str": "хӏ",
+        "ipa": "ħ",
         "tags": [
             "consonant",
             "fricative",
@@ -955,7 +955,7 @@
         ]
     },
     {
-        "grapheme": "гь",
+        "str": "гь",
         "tags": [
             "consonant",
             "fricative",
@@ -969,7 +969,7 @@
         ]
     },
     {
-        "grapheme": "гьв",
+        "str": "гьв",
         "tags": [
             "consonant",
             "fricative",
@@ -984,8 +984,8 @@
         ]
     },
     {
-        "grapheme": "ъ",
-        "phoneme": "ʔ",
+        "str": "ъ",
+        "ipa": "ʔ",
         "tags": [
             "consonant",
             "stop",

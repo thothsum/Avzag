@@ -1,6 +1,6 @@
 [
     {
-        "title": "NSOR (2016)",
+        "name": "NSOR (2016)",
         "mapping": {
             "ае": "ӕ",
             "æ": "ӕ",
@@ -57,7 +57,7 @@
         }
     },
     {
-        "title": "Transcription (eng)",
+        "name": "Transcription (eng)",
         "mapping": {
             "ае": "ӕ",
             "æ": "ӕ",
@@ -115,7 +115,7 @@
         }
     },
     {
-        "title": "Soviet (1924-1938)",
+        "name": "Soviet (1924-1938)",
         "mapping": {
             "ае": "ӕ",
             "æ": "ӕ",
