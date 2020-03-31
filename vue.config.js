@@ -1,7 +1,7 @@
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
-        ? './Aevzag/'
-        : './',
+        ? '/Aevzag/'
+        : '/',
     pwa: {
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'default',

@@ -46,7 +46,7 @@ export default {
     }
   },
   async created() {
-    const res = await fetch("./languages/catalogue.json");
+    const res = await fetch(this.langRoot + "../catalogue.json");
     let ctg = await res.json();
     ctg.sort((a, b) => a.localeCompare(b));
     this.catalogue = ctg;
