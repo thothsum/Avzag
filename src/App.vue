@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     langRoot: function() {
-      return `/languages/${this.language}/`;
+      return `./languages/${this.language}/`;
     }
   }
 };
