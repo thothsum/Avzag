@@ -32,6 +32,9 @@ export default {
       this.player.src = `${this.langRoot}audio/${this.phoneme.samples[i]}.m4a`;
       this.player.play();
     }
+  },
+  created() {
+    this.player.play();
   }
 };
 </script>
