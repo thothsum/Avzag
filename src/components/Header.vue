@@ -5,7 +5,7 @@
         <img id="flag" :src="langRoot + 'flag.png'" alt="Banner" />
         <div id="titles">
           <h1>{{index.title}}</h1>
-          <h3>{{index.tags.reduce((a, t) => a = `${a} • ${t}`)}}</h3>
+          <h3>{{index.tags.reduce((a, t) => a = `${a} › ${t}`)}}</h3>
         </div>
       </div>
       <div id="menu">
