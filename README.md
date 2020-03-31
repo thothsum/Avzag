@@ -1,4 +1,4 @@
-# aevzagvue
+# aevzag
 
 ## Project setup
 ```
