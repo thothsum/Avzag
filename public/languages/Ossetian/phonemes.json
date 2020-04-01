@@ -3,10 +3,10 @@
         "str": "а",
         "ipa": "a",
         "tags": [
+            "vowel",
             "open",
             "central",
-            "unrounded",
-            "vowel"
+            "unrounded"
         ],
         "idioms": [
             "Iron",
@@ -18,9 +18,9 @@
         "str": "ӕ",
         "ipa": "ɐ",
         "tags": [
+            "vowel",
             "near-open",
-            "central",
-            "vowel"
+            "central"
         ],
         "idioms": [
             "Iron",
@@ -32,10 +32,10 @@
         "str": "е",
         "ipa": "e",
         "tags": [
+            "vowel",
             "close-mid",
             "font",
-            "unrounded",
-            "vowel"
+            "unrounded"
         ],
         "idioms": [
             "Iron",
@@ -47,10 +47,10 @@
         "str": "и",
         "ipa": "i",
         "tags": [
+            "vowel",
             "close",
             "front",
-            "unrounded",
-            "vowel"
+            "unrounded"
         ],
         "idioms": [
             "Iron",
@@ -62,10 +62,10 @@
         "str": "о",
         "ipa": "o",
         "tags": [
+            "vowel",
             "close-mid",
             "back",
-            "rounded",
-            "vowel"
+            "rounded"
         ],
         "idioms": [
             "Iron",
@@ -77,9 +77,9 @@
         "str": "ы",
         "ipa": "ə",
         "tags": [
+            "vowel",
             "mid",
-            "central",
-            "vowel"
+            "central"
         ],
         "idioms": [
             "Iron"
@@ -105,15 +105,93 @@
         "str": "б",
         "ipa": "b",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "bilabial",
+            "stop"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "п",
+        "ipa": "pʰ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "bilabial",
+            "stop",
+            "aspirated"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "пъ",
+        "ipa": "pʼ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "bilabial",
+            "stop",
+            "ejective"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
     {
         "str": "д",
-        "ipa": "d",
+        "ipa": "d̪",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "dental",
+            "stop"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "т",
+        "ipa": "t̪ʰ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "dental",
+            "stop",
+            "aspirated"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "тъ",
+        "ipa": "t̪ʼ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "dental",
+            "stop",
+            "ejective"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -128,38 +206,6 @@
     {
         "str": "гу",
         "ipa": "ɡʷ",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "п",
-        "ipa": "p",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "пъ",
-        "ipa": "pʼ",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "т",
-        "ipa": "t",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "тъ",
-        "ipa": "tʼ",
         "tags": [
             "consonant"
         ],
