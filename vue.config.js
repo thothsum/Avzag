@@ -37,6 +37,9 @@ module.exports = {
             maskIcon: 'icon.png',
             msTileImage: 'icon.png'
         },
-        workboxPluginMode: 'GenerateSW'
+        workboxPluginMode: 'InjectManifest',
+        workboxOptions: {
+            swSrc: 'src/service-worker.js',
+        }
     }
 }
