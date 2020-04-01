@@ -2,7 +2,7 @@
   <button class="phoneme">
     <span class="letter">{{phoneme.str}}</span>
     <br />
-    <span class="ipa">{{phoneme.ipa || '-'}}</span>
+    <span class="ipa">{{phoneme.ipa}}</span>
   </button>
 </template>
 

@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import config from "../vue.config";
-
 import Header from "./components/Header";
 import Info from "./components/Info";
 import Phonology from "./components/Phonology";
@@ -50,7 +48,7 @@ export default {
   },
   computed: {
     langRoot: function() {
-      return `${config.publicPath}languages/${this.language}/`;
+      return `${process.env.BASE_URL}languages/${this.language}/`;
     }
   }
 };
