@@ -3,7 +3,14 @@
         "str": "а",
         "ipa": "a",
         "tags": [
+            "open",
+            "central",
+            "unrounded",
             "vowel"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -11,7 +18,13 @@
         "str": "ӕ",
         "ipa": "ɐ",
         "tags": [
+            "near-open",
+            "central",
             "vowel"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -19,7 +32,14 @@
         "str": "е",
         "ipa": "e",
         "tags": [
+            "close-mid",
+            "font",
+            "unrounded",
             "vowel"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -27,7 +47,14 @@
         "str": "и",
         "ipa": "i",
         "tags": [
+            "close",
+            "front",
+            "unrounded",
             "vowel"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -35,15 +62,27 @@
         "str": "о",
         "ipa": "o",
         "tags": [
+            "close-mid",
+            "back",
+            "rounded",
             "vowel"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
     {
         "str": "ы",
-        "ipa": "ɘ",
+        "ipa": "ə",
         "tags": [
+            "mid",
+            "central",
             "vowel"
+        ],
+        "idioms": [
+            "Iron"
         ],
         "samples": []
     },
@@ -51,7 +90,14 @@
         "str": "у",
         "ipa": "u",
         "tags": [
-            "vowel"
+            "vowel",
+            "close",
+            "back",
+            "rounded"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
