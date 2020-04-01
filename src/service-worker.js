@@ -230,11 +230,9 @@ const precacheFiles = [
     "languages/Ossetian/sample.txt",
 ];
 
-console.log(self.__precacheManifest);
-
 self.addEventListener("install", function (event) {
+    console.log(self.__precacheManifest);
     console.log("[PWA Builder] Install Event processing");
-
     console.log("[PWA Builder] Skip waiting on install");
     self.skipWaiting();
 
