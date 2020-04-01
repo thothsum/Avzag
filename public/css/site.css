@@ -35,16 +35,16 @@ button, select {
 }
 
 button:hover, select:hover {
-    border-color: var(--nord0);
+    border-color: var(--nord0) !important;
 }
 
 button:active, select:active {
-    color: #FFF;
-    background-color: var(--nord0);
+    color: #FFF !important;
+    background-color: var(--nord0) !important;
 }
 
 button:active>* {
-    color: #FFF;
+    color: #FFF !important;
 }
 
 h1 {

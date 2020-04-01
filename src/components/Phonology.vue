@@ -5,6 +5,7 @@
         <h3>{{ctg}}s</h3>
         <PhonemeItem
           :phoneme="phn"
+          :faded="!phn.tags.includes('ejective')"
           :key="phn.i"
           v-for="phn in sortBy(ctg)"
           @click.native="selected=phn.i"

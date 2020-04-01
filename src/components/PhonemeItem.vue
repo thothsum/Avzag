@@ -1,5 +1,5 @@
 <template>
-  <button class="phoneme">
+  <button class="phoneme" :class="{faded: faded}">
     <span class="letter">{{phoneme.str}}</span>
     <br />
     <span class="ipa">{{phoneme.ipa}}</span>
@@ -9,7 +9,7 @@
 <script>
 export default {
   name: "PhonemeItem",
-  props: ["phoneme", "highlighted"]
+  props: ["phoneme", "faded"]
 };
 </script>
 
@@ -21,10 +21,23 @@ export default {
   width: 50px;
   height: 40px;
   line-height: 50%;
+  position: relative;
 }
-
 .ipa {
   font-weight: 400;
   font-size: 12px;
+}
+.faded {
+  background-color: transparent;
+  border-color: var(--nord5);
+}
+.faded:active {
+  border-color: var(--nord0);
+}
+.faded > * {
+  color: var(--nord4);
+}
+.faded:hover > * {
+  color: initial;
 }
 </style>
