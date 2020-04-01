@@ -2,7 +2,9 @@
   <div class="section">
     <div id="header" v-if="index">
       <div id="banner">
-        <img id="flag" :src="langRoot + 'flag.png'" alt="Banner" />
+        <div id="flag">
+          <img :src="langRoot + 'flag.png'" alt="Banner" />
+        </div>
         <div id="titles">
           <h1>{{index.title}}</h1>
           <h3>{{index.tags.reduce((a, t) => a = `${a} › ${t}`)}}</h3>
@@ -132,6 +134,11 @@ button.nav.selected {
 
 #flag {
   height: 60px;
+  display: flex;
+}
+
+#flag > img {
+  height: 100%;
   box-shadow: 0 0 10px var(--nord4);
 }
 
@@ -145,6 +152,21 @@ button.nav.selected {
   #menu {
     width: 100%;
     justify-content: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #banner {
+    flex-flow: column;
+    place-content: center;
+  }
+  #flag {
+    place-content: center;
+  }
+  #titles {
+    text-align: center;
+  }
+  #menu {
+    flex-wrap: wrap;
   }
 }
 </style>
