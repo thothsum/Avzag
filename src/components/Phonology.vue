@@ -1,13 +1,21 @@
 <template>
   <div class="section" v-if="phonemes">
     <div id="phonemes">
-      <div class="table" :key="ctg" v-for="ctg in ['Vowel', 'Consonant']">
+      <div
+        class="table"
+        :key="ctg"
+        :set="phn=sortBy(ctg)"
+        v-for="ctg in ['Vowel', 'Consonant']"
+      >
         <h3>{{ctg}}s</h3>
+        <div class="query">
+          <p :key="i" v-for="(v, i) in tags(phn)">{{v}}</p>
+        </div>
         <PhonemeItem
-          :phoneme="phn"
-          :faded="!phn.tags.includes('ejective')"
-          :key="phn.i"
-          v-for="phn in sortBy(ctg)"
+          :phoneme="p"
+          :faded="!p.tags.includes('ejective')"
+          :key="p.i"
+          v-for="p in phn"
           @click.native="selected=phn.i"
         />
       </div>
@@ -45,12 +53,25 @@ export default {
     PhonemeItem,
     PhonemeDetails
   },
+  computed: {
+    idioms: function() {
+      let set = new Set();
+      this.phonemes.forEach(p => p.idioms?.forEach(t => set.add(t)));
+      return set;
+    }
+  },
   methods: {
     sortBy(tag) {
       if (!this.phonemes) return;
-
       tag = tag.toLowerCase();
       return this.phonemes.filter(p => p.tags.includes(tag));
+    },
+    tags: function(phn) {
+      let set = new Set();
+      phn.forEach(p => p.tags?.forEach(t => set.add(t)));
+      set.delete("vowel");
+      set.delete("consonant");
+      return set;
     }
   }
 };
@@ -63,15 +84,16 @@ export default {
   gap: 20px;
 }
 
-.section #phonemes {
-  display: grid;
+#phonemes {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
 .table {
   display: flex;
   flex-wrap: wrap;
-  padding: -5px;
+  margin-bottom: 20px;
 }
 
 .table > * {
@@ -80,6 +102,19 @@ export default {
 
 h3 {
   width: 100%;
+}
+
+.query {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px 0;
+}
+
+.query > p {
+  margin: 0 5px;
+  font-style: italic;
+  font-size: 12px;
 }
 
 @media only screen and (max-width: 600px) {

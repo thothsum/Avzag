@@ -157,9 +157,9 @@
         "str": "м",
         "tags": [
             "consonant",
-            "sonorant",
-            "nasal",
-            "labial"
+            "voised",
+            "labial",
+            "nasal"
         ],
         "samples": [
             "м",
@@ -334,9 +334,10 @@
         "str": "л",
         "tags": [
             "consonant",
-            "sonorant",
-            "liquid",
-            "dental"
+            "voiced",
+            "lateral",
+            "dental",
+            "approximant"
         ],
         "samples": [
             "л",
@@ -412,9 +413,9 @@
         "str": "й",
         "tags": [
             "consonant",
-            "sonorant",
-            "liquid",
-            "palatal"
+            "voiced",
+            "palatal",
+            "approximant"
         ],
         "samples": [
             "й",
@@ -618,9 +619,9 @@
         "str": "р",
         "tags": [
             "consonant",
-            "sonorant",
-            "liquid",
-            "alveolar"
+            "voiced",
+            "alveolar",
+            "trill"
         ],
         "samples": [
             "р",
