@@ -1,6 +1,6 @@
 // This is the service worker with the Cache-first network
 
-const CACHE = "aevzag-precache";
+const CACHE = "sw-aevzag-precache";
 const precacheFiles = self.__precacheManifest.map(f => f.url);
 
 console.log(precacheFiles);
