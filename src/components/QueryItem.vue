@@ -33,19 +33,19 @@ export default {
   font-style: italic;
   cursor: pointer;
   user-select: none;
+  text-decoration: underline;
 }
 .in {
   color: var(--nord14);
   font-weight: bolder;
 }
 .ex {
-  font-weight: bolder;
   color: var(--nord11);
+  font-weight: bolder;
 }
 .big {
   margin: 0 10px 0 0 !important;
   padding: 4px 8px !important;
   font-size: 16px !important;
-  text-decoration: underline;
 }
 </style>
