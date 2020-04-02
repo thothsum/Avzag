@@ -6,7 +6,7 @@
     </div>
     <PhonemeItem
       :phoneme="phn"
-      :faded="!results.includes(phn)"
+      :faded="results && !results.includes(phn)"
       :key="phn.i"
       v-for="phn in phonemes"
       @click.native="$emit('phoneme', phn.i)"
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       query: [],
-      results: []
+      results: null
     };
   },
   computed: {
@@ -36,14 +36,14 @@ export default {
       let set = new Set();
       this.phonemes.forEach(p => p.tags?.forEach(t => set.add(t)));
       set.delete(this.category);
-      return set;
+
+      let tags = [...set];
+      tags.sort((a, b) => a.localeCompare(b));
+      return tags;
     },
     title: function() {
       return this.category[0].toUpperCase() + this.category.slice(1);
     }
-  },
-  created() {
-    this.getResults();
   },
   methods: {
     addQuery(tag, mode) {
@@ -83,11 +83,5 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   margin: 5px 0;
-}
-
-.query > p {
-  margin: 0 5px;
-  font-style: italic;
-  font-size: 12px;
 }
 </style>

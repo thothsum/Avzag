@@ -1,9 +1,5 @@
 <template>
-  <div id="query">
-    <p id="tag">{{tag}}</p>
-    <button id="include" @click="toggle(1)">+</button>
-    <button id="exclude" @click="toggle(-1)">-</button>
-  </div>
+  <p id="query" :class="{ex:this.mode===0, in:this.mode===2}" @click="toggle">{{tag}}</p>
 </template>
 
 <script>
@@ -12,46 +8,34 @@ export default {
   props: ["tag", "enabled"],
   data() {
     return {
-      mode: 0
+      mode: 1
     };
   },
   methods: {
-    toggle(mode) {
-      this.mode = mode == this.mode ? 0 : mode;
-      this.$emit("query", this.mode);
+    toggle() {
+      this.mode = (this.mode + 1) % 3;
+      this.$emit("query", this.mode - 1);
+      console.log(this.mode);
     }
   }
 };
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 2px;
-}
-button {
-  height: 20px;
-  width: 20px;
-  align-items: center;
-}
 #query {
-  display: flex;
-  place-items: center;
-  /* border: 1px solid var(--nord4); */
-  margin-left: 5px;
-}
-#tag {
+  margin: 0 5px 0 0;
+  padding: 2px 4px;
   font-size: 12px;
   font-style: italic;
+  cursor: pointer;
+  user-select: none;
 }
-#include {
-  font-weight: bold;
-  font-size: 14px;
-  color: var(--nord10);
+.in {
+  color: var(--nord14);
+  font-weight: bolder;
 }
-#exclude {
-  font-weight: bold;
-  font-size: 14px;
+.ex {
+  font-weight: bolder;
   color: var(--nord11);
 }
 </style>

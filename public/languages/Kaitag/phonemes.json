@@ -320,9 +320,9 @@
         "str": "н",
         "tags": [
             "consonant",
-            "sonorant",
-            "nasal",
-            "dental"
+            "voiced",
+            "alveolar",
+            "nasal"
         ],
         "samples": [
             "н",

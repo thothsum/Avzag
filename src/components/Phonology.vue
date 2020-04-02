@@ -25,7 +25,7 @@ export default {
       handler: async function(langRoot) {
         const res = await fetch(langRoot + "phonemes.json");
         let data = await res.json();
-        data.sort((a, b) => a.str - b.str);
+        data.sort((a, b) => a.str.localeCompare(b.str));
         data.forEach((p, i) => (p.i = i));
         this.phonemes = data;
       },

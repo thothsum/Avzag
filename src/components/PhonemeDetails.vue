@@ -53,7 +53,6 @@ h2 {
   font-size: 12px;
   font-style: italic;
   word-spacing: 10px;
-  color: var(--nord3);
 }
 
 .sample {
