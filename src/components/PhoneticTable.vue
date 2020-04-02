@@ -1,9 +1,12 @@
 <template>
   <div class="table">
-    <h3>{{title}}s</h3>
-    <div class="query">
-      <QueryItem :key="i" :tag="tag" @query="addQuery(tag, $event)" v-for="(tag, i) in tags" />
-    </div>
+    <QueryList
+      :category="category"
+      :phonemes="phonemes"
+      :tagsKey="'tags'"
+      :visible="true"
+      @query="getResults($event)"
+    />
     <PhonemeItem
       :phoneme="phn"
       :faded="results && !results.includes(phn)"
@@ -15,47 +18,36 @@
 </template>
 
 <script>
-import QueryItem from "./QueryItem";
+import QueryList from "./QueryList";
 import PhonemeItem from "./PhonemeItem";
 
 export default {
   name: "PhoneticTable",
   props: ["category", "phonemes"],
   components: {
-    QueryItem,
+    QueryList,
     PhonemeItem
   },
   data() {
     return {
-      query: [],
       results: null
     };
   },
+  watch: {
+    phonemes() {
+      this.results = null;
+    }
+  },
   computed: {
-    tags: function() {
-      let set = new Set();
-      this.phonemes.forEach(p => p.tags?.forEach(t => set.add(t)));
-      set.delete(this.category);
-
-      let tags = [...set];
-      tags.sort((a, b) => a.localeCompare(b));
-      return tags;
-    },
     title: function() {
       return this.category[0].toUpperCase() + this.category.slice(1);
     }
   },
   methods: {
-    addQuery(tag, mode) {
-      if (mode === 0) delete this.query[tag];
-      else this.query[tag] = mode === 1 ? true : false;
-      this.getResults();
-    },
-    getResults() {
+    getResults(query) {
       let results = this.phonemes;
-      Object.keys(this.query).forEach(
-        t =>
-          (results = results.filter(r => this.query[t] === r.tags.includes(t)))
+      Object.keys(query).forEach(
+        t => (results = results.filter(r => query[t] === r.tags.includes(t)))
       );
       this.results = results;
     }

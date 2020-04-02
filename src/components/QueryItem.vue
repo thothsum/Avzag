@@ -5,17 +5,21 @@
 <script>
 export default {
   name: "QueryItem",
-  props: ["tag", "enabled"],
+  props: ["tag", "clean", "enabled"],
   data() {
     return {
       mode: 1
     };
   },
+  watch: {
+    clean() {
+      this.mode = 1;
+    }
+  },
   methods: {
     toggle() {
       this.mode = (this.mode + 1) % 3;
       this.$emit("query", this.mode - 1);
-      console.log(this.mode);
     }
   }
 };
