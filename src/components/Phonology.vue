@@ -1,22 +1,22 @@
 <template>
   <div class="section" v-if="phonemes">
     <div id="phonemes">
-      <div
-        class="table"
-        :key="ctg"
-        :set="phn=sortBy(ctg)"
-        v-for="ctg in ['Vowel', 'Consonant']"
-      >
+      <div class="table" :key="ctg" :set="phn=sortBy([ctg])" v-for="ctg in ['vowel', 'consonant']">
         <h3>{{ctg}}s</h3>
         <div class="query">
-          <p :key="i" v-for="(v, i) in tags(phn)">{{v}}</p>
+          <QueryItem
+            :key="i"
+            :tag="tag"
+            @query="addQuery(tag, $event)"
+            v-for="(tag, i) in tags(phn)"
+          />
         </div>
         <PhonemeItem
-          :phoneme="p"
-          :faded="!p.tags.includes('ejective')"
-          :key="p.i"
-          v-for="p in phn"
-          @click.native="selected=phn.i"
+          :phoneme="phonemes[i]"
+          :faded="!queried.includes(i)"
+          :key="i"
+          v-for="i in phn"
+          @click.native="selected=i"
         />
       </div>
     </div>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import QueryItem from "./QueryItem";
 import PhonemeItem from "./PhonemeItem";
 import PhonemeDetails from "./PhonemeDetails";
 
@@ -38,7 +39,9 @@ export default {
         let data = await res.json();
         data.sort((a, b) => a.str - b.str);
         data.forEach((p, i) => (p.i = i));
+
         this.phonemes = data;
+        this.queried = this.phonemes.map(p => p.i);
       },
       immediate: true
     }
@@ -46,12 +49,15 @@ export default {
   data() {
     return {
       phonemes: undefined,
-      selected: 0
+      selected: 0,
+      query: new Set(),
+      queried: []
     };
   },
   components: {
     PhonemeItem,
-    PhonemeDetails
+    PhonemeDetails,
+    QueryItem
   },
   computed: {
     idioms: function() {
@@ -61,17 +67,24 @@ export default {
     }
   },
   methods: {
-    sortBy(tag) {
-      if (!this.phonemes) return;
-      tag = tag.toLowerCase();
-      return this.phonemes.filter(p => p.tags.includes(tag));
+    sortBy(tags) {
+      let results = this.phonemes.map(p => p.i);
+      tags.forEach(
+        t => (results = results.filter(i => this.phonemes[i].tags.includes(t)))
+      );
+      return results;
     },
     tags: function(phn) {
       let set = new Set();
-      phn.forEach(p => p.tags?.forEach(t => set.add(t)));
+      phn.forEach(i => this.phonemes[i].tags?.forEach(t => set.add(t)));
       set.delete("vowel");
       set.delete("consonant");
       return set;
+    },
+    addQuery(tag, mode) {
+      if (mode == 0) this.query.delete(tag);
+      else if (mode == 1) this.query.add(tag);
+      this.queried = this.sortBy(this.query);
     }
   }
 };

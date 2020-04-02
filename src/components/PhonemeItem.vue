@@ -21,7 +21,6 @@ export default {
   width: 50px;
   height: 40px;
   line-height: 50%;
-  position: relative;
 }
 .ipa {
   font-weight: 400;
