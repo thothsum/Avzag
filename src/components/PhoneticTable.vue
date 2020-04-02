@@ -58,7 +58,6 @@ export default {
           (results = results.filter(r => this.query[t] === r.tags.includes(t)))
       );
       this.results = results;
-      console.log(results);
     }
   }
 };
