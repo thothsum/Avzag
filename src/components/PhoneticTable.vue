@@ -1,11 +1,14 @@
 <template>
   <div class="table">
-    <h3>{{title}}</h3>
+    <div id="header">
+      <h3>{{title}}</h3>
+      <a @click="showTags=!showTags">[+]</a>
+    </div>
     <QueryList
       :phonemes="phonemes"
       :prequery="prequery"
       :tagsKey="'tags'"
-      :visible="true"
+      :visible="showTags"
       @query="getResults($event)"
     />
     <PhonemeItem
@@ -31,18 +34,18 @@ export default {
   },
   data() {
     return {
-      results: null
+      results: null,
+      showTags: false
     };
   },
   watch: {
     phonemes() {
       this.results = null;
-    },
-
+    }
   },
   computed: {
     title: function() {
-      return this.category[0].toUpperCase() + this.category.slice(1);
+      return this.category[0].toUpperCase() + this.category.slice(1) + "s";
     }
   },
   methods: {
@@ -68,8 +71,23 @@ export default {
   margin: 5px;
 }
 
-h3 {
+#header {
   width: 100%;
+}
+
+h3{
+  margin: 0;
+}
+
+#header {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#header > a{
+  margin-left: 10px;
+  padding: 0;
+  text-decoration: none;
 }
 
 .query {
@@ -79,8 +97,8 @@ h3 {
   margin: 5px 0;
 }
 @media only screen and (max-width: 600px) {
-  h3 {
-    text-align: center;
+  #header {
+    place-content: center;
   }
 }
 </style>
