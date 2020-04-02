@@ -1,11 +1,11 @@
 <template>
-  <p id="query" :class="{ex:this.mode===0, in:this.mode===2}" @click="toggle">{{tag}}</p>
+  <p id="query" :class="{ex:this.mode===0, in:this.mode===2, big:big}" @click="toggle">{{tag}}</p>
 </template>
 
 <script>
 export default {
   name: "QueryItem",
-  props: ["tag", "clean", "enabled"],
+  props: ["tag", "clean", "enabled", "big"],
   data() {
     return {
       mode: 1
@@ -41,5 +41,11 @@ export default {
 .ex {
   font-weight: bolder;
   color: var(--nord11);
+}
+.big {
+  margin: 0 10px 0 0 !important;
+  padding: 4px 8px !important;
+  font-size: 16px !important;
+  text-decoration: underline;
 }
 </style>

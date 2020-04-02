@@ -1,8 +1,9 @@
 <template>
   <div class="table">
+    <h3>{{title}}</h3>
     <QueryList
-      :category="category"
       :phonemes="phonemes"
+      :prequery="prequery"
       :tagsKey="'tags'"
       :visible="true"
       @query="getResults($event)"
@@ -23,7 +24,7 @@ import PhonemeItem from "./PhonemeItem";
 
 export default {
   name: "PhoneticTable",
-  props: ["category", "phonemes"],
+  props: ["category", "phonemes", "prequery"],
   components: {
     QueryList,
     PhonemeItem
@@ -36,7 +37,8 @@ export default {
   watch: {
     phonemes() {
       this.results = null;
-    }
+    },
+
   },
   computed: {
     title: function() {
@@ -47,7 +49,7 @@ export default {
     getResults(query) {
       let results = this.phonemes;
       Object.keys(query).forEach(
-        t => (results = results.filter(r => query[t] === r.tags.includes(t)))
+        t => (results = results.filter(r => query[t] === r._all.includes(t)))
       );
       this.results = results;
     }
@@ -75,5 +77,10 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   margin: 5px 0;
+}
+@media only screen and (max-width: 600px) {
+  h3 {
+    text-align: center;
+  }
 }
 </style>

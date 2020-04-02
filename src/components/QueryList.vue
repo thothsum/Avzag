@@ -1,11 +1,11 @@
 <template>
   <div class="list">
-    <h3>{{title}}s</h3>
     <QueryItem
       v-show="visible"
       :key="i"
       :tag="tag"
       :clean="clean"
+      :big="big"
       @query="addQuery(tag, $event)"
       v-for="(tag, i) in tags"
     />
@@ -17,7 +17,7 @@ import QueryItem from "./QueryItem";
 
 export default {
   name: "QueryTable",
-  props: ["category", "phonemes", "tagsKey", "visible"],
+  props: ["prequery", "phonemes", "tagsKey", "visible", "big"],
   components: {
     QueryItem
   },
@@ -30,6 +30,9 @@ export default {
   watch: {
     phonemes() {
       this.clean = !this.clean;
+    },
+    prequery(value) {
+      this.$emit("query", { ...value, ...this.query });
     }
   },
   computed: {
@@ -41,16 +44,13 @@ export default {
       let tags = [...set];
       tags.sort((a, b) => a.localeCompare(b));
       return tags;
-    },
-    title: function() {
-      return this.category[0].toUpperCase() + this.category.slice(1);
     }
   },
   methods: {
     addQuery(tag, mode) {
       if (mode === 0) delete this.query[tag];
       else this.query[tag] = mode === 1 ? true : false;
-      this.$emit("query", this.query);
+      this.$emit("query", { ...this.prequery, ...this.query });
     }
   }
 };
@@ -64,14 +64,15 @@ export default {
   margin-bottom: 20px;
   margin: -5px;
 }
-h3 {
-  width: 100%;
-  margin: 0 0 5px 0;
-}
 .query {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .list {
+    place-content: center;
+  }
 }
 </style>
