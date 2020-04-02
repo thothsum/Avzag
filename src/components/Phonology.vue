@@ -1,7 +1,12 @@
 <template>
   <div class="section" v-if="phonemes">
     <div id="phonemes">
-      <div class="table" :key="ctg" :set="phn=sortBy([ctg])" v-for="ctg in ['vowel', 'consonant']">
+      <div
+        class="table"
+        :key="ctg"
+        :set="phn=sortBy({[ctg]: true})"
+        v-for="ctg in ['vowel', 'consonant']"
+      >
         <h3>{{ctg}}s</h3>
         <div class="query">
           <QueryItem
@@ -50,7 +55,7 @@ export default {
     return {
       phonemes: undefined,
       selected: 0,
-      query: new Set(),
+      query: [],
       queried: []
     };
   },
@@ -67,10 +72,13 @@ export default {
     }
   },
   methods: {
-    sortBy(tags) {
+    sortBy(query) {
       let results = this.phonemes.map(p => p.i);
-      tags.forEach(
-        t => (results = results.filter(i => this.phonemes[i].tags.includes(t)))
+      Object.keys(query).forEach(
+        tag =>
+          (results = results.filter(
+            i => query[tag] === this.phonemes[i].tags.includes(tag)
+          ))
       );
       return results;
     },
@@ -82,9 +90,10 @@ export default {
       return set;
     },
     addQuery(tag, mode) {
-      if (mode == 0) this.query.delete(tag);
-      else if (mode == 1) this.query.add(tag);
+      if (mode === 0) delete this.query[tag];
+      else this.query[tag] = mode === 1 ? true : false;
       this.queried = this.sortBy(this.query);
+      console.log(this.query);
     }
   }
 };
