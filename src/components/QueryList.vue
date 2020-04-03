@@ -3,7 +3,7 @@
     <div id="header">
       <h3>{{title}}</h3>
       <a @click="visible=!visible">[+]</a>
-      <a v-show="visible && result" @click="resetAll">[reset all]</a>
+      <a v-show="visible" @click="resetAll">[reset all]</a>
     </div>
     <div id="body" v-show="visible">
       <p
@@ -33,6 +33,7 @@ export default {
         [...tags]
           .sort((a, b) => a.localeCompare(b))
           .forEach(t => (this.query[t] = 0));
+        this.resetAll();
       },
       immediate: true
     }
