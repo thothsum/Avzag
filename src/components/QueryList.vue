@@ -1,77 +1,97 @@
 <template>
-  <div class="list">
-    <QueryItem
-      v-show="visible"
-      :key="i"
-      :tag="tag"
-      :clean="clean"
-      :big="big"
-      @query="addQuery(tag, $event)"
-      v-for="(tag, i) in tags"
-    />
+  <div id="list">
+    <p id="reset" class="toggle" :class="{big: big}" @click="resetAll">[X]</p>
+    <p
+      class="toggle"
+      :class="{ex:mode===-1, in:mode===1, big:big}"
+      :key="tag"
+      @click="updateQuery(tag)"
+      v-for="(mode, tag) of query"
+    >{{tag}}</p>
   </div>
 </template>
 
 <script>
-import QueryItem from "./QueryItem";
-
 export default {
-  name: "QueryTable",
-  props: ["prequery", "phonemes", "tagsKey", "visible", "big"],
-  components: {
-    QueryItem
-  },
+  name: "QueryList",
+  props: ["phonemes", "exclude", "source", "big"],
   data() {
     return {
-      query: [],
-      clean: true
+      query: {}
     };
   },
   watch: {
-    phonemes() {
-      this.clean = !this.clean;
-    },
-    prequery(value) {
-      this.$emit("query", { ...value, ...this.query });
-    }
-  },
-  computed: {
-    tags: function() {
-      let set = new Set();
-      this.phonemes.forEach(p => p[this.tagsKey]?.forEach(t => set.add(t)));
-      set.delete(this.category);
+    phonemes: {
+      handler: function(phonemes) {
+        let tags = new Set();
+        phonemes.forEach(p => p[this.source]?.forEach(t => tags.add(t)));
+        this.exclude?.forEach(t => tags.delete(t));
 
-      let tags = [...set];
-      tags.sort((a, b) => a.localeCompare(b));
-      return tags;
+        this.query = {};
+        [...tags]
+          .sort((a, b) => a.localeCompare(b))
+          .forEach(t => (this.query[t] = 0));
+      },
+      immediate: true
     }
   },
   methods: {
-    addQuery(tag, mode) {
-      if (mode === 0) delete this.query[tag];
-      else this.query[tag] = mode === 1 ? true : false;
-      this.$emit("query", { ...this.prequery, ...this.query });
+    updateQuery(tag) {
+      this.query[tag] = ((this.query[tag] + 2) % 3) - 1;
+      this.emitResult();
+      this.$forceUpdate();
+    },
+    resetAll() {
+      Object.keys(this.query).forEach(t => (this.query[t] = 0));
+      this.emitResult();
+      this.$forceUpdate();
+    },
+    emitResult() {
+      let result = {};
+      for (const [tag, mode] of Object.entries(this.query)) {
+        if (mode !== 0) result[tag] = mode === 1;
+      }
+      this.$emit("query", result);
     }
   }
 };
 </script>
 
 <style scoped>
-.list {
+#list {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin-bottom: 20px;
-  margin: -5px;
 }
-.query {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5px;
+.toggle {
+  margin: 0 5px 0 0;
+  padding: 2px 4px;
+  font-size: 12px;
+  font-style: italic;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: underline;
+}
+#reset {
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+}
+.in {
+  color: var(--nord14);
+  font-weight: bolder;
+}
+.ex {
+  color: var(--nord11);
+  font-weight: bolder;
+}
+.big {
+  margin: 0 10px 0 0 !important;
+  padding: 4px 8px !important;
+  font-size: 16px !important;
 }
 @media only screen and (max-width: 600px) {
-  .list {
+  #list {
     place-content: center;
   }
 }

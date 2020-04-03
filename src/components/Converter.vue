@@ -12,15 +12,13 @@
       <button @click="showMapping = !showMapping">Show mappings</button>
       <button @click="copy">Copy to clipboard</button>
     </div>
-    <div id="mapping" v-if="showMapping">
-      <MappingItem :key="i" :mapping="map" v-for="(map, i) in mapping" />
-    </div>
+    <MappingTable :mapping="mapping" v-show="showMapping" />
     <input v-show="false" type="file" ref="file" @change="handleFiles" />
   </div>
 </template>
 
 <script>
-import MappingItem from "./MappingItem";
+import MappingTable from "./MappingTable";
 
 export default {
   name: "Converter",
@@ -45,7 +43,7 @@ export default {
     };
   },
   components: {
-    MappingItem
+    MappingTable
   },
   computed: {
     mapping: function() {
@@ -113,35 +111,22 @@ textarea {
   padding: 10px;
   height: 250px;
 }
-
 #options {
   display: flex;
   justify-content: space-between;
 }
-
 .split {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   align-items: stretch;
 }
-
 .split :nth-child(1) {
   border-radius: 4px 0 0 4px;
 }
-
 .split :nth-child(2) {
   border-radius: 0 4px 4px 0;
 }
-
-#mapping {
-  background-color: var(--nord6);
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px;
-  place-content: center;
-}
-
 @media only screen and (max-width: 600px) {
   .split {
     display: grid;

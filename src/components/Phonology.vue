@@ -5,8 +5,7 @@
         <h3>Idioms</h3>
         <QueryList
           :phonemes="phonemes"
-          :tagsKey="'idioms'"
-          :visible="true"
+          :source="'idioms'"
           :big="true"
           @query="idiomQuery=$event"
         />
@@ -58,13 +57,6 @@ export default {
     PhoneticTable,
     PhonemeDetails,
     QueryList
-  },
-  computed: {
-    idioms: function() {
-      let set = new Set();
-      this.phonemes.forEach(p => p.idioms?.forEach(t => set.add(t)));
-      return set;
-    }
   },
   methods: {
     categorize(category) {

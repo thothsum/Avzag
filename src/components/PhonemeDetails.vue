@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="card">
     <h2>{{phoneme.str}} • {{phoneme.ipa}}</h2>
     <p id="tags">{{phoneme.tags.reduce((a, t) => (a = `${a} ${t}`))}}</p>
     <div>
@@ -43,18 +43,20 @@ export default {
 * {
   text-align: center;
 }
-
+#card{
+  padding: 10px;
+  box-shadow: 0px 0px 5px var(--nord4);
+  max-height: 250px;
+}
 h2 {
   word-spacing: 15px;
   margin-top: 0;
 }
-
 #tags {
   font-size: 12px;
   font-style: italic;
   word-spacing: 10px;
 }
-
 .sample {
   margin: 10px 0;
   width: 100%;

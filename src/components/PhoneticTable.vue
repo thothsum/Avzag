@@ -7,9 +7,11 @@
     <QueryList
       :phonemes="phonemes"
       :prequery="prequery"
-      :tagsKey="'tags'"
-      :visible="showTags"
+      :exclude="[category]"
+      :source="'tags'"
       @query="getResults($event)"
+      v-if="showTags"
+      v-show="showTags"
     />
     <PhonemeItem
       :phoneme="phn"
@@ -50,10 +52,14 @@ export default {
   },
   methods: {
     getResults(query) {
+      console.log("total: " + JSON.stringify({ ...this.prequery, ...query }));
       let results = this.phonemes;
-      Object.keys(query).forEach(
-        t => (results = results.filter(r => query[t] === r._all.includes(t)))
-      );
+      for (const [tag, mode] of Object.entries({
+        ...this.prequery,
+        ...query
+      })) {
+        results = results.filter(r => mode === r._all.includes(tag));
+      }
       this.results = results;
     }
   }
@@ -75,7 +81,7 @@ export default {
   width: 100%;
 }
 
-h3{
+h3 {
   margin: 0;
 }
 
@@ -84,7 +90,7 @@ h3{
   flex-wrap: nowrap;
 }
 
-#header > a{
+#header > a {
   margin-left: 10px;
   padding: 0;
   text-decoration: none;
