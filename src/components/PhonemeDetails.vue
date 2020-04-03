@@ -43,10 +43,12 @@ export default {
 * {
   text-align: center;
 }
-#card{
+#card {
   padding: 10px;
   box-shadow: 0px 0px 5px var(--nord4);
-  max-height: 250px;
+  max-height: 300px;
+  width: 200px;
+  justify-self: center;
 }
 h2 {
   word-spacing: 15px;
@@ -60,5 +62,10 @@ h2 {
 .sample {
   margin: 10px 0;
   width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  #card {
+    width: 300px;
+  }
 }
 </style>

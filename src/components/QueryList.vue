@@ -54,8 +54,6 @@ export default {
       }
       this.$emit("query", result);
       this.$forceUpdate();
-      console.log("Query emitted: ");
-      console.log(result);
     }
   }
 };

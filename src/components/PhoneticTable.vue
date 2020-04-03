@@ -1,5 +1,5 @@
 <template>
-  <div class="table">
+  <div id="table">
     <button
       class="phoneme"
       :class="{faded: !fits(phn)}"
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.table {
+#table {
   display: flex;
   flex-wrap: wrap;
 }
@@ -61,5 +61,10 @@ export default {
 }
 .faded:hover > * {
   color: initial;
+}
+@media only screen and (max-width: 600px) {
+  #table {
+    place-content: center;
+  }
 }
 </style>
