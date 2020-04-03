@@ -9,7 +9,7 @@
       :prequery="prequery"
       :exclude="[category]"
       :source="'tags'"
-      @query="getResults($event)"
+      @query="query=$event"
       v-if="showTags"
       v-show="showTags"
     />
@@ -36,31 +36,23 @@ export default {
   },
   data() {
     return {
-      results: null,
+      query: null,
       showTags: false
     };
-  },
-  watch: {
-    phonemes() {
-      this.results = null;
-    }
   },
   computed: {
     title: function() {
       return this.category[0].toUpperCase() + this.category.slice(1) + "s";
-    }
-  },
-  methods: {
-    getResults(query) {
-      console.log("total: " + JSON.stringify({ ...this.prequery, ...query }));
+    },
+    results: function() {
       let results = this.phonemes;
       for (const [tag, mode] of Object.entries({
         ...this.prequery,
-        ...query
+        ...this.query
       })) {
         results = results.filter(r => mode === r._all.includes(tag));
       }
-      this.results = results;
+      return results;
     }
   }
 };
@@ -72,30 +64,24 @@ export default {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-
 .table > * {
   margin: 5px;
 }
-
 #header {
   width: 100%;
 }
-
 h3 {
   margin: 0;
 }
-
 #header {
   display: flex;
   flex-wrap: nowrap;
 }
-
 #header > a {
   margin-left: 10px;
   padding: 0;
   text-decoration: none;
 }
-
 .query {
   width: 100%;
   display: flex;
