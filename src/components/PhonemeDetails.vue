@@ -46,7 +46,6 @@ export default {
 #card {
   padding: 10px;
   box-shadow: 0px 0px 5px var(--nord4);
-  max-height: 300px;
   width: 200px;
   justify-self: center;
 }

@@ -102,7 +102,7 @@ export default {
   grid-template-columns: 1fr 200px;
   gap: 20px;
 }
-.space {
+.space:not(:last-child) {
   margin-bottom: 20px;
 }
 #phonemes {
