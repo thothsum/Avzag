@@ -1,32 +1,35 @@
 <template>
   <div id="list">
-    <p id="reset" class="toggle" :class="{big: big}" @click="resetAll">[X]</p>
-    <p
-      class="toggle"
-      :class="{ex:mode===-1, in:mode===1, big:big}"
-      :key="tag"
-      @click="updateQuery(tag)"
-      v-for="(mode, tag) of query"
-    >{{tag}}</p>
+    <div id="header">
+      <h3>{{title}}</h3>
+      <a @click="visible=!visible">[+]</a>
+    </div>
+    <div id="body" v-show="visible">
+      <p id="reset" class="toggle" :class="{big: big}" @click="resetAll">[X]</p>
+      <p
+        class="toggle"
+        :class="{ex:mode===-1, in:mode===1, big:big}"
+        :key="tag"
+        @click="updateQuery(tag)"
+        v-for="(mode, tag) of query"
+      >{{tag}}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "QueryList",
-  props: ["phonemes", "exclude", "source", "big"],
+  props: ["title", "tags", "big"],
   data() {
     return {
+      visible: false,
       query: {}
     };
   },
   watch: {
-    phonemes: {
-      handler: function(phonemes) {
-        let tags = new Set();
-        phonemes.forEach(p => p[this.source]?.forEach(t => tags.add(t)));
-        this.exclude?.forEach(t => tags.delete(t));
-
+    tags: {
+      handler: function(tags) {
         this.query = {};
         [...tags]
           .sort((a, b) => a.localeCompare(b))
@@ -58,8 +61,25 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  margin: 0;
+}
+#header,
+#body {
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+#header > a,
+#body > a {
+  margin-left: 10px;
+  padding: 0;
+  text-decoration: none;
+}
 #list {
   display: flex;
+  flex-flow: column;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -91,7 +111,8 @@ export default {
   font-size: 16px !important;
 }
 @media only screen and (max-width: 600px) {
-  #list {
+  #header,
+  #body {
     place-content: center;
   }
 }

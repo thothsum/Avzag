@@ -1,17 +1,18 @@
 <template>
   <div class="section" v-if="phonemes">
     <div id="phonemes">
-      <div class="table">
-        <h3>Idioms</h3>
-        <QueryList :phonemes="phonemes" :source="'idioms'" :big="true" @query="idiomQuery=$event" />
-      </div>
+      <QueryList :title="'Idioms'" :tags="idioms" :big="true" @query="idiomQuery=$event" />
+      <QueryList :title="'Vowels'" :tags="vowelTags" @query="vowelQuery=$event" />
       <PhoneticTable
-        :key="ctg"
-        :category="ctg"
-        :phonemes="categorize(ctg)"
-        :prequery="idiomQuery"
+        :phonemes="vowels"
+        :query="{...vowelQuery, ...idiomQuery}"
         @phoneme="selected=$event"
-        v-for="ctg in ['vowel', 'consonant']"
+      />
+      <QueryList :title="'Consonants'" :tags="consonantTags" @query="consonantQuery=$event" />
+      <PhoneticTable
+        :phonemes="consonants"
+        :query="{...consonantQuery, ...idiomQuery}"
+        @phoneme="selected=$event"
       />
     </div>
     <PhonemeDetails :langRoot="langRoot" :phoneme="phonemes[selected]" />
@@ -46,6 +47,8 @@ export default {
     return {
       phonemes: undefined,
       idiomQuery: undefined,
+      vowelQuery: undefined,
+      consonantQuery: undefined,
       selected: 0
     };
   },
@@ -54,9 +57,32 @@ export default {
     PhonemeDetails,
     QueryList
   },
+  computed: {
+    idioms: function() {
+      return this.getTags(this.phonemes, "idioms");
+    },
+    vowels: function() {
+      return this.categorize("vowel");
+    },
+    vowelTags: function() {
+      return this.getTags(this.vowels, "tags", ["vowel"]);
+    },
+    consonants: function() {
+      return this.categorize("consonant");
+    },
+    consonantTags: function() {
+      return this.getTags(this.consonants, "tags", ["consonant"]);
+    }
+  },
   methods: {
     categorize(category) {
       return this.phonemes.filter(p => p.tags.includes(category));
+    },
+    getTags(phonemes, source, exclude = []) {
+      let tags = new Set();
+      phonemes.forEach(p => p[source]?.forEach(t => tags.add(t)));
+      exclude.forEach(t => tags.delete(t));
+      return tags;
     }
   }
 };
@@ -76,26 +102,10 @@ export default {
 #phonemes > * {
   width: 100%;
 }
-.table {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-.table > * {
-  margin: 5px;
-}
 @media only screen and (max-width: 600px) {
   .section {
     grid-template-columns: 1fr;
     direction: ltr;
-  }
-  .table {
-    display: flex;
-    flex-wrap: wrap;
-    place-content: center;
-  }
-  h3 {
-    text-align: center;
   }
 }
 </style>

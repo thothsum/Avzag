@@ -1,58 +1,32 @@
 <template>
   <div class="table">
-    <div id="header">
-      <h3>{{title}}</h3>
-      <a @click="showTags=!showTags">[+]</a>
-    </div>
-    <QueryList
-      :phonemes="phonemes"
-      :prequery="prequery"
-      :exclude="[category]"
-      :source="'tags'"
-      @query="query=$event"
-      v-if="showTags"
-      v-show="showTags"
-    />
-    <PhonemeItem
-      :phoneme="phn"
-      :faded="results && !results.includes(phn)"
+    <button
+      class="phoneme"
+      :class="{faded: !fits(phn)}"
       :key="phn.i"
+      @click="$emit('phoneme', phn.i)"
       v-for="phn in phonemes"
-      @click.native="$emit('phoneme', phn.i)"
-    />
+    >
+      <span class="letter">{{phn.str}}</span>
+      <br />
+      <span class="ipa">{{phn.ipa}}</span>
+    </button>
   </div>
 </template>
 
 <script>
-import QueryList from "./QueryList";
-import PhonemeItem from "./PhonemeItem";
-
 export default {
   name: "PhoneticTable",
-  props: ["category", "phonemes", "prequery"],
-  components: {
-    QueryList,
-    PhonemeItem
-  },
-  data() {
-    return {
-      query: null,
-      showTags: false
-    };
-  },
-  computed: {
-    title: function() {
-      return this.category[0].toUpperCase() + this.category.slice(1) + "s";
-    },
-    results: function() {
-      let results = this.phonemes;
-      for (const [tag, mode] of Object.entries({
-        ...this.prequery,
-        ...this.query
-      })) {
-        results = results.filter(r => mode === r._all.includes(tag));
+  props: ["query", "phonemes"],
+  methods: {
+    fits(phoneme) {
+      if (!this.query) return true;
+      
+      let result = true;
+      for (const [tag, mode] of Object.entries(this.query)) {
+        result &= mode === phoneme._all.includes(tag);
       }
-      return results;
+      return result;
     }
   }
 };
@@ -64,33 +38,30 @@ export default {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
-.table > * {
+.phoneme {
   margin: 5px;
+  flex-direction: column;
+  font-weight: 600;
+  align-items: center;
+  width: 50px;
+  height: 40px;
+  line-height: 50%;
 }
-#header {
-  width: 100%;
+.ipa {
+  font-weight: 400;
+  font-size: 12px;
 }
-h3 {
-  margin: 0;
+.faded {
+  background-color: transparent;
+  border-color: var(--nord5);
 }
-#header {
-  display: flex;
-  flex-wrap: nowrap;
+.faded:active {
+  border-color: var(--nord0);
 }
-#header > a {
-  margin-left: 10px;
-  padding: 0;
-  text-decoration: none;
+.faded > * {
+  color: var(--nord4);
 }
-.query {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5px 0;
-}
-@media only screen and (max-width: 600px) {
-  #header {
-    place-content: center;
-  }
+.faded:hover > * {
+  color: initial;
 }
 </style>
