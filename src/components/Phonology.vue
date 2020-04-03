@@ -3,12 +3,7 @@
     <div id="phonemes">
       <div class="table">
         <h3>Idioms</h3>
-        <QueryList
-          :phonemes="phonemes"
-          :source="'idioms'"
-          :big="true"
-          @query="idiomQuery=$event"
-        />
+        <QueryList :phonemes="phonemes" :source="'idioms'" :big="true" @query="idiomQuery=$event" />
       </div>
       <PhoneticTable
         :key="ctg"
@@ -36,11 +31,12 @@ export default {
       handler: async function(langRoot) {
         const res = await fetch(langRoot + "phonemes.json");
         let data = await res.json();
-        data.sort((a, b) => a.str.localeCompare(b.str));
-        data.forEach(function(p, i) {
-          p.i = i;
-          p._all = p.tags.concat(p.idioms);
-        });
+        data
+          .sort((a, b) => a.str.localeCompare(b.str))
+          .forEach(function(p, i) {
+            p.i = i;
+            p._all = p.tags.concat(p.idioms);
+          });
         this.phonemes = data;
       },
       immediate: true
