@@ -21,7 +21,6 @@ export default {
   methods: {
     fits(phoneme) {
       if (!this.query) return true;
-      
       let result = true;
       for (const [tag, mode] of Object.entries(this.query)) {
         result &= mode === phoneme._all.includes(tag);
@@ -36,7 +35,6 @@ export default {
 .table {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px;
 }
 .phoneme {
   margin: 5px;

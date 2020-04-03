@@ -1,15 +1,23 @@
 <template>
   <div class="section" v-if="phonemes">
     <div id="phonemes">
-      <QueryList :title="'Idioms'" :tags="idioms" :big="true" @query="idiomQuery=$event" />
+      <QueryList
+        class="space"
+        :title="'Idioms'"
+        :tags="idioms"
+        :big="true"
+        @query="idiomQuery=$event"
+      />
       <QueryList :title="'Vowels'" :tags="vowelTags" @query="vowelQuery=$event" />
       <PhoneticTable
+        class="space"
         :phonemes="vowels"
         :query="{...vowelQuery, ...idiomQuery}"
         @phoneme="selected=$event"
       />
       <QueryList :title="'Consonants'" :tags="consonantTags" @query="consonantQuery=$event" />
       <PhoneticTable
+        class="space"
         :phonemes="consonants"
         :query="{...consonantQuery, ...idiomQuery}"
         @phoneme="selected=$event"
@@ -93,6 +101,9 @@ export default {
   display: grid;
   grid-template-columns: 1fr 200px;
   gap: 20px;
+}
+.space {
+  margin-bottom: 20px;
 }
 #phonemes {
   display: flex;

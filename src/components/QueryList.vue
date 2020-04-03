@@ -3,11 +3,10 @@
     <div id="header">
       <h3>{{title}}</h3>
       <a @click="visible=!visible">[+]</a>
+      <a v-show="visible && result" @click="resetAll">[reset all]</a>
     </div>
     <div id="body" v-show="visible">
-      <p id="reset" class="toggle" :class="{big: big}" @click="resetAll">[X]</p>
       <p
-        class="toggle"
         :class="{ex:mode===-1, in:mode===1, big:big}"
         :key="tag"
         @click="updateQuery(tag)"
@@ -41,20 +40,21 @@ export default {
   methods: {
     updateQuery(tag) {
       this.query[tag] = ((this.query[tag] + 2) % 3) - 1;
-      this.emitResult();
-      this.$forceUpdate();
+      this.applyQuery();
     },
     resetAll() {
       Object.keys(this.query).forEach(t => (this.query[t] = 0));
-      this.emitResult();
-      this.$forceUpdate();
+      this.applyQuery();
     },
-    emitResult() {
+    applyQuery() {
       let result = {};
       for (const [tag, mode] of Object.entries(this.query)) {
         if (mode !== 0) result[tag] = mode === 1;
       }
       this.$emit("query", result);
+      this.$forceUpdate();
+      console.log("Query emitted: ");
+      console.log(result);
     }
   }
 };
@@ -64,6 +64,12 @@ export default {
 h3 {
   margin: 0;
 }
+#list {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
 #header,
 #body {
   margin: 5px;
@@ -71,19 +77,12 @@ h3 {
   flex-wrap: wrap;
   width: 100%;
 }
-#header > a,
-#body > a {
+#header > a {
   margin-left: 10px;
   padding: 0;
   text-decoration: none;
 }
-#list {
-  display: flex;
-  flex-flow: column;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.toggle {
+#body > p {
   margin: 0 5px 0 0;
   padding: 2px 4px;
   font-size: 12px;
@@ -91,11 +90,6 @@ h3 {
   cursor: pointer;
   user-select: none;
   text-decoration: underline;
-}
-#reset {
-  font-weight: bold;
-  font-style: normal;
-  text-decoration: none;
 }
 .in {
   color: var(--nord14);
