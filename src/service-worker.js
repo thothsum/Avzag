@@ -3,8 +3,6 @@
 const CACHE = "sw-aevzag-precache";
 const precacheFiles = self.__precacheManifest.map(f => f.url);
 
-console.log(precacheFiles);
-
 self.addEventListener("install", function (event) {
     console.log("[PWA Builder] Install Event processing");
     console.log("[PWA Builder] Skip waiting on install");

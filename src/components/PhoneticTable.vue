@@ -21,11 +21,10 @@ export default {
   methods: {
     fits(phoneme) {
       if (!this.query) return true;
-      let result = true;
       for (const [tag, mode] of Object.entries(this.query)) {
-        result &= mode === phoneme._all.includes(tag);
+        if (mode !== phoneme._all.includes(tag)) return false;
       }
-      return result;
+      return true;
     }
   }
 };
