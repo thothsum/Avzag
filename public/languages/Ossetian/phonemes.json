@@ -384,6 +384,155 @@
         "samples": []
     },
     {
+        "str": "ф",
+        "ipa": "f",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "labiodental",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "в",
+        "ipa": "v",
+        "tags": [
+            "consonant",
+            "voiced",
+            "labiodental",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "с",
+        "ipa": "s",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "alveolar",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "з",
+        "ipa": "z",
+        "tags": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "ш",
+        "ipa": "ʃ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "postalveolar",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron"
+        ],
+        "samples": []
+    },
+    {
+        "str": "ж",
+        "ipa": "ʒ",
+        "tags": [
+            "consonant",
+            "voiced",
+            "postalveolar",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron"
+        ],
+        "samples": []
+    },
+    {
+        "str": "гъ",
+        "ipa": "ʁ",
+        "tags": [
+            "consonant",
+            "voiced",
+            "uvular",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "х",
+        "ipa": "χ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "uvular",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "ху",
+        "ipa": "χʷ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "uvular",
+            "fricative",
+            "labialized"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "гъ",
+        "ipa": "h",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "glottal",
+            "fricative"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
         "str": "дз",
         "ipa": "d͡z",
         "tags": [
@@ -426,78 +575,6 @@
     {
         "str": "чъ",
         "ipa": "t͡ʃʼ",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "в",
-        "ipa": "v",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "ж",
-        "ipa": "ʒ",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "ш",
-        "ipa": "ʃ",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "з",
-        "ipa": "z",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "гъ",
-        "ipa": "ʁ",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "ф",
-        "ipa": "f",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "с",
-        "ipa": "s",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "х",
-        "ipa": "χ",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "ху",
-        "ipa": "χʷ",
         "tags": [
             "consonant"
         ],
