@@ -197,25 +197,64 @@
     },
     {
         "str": "г",
-        "ipa": "ɡ",
+        "ipa": "g",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "velar",
+            "stop"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
     {
         "str": "гу",
-        "ipa": "ɡʷ",
+        "ipa": "gʷ",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "velar",
+            "stop",
+            "labialized"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
     {
         "str": "к",
-        "ipa": "k",
+        "ipa": "kʰ",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "velar",
+            "stop",
+            "aspirated"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "к",
+        "ipa": "kʷ",
+        "tags": [
+            "consonant",
+            "voiceless",
+            "velar",
+            "stop",
+            "labialized"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -223,15 +262,15 @@
         "str": "къ",
         "ipa": "kʼ",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "velar",
+            "stop",
+            "ejective"
         ],
-        "samples": []
-    },
-    {
-        "str": "ку",
-        "ipa": "kʷ",
-        "tags": [
-            "consonant"
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -239,33 +278,110 @@
         "str": "къу",
         "ipa": "kʼʷ",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "velar",
+            "stop",
+            "ejective",
+            "labialized"
         ],
-        "samples": []
+        "idioms": [
+            "Iron",
+            "Digor"
+        ]
     },
     {
         "str": "хъ",
         "ipa": "q",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "uvular",
+            "stop"
         ],
-        "samples": []
+        "idioms": [
+            "Iron",
+            "Digor"
+        ]
     },
     {
         "str": "хъу",
         "ipa": "qʷ",
         "tags": [
             "consonant",
-            "stop",
-            "uvular",
             "voiceless",
+            "uvular",
+            "stop",
             "labialized"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": [
             "хъу",
             "хъуыдытæ",
             "лæхъуæн"
         ]
+    },
+    {
+        "str": "гъ",
+        "ipa": "ʔ",
+        "tags": [
+            "consonant",
+            "glottal",
+            "stop"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "м",
+        "ipa": "m",
+        "tags": [
+            "consonant",
+            "voiced",
+            "bilabial",
+            "nasal"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "н",
+        "ipa": "n",
+        "tags": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "nasal"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "р",
+        "ipa": "r",
+        "tags": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "trill"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
     },
     {
         "str": "дз",
@@ -388,32 +504,8 @@
         "samples": []
     },
     {
-        "str": "м",
-        "ipa": "m",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "н",
-        "ipa": "n",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
         "str": "л",
         "ipa": "l",
-        "tags": [
-            "consonant"
-        ],
-        "samples": []
-    },
-    {
-        "str": "р",
-        "ipa": "r",
         "tags": [
             "consonant"
         ],
