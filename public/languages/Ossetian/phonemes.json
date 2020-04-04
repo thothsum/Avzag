@@ -487,6 +487,22 @@
         "samples": []
     },
     {
+        "str": "гъ",
+        "ipa": "ʁʷ",
+        "tags": [
+            "consonant",
+            "voiced",
+            "uvular",
+            "fricative",
+            "labialized"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
         "str": "х",
         "ipa": "χ",
         "tags": [
@@ -536,15 +552,14 @@
         "str": "дз",
         "ipa": "d͡z",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "alveolar",
+            "affricate"
         ],
-        "samples": []
-    },
-    {
-        "str": "дж",
-        "ipa": "d͡ʒ",
-        "tags": [
-            "consonant"
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -552,7 +567,14 @@
         "str": "ц",
         "ipa": "t͡s",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "alveolar",
+            "affricate"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -560,7 +582,29 @@
         "str": "цъ",
         "ipa": "t͡sʼ",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "alveolar",
+            "affricate",
+            "ejective"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
+        ],
+        "samples": []
+    },
+    {
+        "str": "дж",
+        "ipa": "d͡ʒ",
+        "tags": [
+            "consonant",
+            "voiced",
+            "postalveolar",
+            "affricate"
+        ],
+        "idioms": [
+            "Iron"
         ],
         "samples": []
     },
@@ -568,7 +612,13 @@
         "str": "ч",
         "ipa": "t͡ʃ",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "postalveolar",
+            "affricate"
+        ],
+        "idioms": [
+            "Iron"
         ],
         "samples": []
     },
@@ -576,7 +626,14 @@
         "str": "чъ",
         "ipa": "t͡ʃʼ",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiceless",
+            "postalveolar",
+            "affricate",
+            "ejective"
+        ],
+        "idioms": [
+            "Iron"
         ],
         "samples": []
     },
