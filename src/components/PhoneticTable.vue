@@ -20,7 +20,6 @@ export default {
   props: ["query", "phonemes"],
   methods: {
     fits(phoneme) {
-      if (!this.query) return true;
       for (const [tag, mode] of Object.entries(this.query)) {
         if (mode !== phoneme._all.includes(tag)) return false;
       }
