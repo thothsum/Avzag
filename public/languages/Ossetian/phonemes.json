@@ -122,9 +122,9 @@
         "tags": [
             "consonant",
             "voiceless",
+            "aspirated",
             "bilabial",
-            "stop",
-            "aspirated"
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -137,10 +137,9 @@
         "ipa": "pʼ",
         "tags": [
             "consonant",
-            "voiceless",
             "bilabial",
-            "stop",
-            "ejective"
+            "ejective",
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -169,9 +168,9 @@
         "tags": [
             "consonant",
             "voiceless",
+            "aspirated",
             "dental",
-            "stop",
-            "aspirated"
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -184,10 +183,9 @@
         "ipa": "t̪ʼ",
         "tags": [
             "consonant",
-            "voiceless",
             "dental",
-            "stop",
-            "ejective"
+            "ejective",
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -216,9 +214,9 @@
         "tags": [
             "consonant",
             "voiced",
+            "labialized",
             "velar",
-            "stop",
-            "labialized"
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -232,9 +230,9 @@
         "tags": [
             "consonant",
             "voiceless",
+            "aspirated",
             "velar",
-            "stop",
-            "aspirated"
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -248,9 +246,9 @@
         "tags": [
             "consonant",
             "voiceless",
+            "labialized",
             "velar",
-            "stop",
-            "labialized"
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -263,10 +261,9 @@
         "ipa": "kʼ",
         "tags": [
             "consonant",
-            "voiceless",
             "velar",
-            "stop",
-            "ejective"
+            "ejective",
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -279,11 +276,10 @@
         "ipa": "kʼʷ",
         "tags": [
             "consonant",
-            "voiceless",
             "velar",
-            "stop",
+            "labialized",
             "ejective",
-            "labialized"
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -310,9 +306,9 @@
         "tags": [
             "consonant",
             "voiceless",
+            "labialized",
             "uvular",
-            "stop",
-            "labialized"
+            "stop"
         ],
         "idioms": [
             "Iron",
@@ -492,9 +488,9 @@
         "tags": [
             "consonant",
             "voiced",
+            "labialized",
             "uvular",
-            "fricative",
-            "labialized"
+            "fricative"
         ],
         "idioms": [
             "Iron",
@@ -523,9 +519,9 @@
         "tags": [
             "consonant",
             "voiceless",
+            "labialized",
             "uvular",
-            "fricative",
-            "labialized"
+            "fricative"
         ],
         "idioms": [
             "Iron",
@@ -583,10 +579,9 @@
         "ipa": "t͡sʼ",
         "tags": [
             "consonant",
-            "voiceless",
             "alveolar",
-            "affricate",
-            "ejective"
+            "ejective",
+            "affricate"
         ],
         "idioms": [
             "Iron",
@@ -627,10 +622,9 @@
         "ipa": "t͡ʃʼ",
         "tags": [
             "consonant",
-            "voiceless",
             "postalveolar",
-            "affricate",
-            "ejective"
+            "ejective",
+            "affricate"
         ],
         "idioms": [
             "Iron"
