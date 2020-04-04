@@ -638,10 +638,17 @@
         "samples": []
     },
     {
-        "str": "л",
-        "ipa": "l",
+        "str": "у",
+        "ipa": "w",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "labio-velar",
+            "appoximant"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
@@ -649,15 +656,30 @@
         "str": "й",
         "ipa": "j",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "palatal",
+            "appoximant"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     },
     {
-        "str": "у",
-        "ipa": "w",
+        "str": "л",
+        "ipa": "l",
         "tags": [
-            "consonant"
+            "consonant",
+            "voiced",
+            "alveolar",
+            "lateral",
+            "appoximant"
+        ],
+        "idioms": [
+            "Iron",
+            "Digor"
         ],
         "samples": []
     }
