@@ -6,12 +6,12 @@
       <a v-show="visible && !empty" @click="resetAll">[reset all]</a>
     </div>
     <div id="body" v-show="visible">
-      <p
-        :class="{ex:mode===-1, in:mode===1, big:big}"
-        :key="tag"
-        @click="updateQuery(tag)"
-        v-for="(mode, tag) of query"
-      >{{tag}}</p>
+      <p :class="{big:big}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">
+        <span v-if="mode===-1">-</span>
+        <span v-else-if="mode===1">+</span>
+        <span v-else>·</span>
+        {{tag}}
+      </p>
     </div>
   </div>
 </template>
@@ -87,27 +87,28 @@ h3 {
   padding: 0;
   text-decoration: none;
 }
-#body > p {
-  margin: 0 5px 0 0;
-  padding: 2px 4px;
+#body * {
   font-size: 12px;
-  font-style: italic;
   cursor: pointer;
   user-select: none;
   text-decoration: underline;
 }
-.in {
-  color: var(--nord14);
-  font-weight: bolder;
+p {
+  font-style: italic;
+  margin: 0 5px 0 0;
+  padding: 2px 4px;
 }
-.ex {
-  color: var(--nord11);
-  font-weight: bolder;
-}
-.big {
+p.big {
   margin: 0 10px 0 0 !important;
   padding: 4px 8px !important;
   font-size: 16px !important;
+}
+.big * {
+  font-size: 16px !important;
+}
+span {
+  font-family: monospace;
+  font-style: normal ;
 }
 @media only screen and (max-width: 600px) {
   #header,
