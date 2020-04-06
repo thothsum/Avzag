@@ -6,6 +6,8 @@
         :title="'Idioms'"
         :tags="idioms"
         :big="true"
+        :locked="true"
+        v-show="idioms.length>0"
         @query="idiomQuery=$event"
       />
       <QueryList :title="'Vowels'" :tags="vowelTags" @query="vowelQuery=$event" />
@@ -90,7 +92,7 @@ export default {
       let tags = new Set();
       phonemes.forEach(p => p[source]?.forEach(t => tags.add(t)));
       exclude.forEach(t => tags.delete(t));
-      return tags;
+      return [...tags];
     }
   }
 };

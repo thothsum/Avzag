@@ -2,8 +2,8 @@
   <div id="list">
     <div id="header">
       <h3>{{title}}</h3>
-      <a @click="visible=!visible">[+]</a>
-      <a v-show="visible" @click="resetAll">[reset all]</a>
+      <a v-show="!locked" @click="visible=!visible">[+]</a>
+      <a v-show="visible && !empty" @click="resetAll">[reset all]</a>
     </div>
     <div id="body" v-show="visible">
       <p
@@ -19,10 +19,11 @@
 <script>
 export default {
   name: "QueryList",
-  props: ["title", "tags", "big"],
+  props: ["title", "tags", "big", "locked"],
   data() {
     return {
       visible: false,
+      empty: true,
       query: {}
     };
   },
@@ -38,6 +39,9 @@ export default {
       immediate: true
     }
   },
+  created() {
+    this.visible = this.locked;
+  },
   methods: {
     updateQuery(tag) {
       this.query[tag] = ((this.query[tag] + 2) % 3) - 1;
@@ -52,6 +56,8 @@ export default {
       for (const [tag, mode] of Object.entries(this.query)) {
         if (mode !== 0) result[tag] = mode === 1;
       }
+
+      this.empty = Object.keys(result).length === 0;
       this.$emit("query", result);
       this.$forceUpdate();
     }
