@@ -16,10 +16,9 @@ export default {
 <style scoped>
 * {
   font-size: 12px;
-  font-family: "Fira Sans", sans-serif;
 }
 #mapping {
-  background-color: var(--nord6);
+  box-shadow: 0 0 10px var(--shadow);
   display: flex;
   flex-wrap: wrap;
   padding: 5px;

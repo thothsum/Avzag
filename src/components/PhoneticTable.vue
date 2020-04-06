@@ -50,13 +50,13 @@ export default {
 }
 .faded {
   background-color: transparent;
-  border-color: var(--nord5);
+  border-color: var(--shadow);
 }
 .faded:active {
-  border-color: var(--nord0);
+  border-color: var(--fore);
 }
 .faded > * {
-  color: var(--nord4);
+  color: var(--shadow);
 }
 .faded:hover > * {
   color: initial;

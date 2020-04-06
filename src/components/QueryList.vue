@@ -3,7 +3,7 @@
     <div id="header">
       <h3>{{title}}</h3>
       <a v-show="!locked" @click="visible=!visible">query</a>
-      <a v-show="visible && !empty" @click="resetAll">reset all</a>
+      <a v-show="visible && !empty" @click="resetAll">reset</a>
     </div>
     <div id="body" v-show="visible">
       <a :class="{big:big}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">

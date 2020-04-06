@@ -10,12 +10,7 @@
     </template>
     <template v-if="phoneme.samples && phoneme.samples.length>0">
       <h4>Samples</h4>
-      <button
-        @click="play(i)"
-        :key="i"
-        v-for="(smp, i) in phoneme.samples"
-        v-html="highlight(smp)"
-      ></button>
+      <button @click="play(i)" :key="i" v-for="(smp, i) in phoneme.samples" v-html="highlight(smp)"></button>
     </template>
   </div>
 </template>
@@ -64,7 +59,7 @@ export default {
 }
 #card {
   padding: 10px;
-  box-shadow: 0px 0px 10px var(--nord4);
+  box-shadow: 0px 0px 10px var(--shadow);
   width: 200px;
   justify-self: center;
 }

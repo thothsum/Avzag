@@ -59,7 +59,7 @@ export default {
 <style scoped>
 #header {
   border-radius: 0 0 4px 4px;
-  box-shadow: 0px 5px 10px var(--nord4);
+  box-shadow: 0px 5px 10px var(--shadow);
   height: 75px;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@ export default {
 
 #catalogue {
   border-radius: 0 0 4px 4px;
-  box-shadow: 0px 2.5px 2.5px var(--nord4);
+  box-shadow: 0px 2.5px 2.5px var(--shadow);
   display: flex;
   place-content: center;
   margin-top: -10px;
@@ -114,11 +114,11 @@ button.nav {
 
 button.nav {
   border-width: 0 0 4px 0;
-  border-color: var(--nord4);
+  border-color: var(--shadow);
 }
 
 button.nav:hover {
-  border-color: var(--nord0);
+  border-color: var(--text);
 }
 
 .section {
@@ -128,7 +128,7 @@ button.nav:hover {
 }
 
 button.nav.selected {
-  border-color: var(--nord0);
+  border-color: var(--text);
   font-weight: bold;
 }
 
@@ -139,7 +139,7 @@ button.nav.selected {
 
 #flag > img {
   height: 100%;
-  box-shadow: 0 0 10px var(--nord4);
+  box-shadow: 0 0 10px var(--shadow);
 }
 
 @media only screen and (max-width: 750px) {
