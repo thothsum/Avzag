@@ -7,7 +7,7 @@
       @click="$emit('phoneme', phn.i)"
       v-for="phn in phonemes"
     >
-      <span class="letter">{{phn.str}}</span>
+      <span class="str">{{phn.str}}</span>
       <br />
       <span class="ipa">{{phn.ipa}}</span>
     </button>
@@ -37,14 +37,15 @@ export default {
 .phoneme {
   margin: 5px;
   flex-direction: column;
-  font-weight: 600;
   align-items: center;
   width: 50px;
   height: 40px;
   line-height: 50%;
 }
+.str {
+  font-weight: bold;
+}
 .ipa {
-  font-weight: 400;
   font-size: 12px;
 }
 .faded {
