@@ -1,8 +1,14 @@
 <template>
   <div class="section" v-if="catalogue">
-    <a :key="i" @click="$emit('language', lg)" v-for="(lg, i) in catalogue">{{lg}}</a>
-    <div>
-      <a href>sueta</a>
+    <div id="languages">
+      <a :key="i" @click="$emit('language', lg)" v-for="(lg, i) in catalogue">{{lg}}</a>
+    </div>
+    <p id="soon">
+      <i>A proper map is coming soon...</i>
+    </p>
+    <div id="footer">
+      <hr />
+      <a href="https://github.com/alkaitagi/Aevzag">source</a>
     </div>
   </div>
 </template>
@@ -34,3 +40,25 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+* {
+  display: flex;
+  place-content: center;
+}
+.section {
+  flex-wrap: wrap;
+}
+#languages,
+#soon,
+hr {
+  width: 100%;
+}
+#languages > * {
+  margin: 5px;
+}
+#footer {
+  width: 300px;
+  flex-wrap: wrap;
+}
+</style>
