@@ -9,10 +9,9 @@
       <select v-model="selected">
         <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
       </select>
-      <button @click="showMapping = !showMapping">Show mappings</button>
       <button @click="copy">Copy to clipboard</button>
     </div>
-    <MappingTable :mapping="mapping" v-show="showMapping" />
+    <MappingTable :mapping="mapping" />
     <input v-show="false" type="file" ref="file" @change="handleFiles" />
   </div>
 </template>
@@ -38,8 +37,7 @@ export default {
     return {
       converters: null,
       selected: 0,
-      source: "",
-      showMapping: false
+      source: ""
     };
   },
   components: {
@@ -113,7 +111,12 @@ textarea {
 }
 #options {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  margin: 5px 0;
+}
+#options > * {
+  margin: 5px 0;
 }
 .split {
   display: grid;
@@ -142,9 +145,6 @@ textarea {
   }
   #options {
     flex-flow: column;
-  }
-  #options > * {
-    margin: 5px 0;
   }
 }
 </style>

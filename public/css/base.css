@@ -90,11 +90,11 @@ a {
 }
 
 a:hover {
-    transform: scale(1.15);
+    color: var(--accent);
 }
 
 a:active {
-    color: var(--accent);
+    transform: scale(1.15);
 }
 
 textarea {
