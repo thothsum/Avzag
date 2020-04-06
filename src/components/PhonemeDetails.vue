@@ -3,22 +3,19 @@
     <h2>{{phoneme.str}} • {{phoneme.ipa}}</h2>
     <hr />
     <h4>Features</h4>
-    <p id="tags">{{reduceTags('tags')}}</p>
+    <p>{{reduceTags('tags')}}</p>
     <template v-if="idioms">
       <h4>Idioms</h4>
-      <p id="tags">{{reduceTags('idioms')}}</p>
+      <p>{{reduceTags('idioms')}}</p>
     </template>
     <template v-if="phoneme.samples && phoneme.samples.length>0">
       <h4>Samples</h4>
-      <div>
-        <button
-          class="sample"
-          @click="play(i)"
-          :key="i"
-          v-for="(smp, i) in phoneme.samples"
-          v-html="highlight(smp)"
-        ></button>
-      </div>
+      <button
+        @click="play(i)"
+        :key="i"
+        v-for="(smp, i) in phoneme.samples"
+        v-html="highlight(smp)"
+      ></button>
     </template>
   </div>
 </template>
@@ -62,7 +59,8 @@ export default {
 <style scoped>
 * {
   text-align: center;
-  margin: 10px;
+  margin: 10px 0;
+  width: 100%;
 }
 #card {
   padding: 10px;
@@ -74,14 +72,10 @@ h2 {
   word-spacing: 15px;
   margin-top: 0;
 }
-#tags {
+p {
   font-size: 12px;
   font-style: italic;
   word-spacing: 10px;
-}
-.sample {
-  margin: 10px 0;
-  width: 100%;
 }
 @media only screen and (max-width: 600px) {
   #card {
