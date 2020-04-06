@@ -53,7 +53,7 @@ export default {
   border-color: var(--shadow);
 }
 .faded:active {
-  border-color: var(--fore);
+  border-color: var(--text);
 }
 .faded > * {
   color: var(--shadow);
