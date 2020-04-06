@@ -49,6 +49,7 @@ export default {
             p._all = p.features.concat(p.lects);
           });
         this.phonemes = data;
+        this.selected = 0;
       },
       immediate: true
     }
