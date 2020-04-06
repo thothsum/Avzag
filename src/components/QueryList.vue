@@ -72,6 +72,8 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
+  display: flex;
+  flex-wrap: nowrap;
 }
 h3 {
   margin: 0;
@@ -95,7 +97,6 @@ h3 {
 }
 #header > a {
   margin-left: 20px;
-  /* font-weight: 300; */
 }
 #body * {
   font-size: 12px;
@@ -118,6 +119,7 @@ h3 {
 span {
   font-family: monospace;
   font-style: normal;
+  margin-right: 3px;
 }
 @media only screen and (max-width: 600px) {
   #header,
