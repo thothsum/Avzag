@@ -66,6 +66,9 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+}
 h3 {
   margin: 0;
 }
@@ -83,8 +86,9 @@ h3 {
   width: 100%;
 }
 #header > a {
-  margin-left: 10px;
+  margin-left: 20px;
   padding: 0;
+  font-weight: 300;
 }
 #body * {
   font-size: 12px;
