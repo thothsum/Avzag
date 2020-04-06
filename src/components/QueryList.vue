@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-a{
+a {
   text-decoration: none;
 }
 h3 {
@@ -75,19 +75,22 @@ h3 {
 #list {
   display: flex;
   flex-flow: column;
-  flex-wrap: wrap;
   width: 100%;
 }
 #header,
 #body {
-  margin: 5px;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  align-items: center;
+}
+#header {
+  height: 30px;
+  margin-left: 5px;
 }
 #header > a {
   margin-left: 20px;
-  padding: 0;
   font-weight: 300;
 }
 #body * {

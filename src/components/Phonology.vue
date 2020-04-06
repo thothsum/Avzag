@@ -105,12 +105,11 @@ export default {
   gap: 20px;
 }
 .space:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #phonemes {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 #phonemes > * {
   width: 100%;

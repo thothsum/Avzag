@@ -93,7 +93,11 @@ export default {
   display: flex;
   place-content: center;
   margin-top: -10px;
-  padding-top: 10px;
+  padding: 15px 0 5px 0;
+}
+
+#catalogue > * {
+  margin: 0 5px 0 5px;
 }
 
 #titles {
