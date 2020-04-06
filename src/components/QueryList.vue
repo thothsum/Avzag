@@ -2,16 +2,16 @@
   <div id="list">
     <div id="header">
       <h3>{{title}}</h3>
-      <a v-show="!locked" @click="visible=!visible">[+]</a>
-      <a v-show="visible && !empty" @click="resetAll">[reset all]</a>
+      <a v-show="!locked" @click="visible=!visible">query</a>
+      <a v-show="visible && !empty" @click="resetAll">reset all</a>
     </div>
     <div id="body" v-show="visible">
-      <p :class="{big:big}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">
+      <a :class="{big:big}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">
         <span v-if="mode===-1">-</span>
         <span v-else-if="mode===1">+</span>
         <span v-else>·</span>
         {{tag}}
-      </p>
+      </a>
     </div>
   </div>
 </template>
@@ -85,20 +85,18 @@ h3 {
 #header > a {
   margin-left: 10px;
   padding: 0;
-  text-decoration: none;
 }
 #body * {
   font-size: 12px;
   cursor: pointer;
   user-select: none;
-  text-decoration: underline;
 }
-p {
+#body > a {
   font-style: italic;
   margin: 0 5px 0 0;
   padding: 2px 4px;
 }
-p.big {
+#body > a.big {
   margin: 0 10px 0 0 !important;
   padding: 4px 8px !important;
   font-size: 16px !important;
@@ -108,7 +106,7 @@ p.big {
 }
 span {
   font-family: monospace;
-  font-style: normal ;
+  font-style: normal;
 }
 @media only screen and (max-width: 600px) {
   #header,
