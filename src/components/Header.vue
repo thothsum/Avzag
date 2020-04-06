@@ -16,7 +16,7 @@
           :class=" { selected: menu == i}"
           @click="$emit('menu', i)"
           :key="i"
-          v-for="(sct, i) in ['Map', 'Alphabet', 'Converter']"
+          v-for="(sct, i) in ['Map', 'Phonology', 'Converter']"
         >{{sct}}</button>
       </div>
     </div>
