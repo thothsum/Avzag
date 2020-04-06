@@ -50,16 +50,6 @@ export default {
 }
 .faded {
   background-color: transparent;
-  border-color: var(--shadow);
-}
-.faded:active {
-  border-color: var(--text);
-}
-.faded > * {
-  color: var(--shadow);
-}
-.faded:hover > * {
-  color: initial;
 }
 @media only screen and (max-width: 600px) {
   #table {
