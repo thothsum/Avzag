@@ -3,18 +3,22 @@
     <h2>{{phoneme.str}} • {{phoneme.ipa}}</h2>
     <h3>Features</h3>
     <p id="tags">{{reduceTags('tags')}}</p>
-    <h3>Idioms</h3>
-    <p id="tags">{{reduceTags('idioms')}}</p>
-    <h3>Samples</h3>
-    <div>
-      <button
-        class="sample"
-        @click="play(i)"
-        :key="i"
-        v-for="(smp, i) in phoneme.samples"
-        v-html="highlight(smp)"
-      ></button>
-    </div>
+    <template v-if="idioms">
+      <h3>Idioms</h3>
+      <p id="tags">{{reduceTags('idioms')}}</p>
+    </template>
+    <template v-if="phoneme.samples.length>0">
+      <h3>Samples</h3>
+      <div>
+        <button
+          class="sample"
+          @click="play(i)"
+          :key="i"
+          v-for="(smp, i) in phoneme.samples"
+          v-html="highlight(smp)"
+        ></button>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -27,6 +31,14 @@ export default {
       player: new Audio()
     };
   },
+  computed: {
+    features: function() {
+      return this.reduceTags("tags");
+    },
+    idioms: function() {
+      return this.reduceTags("idioms");
+    }
+  },
   methods: {
     highlight(sample) {
       const str = this.phoneme.str;
@@ -37,7 +49,7 @@ export default {
       this.player.play();
     },
     reduceTags(key) {
-      return this.phoneme[key].reduce((a, t) => (a = `${a} ${t}`));
+      return this.phoneme[key]?.reduce((a, t) => (a = `${a} ${t}`));
     }
   },
   created() {
