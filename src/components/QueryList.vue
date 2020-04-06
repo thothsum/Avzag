@@ -6,7 +6,7 @@
         <span>? </span>query
       </a>
       <a v-show="visible && !empty" @click="resetAll">
-        <span>× </span>reset
+        <span>! </span>reset
       </a>
     </div>
     <div id="body" v-show="visible">
