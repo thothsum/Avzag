@@ -2,11 +2,13 @@
   <div id="card">
     <h2>{{phoneme.str}} · {{phoneme.ipa}}</h2>
     <hr />
-    <h4>Features</h4>
-    <p>{{reduceTags('tags')}}</p>
-    <template v-if="idioms">
-      <h4>Idioms</h4>
-      <p>{{reduceTags('idioms')}}</p>
+    <template v-if="features">
+      <h4>Features</h4>
+      <p>{{features}}</p>
+    </template>
+    <template v-if="lects">
+      <h4>Lects</h4>
+      <p>{{lects}}</p>
     </template>
     <template v-if="phoneme.samples && phoneme.samples.length>0">
       <h4>Samples</h4>
@@ -26,10 +28,10 @@ export default {
   },
   computed: {
     features: function() {
-      return this.reduceTags("tags");
+      return this.reduceTags("features");
     },
-    idioms: function() {
-      return this.reduceTags("idioms");
+    lects: function() {
+      return this.reduceTags("lects");
     }
   },
   methods: {

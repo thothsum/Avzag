@@ -25,7 +25,7 @@ export default {
   watch: {
     langRoot: {
       handler: async function(langRoot) {
-        const res = await fetch(langRoot + "converters.json");
+        const res = await fetch(langRoot + "converter.json");
         this.converters = await res.json();
         const smp = await fetch(langRoot + "sample.txt");
         this.source = await smp.text();

@@ -3,25 +3,25 @@
     <div id="phonemes">
       <QueryList
         class="space"
-        :title="'Idioms'"
-        :tags="idioms"
+        :title="'Lects'"
+        :tags="lects"
         :big="true"
         :locked="true"
-        v-show="idioms.length>0"
-        @query="idiomQuery=$event"
+        v-show="lects.length>0"
+        @query="lectQuery=$event"
       />
       <QueryList :title="'Vowels'" :tags="vowelTags" @query="vowelQuery=$event" />
       <PhoneticTable
         class="space"
         :phonemes="vowels"
-        :query="{...vowelQuery, ...idiomQuery}"
+        :query="{...vowelQuery, ...lectQuery}"
         @phoneme="selected=$event"
       />
       <QueryList :title="'Consonants'" :tags="consonantTags" @query="consonantQuery=$event" />
       <PhoneticTable
         class="space"
         :phonemes="consonants"
-        :query="{...consonantQuery, ...idiomQuery}"
+        :query="{...consonantQuery, ...lectQuery}"
         @phoneme="selected=$event"
       />
     </div>
@@ -40,13 +40,13 @@ export default {
   watch: {
     langRoot: {
       handler: async function(langRoot) {
-        const res = await fetch(langRoot + "phonemes.json");
+        const res = await fetch(langRoot + "phonology.json");
         let data = await res.json();
         data
           .sort((a, b) => a.str.localeCompare(b.str))
           .forEach(function(p, i) {
             p.i = i;
-            p._all = p.tags.concat(p.idioms);
+            p._all = p.features.concat(p.lects);
           });
         this.phonemes = data;
       },
@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       phonemes: undefined,
-      idiomQuery: undefined,
+      lectQuery: undefined,
       vowelQuery: undefined,
       consonantQuery: undefined,
       selected: 0
@@ -68,25 +68,25 @@ export default {
     QueryList
   },
   computed: {
-    idioms: function() {
-      return this.getTags(this.phonemes, "idioms");
+    lects: function() {
+      return this.getTags(this.phonemes, "lects");
     },
     vowels: function() {
       return this.categorize("vowel");
     },
     vowelTags: function() {
-      return this.getTags(this.vowels, "tags", ["vowel"]);
+      return this.getTags(this.vowels, "features", ["vowel"]);
     },
     consonants: function() {
       return this.categorize("consonant");
     },
     consonantTags: function() {
-      return this.getTags(this.consonants, "tags", ["consonant"]);
+      return this.getTags(this.consonants, "features", ["consonant"]);
     }
   },
   methods: {
     categorize(category) {
-      return this.phonemes.filter(p => p.tags.includes(category));
+      return this.phonemes.filter(p => p.features.includes(category));
     },
     getTags(phonemes, source, exclude = []) {
       let tags = new Set();

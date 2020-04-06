@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header :langRoot="langRoot" :menu="menu" @menu="menu=$event" @language="language=$event" />
-    <Info :langRoot="langRoot" v-show="menu==0" />
+    <Header :langRoot="langRoot" :menu="menu" @menu="menu=$event" />
+    <Map :langRoot="langRoot" v-show="menu==0" @language="language=$event" />
     <Phonology :langRoot="langRoot" v-show="menu==1" />
     <Converter :langRoot="langRoot" v-show="menu==2" />
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 import Header from "./components/Header";
-import Info from "./components/Info";
+import Map from "./components/Map";
 import Phonology from "./components/Phonology";
 import Converter from "./components/Converter";
 
@@ -38,7 +38,7 @@ export default {
   },
   components: {
     Header,
-    Info,
+    Map,
     Phonology,
     Converter
   },

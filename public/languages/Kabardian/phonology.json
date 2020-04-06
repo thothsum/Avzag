@@ -2,7 +2,7 @@
     {
         "str": "а",
         "ipa": "aː",
-        "tags": [
+        "features": [
             "vowel"
         ],
         "samples": [
@@ -14,7 +14,7 @@
     {
         "str": "э",
         "ipa": "a",
-        "tags": [
+        "features": [
             "vowel"
         ],
         "samples": [
@@ -26,7 +26,7 @@
     {
         "str": "б",
         "ipa": "b",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -34,7 +34,7 @@
     {
         "str": "в",
         "ipa": "v",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -42,7 +42,7 @@
     {
         "str": "г",
         "ipa": "ɣ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -50,7 +50,7 @@
     {
         "str": "гу",
         "ipa": "ɡʷ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -58,7 +58,7 @@
     {
         "str": "гъ",
         "ipa": "ʁ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -66,7 +66,7 @@
     {
         "str": "гъу",
         "ipa": "ʁʷ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -74,7 +74,7 @@
     {
         "str": "д",
         "ipa": "d",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -82,7 +82,7 @@
     {
         "str": "дж",
         "ipa": "d͡ʒ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -90,7 +90,7 @@
     {
         "str": "дз",
         "ipa": "d͡z",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -98,7 +98,7 @@
     {
         "str": "ж",
         "ipa": "ʒ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -106,7 +106,7 @@
     {
         "str": "жь",
         "ipa": "ʑ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -114,7 +114,7 @@
     {
         "str": "з",
         "ipa": "z",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -122,7 +122,7 @@
     {
         "str": "и",
         "ipa": "jə",
-        "tags": [
+        "features": [
             "vowel"
         ],
         "samples": [
@@ -134,7 +134,7 @@
     {
         "str": "й",
         "ipa": "j",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -142,7 +142,7 @@
     {
         "str": "к",
         "ipa": "k",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -150,7 +150,7 @@
     {
         "str": "к",
         "ipa": "kʷ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -158,7 +158,7 @@
     {
         "str": "къ",
         "ipa": "q",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -166,7 +166,7 @@
     {
         "str": "къу",
         "ipa": "kʷ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -174,7 +174,7 @@
     {
         "str": "кхъ",
         "ipa": "q͡χ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "uvular",
@@ -188,7 +188,7 @@
     {
         "str": "кхъу",
         "ipa": "q͡χʷ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "uvular",
@@ -204,7 +204,7 @@
     {
         "str": "кӏ",
         "ipa": "t͡ʃʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -212,7 +212,7 @@
     {
         "str": "кӏу",
         "ipa": "kʷʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -220,7 +220,7 @@
     {
         "str": "л",
         "ipa": "ɮ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -228,7 +228,7 @@
     {
         "str": "лъ",
         "ipa": "ɬ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -236,7 +236,7 @@
     {
         "str": "лӏ",
         "ipa": "ɬʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -244,7 +244,7 @@
     {
         "str": "м",
         "ipa": "m",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -252,7 +252,7 @@
     {
         "str": "н",
         "ipa": "n",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -260,7 +260,7 @@
     {
         "str": "о",
         "ipa": "aw",
-        "tags": [
+        "features": [
             "vowel"
         ],
         "samples": [
@@ -272,7 +272,7 @@
     {
         "str": "п",
         "ipa": "p",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -280,7 +280,7 @@
     {
         "str": "пӏ",
         "ipa": "pʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -288,7 +288,7 @@
     {
         "str": "р",
         "ipa": "r",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -296,7 +296,7 @@
     {
         "str": "с",
         "ipa": "s",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -304,7 +304,7 @@
     {
         "str": "т",
         "ipa": "t",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -312,7 +312,7 @@
     {
         "str": "тӏ",
         "ipa": "tʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -320,7 +320,7 @@
     {
         "str": "у",
         "ipa": "əw",
-        "tags": [
+        "features": [
             "vowel"
         ],
         "samples": [
@@ -332,7 +332,7 @@
     {
         "str": "у",
         "ipa": "w",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -340,7 +340,7 @@
     {
         "str": "ф",
         "ipa": "f",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -348,7 +348,7 @@
     {
         "str": "фӏ",
         "ipa": "fʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -356,7 +356,7 @@
     {
         "str": "х",
         "ipa": "x",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -364,7 +364,7 @@
     {
         "str": "ху",
         "ipa": "xʷ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -372,7 +372,7 @@
     {
         "str": "хъ",
         "ipa": "χ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -380,7 +380,7 @@
     {
         "str": "хъу",
         "ipa": "χʷ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -388,7 +388,7 @@
     {
         "str": "хь",
         "ipa": "ħ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -396,7 +396,7 @@
     {
         "str": "ц",
         "ipa": "t͡s",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -404,7 +404,7 @@
     {
         "str": "цӏ",
         "ipa": "t͡sʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -412,7 +412,7 @@
     {
         "str": "ч",
         "ipa": "t͡ʃ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -420,7 +420,7 @@
     {
         "str": "чӏ",
         "ipa": "t͡ʃʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -428,7 +428,7 @@
     {
         "str": "ш",
         "ipa": "ʃ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -436,7 +436,7 @@
     {
         "str": "щ",
         "ipa": "щ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -444,7 +444,7 @@
     {
         "str": "щӏ",
         "ipa": "ɕʼ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -452,7 +452,7 @@
     {
         "str": "ы",
         "ipa": "ə",
-        "tags": [
+        "features": [
             "vowel"
         ],
         "samples": [
@@ -464,7 +464,7 @@
     {
         "str": "ӏ",
         "ipa": "ʔ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []
@@ -472,7 +472,7 @@
     {
         "str": "ӏу",
         "ipa": "ʔʷ",
-        "tags": [
+        "features": [
             "consonant"
         ],
         "samples": []

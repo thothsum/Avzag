@@ -2,13 +2,13 @@
     {
         "str": "а",
         "ipa": "a",
-        "tags": [
+        "features": [
             "vowel",
             "open",
             "central",
             "unrounded"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -17,12 +17,12 @@
     {
         "str": "ӕ",
         "ipa": "ɐ",
-        "tags": [
+        "features": [
             "vowel",
             "near-open",
             "central"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -31,13 +31,13 @@
     {
         "str": "е",
         "ipa": "e",
-        "tags": [
+        "features": [
             "vowel",
             "close-mid",
             "front",
             "unrounded"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -46,13 +46,13 @@
     {
         "str": "и",
         "ipa": "i",
-        "tags": [
+        "features": [
             "vowel",
             "close",
             "front",
             "unrounded"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -61,13 +61,13 @@
     {
         "str": "о",
         "ipa": "o",
-        "tags": [
+        "features": [
             "vowel",
             "close-mid",
             "back",
             "rounded"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -76,12 +76,12 @@
     {
         "str": "ы",
         "ipa": "ə",
-        "tags": [
+        "features": [
             "vowel",
             "mid",
             "central"
         ],
-        "idioms": [
+        "lects": [
             "Iron"
         ],
         "samples": []
@@ -89,13 +89,13 @@
     {
         "str": "у",
         "ipa": "u",
-        "tags": [
+        "features": [
             "vowel",
             "close",
             "back",
             "rounded"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -104,13 +104,13 @@
     {
         "str": "б",
         "ipa": "b",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "bilabial",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -119,14 +119,14 @@
     {
         "str": "п",
         "ipa": "pʰ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "aspirated",
             "bilabial",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -135,13 +135,13 @@
     {
         "str": "пъ",
         "ipa": "pʼ",
-        "tags": [
+        "features": [
             "consonant",
             "bilabial",
             "ejective",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -150,13 +150,13 @@
     {
         "str": "д",
         "ipa": "d̪",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "dental",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -165,14 +165,14 @@
     {
         "str": "т",
         "ipa": "t̪ʰ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "aspirated",
             "dental",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -181,13 +181,13 @@
     {
         "str": "тъ",
         "ipa": "t̪ʼ",
-        "tags": [
+        "features": [
             "consonant",
             "dental",
             "ejective",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -196,13 +196,13 @@
     {
         "str": "г",
         "ipa": "g",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "velar",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -211,14 +211,14 @@
     {
         "str": "гу",
         "ipa": "gʷ",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "labialized",
             "velar",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -227,14 +227,14 @@
     {
         "str": "к",
         "ipa": "kʰ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "aspirated",
             "velar",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -243,14 +243,14 @@
     {
         "str": "к",
         "ipa": "kʷ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "labialized",
             "velar",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -259,13 +259,13 @@
     {
         "str": "къ",
         "ipa": "kʼ",
-        "tags": [
+        "features": [
             "consonant",
             "velar",
             "ejective",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -274,14 +274,14 @@
     {
         "str": "къу",
         "ipa": "kʼʷ",
-        "tags": [
+        "features": [
             "consonant",
             "velar",
             "labialized",
             "ejective",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ]
@@ -289,13 +289,13 @@
     {
         "str": "хъ",
         "ipa": "q",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "uvular",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ]
@@ -303,14 +303,14 @@
     {
         "str": "хъу",
         "ipa": "qʷ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "labialized",
             "uvular",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -323,12 +323,12 @@
     {
         "str": "гъ",
         "ipa": "ʔ",
-        "tags": [
+        "features": [
             "consonant",
             "glottal",
             "stop"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -337,13 +337,13 @@
     {
         "str": "м",
         "ipa": "m",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "bilabial",
             "nasal"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -352,13 +352,13 @@
     {
         "str": "н",
         "ipa": "n",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "alveolar",
             "nasal"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -367,13 +367,13 @@
     {
         "str": "р",
         "ipa": "r",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "alveolar",
             "trill"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -382,13 +382,13 @@
     {
         "str": "ф",
         "ipa": "f",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "labiodental",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -397,13 +397,13 @@
     {
         "str": "в",
         "ipa": "v",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "labiodental",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -412,13 +412,13 @@
     {
         "str": "с",
         "ipa": "s",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "alveolar",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -427,13 +427,13 @@
     {
         "str": "з",
         "ipa": "z",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "alveolar",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -442,13 +442,13 @@
     {
         "str": "ш",
         "ipa": "ʃ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "postalveolar",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron"
         ],
         "samples": []
@@ -456,13 +456,13 @@
     {
         "str": "ж",
         "ipa": "ʒ",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "postalveolar",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron"
         ],
         "samples": []
@@ -470,13 +470,13 @@
     {
         "str": "гъ",
         "ipa": "ʁ",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "uvular",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -485,14 +485,14 @@
     {
         "str": "гъу",
         "ipa": "ʁʷ",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "labialized",
             "uvular",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -501,13 +501,13 @@
     {
         "str": "х",
         "ipa": "χ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "uvular",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -516,14 +516,14 @@
     {
         "str": "ху",
         "ipa": "χʷ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "labialized",
             "uvular",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -532,13 +532,13 @@
     {
         "str": "гъ",
         "ipa": "h",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "glottal",
             "fricative"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -547,13 +547,13 @@
     {
         "str": "дз",
         "ipa": "d͡z",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "alveolar",
             "affricate"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -562,13 +562,13 @@
     {
         "str": "ц",
         "ipa": "t͡s",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "alveolar",
             "affricate"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -577,13 +577,13 @@
     {
         "str": "цъ",
         "ipa": "t͡sʼ",
-        "tags": [
+        "features": [
             "consonant",
             "alveolar",
             "ejective",
             "affricate"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -592,13 +592,13 @@
     {
         "str": "дж",
         "ipa": "d͡ʒ",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "postalveolar",
             "affricate"
         ],
-        "idioms": [
+        "lects": [
             "Iron"
         ],
         "samples": []
@@ -606,13 +606,13 @@
     {
         "str": "ч",
         "ipa": "t͡ʃ",
-        "tags": [
+        "features": [
             "consonant",
             "voiceless",
             "postalveolar",
             "affricate"
         ],
-        "idioms": [
+        "lects": [
             "Iron"
         ],
         "samples": []
@@ -620,13 +620,13 @@
     {
         "str": "чъ",
         "ipa": "t͡ʃʼ",
-        "tags": [
+        "features": [
             "consonant",
             "postalveolar",
             "ejective",
             "affricate"
         ],
-        "idioms": [
+        "lects": [
             "Iron"
         ],
         "samples": []
@@ -634,13 +634,13 @@
     {
         "str": "у",
         "ipa": "w",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "labio-velar",
             "appoximant"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -649,13 +649,13 @@
     {
         "str": "й",
         "ipa": "j",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "palatal",
             "appoximant"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],
@@ -664,14 +664,14 @@
     {
         "str": "л",
         "ipa": "l",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "alveolar",
             "lateral",
             "appoximant"
         ],
-        "idioms": [
+        "lects": [
             "Iron",
             "Digor"
         ],

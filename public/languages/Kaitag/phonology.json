@@ -2,7 +2,7 @@
     {
         "str": "и",
         "ipa": "i",
-        "tags": [
+        "features": [
             "vowel",
             "front",
             "close"
@@ -16,7 +16,7 @@
     {
         "str": "у",
         "ipa": "u",
-        "tags": [
+        "features": [
             "vowel",
             "back",
             "close"
@@ -30,7 +30,7 @@
     {
         "str": "э",
         "ipa": "e",
-        "tags": [
+        "features": [
             "vowel",
             "front",
             "close-mid"
@@ -44,7 +44,7 @@
     {
         "str": "а",
         "ipa": "a",
-        "tags": [
+        "features": [
             "vowel",
             "front",
             "open"
@@ -58,7 +58,7 @@
     {
         "str": "я",
         "ipa": "æ",
-        "tags": [
+        "features": [
             "vowel",
             "front",
             "near-open"
@@ -71,7 +71,7 @@
     },
     {
         "str": "б",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -85,7 +85,7 @@
     },
     {
         "str": "п",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -99,7 +99,7 @@
     },
     {
         "str": "пп",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -114,7 +114,7 @@
     },
     {
         "str": "пӏ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -129,7 +129,7 @@
     },
     {
         "str": "в",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiced",
@@ -143,7 +143,7 @@
     },
     {
         "str": "ф",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -155,7 +155,7 @@
     },
     {
         "str": "м",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "labial",
@@ -169,7 +169,7 @@
     },
     {
         "str": "д",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -183,7 +183,7 @@
     },
     {
         "str": "т",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -197,7 +197,7 @@
     },
     {
         "str": "тт",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -212,7 +212,7 @@
     },
     {
         "str": "тӏ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -228,7 +228,7 @@
     {
         "str": "ц",
         "ipa": "t͡s",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -243,7 +243,7 @@
     {
         "str": "цц",
         "ipa": "t͡sː",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -259,7 +259,7 @@
     {
         "str": "цӏ",
         "ipa": "t͡sʼ",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -275,7 +275,7 @@
     {
         "str": "з",
         "ipa": "z",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiced",
@@ -289,7 +289,7 @@
     },
     {
         "str": "с",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -303,7 +303,7 @@
     },
     {
         "str": "сс",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -318,7 +318,7 @@
     },
     {
         "str": "н",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "alveolar",
@@ -332,7 +332,7 @@
     },
     {
         "str": "л",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "lateral",
@@ -348,7 +348,7 @@
     {
         "str": "хь",
         "ipa": "ç",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -363,7 +363,7 @@
     {
         "str": "хьв",
         "ipa": "çʷ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -379,7 +379,7 @@
     {
         "str": "хьхь",
         "ipa": "çː",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -395,7 +395,7 @@
     {
         "str": "хьхьв",
         "ipa": "çːʷ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -411,7 +411,7 @@
     },
     {
         "str": "й",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "palatal",
@@ -426,7 +426,7 @@
     {
         "str": "ч",
         "ipa": "t͡ʃ",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -441,7 +441,7 @@
     {
         "str": "чв",
         "ipa": "t͡ʃʷ",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -457,7 +457,7 @@
     {
         "str": "чч",
         "ipa": "t͡ʃː",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -474,7 +474,7 @@
     {
         "str": "ччв",
         "ipa": "t͡ʃːʷ",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -490,7 +490,7 @@
     {
         "str": "чӏ",
         "ipa": "t͡ʃʼ",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -506,7 +506,7 @@
     {
         "str": "чӏв",
         "ipa": "t͡ʃʼʷ",
-        "tags": [
+        "features": [
             "consonant",
             "affricate",
             "voiceless",
@@ -523,7 +523,7 @@
     {
         "str": "ж",
         "ipa": "ʒ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiced",
@@ -538,7 +538,7 @@
     {
         "str": "жв",
         "ipa": "ʒʷ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiced",
@@ -554,7 +554,7 @@
     {
         "str": "ш",
         "ipa": "ʃ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -569,7 +569,7 @@
     {
         "str": "шв",
         "ipa": "ʃʷ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -585,7 +585,7 @@
     {
         "str": "шш",
         "ipa": "ʃː",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -601,7 +601,7 @@
     {
         "str": "шшв",
         "ipa": "ʃːʷ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -617,7 +617,7 @@
     },
     {
         "str": "р",
-        "tags": [
+        "features": [
             "consonant",
             "voiced",
             "alveolar",
@@ -631,7 +631,7 @@
     },
     {
         "str": "г",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -645,7 +645,7 @@
     },
     {
         "str": "гв",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -660,7 +660,7 @@
     },
     {
         "str": "к",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -674,7 +674,7 @@
     },
     {
         "str": "кв",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -689,7 +689,7 @@
     },
     {
         "str": "кк",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -704,7 +704,7 @@
     },
     {
         "str": "ккв",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -720,7 +720,7 @@
     },
     {
         "str": "кӏ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -735,7 +735,7 @@
     },
     {
         "str": "кӏв",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -751,7 +751,7 @@
     },
     {
         "str": "къ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -765,7 +765,7 @@
     },
     {
         "str": "къв",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -780,7 +780,7 @@
     },
     {
         "str": "хъ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -794,7 +794,7 @@
     },
     {
         "str": "хъв",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",
@@ -809,7 +809,7 @@
     },
     {
         "str": "къкъ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -824,7 +824,7 @@
     },
     {
         "str": "кь",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -839,7 +839,7 @@
     },
     {
         "str": "кьв",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -855,7 +855,7 @@
     },
     {
         "str": "гъ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiced",
@@ -869,7 +869,7 @@
     },
     {
         "str": "гъв",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiced",
@@ -884,7 +884,7 @@
     },
     {
         "str": "х",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -898,7 +898,7 @@
     },
     {
         "str": "хв",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -913,7 +913,7 @@
     },
     {
         "str": "хх",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -928,7 +928,7 @@
     },
     {
         "str": "гӏ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiced",
@@ -943,7 +943,7 @@
     {
         "str": "хӏ",
         "ipa": "ħ",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -957,7 +957,7 @@
     },
     {
         "str": "гь",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -971,7 +971,7 @@
     },
     {
         "str": "гьв",
-        "tags": [
+        "features": [
             "consonant",
             "fricative",
             "voiceless",
@@ -987,7 +987,7 @@
     {
         "str": "ъ",
         "ipa": "ʔ",
-        "tags": [
+        "features": [
             "consonant",
             "stop",
             "voiceless",

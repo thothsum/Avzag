@@ -16,13 +16,9 @@
           :class=" { selected: menu == i}"
           @click="$emit('menu', i)"
           :key="i"
-          v-for="(sct, i) in ['Info', 'Alphabet', 'Converter']"
+          v-for="(sct, i) in ['Map', 'Alphabet', 'Converter']"
         >{{sct}}</button>
-        <button @click="showCatalogue = !showCatalogue">🗺</button>
       </div>
-    </div>
-    <div id="catalogue" v-if="catalogue" v-show="showCatalogue">
-      <a :key="i" @click="$emit('language', lg)" v-for="(lg, i) in catalogue">{{lg}}</a>
     </div>
   </div>
 </template>
@@ -34,8 +30,7 @@ export default {
   data() {
     return {
       showCatalogue: false,
-      index: undefined,
-      catalogue: undefined
+      index: undefined
     };
   },
   watch: {
@@ -46,12 +41,6 @@ export default {
       },
       immediate: true
     }
-  },
-  async created() {
-    const res = await fetch(this.langRoot + "../catalogue.json");
-    let ctg = await res.json();
-    ctg.sort((a, b) => a.localeCompare(b));
-    this.catalogue = ctg;
   }
 };
 </script>
@@ -87,19 +76,6 @@ export default {
   justify-content: flex-end;
 }
 
-#catalogue {
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0px 2.5px 2.5px var(--shadow);
-  display: flex;
-  place-content: center;
-  margin-top: -10px;
-  padding: 15px 0 5px 0;
-}
-
-#catalogue > * {
-  margin: 0 5px 0 5px;
-}
-
 #titles {
   line-height: 50%;
   place-content: center;
@@ -133,7 +109,7 @@ button.nav:hover {
 
 button.nav.selected {
   border-color: var(--text);
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 #flag {
