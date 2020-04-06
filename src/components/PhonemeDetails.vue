@@ -1,6 +1,6 @@
 <template>
   <div id="card">
-    <h2>{{phoneme.str}} • {{phoneme.ipa}}</h2>
+    <h2>{{phoneme.str}} · {{phoneme.ipa}}</h2>
     <hr />
     <h4>Features</h4>
     <p>{{reduceTags('tags')}}</p>
