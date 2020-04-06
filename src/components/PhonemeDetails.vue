@@ -1,7 +1,11 @@
 <template>
   <div id="card">
     <h2>{{phoneme.str}} • {{phoneme.ipa}}</h2>
-    <p id="tags">{{phoneme.tags.reduce((a, t) => (a = `${a} ${t}`))}}</p>
+    <h3>Features</h3>
+    <p id="tags">{{reduceTags('tags')}}</p>
+    <h3>Idioms</h3>
+    <p id="tags">{{reduceTags('idioms')}}</p>
+    <h3>Samples</h3>
     <div>
       <button
         class="sample"
@@ -31,6 +35,9 @@ export default {
     play(i) {
       this.player.src = `${this.langRoot}audio/${this.phoneme.samples[i]}.m4a`;
       this.player.play();
+    },
+    reduceTags(key) {
+      return this.phoneme[key].reduce((a, t) => (a = `${a} ${t}`));
     }
   },
   created() {
@@ -52,6 +59,11 @@ export default {
 h2 {
   word-spacing: 15px;
   margin-top: 0;
+}
+h3 {
+  font-size: 12px;
+  font-style: italic;
+  font-weight: bold;
 }
 #tags {
   font-size: 12px;
