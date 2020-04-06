@@ -1,14 +1,14 @@
 <template>
   <div id="card">
     <h2>{{phoneme.str}} • {{phoneme.ipa}}</h2>
-    <h3>Features</h3>
+    <h4>Features</h4>
     <p id="tags">{{reduceTags('tags')}}</p>
     <template v-if="idioms">
-      <h3>Idioms</h3>
+      <h4>Idioms</h4>
       <p id="tags">{{reduceTags('idioms')}}</p>
     </template>
     <template v-if="phoneme.samples.length>0">
-      <h3>Samples</h3>
+      <h4>Samples</h4>
       <div>
         <button
           class="sample"
@@ -61,6 +61,7 @@ export default {
 <style scoped>
 * {
   text-align: center;
+  margin: 10px;
 }
 #card {
   padding: 10px;
@@ -71,11 +72,6 @@ export default {
 h2 {
   word-spacing: 15px;
   margin-top: 0;
-}
-h3 {
-  font-size: 12px;
-  font-style: italic;
-  font-weight: bold;
 }
 #tags {
   font-size: 12px;
