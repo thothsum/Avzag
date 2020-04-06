@@ -1,13 +1,14 @@
 <template>
   <div id="card">
     <h2>{{phoneme.str}} • {{phoneme.ipa}}</h2>
+    <hr />
     <h4>Features</h4>
     <p id="tags">{{reduceTags('tags')}}</p>
     <template v-if="idioms">
       <h4>Idioms</h4>
       <p id="tags">{{reduceTags('idioms')}}</p>
     </template>
-    <template v-if="phoneme.samples.length>0">
+    <template v-if="phoneme.samples && phoneme.samples.length>0">
       <h4>Samples</h4>
       <div>
         <button
@@ -65,7 +66,7 @@ export default {
 }
 #card {
   padding: 10px;
-  box-shadow: 0px 0px 5px var(--nord4);
+  box-shadow: 0px 0px 10px var(--nord4);
   width: 200px;
   justify-self: center;
 }
