@@ -74,6 +74,9 @@ p {
   font-style: italic;
   word-spacing: 10px;
 }
+button:last-child {
+  margin-bottom: 0;
+}
 @media only screen and (max-width: 600px) {
   #card {
     width: 300px;
