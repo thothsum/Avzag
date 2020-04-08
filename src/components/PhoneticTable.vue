@@ -51,6 +51,13 @@ export default {
 .faded {
   background-color: transparent;
 }
+.faded > * {
+  opacity: 0.3;
+}
+.faded:hover > *,
+.faded:active > * {
+  opacity: initial;
+}
 @media only screen and (max-width: 600px) {
   #table {
     place-content: center;

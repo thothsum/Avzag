@@ -60,6 +60,7 @@ export default {
   width: 100%;
 }
 #card {
+  margin: 0;
   padding: 10px;
   box-shadow: 0px 0px 10px var(--shadow);
   width: 200px;
