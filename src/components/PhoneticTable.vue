@@ -8,7 +8,7 @@
       v-for="phn in phonemes"
     >
       <span class="ipa">{{phn.ipa}}</span>
-      <template v-if="singleLect">
+      <template v-if="singleLect && fits(phn)">
         <br />
         <span class="str">{{getGrapheme(phn)}}</span>
       </template>
@@ -36,7 +36,6 @@ export default {
       return true;
     },
     getGrapheme(phoneme) {
-      console.log("finding", phoneme.lects, this.singleLect);
       return phoneme.lects.find(l => l.name === this.singleLect).grapheme;
     }
   },
