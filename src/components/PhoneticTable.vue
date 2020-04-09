@@ -2,16 +2,13 @@
   <div id="table">
     <button
       class="phoneme"
-      :class="{faded: !fits(phn)}"
-      :key="phn.i"
+      :class="{faded: !fitting[i], full: singleLect && fitting[i]}"
+      :key="i"
       @click="$emit('phoneme', phn.i)"
-      v-for="phn in phonemes"
+      v-for="(phn, i) in phonemes"
     >
-      <template v-if="singleLect && fits(phn)">
-        <span class="str">{{getGrapheme(phn)}}</span>
-        <br />
-      </template>
-      <span class="ipa">{{phn.ipa}}</span>
+      <span class="str">{{getGrapheme(phn)}}</span>
+      <span class="ipa">[{{phn.ipa}}]</span>
     </button>
   </div>
 </template>
@@ -21,14 +18,6 @@ export default {
   name: "PhoneticTable",
   props: ["lectQuery", "featureQuery", "phonemes"],
   methods: {
-    fits(phoneme) {
-      return (
-        this.pass(
-          phoneme.lects.map(l => l.name),
-          this.lectQuery
-        ) && this.pass(phoneme.features, this.featureQuery)
-      );
-    },
     pass(tags, query) {
       for (const [tag, mode] of Object.entries(query)) {
         if (mode !== tags.includes(tag)) return false;
@@ -36,10 +25,19 @@ export default {
       return true;
     },
     getGrapheme(phoneme) {
-      return phoneme.lects.find(l => l.name === this.singleLect).grapheme;
+      return phoneme.lects.find(l => l.name === this.singleLect)?.grapheme;
     }
   },
   computed: {
+    fitting: function() {
+      return this.phonemes.map(
+        p =>
+          this.pass(
+            p.lects.map(l => l.name),
+            this.lectQuery
+          ) && this.pass(p.features, this.featureQuery)
+      );
+    },
     singleLect: function() {
       let included = [];
       for (const [lect, mode] of Object.entries(this.lectQuery))
@@ -61,13 +59,19 @@ export default {
   align-items: center;
   width: 50px;
   height: 40px;
-  line-height: 50%;
+  line-height: 100%;
 }
-.str {
+.phoneme.full > .str {
   font-weight: bold;
 }
-.ipa {
+.phoneme.full > .ipa {
   font-size: 12px;
+}
+.phoneme:not(.full) > .str {
+  height: 0;
+}
+.phoneme:not(.full) > .ipa {
+  font-size: 16px;
 }
 .faded {
   background-color: transparent;
