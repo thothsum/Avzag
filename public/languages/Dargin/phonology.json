@@ -13,6 +13,7 @@
             "шин"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -31,6 +32,7 @@
             "букье"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -49,6 +51,7 @@
             "чэв"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -67,6 +70,7 @@
             "цула"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -85,6 +89,7 @@
             "ця"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -103,6 +108,7 @@
             "гӏябал"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -121,6 +127,7 @@
             "кулпет"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -159,13 +166,14 @@
             "шипӏяй"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
     },
     {
         "str": "в",
-        "ipd": "v",
+        "ipa": "v",
         "features": [
             "consonant",
             "fricative",
@@ -178,6 +186,7 @@
             "ццав"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag"
         ]
     },
@@ -208,6 +217,7 @@
             "хьулум"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -226,6 +236,7 @@
             "мейдам"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -244,6 +255,7 @@
             "уста"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -282,6 +294,7 @@
             "кӏултӏа"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -301,6 +314,7 @@
             "бац"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -341,6 +355,7 @@
             "вецӏал"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -360,6 +375,7 @@
             "муза"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -378,6 +394,7 @@
             "бурсибил"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -415,6 +432,7 @@
             "манзи"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -434,6 +452,7 @@
             "хьацӏил"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -555,6 +574,7 @@
             "гъай"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -574,8 +594,35 @@
             "мичи"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
+        ]
+    },
+    {
+        "str": "дз",
+        "ipa": "d͡z",
+        "features": [
+            "consonant",
+            "voiced",
+            "dental",
+            "affricate"
+        ],
+        "lects": [
+            "Dargwa"
+        ]
+    },
+    {
+        "str": "дж",
+        "ipa": "d͡ʒ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiced",
+            "alveolar"
+        ],
+        "lects": [
+            "Dargwa"
         ]
     },
     {
@@ -653,6 +700,7 @@
             "урчӏе"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -692,6 +740,7 @@
             "хӏяжлачӏе"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -730,6 +779,7 @@
             "урши"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -807,6 +857,7 @@
             "баргьул"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -825,6 +876,7 @@
             "чибиган"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -861,6 +913,7 @@
             "гъукле"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -936,6 +989,7 @@
             "декӏле"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -973,6 +1027,7 @@
             "вегъивкъел"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -1009,6 +1064,7 @@
             "бихъна"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -1065,6 +1121,7 @@
             "мукьара"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -1090,6 +1147,20 @@
     },
     {
         "str": "гъ",
+        "ipa": "ɣ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "velar"
+        ],
+        "lects": [
+            "Dargwa"
+        ]
+    },
+    {
+        "str": "гъ",
+        "ipa": "ʁ",
         "features": [
             "consonant",
             "fricative",
@@ -1144,6 +1215,19 @@
         ]
     },
     {
+        "str": "х",
+        "ipa": "x",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "velar"
+        ],
+        "lects": [
+            "Dargwa"
+        ]
+    },
+    {
         "str": "хв",
         "features": [
             "consonant",
@@ -1195,6 +1279,7 @@
             "лягӏ"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -1214,6 +1299,7 @@
             "дярхӏя"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -1232,6 +1318,7 @@
             "вагьла"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
@@ -1269,6 +1356,7 @@
             "баълабай"
         ],
         "lects": [
+            "Dargwa",
             "Kaitag",
             "Kubachi"
         ]
