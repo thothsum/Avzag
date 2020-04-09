@@ -5,7 +5,7 @@
       <a v-show="!locked" @click="visible=!visible">
         <span>? </span>query
       </a>
-      <a v-show="visible && !empty" @click="resetAll">
+      <a v-show="!empty" @click="resetAll">
         <span>! </span>reset
       </a>
     </div>
