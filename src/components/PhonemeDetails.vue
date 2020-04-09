@@ -1,15 +1,16 @@
 <template>
-  <div id="card">
-    <div id="header">
-      <h2>{{`[ ${phoneme.ipa} ]`}}</h2>
+  <div id="root">
+    <div class="card">
+      <div id="header">
+        <h2>{{`[ ${phoneme.ipa} ]`}}</h2>
+      </div>
+      <p id="features" v-if="features">{{features}}</p>
     </div>
-    <p v-if="features">{{features}}</p>
     <template v-if="phoneme.lects">
-      <hr />
-      <div :key="i" v-for="(lect, i) in phoneme.lects">
+      <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
         <p class="lect">
           {{lect.name}} —
-          <span class="grapheme">{{lect.grapheme}}</span>
+          <b>{{lect.grapheme}}</b>
         </p>
         <div
           :style="{height: Math.min(3, lect.samples.length) * 25 + 'px' }"
@@ -59,17 +60,11 @@ export default {
 </script>
 
 <style scoped>
-* {
-  text-align: center;
-  margin: 10px 0;
-  width: 100%;
-}
-#card {
-  margin: auto;
-  padding: 10px;
-  box-shadow: 0px 0px 10px var(--shadow);
-  width: 200px;
-  justify-self: center;
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  align-content:flex-start;
+  justify-content:center;
 }
 #header {
   display: flex;
@@ -77,27 +72,40 @@ export default {
   height: 25px;
   margin-bottom: 0;
 }
-.grapheme {
-  font-style: normal;
-  font-weight: bold;
-}
 h2 {
   margin: 0;
   height: 100%;
 }
-p {
+p,
+h2 {
+  text-align: center;
+}
+p#features {
   font-size: 12px;
   font-style: italic;
   word-spacing: 10px;
+  margin: 0;
 }
-p.lect {
-  text-align: left;
+.card {
+  width: 100%;
+  margin: 5px 0 5px 0;
+  box-shadow: 0px 0px 10px var(--shadow);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
 }
-button:last-child {
+.card > * {
+  margin: 2.5px 0;
+}
+.card > *:first-child {
+  margin-top: 0;
+}
+.card > *:last-child {
   margin-bottom: 0;
 }
 @media only screen and (max-width: 600px) {
-  #card {
+  .card {
     width: 300px;
   }
 }
