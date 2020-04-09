@@ -55,7 +55,9 @@ export default {
       handler: async function(langRoot) {
         const res = await fetch(langRoot + "phonology.json");
         let data = await res.json();
-        data.sort((a, b) => a.ipa.localeCompare(b.ipa));
+        data
+          .sort((a, b) => a.ipa.localeCompare(b.ipa))
+          .forEach((p, i) => (p.i = i));
         this.phonemes = data;
         this.selected = 0;
       },

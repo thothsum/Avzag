@@ -1,6 +1,6 @@
 <template>
   <div id="card">
-    <h2>{{phoneme.ipa}}</h2>
+    <h2>[{{phoneme.ipa}}]</h2>
     <p v-if="features">{{features}}</p>
     <template v-if="phoneme.lects">
       <hr />

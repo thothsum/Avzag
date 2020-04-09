@@ -7,11 +7,11 @@
       @click="$emit('phoneme', phn.i)"
       v-for="phn in phonemes"
     >
-      <span class="ipa">{{phn.ipa}}</span>
       <template v-if="singleLect && fits(phn)">
-        <br />
         <span class="str">{{getGrapheme(phn)}}</span>
+        <br />
       </template>
+      <span class="ipa">{{phn.ipa}}</span>
     </button>
   </div>
 </template>
