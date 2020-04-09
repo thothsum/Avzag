@@ -2,7 +2,7 @@
   <div id="table">
     <button
       class="phoneme"
-      :class="{faded: !fitting[i], full: singleLect && fitting[i]}"
+      :class="{faded: !fitting[i], full: singleLect}"
       :key="i"
       @click="$emit('phoneme', phn.i)"
       v-for="(phn, i) in phonemes"

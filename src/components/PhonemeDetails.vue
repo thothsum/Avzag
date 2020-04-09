@@ -8,8 +8,8 @@
       <hr />
       <div :key="i" v-for="(lect, i) in phoneme.lects">
         <p class="lect">
-          {{lect.name}} –
-          <b>{{lect.grapheme}}</b>
+          {{lect.name}} —
+          <span class="grapheme">{{lect.grapheme}}</span>
         </p>
         <div
           :style="{height: Math.min(3, lect.samples.length) * 25 + 'px' }"
@@ -76,6 +76,10 @@ export default {
   place-content: center;
   height: 25px;
   margin-bottom: 0;
+}
+.grapheme {
+  font-style: normal;
+  font-weight: bold;
 }
 h2 {
   margin: 0;
