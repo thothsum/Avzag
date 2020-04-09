@@ -1,19 +1,29 @@
 <template>
   <div id="card">
-    <h2>[{{phoneme.ipa}}]</h2>
+    <div id="header">
+      <h2>{{`[ ${phoneme.ipa} ]`}}</h2>
+    </div>
     <p v-if="features">{{features}}</p>
     <template v-if="phoneme.lects">
       <hr />
       <div :key="i" v-for="(lect, i) in phoneme.lects">
-        <h3>{{lect.name}}: {{lect.grapheme}}</h3>
-        <template v-if="lect.samples && lect.samples.length>0">
+        <p class="lect">
+          {{lect.name}} –
+          <b>{{lect.grapheme}}</b>
+        </p>
+        <div
+          :style="{height: Math.min(3, lect.samples.length) * 25 + 'px' }"
+          class="list"
+          v-if="lect.samples && lect.samples.length>0"
+        >
           <button
+            class="flat"
             @click="play(lect, i)"
             :key="i"
             v-html="highlight(sample, lect.grapheme)"
             v-for="(sample, i) in lect.samples"
           ></button>
-        </template>
+        </div>
       </div>
     </template>
   </div>
@@ -61,14 +71,23 @@ export default {
   width: 200px;
   justify-self: center;
 }
+#header {
+  display: flex;
+  place-content: center;
+  height: 25px;
+  margin-bottom: 0;
+}
 h2 {
-  word-spacing: 15px;
-  margin-top: 0;
+  margin: 0;
+  height: 100%;
 }
 p {
   font-size: 12px;
   font-style: italic;
   word-spacing: 10px;
+}
+p.lect {
+  text-align: left;
 }
 button:last-child {
   margin-bottom: 0;

@@ -168,3 +168,33 @@ button.nav.selected {
   }
 }
 </style>
+
+<style>
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  place-content: flex-start;
+  overflow-y: auto;
+  box-shadow: inset 0 0 10px var(--shadow);
+}
+.list > * {
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+  height: 25px;
+}
+.list > *:first-child {
+  border-radius: 4px 4px 0 0;
+}
+.list > *:last-child {
+  border-radius: 0 0 4px 4px;
+}
+button.flat {
+  background: transparent;
+  border: none;
+  place-content: flex-start;
+}
+button.flat:hover {
+  background-color: var(--select);
+}
+</style>
