@@ -1,5 +1,5 @@
 <template>
-  <div class="section last" v-if="converters">
+  <div class="section" v-if="converters">
     <div class="split">
       <textarea v-model="source"></textarea>
       <textarea ref="resTxt" :value="result" readonly></textarea>

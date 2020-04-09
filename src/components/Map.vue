@@ -1,5 +1,5 @@
 <template>
-  <div class="section last" v-if="catalogue">
+  <div class="section" v-if="catalogue">
     <div id="languages">
       <a :key="i" @click="$emit('language', lg)" v-for="(lg, i) in catalogue">{{lg}}</a>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="section last" v-if="phonemes">
+  <div class="section" v-if="phonemes">
     <div id="phonemes">
       <QueryList
         class="space"

@@ -14,10 +14,6 @@ body {
     max-width: 960px;
 }
 
-.section.last {
-    margin: auto;
-}
-
 * {
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;
