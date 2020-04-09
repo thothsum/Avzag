@@ -1,18 +1,20 @@
 <template>
   <div id="card">
-    <h2>{{phoneme.str}} · {{phoneme.ipa}}</h2>
-    <hr />
-    <template v-if="features">
-      <h4>Features</h4>
-      <p>{{features}}</p>
-    </template>
-    <template v-if="lects">
-      <h4>Lects</h4>
-      <p>{{lects}}</p>
-    </template>
-    <template v-if="phoneme.samples && phoneme.samples.length>0">
-      <h4>Samples</h4>
-      <button @click="play(i)" :key="i" v-for="(smp, i) in phoneme.samples" v-html="highlight(smp)"></button>
+    <h2>{{phoneme.ipa}}</h2>
+    <p v-if="features">{{features}}</p>
+    <template v-if="phoneme.lects">
+      <hr />
+      <div :key="i" v-for="(lect, i) in phoneme.lects">
+        <h3>{{lect.name}}: {{lect.grapheme}}</h3>
+        <template v-if="lect.samples && lect.samples.length>0">
+          <button
+            @click="play(lect, i)"
+            :key="i"
+            v-html="highlight(sample, lect.grapheme)"
+            v-for="(sample, i) in lect.samples"
+          ></button>
+        </template>
+      </div>
     </template>
   </div>
 </template>
@@ -28,23 +30,16 @@ export default {
   },
   computed: {
     features: function() {
-      return this.reduceTags("features");
-    },
-    lects: function() {
-      return this.reduceTags("lects");
+      return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
     }
   },
   methods: {
-    highlight(sample) {
-      const str = this.phoneme.str;
-      return sample.replace(new RegExp(str, "g"), `<b>${str}</b>`);
+    highlight(sample, grapheme) {
+      return sample.replace(new RegExp(grapheme, "g"), `<b>${grapheme}</b>`);
     },
-    play(i) {
-      this.player.src = `${this.langRoot}audio/${this.phoneme.samples[i]}.m4a`;
+    play(lect, i) {
+      this.player.src = `${this.langRoot}${lect.name}/audio/${lect.samples[i]}.m4a`;
       this.player.play();
-    },
-    reduceTags(key) {
-      return this.phoneme[key]?.reduce((a, t) => (a = `${a} ${t}`));
     }
   },
   created() {

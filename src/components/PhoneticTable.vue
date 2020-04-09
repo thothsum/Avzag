@@ -7,9 +7,11 @@
       @click="$emit('phoneme', phn.i)"
       v-for="phn in phonemes"
     >
-      <span class="str">{{phn.str}}</span>
-      <br />
       <span class="ipa">{{phn.ipa}}</span>
+      <template v-if="singleLect">
+        <br />
+        <span class="str">{{getGrapheme(phn)}}</span>
+      </template>
     </button>
   </div>
 </template>
@@ -17,13 +19,33 @@
 <script>
 export default {
   name: "PhoneticTable",
-  props: ["query", "phonemes"],
+  props: ["lectQuery", "featureQuery", "phonemes"],
   methods: {
     fits(phoneme) {
-      for (const [tag, mode] of Object.entries(this.query)) {
-        if (mode !== phoneme._all.includes(tag)) return false;
+      return (
+        this.pass(
+          phoneme.lects.map(l => l.name),
+          this.lectQuery
+        ) && this.pass(phoneme.features, this.featureQuery)
+      );
+    },
+    pass(tags, query) {
+      for (const [tag, mode] of Object.entries(query)) {
+        if (mode !== tags.includes(tag)) return false;
       }
       return true;
+    },
+    getGrapheme(phoneme) {
+      console.log("finding", phoneme.lects, this.singleLect);
+      return phoneme.lects.find(l => l.name === this.singleLect).grapheme;
+    }
+  },
+  computed: {
+    singleLect: function() {
+      let included = [];
+      for (const [lect, mode] of Object.entries(this.lectQuery))
+        if (mode) included.push(lect);
+      return included.length === 1 ? included[0] : undefined;
     }
   }
 };
