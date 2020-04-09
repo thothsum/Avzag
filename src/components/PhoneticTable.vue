@@ -8,7 +8,7 @@
       v-for="(phn, i) in phonemes"
     >
       <span class="str">{{getGrapheme(phn)}}</span>
-      <span class="ipa">[{{phn.ipa}}]</span>
+      <span class="ipa">{{phn.ipa}}</span>
     </button>
   </div>
 </template>

@@ -357,5 +357,1506 @@
                 ]
             }
         ]
+    },
+    {
+        "ipa": "t",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "т",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "т",
+                "samples": [
+                    "т",
+                    "талхъан",
+                    "уста"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "т",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "tː",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "geminate",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "тт",
+                "samples": [
+                    "тт",
+                    "ттура",
+                    "атта"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "тт",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "tʼ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "тӏ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "тӏ",
+                "samples": [
+                    "тӏ",
+                    "тӏал",
+                    "кӏултӏа"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "тӏ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "t͡s",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "ц",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "ц",
+                "samples": [
+                    "ц",
+                    "цикӏал",
+                    "бац"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "ц",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "t͡sː",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "geminate",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "цц",
+                "samples": [
+                    "цц",
+                    "цце",
+                    "луццум"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "цц",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "t͡sʼ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "цӏ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "цӏ",
+                "samples": [
+                    "цӏ",
+                    "цӏалип",
+                    "вецӏал"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "цӏ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "z",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "з",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "з",
+                "samples": [
+                    "з",
+                    "зарадехь",
+                    "муза"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "з",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "s",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "с",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "с",
+                "samples": [
+                    "с",
+                    "сагъли",
+                    "бурсибил"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "с",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "sː",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "dental"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "сс",
+                "samples": [
+                    "сс",
+                    "нисса",
+                    "гьассара"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "сс",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "n",
+        "features": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "nasal"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "н",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "н",
+                "samples": [
+                    "н",
+                    "някъ",
+                    "манзи"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "н",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "l",
+        "features": [
+            "consonant",
+            "voiced",
+            "lateral",
+            "dental",
+            "approximant"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "л",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "л",
+                "samples": [
+                    "л",
+                    "палтар",
+                    "хьацӏил"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "л",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ç",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "palatal"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "хь",
+                "samples": [
+                    "хь",
+                    "хьуне",
+                    "дирихь"
+                ]
+            },
+            {
+                "name": "Dargwa",
+                "grapheme": "хь",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "çʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "palatal",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "хьв",
+                "samples": [
+                    "хьв",
+                    "белхьвана",
+                    "дехьвана"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "xː",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "velar"
+        ],
+        "lects": [
+            {
+                "name": "Kubachi",
+                "grapheme": "хьхь",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "çː",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "palatal"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "хьхь",
+                "samples": [
+                    "хьхь",
+                    "кабихьхьара",
+                    "дивхьхьара"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "çːʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "palatal",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "хьхьв",
+                "samples": [
+                    "хьхьв",
+                    "нихьхьва",
+                    "чицахьхьвара"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "j",
+        "features": [
+            "consonant",
+            "voiced",
+            "palatal",
+            "approximant"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "й",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "й",
+                "samples": [
+                    "й",
+                    "чуйна",
+                    "гъай"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "й",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "alveolar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "ч",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "ч",
+                "samples": [
+                    "ч",
+                    "чехъил",
+                    "мичи"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "ч",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "d͡z",
+        "features": [
+            "consonant",
+            "voiced",
+            "dental",
+            "affricate"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "дз",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "d͡ʒ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiced",
+            "alveolar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "дж",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃʷ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "alveolar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "чв",
+                "samples": [
+                    "чв",
+                    "чваква",
+                    "берчвахана"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃː",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "geminate",
+            "alveolar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "чч",
+                "samples": [
+                    "чч",
+                    "ччашин",
+                    "дучче"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "чч",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃːʷ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "geminate",
+            "alveolar"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "ччв",
+                "samples": [
+                    "ччв",
+                    "ччве",
+                    "биччвахара"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃʼ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "alveolar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "чӏ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "чӏ",
+                "samples": [
+                    "чӏ",
+                    "чӏала",
+                    "урчӏе"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "чӏ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃʼʷ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "alveolar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "чӏв",
+                "samples": [
+                    "чӏв",
+                    "чӏвел",
+                    "белчӏвахана"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ʒ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "alveolar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "ж",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "ж",
+                "samples": [
+                    "ж",
+                    "житӏа",
+                    "хӏяжлачӏе"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "ж",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ʒʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "alveolar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "жв",
+                "samples": [
+                    "жв",
+                    "кержвахара",
+                    "бевжвахана"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ʃ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "alveolar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "ш",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "ш",
+                "samples": [
+                    "ш",
+                    "шалал",
+                    "урши"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "ш",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ʃʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "alveolar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "шв",
+                "samples": [
+                    "шв",
+                    "швел",
+                    "бершвахара"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ʃː",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "alveolar"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "шш",
+                "samples": [
+                    "шш",
+                    "шшери",
+                    "нишша"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "шш",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ʃːʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "alveolar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "шшв",
+                "samples": [
+                    "шшв",
+                    "ишшвахара",
+                    "кабишшвахара"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "r",
+        "features": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "trill"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "р",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "р",
+                "samples": [
+                    "р",
+                    "рицци",
+                    "баргьул"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "р",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "g",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "velar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "г",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "г",
+                "samples": [
+                    "г",
+                    "гуневла",
+                    "чибиган"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "г",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "gʷ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "velar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "гв",
+                "samples": [
+                    "гв",
+                    "гванадехь",
+                    "делгвана"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "k",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "velar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "к",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "к",
+                "samples": [
+                    "к",
+                    "катӏара",
+                    "гъукле"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "к",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "kʷ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "velar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "кв",
+                "samples": [
+                    "кв",
+                    "квацци",
+                    "берквана"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "kː",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "geminate",
+            "velar"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "кк",
+                "samples": [
+                    "кк",
+                    "ккуртте",
+                    "бейкку"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "кк",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "kːʷ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "geminate",
+            "velar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "ккв",
+                "samples": [
+                    "ккв",
+                    "рангакквар",
+                    "ччвакква"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "kʼ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "velar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "кӏ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "кӏ",
+                "samples": [
+                    "кӏ",
+                    "кӏана",
+                    "декӏле"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "кӏ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "kʼʷ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "velar",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "кӏв",
+                "samples": [
+                    "кӏв",
+                    "никӏва",
+                    "белкӏвана"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "q",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "uvular"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "къ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "къ",
+                "samples": [
+                    "къ",
+                    "къатта",
+                    "вегъивкъел"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "къ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "qʷ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "uvular",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "къв",
+                "samples": [
+                    "къв",
+                    "къвяна",
+                    "милкъвя"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "q͡χʰ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "uvular"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "хъ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "хъ",
+                "samples": [
+                    "хъ",
+                    "хъале",
+                    "бихъна"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "хъ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "q͡χʷʰ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "uvular",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "хъв",
+                "samples": [
+                    "хъв",
+                    "хъвянтӏ",
+                    "махъва"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "qː",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "geminate",
+            "uvular"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "къкъ",
+                "samples": [
+                    "къкъ",
+                    "цакъкъара",
+                    "шукъкъа"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "къкъ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "qʼ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "ejective",
+            "uvular"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "кь",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "кь",
+                "samples": [
+                    "кь",
+                    "кьаст",
+                    "мукьара"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "кь",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "qʼʷ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "ejective",
+            "uvular",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "кьв",
+                "samples": [
+                    "кьв",
+                    "кьвял",
+                    "чӏвакьва"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ɣ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "velar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "гъ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ʁ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "uvular"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "гъ",
+                "samples": [
+                    "гъ",
+                    "гъизбе",
+                    "къабагъ"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "гъ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ʁʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "uvular",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "гъв",
+                "samples": [
+                    "гъв",
+                    "гъвярцӏил",
+                    "бергъвара"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "χ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "uvular"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "х",
+                "samples": [
+                    "х",
+                    "халича",
+                    "чух"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "х",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "x",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "velar"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "х",
+                "samples": []
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "хь",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "χʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "uvular",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "хв",
+                "samples": [
+                    "хв",
+                    "хвя",
+                    "керхвара"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "χː",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "geminate",
+            "uvular"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "хх",
+                "samples": [
+                    "хх",
+                    "ххярбе",
+                    "ирххе"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "хх",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ʢ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "pharyngeal"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "гӏ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "гӏ",
+                "samples": [
+                    "гӏ",
+                    "гӏямру",
+                    "лягӏ"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "гӏ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "ħ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "pharyngeal"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "хӏ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "хӏ",
+                "samples": [
+                    "хӏ",
+                    "хӏянчи",
+                    "дярхӏя"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "хӏ",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "h",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "laryngeal"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "гь",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "гь",
+                "samples": [
+                    "гь",
+                    "гьинце",
+                    "вагьла"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "гь",
+                "samples": []
+            }
+        ]
+    },
+    {
+        "ipa": "hʷ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "laryngeal",
+            "labialized"
+        ],
+        "lects": [
+            {
+                "name": "Kaitag",
+                "grapheme": "гьв",
+                "samples": [
+                    "гьв",
+                    "белгьвана",
+                    "диргьвар"
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ʔ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "laryngeal"
+        ],
+        "lects": [
+            {
+                "name": "Dargwa",
+                "grapheme": "ъ",
+                "samples": []
+            },
+            {
+                "name": "Kaitag",
+                "grapheme": "ъ",
+                "samples": [
+                    "маъ",
+                    "баълабай"
+                ]
+            },
+            {
+                "name": "Kubachi",
+                "grapheme": "ъ",
+                "samples": []
+            }
+        ]
     }
 ]
