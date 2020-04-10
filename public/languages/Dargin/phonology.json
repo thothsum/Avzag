@@ -669,8 +669,11 @@
                 "samples": [
                     "л",
                     "палтар",
+                    "л",
+                    "палтар",
                     "хьацӏил"
-                ]
+                ],
+                "note": "Palatalized after [a], [i], [u]."
             },
             {
                 "name": "Kubachi",

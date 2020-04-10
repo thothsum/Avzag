@@ -4,7 +4,9 @@
       <div id="header">
         <h2>{{phoneme.ipa}}</h2>
       </div>
-      <p id="features" v-if="features">{{features}}</p>
+      <p id="features" v-if="features">
+        {{features}}
+      </p>
     </div>
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
@@ -19,13 +21,13 @@
           v-if="lect.samples && lect.samples.length>0"
         >
           <button
-            class="flat"
             @click="play(lect, i)"
             :key="i"
             v-html="highlight(sample, lect.grapheme)"
             v-for="(sample, i) in lect.samples"
           ></button>
         </div>
+        <p class="note" v-if="lect.note">{{lect.note}}</p>
       </div>
     </template>
   </div>
@@ -70,33 +72,19 @@ h2 {
   margin: 0;
   height: 100%;
 }
-p,
-h2 {
+h2,
+#features,
+.lect {
   text-align: center;
 }
-p#features {
+#features {
   font-size: 12px;
   font-style: italic;
   word-spacing: 10px;
   margin: 0;
 }
-.card {
-  width: 100%;
-  margin: 5px 0 5px 0;
-  box-shadow: 0px 0px 10px var(--shadow);
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-}
-.card > * {
-  margin: 2.5px 0;
-}
-.card > *:first-child {
-  margin-top: 0;
-}
-.card > *:last-child {
-  margin-bottom: 0;
+.note {
+  font-size: 12px;
 }
 @media only screen and (max-width: 600px) {
   .card {

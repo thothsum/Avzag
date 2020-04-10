@@ -73,11 +73,12 @@ export default {
 .phoneme:not(.full) > .str {
   transform: scale(0);
 }
-.faded {
-  background-color: transparent;
-}
 .faded * {
-  color: var(--shadow);
+  color: var(--select);
+}
+.faded,
+.faded:hover {
+  background-color: transparent;
 }
 .faded:hover *,
 .faded:active * {
