@@ -49,7 +49,7 @@ button:active, select:active {
     background-color: var(--text) !important;
 }
 
-button:active>* {
+button:active * {
     color: #FFF !important;
 }
 

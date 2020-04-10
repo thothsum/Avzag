@@ -2,13 +2,13 @@
   <div id="table">
     <button
       class="phoneme"
-      :class="{faded: !fitting[i], full: singleLect}"
+      :class="{faded: !fitting[i], full: graphemes[i]}"
       :key="i"
       @click="$emit('phoneme', phn.i)"
       v-for="(phn, i) in phonemes"
     >
       <span class="str">
-        <b>{{getGrapheme(phn)}}</b>
+        <b>{{graphemes[i]}}</b>
       </span>
       <span class="ipa">{{phn.ipa}}</span>
     </button>
@@ -25,9 +25,6 @@ export default {
         if (mode !== tags.includes(tag)) return false;
       }
       return true;
-    },
-    getGrapheme(phoneme) {
-      return phoneme.lects.find(l => l.name === this.singleLect)?.grapheme;
     }
   },
   computed: {
@@ -41,10 +38,15 @@ export default {
       );
     },
     singleLect: function() {
-      let included = [];
+      let lects = [];
       for (const [lect, mode] of Object.entries(this.lectQuery))
-        if (mode) included.push(lect);
-      return included.length === 1 ? included[0] : undefined;
+        if (mode) lects.push(lect);
+      return lects.length === 1 ? lects[0] : undefined;
+    },
+    graphemes: function() {
+      return this.phonemes.map(
+        p => p.lects.find(l => l.name === this.singleLect)?.grapheme
+      );
     }
   }
 };
@@ -61,11 +63,9 @@ export default {
   align-items: center;
   width: 50px;
   height: 40px;
-  line-height: 100%;
 }
-
-.phoneme.full > .ipa {
-  transform: scale(0.8);
+.phoneme > .ipa {
+  transform: scale(0.9);
 }
 .phoneme:not(.full) > .ipa {
   transform: scale(1.2);
@@ -76,12 +76,12 @@ export default {
 .faded {
   background-color: transparent;
 }
-.faded > * {
-  opacity: 0.3;
+.faded * {
+  color: var(--shadow);
 }
-.faded:hover > *,
-.faded:active > * {
-  opacity: initial;
+.faded:hover *,
+.faded:active * {
+  color: initial;
 }
 @media only screen and (max-width: 600px) {
   #table {
