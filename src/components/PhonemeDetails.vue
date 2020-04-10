@@ -6,6 +6,7 @@
       </div>
       <p id="features" v-if="features">{{features}}</p>
     </div>
+    <audio ref="player"></audio>
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
         <p class="lect">
@@ -34,11 +35,6 @@
 export default {
   name: "PhonemeDetails",
   props: ["langRoot", "phoneme"],
-  data() {
-    return {
-      player: new Audio()
-    };
-  },
   computed: {
     features: function() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
@@ -49,12 +45,10 @@ export default {
       return sample.replace(new RegExp(grapheme, "g"), `<b>${grapheme}</b>`);
     },
     play(lect, i) {
-      this.player.src = `${this.langRoot}${lect.name}/audio/${lect.samples[i]}.m4a`;
-      this.player.play();
+      const player = this.$refs.player;
+      player.src = `${this.langRoot}${lect.name}/audio/${lect.samples[i]}.m4a`;
+      player.play();
     }
-  },
-  created() {
-    this.player.play();
   }
 };
 </script>
@@ -63,8 +57,8 @@ export default {
 #root {
   display: flex;
   flex-wrap: wrap;
-  align-content:flex-start;
-  justify-content:center;
+  align-content: flex-start;
+  justify-content: center;
 }
 #header {
   display: flex;

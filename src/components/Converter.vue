@@ -12,7 +12,7 @@
       <button @click="copy">Copy to clipboard</button>
     </div>
     <MappingTable :mapping="mapping" />
-    <input v-show="false" type="file" ref="file" @change="handleFiles" />
+    <input hidden type="file" ref="file" @change="handleFiles" />
   </div>
 </template>
 
