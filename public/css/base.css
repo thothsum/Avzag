@@ -139,14 +139,14 @@ textarea:read-write:hover, textarea:read-write:focus {
     width: 100%;
     margin: 5px 0 5px 0;
     box-shadow: 0px 0px 10px var(--shadow);
-    padding: 5px;
+    padding: 10px 5px;
     display: flex;
     flex-direction: column;
     background-color: white;
 }
 
 .card>* {
-    margin: 2.5px 0;
+    margin: 5px 0;
 }
 
 .card>*:first-child {
@@ -155,4 +155,21 @@ textarea:read-write:hover, textarea:read-write:focus {
 
 .card>*:last-child {
     margin-bottom: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--select);
+    border-radius: 0 4px 4px 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text);
 }

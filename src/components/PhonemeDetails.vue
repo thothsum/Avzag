@@ -4,9 +4,7 @@
       <div id="header">
         <h2>{{phoneme.ipa}}</h2>
       </div>
-      <p id="features" v-if="features">
-        {{features}}
-      </p>
+      <p id="features" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
@@ -62,11 +60,16 @@ export default {
   align-content: flex-start;
   justify-content: center;
 }
+#root > *:first-child {
+  margin-top: 0;
+}
+#card > *:last-child {
+  margin-bottom: 0;
+}
 #header {
   display: flex;
   place-content: center;
   height: 25px;
-  margin-bottom: 0;
 }
 h2 {
   margin: 0;
@@ -81,7 +84,6 @@ h2,
   font-size: 12px;
   font-style: italic;
   word-spacing: 10px;
-  margin: 0;
 }
 .note {
   font-size: 12px;
