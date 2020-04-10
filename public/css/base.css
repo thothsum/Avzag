@@ -1,7 +1,6 @@
 :root {
     --text: #2E3440;
-    --control: #E5E9F0;
-    --select: #ced7e3;
+    --select: #E5E9F0;
     --shadow: #D8DEE9;
 }
 
@@ -31,7 +30,7 @@ body {
 
 button, select {
     border: 1px solid transparent;
-    background-color: var(--control);
+    background-color: var(--select);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -42,7 +41,7 @@ button, select {
 }
 
 button:hover, select:hover {
-    background-color: var(--select) !important;
+    border-color: var(--text) !important;
 }
 
 button:active, select:active {
@@ -78,7 +77,7 @@ h4 {
 
 hr {
     height: 2px;
-    background-color: var(--control);
+    background-color: var(--select);
     margin-bottom: 25px;
 }
 
@@ -98,13 +97,13 @@ a:active {
 }
 
 textarea {
-    border: 1px solid var(--control);
+    border: 1px solid var(--select);
     text-align: left;
 }
 
 textarea:read-only {
-    border-color: var(--control);
-    background-color: var(--control);
+    border-color: var(--select);
+    background-color: var(--select);
 }
 
 textarea:read-write:hover, textarea:read-write:focus {
@@ -116,17 +115,24 @@ textarea:read-write:hover, textarea:read-write:focus {
     flex-wrap: wrap;
     place-content: flex-start;
     overflow-y: auto;
+    box-shadow: inset 0px 0px 5px var(--shadow);
 }
 
 .list>* {
-    border-radius: 0;
     margin: 0;
     width: 100%;
     height: 25px;
 }
 
 .list>button {
+    border: none;
+    border-radius: 0;
     place-content: flex-start;
+    background-color: transparent;
+}
+
+.list>button:hover {
+    background-color: var(--select);
 }
 
 .card {
