@@ -4,7 +4,7 @@
       <div id="header">
         <h2>{{phoneme.ipa}}</h2>
       </div>
-      <p id="features" v-if="features">{{features}}</p>
+      <p class="note" id="features" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
@@ -81,12 +81,11 @@ h2,
   text-align: center;
 }
 #features {
-  font-size: 12px;
-  font-style: italic;
   word-spacing: 10px;
 }
 .note {
   font-size: 12px;
+  font-style: italic;
 }
 @media only screen and (max-width: 600px) {
   .card {
