@@ -100,7 +100,6 @@ export default {
 #banner,
 #menu {
   width: 50%;
-  padding: 10px 5px;
   display: flex;
   align-content: center;
 }
@@ -111,11 +110,17 @@ export default {
   justify-content: flex-end;
 }
 #titles {
-  line-height: 50%;
+  display: flex;
+  flex-wrap: wrap;
   place-content: center;
+  line-height: 100%;
 }
 #titles h1 {
   font-size: 24px;
+}
+#titles > * {
+  width: 100%;
+  margin: 5px;
 }
 button.nav {
   font-size: 16px;
@@ -140,7 +145,7 @@ button.nav.selected {
   height: 100%;
   box-shadow: 0 0 10px var(--shadow);
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 600px) {
   #header {
     height: fit-content;
     flex-wrap: wrap;
@@ -151,8 +156,6 @@ button.nav.selected {
     width: 100%;
     justify-content: center;
   }
-}
-@media only screen and (max-width: 600px) {
   #banner {
     flex-flow: column;
     place-content: center;
