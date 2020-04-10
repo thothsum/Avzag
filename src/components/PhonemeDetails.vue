@@ -63,7 +63,7 @@ export default {
 #root > *:first-child {
   margin-top: 0;
 }
-#card > *:last-child {
+#root > *:last-child {
   margin-bottom: 0;
 }
 #header {
