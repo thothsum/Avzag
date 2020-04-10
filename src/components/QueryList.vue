@@ -101,7 +101,6 @@ h3 {
 #body * {
   font-size: 12px;
   cursor: pointer;
-  user-select: none;
 }
 #body > a {
   font-style: italic;

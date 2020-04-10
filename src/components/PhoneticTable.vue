@@ -7,7 +7,9 @@
       @click="$emit('phoneme', phn.i)"
       v-for="(phn, i) in phonemes"
     >
-      <span class="str">{{getGrapheme(phn)}}</span>
+      <span class="str">
+        <b>{{getGrapheme(phn)}}</b>
+      </span>
       <span class="ipa">{{phn.ipa}}</span>
     </button>
   </div>
@@ -61,17 +63,15 @@ export default {
   height: 40px;
   line-height: 100%;
 }
-.phoneme.full > .str {
-  font-weight: bold;
-}
+
 .phoneme.full > .ipa {
-  font-size: 12px;
-}
-.phoneme:not(.full) > .str {
-  height: 0;
+  transform: scale(0.8);
 }
 .phoneme:not(.full) > .ipa {
-  font-size: 16px;
+  transform: scale(1.2);
+}
+.phoneme:not(.full) > .str {
+  transform: scale(0);
 }
 .faded {
   background-color: transparent;
