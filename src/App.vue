@@ -13,7 +13,7 @@
       <div id="menu">
         <button
           class="nav"
-          :class=" { selected: menu === i}"
+          :class=" { selected: menu == i}"
           @click="menu=i"
           :key="i"
           v-for="(sct, i) in ['Map', 'Phonology', 'Converter']"
