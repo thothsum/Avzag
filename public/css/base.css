@@ -111,7 +111,6 @@ textarea:read-write:hover, textarea:read-write:focus {
 }
 
 .list {
-    border-radius: 0;
     display: flex;
     flex-wrap: wrap;
     place-content: flex-start;
@@ -168,6 +167,7 @@ textarea:read-write:hover, textarea:read-write:focus {
 
 ::-webkit-scrollbar-thumb {
     background: var(--select);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

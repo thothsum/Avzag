@@ -2,7 +2,7 @@
   <div id="root">
     <div class="card">
       <div id="header">
-        <h2>{{phoneme.ipa}}</h2>
+        <h2>[{{phoneme.ipa}}]</h2>
       </div>
       <p class="note" id="features" v-if="features">{{features}}</p>
     </div>

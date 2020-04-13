@@ -10,7 +10,7 @@
       <span class="str">
         <b>{{graphemes[i]}}</b>
       </span>
-      <span class="ipa">{{phn.ipa}}</span>
+      <span class="ipa">{{graphemes[i] ? `[${phn.ipa}]` : phn.ipa}}</span>
     </button>
   </div>
 </template>
@@ -73,12 +73,18 @@ export default {
 .phoneme:not(.full) > .str {
   transform: scale(0);
 }
+.faded {
+  border-color: var(--select);
+}
 .faded * {
   color: var(--select);
 }
 .faded,
 .faded:hover {
   background-color: transparent;
+}
+.faded:active {
+  border-color: transparent;
 }
 .faded:hover *,
 .faded:active * {
