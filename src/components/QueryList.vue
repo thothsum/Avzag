@@ -111,6 +111,7 @@ h3 {
   margin: 0 10px 0 0 !important;
   padding: 4px 8px !important;
   font-size: 16px !important;
+  font-style: normal;
 }
 .big * {
   font-size: 16px !important;
