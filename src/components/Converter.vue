@@ -13,6 +13,7 @@
     </div>
     <MappingTable :mapping="mapping" />
     <input hidden type="file" ref="file" @change="handleFiles" />
+    <a hidden ref="link"></a>
   </div>
 </template>
 
@@ -77,7 +78,7 @@ export default {
       document.execCommand("copy");
     },
     handleFiles(event) {
-      var reader = new FileReader();
+      let reader = new FileReader();
       reader.onload = e =>
         this.download(
           event.target.files[0].name,
@@ -86,19 +87,10 @@ export default {
       reader.readAsText(event.target.files[0]);
     },
     download(filename, text) {
-      var element = document.createElement("a");
-      element.setAttribute(
-        "href",
-        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-      );
-      element.setAttribute("download", filename);
-
-      element.style.display = "none";
-      document.body.appendChild(element);
-
-      element.click();
-
-      document.body.removeChild(element);
+      let link = this.$refs.link;
+      link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
+      link.download = filename;
+      link.click();
     }
   }
 };
