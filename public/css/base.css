@@ -1,4 +1,5 @@
 :root {
+    --back: #FFFFFF;
     --text: #2E3440;
     --select: #E5E9F0;
     --shadow: #D8DEE9;
@@ -45,12 +46,12 @@ button:hover, select:hover {
 }
 
 button:active, select:active {
-    color: #FFF !important;
+    color: var(--back) !important;
     background-color: var(--text) !important;
 }
 
 button:active * {
-    color: #FFF !important;
+    color: var(--back) !important;
 }
 
 h1 {
@@ -142,7 +143,7 @@ textarea:read-write:hover, textarea:read-write:focus {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--back);
 }
 
 .card>* {
