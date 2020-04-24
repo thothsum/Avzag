@@ -98,6 +98,7 @@ a:active {
 }
 
 textarea {
+    background-color: var(--back);
     border: 1px solid var(--select);
     text-align: left;
 }
