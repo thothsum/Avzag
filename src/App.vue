@@ -88,12 +88,11 @@ export default {
 #header {
   border-radius: 0 0 4px 4px;
   box-shadow: 0px 5px 10px var(--shadow);
-  height: 75px;
+  height: 60px;
   display: flex;
   align-items: center;
-  padding: 10px 5px;
+  padding: 5px;
 }
-#banner > *,
 #menu > * {
   margin: 5px;
 }
@@ -138,8 +137,9 @@ button.nav.selected {
   border-color: var(--text);
 }
 #flag {
-  height: 60px;
+  height: 45px;
   display: flex;
+  margin: 5px;
 }
 #flag > img {
   height: 100%;
