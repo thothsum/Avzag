@@ -16,18 +16,24 @@
           :class=" { selected: menu == i}"
           @click="menu=i"
           :key="i"
-          v-for="(sct, i) in ['Map', 'Phonology', 'Converter']"
+          v-for="(sct, i) in ['Phonology', 'Converter']"
         >{{sct}}</button>
+        <button
+          class="nav"
+          @click="showCatalogue=!showCatalogue"
+          :class=" { selected: showCatalogue}"
+        >🏔</button>
       </div>
     </div>
-    <Map :langRoot="langRoot" v-show="menu==0" @language="language=$event" />
-    <Phonology :langRoot="langRoot" v-show="menu==1" />
-    <Converter :langRoot="langRoot" v-show="menu==2" />
+    <div id="catalogue" class="section" v-show="showCatalogue">
+      <a @click="language=lg" :key="i" v-for="(lg, i) in catalogue">{{lg}}</a>
+    </div>
+    <Phonology :langRoot="langRoot" v-show="menu==0" />
+    <Converter :langRoot="langRoot" v-show="menu==1" />
   </div>
 </template>
 
 <script>
-import Map from "./components/Map";
 import Phonology from "./components/Phonology";
 import Converter from "./components/Converter";
 
@@ -38,11 +44,11 @@ export default {
       language: undefined,
       catalogue: undefined,
       index: undefined,
-      menu: 0
+      menu: 0,
+      showCatalogue: false
     };
   },
   components: {
-    Map,
     Phonology,
     Converter
   },
@@ -85,6 +91,17 @@ export default {
 </script>
 
 <style scoped>
+#catalogue {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: 0px 2.5px 5px var(--shadow);
+  padding: 15px 0 5px 0;
+  margin-top: -35px;
+}
+#catalogue > * {
+  margin: 0 5px;
+}
 #header {
   border-radius: 0 0 4px 4px;
   box-shadow: 0px 5px 10px var(--shadow);
