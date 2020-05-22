@@ -263,14 +263,25 @@
             "consonant",
             "fricative",
             "voiced",
-            "labial"
+            "labiodental"
         ],
         "lects": [
             {
                 "name": "Dargwa",
                 "grapheme": "в",
                 "samples": []
-            },
+            }
+        ]
+    },
+    {
+        "ipa": "β",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "bilabial"
+        ],
+        "lects": [
             {
                 "name": "Kaitag",
                 "grapheme": "в",
@@ -1438,9 +1449,10 @@
         "ipa": "qʰ",
         "features": [
             "consonant",
-            "affricate",
-            "voiceless",
-            "uvular"
+            "stop",
+            "voiced",
+            "uvular",
+            "aspirated"
         ],
         "lects": [
             {
@@ -1468,9 +1480,10 @@
         "ipa": "qʰʷ",
         "features": [
             "consonant",
-            "affricate",
-            "voiceless",
+            "stop",
+            "voiced",
             "uvular",
+            "aspirated",
             "labialized"
         ],
         "lects": [
