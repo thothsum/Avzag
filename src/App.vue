@@ -45,12 +45,17 @@ export default {
     };
   },
   watch: {
-    "$route.path": async function(path) {
-      localStorage.url = path;
+    $route: async function(route) {
+      localStorage.url = route.path;
     }
   },
   created() {
-    if (localStorage.url) this.$router.push({ path: localStorage.url });
+    if (this.$route.path === "/")
+      this.$router.push(
+        localStorage.url
+          ? { path: localStorage.url }
+          : { name: "Converter", params: { lang: "Ossetian" } }
+      );
   },
   methods: {
     navigate(section) {

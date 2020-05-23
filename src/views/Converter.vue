@@ -22,17 +22,10 @@ import MappingTable from "@/components/MappingTable";
 
 export default {
   name: "Converter",
-  watch: {
-    "$route.params.lang": async function(lang) {
-      const langRoot = this.$getPath(lang);
-
-      const res = await fetch(langRoot + "converter.json");
-      this.converters = await res.json();
-
-      const smp = await fetch(langRoot + "sample.txt");
-      this.source = await smp.text();
-    }
+  components: {
+    MappingTable
   },
+
   data() {
     return {
       converters: null,
@@ -40,15 +33,24 @@ export default {
       source: ""
     };
   },
-  components: {
-    MappingTable
-  },
   computed: {
     mapping: function() {
       return Object.entries(this.converters[this.selected].mapping);
     },
     result: function() {
       return this.convert(this.source);
+    }
+  },
+  watch: {
+    $route: async function(route) {
+      console.log(route);
+      // const langRoot = this.$getPath(lang);
+
+      // const res = await fetch(langRoot + "converter.json");
+      // this.converters = await res.json();
+
+      // const smp = await fetch(langRoot + "sample.txt");
+      // this.source = await smp.text();
     }
   },
   methods: {

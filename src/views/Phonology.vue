@@ -77,6 +77,22 @@ export default {
       );
     }
   },
+  watch: {
+    $route: async function(route) {
+      console.log("phonology", route);
+      // const langRoot = this.$getPath(lang);
+
+      // const res = await fetch(langRoot + "phonology.json");
+      // let data = await res.json();
+
+      // data.sort((a, b) => a.ipa.localeCompare(b.ipa));
+      // data.forEach((p, i) => (p.i = i));
+      // data.forEach(p => p.lects.sort((a, b) => a.name.localeCompare(b.name)));
+
+      // this.phonemes = data;
+      // this.selected = 0;
+    }
+  },
   methods: {
     categorize(category) {
       return this.phonemes.filter(p => p.features.includes(category));

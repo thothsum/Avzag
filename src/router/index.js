@@ -9,15 +9,6 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    redirect: {
-      name: "Converter",
-      params: {
-        lang: "Ossetian"
-      }
-    }
-  },
-  {
     path: '/phonology/:lang',
     name: 'Phonology',
     component: Phonology
