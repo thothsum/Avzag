@@ -1,9 +1,9 @@
 <template>
-  <div id="catalogue" class="section">
+  <div class="section">
     <router-link
       :to="{name: $route.name, params: {lang: lg}}"
-      :key="i"
-      v-for="(lg, i) in catalogue"
+      :key="lg"
+      v-for="lg in catalogue"
     >{{lg}}</router-link>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style scoped>
-#catalogue {
+.section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -33,7 +33,7 @@ export default {
   padding: 5px 0;
   margin-top: -25px;
 }
-#catalogue > * {
+.section > * {
   margin: 0 5px;
 }
 </style>
