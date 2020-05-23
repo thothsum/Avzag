@@ -5,7 +5,7 @@
     </div>
     <div id="titles" v-if="index">
       <h1>{{index.title}}</h1>
-      <h3>{{index.tags.reduce((a, t) => a = `${a} › ${t}`)}}</h3>
+      <h3>{{subtitle}}</h3>
     </div>
   </div>
 </template>
@@ -19,14 +19,16 @@ export default {
     };
   },
   computed: {
+    subtitle: function() {
+      return this.index.tags.reduce((a, t) => (a = `${a} › ${t}`));
+    },
     langRoot: function() {
       return this.$getPath(this.$route.params.lang);
     }
   },
   watch: {
     langRoot: async function(langRoot) {
-      const res = await fetch(langRoot + "index.json");
-      this.index = await res.json();
+      this.index = await fetch(langRoot + "index.json").then(r => r.json());
     }
   }
 };
