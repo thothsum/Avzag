@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     subtitle: function() {
-      return this.index.tags.reduce((a, t) => (a = `${a} › ${t}`));
+      return this.index.tags.reduce((a, t) => (a = a + " › " + t));
     },
     langRoot: function() {
       return this.$getPath(this.$route.params.lang);
@@ -39,6 +39,9 @@ export default {
   display: flex;
   align-content: center;
   justify-content: flex-start;
+}
+#banner > * {
+  margin: 0 5px;
 }
 #flag {
   height: 40px;
@@ -61,6 +64,9 @@ export default {
   #banner {
     flex-flow: column;
     place-content: center;
+  }
+  #banner > * {
+    margin: 5px 0;
   }
   #flag {
     place-content: center;
