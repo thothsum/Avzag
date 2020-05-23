@@ -11,13 +11,11 @@
         </div>
       </div>
       <div id="menu">
-        <button
-          class="nav"
-          :class=" { selected: menu == i}"
-          @click="menu=i"
+        <router-link
+          :to="{name: sct, params: {lang: $route.params.lang}}"
           :key="i"
           v-for="(sct, i) in ['Phonology', 'Converter']"
-        >{{sct}}</button>
+        >{{sct}}</router-link>
         <button
           class="nav"
           @click="showCatalogue=!showCatalogue"

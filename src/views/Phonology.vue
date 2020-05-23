@@ -27,7 +27,7 @@
         @phoneme="selected=$event"
       />
     </div>
-    <PhonemeDetails :langRoot="langRoot" :phoneme="phonemes[selected]" />
+    <PhonemeDetails :phoneme="phonemes[selected]" />
   </div>
 </template>
 

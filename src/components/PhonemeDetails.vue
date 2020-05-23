@@ -34,7 +34,7 @@
 <script>
 export default {
   name: "PhonemeDetails",
-  props: ["langRoot", "phoneme"],
+  props: ["phoneme"],
   computed: {
     features: function() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
@@ -45,8 +45,9 @@ export default {
       return sample.replace(new RegExp(grapheme, "g"), `<b>${grapheme}</b>`);
     },
     play(lect, i) {
+      const langRoot = this.$getPath(this.$route.params.lang);
       const player = this.$refs.player;
-      player.src = `${this.langRoot}${lect.name}/audio/${lect.samples[i]}.m4a`;
+      player.src = `${langRoot}${lect.name}/audio/${lect.samples[i]}.m4a`;
       player.play();
     }
   }

@@ -13,7 +13,7 @@ const routes = [
     redirect: {
       name: "Converter",
       params: {
-        lang: "Dargin"
+        lang: "Ossetian"
       }
     }
   },
