@@ -78,28 +78,25 @@ export default {
     }
   },
   watch: {
-    "$route.params.lang": async function() {
-      await this.load();
+    "$route.params.lang": {
+      handler: async function(lang) {
+        const langRoot = this.$getPath(lang);
+        console.log("phonology", langRoot);
+
+        let data = await fetch(langRoot + "phonology.json").then(r => r.json());
+        data.sort((a, b) => a.ipa.localeCompare(b.ipa));
+        data.forEach((p, i) => {
+          p.i = i;
+          p.lects.sort((a, b) => a.name.localeCompare(b.name));
+        });
+
+        this.phonemes = data;
+        this.selected = 0;
+      },
+      immediate: true
     }
   },
-  async created() {
-    await this.load();
-  },
   methods: {
-    async load() {
-      const langRoot = this.$getPath(this.$route.params.lang);
-      console.log("phonology", langRoot);
-
-      let data = await fetch(langRoot + "phonology.json").then(r => r.json());
-      data.sort((a, b) => a.ipa.localeCompare(b.ipa));
-      data.forEach((p, i) => {
-        p.i = i;
-        p.lects.sort((a, b) => a.name.localeCompare(b.name));
-      });
-
-      this.phonemes = data;
-      this.selected = 0;
-    },
     categorize(category) {
       return this.phonemes.filter(p => p.features.includes(category));
     },
