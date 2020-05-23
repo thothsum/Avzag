@@ -1,15 +1,7 @@
 <template>
-  <div id="app" v-if="index">
+  <div id="app">
     <div class="section" id="header">
-      <div id="banner">
-        <div id="flag">
-          <img :src="langRoot + 'flag.png'" alt="Banner" />
-        </div>
-        <div id="titles">
-          <h1>{{index.title}}</h1>
-          <h3>{{index.tags.reduce((a, t) => a = `${a} › ${t}`)}}</h3>
-        </div>
-      </div>
+      <HeaderBanner />
       <div id="menu">
         <router-link
           :to="{name: sct, params: {lang: $route.params.lang}}"
@@ -35,6 +27,8 @@
 </template>
 
 <script>
+import HeaderBanner from "./components/HeaderBanner";
+
 import Vue from "vue";
 
 Vue.prototype.$getPath = l => {
@@ -43,11 +37,13 @@ Vue.prototype.$getPath = l => {
 
 export default {
   name: "App",
+  components: {
+    HeaderBanner
+  },
   data() {
     return {
       language: undefined,
       catalogue: undefined,
-      index: undefined,
       showCatalogue: false
     };
   },
@@ -109,33 +105,17 @@ export default {
   align-items: center;
   padding: 5px;
 }
+HeaderBanner {
+  width: 50%;
+}
 #menu > * {
   margin: 5px;
 }
-#banner,
 #menu {
   width: 50%;
   display: flex;
   align-content: center;
-}
-#banner {
-  justify-content: flex-start;
-}
-#menu {
   justify-content: flex-end;
-}
-#titles {
-  display: flex;
-  flex-wrap: wrap;
-  place-content: center;
-  line-height: 100%;
-}
-#titles h1 {
-  font-size: 24px;
-}
-#titles > * {
-  width: 100%;
-  margin: 5px;
 }
 button.nav {
   font-size: 16px;
@@ -152,37 +132,18 @@ button.nav:hover {
 button.nav.selected {
   border-color: var(--text);
 }
-#flag {
-  height: 45px;
-  display: flex;
-  margin: 5px;
-}
-#flag > img {
-  height: 100%;
-  box-shadow: 0 0 10px var(--shadow);
-}
 @media only screen and (max-width: 600px) {
   #header {
     height: fit-content;
     flex-wrap: wrap;
     justify-content: center;
   }
-  #banner,
+  HeaderBanner {
+    width: 100%;
+  }
   #menu {
     width: 100%;
     justify-content: center;
-  }
-  #banner {
-    flex-flow: column;
-    place-content: center;
-  }
-  #flag {
-    place-content: center;
-  }
-  #titles {
-    text-align: center;
-  }
-  #menu {
     flex-wrap: wrap;
   }
 }
