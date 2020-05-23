@@ -45,8 +45,12 @@ export default {
     };
   },
   watch: {
-    $route: async function(route) {
-      localStorage.url = route.path;
+    $route: {
+      handler: async function(route) {
+        localStorage.url = route.path;
+        this.$store.dispatch("loadLanguage", route.params.lang);
+      },
+      immediate: true
     }
   },
   created() {

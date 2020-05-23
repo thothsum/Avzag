@@ -1,10 +1,10 @@
 <template>
   <div id="banner">
     <div id="flag">
-      <img :src="langRoot + 'flag.png'" alt="Banner" />
+      <img :src="banner" alt="Banner" />
     </div>
-    <div id="titles" v-if="index">
-      <h1>{{index.title}}</h1>
+    <div id="titles">
+      <h1>{{title}}</h1>
       <h3>{{subtitle}}</h3>
     </div>
   </div>
@@ -19,20 +19,14 @@ export default {
     };
   },
   computed: {
-    subtitle: function() {
-      return this.index.tags.reduce((a, t) => (a = a + " › " + t));
+    banner() {
+      return this.$store.getters.languageRoot + "flag.png";
     },
-    langRoot: function() {
-      return this.$getPath(this.$route.params.lang);
-    }
-  },
-  watch: {
-    "$route.params.lang": {
-      handler: async function(lang) {
-        const langRoot = this.$getPath(lang);
-        this.index = await fetch(langRoot + "index.json").then(r => r.json());
-      },
-      immediate: true
+    title() {
+      return this.$store.state.index?.title;
+    },
+    subtitle() {
+      return this.$store.state.index?.tags.reduce((a, t) => (a = a + " › " + t));
     }
   }
 };

@@ -25,7 +25,6 @@ export default {
   components: {
     MappingTable
   },
-
   data() {
     return {
       converters: null,
@@ -46,7 +45,7 @@ export default {
       handler: async function(lang) {
         const langRoot = this.$getPath(lang);
 
-        this.converters = await fetch(langRoot + "converter.json").then(r =>
+        this.converters = await fetch(langRoot + "converters.json").then(r =>
           r.json()
         );
         this.source = await fetch(langRoot + "sample.txt").then(r => r.text());
