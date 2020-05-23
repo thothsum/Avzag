@@ -13,11 +13,6 @@
 <script>
 export default {
   name: "HeaderBanner",
-  data() {
-    return {
-      index: undefined
-    };
-  },
   computed: {
     banner() {
       return this.$store.getters.languageRoot + "flag.png";
@@ -26,7 +21,9 @@ export default {
       return this.$store.state.index?.title;
     },
     subtitle() {
-      return this.$store.state.index?.tags.reduce((a, t) => (a = a + " › " + t));
+      return this.$store.state.index?.tags.reduce(
+        (a, t) => (a = a + " › " + t)
+      );
     }
   }
 };
