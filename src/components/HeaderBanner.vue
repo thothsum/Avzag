@@ -49,22 +49,16 @@ export default {
 }
 #titles {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   place-content: center;
-  line-height: 100%;
-}
-#titles h1 {
-  font-size: 24px;
 }
 #titles > * {
-  width: 100%;
-  margin: 5px;
+  margin: 0;
 }
 @media only screen and (max-width: 600px) {
   #banner {
     flex-flow: column;
     place-content: center;
-    justify-content: center;
   }
   #flag {
     place-content: center;

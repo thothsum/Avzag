@@ -15,19 +15,14 @@
         >🏔</button>
       </div>
     </div>
-    <div id="catalogue" class="section" v-show="showCatalogue">
-      <router-link
-        :to="{name: $route.name, params: {lang: lg}}"
-        :key="i"
-        v-for="(lg, i) in catalogue"
-      >{{lg}}</router-link>
-    </div>
+    <HeaderCatalogue v-show="showCatalogue" />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import HeaderBanner from "./components/HeaderBanner";
+import HeaderCatalogue from "./components/HeaderCatalogue";
 
 import Vue from "vue";
 
@@ -38,12 +33,12 @@ Vue.prototype.$getPath = l => {
 export default {
   name: "App",
   components: {
-    HeaderBanner
+    HeaderBanner,
+    HeaderCatalogue
   },
   data() {
     return {
       language: undefined,
-      catalogue: undefined,
       showCatalogue: false
     };
   },
@@ -64,15 +59,10 @@ export default {
     }
   },
   async created() {
-    const res = await fetch(this.root + "/catalogue.json");
-    let ctg = await res.json();
-    ctg.sort((a, b) => a.localeCompare(b));
-    this.catalogue = ctg;
-
-    this.language = this.catalogue.includes(localStorage.language)
-      ? localStorage.language
-      : this.catalogue[0];
-    if (localStorage.menu) this.menu = localStorage.menu;
+    // this.language = this.catalogue.includes(localStorage.language)
+    //   ? localStorage.language
+    //   : this.catalogue[0];
+    // if (localStorage.menu) this.menu = localStorage.menu;
   },
   computed: {
     langRoot: function() {
@@ -86,36 +76,22 @@ export default {
 </script>
 
 <style scoped>
-#catalogue {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  box-shadow: 0px 2.5px 5px var(--shadow);
-  padding: 15px 0 5px 0;
-  margin-top: -35px;
-}
-#catalogue > * {
-  margin: 0 5px;
-}
 #header {
   border-radius: 0 0 4px 4px;
   box-shadow: 0px 5px 10px var(--shadow);
   height: 60px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
 }
-HeaderBanner {
-  width: 50%;
+#menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 #menu > * {
   margin: 5px;
-}
-#menu {
-  width: 50%;
-  display: flex;
-  align-content: center;
-  justify-content: flex-end;
 }
 button.nav {
   font-size: 16px;
@@ -135,16 +111,8 @@ button.nav.selected {
 @media only screen and (max-width: 600px) {
   #header {
     height: fit-content;
-    flex-wrap: wrap;
+    flex-flow: column;
     justify-content: center;
-  }
-  HeaderBanner {
-    width: 100%;
-  }
-  #menu {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
   }
 }
 </style>
