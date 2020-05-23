@@ -1,23 +1,24 @@
 <template>
   <div id="table">
-    <button
-      class="phoneme"
-      :class="{faded: !fitting[i], full: graphemes[i]}"
+    <PhoneticItem
+      @click.native="$emit('phoneme', phn.i)"
+      :faded="!fitting[i]"
+      :ipa="phn.ipa"
+      :str="graphemes[i]"
       :key="i"
-      @click="$emit('phoneme', phn.i)"
       v-for="(phn, i) in phonemes"
-    >
-      <span class="str">
-        <b>{{graphemes[i]}}</b>
-      </span>
-      <span class="ipa">[{{phn.ipa}}]</span>
-    </button>
+    />
   </div>
 </template>
 
 <script>
+import PhoneticItem from "./PhoneticItem";
+
 export default {
   name: "PhoneticTable",
+  components: {
+    PhoneticItem
+  },
   props: ["lectQuery", "featureQuery", "phonemes"],
   methods: {
     pass(tags, query) {
@@ -56,30 +57,6 @@ export default {
 #table {
   display: flex;
   flex-wrap: wrap;
-}
-.phoneme {
-  margin: 5px;
-  flex-direction: column;
-  align-items: center;
-  width: 50px;
-  height: 40px;
-}
-.faded {
-  border-color: var(--select);
-}
-.faded * {
-  color: var(--select);
-}
-.faded,
-.faded:hover {
-  background-color: transparent;
-}
-.faded:active {
-  border-color: transparent;
-}
-.faded:hover *,
-.faded:active * {
-  color: initial;
 }
 @media only screen and (max-width: 600px) {
   #table {

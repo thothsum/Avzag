@@ -17,10 +17,9 @@ export default {
     };
   },
   async created() {
-    const res = await fetch(process.env.BASE_URL + "languages/catalogue.json");
-    let ctg = await res.json();
-    ctg.sort((a, b) => a.localeCompare(b));
-    this.catalogue = ctg;
+    this.catalogue = await fetch(this.$getPath("catalogue.json"))
+      .then(r => r.json())
+      .then(r => r.sort((a, b) => a.localeCompare(b)));
   }
 };
 </script>

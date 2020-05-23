@@ -44,36 +44,6 @@ export default {
       showCatalogue: false
     };
   },
-  watch: {
-    langRoot: {
-      handler: async function(langRoot) {
-        if (!langRoot) return;
-        const res = await fetch(langRoot + "index.json");
-        this.index = await res.json();
-      },
-      immediate: true
-    },
-    language(value) {
-      localStorage.language = value;
-    },
-    menu(value) {
-      localStorage.menu = value;
-    }
-  },
-  async created() {
-    // this.language = this.catalogue.includes(localStorage.language)
-    //   ? localStorage.language
-    //   : this.catalogue[0];
-    // if (localStorage.menu) this.menu = localStorage.menu;
-  },
-  computed: {
-    langRoot: function() {
-      return this.language ? `${this.root}${this.language}/` : undefined;
-    },
-    root: function() {
-      return `${process.env.BASE_URL}languages/`;
-    }
-  },
   methods: {
     navigate(section) {
       if (this.$route.name !== section)
