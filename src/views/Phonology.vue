@@ -47,21 +47,6 @@ export default {
       selected: 0
     };
   },
-  watch: {
-    "$route.params.lang": async function(lang) {
-      const langRoot = this.$getPath(lang);
-
-      const res = await fetch(langRoot + "phonology.json");
-      let data = await res.json();
-
-      data.sort((a, b) => a.ipa.localeCompare(b.ipa));
-      data.forEach((p, i) => (p.i = i));
-      data.forEach(p => p.lects.sort((a, b) => a.name.localeCompare(b.name)));
-
-      this.phonemes = data;
-      this.selected = 0;
-    }
-  },
   components: {
     PhoneticTable,
     PhonemeDetails,

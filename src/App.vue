@@ -44,6 +44,14 @@ export default {
       showCatalogue: false
     };
   },
+  watch: {
+    "$route.path": async function(path) {
+      localStorage.url = path;
+    }
+  },
+  created() {
+    if (localStorage.url) this.$router.push({ path: localStorage.url });
+  },
   methods: {
     navigate(section) {
       if (this.$route.name !== section)
