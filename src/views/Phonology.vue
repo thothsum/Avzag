@@ -81,7 +81,6 @@ export default {
     "$route.params.lang": {
       handler: async function(lang) {
         const langRoot = this.$getPath(lang);
-        console.log("phonology", langRoot);
 
         let data = await fetch(langRoot + "phonology.json").then(r => r.json());
         data.sort((a, b) => a.ipa.localeCompare(b.ipa));

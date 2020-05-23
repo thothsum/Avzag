@@ -45,7 +45,6 @@ export default {
     "$route.params.lang": {
       handler: async function(lang) {
         const langRoot = this.$getPath(lang);
-        console.log("converter", langRoot);
 
         this.converters = await fetch(langRoot + "converter.json").then(r =>
           r.json()

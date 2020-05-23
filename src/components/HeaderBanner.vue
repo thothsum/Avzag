@@ -27,8 +27,12 @@ export default {
     }
   },
   watch: {
-    langRoot: async function(langRoot) {
-      this.index = await fetch(langRoot + "index.json").then(r => r.json());
+    "$route.params.lang": {
+      handler: async function(lang) {
+        const langRoot = this.$getPath(lang);
+        this.index = await fetch(langRoot + "index.json").then(r => r.json());
+      },
+      immediate: true
     }
   }
 };
