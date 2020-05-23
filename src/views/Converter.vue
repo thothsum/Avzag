@@ -42,18 +42,24 @@ export default {
     }
   },
   watch: {
-    $route: async function(route) {
-      console.log(route);
-      // const langRoot = this.$getPath(lang);
-
-      // const res = await fetch(langRoot + "converter.json");
-      // this.converters = await res.json();
-
-      // const smp = await fetch(langRoot + "sample.txt");
-      // this.source = await smp.text();
+    "$route.params.lang": async function() {
+      await this.load();
     }
   },
+  async created() {
+    await this.load();
+  },
   methods: {
+    async load() {
+      const langRoot = this.$getPath(this.$route.params.lang);
+      console.log("converter", langRoot);
+
+      const res = await fetch(langRoot + "converter.json");
+      this.converters = await res.json();
+
+      const smp = await fetch(langRoot + "sample.txt");
+      this.source = await smp.text();
+    },
     uppercase(str) {
       let base = "";
       let i = 0;
