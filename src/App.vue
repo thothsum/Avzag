@@ -3,11 +3,13 @@
     <div class="section" id="header">
       <HeaderBanner />
       <div id="menu">
-        <router-link
-          :to="{name: sct, params: {lang: $route.params.lang}}"
+        <button
+          @click="navigate(sct)"
+          class="nav"
+          :class=" { selected: $route.name === sct}"
           :key="i"
           v-for="(sct, i) in ['Phonology', 'Converter']"
-        >{{sct}}</router-link>
+        >{{sct}}</button>
         <button
           class="nav"
           @click="showCatalogue=!showCatalogue"
@@ -70,6 +72,15 @@ export default {
     },
     root: function() {
       return `${process.env.BASE_URL}languages/`;
+    }
+  },
+  methods: {
+    navigate(section) {
+      if (this.$route.name !== section)
+        this.$router.push({
+          name: section,
+          params: { lang: this.$route.params.lang }
+        });
     }
   }
 };

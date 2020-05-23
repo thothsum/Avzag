@@ -39,7 +39,7 @@ export default {
   justify-content: flex-start;
 }
 #flag {
-  height: 45px;
+  height: 40px;
   display: flex;
   margin: 5px;
 }
