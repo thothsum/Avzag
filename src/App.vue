@@ -26,16 +26,22 @@
       </div>
     </div>
     <div id="catalogue" class="section" v-show="showCatalogue">
-      <a @click="language=lg" :key="i" v-for="(lg, i) in catalogue">{{lg}}</a>
+      <router-link
+        :to="{name: $route.name, params: {lang: lg}}"
+        :key="i"
+        v-for="(lg, i) in catalogue"
+      >{{lg}}</router-link>
     </div>
-    <Phonology :langRoot="langRoot" v-show="menu==0" />
-    <Converter :langRoot="langRoot" v-show="menu==1" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Phonology from "./components/Phonology";
-import Converter from "./components/Converter";
+import Vue from "vue";
+
+Vue.prototype.$getPath = l => {
+  return process.env.BASE_URL + "languages/" + l + "/";
+};
 
 export default {
   name: "App",
@@ -44,13 +50,8 @@ export default {
       language: undefined,
       catalogue: undefined,
       index: undefined,
-      menu: 0,
       showCatalogue: false
     };
-  },
-  components: {
-    Phonology,
-    Converter
   },
   watch: {
     langRoot: {

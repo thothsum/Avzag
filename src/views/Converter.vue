@@ -18,20 +18,19 @@
 </template>
 
 <script>
-import MappingTable from "./MappingTable";
+import MappingTable from "@/components/MappingTable";
 
 export default {
   name: "Converter",
-  props: ["langRoot"],
   watch: {
-    langRoot: {
-      handler: async function(langRoot) {
-        const res = await fetch(langRoot + "converter.json");
-        this.converters = await res.json();
-        const smp = await fetch(langRoot + "sample.txt");
-        this.source = await smp.text();
-      },
-      immediate: true
+    "$route.params.lang": async function(lang) {
+      const langRoot = this.$getPath(lang);
+
+      const res = await fetch(langRoot + "converter.json");
+      this.converters = await res.json();
+
+      const smp = await fetch(langRoot + "sample.txt");
+      this.source = await smp.text();
     }
   },
   data() {

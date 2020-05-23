@@ -32,13 +32,12 @@
 </template>
 
 <script>
-import QueryList from "./QueryList";
-import PhoneticTable from "./PhoneticTable";
-import PhonemeDetails from "./PhonemeDetails";
+import QueryList from "@/components/QueryList";
+import PhoneticTable from "@/components/PhoneticTable";
+import PhonemeDetails from "@/components/PhonemeDetails";
 
 export default {
   name: "Phonology",
-  props: ["langRoot"],
   data() {
     return {
       phonemes: undefined,
@@ -49,19 +48,18 @@ export default {
     };
   },
   watch: {
-    langRoot: {
-      handler: async function(langRoot) {
-        const res = await fetch(langRoot + "phonology.json");
-        let data = await res.json();
+    "$route.params.lang": async function(lang) {
+      const langRoot = this.$getPath(lang);
 
-        data.sort((a, b) => a.ipa.localeCompare(b.ipa));
-        data.forEach((p, i) => (p.i = i));
-        data.forEach(p => p.lects.sort((a, b) => a.name.localeCompare(b.name)));
+      const res = await fetch(langRoot + "phonology.json");
+      let data = await res.json();
 
-        this.phonemes = data;
-        this.selected = 0;
-      },
-      immediate: true
+      data.sort((a, b) => a.ipa.localeCompare(b.ipa));
+      data.forEach((p, i) => (p.i = i));
+      data.forEach(p => p.lects.sort((a, b) => a.name.localeCompare(b.name)));
+
+      this.phonemes = data;
+      this.selected = 0;
     }
   },
   components: {
