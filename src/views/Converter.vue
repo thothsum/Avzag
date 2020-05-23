@@ -54,11 +54,10 @@ export default {
       const langRoot = this.$getPath(this.$route.params.lang);
       console.log("converter", langRoot);
 
-      const res = await fetch(langRoot + "converter.json");
-      this.converters = await res.json();
-
-      const smp = await fetch(langRoot + "sample.txt");
-      this.source = await smp.text();
+      this.converters = await fetch(langRoot + "converter.json").then(r =>
+        r.json()
+      );
+      this.source = await fetch(langRoot + "sample.txt").then(r => r.text());
     },
     uppercase(str) {
       let base = "";

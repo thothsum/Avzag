@@ -90,12 +90,12 @@ export default {
       const langRoot = this.$getPath(this.$route.params.lang);
       console.log("phonology", langRoot);
 
-      const res = await fetch(langRoot + "phonology.json");
-      let data = await res.json();
-
+      let data = await fetch(langRoot + "phonology.json").then(r => r.json());
       data.sort((a, b) => a.ipa.localeCompare(b.ipa));
-      data.forEach((p, i) => (p.i = i));
-      data.forEach(p => p.lects.sort((a, b) => a.name.localeCompare(b.name)));
+      data.forEach((p, i) => {
+        p.i = i;
+        p.lects.sort((a, b) => a.name.localeCompare(b.name));
+      });
 
       this.phonemes = data;
       this.selected = 0;
