@@ -60,19 +60,4 @@ export default {
 #titles > * {
   margin: 0;
 }
-@media only screen and (max-width: 600px) {
-  #banner {
-    flex-flow: column;
-    place-content: center;
-  }
-  #banner > * {
-    margin: 5px 0;
-  }
-  #flag {
-    place-content: center;
-  }
-  #titles {
-    text-align: center;
-  }
-}
 </style>
