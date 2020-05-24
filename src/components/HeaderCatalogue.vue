@@ -11,15 +11,10 @@
 <script>
 export default {
   name: "HeaderCatalogue",
-  data() {
-    return {
-      catalogue: undefined
-    };
-  },
-  async created() {
-    this.catalogue = await fetch(this.$getPath("catalogue.json"))
-      .then(r => r.json())
-      .then(r => r.sort((a, b) => a.localeCompare(b)));
+  computed: {
+    catalogue() {
+      return this.$store.state.catalogue;
+    }
   }
 };
 </script>

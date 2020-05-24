@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     root: process.env.BASE_URL + "languages/",
+    catalogue: undefined,
     language: undefined,
     index: undefined,
     phonology: undefined,
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setCatalogue(state, json) {
+      state.catalogue = json;
+    },
     setLanguage(state, language) {
       state.language = language;
     },
@@ -40,6 +44,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async loadCatalogue({ dispatch, commit }) {
+      commit("setCatalogue", await dispatch("loadJson", "../catalogue.json"));
+    },
     async loadLanguage({ dispatch, commit }, language) {
       commit("setLanguage", language);
       commit("setIndex", await dispatch("loadJson", "index.json"));

@@ -26,12 +26,6 @@
 import HeaderBanner from "./components/HeaderBanner";
 import HeaderCatalogue from "./components/HeaderCatalogue";
 
-import Vue from "vue";
-
-Vue.prototype.$getPath = l => {
-  return process.env.BASE_URL + "languages/" + l + "/";
-};
-
 export default {
   name: "App",
   components: {
@@ -55,9 +49,11 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("loadCatalogue");
+
     if (!this.$route.name)
       this.$router.push(
-        localStorage.url
+        localStorage.url && localStorage.url !== this.$route.path
           ? { path: localStorage.url }
           : { name: "Converter", params: { lang: "Ossetian" } }
       );
