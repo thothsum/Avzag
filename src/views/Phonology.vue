@@ -40,7 +40,6 @@ export default {
   name: "Phonology",
   data() {
     return {
-      phonemes: undefined,
       lectQuery: {},
       vowelQuery: {},
       consonantQuery: {},
@@ -53,24 +52,27 @@ export default {
     QueryList
   },
   computed: {
-    lects: function() {
+    phonemes() {
+      return this.$store.state.phonology;
+    },
+    lects() {
       return this.collectTags(
         this.phonemes.flatMap(p => p.lects.map(l => l.name))
       );
     },
-    vowels: function() {
+    vowels() {
       return this.categorize("vowel");
     },
-    vowelFeatures: function() {
+    vowelFeatures() {
       return this.collectTags(
         this.vowels.flatMap(p => p.features),
         ["vowel"]
       );
     },
-    consonants: function() {
+    consonants() {
       return this.categorize("consonant");
     },
-    consonantFeatures: function() {
+    consonantFeatures() {
       return this.collectTags(
         this.consonants.flatMap(p => p.features),
         ["consonant"]
@@ -78,21 +80,8 @@ export default {
     }
   },
   watch: {
-    "$route.params.lang": {
-      handler: async function(lang) {
-        const langRoot = this.$getPath(lang);
-
-        let data = await fetch(langRoot + "phonology.json").then(r => r.json());
-        data.sort((a, b) => a.ipa.localeCompare(b.ipa));
-        data.forEach((p, i) => {
-          p.i = i;
-          p.lects.sort((a, b) => a.name.localeCompare(b.name));
-        });
-
-        this.phonemes = data;
-        this.selected = 0;
-      },
-      immediate: true
+    phonemes() {
+      this.selected = 0;
     }
   },
   methods: {

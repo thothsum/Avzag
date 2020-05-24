@@ -2,7 +2,7 @@
   <div class="section" v-if="converters">
     <div class="split">
       <textarea v-model="source"></textarea>
-      <textarea ref="resTxt" :value="result" readonly></textarea>
+      <textarea ref="result" :value="result" readonly></textarea>
     </div>
     <div id="options">
       <button @click="$refs.file.click()">Upload .txt file</button>
@@ -12,7 +12,7 @@
       <button @click="copy">Copy to clipboard</button>
     </div>
     <MappingTable :mapping="mapping" />
-    <input hidden type="file" ref="file" @change="handleFiles" />
+    <input hidden type="file" ref="file" @change="upload" />
     <a hidden ref="link"></a>
   </div>
 </template>
@@ -27,30 +27,19 @@ export default {
   },
   data() {
     return {
-      converters: null,
       selected: 0,
       source: ""
     };
   },
   computed: {
-    mapping: function() {
+    converters() {
+      return this.$store.state.converters;
+    },
+    mapping() {
       return Object.entries(this.converters[this.selected].mapping);
     },
-    result: function() {
+    result() {
       return this.convert(this.source);
-    }
-  },
-  watch: {
-    "$route.params.lang": {
-      handler: async function(lang) {
-        const langRoot = this.$getPath(lang);
-
-        this.converters = await fetch(langRoot + "converters.json").then(r =>
-          r.json()
-        );
-        this.source = await fetch(langRoot + "sample.txt").then(r => r.text());
-      },
-      immediate: true
     }
   },
   methods: {
@@ -75,10 +64,10 @@ export default {
       return this.replace(str, "\n ", "\n").trim();
     },
     copy() {
-      this.$refs.resTxt.select();
+      this.$refs.result.select();
       document.execCommand("copy");
     },
-    handleFiles(event) {
+    upload(event) {
       let reader = new FileReader();
       reader.onload = e =>
         this.download(
