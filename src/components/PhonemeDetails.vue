@@ -38,6 +38,9 @@ export default {
   computed: {
     features() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
+    },
+    root() {
+      return this.$store.getters.languageRoot;
     }
   },
   methods: {
@@ -45,9 +48,8 @@ export default {
       return sample.replace(new RegExp(grapheme, "g"), `<b>${grapheme}</b>`);
     },
     play(lect, i) {
-      const langRoot = this.$getPath(this.$route.params.lang);
       const player = this.$refs.player;
-      player.src = `${langRoot}${lect.name}/audio/${lect.samples[i]}.m4a`;
+      player.src = `${this.root}${lect.name}/audio/${lect.samples[i]}.m4a`;
       player.play();
     }
   }
