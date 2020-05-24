@@ -42,17 +42,17 @@ export default new Vuex.Store({
   actions: {
     async loadLanguage({ dispatch, commit }, language) {
       commit("setLanguage", language);
-      dispatch("loadIndex");
+      commit("setIndex", await dispatch("loadJson", "index.json"));
+      commit("setPhonology", await dispatch("loadJson", "phonology.json"));
+      commit("setSample", await dispatch("loadText", "sample.txt"));
+      commit("setConverters", await dispatch("loadJson", "converters.json"));
     },
-    async loadIndex({ commit, getters }) {
-      const file = getters.languageRoot + "index.json";
-      commit("setIndex", await fetch(file).then(r => r.json()));
+    async loadJson({ getters }, file) {
+      return await fetch(getters.languageRoot + file).then(r => r.json());
     },
-    async loadPhonology({ commit, getters }) {
-      const file = getters.languageRoot + "phonology.json";
-      commit("setPhonology", await fetch(file).then(r => r.json()));
-    },
-
+    async loadText({ getters }, file) {
+      return await fetch(getters.languageRoot + file).then(r => r.text());
+    }
   },
   modules: {
   }
