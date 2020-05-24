@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 import Phonology from '../views/Phonology.vue'
 import Converter from '../views/Converter.vue'
 
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,12 +16,11 @@ const routes = [
     path: '/converter/:lang',
     name: 'Converter',
     component: Converter
-    // component: () => import('../views/Converter.vue')
   }
 ]
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

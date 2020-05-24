@@ -47,7 +47,7 @@ export default {
   watch: {
     $route: {
       async handler(route) {
-        localStorage.url = route.path;
+        if (route.name) localStorage.url = route.path;
         if (route.params.lang !== this.$store.state.language)
           this.$store.dispatch("loadLanguage", route.params.lang);
       },
@@ -55,7 +55,7 @@ export default {
     }
   },
   created() {
-    if (this.$route.path === "/")
+    if (!this.$route.name)
       this.$router.push(
         localStorage.url
           ? { path: localStorage.url }
