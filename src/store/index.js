@@ -20,7 +20,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setCatalogue(state, json) {
-      state.catalogue = json;
+      state.catalogue = json.sort((a, b) => a.localeCompare(b));
     },
     setLanguage(state, language) {
       state.language = language;
