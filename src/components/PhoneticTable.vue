@@ -29,7 +29,7 @@ export default {
     }
   },
   computed: {
-    fitting: function() {
+    fitting() {
       return this.phonemes.map(
         p =>
           this.pass(
@@ -38,13 +38,13 @@ export default {
           ) && this.pass(p.features, this.featureQuery)
       );
     },
-    singleLect: function() {
+    singleLect() {
       let lects = [];
       for (const [lect, mode] of Object.entries(this.lectQuery))
         if (mode) lects.push(lect);
       return lects.length === 1 ? lects[0] : undefined;
     },
-    graphemes: function() {
+    graphemes() {
       return this.phonemes.map(
         p => p.lects.find(l => l.name === this.singleLect)?.grapheme
       );

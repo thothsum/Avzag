@@ -36,7 +36,7 @@ export default {
   name: "PhonemeDetails",
   props: ["phoneme"],
   computed: {
-    features: function() {
+    features() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
     }
   },
