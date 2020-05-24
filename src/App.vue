@@ -14,7 +14,7 @@
           class="nav"
           @click="showCatalogue=!showCatalogue"
           :class=" { selected: showCatalogue}"
-        >🏔</button>
+        >🗺</button>
       </div>
     </div>
     <HeaderCatalogue v-show="showCatalogue" />
