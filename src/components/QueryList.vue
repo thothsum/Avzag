@@ -33,7 +33,7 @@ export default {
   },
   watch: {
     tags: {
-      handler: function(tags) {
+      handler(tags) {
         this.query = {};
         [...tags]
           .sort((a, b) => a.localeCompare(b))

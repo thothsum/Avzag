@@ -32,6 +32,9 @@ export default {
     };
   },
   computed: {
+    sample() {
+      return this.$store.state.sample;
+    },
     converters() {
       return this.$store.state.converters;
     },
@@ -40,6 +43,14 @@ export default {
     },
     result() {
       return this.convert(this.source);
+    }
+  },
+  watch: {
+    sample: {
+      handler(sample) {
+        this.source = sample;
+      },
+      immediate: true
     }
   },
   methods: {
