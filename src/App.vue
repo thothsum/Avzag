@@ -6,14 +6,14 @@
         <button
           @click="navigate(sct)"
           class="nav"
-          :class=" { selected: $route.name === sct}"
+          :class="{selected: $route.name===sct}"
           :key="i"
           v-for="(sct, i) in ['Phonology', 'Converter']"
         >{{sct}}</button>
         <button
           class="nav"
           @click="showCatalogue=!showCatalogue"
-          :class=" { selected: showCatalogue}"
+          :class="{selected: showCatalogue}"
         >🗺</button>
       </div>
     </div>

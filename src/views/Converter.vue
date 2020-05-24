@@ -2,7 +2,7 @@
   <div class="section" v-if="converters">
     <div class="split">
       <textarea v-model="source"></textarea>
-      <textarea ref="result" :value="result" readonly></textarea>
+      <textarea readonly ref="result" :value="result"></textarea>
     </div>
     <div id="options">
       <button @click="$refs.file.click()">Upload .txt file</button>
