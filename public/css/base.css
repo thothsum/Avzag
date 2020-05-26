@@ -22,10 +22,14 @@ body {
     resize: none;
     font-size: 14px;
     color: var(--text);
-    border-radius: 4px;
+    border-radius: 2px;
     transition: 0.15s;
     border: 0;
     font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
+}
+
+div {
+    border-radius: 4px;
 }
 
 button, select, a {

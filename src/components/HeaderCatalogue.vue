@@ -24,6 +24,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  border-radius: 0 0 4px 4px;
   box-shadow: 0px 2.5px 5px var(--shadow);
   padding: 5px 0;
   margin-top: -25px;

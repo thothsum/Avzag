@@ -4,15 +4,19 @@
       <div id="header">
         <h2>[{{phoneme.ipa}}]</h2>
       </div>
-      <p class="note" id="features" v-if="features">{{features}}</p>
+      <div>
+        <p class="note" id="features" v-if="features">{{features}}</p>
+      </div>
     </div>
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
-        <p class="lect">
-          {{lect.name}} —
-          <b>{{lect.grapheme}}</b>
-        </p>
+        <div>
+          <p class="lect">
+            {{lect.name}} —
+            <b>{{lect.grapheme}}</b>
+          </p>
+        </div>
         <div
           :style="{height: Math.min(3, lect.samples.length) * 25 + 'px' }"
           class="list"
@@ -25,7 +29,9 @@
             v-for="(sample, i) in lect.samples"
           ></button>
         </div>
-        <p class="note" v-if="lect.note">{{lect.note}}</p>
+        <div class="note" v-if="lect.note">
+          <p>{{lect.note}}</p>
+        </div>
       </div>
     </template>
   </div>
@@ -57,6 +63,31 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  padding: 0;
+}
+.card > div {
+  border-radius: 0;
+  margin: 0;
+  padding: 5px;
+}
+.card > div > * {
+  margin: 0;
+}
+.card > div:first-child {
+  box-shadow: 0 2px 4px 0 var(--shadow);
+}
+.card > div:nth-child(3) {
+  box-shadow: 0 -2px 4px 0 var(--shadow);
+}
+.card > div:last-child {
+  border-radius: 0 0 4px 4px;
+}
+.list {
+  padding: 0 !important;
+  border-radius: 0;
+  box-shadow: none;
+}
 #root {
   display: flex;
   flex-wrap: wrap;
@@ -72,11 +103,11 @@ export default {
 #header {
   display: flex;
   place-content: center;
-  height: 25px;
+  /* height: 25px; */
 }
 h2 {
   margin: 0;
-  height: 100%;
+  /* height: 100%; */
 }
 h2,
 #features,
@@ -86,7 +117,7 @@ h2,
 #features {
   word-spacing: 10px;
 }
-.note {
+.note > p, #features {
   font-size: 12px;
   font-style: italic;
 }
