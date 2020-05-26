@@ -4,16 +4,16 @@
             "family",
             "noun"
         ],
-        "destinations": {
+        "translations": {
             "eng": "mother"
         },
-        "sources": {
+        "lects": {
             "kaitag": {
-                "str": "уба",
+                "source": "уба",
                 "ipa": "ˈuba"
             },
             "akusha": {
-                "str": "неш",
+                "source": "неш",
                 "ipa": "ˈneʃ"
             }
         }
@@ -23,16 +23,16 @@
             "family",
             "noun"
         ],
-        "destinations": {
+        "translations": {
             "eng": "father"
         },
-        "sources": {
+        "lects": {
             "kaitag": {
-                "str": "атта",
+                "source": "атта",
                 "ipa": "ˈatːa"
             },
             "akusha": {
-                "str": "неш",
+                "source": "неш",
                 "ipa": "duˈdeʃ"
             }
         }
@@ -42,16 +42,16 @@
             "family",
             "noun"
         ],
-        "destinations": {
+        "translations": {
             "eng": "brother"
         },
-        "sources": {
+        "lects": {
             "kaitag": {
-                "str": "уцци",
+                "source": "уцци",
                 "ipa": "uˈt͡sːi"
             },
             "akusha": {
-                "str": "узи",
+                "source": "узи",
                 "ipa": "uˈzi"
             }
         }
