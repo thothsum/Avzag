@@ -28,7 +28,7 @@ export default {
   box-shadow: 0px 2.5px 5px var(--shadow);
   padding: 5px 0;
   margin-top: -25px;
-}
+} 
 .section > * {
   margin: 0 5px;
 }

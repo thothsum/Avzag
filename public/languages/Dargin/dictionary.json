@@ -1,0 +1,59 @@
+[
+    {
+        "tags": [
+            "family",
+            "noun"
+        ],
+        "destinations": {
+            "eng": "mother"
+        },
+        "sources": {
+            "kaitag": {
+                "str": "уба",
+                "ipa": "ˈuba"
+            },
+            "akusha": {
+                "str": "неш",
+                "ipa": "ˈneʃ"
+            }
+        }
+    },
+    {
+        "tags": [
+            "family",
+            "noun"
+        ],
+        "destinations": {
+            "eng": "father"
+        },
+        "sources": {
+            "kaitag": {
+                "str": "атта",
+                "ipa": "ˈatːa"
+            },
+            "akusha": {
+                "str": "неш",
+                "ipa": "duˈdeʃ"
+            }
+        }
+    },
+    {
+        "tags": [
+            "family",
+            "noun"
+        ],
+        "destinations": {
+            "eng": "brother"
+        },
+        "sources": {
+            "kaitag": {
+                "str": "уцци",
+                "ipa": "uˈt͡sːi"
+            },
+            "akusha": {
+                "str": "узи",
+                "ipa": "uˈzi"
+            }
+        }
+    }
+]
