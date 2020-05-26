@@ -11,10 +11,11 @@
           v-for="(sct, i) in ['Phonology', 'Converter']"
         >{{sct}}</button>
         <button
-          class="nav"
+          class="nav material-icons-outlined"
           @click="showCatalogue=!showCatalogue"
           :class="{selected: showCatalogue}"
-        >🗺</button>
+          style="font-size: 24px"
+        >settings</button>
       </div>
     </div>
     <HeaderCatalogue v-show="showCatalogue" />
