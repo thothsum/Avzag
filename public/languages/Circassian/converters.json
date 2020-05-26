@@ -3,7 +3,9 @@
         "name": "Latin Diacritical",
         "mapping": {
             "кхъу": "qxw",
+            "къӏу": "qʻw",
             "кхъ": "qx",
+            "къӏ": "qʻ",
             "дзу": "dzw",
             "кӏу": "kʻw",
             "къу": "qw",
