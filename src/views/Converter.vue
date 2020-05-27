@@ -49,7 +49,6 @@ export default {
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-      console.log("ones", ones);
       return entries.concat(ones);
     },
     result() {

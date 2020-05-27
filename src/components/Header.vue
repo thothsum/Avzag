@@ -81,12 +81,10 @@ export default {
   height: 40px;
   border-width: 0 0 4px 0;
   border-color: var(--color-text);
-  font-size: 16px;
 }
 .material-icons-outlined {
   font-size: 20px !important;
 }
-
 #menu > button > *:first-child:not(:last-child) {
   margin-right: 10px;
 }

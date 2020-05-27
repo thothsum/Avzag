@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <div id="header">
-      <h3>{{title}}</h3>
+      <h2>{{title}}</h2>
       <a v-show="!locked" @click="visible=!visible">
         <span class="material-icons-outlined">filter_list</span>
         query
@@ -12,10 +12,10 @@
       </a>
     </div>
     <div id="body" v-show="visible">
-      <a :class="{big:big}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">
+      <a :class="{big:big, 'txt-faded': mode===0}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">
         <span v-if="mode===-1" class="material-icons-outlined">remove</span>
         <span v-else-if="mode===1" class="material-icons-outlined">add</span>
-        <span v-else class="material-icons-outlined">lens</span>
+        <span v-else class="material-icons-outlined">arrow_right</span>
         {{tag}}
       </a>
     </div>
