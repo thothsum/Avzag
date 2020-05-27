@@ -39,7 +39,12 @@ export default {
       return this.$store.state.converters;
     },
     mapping() {
-      return Object.entries(this.converters[this.selected].mapping);
+      var entries = Object.entries(this.converters[this.selected].mapping);
+      var ones = entries
+        .filter(a => a[0].includes("ӏ"))
+        .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
+      console.log("ones", ones);
+      return entries.concat(ones);
     },
     result() {
       return this.convert(this.source);
