@@ -18,7 +18,7 @@ button, select {
     padding: 0 10px;
 }
 
-button>*:first-child {
+button>.material-icons-outlined {
     margin-right: 5px;
 }
 
@@ -44,10 +44,6 @@ button:active, select:active {
 
 .list button:active {
     background-color: var(--color-hover);
-}
-
-.list button>*:first-child {
-    margin-right: initial;
 }
 
 a {

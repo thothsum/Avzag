@@ -1,9 +1,9 @@
 <template>
-  <button class="phoneme" :class="{faded: faded}">
+  <button :class="{faded: faded}">
     <span>
       <b>{{str}}</b>
     </span>
-    <span style="font-size: 12px;">/{{ipa}}/</span>
+    <span>{{ipa}}</span>
   </button>
 </template>
 
@@ -15,28 +15,20 @@ export default {
 </script>
 
 <style scoped>
-.phoneme {
+button {
   margin: 5px;
   flex-direction: column;
-  align-items: center;
+  place-content: center;
   width: 50px;
   height: 40px;
 }
 .faded {
-  border-color: var(--select);
-}
-.faded * {
-  color: var(--select);
-}
-.faded,
-.faded:hover {
   background-color: transparent;
 }
-.faded:active {
-  border-color: transparent;
+.faded * {
+  color: var(--color-text-faded);
 }
-.faded:hover *,
-.faded:active * {
+.faded:hover * {
   color: initial;
 }
 </style>
