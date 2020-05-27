@@ -35,7 +35,7 @@ export default {
       this.$router.push(
         localStorage.url && localStorage.url !== this.$route.path
           ? { path: localStorage.url }
-          : { name: "Converter", params: { lang: "Ossetian" } }
+          : { name: "Settings", params: { lang: "Ossetian" } }
       );
   }
 };
