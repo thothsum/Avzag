@@ -45,7 +45,7 @@ export default {
 }
 #flag > img {
   height: 100%;
-  box-shadow: var(--small-shadow)
+  box-shadow: var(--shadow-small)
 }
 #titles {
   display: flex;

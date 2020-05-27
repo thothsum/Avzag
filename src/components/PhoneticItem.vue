@@ -3,7 +3,7 @@
     <span>
       <b>{{str}}</b>
     </span>
-    <span>[{{ipa}}]</span>
+    <span>/{{ipa}}/</span>
   </button>
 </template>
 

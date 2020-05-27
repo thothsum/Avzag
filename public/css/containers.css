@@ -1,6 +1,6 @@
 :root {
     --color-shadow: #d1d5da;
-    --small-shadow: 0 2px 8px var(--color-shadow);
+    --shadow-small: 0 2px 8px var(--color-shadow);
 }
 
 * {
@@ -49,23 +49,11 @@ div {
     flex-wrap: wrap;
     align-content: flex-start;
     overflow-y: auto;
-    box-shadow: var(--small-shadow);
+    box-shadow: var(--shadow-small);
     border-radius: 2px;
 }
 
 .list>* {
     margin: 0;
     width: 100%;
-}
-
-.list>button {
-    height: 25px;
-    border: none;
-    border-radius: 0;
-    place-content: flex-start;
-    background-color: transparent;
-}
-
-.list>button:hover {
-    background-color: var(--select);
 }

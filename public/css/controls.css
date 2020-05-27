@@ -1,3 +1,77 @@
+:root {
+    --color-active: #e1e4e8;
+    --color-hover: #d1d5da;
+    --color-press: #f6f8fa;
+}
+
+button, select, a {
+    user-select: none;
+    cursor: pointer;
+}
+
+button, select {
+    background-color: var(--color-active);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+button:hover, select:hover {
+    background-color: var(--color-hover);
+    box-shadow: var(--shadow-small);
+}
+
+button:active, select:active {
+    background-color: var(--color-press);
+}
+
+.list button {
+    background-color: transparent;
+    height: 25px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.list button:hover {
+    background-color: var(--color-active);
+}
+
+.list button:active {
+    background-color: var(--color-hover);
+}
+
+a {
+    border: 1px dashed transparent;
+    padding: 3px 6px;
+    text-decoration: underline;
+}
+
+a:hover {
+    border-color: var(--text);
+}
+
+a:active {
+    transform: scale(1.15);
+}
+
+textarea {
+    background-color: var(--back);
+    border: 1px solid var(--select);
+    text-align: left;
+}
+
+textarea:read-only {
+    border-color: var(--select);
+    background-color: var(--select);
+}
+
+textarea:read-write:hover, textarea:read-write:focus {
+    border-color: var(--fore);
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -7,10 +81,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--select);
+    background: var(--color-active);
     border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--text);
+    background: var(--color-hover);
 }

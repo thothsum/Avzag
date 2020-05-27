@@ -1,5 +1,5 @@
 :root {
-    --color-text: #2f363d;
+    --color-text: #24292e;
     --color-text-faded: #959da5;
 }
 
@@ -8,7 +8,7 @@
     font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
 }
 
-.txt-caption {
+.txt-caption, .txt-caption * {
     font-style: italic;
     font-size: 12px;
 }
