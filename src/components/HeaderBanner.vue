@@ -32,7 +32,6 @@ export default {
 <style scoped>
 #banner {
   display: flex;
-  /* align-content: center; */
   place-items: center;
   justify-content: flex-start;
 }
@@ -46,7 +45,7 @@ export default {
 }
 #flag > img {
   height: 100%;
-  box-shadow: 0 0 10px var(--shadow);
+  box-shadow: var(--small-shadow)
 }
 #titles {
   display: flex;
@@ -55,8 +54,5 @@ export default {
 }
 #titles > * {
   margin: 0;
-}
-#menu-btn {
-  display: none;
 }
 </style>

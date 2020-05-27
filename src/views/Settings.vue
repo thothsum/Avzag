@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "HeaderCatalogue",
+  name: "Settings",
   computed: {
     catalogue() {
       return this.$store.state.catalogue;
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped>
-.section {
+/* .section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,5 +31,5 @@ export default {
 } 
 .section > * {
   margin: 0 5px;
-}
+} */
 </style>

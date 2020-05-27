@@ -1,10 +1,10 @@
 :root {
-    --text: #2f363d;
-    --text-faded: #959da5;
+    --color-text: #2f363d;
+    --color-text-faded: #959da5;
 }
 
 * {
-    color: var(--text);
+    color: var(--color-text);
     font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
 }
 
@@ -14,10 +14,10 @@
 }
 
 .txt-faded, .txt-faded * {
-    color: var(--text-faded);
+    color: var(--color-text-faded);
 }
 
-h1 * {
+h1, h1 * {
     font-size: 20px;
     font-weight: bold;
 }

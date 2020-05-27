@@ -1,5 +1,6 @@
 :root {
-    --shadow: #D8DEE9;
+    --color-shadow: #d1d5da;
+    --small-shadow: 0 2px 8px var(--color-shadow);
 }
 
 * {
@@ -46,8 +47,9 @@ div {
 .list {
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
     overflow-y: auto;
-    box-shadow: 0 2px 8px var(--shadow);
+    box-shadow: var(--small-shadow);
     border-radius: 2px;
 }
 
