@@ -3,19 +3,17 @@
     <div class="section" id="header">
       <HeaderBanner />
       <div id="menu">
-        <button
-          @click="navigate(sct)"
-          class="nav"
-          :class="{selected: $route.name===sct}"
-          :key="i"
-          v-for="(sct, i) in ['Phonology', 'Converter']"
-        >{{sct}}</button>
-        <button
-          class="nav material-icons-outlined"
-          @click="showCatalogue=!showCatalogue"
-          :class="{selected: showCatalogue}"
-          style="font-size: 24px"
-        >settings</button>
+        <button @click="navigate('Phonology')" :class="{selected: $route.name==='Phonology'}">
+          <p class="material-icons-outlined">volume_up</p>
+          <p>Phonology</p>
+        </button>
+        <button @click="navigate('Converter')" :class="{selected: $route.name==='Converter'}">
+          <p class="material-icons-outlined">compare_arrows</p>
+          <p>Converter</p>
+        </button>
+        <button @click="showCatalogue=!showCatalogue" :class="{selected: showCatalogue}">
+          <p class="material-icons-outlined">settings</p>
+        </button>
       </div>
     </div>
     <HeaderCatalogue v-show="showCatalogue" />
@@ -89,19 +87,23 @@ export default {
 #menu > * {
   margin: 5px;
 }
-button.nav {
+#menu > button {
   font-size: 16px;
   padding: 0 15px;
   height: 40px;
-}
-button.nav {
   border-width: 0 0 4px 0;
   border-color: var(--shadow);
 }
-button.nav:hover {
+.material-icons-outlined {
+  font-size: 20px;
+}
+#menu > button > *:first-child:not(:last-child) {
+  margin-right: 10px;
+}
+#menu > button:hover {
   border-color: var(--text);
 }
-button.nav.selected {
+#menu > button.selected {
   border-color: var(--text);
 }
 @media only screen and (max-width: 600px) {

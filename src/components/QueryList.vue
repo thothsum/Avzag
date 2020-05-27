@@ -3,17 +3,19 @@
     <div id="header">
       <h3>{{title}}</h3>
       <a v-show="!locked" @click="visible=!visible">
-        <span>?</span>query
+        <span class="material-icons-outlined">search</span>
+        query
       </a>
       <a v-show="!empty" @click="resetAll">
-        <span>!</span>reset
+        <span class="material-icons-outlined">clear</span>
+        reset
       </a>
     </div>
     <div id="body" v-show="visible">
       <a :class="{big:big}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">
-        <span v-if="mode===-1">-</span>
-        <span v-else-if="mode===1">+</span>
-        <span v-else>·</span>
+        <span v-if="mode===-1" class="material-icons-outlined">remove</span>
+        <span v-else-if="mode===1" class="material-icons-outlined">add</span>
+        <span v-else class="material-icons-outlined">lens</span>
         {{tag}}
       </a>
     </div>
@@ -74,6 +76,7 @@ a {
   text-decoration: none;
   display: flex;
   flex-wrap: nowrap;
+  place-items: center;
 }
 h3 {
   margin: 0;
@@ -98,6 +101,9 @@ h3 {
 #header > a {
   margin-left: 20px;
 }
+#header > a * {
+  font-size: 16px;
+}
 #body * {
   font-size: 12px;
   cursor: pointer;
@@ -113,11 +119,10 @@ h3 {
   font-size: 16px !important;
   font-style: normal;
 }
-.big * {
+.big > * {
   font-size: 16px !important;
 }
 span {
-  font-family: monospace;
   font-style: normal;
   margin-right: 3px;
 }

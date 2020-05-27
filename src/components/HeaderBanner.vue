@@ -7,6 +7,9 @@
       <h1>{{title}}</h1>
       <h3>{{subtitle}}</h3>
     </div>
+    <button id="menu-btn">
+      <p class="material-icons-outlined">settings</p>
+    </button>
   </div>
 </template>
 
@@ -32,7 +35,8 @@ export default {
 <style scoped>
 #banner {
   display: flex;
-  align-content: center;
+  /* align-content: center; */
+  place-items: center;
   justify-content: flex-start;
 }
 #banner > * {
@@ -54,5 +58,13 @@ export default {
 }
 #titles > * {
   margin: 0;
+}
+#menu-btn {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  #menu-btn {
+    display: block;
+  }
 }
 </style>

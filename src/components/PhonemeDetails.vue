@@ -1,22 +1,16 @@
 <template>
   <div id="root">
     <div class="card">
-      <div id="header">
-        <h2>[{{phoneme.ipa}}]</h2>
-      </div>
-      <div>
-        <p class="note" id="features" v-if="features">{{features}}</p>
-      </div>
+      <h2>[{{phoneme.ipa}}]</h2>
+      <p class="note" id="features" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
-        <div>
-          <p class="lect">
-            {{lect.name}} —
-            <b>{{lect.grapheme}}</b>
-          </p>
-        </div>
+        <p class="lect">
+          {{lect.name}} —
+          <b>{{lect.grapheme}}</b>
+        </p>
         <div
           :style="{height: Math.min(3, lect.samples.length) * 25 + 'px' }"
           class="list"
@@ -29,9 +23,7 @@
             v-for="(sample, i) in lect.samples"
           ></button>
         </div>
-        <div class="note" v-if="lect.note">
-          <p>{{lect.note}}</p>
-        </div>
+        <p class="note" v-if="lect.note">{{lect.note}}</p>
       </div>
     </template>
   </div>
@@ -64,29 +56,16 @@ export default {
 
 <style scoped>
 .card {
-  padding: 0;
-}
-.card > div {
-  border-radius: 0;
-  margin: 0;
   padding: 5px;
 }
-.card > div > * {
+.card > * {
   margin: 0;
 }
-.card > div:first-child {
-  box-shadow: 0 2px 4px 0 var(--shadow);
-}
-.card > div:nth-child(3) {
-  box-shadow: 0 -2px 4px 0 var(--shadow);
-}
-.card > div:last-child {
-  border-radius: 0 0 4px 4px;
+.card > *:not(:last-child) {
+  margin-bottom: 5px;
 }
 .list {
-  padding: 0 !important;
-  border-radius: 0;
-  box-shadow: none;
+  box-shadow: 0 0 5px 1px var(--shadow);
 }
 #root {
   display: flex;
@@ -94,20 +73,12 @@ export default {
   align-content: flex-start;
   justify-content: center;
 }
-#root > *:first-child {
-  margin-top: 0;
-}
-#root > *:last-child {
-  margin-bottom: 0;
-}
 #header {
   display: flex;
   place-content: center;
-  /* height: 25px; */
 }
 h2 {
   margin: 0;
-  /* height: 100%; */
 }
 h2,
 #features,
@@ -117,7 +88,8 @@ h2,
 #features {
   word-spacing: 10px;
 }
-.note > p, #features {
+.note,
+#features {
   font-size: 12px;
   font-style: italic;
 }
