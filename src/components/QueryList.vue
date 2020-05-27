@@ -3,7 +3,7 @@
     <div id="header">
       <h3>{{title}}</h3>
       <a v-show="!locked" @click="visible=!visible">
-        <span class="material-icons-outlined">search</span>
+        <span class="material-icons-outlined">filter_list</span>
         query
       </a>
       <a v-show="!empty" @click="resetAll">

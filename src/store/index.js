@@ -11,7 +11,8 @@ export default new Vuex.Store({
     index: undefined,
     phonology: undefined,
     sample: undefined,
-    converters: undefined
+    converters: undefined,
+    dictionary: undefined
   },
   getters: {
     languageRoot: state => {
@@ -41,6 +42,9 @@ export default new Vuex.Store({
     },
     setConverters(state, json) {
       state.converters = json;
+    },
+    setDictionary(state, json) {
+      state.dictionary = json;
     }
   },
   actions: {
@@ -53,6 +57,7 @@ export default new Vuex.Store({
       commit("setPhonology", await dispatch("loadJson", "phonology.json"));
       commit("setSample", await dispatch("loadText", "sample.txt"));
       commit("setConverters", await dispatch("loadJson", "converters.json"));
+      commit("setDictionary", await dispatch("loadJson", "dictionary.json"));
     },
     async loadJson({ getters }, file) {
       return await fetch(getters.languageRoot + file).then(r => r.json());

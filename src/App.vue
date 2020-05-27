@@ -11,6 +11,10 @@
           <p class="material-icons-outlined">compare_arrows</p>
           <p>Converter</p>
         </button>
+        <button @click="navigate('Dictionary')" :class="{selected: $route.name==='Dictionary'}">
+          <p class="material-icons-outlined">search</p>
+          <p>Dictionary</p>
+        </button>
         <button @click="showCatalogue=!showCatalogue" :class="{selected: showCatalogue}">
           <p class="material-icons-outlined">settings</p>
         </button>
