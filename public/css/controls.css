@@ -12,11 +12,14 @@ button, select, a {
 button, select {
     background-color: var(--color-active);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
     height: 30px;
     margin: 10px 0;
     padding: 0 10px;
+}
+
+button>*:first-child {
+    margin-right: 5px;
 }
 
 button:hover, select:hover {
@@ -41,6 +44,10 @@ button:active, select:active {
 
 .list button:active {
     background-color: var(--color-hover);
+}
+
+.list button>*:first-child {
+    margin-right: initial;
 }
 
 a {

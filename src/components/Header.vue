@@ -9,7 +9,7 @@
         v-for="(m, i) in menus"
       >
         <p class="material-icons-outlined">{{m.icon}}</p>
-        <p>{{m.title}}</p>
+        {{m.title}}
       </button>
     </div>
   </div>
@@ -77,15 +77,16 @@ export default {
   margin: 5px;
 }
 #menu > button {
-  font-size: 16px;
   padding: 0 15px;
   height: 40px;
   border-width: 0 0 4px 0;
-  border-color: var(--shadow);
+  border-color: var(--color-text);
+  font-size: 16px;
 }
 .material-icons-outlined {
-  font-size: 20px;
+  font-size: 20px !important;
 }
+
 #menu > button > *:first-child:not(:last-child) {
   margin-right: 10px;
 }

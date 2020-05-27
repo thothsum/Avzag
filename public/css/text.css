@@ -4,8 +4,13 @@
 }
 
 * {
+    font-size: 14px;
     color: var(--color-text);
     font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
+}
+
+.material-icons-outlined {
+    font-size: 16px !important;
 }
 
 .txt-caption, .txt-caption * {
