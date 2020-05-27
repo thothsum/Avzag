@@ -1,0 +1,33 @@
+:root {
+    --text: #2f363d;
+    --text-faded: #959da5;
+}
+
+* {
+    color: var(--text);
+    font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
+}
+
+.txt-caption {
+    font-style: italic;
+    font-size: 12px;
+}
+
+.txt-faded, .txt-faded * {
+    color: var(--text-faded);
+}
+
+h1 * {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h2, h2 * {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h3 * {
+    font-size: 14px;
+    font-weight: bold;
+}

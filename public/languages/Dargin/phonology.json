@@ -105,6 +105,8 @@
                 "samples": [
                     "а",
                     "азир",
+                    "азир",
+                    "азир",
                     "цула"
                 ]
             },
@@ -682,7 +684,7 @@
                     "палтар",
                     "хьацӏил"
                 ],
-                "note": "Palatalized after [a], [i], [u]."
+                "note": "Palatalized after /a/, /i/, /u/."
             },
             {
                 "name": "Kubachi",
