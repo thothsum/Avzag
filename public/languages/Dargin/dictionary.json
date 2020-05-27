@@ -7,16 +7,18 @@
         "translations": {
             "eng": "mother"
         },
-        "lects": {
-            "kaitag": {
-                "source": "уба",
+        "sources": [
+            {
+                "lect": "kaitag",
+                "word": "уба",
                 "ipa": "ˈuba"
             },
-            "akusha": {
-                "source": "неш",
+            {
+                "lect": "akusha",
+                "word": "неш",
                 "ipa": "ˈneʃ"
             }
-        }
+        ]
     },
     {
         "tags": [
@@ -26,16 +28,18 @@
         "translations": {
             "eng": "father"
         },
-        "lects": {
-            "kaitag": {
-                "source": "атта",
+        "sources": [
+            {
+                "lect": "kaitag",
+                "word": "атта",
                 "ipa": "ˈatːa"
             },
-            "akusha": {
-                "source": "неш",
+            {
+                "lect": "akusha",
+                "word": "дудеш",
                 "ipa": "duˈdeʃ"
             }
-        }
+        ]
     },
     {
         "tags": [
@@ -45,15 +49,17 @@
         "translations": {
             "eng": "brother"
         },
-        "lects": {
-            "kaitag": {
-                "source": "уцци",
+        "sources": [
+            {
+                "lect": "kaitag",
+                "word": "уцци",
                 "ipa": "uˈt͡sːi"
             },
-            "akusha": {
-                "source": "узи",
+            {
+                "lect": "akusha",
+                "word": "узи",
                 "ipa": "uˈzi"
             }
-        }
+        ]
     }
 ]

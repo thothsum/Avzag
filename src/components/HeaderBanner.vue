@@ -7,9 +7,6 @@
       <h1>{{title}}</h1>
       <h3>{{subtitle}}</h3>
     </div>
-    <button id="menu-btn">
-      <p class="material-icons-outlined">settings</p>
-    </button>
   </div>
 </template>
 
@@ -61,10 +58,5 @@ export default {
 }
 #menu-btn {
   display: none;
-}
-@media only screen and (max-width: 600px) {
-  #menu-btn {
-    display: block;
-  }
 }
 </style>
