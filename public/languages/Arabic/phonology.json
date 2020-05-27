@@ -1,0 +1,21 @@
+[
+    {
+        "ipa": "ʔ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "laryngeal"
+        ],
+        "lects": [
+            {
+                "name": "Classical Arabic",
+                "grapheme": "ء",
+                "samples": [
+                    "جِئَت"
+                ]
+            }
+        ]
+    }
+]
