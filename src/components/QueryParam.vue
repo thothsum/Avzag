@@ -3,7 +3,7 @@
     <span class="material-icons-outlined">
       <template v-if="value===-1">remove</template>
       <template v-else-if="value===1">add</template>
-      <template v-else>add</template>
+      <template v-else>arrow_right</template>
     </span>
     {{text}}
   </button>

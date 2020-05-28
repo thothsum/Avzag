@@ -17,13 +17,7 @@
       </button>
     </div>
     <div id="body" v-show="visible">
-      <QueryParam
-        :large="large"
-        :text="tag"
-        v-model="query[tag]"
-        :key="i"
-        v-for="(tag, i) in tags"
-      />
+      <QueryParam :large="large" :text="t" v-model="values[i]" :key="i" v-for="(t, i) in tags" />
     </div>
   </div>
 </template>
@@ -40,19 +34,18 @@ export default {
   data() {
     return {
       visible: false,
-      query: {}
+      values: undefined
     };
   },
   computed: {
     result() {
-      let result = {};
-      for (const [key, value] of Object.entries(this.query)) {
-        if (value !== 0) result[key] = value === 1;
-      }
-      return result;
+      return this.tags.reduce((q, t, i) => {
+        if (this.values[i]) q[t] = this.values[i] > 0;
+        return q;
+      }, {});
     },
     isEmpty() {
-      return Object.keys(this.result).length === 0;
+      return !Object.keys(this.result).length;
     }
   },
   watch: {
@@ -64,7 +57,6 @@ export default {
     },
     tags: {
       handler() {
-        this.query = {};
         this.reset();
       },
       immediate: true
@@ -75,7 +67,7 @@ export default {
   },
   methods: {
     reset() {
-      this.tags.forEach(t => (this.query[t] = 0));
+      this.values = new Array(this.tags.length).fill(0);
     }
   }
 };
