@@ -2,7 +2,12 @@
   <div id="root">
     <div id="header">
       <h2>{{title}}</h2>
-      <button class="inline" v-show="!large" @click="visible=!visible">
+      <button
+        class="inline"
+        :class="{'txt-faded': !visible}"
+        v-show="!large"
+        @click="visible=!visible"
+      >
         <span class="material-icons-outlined">filter_list</span>
         query
       </button>
@@ -93,32 +98,6 @@ h2 {
   place-items: center;
   width: 100%;
 }
-
-#header > a {
-  margin-left: 20px;
-}
-#header > a * {
-  font-size: 16px;
-}
-#body * {
-  font-size: 12px;
-  cursor: pointer;
-}
-#body > a {
-  font-style: italic;
-  margin: 0 5px 0 0;
-  padding: 2px 4px;
-}
-#body > a.big {
-  margin: 0 10px 0 0 !important;
-  padding: 4px 8px !important;
-  font-size: 16px !important;
-  font-style: normal;
-}
-.big > * {
-  font-size: 16px !important;
-}
-
 @media only screen and (max-width: 600px) {
   #header,
   #body {

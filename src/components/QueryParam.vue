@@ -1,5 +1,5 @@
 <template>
-  <button :class="{large:large, 'txt-faded': value===0}" @click="update">
+  <button class="inline" :class="{large:large, 'txt-faded': value===0}" @click="update">
     <span class="material-icons-outlined">
       <template v-if="value===-1">remove</template>
       <template v-else-if="value===1">add</template>
@@ -27,6 +27,6 @@ export default {
 
 <style scoped>
 button {
-  margin: 5px;
+  margin: 2.5px;
 }
 </style>

@@ -47,15 +47,12 @@ button:active, select:active {
 }
 
 button.inline {
-    background-color: white;
+    background-color: transparent;
+    border: solid 1px var(--color-active);
+    border-radius: 12px;
     margin: 0 5px 0 0;
     height: 20px;
     padding: 0 10px 0 5px;
-}
-
-button.inline:hover {
-    background-color: var(--color-active);
-    col
 }
 
 a {

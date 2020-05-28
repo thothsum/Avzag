@@ -4,8 +4,7 @@
       <QueryList
         :title="'Lects'"
         :tags="lects"
-        :big="true"
-        :locked="true"
+        :large="true"
         v-show="lects.length>0"
         @query="lectQuery=$event"
       />
