@@ -2,7 +2,6 @@
   <div class="section" v-if="phonemes">
     <div id="phonemes">
       <QueryList
-        class="space"
         :title="'Lects'"
         :tags="lects"
         :big="true"
@@ -12,7 +11,6 @@
       />
       <QueryList :title="'Vowels'" :tags="vowelFeatures" @query="vowelQuery=$event" />
       <PhoneticTable
-        class="space"
         :phonemes="vowels"
         :featureQuery="vowelQuery"
         :lectQuery="lectQuery"
@@ -20,7 +18,6 @@
       />
       <QueryList :title="'Consonants'" :tags="consonantFeatures" @query="consonantQuery=$event" />
       <PhoneticTable
-        class="space"
         :phonemes="consonants"
         :featureQuery="consonantQuery"
         :lectQuery="lectQuery"
@@ -38,6 +35,11 @@ import PhonemeDetails from "@/components/PhonemeDetails";
 
 export default {
   name: "Phonology",
+  components: {
+    PhoneticTable,
+    PhonemeDetails,
+    QueryList
+  },
   data() {
     return {
       lectQuery: {},
@@ -45,11 +47,6 @@ export default {
       consonantQuery: {},
       selected: 0
     };
-  },
-  components: {
-    PhoneticTable,
-    PhonemeDetails,
-    QueryList
   },
   computed: {
     phonemes() {
@@ -103,15 +100,18 @@ export default {
   grid-template-columns: 1fr 200px;
   gap: 20px;
 }
-.space:not(:last-child) {
-  margin-bottom: 10px;
-}
 #phonemes {
   display: flex;
   flex-direction: column;
 }
 #phonemes > * {
   width: 100%;
+}
+#phonemes > *:nth-child(odd):not(:last-child) {
+  margin-bottom: 20px;
+}
+#phonemes > *:nth-child(even):not(:last-child) {
+  margin-bottom: 10px;
 }
 @media only screen and (max-width: 600px) {
   .section {

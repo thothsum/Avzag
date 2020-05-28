@@ -46,6 +46,18 @@ button:active, select:active {
     background-color: var(--color-hover);
 }
 
+button.inline {
+    background-color: white;
+    margin: 0 5px 0 0;
+    height: 20px;
+    padding: 0 10px 0 5px;
+}
+
+button.inline:hover {
+    background-color: var(--color-active);
+    col
+}
+
 a {
     border: 1px dashed transparent;
     padding: 3px 6px;

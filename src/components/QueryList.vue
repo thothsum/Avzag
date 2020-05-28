@@ -1,87 +1,86 @@
 <template>
-  <div id="list">
+  <div id="root">
     <div id="header">
       <h2>{{title}}</h2>
-      <a v-show="!locked" @click="visible=!visible">
+      <button class="inline" v-show="!large" @click="visible=!visible">
         <span class="material-icons-outlined">filter_list</span>
         query
-      </a>
-      <a v-show="!empty" @click="resetAll">
+      </button>
+      <button class="inline" v-show="!isEmpty" @click="reset">
         <span class="material-icons-outlined">clear</span>
         reset
-      </a>
+      </button>
     </div>
     <div id="body" v-show="visible">
-      <a :class="{big:big, 'txt-faded': mode===0}" :key="tag" @click="updateQuery(tag)" v-for="(mode, tag) of query">
-        <span v-if="mode===-1" class="material-icons-outlined">remove</span>
-        <span v-else-if="mode===1" class="material-icons-outlined">add</span>
-        <span v-else class="material-icons-outlined">arrow_right</span>
-        {{tag}}
-      </a>
+      <QueryParam
+        :large="large"
+        :text="tag"
+        v-model="query[tag]"
+        :key="i"
+        v-for="(tag, i) in tags"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import QueryParam from "./QueryParam";
+
 export default {
   name: "QueryList",
-  props: ["title", "tags", "big", "locked"],
+  components: {
+    QueryParam
+  },
+  props: ["title", "tags", "large"],
   data() {
     return {
       visible: false,
-      empty: true,
       query: {}
     };
   },
+  computed: {
+    result() {
+      let result = {};
+      for (const [key, value] of Object.entries(this.query)) {
+        if (value !== 0) result[key] = value === 1;
+      }
+      return result;
+    },
+    isEmpty() {
+      return Object.keys(this.result).length === 0;
+    }
+  },
   watch: {
+    result: {
+      handler() {
+        this.$emit("query", this.result);
+      },
+      immediate: true
+    },
     tags: {
-      handler(tags) {
+      handler() {
         this.query = {};
-        [...tags]
-          .sort((a, b) => a.localeCompare(b))
-          .forEach(t => (this.query[t] = 0));
-        this.resetAll();
+        this.reset();
       },
       immediate: true
     }
   },
   created() {
-    this.visible = this.locked;
+    this.visible = this.large;
   },
   methods: {
-    updateQuery(tag) {
-      this.query[tag] = ((this.query[tag] + 2) % 3) - 1;
-      this.applyQuery();
-    },
-    resetAll() {
-      Object.keys(this.query).forEach(t => (this.query[t] = 0));
-      this.applyQuery();
-    },
-    applyQuery() {
-      let result = {};
-      for (const [tag, mode] of Object.entries(this.query)) {
-        if (mode !== 0) result[tag] = mode === 1;
-      }
-
-      this.empty = Object.keys(result).length === 0;
-      this.$emit("query", result);
-      this.$forceUpdate();
+    reset() {
+      this.tags.forEach(t => (this.query[t] = 0));
     }
   }
 };
 </script>
 
 <style scoped>
-a {
-  text-decoration: none;
-  display: flex;
-  flex-wrap: nowrap;
-  place-items: center;
+h2 {
+  margin: 0 10px 0 0;
 }
-h3 {
-  margin: 0;
-}
-#list {
+#root {
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -91,13 +90,10 @@ h3 {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  place-items: center;
   width: 100%;
-  align-items: center;
 }
-#header {
-  height: 30px;
-  margin-left: 5px;
-}
+
 #header > a {
   margin-left: 20px;
 }
@@ -122,10 +118,7 @@ h3 {
 .big > * {
   font-size: 16px !important;
 }
-span {
-  font-style: normal;
-  margin-right: 3px;
-}
+
 @media only screen and (max-width: 600px) {
   #header,
   #body {

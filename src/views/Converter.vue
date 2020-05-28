@@ -57,8 +57,8 @@ export default {
   },
   watch: {
     sample: {
-      handler(sample) {
-        this.source = sample;
+      handler() {
+        this.source = this.sample;
       },
       immediate: true
     }

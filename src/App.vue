@@ -20,10 +20,10 @@ export default {
   },
   watch: {
     $route: {
-      async handler(route) {
-        if (route.name) localStorage.url = route.path;
-        if (route.params.lang !== this.$store.state.language)
-          this.$store.dispatch("loadLanguage", route.params.lang);
+      async handler() {
+        if (this.$route.name) localStorage.url = this.$route.path;
+        if (this.$route.params.lang !== this.$store.state.language)
+          this.$store.dispatch("loadLanguage", this.$route.params.lang);
       },
       immediate: true
     }
