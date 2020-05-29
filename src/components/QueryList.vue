@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       visible: false,
-      values: undefined
+      values: []
     };
   },
   computed: {
@@ -82,9 +82,15 @@ h2 {
   flex-flow: column;
   width: 100%;
 }
+#header {
+  height: 20px;
+}
+#body {
+  margin-top: 5px;
+  padding: 2.5px;
+}
 #header,
 #body {
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
   place-items: center;

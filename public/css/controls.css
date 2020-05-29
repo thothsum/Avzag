@@ -47,6 +47,7 @@ button:active, select:active {
 }
 
 button.inline {
+    font-size: 12px;
     background-color: transparent;
     border: solid 1px var(--color-active);
     border-radius: 12px;

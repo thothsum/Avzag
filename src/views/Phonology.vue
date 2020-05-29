@@ -110,7 +110,7 @@ export default {
   margin-bottom: 20px;
 }
 #phonemes > *:nth-child(even):not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 @media only screen and (max-width: 600px) {
   .section {

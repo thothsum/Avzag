@@ -28,5 +28,11 @@ export default {
 <style scoped>
 button {
   margin: 2.5px;
+  font-style: italic;
+}
+.large {
+  font-style: normal;
+  font-size: 16px;
+  height: 30px;
 }
 </style>
