@@ -14,7 +14,7 @@
 }
 
 body {
-    margin: 0 10px;
+    margin: 0 10px 10px 10px;
 }
 
 div {
@@ -25,6 +25,10 @@ div {
     margin: auto auto 25px auto;
     width: 100%;
     max-width: 960px;
+}
+
+.section:last-child {
+    margin: auto auto 0 auto;
 }
 
 .card {

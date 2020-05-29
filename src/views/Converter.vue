@@ -125,13 +125,14 @@ textarea {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
+  gap: 10px;
   align-items: stretch;
 }
 .split :nth-child(1) {
-  border-radius: 4px 0 0 4px;
+  border-width: 2px;
 }
 .split :nth-child(2) {
-  border-radius: 0 4px 4px 0;
+  background-color: transparent;
 }
 @media only screen and (max-width: 600px) {
   .split {
@@ -140,14 +141,14 @@ textarea {
     grid-template-rows: repeat(2, 1fr);
     align-items: stretch;
   }
-  .split :nth-child(1) {
-    border-radius: 4px 4px 0 0;
-  }
-  .split :nth-child(2) {
-    border-radius: 0 0 4px 4px;
-  }
   #options {
     flex-flow: column;
+  }
+  .split :nth-child(1) {
+    border-width: 2px;
+  }
+  .split :nth-child(2) {
+    background-color: transparent;
   }
 }
 </style>
