@@ -91,7 +91,7 @@ textarea:read-only {
 }
 
 textarea:read-write:hover, textarea:read-write:focus {
-    border-color: var(--color-highlight);
+    border-color: var(--color-select);
 }
 
 ::-webkit-scrollbar {
