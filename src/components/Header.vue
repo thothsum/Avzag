@@ -8,7 +8,7 @@
         :key="i"
         v-for="(m, i) in menus"
       >
-        <p class="material-icons-outlined">{{m.icon}}</p>
+        <!-- <p class="material-icons-outlined">{{m.icon}}</p> -->
         {{m.title}}
       </button>
     </div>
@@ -92,7 +92,7 @@ export default {
   border-color: var(--color-highlight);
 }
 @media only screen and (max-width: 600px) {
-  #header {
+  .section {
     height: fit-content;
     flex-flow: column;
     justify-content: center;
