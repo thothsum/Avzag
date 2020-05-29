@@ -1,7 +1,8 @@
 <template>
-  <div id="mapping">
-    <p :key="i" v-for="(pair, i) in noones">
-      <span :key="j" v-for="(s, j) in pair">{{s.replace(" ", "_")}}</span>
+  <div id="root">
+    <p class="txt-caption" :key="i" v-for="(pair, i) in noones">
+      <span class="txt-faded">{{pair[0].replace(" ", "_")}}</span>
+      <span>{{pair[1].replace(" ", "_")}}</span>
     </p>
   </div>
 </template>
@@ -19,14 +20,11 @@ export default {
 </script>
 
 <style scoped>
-* {
-  font-size: 12px;
-}
-#mapping {
-  box-shadow: 0 0 10px var(--shadow);
+#root {
+  box-shadow: var(--shadow-small);
   display: flex;
   flex-wrap: wrap;
-  padding: 5px;
+  padding: 2.5px;
   place-content: center;
 }
 p {
@@ -34,19 +32,17 @@ p {
   flex-wrap: nowrap;
   flex-direction: row;
   place-content: center;
-  width: 70px;
-  margin: 5px;
+  width: 60px;
+  margin: 2.5px;
+}
+span {
+  width: 50%;
 }
 span:nth-child(1) {
-  width: 50%;
-  margin-right: 5px;
+  margin-right: 2.5px;
   text-align: right;
-  font-weight: 300;
 }
 span:nth-child(2) {
-  font-weight: 500;
-  width: 50%;
-  margin-left: 5px;
-  text-align: left;
+  margin-left: 2.5px;
 }
 </style>

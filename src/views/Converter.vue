@@ -5,11 +5,17 @@
       <textarea readonly ref="result" :value="result"></textarea>
     </div>
     <div id="options">
-      <button @click="$refs.file.click()">Upload .txt file</button>
+      <button @click="$refs.file.click()">
+        <span class="material-icons-outlined">publish</span>
+        Upload .txt file
+      </button>
       <select v-model="selected">
         <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
       </select>
-      <button @click="copy">Copy to clipboard</button>
+      <button @click="copy">
+        <span class="material-icons-outlined">file_copy</span>
+        Copy to clipboard
+      </button>
     </div>
     <MappingTable :mapping="mapping" />
     <input hidden type="file" ref="file" @change="upload" />
@@ -43,7 +49,6 @@ export default {
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-      console.log("ones", ones);
       return entries.concat(ones);
     },
     result() {
@@ -52,8 +57,8 @@ export default {
   },
   watch: {
     sample: {
-      handler(sample) {
-        this.source = sample;
+      handler() {
+        this.source = this.sample;
       },
       immediate: true
     }

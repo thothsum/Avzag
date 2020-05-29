@@ -57,10 +57,6 @@ export default {
 #table {
   display: flex;
   flex-wrap: wrap;
-}
-@media only screen and (max-width: 600px) {
-  #table {
-    place-content: center;
-  }
+  padding: -5px;
 }
 </style>

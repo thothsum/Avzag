@@ -1,0 +1,62 @@
+:root {
+    --color-shadow: #d1d5da;
+    --shadow-small: 0 2px 8px var(--color-shadow);
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+    border-radius: 2px;
+    transition: 0.15s;
+    border: 0;
+}
+
+body {
+    margin: 0 10px;
+}
+
+div {
+    border-radius: 4px;
+}
+
+.section {
+    margin: auto auto 25px auto;
+    width: 100%;
+    max-width: 960px;
+}
+
+.card {
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:last-child {
+    margin: 0;
+}
+
+.card>* {
+    margin: 0 0 5px 0;
+}
+
+.card>*:last-child {
+    margin: 0;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y: auto;
+    box-shadow: var(--shadow-small);
+    border-radius: 2px;
+}
+
+.list>* {
+    margin: 0;
+    width: 100%;
+}

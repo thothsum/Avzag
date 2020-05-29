@@ -5,7 +5,7 @@
     </div>
     <div id="titles">
       <h1>{{title}}</h1>
-      <h3>{{subtitle}}</h3>
+      <h2>{{subtitle}}</h2>
     </div>
   </div>
 </template>
@@ -32,9 +32,9 @@ export default {
 <style scoped>
 #banner {
   display: flex;
-  /* align-content: center; */
   place-items: center;
   justify-content: flex-start;
+  width: max-content;
 }
 #banner > * {
   margin: 0 5px;
@@ -46,7 +46,7 @@ export default {
 }
 #flag > img {
   height: 100%;
-  box-shadow: 0 0 10px var(--shadow);
+  box-shadow: var(--shadow-small)
 }
 #titles {
   display: flex;
@@ -55,8 +55,5 @@ export default {
 }
 #titles > * {
   margin: 0;
-}
-#menu-btn {
-  display: none;
 }
 </style>

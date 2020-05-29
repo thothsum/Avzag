@@ -1,0 +1,105 @@
+:root {
+    --color-active: #e1e4e8;
+    --color-hover: #d1d5da;
+    --color-press: #f6f8fa;
+    --color-highlight: #0366d6;
+}
+
+button, select, a {
+    user-select: none;
+    cursor: pointer;
+}
+
+button, select {
+    background-color: var(--color-active);
+    display: flex;
+    place-items: center;
+    height: 30px;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+button>.material-icons-outlined {
+    margin-right: 5px;
+}
+
+button:hover, select:hover {
+    background-color: var(--color-hover);
+    box-shadow: var(--shadow-small);
+}
+
+button:active, select:active {
+    background-color: var(--color-press);
+}
+
+.list button {
+    background-color: transparent;
+    height: 25px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.list button:hover {
+    background-color: var(--color-active);
+}
+
+.list button:active {
+    background-color: var(--color-hover);
+}
+
+button.inline {
+    font-size: 12px;
+    background-color: transparent;
+    border: solid 1px var(--color-active);
+    border-radius: 12px;
+    margin: 0 5px 0 0;
+    height: 20px;
+    padding: 0 10px 0 5px;
+}
+
+button.inline>.material-icons-outlined {
+    margin-right: 2.5px;
+}
+
+a {
+    color: var(--color-highlight);
+    text-decoration: none;
+    padding: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+textarea {
+    background-color: var(--color-press);
+    border: 1px solid var(--color-active);
+    text-align: left;
+    box-shadow: inset var(--shadow-small);
+}
+
+textarea:read-only {
+    box-shadow: none;
+    border: none;
+}
+
+textarea:read-write:hover, textarea:read-write:focus {
+    border-color: var(--color-highlight);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-active);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-hover);
+}
