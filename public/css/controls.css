@@ -2,6 +2,7 @@
     --color-active: #e1e4e8;
     --color-hover: #d1d5da;
     --color-press: #f6f8fa;
+    --color-highlight: #0366d6;
 }
 
 button, select, a {
@@ -61,7 +62,7 @@ button.inline>.material-icons-outlined {
 }
 
 a {
-    color: #0366d6;
+    color: var(--color-highlight);
     text-decoration: none;
     padding: 5px;
 }
@@ -71,18 +72,19 @@ a:hover {
 }
 
 textarea {
-    background-color: var(--back);
-    border: 1px solid var(--select);
+    background-color: var(--color-press);
+    border: 1px solid var(--color-active);
     text-align: left;
+    box-shadow: inset var(--shadow-small);
 }
 
 textarea:read-only {
-    border-color: var(--select);
-    background-color: var(--select);
+    box-shadow: none;
+    border: none;
 }
 
 textarea:read-write:hover, textarea:read-write:focus {
-    border-color: var(--fore);
+    border-color: var(--color-highlight);
 }
 
 ::-webkit-scrollbar {
