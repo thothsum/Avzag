@@ -7,10 +7,6 @@
     --color-alert: #d73a49;
 }
 
-.highlighted {
-    background-color: var(--color-highlight);
-}
-
 button, select, a {
     user-select: none;
     cursor: pointer;

@@ -1,5 +1,5 @@
 <template>
-  <button :class="{'txt-faded': !selected&&faded, highlighted: selected}">
+  <button :class="{'txt-faded': faded, selected: selected}">
     <span>
       <b>{{str}}</b>
     </span>
@@ -16,16 +16,19 @@ export default {
 
 <style scoped>
 button {
+  border: 2px solid transparent;
+  border-bottom-width: 2px;
   margin: 5px;
   flex-direction: column;
   place-content: center;
-  width: 50px;
+  width: 45px;
   height: 40px;
+  line-height: 100%;
 }
 .txt-faded {
   background-color: transparent;
 }
-.highlighted:hover {
-  background-color: transparent !important;
+.selected {
+  border-color: var(--color-select);
 }
 </style>
