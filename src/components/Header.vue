@@ -36,7 +36,7 @@ export default {
         },
         {
           title: "Dictionary",
-          icon: "bookmark"
+          icon: "bookmark_border"
         },
         {
           title: "Settings",
