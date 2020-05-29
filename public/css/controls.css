@@ -61,17 +61,13 @@ button.inline>.material-icons-outlined {
 }
 
 a {
-    border: 1px dashed transparent;
-    padding: 3px 6px;
-    text-decoration: underline;
+    color: #0366d6;
+    text-decoration: none;
+    padding: 5px;
 }
 
 a:hover {
-    border-color: var(--text);
-}
-
-a:active {
-    transform: scale(1.15);
+    text-decoration: underline;
 }
 
 textarea {

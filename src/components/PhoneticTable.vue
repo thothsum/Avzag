@@ -42,7 +42,7 @@ export default {
       let lects = [];
       for (const [lect, mode] of Object.entries(this.lectQuery))
         if (mode) lects.push(lect);
-      return lects.length > 0 ? lects[0] : undefined;
+      return lects.length === 1 ? lects[0] : undefined;
     },
     graphemes() {
       return this.phonemes.map(
