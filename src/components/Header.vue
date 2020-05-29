@@ -79,8 +79,8 @@ export default {
 #menu > button {
   padding: 0 15px;
   height: 40px;
-  border-width: 0 0 4px 0;
-  border-color: var(--color-text);
+  border: 0 solid var(--color-hover);
+  border-bottom-width: 2px;
 }
 .material-icons-outlined {
   font-size: 20px !important;
@@ -88,11 +88,8 @@ export default {
 #menu > button > *:first-child:not(:last-child) {
   margin-right: 10px;
 }
-#menu > button:hover {
-  border-color: var(--text);
-}
-#menu > button.selected {
-  border-color: var(--text);
+#menu > button.selected{
+  border-color: var(--color-highlight);
 }
 @media only screen and (max-width: 600px) {
   #header {
