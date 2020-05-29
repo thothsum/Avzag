@@ -1,9 +1,7 @@
 <template>
   <button :class="{'txt-faded': faded, selected: selected}">
-    <span>
-      <b>{{str}}</b>
-    </span>
-    <span>{{ipa}}</span>
+    <b>{{str}}</b>
+    {{ipa}}
   </button>
 </template>
 
