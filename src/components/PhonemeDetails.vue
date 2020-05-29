@@ -11,12 +11,12 @@
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
-        <h2>
+        <p>
           <span class="txt-faded">⟨</span>
-          {{lect.grapheme}}
+          <b> {{lect.grapheme}} </b>
           <span class="txt-faded">⟩</span>
-          — {{lect.name}}
-        </h2>
+          ― {{lect.name}}
+        </p>
         <p class="txt-caption txt-faded" v-if="lect.note">{{lect.note}}</p>
         <div
           :style="{height: Math.min(3, lect.samples.length) * 25 + 'px' }"

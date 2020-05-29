@@ -2,7 +2,13 @@
     --color-active: #e1e4e8;
     --color-hover: #d1d5da;
     --color-press: #f6f8fa;
-    --color-highlight: #0366d6;
+    --color-highlight: #c8e1ff;
+    --color-select: #0366d6;
+    --color-alert: #d73a49;
+}
+
+.highlighted {
+    background-color: var(--color-highlight);
 }
 
 button, select, a {
@@ -62,13 +68,14 @@ button.inline>.material-icons-outlined {
 }
 
 a {
-    color: var(--color-highlight);
-    text-decoration: none;
+    color: var(--color-select);
+    text-decoration: underline;
     padding: 5px;
 }
 
 a:hover {
-    text-decoration: underline;
+    background-color: var(--color-highlight);
+    text-decoration: none;
 }
 
 textarea {

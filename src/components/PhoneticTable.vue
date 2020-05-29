@@ -2,6 +2,7 @@
   <div id="table">
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
+      :selected="selected==phn.i"
       :faded="!fitting[i]"
       :ipa="phn.ipa"
       :str="graphemes[i]"
@@ -19,7 +20,7 @@ export default {
   components: {
     PhoneticItem
   },
-  props: ["lectQuery", "featureQuery", "phonemes"],
+  props: ["selected", "lectQuery", "featureQuery", "phonemes"],
   methods: {
     pass(tags, query) {
       for (const [tag, mode] of Object.entries(query)) {

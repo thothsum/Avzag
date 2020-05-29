@@ -10,17 +10,19 @@
       />
       <QueryList :title="'Vowels'" :tags="vowelFeatures" @query="vowelQuery=$event" />
       <PhoneticTable
+        :selected="selected"
         :phonemes="vowels"
         :featureQuery="vowelQuery"
         :lectQuery="lectQuery"
-        @phoneme="selected=$event"
+        @phoneme="select($event)"
       />
       <QueryList :title="'Consonants'" :tags="consonantFeatures" @query="consonantQuery=$event" />
       <PhoneticTable
+        :selected="selected"
         :phonemes="consonants"
         :featureQuery="consonantQuery"
         :lectQuery="lectQuery"
-        @phoneme="selected=$event"
+        @phoneme="select($event)"
       />
     </div>
     <PhonemeDetails :phoneme="phonemes[selected]" />
@@ -43,11 +45,14 @@ export default {
     return {
       lectQuery: {},
       vowelQuery: {},
-      consonantQuery: {},
-      selected: 0
+      consonantQuery: {}
     };
   },
   computed: {
+    selected() {
+      let index = this.$route.query.phoneme ?? 0;
+      return index < this.phonemes.length ? index : 0;
+    },
     phonemes() {
       return this.$store.state.phonology;
     },
@@ -75,12 +80,10 @@ export default {
       );
     }
   },
-  watch: {
-    phonemes() {
-      this.selected = 0;
-    }
-  },
   methods: {
+    select(i) {
+      if (this.selected !== i) this.$router.replace({ query: { phoneme: i } });
+    },
     categorize(category) {
       return this.phonemes.filter(p => p.features.includes(category));
     },

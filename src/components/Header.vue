@@ -28,15 +28,15 @@ export default {
       menus: [
         {
           title: "Phonology",
-          icon: "volume_up"
+          icon: "audiotrack"
         },
         {
           title: "Converter",
-          icon: "compare_arrows"
+          icon: "text_fields"
         },
         {
           title: "Dictionary",
-          icon: "search"
+          icon: "bookmark"
         },
         {
           title: "Settings",
@@ -78,6 +78,7 @@ export default {
 }
 #menu > button {
   height: 40px;
+  font-weight: bold;
   border: 0 solid var(--color-hover);
   border-bottom-width: 2px;
 }
@@ -88,7 +89,7 @@ export default {
   margin-right: 10px;
 }
 #menu > button.selected {
-  border-color: var(--color-highlight);
+  border-color: var(--color-select);
 }
 #menu > button:not(.selected) > .material-icons-outlined {
   margin: 0;

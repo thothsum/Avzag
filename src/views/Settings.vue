@@ -1,10 +1,22 @@
 <template>
   <div class="section">
-    <router-link
-      :to="{name: $route.name, params: {lang: lg}}"
-      :key="lg"
-      v-for="lg in catalogue"
-    >{{lg}}</router-link>
+    <div class="card">
+      <p>Languages</p>
+      <router-link
+        :to="{name: $route.name, params: {lang: lg}}"
+        :key="lg"
+        v-for="lg in catalogue"
+      >{{lg}}</router-link>
+    </div>
+    <div class="card">
+      <p>Contribute</p>
+      <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
+    </div>
+    <div class="card">
+      <p>Contact</p>
+      <a href="https://twitter.com/alkaitagi">Twiter</a>
+      <a href="https://t.me/alkaitagi">Telegram</a>
+    </div>
   </div>
 </template>
 
@@ -20,16 +32,11 @@ export default {
 </script>
 
 <style scoped>
-/* .section {
+.section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0px 2.5px 5px var(--shadow);
-  padding: 5px 0;
-  margin-top: -25px;
-} 
-.section > * {
-  margin: 0 5px;
-} */
+}
+.card {
+  width: 150px;
+}
 </style>

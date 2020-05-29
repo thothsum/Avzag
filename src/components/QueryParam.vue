@@ -1,5 +1,9 @@
 <template>
-  <button class="inline" :class="{large:large, 'txt-faded': value===0}" @click="update">
+  <button
+    class="inline"
+    :class="{large:large, 'txt-faded': value===0, in: value===1, ex: value===-1}"
+    @click="update"
+  >
     <span class="material-icons-outlined">
       <template v-if="value===-1">remove</template>
       <template v-else-if="value===1">add</template>
@@ -34,5 +38,13 @@ button {
   font-style: normal;
   font-size: 16px;
   height: 30px;
+}
+.in,
+.in * {
+  color: var(--color-select);
+}
+.ex,
+.ex * {
+  color: var(--color-alert);
 }
 </style>
