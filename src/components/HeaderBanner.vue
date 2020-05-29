@@ -34,6 +34,7 @@ export default {
   display: flex;
   place-items: center;
   justify-content: flex-start;
+  width: max-content;
 }
 #banner > * {
   margin: 0 5px;

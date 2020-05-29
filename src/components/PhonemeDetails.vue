@@ -70,9 +70,4 @@ export default {
 #features {
   word-spacing: 10px;
 }
-@media only screen and (max-width: 600px) {
-  .card {
-    width: 300px;
-  }
-}
 </style>

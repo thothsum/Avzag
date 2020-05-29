@@ -8,8 +8,8 @@
         :key="i"
         v-for="(m, i) in menus"
       >
-        <!-- <p class="material-icons-outlined">{{m.icon}}</p> -->
-        {{m.title}}
+        <span class="material-icons-outlined">{{m.icon}}</span>
+        {{$route.name===m.title ? m.title : ""}}
       </button>
     </div>
   </div>
@@ -62,22 +62,21 @@ export default {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   box-shadow: 0px 6px 8px var(--color-shadow);
+  justify-content: space-between;
   height: 60px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 5px;
 }
 #menu {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  place-items: center;
+  overflow-x: auto;
 }
 #menu > * {
   margin: 5px;
 }
 #menu > button {
-  padding: 0 15px;
   height: 40px;
   border: 0 solid var(--color-hover);
   border-bottom-width: 2px;
@@ -88,14 +87,22 @@ export default {
 #menu > button > *:first-child:not(:last-child) {
   margin-right: 10px;
 }
-#menu > button.selected{
+#menu > button.selected {
   border-color: var(--color-highlight);
+}
+#menu > button:not(.selected) > .material-icons-outlined {
+  margin: 0;
 }
 @media only screen and (max-width: 600px) {
   .section {
     height: fit-content;
     flex-flow: column;
-    justify-content: center;
+  }
+  .section > * {
+    width: 100%;
+  }
+  #menu {
+    align-items: flex-start;
   }
 }
 </style>

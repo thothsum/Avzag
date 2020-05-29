@@ -96,10 +96,4 @@ h2 {
   place-items: center;
   width: 100%;
 }
-@media only screen and (max-width: 600px) {
-  #header,
-  #body {
-    place-content: center;
-  }
-}
 </style>
