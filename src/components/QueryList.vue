@@ -88,6 +88,7 @@ h2 {
 #body {
   margin-top: 5px;
   padding: 2.5px;
+  place-content: flex-start;
 }
 #header,
 #body {
@@ -95,5 +96,13 @@ h2 {
   flex-wrap: wrap;
   place-items: center;
   width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  #body {
+    flex-direction: column;
+    max-height: 100px;
+    overflow-y: scroll;
+    place-items: flex-start;
+  }
 }
 </style>

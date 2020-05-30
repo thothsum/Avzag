@@ -1,5 +1,5 @@
 <template>
-  <div id="table">
+  <div id="root">
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
       :selected="selected==phn.i"
@@ -55,9 +55,17 @@ export default {
 </script>
 
 <style scoped>
-#table {
+#root {
   display: flex;
   flex-wrap: wrap;
   padding: -5px;
+  place-content: flex-start;
+}
+@media only screen and (max-width: 600px) {
+  #root {
+    flex-direction: column;
+    max-height: 240px;
+    overflow-y: scroll;  
+  }
 }
 </style>
