@@ -131,9 +131,6 @@ textarea {
 .split :nth-child(1) {
   border-width: 2px;
 }
-.split :nth-child(2) {
-  background-color: transparent;
-}
 @media only screen and (max-width: 600px) {
   .split {
     display: grid;
@@ -143,12 +140,6 @@ textarea {
   }
   #options {
     flex-flow: column;
-  }
-  .split :nth-child(1) {
-    border-width: 2px;
-  }
-  .split :nth-child(2) {
-    background-color: transparent;
   }
 }
 </style>
