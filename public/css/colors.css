@@ -1,0 +1,10 @@
+:root {
+    --color-text: #212121;
+    --color-text-faded: #757575;
+    --color-shadow: #BDBDBD;
+    --color-active: #EEEEEE;
+    --color-hover: #E0E0E0;
+    --color-press: #E3F2FD;
+    --color-select: #2962FF;
+    --color-alert: #D50000;
+}

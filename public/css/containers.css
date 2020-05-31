@@ -1,6 +1,5 @@
 :root {
-    --color-shadow: #d1d5da;
-    --shadow-small: 0 2px 8px var(--color-shadow);
+    --shadow-small: 0 2px 6px var(--color-shadow);
 }
 
 * {

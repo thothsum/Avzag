@@ -2,12 +2,7 @@
   <div id="root">
     <div id="header">
       <h2>{{title}}</h2>
-      <button
-        class="inline"
-        :class="{'txt-faded': !visible}"
-        v-show="!large"
-        @click="visible=!visible"
-      >
+      <button class="inline" v-show="!large" @click="visible=!visible">
         <span class="material-icons-outlined">filter_list</span>
         query
       </button>

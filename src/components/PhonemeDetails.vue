@@ -12,9 +12,11 @@
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
         <p>
-          <span class="txt-faded">⟨</span>
-          <b> {{lect.grapheme}} </b>
-          <span class="txt-faded">⟩</span>
+          <b>
+            <span class="txt-faded">⟨</span>
+            {{lect.grapheme}}
+            <span class="txt-faded">⟩</span>
+          </b>
           ― {{lect.name}}
         </p>
         <p class="txt-caption txt-faded" v-if="lect.note">{{lect.note}}</p>
@@ -49,7 +51,10 @@ export default {
   },
   methods: {
     highlight(sample, grapheme) {
-      return sample.replace(new RegExp(grapheme, "g"), `<u>${grapheme}</u>`);
+      return sample.replace(
+        new RegExp(grapheme, "g"),
+        `<span style='color: var(--color-select)'>${grapheme}</span>`
+      );
     },
     play(lect, i) {
       const player = this.$refs.player;
