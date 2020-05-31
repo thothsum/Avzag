@@ -1,16 +1,23 @@
+:root {
+    --font-size: 14px;
+    --font-size-small: 12px;
+    --font-size-large: 20px;
+    --font-size-icon: 16px;
+}
+
 * {
-    font-size: 14px;
+    font-size: var(--font-size);
     color: var(--color-text);
     font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
 }
 
 .material-icons-outlined {
-    font-size: 16px !important;
+    font-size: var(--font-size-icon) !important;
 }
 
 .txt-caption, .txt-caption * {
     font-style: italic;
-    font-size: 12px;
+    font-size: var(--font-size-small);
 }
 
 .txt-faded, .txt-faded * {
@@ -18,37 +25,11 @@
 }
 
 h1, h1 * {
-    font-size: 20px;
+    font-size: var(--font-size-large);
     font-weight: bold;
 }
 
 h2, h2 * {
-    font-size: 14px;
+    font-size: var(--font-size);
     font-weight: bold;
-}
-
-[tooltip]:before {
-    font-style: italic;
-    font-weight: normal;
-    font-size: 12px;
-    border-radius: 4px;
-    box-shadow: var(--shadow-small);
-    padding: 5px;
-    margin-top: -15px;
-    position: absolute;
-    content: attr(tooltip);
-    background-color: white;
-    opacity: 0;
-    transition: 0.15s;
-    pointer-events: none;
-}
-
-[tooltip]:hover:before {
-    opacity: 1;
-    margin-top: -30px;
-}
-
-[tooltip]:active:before {
-    opacity: 0;
-    margin-top: -15px;
 }

@@ -21,7 +21,7 @@
         </p>
         <p class="txt-caption txt-faded" v-if="lect.note">{{lect.note}}</p>
         <div
-          :style="{height: Math.min(3, lect.samples.length) * 25 + 'px' }"
+          :style="{height: Math.min(3, lect.samples.length) * 24 + 'px' }"
           class="list"
           v-if="lect.samples && lect.samples.length>0"
         >
@@ -73,6 +73,6 @@ export default {
   justify-content: center;
 }
 #features {
-  word-spacing: 10px;
+  word-spacing: var(--margin-double);
 }
 </style>

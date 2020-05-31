@@ -70,7 +70,7 @@ export default {
 
 <style scoped>
 h2 {
-  margin: 0 10px 0 0;
+  margin: 0 var(--margin-double) 0 0;
 }
 #root {
   display: flex;
@@ -78,11 +78,11 @@ h2 {
   width: 100%;
 }
 #header {
-  height: 20px;
+  height: var(--control-height-small);
 }
 #body {
-  margin-top: 10px;
-  padding: 2.5px;
+  margin-top: var(--margin-double);
+  padding: var(--padding);
   place-content: flex-start;
 }
 #header,
@@ -92,7 +92,7 @@ h2 {
   place-items: center;
   width: 100%;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 568px) {
   #body {
     flex-direction: column;
     max-height: 100px;

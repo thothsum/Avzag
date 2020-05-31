@@ -34,19 +34,17 @@ export default {
   display: flex;
   place-items: center;
   justify-content: flex-start;
-  width: max-content;
 }
-#banner > * {
-  margin: 0 2.5px;
+#banner > *:not(:last-child) {
+  margin-right: var(--margin);
 }
 #flag {
-  height: 40px;
+  height: 42px;
   display: flex;
-  margin: 2.5px;
 }
 #flag > img {
   height: 100%;
-  box-shadow: var(--shadow-small)
+  box-shadow: var(--shadow-small);
 }
 #titles {
   display: flex;

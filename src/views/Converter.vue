@@ -109,26 +109,26 @@ export default {
 
 <style scoped>
 textarea {
-  padding: 10px;
+  padding: var(--margin-double);
   height: 250px;
 }
 #options {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 2.5px 0;
+  margin: var(--padding) 0;
 }
 #options > * {
-  margin: 2.5px 0;
+  margin: var(--padding) 0;
 }
 .split {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  gap: 5px;
+  gap: var(--margin);
   align-items: stretch;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 568px) {
   .split {
     display: grid;
     grid-template-columns: 1fr;

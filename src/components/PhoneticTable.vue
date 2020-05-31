@@ -58,14 +58,14 @@ export default {
 #root {
   display: flex;
   flex-wrap: wrap;
-  padding: 2.5px;
+  padding: var(--padding);
   place-content: flex-start;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 568px) {
   #root {
     flex-direction: column;
     max-height: 240px;
-    overflow-y: scroll;  
+    overflow-y: scroll;
   }
 }
 </style>

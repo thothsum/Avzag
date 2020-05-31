@@ -31,13 +31,13 @@ export default {
 
 <style scoped>
 button {
-  margin: 2.5px;
+  margin: var(--padding);
   font-style: italic;
 }
 .large {
   font-style: normal;
-  font-size: 16px;
-  height: 30px;
+  font-size: var(--font-size);
+  height: var(--control-height);
 }
 .in,
 .in * {

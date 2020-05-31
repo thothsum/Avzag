@@ -23,7 +23,7 @@ export default {
 #root {
   display: flex;
   flex-wrap: wrap;
-  padding: 2.5px;
+  padding: var(--margin);
   place-content: center;
 }
 p {
@@ -32,16 +32,16 @@ p {
   flex-direction: row;
   place-content: center;
   width: 60px;
-  margin: 2.5px;
+  margin: var(--padding);
 }
 span {
   width: 50%;
 }
 span:nth-child(1) {
-  margin-right: 2.5px;
+  margin-right: var(--padding);
   text-align: right;
 }
 span:nth-child(2) {
-  margin-left: 2.5px;
+  margin-left: var(--padding);
 }
 </style>

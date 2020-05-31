@@ -62,9 +62,8 @@ export default {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   justify-content: space-between;
-  height: 50px;
+  height: 42px;
   display: flex;
-  padding: 2.5px;
 }
 #menu {
   display: flex;
@@ -72,20 +71,20 @@ export default {
   place-items: center;
   overflow-x: auto;
 }
-#menu > * {
-  margin: 2.5px;
+#menu > *:not(:last-child) {
+  margin-right: var(--margin);
 }
 #menu > button {
-  height: 40px;
+  height: 42px;
   font-weight: bold;
   border: 0 solid var(--color-hover);
-  border-bottom-width: 2px;
+  border-bottom-width: var(--border-width);
 }
 .material-icons-outlined {
-  font-size: 20px !important;
+  font-size: var(--font-size-large) !important;
 }
 #menu > button > *:first-child:not(:last-child) {
-  margin-right: 5px;
+  margin-right: var(--margin);
 }
 #menu > button.selected {
   border-color: var(--color-select);
@@ -93,13 +92,16 @@ export default {
 #menu > button:not(.selected) > .material-icons-outlined {
   margin: 0;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 568px) {
   .section {
     height: fit-content;
     flex-flow: column;
   }
   .section > * {
     width: 100%;
+  }
+  .section > *:not(:last-child) {
+    margin-bottom: var(--margin-double);
   }
   #menu {
     align-items: flex-start;

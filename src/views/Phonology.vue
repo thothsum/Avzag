@@ -100,7 +100,7 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 1fr 200px;
-  gap: 20px;
+  gap: var(--margin-large);
 }
 #phonemes {
   display: flex;
@@ -110,12 +110,12 @@ export default {
   width: 100%;
 }
 #phonemes > *:nth-child(odd):not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: var(--margin-large);
 }
 #phonemes > *:nth-child(even):not(:last-child) {
-  margin-bottom: 5px;
+  margin-bottom: var(--margin);
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 568px) {
   .section {
     grid-template-columns: 1fr;
     direction: ltr;

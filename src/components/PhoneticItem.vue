@@ -14,8 +14,8 @@ export default {
 
 <style scoped>
 button {
-  border: 2px solid transparent;
-  margin: 2.5px;
+  border: var(--border-width) solid transparent;
+  margin: var(--padding);
   flex-direction: column;
   place-content: center;
   width: 45px;

@@ -13,10 +13,10 @@ module.exports = {
             display: "standalone",
             start_url: ".",
             short_name: "Ævzag",
-            theme_color: "#212121",
+            theme_color: "#201F1E",
             description: "An attempt to help our languages.",
             orientation: "natural",
-            background_color: "#212121",
+            background_color: "#201F1E",
             related_applications: [],
             prefer_related_applications: false,
             icons: [
