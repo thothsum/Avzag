@@ -71,6 +71,9 @@ a {
 
 a:hover {
     background-color: var(--color-highlight);
+}
+
+a:active {
     text-decoration: none;
 }
 
