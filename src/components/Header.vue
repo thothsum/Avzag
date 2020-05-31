@@ -72,7 +72,7 @@ export default {
   overflow-x: auto;
 }
 #menu > *:not(:last-child) {
-  margin-right: var(--margin);
+  margin-right: var(--margin-double);
 }
 #menu > button {
   height: 42px;

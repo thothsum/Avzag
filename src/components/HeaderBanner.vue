@@ -35,12 +35,10 @@ export default {
   place-items: center;
   justify-content: flex-start;
 }
-#banner > *:not(:last-child) {
-  margin-right: var(--margin);
-}
 #flag {
   height: 42px;
   display: flex;
+  margin-right: var(--margin-double);
 }
 #flag > img {
   height: 100%;
