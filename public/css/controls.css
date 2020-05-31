@@ -43,7 +43,7 @@ button:active, select:active {
 button.inline {
     font-size: 12px;
     background-color: transparent;
-    border: solid 1px var(--color-active);
+    border: solid 2px var(--color-active);
     border-radius: 12px;
     margin: 0 5px 0 0;
     height: 20px;
@@ -78,19 +78,25 @@ a:active {
     background-color: var(--color-press);
 }
 
-textarea {
+textarea, input[type=text] {
     background-color: var(--color-active);
-    border: 1px solid var(--color-shadow);
+    border: 2px solid var(--color-hover);
     text-align: left;
     box-shadow: inset var(--shadow-small);
 }
 
-textarea:read-only {
+input[type=text] {
+    border-width: 0 0 2px 0;
+    height: 30px;
+    padding: 0 10px;
+}
+
+textarea:read-only, input[type=text]:read-only {
     box-shadow: none;
     border-color: var(--color-active);
 }
 
-textarea:read-write:hover, textarea:read-write:focus {
+textarea:read-write:hover, textarea:read-write:focus, input[type=text]:read-write:hover, input[type=text]:read-write:focus {
     border-color: var(--color-select);
 }
 
