@@ -128,9 +128,6 @@ textarea {
   gap: 10px;
   align-items: stretch;
 }
-.split :nth-child(1) {
-  border-width: 2px;
-}
 @media only screen and (max-width: 600px) {
   .split {
     display: grid;
