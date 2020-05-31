@@ -81,7 +81,7 @@ h2 {
   height: 20px;
 }
 #body {
-  margin-top: 5px;
+  margin-top: 10px;
   padding: 2.5px;
   place-content: flex-start;
 }

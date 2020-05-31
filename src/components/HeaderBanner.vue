@@ -37,12 +37,12 @@ export default {
   width: max-content;
 }
 #banner > * {
-  margin: 0 5px;
+  margin: 0 2.5px;
 }
 #flag {
   height: 40px;
   display: flex;
-  margin: 5px;
+  margin: 2.5px;
 }
 #flag > img {
   height: 100%;

@@ -9,13 +9,13 @@
       >{{lg}}</router-link>
     </div>
     <div class="card">
-      <h2>Contribute</h2>
-      <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
-    </div>
-    <div class="card">
       <h2>Contact</h2>
       <a href="https://twitter.com/alkaitagi">Twiter</a>
       <a href="https://t.me/alkaitagi">Telegram</a>
+    </div>
+    <div class="card">
+      <h2>Contribute</h2>
+      <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
     </div>
   </div>
 </template>

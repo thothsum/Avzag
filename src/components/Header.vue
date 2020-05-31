@@ -61,11 +61,10 @@ export default {
 .section {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  box-shadow: 0px 6px 8px var(--color-shadow);
   justify-content: space-between;
-  height: 60px;
+  height: 50px;
   display: flex;
-  padding: 5px;
+  padding: 2.5px;
 }
 #menu {
   display: flex;
@@ -74,7 +73,7 @@ export default {
   overflow-x: auto;
 }
 #menu > * {
-  margin: 5px;
+  margin: 2.5px;
 }
 #menu > button {
   height: 40px;
@@ -86,7 +85,7 @@ export default {
   font-size: 20px !important;
 }
 #menu > button > *:first-child:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 #menu > button.selected {
   border-color: var(--color-select);

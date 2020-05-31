@@ -15,8 +15,7 @@ export default {
 <style scoped>
 button {
   border: 2px solid transparent;
-  border-bottom-width: 2px;
-  margin: 5px;
+  margin: 2.5px;
   flex-direction: column;
   place-content: center;
   width: 45px;
@@ -25,6 +24,13 @@ button {
 }
 .txt-faded {
   background-color: transparent;
+}
+.txt-faded:hover,
+.txt-faded:hover > * {
+  color: var(--color-text);
+}
+.txt-faded:active {
+  background-color: var(--color-active);
 }
 .selected {
   border-color: var(--color-select);

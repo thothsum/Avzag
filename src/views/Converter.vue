@@ -116,16 +116,16 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 5px 0;
+  margin: 2.5px 0;
 }
 #options > * {
-  margin: 5px 0;
+  margin: 2.5px 0;
 }
 .split {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  gap: 10px;
+  gap: 5px;
   align-items: stretch;
 }
 @media only screen and (max-width: 600px) {

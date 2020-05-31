@@ -21,7 +21,6 @@ export default {
 
 <style scoped>
 #root {
-  box-shadow: var(--shadow-small);
   display: flex;
   flex-wrap: wrap;
   padding: 2.5px;
