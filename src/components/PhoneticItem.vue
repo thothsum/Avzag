@@ -18,7 +18,7 @@ button {
   margin: var(--padding);
   flex-direction: column;
   place-content: center;
-  width: 45px;
+  width: 46px;
   height: 40px;
   line-height: 100%;
 }
