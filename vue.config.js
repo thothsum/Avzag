@@ -8,11 +8,11 @@ module.exports = {
         manifestOptions: {
             dir: "ltr",
             lang: "English",
-            name: "Ævzag - sounds & scripts",
+            name: "Aevzag - sounds & scripts",
             scope: ".",
             display: "standalone",
             start_url: ".",
-            short_name: "Ævzag",
+            short_name: "Aevzag",
             theme_color: "#201F1E",
             description: "An attempt to help our languages.",
             orientation: "natural",

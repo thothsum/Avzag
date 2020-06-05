@@ -35,10 +35,6 @@ export default {
           icon: "text_fields"
         },
         {
-          title: "Dictionary",
-          icon: "bookmark_border"
-        },
-        {
           title: "Settings",
           icon: "settings"
         }
