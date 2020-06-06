@@ -16,12 +16,11 @@ body {
 }
 
 hr {
-    width: 100%;
     height: var(--border-radius);
     background-color: var(--color-active);
 }
 
-.section {
+.section, hr {
     margin: auto auto var(--margin-large) auto;
     width: 100%;
     max-width: var(--max-width)

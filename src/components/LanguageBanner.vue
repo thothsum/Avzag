@@ -12,16 +12,16 @@
 
 <script>
 export default {
-  name: "HeaderBanner",
+  name: "LanguageBanner",
   computed: {
     banner() {
       return this.$store.getters.languageRoot + "flag.png";
     },
     title() {
-      return this.$store.state.index?.title;
+      return this.$store.state.language;
     },
     subtitle() {
-      return this.$store.state.index?.tags.reduce(
+      return this.$store.getters.languageInfo?.family.reduce(
         (a, t) => (a = a + " › " + t)
       );
     }

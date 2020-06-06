@@ -8,7 +8,6 @@ export default new Vuex.Store({
     root: process.env.BASE_URL + "languages/",
     catalogue: undefined,
     language: undefined,
-    index: undefined,
     phonology: undefined,
     sample: undefined,
     converters: undefined
@@ -16,17 +15,17 @@ export default new Vuex.Store({
   getters: {
     languageRoot: state => {
       return state.root + state.language + "/"
+    },
+    languageInfo: state => {
+      return state.catalogue[state.language];
     }
   },
   mutations: {
     setCatalogue(state, json) {
-      state.catalogue = json.sort((a, b) => a.localeCompare(b));
+      state.catalogue = json;
     },
     setLanguage(state, language) {
       state.language = language;
-    },
-    setIndex(state, json) {
-      state.index = json;
     },
     setPhonology(state, json) {
       json.sort((a, b) => a.ipa.localeCompare(b.ipa));
@@ -49,7 +48,6 @@ export default new Vuex.Store({
     },
     async loadLanguage({ dispatch, commit }, language) {
       commit("setLanguage", language);
-      commit("setIndex", await dispatch("loadJson", "index.json"));
       commit("setPhonology", await dispatch("loadJson", "phonology.json"));
       commit("setSample", await dispatch("loadText", "sample.txt"));
       commit("setConverters", await dispatch("loadJson", "converters.json"));

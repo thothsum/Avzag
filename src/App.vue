@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header v-show="$route.name!=='Home'" />
+    <Header v-if="$route.name!=='Home'" />
     <router-view></router-view>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
       this.$router.push(
         localStorage.url && localStorage.url !== this.$route.path
           ? { path: localStorage.url }
-          : { name: "Settings", params: { lang: "Ossetian" } }
+          : { name: "Home" }
       );
   }
 };

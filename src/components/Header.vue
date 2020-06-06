@@ -4,7 +4,7 @@
       <button @click="navigate('Home')">
         <span class="material-icons-outlined">arrow_back</span>
       </button>
-      <HeaderBanner />
+      <LanguageBanner />
     </div>
     <div id="menu">
       <button
@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import HeaderBanner from "./HeaderBanner";
+import LanguageBanner from "./LanguageBanner";
 
 export default {
   name: "Header",
   components: {
-    HeaderBanner
+    LanguageBanner
   },
   data() {
     return {
