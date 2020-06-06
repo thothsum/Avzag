@@ -4,8 +4,8 @@
       <img :src="banner" alt="Banner" />
     </div>
     <div id="titles">
-      <h1>{{title}}</h1>
-      <h2>{{subtitle}}</h2>
+      <h2>{{language}}</h2>
+      <h3 v-if="catalogue">{{subtitle}}</h3>
     </div>
   </div>
 </template>
@@ -17,11 +17,14 @@ export default {
     banner() {
       return this.$store.getters.languageRoot + "flag.png";
     },
-    title() {
+    language() {
       return this.$store.state.language;
     },
+    catalogue() {
+      return this.$store.state.catalogue;
+    },
     subtitle() {
-      return this.$store.getters.languageInfo?.family.reduce(
+      return this.catalogue[this.language].family.reduce(
         (a, t) => (a = a + " › " + t)
       );
     }

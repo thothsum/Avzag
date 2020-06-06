@@ -9,12 +9,12 @@
     <hr />
     <div class="section" id="footer">
       <div class="card">
-        <h2>Contact</h2>
+        <h3>Contact</h3>
         <a href="https://twitter.com/alkaitagi">Twiter</a>
         <a href="https://t.me/alkaitagi">Telegram</a>
       </div>
       <div class="card">
-        <h2>Contribute</h2>
+        <h3>Contribute</h3>
         <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
       </div>
     </div>
@@ -46,9 +46,6 @@ export default {
 </script>
 
 <style scoped>
-h1#header {
-  font-size: calc(2 * var(--font-size-large));
-}
 .section {
   display: flex;
   flex-wrap: wrap;

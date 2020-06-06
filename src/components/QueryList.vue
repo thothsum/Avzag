@@ -1,7 +1,7 @@
 <template>
   <div id="root">
     <div id="header">
-      <h2>{{title}}</h2>
+      <h3>{{title}}</h3>
       <button class="inline" v-show="!large" @click="visible=!visible">
         <span class="material-icons-outlined">filter_list</span>
         query
@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style scoped>
-h2 {
+h3 {
   margin: 0 var(--margin-double) 0 0;
 }
 #root {

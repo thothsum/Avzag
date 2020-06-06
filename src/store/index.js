@@ -15,9 +15,6 @@ export default new Vuex.Store({
   getters: {
     languageRoot: state => {
       return state.root + state.language + "/"
-    },
-    languageInfo: state => {
-      return state.catalogue[state.language];
     }
   },
   mutations: {

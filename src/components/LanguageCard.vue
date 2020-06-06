@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <router-link :to="{name: 'Phonology', params: {lang: language}}">
-      <h1>{{language}}</h1>
+      <h2>{{language}}</h2>
     </router-link>
     <div class="list">
       <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>

@@ -22,8 +22,10 @@ export default {
     $route: {
       async handler() {
         if (this.$route.name) localStorage.url = this.$route.path;
-        if (this.$route.params.lang !== this.$store.state.language)
-          this.$store.dispatch("loadLanguage", this.$route.params.lang);
+
+        let language = this.$route.params.lang;
+        if (language && language !== this.$store.state.language)
+          this.$store.dispatch("loadLanguage", language);
       },
       immediate: true
     }

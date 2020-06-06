@@ -1,11 +1,11 @@
 <template>
   <div id="root">
     <div class="card">
-      <h1>
+      <h2>
         <span class="txt-faded">/</span>
         {{phoneme.ipa}}
         <span class="txt-faded">/</span>
-      </h1>
+      </h2>
       <p class="txt-caption txt-faded" id="features" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
