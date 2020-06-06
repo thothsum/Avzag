@@ -1,6 +1,11 @@
 <template>
   <div class="section">
-    <HeaderBanner />
+    <div>
+      <button @click="navigate('Home')">
+        <span class="material-icons-outlined">arrow_back</span>
+      </button>
+      <HeaderBanner />
+    </div>
     <div id="menu">
       <button
         @click="navigate(m.title)"
@@ -9,7 +14,7 @@
         v-for="(m, i) in menus"
       >
         <span class="material-icons-outlined">{{m.icon}}</span>
-        {{$route.name===m.title ? m.title : ""}}
+        <p>{{m.title}}</p>
       </button>
     </div>
   </div>
@@ -33,10 +38,6 @@ export default {
         {
           title: "Converter",
           icon: "text_fields"
-        },
-        {
-          title: "Settings",
-          icon: "settings"
         }
       ]
     };
@@ -61,33 +62,30 @@ export default {
   height: 42px;
   display: flex;
 }
-#menu {
+.section > div {
   display: flex;
   flex-wrap: nowrap;
   place-items: center;
   overflow-x: auto;
 }
-#menu > *:not(:last-child) {
+.section > div > *:not(:last-child) {
   margin-right: var(--margin-double);
-}
-#menu > button {
-  height: 42px;
-  font-weight: bold;
-  border: 0 solid var(--color-hover);
-  border-bottom-width: var(--border-width);
 }
 .material-icons-outlined {
   font-size: var(--font-size-large) !important;
 }
-#menu > button > *:first-child:not(:last-child) {
-  margin-right: var(--margin);
+button {
+  height: 42px;
+  font-weight: bold;
+}
+#menu > button {
+  border: 0 solid var(--color-hover);
+  border-bottom-width: calc(2 * var(--border-width));
 }
 #menu > button.selected {
   border-color: var(--color-select);
 }
-#menu > button:not(.selected) > .material-icons-outlined {
-  margin: 0;
-}
+
 @media only screen and (max-width: 568px) {
   .section {
     height: fit-content;
@@ -98,9 +96,6 @@ export default {
   }
   .section > *:not(:last-child) {
     margin-bottom: var(--margin-double);
-  }
-  #menu {
-    align-items: flex-start;
   }
 }
 </style>

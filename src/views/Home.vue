@@ -3,7 +3,7 @@
     <div class="card">
       <h2>Languages</h2>
       <router-link
-        :to="{name: $route.name, params: {lang: lg}}"
+        :to="{name: 'Phonology', params: {lang: lg}}"
         :key="lg"
         v-for="lg in catalogue"
       >{{lg}}</router-link>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "Settings",
+  name: "Home",
   computed: {
     catalogue() {
       return this.$store.state.catalogue;

@@ -1,26 +1,26 @@
 <template>
-  <div class="section" v-if="converters">
-    <div class="split">
-      <textarea v-model="source"></textarea>
-      <textarea readonly ref="result" :value="result"></textarea>
+    <div class="section" v-if="converters">
+      <div class="split">
+        <textarea v-model="source"></textarea>
+        <textarea readonly ref="result" :value="result"></textarea>
+      </div>
+      <div id="options">
+        <button @click="$refs.file.click()">
+          <span class="material-icons-outlined">publish</span>
+          <p>Upload .txt file</p>
+        </button>
+        <select v-model="selected">
+          <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+        </select>
+        <button @click="copy">
+          <span class="material-icons-outlined">file_copy</span>
+          <p>Copy to clipboard</p>
+        </button>
+      </div>
+      <MappingTable :mapping="mapping" />
+      <input hidden type="file" ref="file" @change="upload" />
+      <a hidden ref="link"></a>
     </div>
-    <div id="options">
-      <button @click="$refs.file.click()">
-        <span class="material-icons-outlined">publish</span>
-        Upload .txt file
-      </button>
-      <select v-model="selected">
-        <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
-      </select>
-      <button @click="copy">
-        <span class="material-icons-outlined">file_copy</span>
-        Copy to clipboard
-      </button>
-    </div>
-    <MappingTable :mapping="mapping" />
-    <input hidden type="file" ref="file" @change="upload" />
-    <a hidden ref="link"></a>
-  </div>
 </template>
 
 <script>
