@@ -14,12 +14,12 @@ const routes = [
     component: Home
   },
   {
-    path: ':lang/phonology/',
+    path: '/phonology/:lang',
     name: 'Phonology',
     component: Phonology
   },
   {
-    path: ':lang/converter/',
+    path: '/converter/:lang',
     name: 'Converter',
     component: Converter
   },
