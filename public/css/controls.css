@@ -53,6 +53,8 @@ button.inline>.material-icons-outlined {
 }
 
 a {
+    display: flex;
+    place-items: center;
     color: var(--color-select);
     text-decoration: underline;
     padding: var(--margin)

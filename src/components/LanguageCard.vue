@@ -1,11 +1,10 @@
 <template>
-  <div id="banner">
-    <div id="flag">
-      <img :src="banner" alt="Banner" />
-    </div>
-    <div id="titles">
-      <h1>{{title}}</h1>
-      <h2>{{subtitle}}</h2>
+  <div class="card">
+    <router-link :to="{name: 'Phonology', params: {lang: language}}">
+      <h1>{{language}}</h1>
+    </router-link>
+    <div class="list">
+      <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>
     </div>
   </div>
 </template>
@@ -13,22 +12,23 @@
 <script>
 export default {
   name: "LanguageCard",
-  props: ["language"]
-//   computed: {
-//     banner() {
-//       return this.$store.getters.root + "" + "flag.png";
-//     },
-//     title() {
-//       return this.$store.state.index?.title;
-//     },
-//     subtitle() {
-//       return this.$store.state.index?.tags.reduce(
-//         (a, t) => (a = a + " › " + t)
-//       );
-//     }
-//   }
+  props: ["language"],
+  computed: {
+    info() {
+      return this.$store.state.catalogue[this.language];
+    },
+    lects() {
+      return Object.values(this.info.lects).sort((a, b) => a.localeCompare(b));
+    }
+  }
 };
 </script>
 
 <style scoped>
+.card {
+  width: 150px;
+}
+.list {
+  max-height: 300px;
+}
 </style>
