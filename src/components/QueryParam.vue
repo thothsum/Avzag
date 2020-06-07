@@ -41,10 +41,10 @@ button {
 }
 .in,
 .in * {
-  color: var(--color-select);
+  border-color: var(--color-select);
 }
 .ex,
 .ex * {
-  color: var(--color-alert);
+  border-color: var(--color-alert);
 }
 </style>
