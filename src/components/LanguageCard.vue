@@ -4,7 +4,7 @@
       <h2>{{language}}</h2>
     </router-link>
     <div class="list">
-      <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>
+      <li :key="i" v-for="(lc, i) in lects">{{lc}}</li>
     </div>
   </div>
 </template>

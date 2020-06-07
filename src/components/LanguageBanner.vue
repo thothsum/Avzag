@@ -1,7 +1,7 @@
 <template>
   <div id="banner">
     <div id="flag">
-      <img :src="banner" alt="Banner" />
+      <img :src="banner" alt="flag" />
     </div>
     <div id="titles">
       <h2>{{language}}</h2>
