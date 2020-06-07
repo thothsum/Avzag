@@ -6,7 +6,7 @@
     <div class="section">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
     </div>
-    <hr />
+    <!-- <hr /> -->
     <div class="section" id="footer">
       <div class="card">
         <h3>Contact</h3>
@@ -48,12 +48,14 @@ export default {
 <style scoped>
 .section {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  flex-wrap: nowrap;
 }
 .section > *:not(:last-child) {
   margin-right: var(--margin-large);
 }
 #footer .card {
-  width: 150px;
+  min-width: 100px;
+  width: 100px;
 }
 </style>

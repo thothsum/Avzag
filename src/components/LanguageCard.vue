@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .card {
+  min-width: 150px;
   width: 150px;
 }
 .list {
