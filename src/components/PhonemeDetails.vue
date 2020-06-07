@@ -1,22 +1,14 @@
 <template>
   <div id="root">
     <div class="card">
-      <h2>
-        <span class="txt-faded">/</span>
-        {{phoneme.ipa}}
-        <span class="txt-faded">/</span>
-      </h2>
+      <h2>{{phoneme.ipa}}</h2>
       <p class="txt-caption txt-faded" id="features" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
         <p>
-          <b>
-            <span class="txt-faded">⟨</span>
-            {{lect.grapheme}}
-            <span class="txt-faded">⟩</span>
-          </b>
+          <b>{{lect.grapheme}}</b>
           ― {{lect.name}}
         </p>
         <p class="txt-caption txt-faded" v-if="lect.note">{{lect.note}}</p>

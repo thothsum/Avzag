@@ -1,26 +1,19 @@
 <template>
-  <div class="section" v-if="phonemes">
+  <div class="section" v-if="phonemes && lects">
     <div id="phonemes">
-      <QueryList
-        :title="'Lects'"
-        :tags="lects"
-        :large="true"
-        v-show="lects.length>0"
-        @query="lectQuery=$event"
-      />
-      <QueryList :title="'Vowels'" :tags="vowelFeatures" @query="vowelQuery=$event" />
+      <QueryInput @query="featureQuery=$event" />
+      <QueryList :tags="lects" @query="lectQuery=$event" />
       <PhoneticTable
         :selected="selected"
         :phonemes="vowels"
-        :featureQuery="vowelQuery"
+        :featureQuery="featureQuery"
         :lectQuery="lectQuery"
         @phoneme="select($event)"
       />
-      <QueryList :title="'Consonants'" :tags="consonantFeatures" @query="consonantQuery=$event" />
       <PhoneticTable
         :selected="selected"
         :phonemes="consonants"
-        :featureQuery="consonantQuery"
+        :featureQuery="featureQuery"
         :lectQuery="lectQuery"
         @phoneme="select($event)"
       />
@@ -31,6 +24,7 @@
 
 <script>
 import QueryList from "@/components/QueryList";
+import QueryInput from "@/components/QueryInput";
 import PhoneticTable from "@/components/PhoneticTable";
 import PhonemeDetails from "@/components/PhonemeDetails";
 
@@ -39,13 +33,13 @@ export default {
   components: {
     PhoneticTable,
     PhonemeDetails,
-    QueryList
+    QueryList,
+    QueryInput
   },
   data() {
     return {
       lectQuery: {},
-      vowelQuery: {},
-      consonantQuery: {}
+      featureQuery: {}
     };
   },
   computed: {
@@ -57,27 +51,13 @@ export default {
       return this.$store.state.phonology;
     },
     lects() {
-      return this.collectTags(
-        this.phonemes.flatMap(p => p.lects.map(l => l.name))
-      );
+      return this.$store.getters.languageInfo?.lects;
     },
     vowels() {
       return this.categorize("vowel");
     },
-    vowelFeatures() {
-      return this.collectTags(
-        this.vowels.flatMap(p => p.features),
-        ["vowel"]
-      );
-    },
     consonants() {
       return this.categorize("consonant");
-    },
-    consonantFeatures() {
-      return this.collectTags(
-        this.consonants.flatMap(p => p.features),
-        ["consonant"]
-      );
     }
   },
   methods: {
@@ -86,11 +66,6 @@ export default {
     },
     categorize(category) {
       return this.phonemes.filter(p => p.features.includes(category));
-    },
-    collectTags(tags, exclude = []) {
-      let result = new Set();
-      tags.filter(t => !exclude.includes(t)).forEach(t => result.add(t));
-      return [...result];
     }
   }
 };
@@ -105,15 +80,16 @@ export default {
 #phonemes {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 #phonemes > * {
   width: 100%;
 }
-#phonemes > *:nth-child(odd):not(:last-child) {
+#phonemes > *:not(:last-child) {
   margin-bottom: var(--margin-large);
 }
-#phonemes > *:nth-child(even):not(:last-child) {
-  margin-bottom: var(--margin);
+#queries > *:not(:last-child) {
+  margin-bottom: var(--margin-double);
 }
 @media only screen and (max-width: 568px) {
   .section {

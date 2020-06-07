@@ -64,8 +64,8 @@ export default {
 @media only screen and (max-width: 568px) {
   #root {
     flex-direction: column;
-    max-height: 240px;
-    overflow-y: scroll;
+    max-height: 200px;
+    overflow-x: auto;
   }
 }
 </style>
