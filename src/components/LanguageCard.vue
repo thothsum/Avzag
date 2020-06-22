@@ -25,9 +25,16 @@ export default {
 </script>
 
 <style scoped>
+a {
+  margin: calc(var(--margin-double) * -1);
+  margin-bottom: var(--margin-double);
+}
 .card {
+  padding: var(--margin-double);
   min-width: 150px;
   width: 150px;
+  /* box-shadow: 0 2px 8px var(--color-shadow); */
+  margin-bottom: 0;
 }
 .list {
   max-height: 300px;
