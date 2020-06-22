@@ -32,16 +32,16 @@ p {
   flex-direction: row;
   place-content: center;
   width: 60px;
-  margin: var(--padding);
+  margin: var(--margin-half);
 }
 span {
   width: 50%;
 }
 span:nth-child(1) {
-  margin-right: var(--padding);
+  margin-right: var(--margin-half);
   text-align: right;
 }
 span:nth-child(2) {
-  margin-left: var(--padding);
+  margin-left: var(--margin-half);
 }
 </style>

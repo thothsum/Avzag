@@ -1,3 +1,7 @@
+:root {
+    --shadow: 0 2px 8px var(--color-shadow);
+}
+
 * {
     -webkit-tap-highlight-color: transparent;
     box-sizing: border-box;

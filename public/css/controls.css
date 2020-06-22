@@ -84,7 +84,7 @@ textarea:read-write:hover, textarea:read-write:focus, input[type=text]:read-writ
 }
 
 ::-webkit-scrollbar {
-    width: var(--margin);
+    width: var(--margin-double);
 }
 
 ::-webkit-scrollbar-track {

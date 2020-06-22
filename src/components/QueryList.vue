@@ -57,9 +57,9 @@ export default {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  padding: var(--padding);
+  padding: var(--margin-half);
 }
 #root > * {
-  margin: var(--padding);
+  margin: var(--margin-half);
 }
 </style>

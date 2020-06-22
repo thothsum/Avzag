@@ -1,26 +1,26 @@
 <template>
-    <div class="section" v-if="converters">
-      <div class="split">
-        <textarea v-model="source"></textarea>
-        <textarea readonly ref="result" :value="result"></textarea>
-      </div>
-      <div id="options">
-        <button @click="$refs.file.click()">
-          <span class="material-icons-outlined">publish</span>
-          <p>Upload .txt file</p>
-        </button>
-        <select v-model="selected">
-          <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
-        </select>
-        <button @click="copy">
-          <span class="material-icons-outlined">file_copy</span>
-          <p>Copy to clipboard</p>
-        </button>
-      </div>
-      <MappingTable :mapping="mapping" />
-      <input hidden type="file" ref="file" @change="upload" />
-      <a hidden ref="link"></a>
+  <div class="section" v-if="converters">
+    <div class="split">
+      <textarea v-model="source"></textarea>
+      <textarea readonly ref="result" :value="result"></textarea>
     </div>
+    <div id="options">
+      <button @click="$refs.file.click()">
+        <span class="material-icons-outlined">publish</span>
+        <p>Upload .txt file</p>
+      </button>
+      <select v-model="selected">
+        <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+      </select>
+      <button @click="copy">
+        <span class="material-icons-outlined">file_copy</span>
+        <p>Copy to clipboard</p>
+      </button>
+    </div>
+    <MappingTable :mapping="mapping" />
+    <input hidden type="file" ref="file" @change="upload" />
+    <a hidden ref="link"></a>
+  </div>
 </template>
 
 <script>
@@ -116,10 +116,10 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: var(--padding) 0;
+  margin: var(--margin-half) 0;
 }
 #options > * {
-  margin: var(--padding) 0;
+  margin: var(--margin-half) 0;
 }
 .split {
   display: grid;

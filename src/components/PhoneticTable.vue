@@ -58,7 +58,7 @@ export default {
 #root {
   display: flex;
   flex-wrap: wrap;
-  padding: var(--padding);
+  padding: var(--margin-half);
   place-content: flex-start;
 }
 @media only screen and (max-width: 568px) {
