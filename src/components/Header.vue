@@ -87,14 +87,9 @@ export default {
 button {
   height: 42px;
   font-weight: bold;
-  /* background-color: transparent; */
 }
-#menu > button {
-  border: 0 solid var(--color-hover);
-  border-bottom-width: calc(2 * var(--border-width));
-}
-#menu > button.selected {
-  border-color: var(--color-select);
+#menu > button.selected * {
+  color: var(--color-select);
 }
 
 @media only screen and (max-width: 568px) {

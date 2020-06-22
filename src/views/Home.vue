@@ -3,11 +3,10 @@
     <div class="section">
       <h1 id="header">Ævzag</h1>
     </div>
-    <div class="section">
+    <div class="section cards">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
     </div>
-    <!-- <hr /> -->
-    <div class="section" id="footer">
+    <div class="section cards" id="footer">
       <div class="card">
         <h3>Contact</h3>
         <a href="https://twitter.com/alkaitagi">Twiter</a>
@@ -46,13 +45,13 @@ export default {
 </script>
 
 <style scoped>
-.section {
+.section.cards {
   display: flex;
   overflow-x: auto;
   flex-wrap: nowrap;
 }
-.section > *:not(:last-child) {
-  margin-right: var(--margin-large);
+.section.cards > * {
+  margin: var(--margin-double);
 }
 #footer .card {
   min-width: 100px;

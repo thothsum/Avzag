@@ -33,7 +33,7 @@ a {
   padding: var(--margin-double);
   min-width: 150px;
   width: 150px;
-  /* box-shadow: 0 2px 8px var(--color-shadow); */
+  box-shadow: var(--shadow);
   margin-bottom: 0;
 }
 .list {
