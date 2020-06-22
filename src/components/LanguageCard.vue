@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <router-link :to="{name: 'Phonology', params: {lang: language}}">
+    <button @click="$router.push({name: 'Phonology', params: {lang: language}})">
       <h2>{{language}}</h2>
-    </router-link>
+    </button>
     <div class="list">
       <li :key="i" v-for="(lc, i) in lects">{{lc}}</li>
     </div>
