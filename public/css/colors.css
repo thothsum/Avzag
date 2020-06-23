@@ -1,12 +1,12 @@
 :root {
     --color-background: #FAF9F8;
     --color-foreground: #FFFFFF;
-    --color-shadow: #C8C6C4;
+    --color-shadow: #bebbb8;
     --color-text: #201F1E;
     --color-text-faded: #A19F9D;
-    --color-active: #EDEBE9;
-    --color-hover: #E1DFDD;
-    --color-press: #D2D0CE;
+    --color-active: #E1DFDD;
+    --color-hover: #D2D0CE;
+    --color-press: #c8c6c4;
     --color-select: #0078d4;
     --color-alert: #d13438;
 }
