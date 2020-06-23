@@ -121,10 +121,7 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: var(--margin) 0;
-}
-#options > * {
-  margin: var(--margin) 0;
+  margin: var(--margin-double) 0;
 }
 .split {
   display: grid;
@@ -142,6 +139,9 @@ textarea {
   }
   #options {
     flex-flow: column;
+  }
+  #options > *:not(:last-child) {
+    margin: 0 0 var(--margin-double) 0;
   }
 }
 </style>
