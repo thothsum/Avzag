@@ -10,8 +10,8 @@
         <p>Upload .txt file</p>
       </button>
       <button @click="showMapping=!showMapping">
-        <span class="material-icons-outlined">visibility</span>
-        <p>Show mappings</p>
+        <span class="material-icons-outlined">text_rotation_none</span>
+        <p>Show mapping</p>
       </button>
       <select v-model="selected">
         <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
