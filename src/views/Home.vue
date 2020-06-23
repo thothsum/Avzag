@@ -50,8 +50,7 @@ export default {
   flex-wrap: wrap;
 }
 .section.cards > *:not(:last-child) {
-  margin-right: var(--margin-large);
-  margin-bottom: var(--margin-large);
+  margin: 0 var(--margin-large) var(--margin-large) 0;
 }
 #footer .card {
   min-width: 100px;

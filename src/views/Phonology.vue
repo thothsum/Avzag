@@ -3,7 +3,6 @@
     <div id="phonemes">
       <QueryList :tags="lects" @query="lectQuery=$event" />
       <PhoneticTable
-        :narrow="true"
         :selected="selected"
         :phonemes="vowels"
         :featureQuery="featureQuery"
