@@ -65,6 +65,12 @@ export default {
 .card > * {
   margin: var(--margin);
 }
+.card > .list {
+  margin: calc(var(--margin) * -1);
+  margin-top: var(--margin);
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
 #root {
   display: flex;
   flex-wrap: wrap;

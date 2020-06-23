@@ -25,9 +25,11 @@ export default {
 </script>
 
 <style scoped>
-a {
+button {
   margin: calc(var(--margin-double) * -1);
   margin-bottom: var(--margin-double);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .card {
   padding: var(--margin-double);
