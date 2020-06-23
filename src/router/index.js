@@ -23,6 +23,10 @@ const routes = [
     name: 'Converter',
     component: Converter
   },
+  {
+    path: '*',
+    redirect: { name: 'Home' }
+  },
 ]
 
 const router = new VueRouter({

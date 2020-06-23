@@ -1,12 +1,7 @@
 <template>
   <div id="banner">
-    <div id="flag">
-      <img :src="banner" alt="flag" />
-    </div>
-    <div id="titles">
-      <h2>{{language}}</h2>
-      <h3 v-if="catalogue">{{subtitle}}</h3>
-    </div>
+    <img :src="banner" alt="flag" />
+    <h2>{{language}}</h2>
   </div>
 </template>
 
@@ -22,11 +17,6 @@ export default {
     },
     catalogue() {
       return this.$store.state.catalogue;
-    },
-    subtitle() {
-      return this.catalogue[this.language].family.reduce(
-        (a, t) => (a = a + " › " + t)
-      );
     }
   }
 };
@@ -38,21 +28,9 @@ export default {
   place-items: center;
   justify-content: flex-start;
 }
-#flag {
-  height: 42px;
+img {
+  height: var(--control-height);
   display: flex;
   margin-right: var(--margin-double);
-}
-#flag > img {
-  height: 100%;
-  box-shadow: var(--shadow-small);
-}
-#titles {
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-}
-#titles > * {
-  margin: 0;
 }
 </style>
