@@ -4,7 +4,7 @@
       <h2>{{language}}</h2>
     </button>
     <div class="list">
-      <li :key="i" v-for="(lc, i) in lects">{{lc}}</li>
+      <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>
     </div>
   </div>
 </template>
@@ -26,19 +26,21 @@ export default {
 
 <style scoped>
 button {
-  margin: calc(var(--margin-double) * -1);
-  margin-bottom: var(--margin-double);
+  min-height: var(--control-height);
+  margin: 0;
+  /* margin: calc(var(--margin-double) * -1); */
+  /* margin-bottom: var(--margin-double); */
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 .card {
-  padding: var(--margin-double);
   min-width: 150px;
   width: 150px;
-  box-shadow: var(--shadow);
-  margin-bottom: 0;
+  height: 175px;
+  box-shadow: var(--shadow);;
 }
 .list {
   max-height: 300px;
+  padding: var(--margin-double);
 }
 </style>

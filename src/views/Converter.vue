@@ -9,6 +9,10 @@
         <span class="material-icons-outlined">publish</span>
         <p>Upload .txt file</p>
       </button>
+      <button @click="showMapping=!showMapping">
+        <span class="material-icons-outlined">visibility</span>
+        <p>Show mappings</p>
+      </button>
       <select v-model="selected">
         <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
       </select>
@@ -17,9 +21,9 @@
         <p>Copy to clipboard</p>
       </button>
     </div>
-    <MappingTable :mapping="mapping" />
-    <input hidden type="file" ref="file" @change="upload" />
-    <a hidden ref="link"></a>
+    <MappingTable v-show="showMapping" :mapping="mapping" />
+    <input v-show="false" type="file" ref="file" @change="upload" />
+    <a v-show="false" ref="link"></a>
   </div>
 </template>
 
@@ -34,7 +38,8 @@ export default {
   data() {
     return {
       selected: 0,
-      source: ""
+      source: "",
+      showMapping: false
     };
   },
   computed: {
@@ -116,16 +121,16 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: var(--margin-half) 0;
+  padding: var(--margin) 0;
 }
 #options > * {
-  margin: var(--margin-half) 0;
+  margin: var(--margin) 0;
 }
 .split {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  gap: var(--margin);
+  gap: var(--margin-double);
   align-items: stretch;
 }
 @media only screen and (max-width: 568px) {
