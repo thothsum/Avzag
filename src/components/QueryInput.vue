@@ -1,10 +1,6 @@
 <template>
   <div id="root">
-    <input
-      placeholder="search for phonetic features, '-' to exclude"
-      type="text"
-      v-model="input"
-    />
+    <input placeholder="search for phonetic features, '-' to exclude" type="text" v-model="input" />
   </div>
 </template>
 
@@ -19,6 +15,7 @@ export default {
   computed: {
     result() {
       return this.input
+        .toLowerCase()
         .split(" ")
         .filter(s => s)
         .reduce((q, t) => {
