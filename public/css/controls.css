@@ -69,7 +69,7 @@ a:active {
 }
 
 textarea, input[type=text] {
-    border: var(--border-width) solid var(--color-hover);
+    border: var(--border-width) solid var(--color-active);
     text-align: left;
 }
 
