@@ -23,12 +23,10 @@
           class="list"
           v-if="lect.samples && lect.samples.length>0"
         >
-          <button
-            @click="play(lect, i)"
-            :key="i"
-            v-html="highlight(sample, lect.grapheme)"
-            v-for="(sample, i) in lect.samples"
-          ></button>
+          <button @click="play(lect, i)" :key="i" v-for="(sample, i) in lect.samples">
+            <span class="material-icons-outlined">play_arrow</span>
+            <span v-html="highlight(sample, lect.grapheme)"></span>
+          </button>
         </div>
       </div>
     </template>
