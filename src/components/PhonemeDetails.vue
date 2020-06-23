@@ -49,10 +49,7 @@ export default {
   },
   methods: {
     highlight(sample, grapheme) {
-      return sample.replace(
-        new RegExp(grapheme, "g"),
-        `<span style='color: var(--color-select)'>${grapheme}</span>`
-      );
+      return sample.replace(new RegExp(grapheme, "g"), `<b>${grapheme}</b>`);
     },
     play(lect, i) {
       const player = this.$refs.player;

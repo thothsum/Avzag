@@ -26,6 +26,7 @@ export default {
   padding: var(--margin);
   place-content: center;
   box-shadow: var(--shadow);
+  background-color: var(--color-foreground);
 }
 p {
   display: flex;

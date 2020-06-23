@@ -55,5 +55,6 @@ export default {
 #footer .card {
   min-width: 100px;
   width: 100px;
+  background-color: transparent;
 }
 </style>

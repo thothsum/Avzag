@@ -62,6 +62,7 @@ export default {
 
 <style scoped>
 #root {
+  background-color: var(--color-foreground);
   margin: calc(var(--margin-double) * -1);
   margin-bottom: var(--margin-large);
   box-shadow: 0 2px 16px var(--color-shadow);
