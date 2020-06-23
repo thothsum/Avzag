@@ -28,8 +28,6 @@ export default {
 button {
   min-height: var(--control-height);
   margin: 0;
-  /* margin: calc(var(--margin-double) * -1); */
-  /* margin-bottom: var(--margin-double); */
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
