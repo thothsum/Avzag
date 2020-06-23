@@ -1,5 +1,5 @@
 <template>
-  <div id="root" :class="{narrow: phonemes.length > 12}">
+  <div id="root" :class="{narrow: phonemes.length <= 12}">
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
       :selected="selected==phn.i"
@@ -58,8 +58,10 @@ export default {
 #root {
   display: flex;
   flex-wrap: wrap;
-  padding: var(--margin-half);
   place-content: flex-start;
+}
+#root > *:not(:last-child) {
+  margin: 0 var(--margin) var(--margin) 0;
 }
 @media only screen and (max-width: 568px) {
   #root {
