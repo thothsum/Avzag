@@ -68,12 +68,10 @@ export default {
   padding: var(--margin-double);
   border-radius: 0;
 }
-
 .section {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   justify-content: space-between;
-  height: 42px;
   display: flex;
 }
 .section > div {
@@ -86,7 +84,6 @@ export default {
   margin-right: var(--margin-double);
 }
 button {
-  height: 42px;
   font-weight: bold;
 }
 #menu::-webkit-scrollbar {

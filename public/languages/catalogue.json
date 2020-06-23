@@ -1,9 +1,5 @@
 {
     "Dargin": {
-        "family": [
-            "North Caucasian",
-            "Caspian"
-        ],
         "lects": [
             "Kaitag",
             "Kubachi",
@@ -11,20 +7,12 @@
         ]
     },
     "Ossetian": {
-        "family": [
-            "Indo-European",
-            "Iranian"
-        ],
         "lects": [
             "Iron",
             "Digor"
         ]
     },
     "Circassian": {
-        "family": [
-            "North Caucasian",
-            "Pontic"
-        ],
         "lects": [
             "Kabardian",
             "Abzakh",
