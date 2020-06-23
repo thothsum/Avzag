@@ -2,6 +2,7 @@
   <div class="card">
     <button @click="$router.push({name: 'Phonology', params: {lang: language}})">
       <h2>{{language}}</h2>
+      <span class="material-icons-outlined large">arrow_forwards</span>
     </button>
     <div class="list">
       <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>
@@ -30,12 +31,13 @@ button {
   margin: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  justify-content: space-between;
 }
 .card {
   min-width: 150px;
   width: 150px;
   height: 175px;
-  box-shadow: var(--shadow);;
+  box-shadow: var(--shadow);
 }
 .list {
   max-height: 300px;

@@ -3,7 +3,7 @@
     <div class="section">
       <div>
         <button @click="navigate('Home')">
-          <span class="material-icons-outlined">arrow_back</span>
+          <span class="material-icons-outlined large">arrow_back</span>
         </button>
         <LanguageBanner />
       </div>
@@ -14,7 +14,7 @@
           :key="i"
           v-for="(m, i) in menus"
         >
-          <span class="material-icons-outlined">{{m.icon}}</span>
+          <span class="material-icons-outlined large">{{m.icon}}</span>
           <p>{{m.title}}</p>
         </button>
       </div>
@@ -80,9 +80,6 @@ export default {
 }
 .section > div > *:not(:last-child) {
   margin-right: var(--margin-double);
-}
-.material-icons-outlined {
-  font-size: var(--font-size-large) !important;
 }
 button {
   height: 42px;

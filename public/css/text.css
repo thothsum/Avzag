@@ -14,6 +14,12 @@
 
 .material-icons-outlined {
     font-size: var(--font-size-icon) !important;
+    width: var(--font-size-icon);
+}
+
+.material-icons-outlined.large {
+    font-size: var(--font-size-large) !important;
+    width: var(--font-size-large);
 }
 
 .txt-caption, .txt-caption * {
