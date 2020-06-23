@@ -39,7 +39,7 @@ export default {
         },
         {
           title: "Converter",
-          icon: "text_fields"
+          icon: "subject"
         }
       ]
     };
