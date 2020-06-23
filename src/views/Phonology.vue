@@ -1,9 +1,9 @@
 <template>
   <div class="section" v-if="phonemes && lects">
     <div id="phonemes">
-      <QueryInput @query="featureQuery=$event" />
       <QueryList :tags="lects" @query="lectQuery=$event" />
       <PhoneticTable
+        :narrow="true"
         :selected="selected"
         :phonemes="vowels"
         :featureQuery="featureQuery"
@@ -17,6 +17,7 @@
         :lectQuery="lectQuery"
         @phoneme="select($event)"
       />
+      <QueryInput @query="featureQuery=$event" />
     </div>
     <PhonemeDetails :phoneme="phonemes[selected]" />
   </div>

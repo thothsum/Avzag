@@ -47,11 +47,11 @@ export default {
 <style scoped>
 .section.cards {
   display: flex;
-  overflow-x: auto;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
-.section.cards > * {
-  margin: var(--margin-double);
+.section.cards > *:not(:last-child) {
+  margin-right: var(--margin-large);
+  margin-bottom: var(--margin-large);
 }
 #footer .card {
   min-width: 100px;

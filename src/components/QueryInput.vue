@@ -1,6 +1,10 @@
 <template>
   <div id="root">
-    <input placeholder="search for features" type="text" v-model="input" />
+    <input
+      placeholder="search for phonetic features, '-' to exclude"
+      type="text"
+      v-model="input"
+    />
   </div>
 </template>
 
@@ -37,7 +41,7 @@ export default {
 
 <style scoped>
 input {
-  width: 250px;
+  width: 350px;
 }
 @media only screen and (max-width: 568px) {
   input {

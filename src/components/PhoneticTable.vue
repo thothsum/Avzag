@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="root" :class="{narrow: narrow}">
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
       :selected="selected==phn.i"
@@ -20,7 +20,7 @@ export default {
   components: {
     PhoneticItem
   },
-  props: ["selected", "lectQuery", "featureQuery", "phonemes"],
+  props: ["narrow", "selected", "lectQuery", "featureQuery", "phonemes"],
   methods: {
     pass(tags, query) {
       for (const [tag, mode] of Object.entries(query)) {
@@ -66,6 +66,9 @@ export default {
     flex-direction: column;
     max-height: 200px;
     overflow-x: auto;
+  }
+  #root.narrow {
+    max-height: 75px;
   }
 }
 </style>

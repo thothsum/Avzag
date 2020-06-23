@@ -27,7 +27,7 @@ hr {
 .section, hr {
     margin: auto auto var(--margin-large) auto;
     width: 100%;
-    max-width: var(--max-width)
+    max-width: var(--max-width);
 }
 
 .section:last-child {

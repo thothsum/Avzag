@@ -25,6 +25,7 @@ export default {
   flex-wrap: wrap;
   padding: var(--margin);
   place-content: center;
+  box-shadow: var(--shadow);
 }
 p {
   display: flex;

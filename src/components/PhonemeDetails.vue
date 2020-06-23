@@ -1,14 +1,20 @@
 <template>
   <div id="root">
     <div class="card">
-      <h2>{{phoneme.ipa}}</h2>
-      <p class="txt-caption txt-faded" id="features" v-if="features">{{features}}</p>
+      <h2>
+        <span class="txt-faded">/</span>
+        {{phoneme.ipa}}
+        <span class="txt-faded">/</span>
+      </h2>
+      <p class="txt-caption txt-faded spaced" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
         <p>
+          <span class="txt-faded">⟨&nbsp;</span>
           <b>{{lect.grapheme}}</b>
+          <span class="txt-faded">&nbsp;⟩</span>
           ― {{lect.name}}
         </p>
         <p class="txt-caption txt-faded" v-if="lect.note">{{lect.note}}</p>
@@ -65,13 +71,19 @@ export default {
 .card > * {
   margin: var(--margin);
 }
+.card > .list {
+  margin: calc(var(--margin) * -1);
+  margin-top: var(--margin);
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
 #root {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
 }
-#features {
+.spaced {
   word-spacing: var(--margin-double);
 }
 </style>

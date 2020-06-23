@@ -2,9 +2,10 @@
   <div class="card">
     <button @click="$router.push({name: 'Phonology', params: {lang: language}})">
       <h2>{{language}}</h2>
+      <span class="material-icons-outlined large">arrow_forwards</span>
     </button>
     <div class="list">
-      <li :key="i" v-for="(lc, i) in lects">{{lc}}</li>
+      <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>
     </div>
   </div>
 </template>
@@ -25,18 +26,21 @@ export default {
 </script>
 
 <style scoped>
-a {
-  margin: calc(var(--margin-double) * -1);
-  margin-bottom: var(--margin-double);
+button {
+  min-height: var(--control-height);
+  margin: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  justify-content: space-between;
 }
 .card {
-  padding: var(--margin-double);
   min-width: 150px;
   width: 150px;
+  height: 175px;
   box-shadow: var(--shadow);
-  margin-bottom: 0;
 }
 .list {
   max-height: 300px;
+  padding: var(--margin-double);
 }
 </style>
