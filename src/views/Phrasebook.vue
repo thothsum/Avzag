@@ -37,14 +37,11 @@ export default {
   name: "Phrasebook",
   data() {
     return {
-      category: 0,
-      item: 0
+      category: this.$route.query.category,
+      item: this.$route.query.item
     };
   },
   computed: {
-    lects() {
-      return this.$store.getters.languageInfo?.lects;
-    },
     phrasebook() {
       return this.$store.state.phrasebook;
     },
@@ -62,8 +59,17 @@ export default {
     }
   },
   watch: {
-    category() {
-      this.item = 0;
+    category(val) {
+      this.$router.push({ query: { category: val, item: 0 } });
+    },
+    item() {
+      this.$router.push({
+        query: { ...this.$route.query, item: this.item }
+      });
+    },
+    "$route.query": function(query) {
+      this.category = query.category;
+      this.item = query.item;
     }
   }
 };
