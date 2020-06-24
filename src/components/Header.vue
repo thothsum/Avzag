@@ -91,7 +91,7 @@ button {
   display: none;
 }
 #menu > button {
-  border: 2px solid transparent;
+  border: var(--border-width) solid transparent;
 }
 @media only screen and (max-width: 768px) {
   .section {
