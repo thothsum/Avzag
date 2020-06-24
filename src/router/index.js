@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Phonology from '../views/Phonology.vue'
 import Converter from '../views/Converter.vue'
+import Phrasebook from '../views/Phrasebook.vue'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -22,6 +23,11 @@ const routes = [
     path: '/converter/:lang',
     name: 'Converter',
     component: Converter
+  },
+  {
+    path: '/phrasebook/:lang',
+    name: 'Phrasebook',
+    component: Phrasebook
   },
   {
     path: '*',

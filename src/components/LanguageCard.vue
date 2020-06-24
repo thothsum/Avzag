@@ -34,13 +34,14 @@ button {
   justify-content: space-between;
 }
 .card {
+  padding: 0;
   min-width: 150px;
   width: 150px;
   height: 175px;
-  box-shadow: var(--shadow);
 }
 .list {
   max-height: 300px;
   padding: var(--margin-double);
+  margin: 0;
 }
 </style>

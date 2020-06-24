@@ -1,0 +1,86 @@
+{
+    "meeting": [
+        {
+            "translations": {
+                "eng": "how are you?",
+                "rus": "как дела?"
+            },
+            "sources": {
+                "Kaitag": {
+                    "text": "цигледей?",
+                    "ipa": "ˈt͡sigledej"
+                },
+                "Akusha": {
+                    "text": "сенсайри?",
+                    "ipa": "ˈsensɑjri"
+                }
+            }
+        }
+    ],
+    "family": [
+        {
+            "translations": {
+                "eng": "mother",
+                "rus": "мать"
+            },
+            "sources": {
+                "Kaitag": {
+                    "text": "уба",
+                    "ipa": "ˈubɑ"
+                },
+                "Akusha": {
+                    "text": "неш",
+                    "ipa": "ˈneʃ"
+                }
+            }
+        },
+        {
+            "translations": {
+                "eng": "father",
+                "rus": "отец"
+            },
+            "sources": {
+                "Kaitag": {
+                    "text": "атта?",
+                    "ipa": "ˈɑtːɑ"
+                },
+                "Akusha": {
+                    "text": "дудеш",
+                    "ipa": "duˈdeʃ"
+                }
+            }
+        },
+        {
+            "translations": {
+                "eng": "brother",
+                "rus": "брат"
+            },
+            "sources": {
+                "Kaitag": {
+                    "text": "уцци",
+                    "ipa": "uˈt͡sːi"
+                },
+                "Akusha": {
+                    "text": "узи",
+                    "ipa": "uˈzi"
+                }
+            }
+        },
+        {
+            "translations": {
+                "eng": "sister",
+                "rus": "сестра"
+            },
+            "sources": {
+                "Kaitag": {
+                    "text": "рицци",
+                    "ipa": "riˈt͡sːi"
+                },
+                "Akusha": {
+                    "text": "рузи",
+                    "ipa": "ruˈzi"
+                }
+            }
+        }
+    ]
+}

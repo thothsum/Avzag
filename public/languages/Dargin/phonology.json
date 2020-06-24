@@ -88,11 +88,12 @@
         ]
     },
     {
-        "ipa": "a",
+        "ipa": "ɑ",
         "features": [
             "vowel",
-            "front",
-            "open"
+            "open",
+            "back",
+            "unrounded"
         ],
         "lects": [
             {
@@ -122,7 +123,8 @@
         "features": [
             "vowel",
             "front",
-            "near-open"
+            "near-open",
+            "unrounded"
         ],
         "lects": [
             {
