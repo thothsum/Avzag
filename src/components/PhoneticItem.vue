@@ -31,7 +31,4 @@ button {
 .txt-faded:active {
   background-color: var(--color-active);
 }
-.selected {
-  border-color: var(--color-select);
-}
 </style>

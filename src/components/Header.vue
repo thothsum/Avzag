@@ -93,9 +93,6 @@ button {
 #menu > button {
   border: 2px solid transparent;
 }
-#menu > button.selected {
-  border-color: var(--color-select);
-}
 @media only screen and (max-width: 768px) {
   .section {
     height: fit-content;

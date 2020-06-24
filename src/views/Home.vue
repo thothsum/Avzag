@@ -56,5 +56,7 @@ export default {
   min-width: 100px;
   width: 100px;
   background-color: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 </style>
