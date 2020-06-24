@@ -37,8 +37,8 @@ export default {
   name: "Phrasebook",
   data() {
     return {
-      category: this.$route.query.category,
-      item: this.$route.query.item
+      category: this.$route.query.category ?? 0,
+      item: this.$route.query.item ?? 0
     };
   },
   computed: {
