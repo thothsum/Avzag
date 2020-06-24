@@ -59,13 +59,6 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  padding: var(--margin);
-  box-shadow: var(--shadow);
-}
-.card > * {
-  margin: var(--margin);
-}
 .card > .list {
   margin: calc(var(--margin) * -1);
   margin-top: var(--margin);

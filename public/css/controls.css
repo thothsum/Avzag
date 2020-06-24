@@ -1,3 +1,7 @@
+.selected {
+    border-color: var(--color-select) !important;
+}
+
 button, select, a {
     user-select: none;
     cursor: pointer;

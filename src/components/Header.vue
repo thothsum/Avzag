@@ -91,10 +91,7 @@ button {
   display: none;
 }
 #menu > button {
-  border: 2px solid transparent;
-}
-#menu > button.selected {
-  border-color: var(--color-select);
+  border: var(--border-width) solid transparent;
 }
 @media only screen and (max-width: 768px) {
   .section {

@@ -47,12 +47,13 @@ hr {
     margin: 0;
 }
 
-.card>* {
-    margin: 0 0 var(--margin) 0;
+.card {
+    padding: var(--margin);
+    box-shadow: var(--shadow);
 }
 
-.card>*:last-child {
-    margin: 0;
+.card>* {
+    margin: var(--margin);
 }
 
 .list {
