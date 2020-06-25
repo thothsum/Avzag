@@ -9,33 +9,29 @@
       <p class="txt-caption txt-faded spaced" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
-    <template v-if="phoneme.lects">
-      <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
-        <p>
-          <b>{{lect.grapheme}}</b>
-          — {{lect.name}}
-        </p>
-        <p class="txt-caption txt-faded" v-if="lect.note">{{lect.note}}</p>
-        <div
-          :style="{height: Math.min(3, lect.samples.length) * 24 + 'px' }"
-          class="list"
-          v-if="lect.samples && lect.samples.length>0"
-        >
-          <button @click="play(lect, i)" :key="i" v-for="(sample, i) in lect.samples">
-            <span class="material-icons-outlined">play_arrow</span>
-            <span v-html="highlight(sample, lect.grapheme)"></span>
-          </button>
-        </div>
-      </div>
-    </template>
+    <PhonemeUse
+      @play="play(lc, $event)"
+      :key="i"
+      v-for="(lc, i) in lects"
+      :lect="lc"
+      :use="phoneme.lects[lc]"
+    />
   </div>
 </template>
 
 <script>
+import PhonemeUse from "./PhonemeUse";
+
 export default {
   name: "PhonemeDetails",
+  components: {
+    PhonemeUse
+  },
   props: ["phoneme"],
   computed: {
+    lects() {
+      return this.$store.getters.lects.filter(l => l in this.phoneme.lects);
+    },
     features() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
     },
@@ -44,12 +40,9 @@ export default {
     }
   },
   methods: {
-    highlight(sample, grapheme) {
-      return sample.replace(new RegExp(grapheme, "g"), `<b>${grapheme}</b>`);
-    },
-    play(lect, i) {
+    play(lect, sample) {
       const player = this.$refs.player;
-      player.src = `${this.root}${lect.name}/audio/${lect.samples[i]}.m4a`;
+      player.src = `${this.root}${lect}/audio/${sample}.m4a`;
       player.play();
     }
   }
@@ -57,12 +50,6 @@ export default {
 </script>
 
 <style scoped>
-.card > .list {
-  margin: calc(var(--margin) * -1);
-  margin-top: var(--margin);
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-}
 #root {
   display: flex;
   flex-wrap: wrap;

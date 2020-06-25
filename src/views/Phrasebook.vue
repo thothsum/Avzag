@@ -22,9 +22,9 @@
       <PhrasebookEntry
         class="card"
         :key="i"
+        v-for="(lc, i) in lects"
         :lect="lc"
         :source="sources[lc]"
-        v-for="(lc, i) of lects"
       />
     </div>
   </div>
@@ -46,9 +46,7 @@ export default {
   },
   computed: {
     lects() {
-      return this.$store.getters.lects.filter(
-        l => l in this.items[this.item].sources
-      );
+      return this.$store.getters.lects.filter(l => l in this.sources);
     },
     phrasebook() {
       return this.$store.state.phrasebook;

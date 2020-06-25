@@ -2,6 +2,8 @@ import json
 
 
 def migrate(filename):
+    filename = '../public/languages/' + filename
+
     with open(filename, encoding="utf-8") as file:
         data = json.load(file)
 
@@ -17,8 +19,8 @@ def migrate(filename):
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 
-filenames = ['public/languages/Dargin/phonology.json',
-            'public/languages/Circassian/phonology.json',
-            'public/languages/Ossetian/phonology.json']
+filenames = ['Dargin/phonology.json',
+             'Circassian/phonology.json',
+             'Ossetian/phonology.json']
 
 [migrate(f) for f in filenames]
