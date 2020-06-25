@@ -13,9 +13,12 @@ def migrate(filename):
             lects[name] = l
         p["lects"] = lects
 
-    with open('res.json', 'w', encoding="utf-8") as file:
+    with open(filename, 'w', encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 
-filename = 'public/languages/Dargin/phonology.json'
-migrate(filename)
+filenames = ['public/languages/Dargin/phonology.json',
+            'public/languages/Circassian/phonology.json',
+            'public/languages/Ossetian/phonology.json']
+
+[migrate(f) for f in filenames]

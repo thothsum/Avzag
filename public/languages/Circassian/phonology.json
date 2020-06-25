@@ -4,9 +4,8 @@
         "features": [
             "vowel"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "а",
                 "samples": [
                     "а",
@@ -14,46 +13,39 @@
                     "маржэ"
                 ]
             },
-            {
-                "name": "Baslaney",
+            "Baslaney": {
                 "grapheme": "а",
                 "samples": []
             },
-            {
-                "name": "Shapsug",
+            "Shapsug": {
                 "grapheme": "а",
                 "samples": []
             },
-            {
-                "name": "Natukhai",
+            "Natukhai": {
                 "grapheme": "а",
                 "samples": []
             },
-            {
-                "name": "Bzhedug",
+            "Bzhedug": {
                 "grapheme": "а",
                 "samples": []
             },
-            {
-                "name": "Temirgoy",
+            "Temirgoy": {
                 "grapheme": "а",
                 "samples": []
             },
-            {
-                "name": "Abzakh",
+            "Abzakh": {
                 "grapheme": "а",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "a",
         "features": [
             "vowel"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "э",
                 "samples": [
                     "э",
@@ -61,172 +53,159 @@
                     "ӏэфӏ"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "b",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "б",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "v",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "в",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɣ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "г",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɡʷ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "гу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʁ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "гъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʁʷ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "гъу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "д",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d͡ʒ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "дж",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d͡z",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "дз",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʒ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ж",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʑ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "жь",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "z",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "з",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "jə",
         "features": [
             "vowel"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "и",
                 "samples": [
                     "и",
@@ -234,72 +213,67 @@
                     "бэли"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "j",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "й",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "k",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "к",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʷ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "к",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "q",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "къ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʷ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "къу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "q͡χ",
@@ -309,16 +283,15 @@
             "uvular",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "кхъ",
                 "samples": [
                     "кхъ",
                     "кхъужь"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "q͡χʷ",
@@ -329,9 +302,8 @@
             "affricate",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "кхъу",
                 "samples": [
                     "кхъу",
@@ -339,107 +311,99 @@
                     "щӏакхъуэ"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "кӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʷʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "кӏу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɮ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "л",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɬ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "лъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɬʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "лӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "m",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "м",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "n",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "н",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "aw",
         "features": [
             "vowel"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "о",
                 "samples": [
                     "о",
@@ -447,94 +411,87 @@
                     "мобде"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "p",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "п",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "pʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "пӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "r",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "р",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "s",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "с",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "т",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "tʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "тӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "əw",
         "features": [
             "vowel"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "у",
                 "samples": [
                     "у",
@@ -542,211 +499,195 @@
                     "гу"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "w",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "у",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "f",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ф",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "fʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "фӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "x",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "х",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "xʷ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ху",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "χ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "хъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "χʷ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "хъу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ħ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "хь",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡s",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ц",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡sʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "цӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ч",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "чӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʃ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ш",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɕ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "щ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɕʼ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "щӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ə",
         "features": [
             "vowel"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ы",
                 "samples": [
                     "ы",
@@ -754,32 +695,30 @@
                     "шыпс"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "ʔ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʔʷ",
         "features": [
             "consonant"
         ],
-        "lects": [
-            {
-                "name": "Kabardian",
+        "lects": {
+            "Kabardian": {
                 "grapheme": "ӏу",
                 "samples": []
             }
-        ]
+        }
     }
 ]

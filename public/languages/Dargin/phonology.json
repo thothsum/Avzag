@@ -7,14 +7,12 @@
             "close",
             "unrounded"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "и",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "и",
                 "samples": [
                     "и",
@@ -22,12 +20,11 @@
                     "шин"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "и",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "u",
@@ -36,14 +33,12 @@
             "back",
             "close"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "у",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "у",
                 "samples": [
                     "у",
@@ -51,12 +46,11 @@
                     "букье"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "у",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "e",
@@ -65,14 +59,12 @@
             "front",
             "close-mid"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "э",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "э",
                 "samples": [
                     "э",
@@ -80,12 +72,11 @@
                     "чэв"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "э",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɑ",
@@ -95,14 +86,12 @@
             "back",
             "unrounded"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "а",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "а",
                 "samples": [
                     "а",
@@ -110,12 +99,11 @@
                     "цула"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "а",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "str": "я",
@@ -126,14 +114,12 @@
             "near-open",
             "unrounded"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "я",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "я",
                 "samples": [
                     "я",
@@ -141,12 +127,11 @@
                     "ця"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "я",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "b",
@@ -156,14 +141,12 @@
             "voiced",
             "labial"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "б",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "б",
                 "samples": [
                     "б",
@@ -171,12 +154,11 @@
                     "гӏябал"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "б",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "p",
@@ -186,14 +168,12 @@
             "voiceless",
             "labial"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "п",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "п",
                 "samples": [
                     "п",
@@ -201,12 +181,11 @@
                     "кулпет"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "п",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "pː",
@@ -217,9 +196,8 @@
             "geminate",
             "labial"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "пп",
                 "samples": [
                     "пп",
@@ -227,12 +205,11 @@
                     "тӏиппе"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "пп",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "pʼ",
@@ -243,9 +220,8 @@
             "ejective",
             "labial"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "пӏ",
                 "samples": [
                     "пӏ",
@@ -253,12 +229,11 @@
                     "шипӏяй"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "пӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "v",
@@ -268,13 +243,12 @@
             "voiced",
             "labiodental"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "в",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "β",
@@ -284,9 +258,8 @@
             "voiced",
             "bilabial"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "в",
                 "samples": [
                     "в",
@@ -294,7 +267,7 @@
                     "ццав"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "w",
@@ -304,13 +277,12 @@
             "labio-velar",
             "approximant"
         ],
-        "lects": [
-            {
-                "name": "Kubachi",
+        "lects": {
+            "Kubachi": {
                 "grapheme": "в",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "m",
@@ -320,19 +292,16 @@
             "labial",
             "nasal"
         ],
-        "lects": [
-            {
-                "name": "Kubachi",
+        "lects": {
+            "Kubachi": {
                 "grapheme": "м",
                 "samples": []
             },
-            {
-                "name": "Akusha",
+            "Akusha": {
                 "grapheme": "м",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "м",
                 "samples": [
                     "м",
@@ -340,7 +309,7 @@
                     "хьулум"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "d",
@@ -350,19 +319,16 @@
             "voiced",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Kubachi",
+        "lects": {
+            "Kubachi": {
                 "grapheme": "д",
                 "samples": []
             },
-            {
-                "name": "Akusha",
+            "Akusha": {
                 "grapheme": "д",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "д",
                 "samples": [
                     "д",
@@ -370,7 +336,7 @@
                     "мейдам"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "t",
@@ -380,14 +346,12 @@
             "voiceless",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "т",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "т",
                 "samples": [
                     "т",
@@ -395,12 +359,11 @@
                     "уста"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "т",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "tː",
@@ -411,9 +374,8 @@
             "geminate",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "тт",
                 "samples": [
                     "тт",
@@ -421,12 +383,11 @@
                     "атта"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "тт",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "tʼ",
@@ -437,14 +398,12 @@
             "ejective",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "тӏ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "тӏ",
                 "samples": [
                     "тӏ",
@@ -452,12 +411,11 @@
                     "кӏултӏа"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "тӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡s",
@@ -467,14 +425,12 @@
             "voiceless",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "ц",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "ц",
                 "samples": [
                     "ц",
@@ -482,12 +438,11 @@
                     "бац"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "ц",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡sː",
@@ -498,9 +453,8 @@
             "geminate",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "цц",
                 "samples": [
                     "цц",
@@ -508,12 +462,11 @@
                     "луццум"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "цц",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡sʼ",
@@ -524,14 +477,12 @@
             "ejective",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "цӏ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "цӏ",
                 "samples": [
                     "цӏ",
@@ -539,12 +490,11 @@
                     "вецӏал"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "цӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "z",
@@ -554,14 +504,12 @@
             "voiced",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "з",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "з",
                 "samples": [
                     "з",
@@ -569,12 +517,11 @@
                     "муза"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "з",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "s",
@@ -584,14 +531,12 @@
             "voiceless",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "с",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "с",
                 "samples": [
                     "с",
@@ -599,12 +544,11 @@
                     "бурсибил"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "с",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "sː",
@@ -615,9 +559,8 @@
             "geminate",
             "dental"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "сс",
                 "samples": [
                     "сс",
@@ -625,12 +568,11 @@
                     "гьассара"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "сс",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "n",
@@ -640,14 +582,12 @@
             "alveolar",
             "nasal"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "н",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "н",
                 "samples": [
                     "н",
@@ -655,12 +595,11 @@
                     "манзи"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "н",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "l",
@@ -671,14 +610,12 @@
             "dental",
             "approximant"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "л",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "л",
                 "samples": [
                     "л",
@@ -687,12 +624,11 @@
                 ],
                 "note": "Palatalized after /a/, /i/, /u/."
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "л",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ç",
@@ -702,9 +638,8 @@
             "voiceless",
             "palatal"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "хь",
                 "samples": [
                     "хь",
@@ -712,12 +647,11 @@
                     "дирихь"
                 ]
             },
-            {
-                "name": "Akusha",
+            "Akusha": {
                 "grapheme": "хь",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "çʷ",
@@ -728,9 +662,8 @@
             "palatal",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "хьв",
                 "samples": [
                     "хьв",
@@ -738,7 +671,7 @@
                     "дехьвана"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "xː",
@@ -749,13 +682,12 @@
             "geminate",
             "velar"
         ],
-        "lects": [
-            {
-                "name": "Kubachi",
+        "lects": {
+            "Kubachi": {
                 "grapheme": "хьхь",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "çː",
@@ -766,9 +698,8 @@
             "geminate",
             "palatal"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "хьхь",
                 "samples": [
                     "хьхь",
@@ -776,7 +707,7 @@
                     "дивхьхьара"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "çːʷ",
@@ -788,9 +719,8 @@
             "palatal",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "хьхьв",
                 "samples": [
                     "хьхьв",
@@ -798,7 +728,7 @@
                     "чицахьхьвара"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "j",
@@ -808,14 +738,12 @@
             "palatal",
             "approximant"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "й",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "й",
                 "samples": [
                     "й",
@@ -823,12 +751,11 @@
                     "гъай"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "й",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃ",
@@ -838,14 +765,12 @@
             "voiceless",
             "alveolar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "ч",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "ч",
                 "samples": [
                     "ч",
@@ -853,12 +778,11 @@
                     "мичи"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "ч",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d͡z",
@@ -868,13 +792,12 @@
             "dental",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "дз",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d͡ʒ",
@@ -884,13 +807,12 @@
             "voiced",
             "alveolar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "дж",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃʷ",
@@ -901,9 +823,8 @@
             "alveolar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "чв",
                 "samples": [
                     "чв",
@@ -911,7 +832,7 @@
                     "берчвахана"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃː",
@@ -923,9 +844,8 @@
             "alveolar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "чч",
                 "samples": [
                     "чч",
@@ -933,12 +853,11 @@
                     "дучче"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "чч",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃːʷ",
@@ -949,9 +868,8 @@
             "geminate",
             "alveolar"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "ччв",
                 "samples": [
                     "ччв",
@@ -959,7 +877,7 @@
                     "биччвахара"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃʼ",
@@ -970,14 +888,12 @@
             "ejective",
             "alveolar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "чӏ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "чӏ",
                 "samples": [
                     "чӏ",
@@ -985,12 +901,11 @@
                     "урчӏе"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "чӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃʼʷ",
@@ -1002,9 +917,8 @@
             "alveolar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "чӏв",
                 "samples": [
                     "чӏв",
@@ -1012,7 +926,7 @@
                     "белчӏвахана"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "ʒ",
@@ -1022,14 +936,12 @@
             "voiced",
             "alveolar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "ж",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "ж",
                 "samples": [
                     "ж",
@@ -1037,12 +949,11 @@
                     "хӏяжлачӏе"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "ж",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʒʷ",
@@ -1053,9 +964,8 @@
             "alveolar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "жв",
                 "samples": [
                     "жв",
@@ -1063,7 +973,7 @@
                     "бевжвахана"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "ʃ",
@@ -1073,14 +983,12 @@
             "voiceless",
             "alveolar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "ш",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "ш",
                 "samples": [
                     "ш",
@@ -1088,12 +996,11 @@
                     "урши"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "ш",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʃʷ",
@@ -1104,9 +1011,8 @@
             "alveolar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "шв",
                 "samples": [
                     "шв",
@@ -1114,7 +1020,7 @@
                     "бершвахара"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "ʃː",
@@ -1125,9 +1031,8 @@
             "geminate",
             "alveolar"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "шш",
                 "samples": [
                     "шш",
@@ -1135,12 +1040,11 @@
                     "нишша"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "шш",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʃːʷ",
@@ -1152,9 +1056,8 @@
             "alveolar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "шшв",
                 "samples": [
                     "шшв",
@@ -1162,7 +1065,7 @@
                     "кабишшвахара"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "r",
@@ -1172,14 +1075,12 @@
             "alveolar",
             "trill"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "р",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "р",
                 "samples": [
                     "р",
@@ -1187,12 +1088,11 @@
                     "баргьул"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "р",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "g",
@@ -1202,14 +1102,12 @@
             "voiced",
             "velar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "г",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "г",
                 "samples": [
                     "г",
@@ -1217,12 +1115,11 @@
                     "чибиган"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "г",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "gʷ",
@@ -1233,9 +1130,8 @@
             "velar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "гв",
                 "samples": [
                     "гв",
@@ -1243,7 +1139,7 @@
                     "делгвана"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "k",
@@ -1253,14 +1149,12 @@
             "voiceless",
             "velar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "к",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "к",
                 "samples": [
                     "к",
@@ -1268,12 +1162,11 @@
                     "гъукле"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "к",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʷ",
@@ -1284,9 +1177,8 @@
             "velar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "кв",
                 "samples": [
                     "кв",
@@ -1294,7 +1186,7 @@
                     "берквана"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "kː",
@@ -1305,9 +1197,8 @@
             "geminate",
             "velar"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "кк",
                 "samples": [
                     "кк",
@@ -1315,12 +1206,11 @@
                     "бейкку"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "кк",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kːʷ",
@@ -1332,9 +1222,8 @@
             "velar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "ккв",
                 "samples": [
                     "ккв",
@@ -1342,7 +1231,7 @@
                     "ччвакква"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "kʼ",
@@ -1353,14 +1242,12 @@
             "ejective",
             "velar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "кӏ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "кӏ",
                 "samples": [
                     "кӏ",
@@ -1368,12 +1255,11 @@
                     "декӏле"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "кӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʼʷ",
@@ -1385,9 +1271,8 @@
             "velar",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "кӏв",
                 "samples": [
                     "кӏв",
@@ -1395,7 +1280,7 @@
                     "белкӏвана"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "q",
@@ -1405,14 +1290,12 @@
             "voiced",
             "uvular"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "къ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "къ",
                 "samples": [
                     "къ",
@@ -1420,12 +1303,11 @@
                     "вегъивкъел"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "къ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "qʷ",
@@ -1436,9 +1318,8 @@
             "uvular",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "къв",
                 "samples": [
                     "къв",
@@ -1446,7 +1327,7 @@
                     "милкъвя"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "qʰ",
@@ -1457,14 +1338,12 @@
             "uvular",
             "aspirated"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "хъ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "хъ",
                 "samples": [
                     "хъ",
@@ -1472,12 +1351,11 @@
                     "бихъна"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "хъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "qʰʷ",
@@ -1489,9 +1367,8 @@
             "aspirated",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "хъв",
                 "samples": [
                     "хъв",
@@ -1499,7 +1376,7 @@
                     "махъва"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "qː",
@@ -1510,9 +1387,8 @@
             "geminate",
             "uvular"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "къкъ",
                 "samples": [
                     "къкъ",
@@ -1520,12 +1396,11 @@
                     "шукъкъа"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "къкъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "qʼ",
@@ -1536,14 +1411,12 @@
             "ejective",
             "uvular"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "кь",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "кь",
                 "samples": [
                     "кь",
@@ -1551,12 +1424,11 @@
                     "мукьара"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "кь",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "qʼʷ",
@@ -1568,9 +1440,8 @@
             "uvular",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "кьв",
                 "samples": [
                     "кьв",
@@ -1578,7 +1449,7 @@
                     "чӏвакьва"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "ɣ",
@@ -1588,13 +1459,12 @@
             "voiced",
             "velar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "гъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʁ",
@@ -1604,9 +1474,8 @@
             "voiced",
             "uvular"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "гъ",
                 "samples": [
                     "гъ",
@@ -1614,12 +1483,11 @@
                     "къабагъ"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "гъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʁʷ",
@@ -1630,9 +1498,8 @@
             "uvular",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "гъв",
                 "samples": [
                     "гъв",
@@ -1640,7 +1507,7 @@
                     "бергъвара"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "χ",
@@ -1650,9 +1517,8 @@
             "voiceless",
             "uvular"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "х",
                 "samples": [
                     "х",
@@ -1660,12 +1526,11 @@
                     "чух"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "х",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "x",
@@ -1675,18 +1540,16 @@
             "voiceless",
             "velar"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "х",
                 "samples": []
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "хь",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "χʷ",
@@ -1697,9 +1560,8 @@
             "uvular",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "хв",
                 "samples": [
                     "хв",
@@ -1707,7 +1569,7 @@
                     "керхвара"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "χː",
@@ -1718,9 +1580,8 @@
             "geminate",
             "uvular"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "хх",
                 "samples": [
                     "хх",
@@ -1728,12 +1589,11 @@
                     "ирххе"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "хх",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʕ",
@@ -1743,14 +1603,12 @@
             "voiced",
             "pharyngeal"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "гӏ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "гӏ",
                 "samples": [
                     "гӏ",
@@ -1758,12 +1616,11 @@
                     "лягӏ"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "гӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ħ",
@@ -1773,14 +1630,12 @@
             "voiceless",
             "pharyngeal"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "хӏ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "хӏ",
                 "samples": [
                     "хӏ",
@@ -1788,12 +1643,11 @@
                     "дярхӏя"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "хӏ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "h",
@@ -1803,14 +1657,12 @@
             "voiceless",
             "laryngeal"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "гь",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "гь",
                 "samples": [
                     "гь",
@@ -1818,12 +1670,11 @@
                     "вагьла"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "гь",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "hʷ",
@@ -1834,9 +1685,8 @@
             "laryngeal",
             "labialized"
         ],
-        "lects": [
-            {
-                "name": "Kaitag",
+        "lects": {
+            "Kaitag": {
                 "grapheme": "гьв",
                 "samples": [
                     "гьв",
@@ -1844,7 +1694,7 @@
                     "диргьвар"
                 ]
             }
-        ]
+        }
     },
     {
         "ipa": "ʔ",
@@ -1855,25 +1705,22 @@
             "ejective",
             "laryngeal"
         ],
-        "lects": [
-            {
-                "name": "Akusha",
+        "lects": {
+            "Akusha": {
                 "grapheme": "ъ",
                 "samples": []
             },
-            {
-                "name": "Kaitag",
+            "Kaitag": {
                 "grapheme": "ъ",
                 "samples": [
                     "маъ",
                     "баълабай"
                 ]
             },
-            {
-                "name": "Kubachi",
+            "Kubachi": {
                 "grapheme": "ъ",
                 "samples": []
             }
-        ]
+        }
     }
 ]

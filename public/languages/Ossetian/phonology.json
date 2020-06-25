@@ -7,18 +7,16 @@
             "central",
             "unrounded"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "а",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "а",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ɐ",
@@ -27,18 +25,16 @@
             "near-open",
             "central"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ӕ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "ӕ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "e",
@@ -48,18 +44,16 @@
             "front",
             "unrounded"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "е",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "е",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "i",
@@ -69,18 +63,16 @@
             "front",
             "unrounded"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "и",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "и",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "o",
@@ -90,18 +82,16 @@
             "back",
             "rounded"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "о",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "о",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ə",
@@ -110,13 +100,12 @@
             "mid",
             "central"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ы",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "u",
@@ -126,18 +115,16 @@
             "back",
             "rounded"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "у",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "у",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "b",
@@ -147,18 +134,16 @@
             "bilabial",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "б",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "б",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "pʰ",
@@ -169,18 +154,16 @@
             "bilabial",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "п",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "п",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "pʼ",
@@ -190,18 +173,16 @@
             "ejective",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "пъ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "пъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d̪",
@@ -211,18 +192,16 @@
             "dental",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "д",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "д",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t̪ʰ",
@@ -233,18 +212,16 @@
             "dental",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "т",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "т",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t̪ʼ",
@@ -254,18 +231,16 @@
             "ejective",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "тъ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "тъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "g",
@@ -275,18 +250,16 @@
             "velar",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "г",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "г",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "gʷ",
@@ -297,18 +270,16 @@
             "velar",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "гу",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "гу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʰ",
@@ -319,18 +290,16 @@
             "velar",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "к",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "к",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʷ",
@@ -341,18 +310,16 @@
             "velar",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "к",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "к",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʼ",
@@ -362,18 +329,16 @@
             "ejective",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "къ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "къ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "kʼʷ",
@@ -384,18 +349,16 @@
             "ejective",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "къу",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "къу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "q",
@@ -405,18 +368,16 @@
             "uvular",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "хъ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "хъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "qʷ",
@@ -427,18 +388,16 @@
             "uvular",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "хъу",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "хъу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʔ",
@@ -447,18 +406,16 @@
             "glottal",
             "stop"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "гъ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "гъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "m",
@@ -468,18 +425,16 @@
             "bilabial",
             "nasal"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "м",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "м",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "n",
@@ -489,18 +444,16 @@
             "alveolar",
             "nasal"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "н",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "н",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "r",
@@ -510,18 +463,16 @@
             "alveolar",
             "trill"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "р",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "р",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "f",
@@ -531,18 +482,16 @@
             "labiodental",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ф",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "ф",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "v",
@@ -552,18 +501,16 @@
             "labiodental",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "в",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "в",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "s",
@@ -573,18 +520,16 @@
             "alveolar",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "с",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "с",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "z",
@@ -594,18 +539,16 @@
             "alveolar",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "з",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "з",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʃ",
@@ -615,13 +558,12 @@
             "postalveolar",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ш",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʒ",
@@ -631,13 +573,12 @@
             "postalveolar",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ж",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʁ",
@@ -647,18 +588,16 @@
             "uvular",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "гъ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "гъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "ʁʷ",
@@ -669,18 +608,16 @@
             "uvular",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "гъу",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "гъу",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "χ",
@@ -690,18 +627,16 @@
             "uvular",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "х",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "х",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "χʷ",
@@ -712,18 +647,16 @@
             "uvular",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ху",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "ху",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "h",
@@ -733,18 +666,16 @@
             "glottal",
             "fricative"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "гъ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "гъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d͡z",
@@ -754,18 +685,16 @@
             "alveolar",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "дз",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "дз",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡s",
@@ -775,19 +704,17 @@
             "alveolar",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ц",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "ц",
-                "samples": []
-                ,"note": "In Chikola dialect spelled as [tʃ] before [e], [i]."
+                "samples": [],
+                "note": "In Chikola dialect spelled as [tʃ] before [e], [i]."
             }
-        ]
+        }
     },
     {
         "ipa": "t͡sʼ",
@@ -797,18 +724,16 @@
             "ejective",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "цъ",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "цъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "d͡ʒ",
@@ -818,13 +743,12 @@
             "postalveolar",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "дж",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃ",
@@ -834,13 +758,12 @@
             "postalveolar",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "ч",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "t͡ʃʼ",
@@ -850,13 +773,12 @@
             "ejective",
             "affricate"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "чъ",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "w",
@@ -866,18 +788,16 @@
             "labio-velar",
             "appoximant"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "у",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "у",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "j",
@@ -887,18 +807,16 @@
             "palatal",
             "appoximant"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "й",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "й",
                 "samples": []
             }
-        ]
+        }
     },
     {
         "ipa": "l",
@@ -909,17 +827,15 @@
             "lateral",
             "appoximant"
         ],
-        "lects": [
-            {
-                "name": "Iron",
+        "lects": {
+            "Iron": {
                 "grapheme": "л",
                 "samples": []
             },
-            {
-                "name": "Digor",
+            "Digor": {
                 "grapheme": "л",
                 "samples": []
             }
-        ]
+        }
     }
 ]
