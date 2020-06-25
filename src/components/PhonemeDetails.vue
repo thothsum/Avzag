@@ -14,7 +14,7 @@
       :key="i"
       v-for="(lc, i) in lects"
       :lect="lc"
-      :use="phoneme.lects[lc]"
+      :use="phoneme.uses[lc]"
     />
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
   props: ["phoneme"],
   computed: {
     lects() {
-      return this.$store.getters.lects.filter(l => l in this.phoneme.lects);
+      return this.$store.getters.lects.filter(l => l in this.phoneme.uses);
     },
     features() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));

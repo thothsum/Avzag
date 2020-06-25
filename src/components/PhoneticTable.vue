@@ -33,7 +33,7 @@ export default {
     fitting() {
       return this.phonemes.map(
         p =>
-          this.pass(Object.keys(p.lects), this.lectQuery) &&
+          this.pass(Object.keys(p.uses), this.lectQuery) &&
           this.pass(p.features, this.featureQuery)
       );
     },
@@ -44,7 +44,7 @@ export default {
       return lects.length === 1 ? lects[0] : undefined;
     },
     graphemes() {
-      return this.phonemes.map(p => p.lects[this.singleLect]?.grapheme);
+      return this.phonemes.map(p => p.uses[this.singleLect]?.grapheme);
     }
   }
 };
