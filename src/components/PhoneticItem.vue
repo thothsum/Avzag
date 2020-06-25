@@ -1,7 +1,7 @@
 <template>
   <button :class="{'txt-faded': faded, selected: selected}">
     <b>{{str}}</b>
-    {{ipa}}
+    <span class="txt-ipa">{{ipa}}</span>
   </button>
 </template>
 

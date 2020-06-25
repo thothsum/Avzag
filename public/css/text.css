@@ -31,6 +31,10 @@
     color: var(--color-text-faded);
 }
 
+.txt-ipa {
+    font-family: sans-serif;
+}
+
 h1, h1 * {
     font-size: var(--font-size-title);
     font-weight: bold;

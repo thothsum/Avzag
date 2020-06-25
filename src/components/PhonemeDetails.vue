@@ -2,9 +2,9 @@
   <div id="root">
     <div class="card">
       <h2>
-        <span class="txt-faded">/</span>
-        {{phoneme.ipa}}
-        <span class="txt-faded">/</span>
+        <span class="txt-faded">/&nbsp;</span>
+        <span class="txt-ipa">{{phoneme.ipa}}</span>
+        <span class="txt-faded">&nbsp;/</span>
       </h2>
       <p class="txt-caption txt-faded spaced" v-if="features">{{features}}</p>
     </div>
@@ -12,10 +12,8 @@
     <template v-if="phoneme.lects">
       <div class="card" :key="i" v-for="(lect, i) in phoneme.lects">
         <p>
-          <span class="txt-faded">⟨&nbsp;</span>
           <b>{{lect.grapheme}}</b>
-          <span class="txt-faded">&nbsp;⟩</span>
-          ― {{lect.name}}
+          — {{lect.name}}
         </p>
         <p class="txt-caption txt-faded" v-if="lect.note">{{lect.note}}</p>
         <div
@@ -38,10 +36,6 @@ export default {
   name: "PhonemeDetails",
   props: ["phoneme"],
   computed: {
-    lects() {
-      console.log(this.$store.getters.languageInfo?.lects);
-      return this.$store.getters.languageInfo?.lects;
-    },
     features() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
     },
