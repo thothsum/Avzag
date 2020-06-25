@@ -4,7 +4,7 @@
       <b>{{use.grapheme}}</b>
       — {{lect}}
     </p>
-    <p class="txt-caption txt-faded" v-if="lect.note">{{use.note}}</p>
+    <p class="txt-caption txt-faded" v-if="use.note">{{use.note}}</p>
     <div
       :style="{height: Math.min(3, use.samples.length) * 24 + 'px' }"
       class="list"
