@@ -19,7 +19,10 @@ export default new Vuex.Store({
     },
     languageInfo: state => {
       return state.catalogue ? state.catalogue[state.language] : undefined;
-    }
+    },
+    lects: (state, getters) => {
+      return getters.languageInfo?.lects;
+    },
   },
   mutations: {
     setCatalogue(state, json) {
@@ -33,10 +36,6 @@ export default new Vuex.Store({
     },
     setPhonology(state, json) {
       json.sort((a, b) => a.ipa.localeCompare(b.ipa));
-      json.forEach((p, i) => {
-        p.i = i;
-        p.lects.sort((a, b) => a.name.localeCompare(b.name));
-      });
       state.phonology = json;
     },
     setSample(state, text) {

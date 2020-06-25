@@ -46,7 +46,7 @@ export default {
   },
   computed: {
     lects() {
-      return this.$store.getters.languageInfo?.lects.filter(
+      return this.$store.getters.lects.filter(
         l => l in this.items[this.item].sources
       );
     },

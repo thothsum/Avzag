@@ -38,6 +38,10 @@ export default {
   name: "PhonemeDetails",
   props: ["phoneme"],
   computed: {
+    lects() {
+      console.log(this.$store.getters.languageInfo?.lects);
+      return this.$store.getters.languageInfo?.lects;
+    },
     features() {
       return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
     },
