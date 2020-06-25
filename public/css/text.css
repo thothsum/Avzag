@@ -4,12 +4,13 @@
     --font-size-large: 20px;
     --font-size-title: 32px;
     --font-size-icon: 16px;
+    --font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
 }
 
 * {
     font-size: var(--font-size);
     color: var(--color-text);
-    font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
+    font-family: var(--font-family);
 }
 
 .material-icons-outlined {
@@ -33,6 +34,19 @@
 
 .txt-ipa {
     font-family: sans-serif;
+    line-height: 100%;
+}
+
+.txt-ipa::before {
+    content: "/ ";
+    font-family: var(--font-family);
+    color: var(--color-text-faded);
+}
+
+.txt-ipa::after {
+    content: " /";
+    font-family: var(--font-family);
+    color: var(--color-text-faded);
 }
 
 h1, h1 * {

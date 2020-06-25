@@ -31,4 +31,7 @@ button {
 .txt-faded:active {
   background-color: var(--color-active);
 }
+.txt-ipa::before, .txt-ipa::after {
+  display: none;
+}
 </style>
