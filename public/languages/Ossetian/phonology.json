@@ -7,7 +7,7 @@
             "central",
             "unrounded"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "а",
                 "samples": []
@@ -25,7 +25,7 @@
             "near-open",
             "central"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ӕ",
                 "samples": []
@@ -44,7 +44,7 @@
             "front",
             "unrounded"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "е",
                 "samples": []
@@ -63,7 +63,7 @@
             "front",
             "unrounded"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "и",
                 "samples": []
@@ -82,7 +82,7 @@
             "back",
             "rounded"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "о",
                 "samples": []
@@ -100,7 +100,7 @@
             "mid",
             "central"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ы",
                 "samples": []
@@ -115,7 +115,7 @@
             "back",
             "rounded"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "у",
                 "samples": []
@@ -134,7 +134,7 @@
             "bilabial",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "б",
                 "samples": []
@@ -154,7 +154,7 @@
             "bilabial",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "п",
                 "samples": []
@@ -173,7 +173,7 @@
             "ejective",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "пъ",
                 "samples": []
@@ -192,7 +192,7 @@
             "dental",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "д",
                 "samples": []
@@ -212,7 +212,7 @@
             "dental",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "т",
                 "samples": []
@@ -231,7 +231,7 @@
             "ejective",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "тъ",
                 "samples": []
@@ -250,7 +250,7 @@
             "velar",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "г",
                 "samples": []
@@ -270,7 +270,7 @@
             "velar",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "гу",
                 "samples": []
@@ -290,7 +290,7 @@
             "velar",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "к",
                 "samples": []
@@ -310,7 +310,7 @@
             "velar",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "к",
                 "samples": []
@@ -329,7 +329,7 @@
             "ejective",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "къ",
                 "samples": []
@@ -349,7 +349,7 @@
             "ejective",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "къу",
                 "samples": []
@@ -368,7 +368,7 @@
             "uvular",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "хъ",
                 "samples": []
@@ -388,7 +388,7 @@
             "uvular",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "хъу",
                 "samples": []
@@ -406,7 +406,7 @@
             "glottal",
             "stop"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "гъ",
                 "samples": []
@@ -425,7 +425,7 @@
             "bilabial",
             "nasal"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "м",
                 "samples": []
@@ -444,7 +444,7 @@
             "alveolar",
             "nasal"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "н",
                 "samples": []
@@ -463,7 +463,7 @@
             "alveolar",
             "trill"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "р",
                 "samples": []
@@ -482,7 +482,7 @@
             "labiodental",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ф",
                 "samples": []
@@ -501,7 +501,7 @@
             "labiodental",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "в",
                 "samples": []
@@ -520,7 +520,7 @@
             "alveolar",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "с",
                 "samples": []
@@ -539,7 +539,7 @@
             "alveolar",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "з",
                 "samples": []
@@ -558,7 +558,7 @@
             "postalveolar",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ш",
                 "samples": []
@@ -573,7 +573,7 @@
             "postalveolar",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ж",
                 "samples": []
@@ -588,7 +588,7 @@
             "uvular",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "гъ",
                 "samples": []
@@ -608,7 +608,7 @@
             "uvular",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "гъу",
                 "samples": []
@@ -627,7 +627,7 @@
             "uvular",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "х",
                 "samples": []
@@ -647,7 +647,7 @@
             "uvular",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ху",
                 "samples": []
@@ -666,7 +666,7 @@
             "glottal",
             "fricative"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "гъ",
                 "samples": []
@@ -685,7 +685,7 @@
             "alveolar",
             "affricate"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "дз",
                 "samples": []
@@ -704,7 +704,7 @@
             "alveolar",
             "affricate"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ц",
                 "samples": []
@@ -724,7 +724,7 @@
             "ejective",
             "affricate"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "цъ",
                 "samples": []
@@ -743,7 +743,7 @@
             "postalveolar",
             "affricate"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "дж",
                 "samples": []
@@ -758,7 +758,7 @@
             "postalveolar",
             "affricate"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "ч",
                 "samples": []
@@ -773,7 +773,7 @@
             "ejective",
             "affricate"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "чъ",
                 "samples": []
@@ -788,7 +788,7 @@
             "labio-velar",
             "appoximant"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "у",
                 "samples": []
@@ -807,7 +807,7 @@
             "palatal",
             "appoximant"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "й",
                 "samples": []
@@ -827,7 +827,7 @@
             "lateral",
             "appoximant"
         ],
-        "lects": {
+        "uses": {
             "Iron": {
                 "grapheme": "л",
                 "samples": []

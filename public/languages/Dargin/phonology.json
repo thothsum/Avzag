@@ -7,7 +7,7 @@
             "close",
             "unrounded"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "и",
                 "samples": []
@@ -33,7 +33,7 @@
             "back",
             "close"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "у",
                 "samples": []
@@ -59,7 +59,7 @@
             "front",
             "close-mid"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "э",
                 "samples": []
@@ -86,7 +86,7 @@
             "back",
             "unrounded"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "а",
                 "samples": []
@@ -114,7 +114,7 @@
             "near-open",
             "unrounded"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "я",
                 "samples": []
@@ -141,7 +141,7 @@
             "voiced",
             "labial"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "б",
                 "samples": []
@@ -168,7 +168,7 @@
             "voiceless",
             "labial"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "п",
                 "samples": []
@@ -196,7 +196,7 @@
             "geminate",
             "labial"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "пп",
                 "samples": [
@@ -220,7 +220,7 @@
             "ejective",
             "labial"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "пӏ",
                 "samples": [
@@ -243,7 +243,7 @@
             "voiced",
             "labiodental"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "в",
                 "samples": []
@@ -258,7 +258,7 @@
             "voiced",
             "bilabial"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "в",
                 "samples": [
@@ -277,7 +277,7 @@
             "labio-velar",
             "approximant"
         ],
-        "lects": {
+        "uses": {
             "Kubachi": {
                 "grapheme": "в",
                 "samples": []
@@ -292,7 +292,7 @@
             "labial",
             "nasal"
         ],
-        "lects": {
+        "uses": {
             "Kubachi": {
                 "grapheme": "м",
                 "samples": []
@@ -319,7 +319,7 @@
             "voiced",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Kubachi": {
                 "grapheme": "д",
                 "samples": []
@@ -346,7 +346,7 @@
             "voiceless",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "т",
                 "samples": []
@@ -374,7 +374,7 @@
             "geminate",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "тт",
                 "samples": [
@@ -398,7 +398,7 @@
             "ejective",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "тӏ",
                 "samples": []
@@ -425,7 +425,7 @@
             "voiceless",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "ц",
                 "samples": []
@@ -453,7 +453,7 @@
             "geminate",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "цц",
                 "samples": [
@@ -477,7 +477,7 @@
             "ejective",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "цӏ",
                 "samples": []
@@ -504,7 +504,7 @@
             "voiced",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "з",
                 "samples": []
@@ -531,7 +531,7 @@
             "voiceless",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "с",
                 "samples": []
@@ -559,7 +559,7 @@
             "geminate",
             "dental"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "сс",
                 "samples": [
@@ -582,7 +582,7 @@
             "alveolar",
             "nasal"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "н",
                 "samples": []
@@ -610,7 +610,7 @@
             "dental",
             "approximant"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "л",
                 "samples": []
@@ -638,7 +638,7 @@
             "voiceless",
             "palatal"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "хь",
                 "samples": [
@@ -662,7 +662,7 @@
             "palatal",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "хьв",
                 "samples": [
@@ -682,7 +682,7 @@
             "geminate",
             "velar"
         ],
-        "lects": {
+        "uses": {
             "Kubachi": {
                 "grapheme": "хьхь",
                 "samples": []
@@ -698,7 +698,7 @@
             "geminate",
             "palatal"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "хьхь",
                 "samples": [
@@ -719,7 +719,7 @@
             "palatal",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "хьхьв",
                 "samples": [
@@ -738,7 +738,7 @@
             "palatal",
             "approximant"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "й",
                 "samples": []
@@ -765,7 +765,7 @@
             "voiceless",
             "alveolar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "ч",
                 "samples": []
@@ -792,7 +792,7 @@
             "dental",
             "affricate"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "дз",
                 "samples": []
@@ -807,7 +807,7 @@
             "voiced",
             "alveolar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "дж",
                 "samples": []
@@ -823,7 +823,7 @@
             "alveolar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "чв",
                 "samples": [
@@ -844,7 +844,7 @@
             "alveolar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "чч",
                 "samples": [
@@ -868,7 +868,7 @@
             "geminate",
             "alveolar"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "ччв",
                 "samples": [
@@ -888,7 +888,7 @@
             "ejective",
             "alveolar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "чӏ",
                 "samples": []
@@ -917,7 +917,7 @@
             "alveolar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "чӏв",
                 "samples": [
@@ -936,7 +936,7 @@
             "voiced",
             "alveolar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "ж",
                 "samples": []
@@ -964,7 +964,7 @@
             "alveolar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "жв",
                 "samples": [
@@ -983,7 +983,7 @@
             "voiceless",
             "alveolar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "ш",
                 "samples": []
@@ -1011,7 +1011,7 @@
             "alveolar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "шв",
                 "samples": [
@@ -1031,7 +1031,7 @@
             "geminate",
             "alveolar"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "шш",
                 "samples": [
@@ -1056,7 +1056,7 @@
             "alveolar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "шшв",
                 "samples": [
@@ -1075,7 +1075,7 @@
             "alveolar",
             "trill"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "р",
                 "samples": []
@@ -1102,7 +1102,7 @@
             "voiced",
             "velar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "г",
                 "samples": []
@@ -1130,7 +1130,7 @@
             "velar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "гв",
                 "samples": [
@@ -1149,7 +1149,7 @@
             "voiceless",
             "velar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "к",
                 "samples": []
@@ -1177,7 +1177,7 @@
             "velar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "кв",
                 "samples": [
@@ -1197,7 +1197,7 @@
             "geminate",
             "velar"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "кк",
                 "samples": [
@@ -1222,7 +1222,7 @@
             "velar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "ккв",
                 "samples": [
@@ -1242,7 +1242,7 @@
             "ejective",
             "velar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "кӏ",
                 "samples": []
@@ -1271,7 +1271,7 @@
             "velar",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "кӏв",
                 "samples": [
@@ -1290,7 +1290,7 @@
             "voiced",
             "uvular"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "къ",
                 "samples": []
@@ -1318,7 +1318,7 @@
             "uvular",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "къв",
                 "samples": [
@@ -1338,7 +1338,7 @@
             "uvular",
             "aspirated"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "хъ",
                 "samples": []
@@ -1367,7 +1367,7 @@
             "aspirated",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "хъв",
                 "samples": [
@@ -1387,7 +1387,7 @@
             "geminate",
             "uvular"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "къкъ",
                 "samples": [
@@ -1411,7 +1411,7 @@
             "ejective",
             "uvular"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "кь",
                 "samples": []
@@ -1440,7 +1440,7 @@
             "uvular",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "кьв",
                 "samples": [
@@ -1459,7 +1459,7 @@
             "voiced",
             "velar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "гъ",
                 "samples": []
@@ -1474,7 +1474,7 @@
             "voiced",
             "uvular"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "гъ",
                 "samples": [
@@ -1498,7 +1498,7 @@
             "uvular",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "гъв",
                 "samples": [
@@ -1517,7 +1517,7 @@
             "voiceless",
             "uvular"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "х",
                 "samples": [
@@ -1540,7 +1540,7 @@
             "voiceless",
             "velar"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "х",
                 "samples": []
@@ -1560,7 +1560,7 @@
             "uvular",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "хв",
                 "samples": [
@@ -1580,7 +1580,7 @@
             "geminate",
             "uvular"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "хх",
                 "samples": [
@@ -1603,7 +1603,7 @@
             "voiced",
             "pharyngeal"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "гӏ",
                 "samples": []
@@ -1630,7 +1630,7 @@
             "voiceless",
             "pharyngeal"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "хӏ",
                 "samples": []
@@ -1657,7 +1657,7 @@
             "voiceless",
             "laryngeal"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "гь",
                 "samples": []
@@ -1685,7 +1685,7 @@
             "laryngeal",
             "labialized"
         ],
-        "lects": {
+        "uses": {
             "Kaitag": {
                 "grapheme": "гьв",
                 "samples": [
@@ -1705,7 +1705,7 @@
             "ejective",
             "laryngeal"
         ],
-        "lects": {
+        "uses": {
             "Akusha": {
                 "grapheme": "ъ",
                 "samples": []
