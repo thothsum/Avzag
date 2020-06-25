@@ -23,8 +23,8 @@ export default new Vuex.Store({
   },
   mutations: {
     setCatalogue(state, json) {
-      Object.keys(json).forEach(
-        l => console.log(json[l].lects.sort((a, b) => a.localeCompare(b)))
+      Object.values(json).forEach(
+        l => l.lects.sort((a, b) => a.localeCompare(b))
       );
       state.catalogue = json;
     },

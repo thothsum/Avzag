@@ -2,7 +2,7 @@
   <div class="card">
     <b>{{lect}}</b>
     <span>{{source.text}}</span>
-    <span class="txt-faded">/ {{source.ipa}} /</span>
+    <span class="txt-faded txt-caption">/ {{source.ipa}} /</span>
   </div>
 </template>
 
@@ -19,6 +19,9 @@ export default {
   display: grid;
   grid-template-columns: 100px 1fr 1fr;
   box-shadow: var(--shadow);
+}
+* {
+  font-style: normal;
 }
 @media only screen and (max-width: 568px) {
   .card {
