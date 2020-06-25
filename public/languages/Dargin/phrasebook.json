@@ -41,12 +41,24 @@
             },
             "sources": {
                 "Kaitag": {
-                    "text": "атта?",
+                    "text": "атта",
                     "ipa": "ˈɑtːɑ"
                 },
                 "Akusha": {
                     "text": "дудеш",
                     "ipa": "duˈdeʃ"
+                },
+                "Tsudakhar": {
+                    "text": "тӏутӏеш",
+                    "ipa": "tʼuˈtʼeʃ"
+                },
+                "Chirag": {
+                    "text": "датте",
+                    "ipa": "dˈɑtːe"
+                },
+                "Megeb": {
+                    "text": "адай",
+                    "ipa": "ˈɑˈdɑj"
                 }
             }
         },

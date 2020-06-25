@@ -19,10 +19,13 @@ export default new Vuex.Store({
     },
     languageInfo: state => {
       return state.catalogue ? state.catalogue[state.language] : undefined;
-    },
+    }
   },
   mutations: {
     setCatalogue(state, json) {
+      Object.keys(json).forEach(
+        l => console.log(json[l].lects.sort((a, b) => a.localeCompare(b)))
+      );
       state.catalogue = json;
     },
     setLanguage(state, language) {

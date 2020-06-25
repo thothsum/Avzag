@@ -19,22 +19,25 @@
       >{{it}}</button>
     </div>
     <div class="sources">
-      <div class="card" :key="i" v-for="(sr, i) of sources">
-        <b>{{i}}</b>
-        <p>{{sr.text}}</p>
-        <p class="txt-faded">
-          <span>/</span>
-          {{sr.ipa}}
-          <span>/</span>
-        </p>
-      </div>
+      <PhrasebookEntry
+        class="card"
+        :key="i"
+        :lect="lc"
+        :source="sources[lc]"
+        v-for="(lc, i) of lects"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import PhrasebookEntry from "@/components/PhrasebookEntry";
+
 export default {
   name: "Phrasebook",
+  components: {
+    PhrasebookEntry
+  },
   data() {
     return {
       category: this.$route.query.category ?? 0,
@@ -42,6 +45,11 @@ export default {
     };
   },
   computed: {
+    lects() {
+      return this.$store.getters.languageInfo?.lects.filter(
+        l => l in this.items[this.item].sources
+      );
+    },
     phrasebook() {
       return this.$store.state.phrasebook;
     },
@@ -81,11 +89,9 @@ export default {
   grid-template-columns: 200px 200px 1fr;
   gap: var(--margin-large);
 }
-.card {
-  box-shadow: var(--shadow);
-}
 .list > button {
   border: var(--border-width) solid transparent;
+  height: var(--control-height);
 }
 h3 {
   margin-bottom: var(--margin-double);
@@ -93,9 +99,7 @@ h3 {
 .sources {
   display: flex;
   flex-wrap: wrap;
-}
-.sources > .card * {
-  line-height: 100%;
+  place-content: flex-start;
 }
 @media only screen and (max-width: 568px) {
 }
