@@ -1,8 +1,21 @@
 <template>
   <div class="section" v-if="phrasebook">
-    <SearchList :items="categories" v-model="category" />
-    <SearchList :items="translations" v-model="item" />
-    <div class="sources">
+    <div id="translations">
+      <h3>Category</h3>
+      <select v-model="category">
+        <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
+      </select>
+      <h3>Phrases</h3>
+      <div class="list">
+        <button
+          :class="{selected: i===phrase}"
+          @click="phrase=i"
+          :key="i"
+          v-for="(tr, i) in translations"
+        >{{tr}}</button>
+      </div>
+    </div>
+    <div id="sources">
       <PhrasebookEntry
         class="card"
         :key="i"
@@ -15,19 +28,17 @@
 </template>
 
 <script>
-import SearchList from "@/components/SearchList";
 import PhrasebookEntry from "@/components/PhrasebookEntry";
 
 export default {
   name: "Phrasebook",
   components: {
-    PhrasebookEntry,
-    SearchList
+    PhrasebookEntry
   },
   data() {
     return {
       category: this.$route.query.category ?? 0,
-      item: this.$route.query.item ?? 0
+      phrase: this.$route.query.phrase ?? 0
     };
   },
   computed: {
@@ -40,28 +51,28 @@ export default {
     categories() {
       return Object.keys(this.phrasebook);
     },
-    items() {
+    phrases() {
       return this.phrasebook[this.categories[this.category]];
     },
     translations() {
-      return this.items.map(it => it.translations.eng);
+      return this.phrases.map(it => it.translations.eng);
     },
     sources() {
-      return this.items[this.item].sources;
+      return this.phrases[this.phrase].sources;
     }
   },
   watch: {
     category(val) {
-      this.$router.push({ query: { category: val, item: 0 } });
+      this.$router.push({ query: { category: val, phrase: 0 } });
     },
     item() {
       this.$router.push({
-        query: { ...this.$route.query, item: this.item }
+        query: { ...this.$route.query, phrase: this.phrase }
       });
     },
     "$route.query": function(query) {
       this.category = query.category;
-      this.item = query.item;
+      this.phrase = query.phrase;
     }
   }
 };
@@ -70,7 +81,7 @@ export default {
 <style scoped>
 .section {
   display: grid;
-  grid-template-columns: 200px 200px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: var(--margin-large);
 }
 h3 {
@@ -81,6 +92,21 @@ h3 {
   flex-wrap: wrap;
   place-content: flex-start;
 }
+#translations {
+  display: flex;
+  flex-flow: column;
+}
+#translations > *:not(:last-child) {
+  margin-bottom: var(--margin-double);
+}
+#translations > .list > button {
+  border: var(--border-width) solid transparent;
+  height: var(--control-height);
+}
 @media only screen and (max-width: 568px) {
+  .section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
+  }
 }
 </style>
