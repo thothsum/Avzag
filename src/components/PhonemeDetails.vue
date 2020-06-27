@@ -46,7 +46,8 @@ export default {
       if (this.howler) this.howler.stop();
 
       this.howler = new Howl({
-        src: [`${this.root}${lect}/audio/${sample}.m4a`]
+        src: [`${this.root}${lect}/audio/${sample}.m4a`],
+        html5: true
       });
       this.howler.play();
     }
