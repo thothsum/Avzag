@@ -19,20 +19,22 @@ export default {
     };
   },
   watch: {
-    $route: {
+    "$route.params.lang": {
       async handler() {
-        if (this.$route.name) localStorage.url = this.$route.path;
-
         let language = this.$route.params.lang;
         if (language && language !== this.$store.state.language)
           this.$store.dispatch("loadLanguage", language);
       },
       immediate: true
+    },
+    "$route.path": {
+      handler() {
+        if (this.$route.name) localStorage.url = this.$route.path;
+      }
     }
   },
   created() {
     this.$store.dispatch("loadCatalogue");
-
     if (!this.$route.name || this.$route.name === "Home")
       this.$router.push(
         localStorage.url && localStorage.url !== this.$route.path
