@@ -33,7 +33,7 @@ export default {
   created() {
     this.$store.dispatch("loadCatalogue");
 
-    if (!this.$route.name)
+    if (!this.$route.name || this.$route.name === "Home")
       this.$router.push(
         localStorage.url && localStorage.url !== this.$route.path
           ? { path: localStorage.url }
