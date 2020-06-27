@@ -38,6 +38,7 @@ p {
 }
 span {
   width: 50%;
+  font-style: normal;
 }
 span:nth-child(1) {
   margin-right: var(--margin-half);

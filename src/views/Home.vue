@@ -9,7 +9,7 @@
     <div class="section cards" id="footer">
       <div class="card">
         <h3>Contact</h3>
-        <a href="https://twitter.com/alkaitagi">Twiter</a>
+        <a href="https://twitter.com/alkaitagi">Twitter</a>
         <a href="https://t.me/alkaitagi">Telegram</a>
       </div>
       <div class="card">

@@ -1,23 +1,7 @@
 <template>
   <div class="section" v-if="phrasebook">
-    <div class="list">
-      <h3>Categories</h3>
-      <button
-        :class="{selected: i===category}"
-        @click="category=i"
-        :key="i"
-        v-for="(ct, i) in categories"
-      >{{ct}}</button>
-    </div>
-    <div class="list">
-      <h3>Items</h3>
-      <button
-        :class="{selected: i===item}"
-        @click="item=i"
-        :key="i"
-        v-for="(it, i) in translations"
-      >{{it}}</button>
-    </div>
+    <SearchList :items="categories" v-model="category" />
+    <SearchList :items="translations" v-model="item" />
     <div class="sources">
       <PhrasebookEntry
         class="card"
@@ -31,12 +15,14 @@
 </template>
 
 <script>
+import SearchList from "@/components/SearchList";
 import PhrasebookEntry from "@/components/PhrasebookEntry";
 
 export default {
   name: "Phrasebook",
   components: {
-    PhrasebookEntry
+    PhrasebookEntry,
+    SearchList
   },
   data() {
     return {
@@ -86,10 +72,6 @@ export default {
   display: grid;
   grid-template-columns: 200px 200px 1fr;
   gap: var(--margin-large);
-}
-.list > button {
-  border: var(--border-width) solid transparent;
-  height: var(--control-height);
 }
 h3 {
   margin-bottom: var(--margin-double);
