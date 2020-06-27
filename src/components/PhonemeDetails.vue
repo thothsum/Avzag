@@ -45,9 +45,11 @@ export default {
     play(lect, sample) {
       if (this.howler) this.howler.stop();
 
+      let ext = sample.includes("чӏв") ? ".mp3" : ".m4a";
+      console.log("ext", ext);
+
       this.howler = new Howl({
-        src: [`${this.root}${lect}/audio/${sample}.m4a`],
-        html5: true
+        src: [`${this.root}${lect}/audio/${sample}${ext}`]
       });
       this.howler.play();
     }
