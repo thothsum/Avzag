@@ -84,14 +84,6 @@ export default {
   grid-template-columns: 300px 1fr;
   gap: var(--margin-large);
 }
-h3 {
-  margin-bottom: var(--margin-double);
-}
-.sources {
-  display: flex;
-  flex-wrap: wrap;
-  place-content: flex-start;
-}
 #translations {
   display: flex;
   flex-flow: column;
@@ -102,6 +94,11 @@ h3 {
 #translations > .list > button {
   border: var(--border-width) solid transparent;
   height: var(--control-height);
+}
+#sources {
+  display: flex;
+  flex-direction: column;
+  place-content: flex-start;
 }
 @media only screen and (max-width: 568px) {
   .section {
