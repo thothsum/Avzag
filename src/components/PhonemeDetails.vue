@@ -4,6 +4,7 @@
       <h2 class="txt-ipa">{{phoneme.ipa}}</h2>
       <p class="txt-caption txt-faded spaced" v-if="features">{{features}}</p>
     </div>
+    <audio ref="player"></audio>
     <PhonemeUse
       @play="play(lc, $event)"
       :key="i"
@@ -17,17 +18,10 @@
 <script>
 import PhonemeUse from "./PhonemeUse";
 
-import { Howl } from "howler";
-
 export default {
   name: "PhonemeDetails",
   components: {
     PhonemeUse
-  },
-  data() {
-    return {
-      howler: undefined
-    };
   },
   props: ["phoneme"],
   computed: {
@@ -43,15 +37,12 @@ export default {
   },
   methods: {
     play(lect, sample) {
-      if (this.howler) this.howler.stop();
-
       let ext = sample.includes("чӏв") ? ".mp3" : ".m4a";
       console.log("ext", ext);
 
-      this.howler = new Howl({
-        src: [`${this.root}${lect}/audio/${sample}${ext}`]
-      });
-      this.howler.play();
+      const player = this.$refs.player;
+      player.src = `${this.root}${lect}/audio/${sample}${ext}`;
+      player.play();
     }
   }
 };
