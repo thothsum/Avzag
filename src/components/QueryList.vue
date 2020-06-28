@@ -1,5 +1,5 @@
 <template>
-  <div id="root" class="container" dense>
+  <div id="root" class="panel-horizontal-dense">
     <button @click="reset">
       <span class="material-icons-outlined">clear</span>
     </button>

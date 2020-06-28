@@ -1,13 +1,13 @@
 <template>
   <div id="root">
     <div class="section">
-      <div class="container">
+      <div class="panel-horizontal">
         <button @click="navigate('Home')">
           <span class="material-icons-outlined large">arrow_back</span>
         </button>
         <LanguageBanner />
       </div>
-      <div id="menu" class="container">
+      <div id="menu" class="panel-horizontal">
         <button
           @click="navigate(m.title)"
           :class="{selected: $route.name===m.title}"
