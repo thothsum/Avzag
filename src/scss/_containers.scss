@@ -1,0 +1,18 @@
+.container {
+    margin: calc(var(--margin) * -1);
+    display: flex;
+    flex-wrap: wrap;
+    place-content: flex-start;
+}
+
+.container > * {
+    margin: var(--margin);
+}
+
+.container[dense] {
+    margin: calc(var(--margin-half) * -1);
+}
+
+.container[dense] > * {
+    margin: var(--margin-half);
+}

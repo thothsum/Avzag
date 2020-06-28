@@ -64,22 +64,3 @@ hr {
     margin: 0;
     width: 100%;
 }
-
-.card-container {
-    margin: calc(var(--margin) * -1);
-    display: flex;
-    flex-wrap: wrap;
-    place-content: flex-start;
-}
-
-.card-container>* {
-    margin: var(--margin);
-}
-
-.card-container[dense] {
-    margin: calc(var(--margin-half) * -1)
-}
-
-.card-container[dense]>* {
-    margin: var(--margin-half);
-}

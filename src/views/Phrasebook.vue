@@ -1,6 +1,6 @@
 <template>
   <div class="section" v-if="phrasebook">
-    <div id="translations">
+    <div id="translations" class="container">
       <h3>Category</h3>
       <select v-model="category">
         <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
@@ -83,13 +83,6 @@ export default {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: var(--margin-large);
-}
-#translations {
-  display: flex;
-  flex-flow: column;
-}
-#translations > *:not(:last-child) {
-  margin-bottom: var(--margin-double);
 }
 #translations > .list > button {
   border: var(--border-width) solid transparent;

@@ -1,13 +1,13 @@
 <template>
   <div id="root">
     <div class="section">
-      <div>
+      <div class="container">
         <button @click="navigate('Home')">
           <span class="material-icons-outlined large">arrow_back</span>
         </button>
         <LanguageBanner />
       </div>
-      <div id="menu">
+      <div id="menu" class="container">
         <button
           @click="navigate(m.title)"
           :class="{selected: $route.name===m.title}"
@@ -60,7 +60,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #root {
   background-color: var(--color-foreground);
   margin: calc(var(--margin-double) * -1);
@@ -75,14 +75,9 @@ export default {
   justify-content: space-between;
   display: flex;
 }
-.section > div {
-  display: flex;
+.card-container {
   flex-wrap: nowrap;
-  place-items: center;
   overflow-x: auto;
-}
-.section > div > *:not(:last-child) {
-  margin-right: var(--margin-double);
 }
 button {
   font-weight: bold;
@@ -100,9 +95,6 @@ button {
   }
   .section > * {
     width: 100%;
-  }
-  .section > *:not(:last-child) {
-    margin-bottom: var(--margin-double);
   }
 }
 </style>

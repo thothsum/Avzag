@@ -1,5 +1,5 @@
 <template>
-  <div id="root" class="card-container" :class="{narrow: phonemes.length <= 12}" dense>
+  <div id="root" class="container" :class="{narrow: phonemes.length <= 12}" dense>
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
       :selected="selected==phn.i"
@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @media only screen and (max-width: 568px) {
   #root {
     flex-direction: column;

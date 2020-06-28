@@ -1,5 +1,5 @@
 <template>
-  <div id="root" class="card-container" dense>
+  <div id="root" class="container" dense>
     <button @click="reset">
       <span class="material-icons-outlined">clear</span>
     </button>
@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #root {
   width: 100%;
   flex-wrap: nowrap;

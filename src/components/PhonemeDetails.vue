@@ -1,5 +1,5 @@
 <template>
-  <div id="root" class="card-container">
+  <div id="root" class="container">
     <div class="card">
       <h2>
         <span class="txt-faded">/&nbsp;</span>
@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .spaced {
   word-spacing: var(--margin-double);
 }
