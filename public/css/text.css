@@ -37,18 +37,6 @@
     line-height: 100%;
 }
 
-.txt-ipa::before {
-    content: "/ ";
-    font-family: var(--font-family);
-    color: var(--color-text-faded);
-}
-
-.txt-ipa::after {
-    content: " /";
-    font-family: var(--font-family);
-    color: var(--color-text-faded);
-}
-
 h1, h1 * {
     font-size: var(--font-size-title);
     font-weight: bold;
