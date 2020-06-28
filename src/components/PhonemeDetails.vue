@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="root" class="card-container">
     <div class="card">
       <h2>
         <span class="txt-faded">/&nbsp;</span>
@@ -50,12 +50,6 @@ export default {
 </script>
 
 <style scoped>
-#root {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: center;
-}
 .spaced {
   word-spacing: var(--margin-double);
 }
