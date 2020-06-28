@@ -1,0 +1,45 @@
+:root {
+    --color-background: #faf9f8;
+    --color-foreground: #ffffff;
+    --color-shadow: #bebbb8;
+    --color-text: #201f1e;
+    --color-text-faded: #a19f9d;
+    --color-active: #e1dfdd;
+    --color-hover: #d2d0ce;
+    --color-press: #c8c6c4;
+    --color-select: #0078d4;
+    --color-alert: #d13438;
+
+    --shadow: 0 2px 8px var(--color-shadow);
+    --border-radius: 2px;
+    --border-width: 2px;
+    --margin-half: 2px;
+    --margin: 4px;
+    --margin-double: 8px;
+    --margin-large: 16px;
+    --control-height: 32px;
+    --control-height-small: 24px;
+    --max-width: 960px;
+
+    --font-size: 14px;
+    --font-size-small: 12px;
+    --font-size-large: 20px;
+    --font-size-title: 32px;
+    --font-size-icon: 16px;
+    --font-family: "Fira Sans", sans-serif, "Segoe UI Emoji";
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #201f1e;
+        --color-foreground: #292827;
+        --color-text: #ffffff;
+        --color-text-faded: #a19f9d;
+        --color-shadow: #11100f;
+        --color-active: #3b3a39;
+        --color-hover: #484644;
+        --color-press: #605e5c;
+        --color-select: #2b88d8;
+        --color-alert: #d13438;
+    }
+}

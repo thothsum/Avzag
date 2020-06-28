@@ -1,12 +1,3 @@
-:root {
-    --font-size: 14px;
-    --font-size-small: 12px;
-    --font-size-large: 20px;
-    --font-size-title: 32px;
-    --font-size-icon: 16px;
-    --font-family: 'Fira Sans', sans-serif, 'Segoe UI Emoji';
-}
-
 * {
     font-size: var(--font-size);
     color: var(--color-text);
@@ -23,12 +14,14 @@
     width: var(--font-size-large);
 }
 
-.txt-caption, .txt-caption * {
+.txt-caption,
+.txt-caption * {
     font-style: italic;
     font-size: var(--font-size-small);
 }
 
-.txt-faded, .txt-faded * {
+.txt-faded,
+.txt-faded * {
     color: var(--color-text-faded);
 }
 
@@ -37,12 +30,14 @@
     line-height: 100%;
 }
 
-h1, h1 * {
+h1,
+h1 * {
     font-size: var(--font-size-title);
     font-weight: bold;
 }
 
-h2, h2 * {
+h2,
+h2 * {
     font-size: var(--font-size-large);
     font-weight: bold;
 }
