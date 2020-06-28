@@ -4,7 +4,7 @@
       <h2 class="txt-ipa">{{phoneme.ipa}}</h2>
       <p class="txt-caption txt-faded spaced" v-if="features">{{features}}</p>
     </div>
-    <audio ref="player"></audio>
+    <audio ref="player" type="audio/x-m4a"></audio>
     <PhonemeUse
       @play="play(lc, $event)"
       :key="i"
@@ -37,11 +37,8 @@ export default {
   },
   methods: {
     play(lect, sample) {
-      let ext = sample.includes("чӏв") ? ".mp3" : ".m4a";
-      console.log("ext", ext);
-
       const player = this.$refs.player;
-      player.src = `${this.root}${lect}/audio/${sample}${ext}`;
+      player.src = `${this.root}${lect}/audio/${sample}.m4a`;
       player.play();
     }
   }
