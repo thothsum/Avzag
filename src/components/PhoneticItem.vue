@@ -17,8 +17,6 @@ button {
   border: var(--border-width) solid transparent;
   flex-direction: column;
   place-content: center;
-  width: 46px;
-  height: 40px;
   line-height: 100%;
 }
 .txt-faded {
