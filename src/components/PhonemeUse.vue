@@ -1,10 +1,10 @@
 <template>
-  <div class="card">
+  <div class="panel-dense card">
     <p>
       <b>{{use.grapheme}}</b>
       — {{lect}}
     </p>
-    <p class="txt-caption txt-faded" v-if="use.note">{{use.note}}</p>
+    <p class="text-caption text-faded" v-if="use.note">{{use.note}}</p>
     <div
       :style="{height: Math.min(3, use.samples.length) * 24 + 'px' }"
       class="list"
@@ -32,8 +32,8 @@ export default {
 
 <style lang="scss" scoped>
 .card > .list {
-  margin: calc(var(--margin) * -1);
-  margin-top: var(--margin);
+  margin: calc(var(--margin-double) * -1);
+  margin-top: var(--margin-half);
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }

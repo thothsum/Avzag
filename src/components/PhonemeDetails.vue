@@ -1,6 +1,6 @@
 <template>
   <div id="root" class="panel">
-    <div class="card">
+    <div class="card panel-dense">
       <h2>
         <span class="text-faded">/&nbsp;</span>
         <span class="text-ipa">{{phoneme.ipa}}</span>

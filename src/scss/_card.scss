@@ -1,0 +1,12 @@
+.card {
+    background-color: var(--color-foreground);
+    box-shadow: var(--shadow);
+
+    padding: var(--margin-double);
+    &-dense {
+        padding: var(--margin);
+    }
+    &-sparse {
+        padding: var(--margin-large);
+    }
+}

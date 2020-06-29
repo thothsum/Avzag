@@ -1,6 +1,6 @@
 <template>
   <div class="card" @click="$router.push({ name: 'Phonology', params: { lang: language } })">
-    <div>
+    <div id="header">
       <img :src="flag" alt="flag" />
       <h2>{{ language }}</h2>
     </div>
@@ -37,9 +37,12 @@ export default {
   grid-template-rows: 100px 1fr;
 
   &:hover {
-    box-shadow: var(--shadow);
+    cursor: pointer;
+    box-shadow: var(--shadow-elevated);
   }
 }
+
+
 button {
   min-height: var(--control-height);
   margin: 0;
@@ -49,6 +52,7 @@ button {
 }
 img {
   width: 100%;
+  height: 100%;
 }
 .list {
   max-height: 300px;

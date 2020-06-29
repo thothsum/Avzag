@@ -1,7 +1,7 @@
 <template>
   <div id="root">
-    <p class="txt-caption" :key="i" v-for="(pair, i) in noones">
-      <span class="txt-faded">{{pair[0].replace(" ", "_")}}</span>
+    <p class="text-caption" :key="i" v-for="(pair, i) in noones">
+      <span class="text-faded">{{pair[0].replace(" ", "_")}}</span>
       <span>{{pair[1].replace(" ", "_")}}</span>
     </p>
   </div>

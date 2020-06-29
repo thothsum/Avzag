@@ -28,24 +28,24 @@ import LanguageBanner from "./LanguageBanner";
 export default {
   name: "Header",
   components: {
-    LanguageBanner,
+    LanguageBanner
   },
   data() {
     return {
       menus: [
         {
           title: "Phonology",
-          icon: "audiotrack",
+          icon: "audiotrack"
         },
         {
           title: "Converter",
-          icon: "subject",
+          icon: "subject"
         },
         {
           title: "Phrasebook",
-          icon: "book",
-        },
-      ],
+          icon: "book"
+        }
+      ]
     };
   },
   methods: {
@@ -53,10 +53,10 @@ export default {
       if (this.$route.name !== path)
         this.$router.push({
           name: path,
-          params: { lang: this.$route.params.lang },
+          params: { lang: this.$route.params.lang }
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -65,7 +65,7 @@ export default {
   background-color: var(--color-foreground);
   margin: calc(var(--margin-double) * -1);
   margin-bottom: var(--margin-large);
-  box-shadow: 0 2px 8px var(--color-shadow);
+  box-shadow: var(--shadow-elevated);
   padding: var(--margin-double);
   border-radius: 0;
 }
