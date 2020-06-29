@@ -82,19 +82,21 @@ export default {
 button {
   font-weight: bold;
 }
-#menu::-webkit-scrollbar {
-  display: none;
-}
-#menu > button {
-  border: var(--border-width) solid transparent;
+#menu {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  > button {
+    border: var(--border-width) solid transparent;
+  }
 }
 @media only screen and (max-width: 768px) {
   .section {
     height: fit-content;
     flex-flow: column;
-  }
-  .section > * {
-    width: 100%;
+    > * {
+      width: 100%;
+    }
   }
 }
 </style>

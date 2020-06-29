@@ -70,11 +70,12 @@ $item-height: 40px;
   #root {
     grid-auto-flow: column;
     overflow-x: auto;
-    max-height: $item-height * 5;
+    max-height: 5 * $item-height;
     grid-template-rows: repeat(auto-fill, $item-height);
-  }
-  #root.narrow {
-    max-height: $item-height;
+
+    &.narrow {
+      grid-template-rows: $item-height;
+    }
   }
 }
 </style>

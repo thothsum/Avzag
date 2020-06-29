@@ -81,12 +81,12 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-#phonemes > * {
-  width: 100%;
-}
-#phonemes > *:not(:last-child) {
-  margin-bottom: var(--margin-large);
+  > * {
+    width: 100%;
+  }
+  > *:not(:last-child) {
+    margin-bottom: var(--margin-large);
+  }
 }
 #queries > *:not(:last-child) {
   margin-bottom: var(--margin-double);

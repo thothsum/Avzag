@@ -139,9 +139,10 @@ textarea {
   }
   #options {
     flex-flow: column;
-  }
-  #options > *:not(:last-child) {
-    margin: 0 0 var(--margin-double) 0;
+    
+    > *:not(:last-child) {
+      margin: 0 0 var(--margin-double) 0;
+    }
   }
 }
 </style>

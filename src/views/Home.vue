@@ -48,9 +48,9 @@ export default {
 .section.cards {
   display: flex;
   flex-wrap: wrap;
-}
-.section.cards > *:not(:last-child) {
-  margin: 0 var(--margin-large) var(--margin-large) 0;
+  > *:not(:last-child) {
+    margin: 0 var(--margin-large) var(--margin-large) 0;
+  }
 }
 #footer .card {
   min-width: 100px;
