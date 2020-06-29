@@ -9,7 +9,6 @@
     --color-press: #c8c6c4;
     --color-select: #0078d4;
     --color-alert: #d13438;
-
     --shadow: 0 2px 4px var(--color-shadow);
     --border-radius: 2px;
     --border-width: 2px;
@@ -20,7 +19,6 @@
     --control-height: 32px;
     --control-height-small: 24px;
     --max-width: 960px;
-
     --font-size: 14px;
     --font-size-small: 12px;
     --font-size-large: 20px;

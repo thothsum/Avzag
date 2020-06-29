@@ -20,32 +20,15 @@ hr {
     background-color: var(--color-active);
 }
 
-.section, hr {
+.section,
+hr {
     margin: auto auto var(--margin-large) auto;
     width: 100%;
     max-width: var(--max-width);
-}
 
-.section:last-child {
-    margin: auto auto 0 auto;
-}
-
-.card {
-    width: 100%;
-    margin: 0 0 var(--margin-double) 0;
-    background-color: var(--color-foreground);
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.card {
-    padding: var(--margin);
-    box-shadow: var(--shadow);
-}
-
-.card>* {
-    margin: var(--margin);
+    &:last-child {
+        margin: auto auto 0 auto;
+    }
 }
 
 .list {
@@ -54,9 +37,13 @@ hr {
     align-content: flex-start;
     overflow-y: auto;
     border-radius: var(--border-radius);
+    > * {
+        margin: 0;
+        width: 100%;
+    }
 }
 
-.list>* {
-    margin: 0;
-    width: 100%;
+.card {
+    box-shadow: var(--shadow);
+    background-color: var(--color-foreground);
 }

@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-    <button @click="$router.push({name: 'Phonology', params: {lang: language}})">
-      <h2>{{language}}</h2>
-      <span class="material-icons-outlined large">arrow_forwards</span>
-    </button>
+  <div class="card" @click="$router.push({ name: 'Phonology', params: { lang: language } })">
+    <div>
+      <img :src="flag" alt="flag" />
+      <h2>{{ language }}</h2>
+    </div>
     <div class="list">
-      <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>
+      <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
     </div>
   </div>
 </template>
@@ -15,6 +15,9 @@ export default {
   name: "LanguageCard",
   props: ["language"],
   computed: {
+    flag() {
+      return this.$store.state.root + this.language + "/flag.png";
+    },
     info() {
       return this.$store.state.catalogue[this.language];
     },
@@ -26,6 +29,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  min-width: 150px;
+  width: 150px;
+  height: 175px;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+
+  &:hover {
+    box-shadow: var(--shadow);
+  }
+}
 button {
   min-height: var(--control-height);
   margin: 0;
@@ -33,11 +47,8 @@ button {
   border-bottom-left-radius: 0;
   justify-content: space-between;
 }
-.card {
-  padding: 0;
-  min-width: 150px;
-  width: 150px;
-  height: 175px;
+img {
+  width: 100%;
 }
 .list {
   max-height: 300px;

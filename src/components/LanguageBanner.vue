@@ -1,6 +1,6 @@
 <template>
   <div class="panel-horizontal">
-    <img :src="banner" alt="flag" />
+    <img :src="flag" alt="flag" />
     <h2>{{language}}</h2>
   </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
   name: "LanguageBanner",
   computed: {
-    banner() {
+    flag() {
       return this.$store.getters.languageRoot + "flag.png";
     },
     language() {
