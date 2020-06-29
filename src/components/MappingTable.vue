@@ -39,13 +39,11 @@ p {
 span {
   width: 50%;
   font-style: normal;
-
-  :nth-child(1) {
+  &:nth-child(1) {
     margin-right: var(--margin-half);
     text-align: right;
   }
-  
-  :nth-child(2) {
+  &:nth-child(2) {
     margin-left: var(--margin-half);
   }
 }

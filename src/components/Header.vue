@@ -2,19 +2,20 @@
   <div id="root">
     <div class="section">
       <div class="panel-horizontal">
-        <button @click="navigate('Home')">
-          <span class="material-icons-outlined-large">arrow_back</span>
+        <button @click="navigate('Home')" class="round">
+          <span class="material-icons-outlined">arrow_back</span>
         </button>
         <LanguageBanner />
       </div>
       <div id="menu" class="panel-horizontal">
         <button
-          @click="navigate(m.title)"
+          class="round"
           :class="{ selected: $route.name === m.title }"
+          @click="navigate(m.title)"
           :key="i"
           v-for="(m, i) in menus"
         >
-          <span class="material-icons-outlined-large">{{ m.icon }}</span>
+          <span class="material-icons-outlined">{{ m.icon }}</span>
           <p>{{ m.title }}</p>
         </button>
       </div>

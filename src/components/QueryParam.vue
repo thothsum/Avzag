@@ -1,10 +1,10 @@
 <template>
-  <button class="small" :class="{in: value===1, ex: value===-1}" @click="update">
-    <span class="material-icons-outlined">
+  <button class="small round" :class="{in: value===1, ex: value===-1}" @click="update">
+    <!-- <span class="material-icons-outlined">
       <template v-if="value===-1">remove</template>
       <template v-else-if="value===1">add</template>
       <template v-else>arrow_right</template>
-    </span>
+    </span> -->
     <p>{{text}}</p>
   </button>
 </template>

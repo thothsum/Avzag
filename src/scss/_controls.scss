@@ -2,6 +2,10 @@
   border-color: var(--color-select) !important;
 }
 
+.round {
+  border-radius: 128px;
+}
+
 button,
 select,
 a {
@@ -18,13 +22,7 @@ select {
   padding: 0 var(--margin-double);
 
   &.small {
-    > * {
-      margin: 0;
-    }
-
-    padding: 0 var(--margin);
     height: var(--control-height-small);
-    border-radius: 100px;
   }
 
   &:hover {
