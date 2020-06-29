@@ -1,5 +1,9 @@
 <template>
-  <div class="card panel-dense" @click="$router.push({ name: 'Phonology', params: { lang: language } })">
+  <div
+    class="card panel-dense"
+    @click="$router.push({ name: 'Phonology', params: { lang: language } })"
+  >
+    <img :src="flag" alt="flag" />
     <h2>{{ language }}</h2>
     <div class="list">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
@@ -12,6 +16,9 @@ export default {
   name: "LanguageCard",
   props: ["language"],
   computed: {
+    flag() {
+      return this.$store.state.root + this.language + "/flag.png";
+    },
     info() {
       return this.$store.state.catalogue[this.language];
     },
@@ -27,21 +34,26 @@ export default {
   min-width: 150px;
   width: 150px;
   height: 175px;
-
+  position: relative;
+  overflow: hidden;
+  text-shadow: var(--shadow);
   &:hover {
     cursor: pointer;
     box-shadow: var(--shadow-elevated);
+    img {
+      height: 110%;
+    }
+  }
+  > *:not(img) {
+    z-index: 1;
   }
 }
-button {
-  min-height: var(--control-height);
-  margin: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  justify-content: space-between;
-}
-.list {
-  max-height: 300px;
-  margin: 0;
+img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  transform: translate(30%, 30%) rotate(-45deg);
+  mask-image: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
 }
 </style>
