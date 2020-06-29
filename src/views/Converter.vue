@@ -112,7 +112,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 textarea {
   padding: var(--margin-double);
   height: 250px;

@@ -30,7 +30,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .card > .list {
   margin: calc(var(--margin) * -1);
   margin-top: var(--margin);

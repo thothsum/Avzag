@@ -71,7 +71,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .section {
   display: grid;
   grid-template-columns: 1fr 200px;

@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 button {
   border: var(--border-width) solid transparent;
   flex-direction: column;

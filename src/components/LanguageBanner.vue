@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 img {
   height: var(--control-height);
 }

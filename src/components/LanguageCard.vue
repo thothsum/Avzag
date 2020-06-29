@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 button {
   min-height: var(--control-height);
   margin: 0;
