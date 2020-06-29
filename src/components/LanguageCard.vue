@@ -33,6 +33,7 @@ export default {
   min-width: 150px;
   width: 150px;
   height: 175px;
+  padding: 0;
   display: grid;
   grid-template-rows: 100px 1fr;
 
@@ -41,7 +42,6 @@ export default {
     box-shadow: var(--shadow-elevated);
   }
 }
-
 
 button {
   min-height: var(--control-height);
