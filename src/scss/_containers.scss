@@ -8,12 +8,14 @@
     > *:not(:last-child) {
         margin-#{$side}: var(--margin-double);
     }
+
     &-dense {
         @extend #{$parent};
         > *:not(:last-child) {
             margin-#{$side}: var(--margin);
         }
     }
+
     &-sparse {
         @extend #{$parent};
         > *:not(:last-child) {
@@ -27,6 +29,7 @@
     @include side-margin(".panel-vertical", bottom);
     flex-direction: column;
 }
+
 .panel-horizontal {
     @extend %panel;
     @include side-margin(".panel-horizontal", right);
