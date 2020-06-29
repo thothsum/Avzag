@@ -65,7 +65,7 @@ export default {
   background-color: var(--color-foreground);
   margin: calc(var(--margin-double) * -1);
   margin-bottom: var(--margin-large);
-  box-shadow: 0 2px 16px var(--color-shadow);
+  box-shadow: 0 4px 8px var(--color-shadow);
   padding: var(--margin-double);
   border-radius: 0;
 }
