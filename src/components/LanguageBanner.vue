@@ -1,5 +1,5 @@
 <template>
-  <div id="banner">
+  <div class="panel-horizontal">
     <img :src="banner" alt="flag" />
     <h2>{{language}}</h2>
   </div>
@@ -23,14 +23,7 @@ export default {
 </script>
 
 <style scoped>
-#banner {
-  display: flex;
-  place-items: center;
-  justify-content: flex-start;
-}
 img {
   height: var(--control-height);
-  display: flex;
-  margin-right: var(--margin-double);
 }
 </style>

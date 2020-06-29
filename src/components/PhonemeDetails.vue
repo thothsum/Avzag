@@ -1,5 +1,5 @@
 <template>
-  <div id="root" class="panel-vertical">
+  <div id="root" class="panel">
     <div class="card">
       <h2>
         <span class="txt-faded">/&nbsp;</span>

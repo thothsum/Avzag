@@ -4,34 +4,34 @@
     place-content: flex-start;
 }
 
-@mixin side-margin($parent, $side) {
-    > *:not(:last-child) {
-        margin-#{$side}: var(--margin-double);
+@mixin last-margin($side, $size) {
+    > :not(:last-child) {
+        margin-#{$side}: #{$size};
     }
+}
+
+@mixin density($parent, $side) {
+    @include last-margin($side, "var(--margin-double)");
 
     &-dense {
         @extend #{$parent};
-        > *:not(:last-child) {
-            margin-#{$side}: var(--margin);
-        }
+        @include last-margin($side, "var(--margin)");
     }
 
     &-sparse {
         @extend #{$parent};
-        > *:not(:last-child) {
-            margin-#{$side}: var(--margin-large);
-        }
+        @include last-margin($side, "var(--margin-large)");
     }
 }
 
-.panel-vertical {
+.panel {
     @extend %panel;
-    @include side-margin(".panel-vertical", bottom);
+    @include density(".panel", bottom);
     flex-direction: column;
 }
 
 .panel-horizontal {
     @extend %panel;
-    @include side-margin(".panel-horizontal", right);
+    @include density(".panel-horizontal", right);
     flex-direction: row;
 }
