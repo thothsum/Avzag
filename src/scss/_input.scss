@@ -1,9 +1,11 @@
 textarea,
 input[type="text"] {
-    border: var(--border-width) solid var(--color-active);
     text-align: left;
     &:read-write {
+        box-shadow: var(--shadow) inset;
         background-color: var(--color-foreground);
+        border: 0 solid var(--color-active);
+        border-bottom-width: 2px;
         &:hover,
         &:focus {
             border-color: var(--color-select);
