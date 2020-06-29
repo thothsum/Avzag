@@ -3,7 +3,7 @@
     <div class="section">
       <h1 id="header">Ævzag</h1>
     </div>
-    <div class="section panel-horizontal">
+    <div class="section panel-horizontal-sparse">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
     </div>
     <div id="footer" class="section panel-horizontal">

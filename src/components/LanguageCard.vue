@@ -1,9 +1,6 @@
 <template>
-  <div class="card" @click="$router.push({ name: 'Phonology', params: { lang: language } })">
-    <div id="header">
-      <img :src="flag" alt="flag" />
-      <h2>{{ language }}</h2>
-    </div>
+  <div class="card panel-dense" @click="$router.push({ name: 'Phonology', params: { lang: language } })">
+    <h2>{{ language }}</h2>
     <div class="list">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
     </div>
@@ -15,9 +12,6 @@ export default {
   name: "LanguageCard",
   props: ["language"],
   computed: {
-    flag() {
-      return this.$store.state.root + this.language + "/flag.png";
-    },
     info() {
       return this.$store.state.catalogue[this.language];
     },
@@ -33,16 +27,12 @@ export default {
   min-width: 150px;
   width: 150px;
   height: 175px;
-  padding: 0;
-  display: grid;
-  grid-template-rows: 100px 1fr;
 
   &:hover {
     cursor: pointer;
     box-shadow: var(--shadow-elevated);
   }
 }
-
 button {
   min-height: var(--control-height);
   margin: 0;
@@ -50,13 +40,8 @@ button {
   border-bottom-left-radius: 0;
   justify-content: space-between;
 }
-img {
-  width: 100%;
-  height: 100%;
-}
 .list {
   max-height: 300px;
-  padding: var(--margin-double);
   margin: 0;
 }
 </style>
