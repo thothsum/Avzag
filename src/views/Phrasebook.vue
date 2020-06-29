@@ -1,6 +1,6 @@
 <template>
   <div class="section" v-if="phrasebook">
-    <div id="translations" class="container">
+    <div id="translations" class="panel">
       <h3>Category</h3>
       <select v-model="category">
         <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
@@ -15,7 +15,7 @@
         >{{tr}}</button>
       </div>
     </div>
-    <div id="sources">
+    <div class="panel">
       <PhrasebookEntry
         class="card"
         :key="i"
@@ -87,11 +87,6 @@ export default {
 #translations > .list > button {
   border: var(--border-width) solid transparent;
   height: var(--control-height);
-}
-#sources {
-  display: flex;
-  flex-direction: column;
-  place-content: flex-start;
 }
 @media only screen and (max-width: 568px) {
   .section {

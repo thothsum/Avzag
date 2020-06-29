@@ -1,7 +1,6 @@
 %panel {
     display: flex;
     flex-wrap: nowrap;
-    place-items: center;
 }
 
 @mixin last-margin($side, $size) {
@@ -33,5 +32,6 @@
 .panel-horizontal {
     @extend %panel;
     @include density(".panel-horizontal", right);
+    place-items: center;
     flex-direction: row;
 }
