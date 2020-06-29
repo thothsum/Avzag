@@ -1,8 +1,8 @@
 textarea,
 input[type="text"] {
     text-align: left;
+    box-shadow: var(--shadow) inset;
     &:read-write {
-        box-shadow: var(--shadow) inset;
         background-color: var(--color-foreground);
         border: 0 solid var(--color-active);
         border-bottom-width: 2px;
