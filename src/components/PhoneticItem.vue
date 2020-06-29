@@ -1,14 +1,14 @@
 <template>
-  <button :class="{'txt-faded': faded, selected: selected}">
-    <b>{{str}}</b>
-    <span class="txt-ipa">{{ipa}}</span>
+  <button :class="{ 'text-faded': faded, selected: selected }">
+    <b>{{ str }}</b>
+    <span class="text-ipa">{{ ipa }}</span>
   </button>
 </template>
 
 <script>
 export default {
   name: "PhoneticItem",
-  props: ["selected", "faded", "ipa", "str"]
+  props: ["selected", "faded", "ipa", "str"],
 };
 </script>
 
@@ -17,16 +17,15 @@ button {
   border: var(--border-width) solid transparent;
   flex-direction: column;
   place-content: center;
-  line-height: 100%;
 }
-.txt-faded {
+.text-faded {
   background-color: transparent;
-}
-.txt-faded:hover,
-.txt-faded:hover > * {
-  color: var(--color-text);
-}
-.txt-faded:active {
-  background-color: var(--color-active);
+
+  &:hover > * {
+    color: var(--color-text);
+  }
+  &:active {
+    background-color: var(--color-active);
+  }
 }
 </style>

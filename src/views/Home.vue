@@ -26,11 +26,11 @@ import LanguageCard from "@/components/LanguageCard";
 export default {
   name: "Home",
   components: {
-    LanguageCard
+    LanguageCard,
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL
+      publicPath: process.env.BASE_URL,
     };
   },
   computed: {
@@ -39,8 +39,8 @@ export default {
     },
     languages() {
       return Object.keys(this.catalogue).sort((a, b) => a.localeCompare(b));
-    }
-  }
+    },
+  },
 };
 </script>
 

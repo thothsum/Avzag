@@ -1,37 +1,37 @@
 %panel {
-    display: flex;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 @mixin last-margin($side, $size) {
-    > :not(:last-child) {
-        margin-#{$side}: #{$size};
-    }
+  > :not(:last-child) {
+    margin-#{$side}: #{$size};
+  }
 }
 
 @mixin density($parent, $side) {
-    @include last-margin($side, "var(--margin-double)");
+  @include last-margin($side, "var(--margin-double)");
 
-    &-dense {
-        @extend #{$parent};
-        @include last-margin($side, "var(--margin)");
-    }
+  &-dense {
+    @extend #{$parent};
+    @include last-margin($side, "var(--margin)");
+  }
 
-    &-sparse {
-        @extend #{$parent};
-        @include last-margin($side, "var(--margin-large)");
-    }
+  &-sparse {
+    @extend #{$parent};
+    @include last-margin($side, "var(--margin-large)");
+  }
 }
 
 .panel {
-    @extend %panel;
-    @include density(".panel", bottom);
-    flex-direction: column;
+  @extend %panel;
+  @include density(".panel", bottom);
+  flex-direction: column;
 }
 
 .panel-horizontal {
-    @extend %panel;
-    @include density(".panel-horizontal", right);
-    place-items: center;
-    flex-direction: row;
+  @extend %panel;
+  @include density(".panel-horizontal", right);
+  place-items: center;
+  flex-direction: row;
 }

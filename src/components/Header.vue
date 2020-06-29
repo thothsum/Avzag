@@ -10,12 +10,12 @@
       <div id="menu" class="panel-horizontal">
         <button
           @click="navigate(m.title)"
-          :class="{selected: $route.name===m.title}"
+          :class="{ selected: $route.name === m.title }"
           :key="i"
           v-for="(m, i) in menus"
         >
-          <span class="material-icons-outlined-large">{{m.icon}}</span>
-          <p>{{m.title}}</p>
+          <span class="material-icons-outlined-large">{{ m.icon }}</span>
+          <p>{{ m.title }}</p>
         </button>
       </div>
     </div>
@@ -28,24 +28,24 @@ import LanguageBanner from "./LanguageBanner";
 export default {
   name: "Header",
   components: {
-    LanguageBanner
+    LanguageBanner,
   },
   data() {
     return {
       menus: [
         {
           title: "Phonology",
-          icon: "audiotrack"
+          icon: "audiotrack",
         },
         {
           title: "Converter",
-          icon: "subject"
+          icon: "subject",
         },
         {
           title: "Phrasebook",
-          icon: "book"
-        }
-      ]
+          icon: "book",
+        },
+      ],
     };
   },
   methods: {
@@ -53,10 +53,10 @@ export default {
       if (this.$route.name !== path)
         this.$router.push({
           name: path,
-          params: { lang: this.$route.params.lang }
+          params: { lang: this.$route.params.lang },
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -75,15 +75,12 @@ export default {
   justify-content: space-between;
   display: flex;
 }
-.card-container {
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
 button {
   font-weight: bold;
 }
 #menu {
-  ::-webkit-scrollbar {
+  overflow-x: auto;
+  &::-webkit-scrollbar {
     display: none;
   }
   > button {

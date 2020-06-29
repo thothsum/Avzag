@@ -1,45 +1,50 @@
 * {
-    font-size: var(--font-size);
-    color: var(--color-text);
-    font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--color-text);
+  font-family: var(--font-family);
 }
 
 .material-icons-outlined {
-    font-family: "Material Icons Outlined";
-    font-size: var(--font-size-icon) !important;
-    width: var(--font-size-icon);
+  font-family: "Material Icons Outlined";
+  font-size: var(--font-size-icon);
+  font-weight: normal;
+  width: var(--font-size-icon);
 
-    &-large {
-        @extend .material-icons-outlined;
-        font-size: var(--font-size-large) !important;
-        width: var(--font-size-large);
-    }
+  &-large {
+    @extend .material-icons-outlined;
+    font-size: var(--font-size-large);
+    width: var(--font-size-large);
+  }
 }
 
-.txt-caption,
-.txt-caption * {
-    font-style: italic;
-    font-size: var(--font-size-small);
+.text-caption,
+.text-caption * {
+  font-style: italic;
+  font-size: var(--font-size-small);
 }
 
-.txt-faded,
-.txt-faded * {
-    color: var(--color-text-faded);
+.text-faded,
+.text-faded * {
+  color: var(--color-text-faded);
 }
 
-.txt-ipa {
-    font-family: sans-serif;
-    line-height: 100%;
+.text-ipa {
+  font-family: sans-serif;
+  line-height: 100%;
+}
+
+.text-spaced {
+  word-spacing: var(--margin-double);
 }
 
 h1,
 h1 * {
-    font-size: var(--font-size-title);
-    font-weight: bold;
+  font-size: var(--font-size-title);
+  font-weight: bold;
 }
 
 h2,
 h2 * {
-    font-size: var(--font-size-large);
-    font-weight: bold;
+  font-size: var(--font-size-large);
+  font-weight: bold;
 }

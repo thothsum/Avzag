@@ -1,6 +1,6 @@
 <template>
   <div id="root" class="panel-horizontal-dense">
-    <button @click="reset">
+    <button @click="reset" class="small">
       <span class="material-icons-outlined">clear</span>
     </button>
     <QueryParam :text="t" v-model="values[i]" :key="i" v-for="(t, i) in tags" />

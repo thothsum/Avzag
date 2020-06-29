@@ -2,11 +2,11 @@
   <div id="root" class="panel">
     <div class="card">
       <h2>
-        <span class="txt-faded">/&nbsp;</span>
-        <span class="txt-ipa">{{phoneme.ipa}}</span>
-        <span class="txt-faded">&nbsp;/</span>
+        <span class="text-faded">/&nbsp;</span>
+        <span class="text-ipa">{{phoneme.ipa}}</span>
+        <span class="text-faded">&nbsp;/</span>
       </h2>
-      <p class="txt-caption txt-faded spaced" v-if="features">{{features}}</p>
+      <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
@@ -48,9 +48,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.spaced {
-  word-spacing: var(--margin-double);
-}
-</style>
