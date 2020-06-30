@@ -7,8 +7,10 @@
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
           <button @click="$refs.file.click()">
-            <span class="material-icons-outlined">publish</span>
-            <p>Upload .txt file</p>
+            <span class="material-icons-outlined-large">publish</span>
+          </button>
+          <button @click="showMapping=!showMapping">
+            <span class="material-icons-outlined-large">visibility</span>
           </button>
         </div>
         <textarea v-model="source"></textarea>
@@ -20,19 +22,12 @@
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
           <button @click="copy">
-            <span class="material-icons-outlined">file_copy</span>
-            <p>Copy to clipboard</p>
+            <span class="material-icons-outlined-large">file_copy</span>
           </button>
         </div>
         <textarea readonly ref="result" :value="result"></textarea>
         <MappingTable v-show="showMapping" :mapping="mappingResult" />
       </div>
-    </div>
-    <div id="options">
-      <button @click="showMapping=!showMapping">
-        <span class="material-icons-outlined">text_rotation_none</span>
-        <p>Show mapping</p>
-      </button>
     </div>
     <input v-show="false" type="file" ref="file" @change="upload" />
     <a v-show="false" ref="link"></a>
@@ -147,12 +142,6 @@ textarea {
   padding: var(--margin-double);
   height: 250px;
 }
-#options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: var(--margin-double) 0;
-}
 .split {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -166,13 +155,6 @@ textarea {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
     align-items: stretch;
-  }
-  #options {
-    flex-flow: column;
-
-    > *:not(:last-child) {
-      margin: 0 0 var(--margin-double) 0;
-    }
   }
 }
 </style>

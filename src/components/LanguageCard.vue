@@ -44,6 +44,11 @@ export default {
       opacity: 0.6;
     }
   }
+  &:active {
+    img {
+      opacity: 0.8;
+    }
+  }
   * {
     z-index: 1;
   }
