@@ -1,7 +1,8 @@
 <template>
   <div id="root">
     <div class="section">
-      <div class="panel-horizontal">
+      <div id="banner" class="panel-horizontal">
+        <img :src="flag" draggable="false" alt="flag" />
         <button @click="navigate('Home')" class="round">
           <span class="material-icons-outlined-large">arrow_back</span>
         </button>
@@ -44,6 +45,11 @@ export default {
       ]
     };
   },
+  computed: {
+    flag() {
+      return this.$store.getters.languageRoot + "flag.png";
+    }
+  },
   methods: {
     navigate(path) {
       if (this.$route.name !== path)
@@ -65,6 +71,20 @@ export default {
   padding: var(--margin-double);
   border-radius: 0;
   overflow: hidden;
+  *:not(img) {
+    z-index: 1;
+  }
+}
+#banner {
+  position: relative;
+  img {
+    user-select: none;
+    position: absolute;
+    height: 256px;
+    opacity: 0.4;
+    transform: translate(-25%) rotate(-45deg);
+    mask-image: linear-gradient(white, transparent);
+  }
 }
 .section {
   border-top-left-radius: 0;
