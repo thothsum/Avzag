@@ -81,7 +81,7 @@ export default {
     position: absolute;
     height: 192px;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.5;
     transform: translate(-5%) rotate(-20deg);
     mask-image: linear-gradient(90deg, white, transparent);
   }
@@ -107,6 +107,14 @@ button {
     flex-flow: column;
     > * {
       width: 100%;
+    }
+  }
+  #root {
+    img {
+      left: initial;
+      right: 0;
+      transform: translate(10%, 12.5%) rotate(-20deg);
+      mask-image: linear-gradient(-90deg, white, transparent);
     }
   }
   #menu {
