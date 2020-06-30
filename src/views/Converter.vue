@@ -73,7 +73,8 @@ export default {
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-      return entries.concat(ones);
+
+      return entries.concat(ones).map(e => [e[1], e[0]]);
     },
     result() {
       return this.convert(this.source);
@@ -106,7 +107,7 @@ export default {
         str = this.replace(str, from, to);
         str = this.replace(str, this.uppercase(from), this.uppercase(to));
       }
-      for (const [to, from] of this.mappingResult) {
+      for (const [from, to] of this.mappingResult) {
         str = this.replace(str, from, to);
         str = this.replace(str, this.uppercase(from), this.uppercase(to));
       }
