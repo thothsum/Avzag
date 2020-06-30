@@ -10,7 +10,7 @@
       </div>
       <div id="menu" class="panel-horizontal">
         <button
-          :class="{ selected: $route.name === m.title }"
+          :class="{ highlight: $route.name === m.title }"
           @click="navigate(m.title)"
           :key="i"
           v-for="(m, i) in menus"

@@ -1,10 +1,17 @@
 @mixin highligh($color) {
     * {
-        color: var(--color-#{select});
+        color: var(--color-#{$color});
     }
-    background-color: var(--color-#{select}-back) !important;
+    background-color: var(--color-#{$color}-back) !important;
 }
 
 .highlight {
     @include highligh("highlight");
+
+    &-confirm {
+        @include highligh("confirm");
+    }
+    &-alert {
+        @include highligh("alert");
+    }
 }
