@@ -36,11 +36,11 @@ export default {
         },
         {
           title: "Converter",
-          icon: "subject"
+          icon: "sync_alt"
         },
         {
           title: "Phrasebook",
-          icon: "book"
+          icon: "chat"
         }
       ]
     };
@@ -78,6 +78,9 @@ export default {
 }
 #banner {
   position: relative;
+  * {
+    text-shadow: var(--shadow-elevated);
+  }
   img {
     z-index: 0;
     position: absolute;
