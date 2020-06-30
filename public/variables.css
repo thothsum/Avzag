@@ -37,7 +37,8 @@
     --font-size-small: 12px;
     --font-size-large: 20px;
     --font-size-title: 32px;
-    --font-size-icon: 16px;
+    --font-size-icon: 20px;
+    --font-size-icon-small: 16px;
     --font-family: "Fira Sans", sans-serif, "Segoe UI Emoji";
 }
 

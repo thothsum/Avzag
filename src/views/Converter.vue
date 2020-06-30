@@ -7,10 +7,10 @@
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
           <button @click="$refs.file.click()">
-            <span class="material-icons-outlined-large">publish</span>
+            <span class="icon">publish</span>
           </button>
           <button @click="showMapping=!showMapping">
-            <span class="material-icons-outlined-large">visibility</span>
+            <span class="icon">visibility</span>
           </button>
         </div>
         <textarea v-model="source"></textarea>
@@ -22,7 +22,7 @@
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
           <button @click="copy">
-            <span class="material-icons-outlined-large">file_copy</span>
+            <span class="icon">file_copy</span>
           </button>
         </div>
         <textarea readonly ref="result" :value="result"></textarea>

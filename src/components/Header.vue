@@ -4,7 +4,7 @@
       <div class="panel-horizontal">
         <img :src="flag" draggable="false" alt="flag" />
         <button @click="navigate('Home')">
-          <span class="material-icons-outlined-large">arrow_back</span>
+          <span class="icon">arrow_back</span>
         </button>
         <h2>{{$store.state.language}}</h2>
       </div>
@@ -15,7 +15,7 @@
           :key="i"
           v-for="(m, i) in menus"
         >
-          <span class="material-icons-outlined-large">{{ m.icon }}</span>
+          <span class="icon">{{ m.icon }}</span>
           <p>{{ m.title }}</p>
         </button>
       </div>
