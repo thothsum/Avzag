@@ -24,14 +24,17 @@ export default {
   props: ["lect", "use"],
   methods: {
     highlight(sample, grapheme) {
-      return sample.replace(new RegExp(grapheme, "g"), `<b>${grapheme}</b>`);
+      return sample.replace(
+        new RegExp(grapheme, "g"),
+        `<span style="color: var(--color-highlight)">${grapheme}</span>`
+      );
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.card > .list {
+.list {
   margin: calc(var(--margin-double) * -1);
   margin-top: var(--margin-half);
   border-top-right-radius: 0;
