@@ -33,7 +33,7 @@ p {
   gap: var(--margin);
   span {
     font-size: var(--font-size-small);
-    &:nth-child(1) {
+    &:first-child {
       text-align: right;
     }
   }
