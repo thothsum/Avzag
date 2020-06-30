@@ -23,8 +23,7 @@ button {
   }
 }
 .text-faded {
-  background-color: transparent;
-
+  background-color: transparent !important;
   &:hover > * {
     color: var(--color-text);
   }
