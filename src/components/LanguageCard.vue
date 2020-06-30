@@ -36,6 +36,7 @@ export default {
   position: relative;
   overflow: hidden;
   text-shadow: var(--shadow);
+  user-select: none;
   &:hover {
     cursor: pointer;
     box-shadow: var(--shadow-elevated);
@@ -43,12 +44,12 @@ export default {
       opacity: 0.6;
     }
   }
-  > *:not(img) {
+  * {
     z-index: 1;
   }
 }
 img {
-  user-select: none;
+  z-index: 0;
   position: absolute;
   bottom: 0;
   right: 0;

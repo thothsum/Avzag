@@ -71,14 +71,15 @@ export default {
   padding: var(--margin-double);
   border-radius: 0;
   overflow: hidden;
-  *:not(img) {
+  user-select: none;
+  * {
     z-index: 1;
   }
 }
 #banner {
   position: relative;
   img {
-    user-select: none;
+    z-index: 0;
     position: absolute;
     height: 256px;
     opacity: 0.4;
