@@ -162,7 +162,7 @@ textarea {
   .split {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
     align-items: stretch;
   }
 }
