@@ -5,6 +5,13 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
         ? '/Aevzag/'
         : '/',
+    css: {
+        loaderOptions: {
+            scss: {
+                prependData: `@import "@/scss/_variables.scss";`
+            }
+        }
+    },
     pwa: {
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'default',
