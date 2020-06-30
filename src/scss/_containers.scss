@@ -15,13 +15,7 @@ body {
     background-color: var(--color-background);
 }
 
-hr {
-    height: var(--border-radius);
-    background-color: var(--color-active);
-}
-
-.section,
-hr {
+.section {
     margin: auto auto var(--margin-large) auto;
     width: 100%;
     max-width: var(--max-width);

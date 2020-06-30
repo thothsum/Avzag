@@ -4,19 +4,6 @@
   font-family: var(--font-family);
 }
 
-.material-icons-outlined {
-  font-family: "Material Icons Outlined";
-  font-size: var(--font-size-icon);
-  font-weight: normal;
-  width: var(--font-size-icon);
-
-  &-large {
-    @extend .material-icons-outlined;
-    font-size: var(--font-size-large);
-    width: var(--font-size-large);
-  }
-}
-
 .text-caption,
 .text-caption * {
   font-style: italic;

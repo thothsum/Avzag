@@ -1,27 +1,35 @@
 <template>
   <div class="section" v-if="converters">
     <div class="split">
-      <textarea v-model="source"></textarea>
-      <textarea readonly ref="result" :value="result"></textarea>
+      <div class="panel">
+        <div class="panel-horizontal">
+          <select v-model="mappingFrom">
+            <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+          </select>
+          <button @click="$refs.file.click()">
+            <span class="icon">publish</span>
+          </button>
+          <button @click="showMapping=!showMapping">
+            <span v-if="showMapping" class="icon">visibility_off</span>
+            <span v-else class="icon">visibility</span>
+          </button>
+        </div>
+        <textarea v-model="source"></textarea>
+        <MappingTable v-show="showMapping" :mapping="mappingSource" />
+      </div>
+      <div class="panel">
+        <div class="panel-horizontal">
+          <select v-model="mappingTo">
+            <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+          </select>
+          <button @click="copy">
+            <span class="icon">file_copy</span>
+          </button>
+        </div>
+        <textarea readonly ref="result" :value="result"></textarea>
+        <MappingTable v-show="showMapping" :mapping="mappingResult" />
+      </div>
     </div>
-    <div id="options">
-      <button @click="$refs.file.click()">
-        <span class="material-icons-outlined">publish</span>
-        <p>Upload .txt file</p>
-      </button>
-      <button @click="showMapping=!showMapping">
-        <span class="material-icons-outlined">text_rotation_none</span>
-        <p>Show mapping</p>
-      </button>
-      <select v-model="selected">
-        <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
-      </select>
-      <button @click="copy">
-        <span class="material-icons-outlined">file_copy</span>
-        <p>Copy to clipboard</p>
-      </button>
-    </div>
-    <MappingTable v-show="showMapping" :mapping="mapping" />
     <input v-show="false" type="file" ref="file" @change="upload" />
     <a v-show="false" ref="link"></a>
   </div>
@@ -37,7 +45,8 @@ export default {
   },
   data() {
     return {
-      selected: 0,
+      mappingFrom: 0,
+      mappingTo: 1,
       source: "",
       showMapping: false
     };
@@ -49,12 +58,20 @@ export default {
     converters() {
       return this.$store.state.converters;
     },
-    mapping() {
-      var entries = Object.entries(this.converters[this.selected].mapping);
+    mappingSource() {
+      var entries = Object.entries(this.converters[this.mappingFrom].mapping);
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
       return entries.concat(ones);
+    },
+    mappingResult() {
+      var entries = Object.entries(this.converters[this.mappingTo].mapping);
+      var ones = entries
+        .filter(a => a[0].includes("ӏ"))
+        .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
+
+      return entries.concat(ones).map(e => [e[1], e[0]]);
     },
     result() {
       return this.convert(this.source);
@@ -66,6 +83,20 @@ export default {
         this.source = this.sample;
       },
       immediate: true
+    },
+    mappingFrom(from) {
+      this.$router
+        .replace({ query: { ...this.$route.query, from: from } })
+        .catch(() => {});
+    },
+    mappingTo(to) {
+      this.$router
+        .replace({ query: { ...this.$route.query, to: to } })
+        .catch(() => {});
+    },
+    "$route.query": function(query) {
+      this.mappingFrom = query.from;
+      this.mappingTo = query.to;
     }
   },
   methods: {
@@ -83,7 +114,11 @@ export default {
     },
     convert(str) {
       str = " " + this.replace(str, "\n", "\n ").trim();
-      for (const [from, to] of this.mapping) {
+      for (const [from, to] of this.mappingSource) {
+        str = this.replace(str, from, to);
+        str = this.replace(str, this.uppercase(from), this.uppercase(to));
+      }
+      for (const [from, to] of this.mappingResult) {
         str = this.replace(str, from, to);
         str = this.replace(str, this.uppercase(from), this.uppercase(to));
       }
@@ -117,32 +152,18 @@ textarea {
   padding: var(--margin-double);
   height: 250px;
 }
-#options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: var(--margin-double) 0;
-}
 .split {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--margin-double);
-  align-items: stretch;
+  place-items: stretch;
 }
 @media only screen and (max-width: 568px) {
   .split {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
     align-items: stretch;
-  }
-  #options {
-    flex-flow: column;
-    
-    > *:not(:last-child) {
-      margin: 0 0 var(--margin-double) 0;
-    }
   }
 }
 </style>

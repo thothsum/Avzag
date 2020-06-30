@@ -35,13 +35,18 @@ export default {
   height: 175px;
   position: relative;
   overflow: hidden;
-  text-shadow: var(--shadow);
+  text-shadow: var(--shadow-elevated);
   user-select: none;
   &:hover {
     cursor: pointer;
     box-shadow: var(--shadow-elevated);
     img {
       opacity: 0.6;
+    }
+  }
+  &:active {
+    img {
+      opacity: 0.8;
     }
   }
   * {
@@ -55,7 +60,7 @@ img {
   right: 0;
   height: 100%;
   opacity: 0.4;
-  transform: translate(30%, 30%) rotate(-45deg);
+  transform: translate(30%, 30%) rotate(-20deg);
   mask-image: linear-gradient(transparent, white);
 }
 </style>

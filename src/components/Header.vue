@@ -1,22 +1,21 @@
 <template>
   <div id="root">
     <div class="section">
-      <div id="banner" class="panel-horizontal">
+      <div class="panel-horizontal">
         <img :src="flag" draggable="false" alt="flag" />
-        <button @click="navigate('Home')" class="round">
-          <span class="material-icons-outlined-large">arrow_back</span>
+        <button @click="navigate('Home')">
+          <span class="icon">arrow_back</span>
         </button>
         <h2>{{$store.state.language}}</h2>
       </div>
       <div id="menu" class="panel-horizontal">
         <button
-          class="round"
-          :class="{ selected: $route.name === m.title }"
+          :class="{ highlight: $route.name === m.title }"
           @click="navigate(m.title)"
           :key="i"
           v-for="(m, i) in menus"
         >
-          <span class="material-icons-outlined-large">{{ m.icon }}</span>
+          <span class="icon">{{ m.icon }}</span>
           <p>{{ m.title }}</p>
         </button>
       </div>
@@ -36,11 +35,11 @@ export default {
         },
         {
           title: "Converter",
-          icon: "subject"
+          icon: "sync_alt"
         },
         {
           title: "Phrasebook",
-          icon: "book"
+          icon: "chat"
         }
       ]
     };
@@ -72,19 +71,19 @@ export default {
   border-radius: 0;
   overflow: hidden;
   user-select: none;
+  position: relative;
+  text-shadow: var(--shadow-elevated);
   * {
     z-index: 1;
   }
-}
-#banner {
-  position: relative;
   img {
     z-index: 0;
     position: absolute;
-    height: 256px;
-    opacity: 0.4;
-    transform: translate(-25%) rotate(-45deg);
-    mask-image: linear-gradient(white, transparent);
+    height: 192px;
+    left: 0;
+    opacity: 0.5;
+    transform: translate(-5%) rotate(-20deg);
+    mask-image: linear-gradient(90deg, white, transparent);
   }
 }
 .section {
@@ -101,16 +100,21 @@ button {
   &::-webkit-scrollbar {
     display: none;
   }
-  > button {
-    border: var(--border-width) solid transparent;
-  }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 568px) {
   .section {
     height: fit-content;
     flex-flow: column;
     > * {
       width: 100%;
+    }
+  }
+  #root {
+    img {
+      left: initial;
+      right: 0;
+      transform: translate(10%, 12.5%) rotate(-20deg);
+      mask-image: linear-gradient(-90deg, white, transparent);
     }
   }
   #menu {

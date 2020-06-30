@@ -1,5 +1,5 @@
 <template>
-  <button :class="{ 'text-faded': faded, selected: selected }">
+  <button :class="{ 'text-faded': faded, highlight: selected }">
     <b>{{str}}</b>
     <span class="text-ipa">{{ ipa }}</span>
   </button>
@@ -23,13 +23,14 @@ button {
   }
 }
 .text-faded {
-  background-color: transparent;
-
-  &:hover > * {
-    color: var(--color-text);
-  }
-  &:active {
-    background-color: var(--color-active);
+  background-color: transparent !important;
+  &:not(.highlight) {
+    &:hover > * {
+      color: var(--color-text);
+    }
+    &:active {
+      background-color: var(--color-active);
+    }
   }
 }
 </style>

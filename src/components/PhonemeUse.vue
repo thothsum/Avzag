@@ -11,7 +11,7 @@
       v-if="use.samples && use.samples.length>0"
     >
       <button @click="$emit('play', sm)" :key="i" v-for="(sm, i) in use.samples">
-        <span class="material-icons-outlined">play_arrow</span>
+        <span class="icon-small">play_arrow</span>
         <span v-html="highlight(sm, use.grapheme)"></span>
       </button>
     </div>
