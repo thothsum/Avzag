@@ -154,8 +154,7 @@ textarea {
 }
 .split {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--margin-double);
   place-items: stretch;
 }
