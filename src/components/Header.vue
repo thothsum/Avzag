@@ -79,11 +79,11 @@ export default {
   img {
     z-index: 0;
     position: absolute;
-    height: 256px;
+    height: 192px;
     left: 0;
     opacity: 0.4;
-    transform: translate(-20%) rotate(-45deg);
-    mask-image: linear-gradient(white, transparent);
+    transform: rotate(-20deg);
+    mask-image: linear-gradient(90deg, white, transparent);
   }
 }
 .section {
@@ -94,7 +94,6 @@ export default {
 }
 button {
   font-weight: bold;
-  // background-color: transparent;
 }
 #menu {
   overflow-x: auto;
@@ -102,7 +101,7 @@ button {
     display: none;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 568px) {
   .section {
     height: fit-content;
     flex-flow: column;
