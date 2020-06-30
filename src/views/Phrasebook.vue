@@ -1,6 +1,6 @@
 <template>
   <div class="section" v-if="phrasebook">
-    <div id="translations">
+    <div id="translations" class="panel">
       <h3>Category</h3>
       <select v-model="category">
         <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
@@ -15,7 +15,7 @@
         >{{tr}}</button>
       </div>
     </div>
-    <div id="sources">
+    <div class="panel">
       <PhrasebookEntry
         class="card"
         :key="i"
@@ -78,27 +78,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .section {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: var(--margin-large);
 }
-#translations {
-  display: flex;
-  flex-flow: column;
-}
-#translations > *:not(:last-child) {
-  margin-bottom: var(--margin-double);
-}
 #translations > .list > button {
   border: var(--border-width) solid transparent;
   height: var(--control-height);
-}
-#sources {
-  display: flex;
-  flex-direction: column;
-  place-content: flex-start;
 }
 @media only screen and (max-width: 568px) {
   .section {

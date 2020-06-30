@@ -1,7 +1,7 @@
 <template>
   <div id="root">
-    <p class="txt-caption" :key="i" v-for="(pair, i) in noones">
-      <span class="txt-faded">{{pair[0].replace(" ", "_")}}</span>
+    <p class="text-caption" :key="i" v-for="(pair, i) in noones">
+      <span class="text-faded">{{pair[0].replace(" ", "_")}}</span>
       <span>{{pair[1].replace(" ", "_")}}</span>
     </p>
   </div>
@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #root {
   display: flex;
   flex-wrap: wrap;
@@ -39,12 +39,12 @@ p {
 span {
   width: 50%;
   font-style: normal;
-}
-span:nth-child(1) {
-  margin-right: var(--margin-half);
-  text-align: right;
-}
-span:nth-child(2) {
-  margin-left: var(--margin-half);
+  &:nth-child(1) {
+    margin-right: var(--margin-half);
+    text-align: right;
+  }
+  &:nth-child(2) {
+    margin-left: var(--margin-half);
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <button :class="{'txt-faded': faded, selected: selected}">
+  <button :class="{ 'text-faded': faded, selected: selected }">
     <b>{{str}}</b>
-    <span class="txt-ipa">{{ipa}}</span>
+    <span class="text-ipa">{{ ipa }}</span>
   </button>
 </template>
 
@@ -12,23 +12,24 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 button {
   border: var(--border-width) solid transparent;
   flex-direction: column;
+  justify-items: space-between;
   place-content: center;
-  width: 46px;
-  height: 40px;
-  line-height: 100%;
+  > * {
+    margin: 0;
+  }
 }
-.txt-faded {
+.text-faded {
   background-color: transparent;
-}
-.txt-faded:hover,
-.txt-faded:hover > * {
-  color: var(--color-text);
-}
-.txt-faded:active {
-  background-color: var(--color-active);
+
+  &:hover > * {
+    color: var(--color-text);
+  }
+  &:active {
+    background-color: var(--color-active);
+  }
 }
 </style>

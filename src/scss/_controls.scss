@@ -1,0 +1,80 @@
+.selected {
+  border-color: var(--color-select) !important;
+}
+
+.round {
+  border-radius: 128px;
+}
+
+button,
+select,
+a {
+  user-select: none;
+  cursor: pointer;
+}
+
+button,
+select {
+  @extend .panel-horizontal-dense;
+
+  background-color: var(--color-active);
+  height: var(--control-height);
+  padding: 0 var(--margin-double);
+
+  &.small {
+    height: var(--control-height-small);
+  }
+
+  &:hover {
+    background-color: var(--color-hover);
+  }
+
+  &:active {
+    background-color: var(--color-press);
+  }
+}
+
+.list button {
+  height: var(--control-height-small);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+button.inline {
+  font-size: var(--font-size-small);
+  background-color: transparent;
+  border: solid var(--border-width) var(--color-active);
+  margin: 0 var(--margin) 0 0;
+  height: var(--control-height-small);
+  padding: 0 var(--margin);
+}
+
+button.inline:hover {
+  border-color: var(--color-hover);
+  background-color: var(--color-hover);
+}
+
+button.inline:active {
+  border-color: var(--color-press);
+  background-color: var(--color-press);
+}
+
+button.inline > .material-icons-outlined {
+  margin-right: var(--margin);
+}
+
+a {
+  display: flex;
+  place-items: center;
+  color: var(--color-select);
+  text-decoration: underline;
+  padding: var(--margin) var(--margin-double);
+}
+
+a:hover {
+  background-color: var(--color-hover);
+}
+
+a:active {
+  color: var(--color-text);
+}

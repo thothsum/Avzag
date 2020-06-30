@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="phonemes && lects">
-    <div id="phonemes">
-      <QueryList :tags="lects" @query="lectQuery=$event" />
+    <div class="panel-sparse">
+      <QueryList :tags="lects" @query="lectQuery = $event" />
       <PhoneticTable
         :selected="selected"
         :phonemes="vowels"
@@ -16,7 +16,7 @@
         :lectQuery="lectQuery"
         @phoneme="select($event)"
       />
-      <QueryInput @query="featureQuery=$event" />
+      <QueryInput @query="featureQuery = $event" />
     </div>
     <PhonemeDetails :phoneme="phonemes[selected]" />
   </div>
@@ -34,12 +34,12 @@ export default {
     PhoneticTable,
     PhonemeDetails,
     QueryList,
-    QueryInput
+    QueryInput,
   },
   data() {
     return {
       lectQuery: {},
-      featureQuery: {}
+      featureQuery: {},
     };
   },
   computed: {
@@ -58,35 +58,27 @@ export default {
     },
     consonants() {
       return this.categorize("consonant");
-    }
+    },
   },
   methods: {
     select(i) {
       if (this.selected !== i) this.$router.replace({ query: { phoneme: i } });
     },
     categorize(category) {
-      return this.phonemes.filter(p => p.features.includes(category));
-    }
-  }
+      return this.phonemes.filter((p) => p.features.includes(category));
+    },
+  },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .section {
   display: grid;
   grid-template-columns: 1fr 200px;
   gap: var(--margin-large);
 }
-#phonemes {
-  display: flex;
-  flex-direction: column;
+.panel-sparse {
   overflow: hidden;
-}
-#phonemes > * {
-  width: 100%;
-}
-#phonemes > *:not(:last-child) {
-  margin-bottom: var(--margin-large);
 }
 #queries > *:not(:last-child) {
   margin-bottom: var(--margin-double);

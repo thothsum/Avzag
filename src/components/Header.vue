@@ -1,21 +1,22 @@
 <template>
   <div id="root">
     <div class="section">
-      <div>
-        <button @click="navigate('Home')">
-          <span class="material-icons-outlined large">arrow_back</span>
+      <div class="panel-horizontal">
+        <button @click="navigate('Home')" class="round">
+          <span class="material-icons-outlined-large">arrow_back</span>
         </button>
-        <LanguageBanner />
+        <h2>{{$store.state.language}}</h2>
       </div>
-      <div id="menu">
+      <div id="menu" class="panel-horizontal">
         <button
+          class="round"
+          :class="{ selected: $route.name === m.title }"
           @click="navigate(m.title)"
-          :class="{selected: $route.name===m.title}"
           :key="i"
           v-for="(m, i) in menus"
         >
-          <span class="material-icons-outlined large">{{m.icon}}</span>
-          <p>{{m.title}}</p>
+          <span class="material-icons-outlined-large">{{ m.icon }}</span>
+          <p>{{ m.title }}</p>
         </button>
       </div>
     </div>
@@ -23,13 +24,8 @@
 </template>
 
 <script>
-import LanguageBanner from "./LanguageBanner";
-
 export default {
   name: "Header",
-  components: {
-    LanguageBanner
-  },
   data() {
     return {
       menus: [
@@ -60,14 +56,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #root {
   background-color: var(--color-foreground);
   margin: calc(var(--margin-double) * -1);
   margin-bottom: var(--margin-large);
-  box-shadow: 0 2px 16px var(--color-shadow);
+  box-shadow: var(--shadow-elevated);
   padding: var(--margin-double);
   border-radius: 0;
+  overflow: hidden;
 }
 .section {
   border-top-left-radius: 0;
@@ -75,34 +72,28 @@ export default {
   justify-content: space-between;
   display: flex;
 }
-.section > div {
-  display: flex;
-  flex-wrap: nowrap;
-  place-items: center;
-  overflow-x: auto;
-}
-.section > div > *:not(:last-child) {
-  margin-right: var(--margin-double);
-}
 button {
   font-weight: bold;
 }
-#menu::-webkit-scrollbar {
-  display: none;
-}
-#menu > button {
-  border: var(--border-width) solid transparent;
+#menu {
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  > button {
+    border: var(--border-width) solid transparent;
+  }
 }
 @media only screen and (max-width: 768px) {
   .section {
     height: fit-content;
     flex-flow: column;
+    > * {
+      width: 100%;
+    }
   }
-  .section > * {
-    width: 100%;
-  }
-  .section > *:not(:last-child) {
-    margin-bottom: var(--margin-double);
+  #menu {
+    margin-top: var(--margin-double);
   }
 }
 </style>

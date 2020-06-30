@@ -1,11 +1,12 @@
 <template>
-  <div class="card">
-    <button @click="$router.push({name: 'Phonology', params: {lang: language}})">
-      <h2>{{language}}</h2>
-      <span class="material-icons-outlined large">arrow_forwards</span>
-    </button>
+  <div
+    class="card panel-dense"
+    @click="$router.push({ name: 'Phonology', params: { lang: language } })"
+  >
+    <img :src="flag" draggable="false" alt="flag" />
+    <h2>{{ language }}</h2>
     <div class="list">
-      <p :key="i" v-for="(lc, i) in lects">{{lc}}</p>
+      <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
     </div>
   </div>
 </template>
@@ -15,6 +16,9 @@ export default {
   name: "LanguageCard",
   props: ["language"],
   computed: {
+    flag() {
+      return this.$store.state.root + this.language + "/flag.png";
+    },
     info() {
       return this.$store.state.catalogue[this.language];
     },
@@ -25,23 +29,33 @@ export default {
 };
 </script>
 
-<style scoped>
-button {
-  min-height: var(--control-height);
-  margin: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  justify-content: space-between;
-}
+<style lang="scss" scoped>
 .card {
-  padding: 0;
   min-width: 150px;
   width: 150px;
   height: 175px;
+  position: relative;
+  overflow: hidden;
+  text-shadow: var(--shadow);
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--shadow-elevated);
+    img {
+      opacity: 0.6;
+    }
+  }
+  > *:not(img) {
+    z-index: 1;
+  }
 }
-.list {
-  max-height: 300px;
-  padding: var(--margin-double);
-  margin: 0;
+img {
+  user-select: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  opacity: 0.4;
+  transform: translate(30%, 30%) rotate(-45deg);
+  mask-image: linear-gradient(transparent, white);
 }
 </style>

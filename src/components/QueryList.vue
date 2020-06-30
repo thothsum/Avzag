@@ -1,6 +1,6 @@
 <template>
-  <div id="root">
-    <button @click="reset">
+  <div id="root" class="panel-horizontal-dense">
+    <button @click="reset" class="small round">
       <span class="material-icons-outlined">clear</span>
     </button>
     <QueryParam :text="t" v-model="values[i]" :key="i" v-for="(t, i) in tags" />
@@ -51,14 +51,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #root {
   width: 100%;
-  display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-}
-#root > *:not(:last-child) {
-  margin: 0 var(--margin) var(--margin) 0;
 }
 </style>

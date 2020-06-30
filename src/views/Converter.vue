@@ -112,7 +112,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 textarea {
   padding: var(--margin-double);
   height: 250px;
@@ -139,9 +139,10 @@ textarea {
   }
   #options {
     flex-flow: column;
-  }
-  #options > *:not(:last-child) {
-    margin: 0 0 var(--margin-double) 0;
+    
+    > *:not(:last-child) {
+      margin: 0 0 var(--margin-double) 0;
+    }
   }
 }
 </style>

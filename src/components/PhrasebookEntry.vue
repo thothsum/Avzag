@@ -2,7 +2,7 @@
   <div class="card">
     <b>{{lect}}</b>
     <span>{{source.text}}</span>
-    <span class="txt-faded txt-ipa">/{{source.ipa}}/</span>
+    <span class="text-faded text-ipa">/{{source.ipa}}/</span>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .card {
   height: min-content;
   display: grid;
