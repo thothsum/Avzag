@@ -1,7 +1,7 @@
 :root {
-    --color-background: #faf9f8;
+    --color-background: #F5F5F5;
     --color-foreground: #ffffff;
-    --color-shadow: #201f1e22;
+    --color-shadow: #00000022;
     --color-text: #201f1e;
     --color-text-faded: #a19f9d;
     --color-active: #e1dfdd;
@@ -34,7 +34,6 @@
         --color-foreground: #292827;
         --color-text: #ffffff;
         --color-text-faded: #a19f9d;
-        --color-shadow: #11100f;
         --color-active: #3b3a39;
         --color-hover: #484644;
         --color-press: #605e5c;
