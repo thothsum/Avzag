@@ -1,24 +1,32 @@
 <template>
   <div class="section" v-if="converters">
     <div class="split">
-      <textarea v-model="source"></textarea>
-      <textarea readonly ref="result" :value="result"></textarea>
+      <div class="panel">
+        <div class="panel-horizontal">
+          <select v-model="selected">
+            <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+          </select>
+          <button @click="$refs.file.click()">
+            <span class="material-icons-outlined">publish</span>
+            <p>Upload .txt file</p>
+          </button>
+        </div>
+        <textarea v-model="source"></textarea>
+      </div>
+      <div class="panel">
+        <div class="panel-horizontal">
+          <button @click="copy">
+            <span class="material-icons-outlined">file_copy</span>
+            <p>Copy to clipboard</p>
+          </button>
+        </div>
+        <textarea readonly ref="result" :value="result"></textarea>
+      </div>
     </div>
     <div id="options">
-      <button @click="$refs.file.click()">
-        <span class="material-icons-outlined">publish</span>
-        <p>Upload .txt file</p>
-      </button>
       <button @click="showMapping=!showMapping">
         <span class="material-icons-outlined">text_rotation_none</span>
         <p>Show mapping</p>
-      </button>
-      <select v-model="selected">
-        <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
-      </select>
-      <button @click="copy">
-        <span class="material-icons-outlined">file_copy</span>
-        <p>Copy to clipboard</p>
       </button>
     </div>
     <MappingTable v-show="showMapping" :mapping="mapping" />
@@ -139,7 +147,7 @@ textarea {
   }
   #options {
     flex-flow: column;
-    
+
     > *:not(:last-child) {
       margin: 0 0 var(--margin-double) 0;
     }
