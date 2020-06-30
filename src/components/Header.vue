@@ -5,7 +5,7 @@
         <button @click="navigate('Home')" class="round">
           <span class="material-icons-outlined-large">arrow_back</span>
         </button>
-        <LanguageBanner />
+        <h2>{{$store.state.language}}</h2>
       </div>
       <div id="menu" class="panel-horizontal">
         <button
@@ -24,13 +24,8 @@
 </template>
 
 <script>
-import LanguageBanner from "./LanguageBanner";
-
 export default {
   name: "Header",
-  components: {
-    LanguageBanner
-  },
   data() {
     return {
       menus: [
@@ -69,6 +64,7 @@ export default {
   box-shadow: var(--shadow-elevated);
   padding: var(--margin-double);
   border-radius: 0;
+  overflow: hidden;
 }
 .section {
   border-top-left-radius: 0;

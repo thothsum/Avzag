@@ -3,7 +3,7 @@
     class="card panel-dense"
     @click="$router.push({ name: 'Phonology', params: { lang: language } })"
   >
-    <img :src="flag" alt="flag" />
+    <img :src="flag" draggable="false" alt="flag" />
     <h2>{{ language }}</h2>
     <div class="list">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
@@ -49,6 +49,7 @@ export default {
   }
 }
 img {
+  user-select: none;
   position: absolute;
   bottom: 0;
   right: 0;
