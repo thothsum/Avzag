@@ -10,7 +10,8 @@
             <span class="icon">publish</span>
           </button>
           <button @click="showMapping=!showMapping">
-            <span class="icon">visibility</span>
+            <span v-if="showMapping" class="icon">visibility_off</span>
+            <span v-else class="icon">visibility</span>
           </button>
         </div>
         <textarea v-model="source"></textarea>
