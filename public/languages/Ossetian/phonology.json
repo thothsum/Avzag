@@ -312,11 +312,11 @@
         ],
         "uses": {
             "Iron": {
-                "grapheme": "к",
+                "grapheme": "ку",
                 "samples": []
             },
             "Digor": {
-                "grapheme": "к",
+                "grapheme": "ку",
                 "samples": []
             }
         }

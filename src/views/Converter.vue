@@ -73,9 +73,7 @@ export default {
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-
-      entries = entries.concat(ones);
-      return entries.map(e => [e[1], e[0]]);
+      return entries.concat(ones);
     },
     result() {
       return this.convert(this.source);
