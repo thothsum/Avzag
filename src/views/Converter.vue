@@ -3,7 +3,7 @@
     <div class="split">
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="selectedSource">
+          <select v-model="mappingFrom">
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
           <button @click="$refs.file.click()">
@@ -18,7 +18,7 @@
       </div>
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="selectedResult">
+          <select v-model="mappingTo">
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
           <button @click="copy">
@@ -44,8 +44,8 @@ export default {
   },
   data() {
     return {
-      selectedSource: 0,
-      selectedResult: 0,
+      mappingFrom: 0,
+      mappingTo: 1,
       source: "",
       showMapping: false
     };
@@ -58,18 +58,14 @@ export default {
       return this.$store.state.converters;
     },
     mappingSource() {
-      var entries = Object.entries(
-        this.converters[this.selectedSource].mapping
-      );
+      var entries = Object.entries(this.converters[this.mappingFrom].mapping);
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
       return entries.concat(ones);
     },
     mappingResult() {
-      var entries = Object.entries(
-        this.converters[this.selectedResult].mapping
-      );
+      var entries = Object.entries(this.converters[this.mappingTo].mapping);
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
@@ -86,6 +82,20 @@ export default {
         this.source = this.sample;
       },
       immediate: true
+    },
+    mappingFrom(from) {
+      this.$router
+        .replace({ query: { ...this.$route.query, from: from } })
+        .catch(err => {});
+    },
+    mappingTo(to) {
+      this.$router
+        .replace({ query: { ...this.$route.query, to: to } })
+        .catch(err => {});
+    },
+    "$route.query": function(query) {
+      this.mappingFrom = query.from;
+      this.mappingTo = query.to;
     }
   },
   methods: {
