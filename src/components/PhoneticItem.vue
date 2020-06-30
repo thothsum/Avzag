@@ -24,11 +24,13 @@ button {
 }
 .text-faded {
   background-color: transparent !important;
-  &:hover > * {
-    color: var(--color-text);
-  }
-  &:active {
-    background-color: var(--color-active);
+  &:not(.highlight) {
+    &:hover > * {
+      color: var(--color-text);
+    }
+    &:active {
+      background-color: var(--color-active);
+    }
   }
 }
 </style>
