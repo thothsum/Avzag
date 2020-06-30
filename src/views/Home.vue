@@ -3,7 +3,7 @@
     <div class="section">
       <h1 id="header">Ævzag</h1>
     </div>
-    <div class="section panel-horizontal-sparse">
+    <div id="languages" class="section">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
     </div>
     <div id="footer" class="section panel-horizontal">
@@ -45,10 +45,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.panel-horizontal {
-  place-items: flex-start;
+#languages {
+  display: grid;
+  gap: var(--margin-large);
+  place-items: stretch;
+  grid-template-columns: repeat(auto-fill, 150px);
 }
-#footer > div {
-  width: 100px;
+#footer {
+  place-items: flex-start;
+  > div {
+    width: 100px;
+  }
 }
 </style>
