@@ -86,12 +86,12 @@ export default {
     mappingFrom(from) {
       this.$router
         .replace({ query: { ...this.$route.query, from: from } })
-        .catch(err => {});
+        .catch(() => {});
     },
     mappingTo(to) {
       this.$router
         .replace({ query: { ...this.$route.query, to: to } })
-        .catch(err => {});
+        .catch(() => {});
     },
     "$route.query": function(query) {
       this.mappingFrom = query.from;

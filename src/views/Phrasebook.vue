@@ -62,13 +62,15 @@ export default {
     }
   },
   watch: {
-    category(val) {
-      this.$router.push({ query: { category: val, phrase: 0 } });
+    category(category) {
+      this.$router
+        .push({ query: { category: category, phrase: 0 } })
+        .catch(() => {});
     },
-    item() {
-      this.$router.push({
-        query: { ...this.$route.query, phrase: this.phrase }
-      });
+    phrase(phrase) {
+      this.$router
+        .push({ query: { ...this.$route.query, phrase: phrase } })
+        .catch(() => {});
     },
     "$route.query": function(query) {
       this.category = query.category;
