@@ -92,5 +92,8 @@ button {
       width: 100%;
     }
   }
+  #menu {
+    margin-top: var(--margin-double);
+  }
 }
 </style>
