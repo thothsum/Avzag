@@ -3,7 +3,7 @@
     <div class="split">
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="selected">
+          <select v-model="selectedSource">
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
           <button @click="$refs.file.click()">
@@ -12,15 +12,20 @@
           </button>
         </div>
         <textarea v-model="source"></textarea>
+        <MappingTable v-show="showMapping" :mapping="mappingSource" />
       </div>
       <div class="panel">
         <div class="panel-horizontal">
+          <select v-model="selectedResult">
+            <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+          </select>
           <button @click="copy">
             <span class="material-icons-outlined">file_copy</span>
             <p>Copy to clipboard</p>
           </button>
         </div>
         <textarea readonly ref="result" :value="result"></textarea>
+        <MappingTable v-show="showMapping" :mapping="mappingResult" />
       </div>
     </div>
     <div id="options">
@@ -29,7 +34,6 @@
         <p>Show mapping</p>
       </button>
     </div>
-    <MappingTable v-show="showMapping" :mapping="mapping" />
     <input v-show="false" type="file" ref="file" @change="upload" />
     <a v-show="false" ref="link"></a>
   </div>
@@ -45,7 +49,8 @@ export default {
   },
   data() {
     return {
-      selected: 0,
+      selectedSource: 0,
+      selectedResult: 0,
       source: "",
       showMapping: false
     };
@@ -57,12 +62,25 @@ export default {
     converters() {
       return this.$store.state.converters;
     },
-    mapping() {
-      var entries = Object.entries(this.converters[this.selected].mapping);
+    mappingSource() {
+      var entries = Object.entries(
+        this.converters[this.selectedSource].mapping
+      );
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
       return entries.concat(ones);
+    },
+    mappingResult() {
+      var entries = Object.entries(
+        this.converters[this.selectedResult].mapping
+      );
+      var ones = entries
+        .filter(a => a[0].includes("ӏ"))
+        .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
+
+      entries = entries.concat(ones);
+      return entries.map(e => [e[1], e[0]]);
     },
     result() {
       return this.convert(this.source);
@@ -91,7 +109,11 @@ export default {
     },
     convert(str) {
       str = " " + this.replace(str, "\n", "\n ").trim();
-      for (const [from, to] of this.mapping) {
+      for (const [from, to] of this.mappingSource) {
+        str = this.replace(str, from, to);
+        str = this.replace(str, this.uppercase(from), this.uppercase(to));
+      }
+      for (const [to, from] of this.mappingResult) {
         str = this.replace(str, from, to);
         str = this.replace(str, this.uppercase(from), this.uppercase(to));
       }
@@ -136,7 +158,7 @@ textarea {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   gap: var(--margin-double);
-  align-items: stretch;
+  place-items: stretch;
 }
 @media only screen and (max-width: 568px) {
   .split {
