@@ -1,5 +1,8 @@
 .selected {
-  border-color: var(--color-select) !important;
+  * {
+    color: var(--color-select);
+  }
+  background-color: var(--color-select-back) !important;
 }
 
 .round {

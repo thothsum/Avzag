@@ -1,16 +1,15 @@
 <template>
   <div id="root">
     <div class="section">
-      <div id="banner" class="panel-horizontal">
+      <div class="panel-horizontal">
         <img :src="flag" draggable="false" alt="flag" />
-        <button @click="navigate('Home')" class="round">
+        <button @click="navigate('Home')">
           <span class="material-icons-outlined-large">arrow_back</span>
         </button>
         <h2>{{$store.state.language}}</h2>
       </div>
       <div id="menu" class="panel-horizontal">
         <button
-          class="round"
           :class="{ selected: $route.name === m.title }"
           @click="navigate(m.title)"
           :key="i"
@@ -72,21 +71,18 @@ export default {
   border-radius: 0;
   overflow: hidden;
   user-select: none;
-  * {
-    z-index: 1;
-  }
-}
-#banner {
   position: relative;
   * {
+    z-index: 1;
     text-shadow: var(--shadow-elevated);
   }
   img {
     z-index: 0;
     position: absolute;
     height: 256px;
+    left: 0;
     opacity: 0.4;
-    transform: translate(-25%) rotate(-45deg);
+    transform: translate(-20%) rotate(-45deg);
     mask-image: linear-gradient(white, transparent);
   }
 }
@@ -98,14 +94,12 @@ export default {
 }
 button {
   font-weight: bold;
+  // background-color: transparent;
 }
 #menu {
   overflow-x: auto;
   &::-webkit-scrollbar {
     display: none;
-  }
-  > button {
-    border: var(--border-width) solid transparent;
   }
 }
 @media only screen and (max-width: 768px) {
