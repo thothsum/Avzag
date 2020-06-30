@@ -41,7 +41,7 @@ export default {
     cursor: pointer;
     box-shadow: var(--shadow-elevated);
     img {
-      height: 110%;
+      opacity: 0.6;
     }
   }
   > *:not(img) {
@@ -53,7 +53,8 @@ img {
   bottom: 0;
   right: 0;
   height: 100%;
+  opacity: 0.4;
   transform: translate(30%, 30%) rotate(-45deg);
-  mask-image: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+  mask-image: linear-gradient(transparent, white);
 }
 </style>
