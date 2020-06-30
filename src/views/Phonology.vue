@@ -80,9 +80,6 @@ export default {
 .panel-sparse {
   overflow: hidden;
 }
-#queries > *:not(:last-child) {
-  margin-bottom: var(--margin-double);
-}
 @media only screen and (max-width: 568px) {
   .section {
     grid-template-columns: 1fr;

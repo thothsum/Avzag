@@ -109,13 +109,11 @@ button {
       width: 100%;
     }
   }
-  #root {
-    img {
-      left: initial;
-      right: 0;
-      transform: translate(10%, 12.5%) rotate(-20deg);
-      mask-image: linear-gradient(-90deg, white, transparent);
-    }
+  #root img {
+    left: initial;
+    right: 0;
+    transform: translate(10%, 12.5%) rotate(-20deg);
+    mask-image: linear-gradient(-90deg, white, transparent);
   }
   #menu {
     margin-top: var(--margin-double);

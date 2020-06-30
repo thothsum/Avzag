@@ -25,7 +25,7 @@ button {
 .text-faded {
   background-color: transparent !important;
   &:not(.highlight) {
-    &:hover > * {
+    &:hover * {
       color: var(--color-text);
     }
     &:active {
