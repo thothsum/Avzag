@@ -72,9 +72,9 @@ export default {
   overflow: hidden;
   user-select: none;
   position: relative;
+  text-shadow: var(--shadow-elevated);
   * {
     z-index: 1;
-    text-shadow: var(--shadow-elevated);
   }
   img {
     z-index: 0;
@@ -82,7 +82,7 @@ export default {
     height: 192px;
     left: 0;
     opacity: 0.4;
-    transform: rotate(-20deg);
+    transform: translate(-10%) rotate(-20deg);
     mask-image: linear-gradient(90deg, white, transparent);
   }
 }

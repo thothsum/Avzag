@@ -35,7 +35,7 @@ export default {
   height: 175px;
   position: relative;
   overflow: hidden;
-  text-shadow: var(--shadow);
+  text-shadow: var(--shadow-elevated);
   user-select: none;
   &:hover {
     cursor: pointer;
