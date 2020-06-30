@@ -1,0 +1,10 @@
+@mixin highligh($color) {
+    * {
+        color: var(--color-#{select});
+    }
+    background-color: var(--color-#{select}-back) !important;
+}
+
+.highlight {
+    @include highligh("highlight");
+}
