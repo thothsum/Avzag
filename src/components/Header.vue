@@ -82,7 +82,7 @@ export default {
     height: 192px;
     left: 0;
     opacity: 0.4;
-    transform: translate(-10%) rotate(-20deg);
+    transform: translate(-5%) rotate(-20deg);
     mask-image: linear-gradient(90deg, white, transparent);
   }
 }

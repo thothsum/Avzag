@@ -1,5 +1,5 @@
 <template>
-  <button :class="{ 'text-faded': faded, selected: selected }">
+  <button :class="{ 'text-faded': faded, highlight: selected }">
     <b>{{str}}</b>
     <span class="text-ipa">{{ ipa }}</span>
   </button>

@@ -1,4 +1,5 @@
 @mixin highligh($color) {
+    &,
     * {
         color: var(--color-#{$color});
     }

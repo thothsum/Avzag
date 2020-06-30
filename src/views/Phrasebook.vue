@@ -8,7 +8,7 @@
       <h3>Phrases</h3>
       <div class="list">
         <button
-          :class="{selected: i===phrase}"
+          :class="{highlight: i===phrase}"
           @click="phrase=i"
           :key="i"
           v-for="(tr, i) in translations"
