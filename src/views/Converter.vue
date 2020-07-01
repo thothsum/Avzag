@@ -70,7 +70,6 @@ export default {
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-
       return entries.concat(ones).map(e => [e[1], e[0]]);
     },
     result() {
@@ -95,8 +94,8 @@ export default {
         .catch(() => {});
     },
     "$route.query": function(query) {
-      this.mappingFrom = query.from;
-      this.mappingTo = query.to;
+      this.mappingFrom = query.from ?? 0;
+      this.mappingTo = query.to ?? 1;
     }
   },
   methods: {
