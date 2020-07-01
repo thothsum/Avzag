@@ -71,8 +71,8 @@ export default {
   overflow: hidden;
   user-select: none;
   position: relative;
-  box-shadow: $shadow-elevated;
-  text-shadow: $shadow-elevated;
+  box-shadow: map-get($shadows, "elevated");
+  text-shadow: map-get($shadows, "elevated");
   * {
     z-index: 1;
   }

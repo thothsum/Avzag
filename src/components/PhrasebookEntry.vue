@@ -18,7 +18,7 @@ export default {
   height: min-content;
   display: grid;
   grid-template-columns: 100px 1fr 1fr;
-  box-shadow: $shadow;
+  box-shadow: map-get($shadows, "normal");
 }
 @media only screen and (max-width: $mobile-width) {
   .card {

@@ -6,7 +6,7 @@
         font-size: $font-size-small;
         border-radius: $border-radius;
         background-color: var(--color-foreground);
-        box-shadow: $shadow-elevated;
+        box-shadow: map-get($shadows, "elevated");
         padding: map-get($margins, "quarter") map-get($margins, "normal");
         position: absolute;
         content: attr(tooltip);

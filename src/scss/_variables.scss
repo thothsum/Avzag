@@ -7,12 +7,13 @@ $margins: (
     "normal": 8px,
     "double": 16px,
 );
+$shadows: (
+    "normal": 0 1px 2px var(--color-shadow),
+    "elevated": 0 2px 8px var(--color-shadow),
+);
 
 $control-height: 32px;
 $control-height-small: 24px;
-
-$shadow: 0 1px 2px var(--color-shadow);
-$shadow-elevated: 0 2px 8px var(--color-shadow);
 
 $max-width: 960px;
 $mobile-width: 568px;
