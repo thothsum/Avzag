@@ -8,22 +8,18 @@ a {
 
 button,
 select {
-  display: flex;
-  flex-wrap: nowrap;
-  place-items: center;
+  @extend .panel-horizontal-dense;
 
   background-color: var(--color-active);
-  height: $control-height;
+  min-height: $control-height;
   padding: 0 map-get($margins, "normal");
 
   &.small {
-    height: $control-height-small;
+    min-height: $control-height-small;
   }
-
   &:hover {
     background-color: var(--color-hover);
   }
-
   &:active {
     background-color: var(--color-press);
   }
@@ -33,6 +29,7 @@ a {
   color: var(--color-highlight);
   text-decoration: underline;
   padding: map-get($margins, "half") map-get($margins, "normal");
+  
   &:hover {
     background-color: var(--color-hover);
   }

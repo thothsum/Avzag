@@ -14,6 +14,7 @@
 
   &-solid {
     @extend #{$parent};
+    overflow: hidden;
     > :not(:last-child) {
       margin: 0;
     }
