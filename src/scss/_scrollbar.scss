@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: map-get($margins, "double");
+    width: map-get($margins, "normal");
 }
 
 ::-webkit-scrollbar-track {
@@ -9,7 +9,7 @@
 ::-webkit-scrollbar-thumb {
     background: var(--color-active);
     border-radius: $border-radius;
-    border: map-get($margins, "half") solid var(--color-background);
+    border: map-get($margins, "quarter") solid var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb:hover {

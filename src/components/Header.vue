@@ -64,14 +64,14 @@ export default {
 <style lang="scss" scoped>
 #root {
   background-color: var(--color-foreground);
-  margin: map-get($margins, "double");
-  margin-bottom: map-get($margins, "large");
-  box-shadow: $shadow-elevated;
-  padding: map-get($margins, "double");
+  margin: -1 * map-get($margins, "normal");
+  margin-bottom: map-get($margins, "double");
+  padding: map-get($margins, "normal");
   border-radius: 0;
   overflow: hidden;
   user-select: none;
   position: relative;
+  box-shadow: $shadow-elevated;
   text-shadow: $shadow-elevated;
   * {
     z-index: 1;

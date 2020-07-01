@@ -149,13 +149,13 @@ export default {
 
 <style lang="scss" scoped>
 textarea {
-  padding: map-get($margins, "double");
+  padding: map-get($margins, "normal");
   height: 250px;
 }
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: map-get($margins, "double");
+  gap: map-get($margins, "normal");
   place-items: stretch;
 }
 @media only screen and (max-width: $mobile-width) {

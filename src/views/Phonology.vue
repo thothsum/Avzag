@@ -1,6 +1,6 @@
 <template>
   <div class="section" v-if="phonemes && lects">
-    <div class="panel-sparse">
+    <div class="panel">
       <QueryList :tags="lects" @query="lectQuery = $event" />
       <PhoneticTable
         :selected="selected"
@@ -75,7 +75,7 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 1fr 200px;
-  gap: map-get($margins, "large");
+  gap: map-get($margins, "double");
 }
 .panel-sparse {
   overflow: hidden;

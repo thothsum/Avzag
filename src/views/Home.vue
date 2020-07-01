@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 #languages {
   display: grid;
-  gap: map-get($margins, "large");
+  gap: map-get($margins, "double");
   place-items: stretch;
   grid-template-columns: repeat(auto-fill, 150px);
 }

@@ -84,7 +84,7 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 300px 1fr;
-  gap: map-get($margins, "large");
+  gap: map-get($margins, "double");
 }
 #translations > .list > button {
   height: $control-height;

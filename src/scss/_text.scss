@@ -21,7 +21,7 @@
 }
 
 .text-spaced {
-  word-spacing: map-get($margins, "double");
+  word-spacing: map-get($margins, "normal");
 }
 
 h1,

@@ -10,16 +10,16 @@
 }
 
 @mixin density($parent, $side) {
-  @include last-margin($side, "double");
+  @include last-margin($side, "normal");
 
   &-dense {
     @extend #{$parent};
-    @include last-margin($side, "normal");
+    @include last-margin($side, "half");
   }
 
   &-sparse {
     @extend #{$parent};
-    @include last-margin($side, "large");
+    @include last-margin($side, "double");
   }
 }
 
