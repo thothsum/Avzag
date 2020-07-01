@@ -54,7 +54,6 @@ export default {
 <style lang="scss" scoped>
 #root {
   width: 100%;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow: auto;
 }
 </style>

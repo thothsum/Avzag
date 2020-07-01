@@ -1,5 +1,5 @@
 <template>
-  <div id="root" :class="{narrow: phonemes.length <= 12}" dense>
+  <div id="root" :class="{narrow: phonemes.length <= 12}">
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
       :selected="selected==phn.i"

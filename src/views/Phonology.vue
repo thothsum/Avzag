@@ -76,9 +76,9 @@ export default {
   display: grid;
   grid-template-columns: 1fr 200px;
   gap: map-get($margins, "double");
-}
-.panel-sparse {
-  overflow: hidden;
+  .panel {
+    overflow: hidden;
+  }
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
