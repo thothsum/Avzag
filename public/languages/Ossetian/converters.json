@@ -217,7 +217,7 @@
         "mapping": []
     },
     {
-        "name": "Georgian (Xussajrag)",
+        "name": "Georgian (SO)",
         "mapping": [
             [
                 "ა",
@@ -579,7 +579,7 @@
         ]
     },
     {
-        "name": "Transcription (eng)",
+        "name": "Transcription (Eng)",
         "partial": true,
         "mapping": [
             [

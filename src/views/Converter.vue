@@ -70,7 +70,10 @@ export default {
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-      return entries.concat(ones).map(e => [e[1], e[0]]);
+      return entries
+        .concat(ones)
+        .filter(e => e[1] !== "")
+        .map(e => [e[1], e[0]]);
     },
     result() {
       return this.convert(this.source);
