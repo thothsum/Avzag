@@ -1,6 +1,6 @@
 <template>
   <div class="section" v-if="phonemes && lects">
-    <div class="panel scroll-x">
+    <div class="panel scroll">
       <QueryList :tags="lects" @query="lectQuery = $event" />
       <PhoneticTable
         :selected="selected"

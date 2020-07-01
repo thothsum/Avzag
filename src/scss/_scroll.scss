@@ -1,8 +1,8 @@
-.scroll-y {
-    overflow-y: auto;
-}
-.scroll-x {
-    overflow-x: auto;
+.scroll {
+    overflow: auto;
+    &-hidden::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 ::-webkit-scrollbar {

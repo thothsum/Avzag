@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense scroll-x">
+  <div class="panel-horizontal-dense scroll">
     <button @click="reset" class="small round">
       <span class="icon-small">clear</span>
     </button>

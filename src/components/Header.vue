@@ -8,7 +8,7 @@
         </button>
         <h2>{{$store.state.language}}</h2>
       </div>
-      <div class="panel-horizontal scroll-x">
+      <div class="panel-horizontal scroll">
         <button
           :class="{ highlight: $route.name === m.title }"
           @click="navigate(m.title)"

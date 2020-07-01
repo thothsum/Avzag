@@ -6,7 +6,7 @@
         <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
       </select>
       <h3>Phrases</h3>
-      <div class="panel-solid scroll-y">
+      <div class="panel-solid scroll">
         <button
           :class="{highlight: i===phrase}"
           @click="phrase=i"
@@ -92,7 +92,6 @@ export default {
 @media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
-    grid-template-rows: 300px 1fr;
   }
 }
 </style>
