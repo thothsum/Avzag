@@ -1,8 +1,9 @@
 * {
-  font-size: map-get($font-sizes, "normal");
   color: var(--color-text);
+  font-size: map-get($font-sizes, "normal");
   font-family: $font-family;
 }
+
 .text-caption,
 .text-caption * {
   font-style: italic;
@@ -19,18 +20,27 @@
 .text-spaced {
   word-spacing: map-get($margins, "normal");
 }
+
 h1,
 h2,
 h3 {
   user-select: none;
-  font-family: "Playfair Display";
 }
 h1 {
-  font-size: map-get($font-sizes, "title");
+  &,
+  * {
+    font-size: map-get($font-sizes, "title");
+  }
 }
 h2 {
-  font-size: map-get($font-sizes, "large");
+  &,
+  * {
+    font-size: map-get($font-sizes, "large");
+  }
 }
 h3 {
-  font-size: map-get($font-sizes, "normal");
+  &,
+  * {
+    font-size: map-get($font-sizes, "normal");
+  }
 }
