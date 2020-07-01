@@ -1,0 +1,69 @@
+<template>
+  <textarea :readonly="readonly" ref="textarea" v-model="text"></textarea>
+</template>
+
+<script>
+export default {
+  name: "ConverterSource",
+  props: ["source", "mapping", "readonly"],
+  data() {
+    return {
+      text: "",
+      result: ""
+    };
+  },
+  watch: {
+    source: {
+      handler() {
+        this.text = this.source;
+      },
+      immediate: true
+    },
+    text: {
+      handler() {
+        this.result = this.convert(this.text, this.mapping);
+        this.$emit("result", this.result);
+      },
+      immediate: true
+    },
+    mapping() {
+      this.text = this.readonly
+        ? this.convert(this.source, this.mapping)
+        : this.convert(this.result, this.mapping, true);
+    }
+  },
+  methods: {
+    uppercase(str) {
+      let base = "";
+      let i = 0;
+      if (str.charAt(0) == " ") {
+        base = " ";
+        i = 1;
+      }
+      return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
+    },
+    replace(str, from, to) {
+      return str.replace(new RegExp(from, "g"), to);
+    },
+    convert(source, mapping, reverse = false) {
+      source = " " + this.replace(source, "\n", "\n ").trim();
+      if (reverse) mapping = mapping.map(m => m.reverse());
+
+      for (const [from, to] of mapping) {
+        source = this.replace(source, from, to);
+        source = this.replace(source, this.uppercase(from), this.uppercase(to));
+      }
+      source = this.replace(source, "\n ", "\n").trim();
+      return source;
+    }
+  }
+};
+</script>
+
+
+<style lang="scss" scoped>
+textarea {
+  padding: map-get($margins, "normal");
+  height: 250px;
+}
+</style>

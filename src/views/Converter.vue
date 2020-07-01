@@ -13,11 +13,11 @@
           <button @click="$refs.file.click()">
             <span class="icon">publish</span>
           </button>
-          <button v-show="!converters[this.mappingTo].many21" @click="swap">
+          <!-- <button v-show="!converters[this.mappingTo].many21" @click="swap">
             <span class="icon">swap_horiz</span>
-          </button>
+          </button>-->
         </div>
-        <textarea v-model="source"></textarea>
+        <ConverterSource :source="sample" :mapping="mappingSource" @result="intermediate=$event" />
         <MappingTable v-show="showMapping" :mapping="mappingSource" />
       </div>
       <div class="panel">
@@ -29,11 +29,16 @@
             <span v-if="showMapping" class="icon">visibility_off</span>
             <span v-else class="icon">visibility</span>
           </button>
-          <button @click="copy">
+          <!-- <button @click="copy">
             <span class="icon">file_copy</span>
-          </button>
+          </button>-->
         </div>
-        <textarea readonly ref="result" :value="result"></textarea>
+        <ConverterSource
+          :readonly="true"
+          :source="intermediate"
+          :mapping="mappingResult"
+          @result="result=$event"
+        />
         <MappingTable v-show="showMapping" :mapping="mappingResult" />
       </div>
     </div>
@@ -44,17 +49,19 @@
 
 <script>
 import MappingTable from "@/components/MappingTable";
+import ConverterSource from "@/components/ConverterSource";
 
 export default {
   name: "Converter",
   components: {
-    MappingTable
+    MappingTable,
+    ConverterSource
   },
   data() {
     return {
       mappingFrom: 0,
       mappingTo: 1,
-      source: "",
+      intermediate: "",
       showMapping: false
     };
   },
@@ -70,21 +77,9 @@ export default {
     },
     mappingResult() {
       return this.getMapping(this.mappingTo, true);
-    },
-    intermediate() {
-      return this.convert(this.source, this.mappingSource);
-    },
-    result() {
-      return this.convert(this.intermediate, this.mappingResult);
     }
   },
   watch: {
-    sample: {
-      handler() {
-        this.source = this.sample;
-      },
-      immediate: true
-    },
     mappingFrom(from) {
       this.$router
         .replace({ query: { ...this.$route.query, from: from } })
@@ -108,42 +103,16 @@ export default {
         .map(m => [m[0].replace(new RegExp("ӏ", "g"), "1"), m[1]]);
       mapping = mapping.concat(ones);
 
-      if (reverse)
-        mapping = mapping.filter(m => m[1] !== "").map(m => [m[1], m[0]]);
+      if (reverse) mapping = mapping.filter(m => m[1]).map(m => m.reverse());
       return mapping;
     },
-    uppercase(str) {
-      let base = "";
-      let i = 0;
-      if (str.charAt(0) == " ") {
-        base = " ";
-        i = 1;
-      }
-      return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
-    },
-    replace(str, from, to) {
-      return str.replace(new RegExp(from, "g"), to);
-    },
-    convert(source, mapping) {
-      source = " " + this.replace(source, "\n", "\n ").trim();
-      for (const [from, to] of mapping) {
-        source = this.replace(source, from, to);
-        source = this.replace(source, this.uppercase(from), this.uppercase(to));
-      }
-      source = this.replace(source, "\n ", "\n").trim();
-      return source;
-    },
-    swap() {
-      let source = this.result;
-      let from = this.mappingFrom;
-      this.mappingFrom = this.mappingTo;
-      this.mappingTo = from;
-      this.source = source;
-    },
-    copy() {
-      this.$refs.result.select();
-      document.execCommand("copy");
-    },
+    // swap() {
+    //   let source = this.result;
+    //   let from = this.mappingFrom;
+    //   this.mappingFrom = this.mappingTo;
+    //   this.mappingTo = from;
+    //   this.source = source;
+    // },
     upload(event) {
       let reader = new FileReader();
       reader.onload = e =>
@@ -164,15 +133,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-textarea {
-  padding: map-get($margins, "normal");
-  height: 250px;
-}
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: map-get($margins, "normal");
   place-items: stretch;
+  // !!
 }
 @media only screen and (max-width: $mobile-width) {
   .split {
@@ -180,6 +146,7 @@ textarea {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     align-items: stretch;
+    // !!
   }
 }
 </style>
