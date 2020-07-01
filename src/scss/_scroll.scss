@@ -1,7 +1,10 @@
 .scroll {
     overflow: auto;
-    &-hidden::-webkit-scrollbar {
-        display: none;
+    &-hidden {
+        @extend .scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
 

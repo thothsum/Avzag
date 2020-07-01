@@ -8,7 +8,7 @@
         </button>
         <h2>{{$store.state.language}}</h2>
       </div>
-      <div class="panel-horizontal scroll">
+      <div class="panel-horizontal scroll-hidden">
         <button
           :class="{ highlight: $route.name === m.title }"
           @click="navigate(m.title)"
@@ -99,9 +99,6 @@ button {
   .section {
     height: fit-content;
     flex-flow: column;
-    > * {
-      width: 100%;
-    }
   }
   #root {
     img {
