@@ -72,12 +72,10 @@ export default {
       return this.getMapping(this.mappingTo, true);
     },
     intermediate() {
-      let source = " " + this.replace(this.source, "\n", "\n ").trim();
-      return this.convert(source, this.mappingSource);
+      return this.convert(this.source, this.mappingSource);
     },
     result() {
-      let intermediate = this.convert(this.intermediate, this.mappingResult);
-      return this.replace(intermediate, "\n ", "\n").trim();
+      return this.convert(this.intermediate, this.mappingResult);
     }
   },
   watch: {
@@ -88,12 +86,6 @@ export default {
       immediate: true
     },
     mappingFrom(from) {
-      // print(this.intermediate);
-      // this.source = this.convert(
-      //   this.intermediate,
-      //   this.getMapping(from, true)
-      // );
-
       this.$router
         .replace({ query: { ...this.$route.query, from: from } })
         .catch(() => {});
@@ -133,10 +125,12 @@ export default {
       return str.replace(new RegExp(from, "g"), to);
     },
     convert(source, mapping) {
+      source = " " + this.replace(source, "\n", "\n ").trim();
       for (const [from, to] of mapping) {
         source = this.replace(source, from, to);
         source = this.replace(source, this.uppercase(from), this.uppercase(to));
       }
+      source = this.replace(source, "\n ", "\n").trim();
       return source;
     },
     swap() {
