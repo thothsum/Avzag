@@ -112,7 +112,7 @@ button {
   #root img {
     left: initial;
     right: 0;
-    transform: translate(10%, 12.5%) rotate(-20deg);
+    transform: translate(10%, 15%) rotate(-20deg);
     mask-image: linear-gradient(-90deg, white, transparent);
   }
   #menu {
