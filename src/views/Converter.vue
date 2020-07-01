@@ -59,14 +59,14 @@ export default {
       return this.$store.state.converters;
     },
     mappingSource() {
-      var entries = Object.entries(this.converters[this.mappingFrom].mapping);
+      var entries = this.converters[this.mappingFrom].mapping;
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
       return entries.concat(ones);
     },
     mappingResult() {
-      var entries = Object.entries(this.converters[this.mappingTo].mapping);
+      var entries = this.converters[this.mappingTo].mapping;
       var ones = entries
         .filter(a => a[0].includes("ӏ"))
         .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
