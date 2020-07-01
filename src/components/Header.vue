@@ -8,7 +8,7 @@
         </button>
         <h2>{{$store.state.language}}</h2>
       </div>
-      <div id="menu" class="panel-horizontal">
+      <div class="panel-horizontal scroll-x">
         <button
           :class="{ highlight: $route.name === m.title }"
           @click="navigate(m.title)"
@@ -95,12 +95,6 @@ export default {
 button {
   font-weight: bold;
 }
-#menu {
-  overflow-x: auto;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
 @media only screen and (max-width: $mobile-width) {
   .section {
     height: fit-content;
@@ -109,14 +103,16 @@ button {
       width: 100%;
     }
   }
-  #root img {
-    left: initial;
-    right: 0;
-    transform: translate(10%, 15%) rotate(-20deg);
-    mask-image: linear-gradient(-90deg, white, transparent);
+  #root {
+    img {
+      left: initial;
+      right: 0;
+      transform: translate(10%, 15%) rotate(-20deg);
+      mask-image: linear-gradient(-90deg, white, transparent);
+    }
   }
-  #menu {
-    margin-top: map-get($margins, "normal");
+  .section > *:first-child {
+    margin-bottom: map-get($margins, "normal");
   }
 }
 </style>
