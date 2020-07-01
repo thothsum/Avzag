@@ -81,7 +81,7 @@ export default {
     position: absolute;
     height: 192px;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.3;
     transform: translate(-5%) rotate(-20deg);
     mask-image: linear-gradient(90deg, white, transparent);
   }
