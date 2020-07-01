@@ -24,15 +24,15 @@ export default {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(auto-fill, 60px);
-  column-gap: var(--margin);
+  column-gap: map-get($margins, "half");
   place-content: center;
 }
 p {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--margin);
+  gap: map-get($margins, "half");
   span {
-    font-size: var(--font-size-small);
+    font-size: map-get($font-sizes, "small");
     &:first-child {
       text-align: right;
     }

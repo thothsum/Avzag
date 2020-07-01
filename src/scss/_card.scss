@@ -1,5 +1,5 @@
 .card {
     background-color: var(--color-foreground);
-    box-shadow: var(--shadow);
-    padding: var(--margin-double);
+    box-shadow: map-get($shadows, "normal");
+    padding: map-get($margins, "normal");
 }

@@ -1,13 +1,9 @@
-.round {
-  border-radius: 128px;
-}
-
 button,
 select,
 a {
   user-select: none;
   cursor: pointer;
-  text-shadow: var(--shadow-elevated);
+  text-shadow: map-get($shadows, "elevated");
 }
 
 button,
@@ -15,32 +11,25 @@ select {
   @extend .panel-horizontal-dense;
 
   background-color: var(--color-active);
-  height: var(--control-height);
-  padding: 0 var(--margin-double);
+  min-height: $control-height;
+  padding: 0 map-get($margins, "normal");
 
   &.small {
-    height: var(--control-height-small);
+    min-height: $control-height-small;
   }
-
   &:hover {
     background-color: var(--color-hover);
   }
-
   &:active {
     background-color: var(--color-press);
   }
 }
 
-.list button {
-  height: var(--control-height-small);
-  border-radius: 0;
-  box-shadow: none;
-}
-
 a {
   color: var(--color-highlight);
   text-decoration: underline;
-  padding: var(--margin) var(--margin-double);
+  padding: map-get($margins, "half") map-get($margins, "normal");
+  
   &:hover {
     background-color: var(--color-hover);
   }

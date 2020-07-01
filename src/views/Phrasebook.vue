@@ -6,7 +6,7 @@
         <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
       </select>
       <h3>Phrases</h3>
-      <div class="list">
+      <div class="panel-solid scroll">
         <button
           :class="{highlight: i===phrase}"
           @click="phrase=i"
@@ -84,16 +84,14 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 300px 1fr;
-  gap: var(--margin-large);
+  gap: map-get($margins, "double");
 }
-#translations > .list > button {
-  border: var(--border-width) solid transparent;
-  height: var(--control-height);
+.panel-solid {
+  max-height: 7 * $control-height;
 }
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
-    grid-template-rows: 300px 1fr;
   }
 }
 </style>

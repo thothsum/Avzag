@@ -8,7 +8,7 @@
         </button>
         <h2>{{$store.state.language}}</h2>
       </div>
-      <div id="menu" class="panel-horizontal">
+      <div class="panel-horizontal scroll-hidden">
         <button
           :class="{ highlight: $route.name === m.title }"
           @click="navigate(m.title)"
@@ -64,24 +64,24 @@ export default {
 <style lang="scss" scoped>
 #root {
   background-color: var(--color-foreground);
-  margin: calc(var(--margin-double) * -1);
-  margin-bottom: var(--margin-large);
-  box-shadow: var(--shadow-elevated);
-  padding: var(--margin-double);
+  margin: -1 * map-get($margins, "normal");
+  margin-bottom: map-get($margins, "double");
+  padding: map-get($margins, "normal");
   border-radius: 0;
   overflow: hidden;
-  user-select: none;
   position: relative;
-  text-shadow: var(--shadow-elevated);
+  box-shadow: map-get($shadows, "elevated");
+  text-shadow: map-get($shadows, "elevated");
   * {
     z-index: 1;
   }
   img {
     z-index: 0;
+    user-select: none;
     position: absolute;
     height: 192px;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.3;
     transform: translate(-5%) rotate(-20deg);
     mask-image: linear-gradient(90deg, white, transparent);
   }
@@ -95,28 +95,21 @@ export default {
 button {
   font-weight: bold;
 }
-#menu {
-  overflow-x: auto;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     height: fit-content;
     flex-flow: column;
-    > * {
-      width: 100%;
+  }
+  #root {
+    img {
+      left: initial;
+      right: 0;
+      transform: translate(10%, 15%) rotate(-20deg);
+      mask-image: linear-gradient(-90deg, white, transparent);
     }
   }
-  #root img {
-    left: initial;
-    right: 0;
-    transform: translate(10%, 12.5%) rotate(-20deg);
-    mask-image: linear-gradient(-90deg, white, transparent);
-  }
-  #menu {
-    margin-top: var(--margin-double);
+  .section > *:first-child {
+    margin-bottom: map-get($margins, "normal");
   }
 }
 </style>

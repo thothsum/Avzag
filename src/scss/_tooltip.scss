@@ -3,21 +3,21 @@
     &:before {
         z-index: 2;
         font-style: italic;
-        font-size: var(--font-size-small);
-        border-radius: var(--border-radius);
+        font-size: map-get($font-sizes, "small");
+        border-radius: $border-radius;
         background-color: var(--color-foreground);
-        box-shadow: var(--shadow-elevated);
-        padding: var(--margin-half) var(--margin-double);
+        box-shadow: map-get($shadows, "elevated");
+        padding: map-get($margins, "quarter") map-get($margins, "normal");
         position: absolute;
         content: attr(tooltip);
         opacity: 0;
         top: 0;
-        transition: 0.15s;
+        transition: $transition;
         pointer-events: none;
         width: max-content;
     }
     &:hover:before {
         opacity: 1;
-        top: calc(3 * var(--margin-large));
+        top: 3 * map-get($margins, "double");
     }
 }

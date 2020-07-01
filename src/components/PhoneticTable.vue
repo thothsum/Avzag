@@ -1,5 +1,5 @@
 <template>
-  <div id="root" :class="{narrow: phonemes.length <= 12}" dense>
+  <div id="root" :class="{narrow: phonemes.length <= 12}">
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
       :selected="selected==phn.i"
@@ -56,7 +56,7 @@ $item-height: 40px;
 
 #root {
   display: grid;
-  gap: var(--margin);
+  gap: map-get($margins, "half");
   place-items: stretch;
   grid-template-columns: repeat(auto-fill, $item-width);
 
@@ -66,7 +66,7 @@ $item-height: 40px;
   }
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   #root {
     grid-auto-flow: column;
     overflow-x: auto;

@@ -1,1 +1,33 @@
-$color: aqua;
+$border-radius: 2px;
+$border-width: 2px;
+
+$margins: (
+    "quarter": 2px,
+    "half": 4px,
+    "normal": 8px,
+    "double": 16px,
+);
+$shadows: (
+    "normal": 0 1px 2px var(--color-shadow),
+    "elevated": 0 2px 8px var(--color-shadow),
+);
+$font-sizes: (
+    "small": 12px,
+    "normal": 14px,
+    "large": 20px,
+    "title": 32px,
+);
+$icon-sizes: (
+    "small": 16px,
+    "normal": 20px
+);
+
+$control-height: 32px;
+$control-height-small: 24px;
+
+$max-width: 960px;
+$mobile-width: 568px;
+
+$transition: 0.15s;
+
+$font-family: "Fira Sans", sans-serif, "Segoe UI Emoji";

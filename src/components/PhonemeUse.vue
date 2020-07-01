@@ -5,12 +5,8 @@
       — {{lect}}
     </p>
     <p class="text-caption text-faded" v-if="use.note">{{use.note}}</p>
-    <div
-      :style="{height: Math.min(3, use.samples.length) * 24 + 'px' }"
-      class="list"
-      v-if="use.samples && use.samples.length>0"
-    >
-      <button @click="$emit('play', sm)" :key="i" v-for="(sm, i) in use.samples">
+    <div class="panel-solid scroll" v-if="use.samples && use.samples.length>0">
+      <button class="small" @click="$emit('play', sm)" :key="i" v-for="(sm, i) in use.samples">
         <span class="icon-small">play_arrow</span>
         <span v-html="highlight(sm, use.grapheme)"></span>
       </button>
@@ -34,10 +30,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.list {
-  margin: calc(var(--margin-double) * -1);
-  margin-top: var(--margin-half);
+.panel-solid {
+  margin: -1 * map-get($margins, "normal");
+  margin-top: map-get($margins, "quarter");
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+  max-height: 3 * $control-height-small;
 }
 </style>

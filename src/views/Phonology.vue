@@ -1,6 +1,6 @@
 <template>
   <div class="section" v-if="phonemes && lects">
-    <div class="panel-sparse">
+    <div class="panel scroll">
       <QueryList :tags="lects" @query="lectQuery = $event" />
       <PhoneticTable
         :selected="selected"
@@ -34,12 +34,12 @@ export default {
     PhoneticTable,
     PhonemeDetails,
     QueryList,
-    QueryInput,
+    QueryInput
   },
   data() {
     return {
       lectQuery: {},
-      featureQuery: {},
+      featureQuery: {}
     };
   },
   computed: {
@@ -58,16 +58,16 @@ export default {
     },
     consonants() {
       return this.categorize("consonant");
-    },
+    }
   },
   methods: {
     select(i) {
       if (this.selected !== i) this.$router.replace({ query: { phoneme: i } });
     },
     categorize(category) {
-      return this.phonemes.filter((p) => p.features.includes(category));
-    },
-  },
+      return this.phonemes.filter(p => p.features.includes(category));
+    }
+  }
 };
 </script>
 
@@ -75,12 +75,9 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 1fr 200px;
-  gap: var(--margin-large);
+  gap: map-get($margins, "double");
 }
-.panel-sparse {
-  overflow: hidden;
-}
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
     direction: ltr;

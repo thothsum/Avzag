@@ -5,21 +5,32 @@
 
 @mixin last-margin($side, $size) {
   > :not(:last-child) {
-    margin-#{$side}: var(--margin#{$size});
+    margin-#{$side}: map-get($margins, $size);
   }
 }
 
 @mixin density($parent, $side) {
-  @include last-margin($side, "-double");
+  @include last-margin($side, "normal");
+
+  &-solid {
+    @extend #{$parent};
+    overflow: hidden;
+    > :not(:last-child) {
+      margin: 0;
+    }
+    > * {
+      border-radius: 0;
+    }
+  }
 
   &-dense {
     @extend #{$parent};
-    @include last-margin($side, "");
+    @include last-margin($side, "half");
   }
 
   &-sparse {
     @extend #{$parent};
-    @include last-margin($side, "-large)");
+    @include last-margin($side, "double");
   }
 }
 

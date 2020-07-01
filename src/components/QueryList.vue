@@ -1,5 +1,5 @@
 <template>
-  <div id="root" class="panel-horizontal-dense">
+  <div class="panel-horizontal-dense scroll">
     <button @click="reset" class="small round">
       <span class="icon-small">clear</span>
     </button>
@@ -52,9 +52,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#root {
-  width: 100%;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
 </style>

@@ -35,11 +35,11 @@ export default {
   height: 175px;
   position: relative;
   overflow: hidden;
-  text-shadow: var(--shadow-elevated);
+  text-shadow: map-get($shadows, "elevated");
   user-select: none;
   &:hover {
     cursor: pointer;
-    box-shadow: var(--shadow-elevated);
+    box-shadow: map-get($shadows, "elevated");
     img {
       opacity: 0.6;
     }

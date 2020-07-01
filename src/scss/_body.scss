@@ -1,0 +1,30 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+    border-radius: $border-radius;
+    transition: $transition;
+    border: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+body {
+    margin: map-get($margins, "normal");
+    background-color: var(--color-background);
+}
+
+.section {
+    margin: auto auto map-get($margins, "double") auto;
+    width: 100%;
+    max-width: $max-width;
+
+    &:last-child {
+        margin: auto auto 0 auto;
+    }
+}
+
+.round {
+    border-radius: $max-width;
+}
