@@ -4,7 +4,11 @@
       <div class="panel">
         <div class="panel-horizontal">
           <select v-model="mappingFrom">
-            <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+            <option
+              :value="i"
+              :key="i"
+              v-for="(cnv, i) in converters.filter(c => !c.many21)"
+            >{{cnv.name}}</option>
           </select>
           <button @click="$refs.file.click()">
             <span class="icon">publish</span>

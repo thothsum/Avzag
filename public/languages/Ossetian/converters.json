@@ -580,7 +580,7 @@
     },
     {
         "name": "Transcription (Eng)",
-        "partial": true,
+        "many21": true,
         "mapping": [
             [
                 "a",
