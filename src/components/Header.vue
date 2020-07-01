@@ -116,7 +116,7 @@ button {
     mask-image: linear-gradient(-90deg, white, transparent);
   }
   #menu {
-    margin-top: map-get($margins, "double");
+    margin-top: map-get($margins, "normal");
   }
 }
 </style>
