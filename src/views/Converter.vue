@@ -66,24 +66,18 @@ export default {
       return this.$store.state.converters;
     },
     mappingSource() {
-      var entries = this.converters[this.mappingFrom].mapping;
-      var ones = entries
-        .filter(a => a[0].includes("ӏ"))
-        .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-      return entries.concat(ones);
+      return this.getMapping(this.mappingFrom);
     },
     mappingResult() {
-      var entries = this.converters[this.mappingTo].mapping;
-      var ones = entries
-        .filter(a => a[0].includes("ӏ"))
-        .map(a => [a[0].replace(new RegExp("ӏ", "g"), "1"), a[1]]);
-      return entries
-        .concat(ones)
-        .filter(e => e[1] !== "")
-        .map(e => [e[1], e[0]]);
+      return this.getMapping(this.mappingTo, true);
+    },
+    intermediate() {
+      let source = " " + this.replace(this.source, "\n", "\n ").trim();
+      return this.convert(source, this.mappingSource);
     },
     result() {
-      return this.convert(this.source);
+      let intermediate = this.convert(this.intermediate, this.mappingResult);
+      return this.replace(intermediate, "\n ", "\n").trim();
     }
   },
   watch: {
@@ -94,6 +88,12 @@ export default {
       immediate: true
     },
     mappingFrom(from) {
+      // print(this.intermediate);
+      // this.source = this.convert(
+      //   this.intermediate,
+      //   this.getMapping(from, true)
+      // );
+
       this.$router
         .replace({ query: { ...this.$route.query, from: from } })
         .catch(() => {});
@@ -109,6 +109,17 @@ export default {
     }
   },
   methods: {
+    getMapping(index, reverse = false) {
+      let mapping = this.converters[index].mapping;
+      let ones = mapping
+        .filter(m => m[0].includes("ӏ"))
+        .map(m => [m[0].replace(new RegExp("ӏ", "g"), "1"), m[1]]);
+      mapping = mapping.concat(ones);
+
+      if (reverse)
+        mapping = mapping.filter(m => m[1] !== "").map(m => [m[1], m[0]]);
+      return mapping;
+    },
     uppercase(str) {
       let base = "";
       let i = 0;
@@ -121,17 +132,12 @@ export default {
     replace(str, from, to) {
       return str.replace(new RegExp(from, "g"), to);
     },
-    convert(str) {
-      str = " " + this.replace(str, "\n", "\n ").trim();
-      for (const [from, to] of this.mappingSource) {
-        str = this.replace(str, from, to);
-        str = this.replace(str, this.uppercase(from), this.uppercase(to));
+    convert(source, mapping) {
+      for (const [from, to] of mapping) {
+        source = this.replace(source, from, to);
+        source = this.replace(source, this.uppercase(from), this.uppercase(to));
       }
-      for (const [from, to] of this.mappingResult) {
-        str = this.replace(str, from, to);
-        str = this.replace(str, this.uppercase(from), this.uppercase(to));
-      }
-      return this.replace(str, "\n ", "\n").trim();
+      return source;
     },
     swap() {
       let source = this.result;
