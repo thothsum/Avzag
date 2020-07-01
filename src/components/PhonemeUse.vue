@@ -26,7 +26,7 @@ export default {
     highlight(sample, grapheme) {
       return sample.replace(
         new RegExp(grapheme, "g"),
-        `<span class="highlight">${grapheme}</span>`
+        `<span style="color: var(--color-highlight)">${grapheme}</span>`
       );
     }
   }

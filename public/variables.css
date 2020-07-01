@@ -6,9 +6,9 @@
     --color-text: rgb(33, 33, 33);
     --color-text-faded: rgb(158, 158, 158);
 
-    --color-active: rgba(0, 0, 0, 0.1);
+    --color-active: rgba(0, 0, 0, 0.075);
     --color-hover: rgba(0, 0, 0, 0.15);
-    --color-press: rgba(0, 0, 0, 0.2);
+    --color-press: rgba(0, 0, 0, 0.225);
 
     --color-highlight: rgb(3, 169, 244);
     --color-highlight-back: rgba(3, 169, 244, 0.15);
@@ -28,8 +28,8 @@
 
         --color-text: rgb(255, 255, 255);
 
-        --color-active: rgba(255, 255, 255, 0.1);
+        --color-active: rgba(255, 255, 255, 0.075);
         --color-hover: rgba(255, 255, 255, 0.15);
-        --color-press: rgba(255, 255, 255, 0.2);
+        --color-press: rgba(255, 255, 255, 0.225);
     }
 }
