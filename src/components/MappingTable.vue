@@ -32,7 +32,7 @@ p {
   grid-template-columns: 1fr 1fr;
   gap: map-get($margins, "half");
   span {
-    font-size: $font-size-small;
+    font-size: map-get($font-sizes, "small");
     &:first-child {
       text-align: right;
     }

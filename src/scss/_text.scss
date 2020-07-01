@@ -1,5 +1,5 @@
 * {
-  font-size: $font-size;
+  font-size: map-get($font-sizes, "normal");
   color: var(--color-text);
   font-family: $font-family;
 }
@@ -7,7 +7,7 @@
 .text-caption,
 .text-caption * {
   font-style: italic;
-  font-size: $font-size-small;
+  font-size: map-get($font-sizes, "small");
 }
 
 .text-faded,
@@ -26,12 +26,12 @@
 
 h1,
 h1 * {
-  font-size: $font-size-title;
+  font-size: map-get($font-sizes, "title");
   font-weight: bold;
 }
 
 h2,
 h2 * {
-  font-size: $font-size-large;
+  font-size: map-get($font-sizes, "large");
   font-weight: bold;
 }

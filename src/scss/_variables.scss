@@ -11,17 +11,18 @@ $shadows: (
     "normal": 0 1px 2px var(--color-shadow),
     "elevated": 0 2px 8px var(--color-shadow),
 );
+$font-sizes: (
+    "normal": 14px,
+    "small": 12px,
+    "large": 20px,
+    "title": 32px,
+);
 
 $control-height: 32px;
 $control-height-small: 24px;
 
 $max-width: 960px;
 $mobile-width: 568px;
-
-$font-size: 14px;
-$font-size-small: 12px;
-$font-size-large: 20px;
-$font-size-title: 32px;
 
 $transition: 0.15s;
 

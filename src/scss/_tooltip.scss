@@ -3,7 +3,7 @@
     &:before {
         z-index: 2;
         font-style: italic;
-        font-size: $font-size-small;
+        font-size: map-get($font-sizes, "small");
         border-radius: $border-radius;
         background-color: var(--color-foreground);
         box-shadow: map-get($shadows, "elevated");

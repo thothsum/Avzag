@@ -1,10 +1,10 @@
 .icon {
     font-family: "Material Icons Outlined";
     font-weight: normal;
-    font-size: $font-size-icon;
+    font-size: map-get($font-sizes, "normal")-icon;
 
     &-small {
         @extend .icon;
-        font-size: $font-size-icon-small;
+        font-size: map-get($font-sizes, "normal")-icon-small;
     }
 }
