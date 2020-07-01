@@ -16,7 +16,7 @@ select {
 
   background-color: var(--color-active);
   height: $control-height;
-  padding: 0 $margin-double;
+  padding: 0 map-get($margins, "double");
 
   &.small {
     height: $control-height-small;
@@ -40,7 +40,7 @@ select {
 a {
   color: var(--color-highlight);
   text-decoration: underline;
-  padding: $margin $margin-double;
+  padding: map-get($margins, "normal") map-get($margins, "double");
   &:hover {
     background-color: var(--color-hover);
   }

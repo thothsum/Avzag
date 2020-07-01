@@ -7,7 +7,7 @@
         border-radius: $border-radius;
         background-color: var(--color-foreground);
         box-shadow: $shadow-elevated;
-        padding: $margin-half $margin-double;
+        padding: map-get($margins, "half") map-get($margins, "double");
         position: absolute;
         content: attr(tooltip);
         opacity: 0;
@@ -18,6 +18,6 @@
     }
     &:hover:before {
         opacity: 1;
-        top: 3 * $margin-large;
+        top: 3 * map-get($margins, "large");
     }
 }

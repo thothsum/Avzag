@@ -75,7 +75,7 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 1fr 200px;
-  gap: $margin-large;
+  gap: map-get($margins, "large");
 }
 .panel-sparse {
   overflow: hidden;

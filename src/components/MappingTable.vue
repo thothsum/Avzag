@@ -24,13 +24,13 @@ export default {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(auto-fill, 60px);
-  column-gap: $margin;
+  column-gap: map-get($margins, "normal");
   place-content: center;
 }
 p {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: $margin;
+  gap: map-get($margins, "normal");
   span {
     font-size: $font-size-small;
     &:first-child {

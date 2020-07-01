@@ -64,10 +64,10 @@ export default {
 <style lang="scss" scoped>
 #root {
   background-color: var(--color-foreground);
-  margin: -$margin-double;
-  margin-bottom: $margin-large;
+  margin: map-get($margins, "double");
+  margin-bottom: map-get($margins, "large");
   box-shadow: $shadow-elevated;
-  padding: $margin-double;
+  padding: map-get($margins, "double");
   border-radius: 0;
   overflow: hidden;
   user-select: none;
@@ -116,7 +116,7 @@ button {
     mask-image: linear-gradient(-90deg, white, transparent);
   }
   #menu {
-    margin-top: $margin-double;
+    margin-top: map-get($margins, "double");
   }
 }
 </style>

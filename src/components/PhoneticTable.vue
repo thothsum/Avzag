@@ -56,7 +56,7 @@ $item-height: 40px;
 
 #root {
   display: grid;
-  gap: $margin;
+  gap: map-get($margins, "normal");
   place-items: stretch;
   grid-template-columns: repeat(auto-fill, $item-width);
 

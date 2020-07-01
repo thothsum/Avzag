@@ -1,10 +1,12 @@
 $border-radius: 2px;
 $border-width: 2px;
 
-$margin-half: 2px;
-$margin: 4px;
-$margin-double: 8px;
-$margin-large: 16px;
+$margins: (
+    "half": 2px,
+    "normal": 4px,
+    "double": 8px,
+    "large": 16px,
+);
 
 $control-height: 32px;
 $control-height-small: 24px;

@@ -11,12 +11,12 @@
 }
 
 body {
-    margin: $margin-double;
+    margin: map-get($margins, "double");
     background-color: var(--color-background);
 }
 
 .section {
-    margin: auto auto $margin-large auto;
+    margin: auto auto map-get($margins, "large") auto;
     width: 100%;
     max-width: $max-width;
 
