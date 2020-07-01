@@ -12,7 +12,9 @@ a {
 
 button,
 select {
-  @extend .panel-horizontal-dense;
+  display: flex;
+  flex-wrap: nowrap;
+  place-items: center;
 
   background-color: var(--color-active);
   height: $control-height;

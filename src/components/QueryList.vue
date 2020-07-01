@@ -53,7 +53,6 @@ export default {
 
 <style lang="scss" scoped>
 #root {
-  width: 100%;
   overflow: auto;
 }
 </style>

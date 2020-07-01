@@ -1,6 +1,6 @@
 <template>
   <div class="section" v-if="phonemes && lects">
-    <div class="panel">
+    <div id="grids" class="panel">
       <QueryList :tags="lects" @query="lectQuery = $event" />
       <PhoneticTable
         :selected="selected"
@@ -76,9 +76,9 @@ export default {
   display: grid;
   grid-template-columns: 1fr 200px;
   gap: map-get($margins, "double");
-  .panel {
-    overflow: hidden;
-  }
+}
+#grids {
+  overflow: auto;
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
