@@ -13,9 +13,8 @@
           <button @click="$refs.file.click()">
             <span class="icon">publish</span>
           </button>
-          <button @click="showMapping=!showMapping">
-            <span v-if="showMapping" class="icon">visibility_off</span>
-            <span v-else class="icon">visibility</span>
+          <button v-show="!converters[this.mappingTo].many21" @click="swap">
+            <span class="icon">swap_horiz</span>
           </button>
         </div>
         <textarea v-model="source"></textarea>
@@ -26,6 +25,10 @@
           <select v-model="mappingTo">
             <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
           </select>
+          <button @click="showMapping=!showMapping">
+            <span v-if="showMapping" class="icon">visibility_off</span>
+            <span v-else class="icon">visibility</span>
+          </button>
           <button @click="copy">
             <span class="icon">file_copy</span>
           </button>
@@ -129,6 +132,13 @@ export default {
         str = this.replace(str, this.uppercase(from), this.uppercase(to));
       }
       return this.replace(str, "\n ", "\n").trim();
+    },
+    swap() {
+      let source = this.result;
+      let from = this.mappingFrom;
+      this.mappingFrom = this.mappingTo;
+      this.mappingTo = from;
+      this.source = source;
     },
     copy() {
       this.$refs.result.select();
