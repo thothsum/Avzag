@@ -14,7 +14,6 @@ export default {
 
 <style lang="scss" scoped>
 button {
-  border: var(--border-width) solid transparent;
   flex-direction: column;
   justify-items: space-between;
   place-content: center;

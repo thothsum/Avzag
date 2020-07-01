@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: calc(var(--margin) * 2);
+    width: 2 * $margin;
 }
 
 ::-webkit-scrollbar-track {
@@ -8,8 +8,8 @@
 
 ::-webkit-scrollbar-thumb {
     background: var(--color-active);
-    border-radius: var(--border-radius);
-    border: var(--margin-half) solid var(--color-background);
+    border-radius: $border-radius;
+    border: $margin-half solid var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb:hover {

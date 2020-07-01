@@ -5,7 +5,7 @@
 
 @mixin last-margin($side, $size) {
   > :not(:last-child) {
-    margin-#{$side}: var(--margin#{$size});
+    margin-#{$side}: #{"$margin" +#{$size}};
   }
 }
 

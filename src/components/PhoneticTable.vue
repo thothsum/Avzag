@@ -56,7 +56,7 @@ $item-height: 40px;
 
 #root {
   display: grid;
-  gap: var(--margin);
+  gap: $margin;
   place-items: stretch;
   grid-template-columns: repeat(auto-fill, $item-width);
 
@@ -66,7 +66,7 @@ $item-height: 40px;
   }
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   #root {
     grid-auto-flow: column;
     overflow-x: auto;

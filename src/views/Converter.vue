@@ -149,16 +149,16 @@ export default {
 
 <style lang="scss" scoped>
 textarea {
-  padding: var(--margin-double);
+  padding: $margin-double;
   height: 250px;
 }
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--margin-double);
+  gap: $margin-double;
   place-items: stretch;
 }
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .split {
     display: grid;
     grid-template-columns: 1fr;

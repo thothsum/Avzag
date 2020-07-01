@@ -1,5 +1,5 @@
 .card {
     background-color: var(--color-foreground);
-    box-shadow: var(--shadow);
-    padding: var(--margin-double);
+    box-shadow: $shadow;
+    padding: $margin-double;
 }

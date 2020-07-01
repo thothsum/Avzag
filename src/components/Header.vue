@@ -64,15 +64,15 @@ export default {
 <style lang="scss" scoped>
 #root {
   background-color: var(--color-foreground);
-  margin: calc(var(--margin-double) * -1);
-  margin-bottom: var(--margin-large);
-  box-shadow: var(--shadow-elevated);
-  padding: var(--margin-double);
+  margin: -$margin-double;
+  margin-bottom: $margin-large;
+  box-shadow: $shadow-elevated;
+  padding: $margin-double;
   border-radius: 0;
   overflow: hidden;
   user-select: none;
   position: relative;
-  text-shadow: var(--shadow-elevated);
+  text-shadow: $shadow-elevated;
   * {
     z-index: 1;
   }
@@ -101,7 +101,7 @@ button {
     display: none;
   }
 }
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     height: fit-content;
     flex-flow: column;
@@ -116,7 +116,7 @@ button {
     mask-image: linear-gradient(-90deg, white, transparent);
   }
   #menu {
-    margin-top: var(--margin-double);
+    margin-top: $margin-double;
   }
 }
 </style>

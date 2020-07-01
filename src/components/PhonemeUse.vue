@@ -35,8 +35,8 @@ export default {
 
 <style lang="scss" scoped>
 .list {
-  margin: calc(var(--margin-double) * -1);
-  margin-top: var(--margin-half);
+  margin: -$margin-double;
+  margin-top: $margin-half;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }

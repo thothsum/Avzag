@@ -84,13 +84,12 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 300px 1fr;
-  gap: var(--margin-large);
+  gap: $margin-large;
 }
 #translations > .list > button {
-  border: var(--border-width) solid transparent;
-  height: var(--control-height);
+  height: $control-height;
 }
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
     grid-template-rows: 300px 1fr;

@@ -1,13 +1,13 @@
 * {
-  font-size: var(--font-size);
+  font-size: $font-size;
   color: var(--color-text);
-  font-family: var(--font-family);
+  font-family: $font-family;
 }
 
 .text-caption,
 .text-caption * {
   font-style: italic;
-  font-size: var(--font-size-small);
+  font-size: $font-size-small;
 }
 
 .text-faded,
@@ -21,17 +21,17 @@
 }
 
 .text-spaced {
-  word-spacing: var(--margin-double);
+  word-spacing: $margin-double;
 }
 
 h1,
 h1 * {
-  font-size: var(--font-size-title);
+  font-size: $font-size-title;
   font-weight: bold;
 }
 
 h2,
 h2 * {
-  font-size: var(--font-size-large);
+  font-size: $font-size-large;
   font-weight: bold;
 }

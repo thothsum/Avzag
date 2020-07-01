@@ -18,9 +18,9 @@ export default {
   height: min-content;
   display: grid;
   grid-template-columns: 100px 1fr 1fr;
-  box-shadow: var(--shadow);
+  box-shadow: $shadow;
 }
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .card {
     grid-template-columns: 1fr;
   }
