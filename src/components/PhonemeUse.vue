@@ -7,10 +7,10 @@
     <p class="text-caption text-faded" v-if="use.note">{{use.note}}</p>
     <div
       :style="{height: Math.min(3, use.samples.length) * 24 + 'px' }"
-      class="list"
+      class="panel-solid"
       v-if="use.samples && use.samples.length>0"
     >
-      <button @click="$emit('play', sm)" :key="i" v-for="(sm, i) in use.samples">
+      <button class="small" @click="$emit('play', sm)" :key="i" v-for="(sm, i) in use.samples">
         <span class="icon-small">play_arrow</span>
         <span v-html="highlight(sm, use.grapheme)"></span>
       </button>
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.list {
+.panel-solid {
   margin: -1 * map-get($margins, "normal");
   margin-top: map-get($margins, "quarter");
   border-top-right-radius: 0;

@@ -12,6 +12,16 @@
 @mixin density($parent, $side) {
   @include last-margin($side, "normal");
 
+  &-solid {
+    @extend #{$parent};
+    > :not(:last-child) {
+      margin: 0;
+    }
+    > * {
+      border-radius: 0;
+    }
+  }
+
   &-dense {
     @extend #{$parent};
     @include last-margin($side, "half");

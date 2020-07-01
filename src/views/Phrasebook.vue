@@ -6,7 +6,7 @@
         <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
       </select>
       <h3>Phrases</h3>
-      <div class="list">
+      <div class="panel-solid">
         <button
           :class="{highlight: i===phrase}"
           @click="phrase=i"
@@ -85,9 +85,6 @@ export default {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: map-get($margins, "double");
-}
-#translations > .list > button {
-  height: $control-height;
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
