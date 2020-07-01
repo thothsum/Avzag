@@ -14,6 +14,6 @@ input[type="text"] {
 }
 
 input[type="text"] {
-    height: $control-height;
+    height: map-get($button-height, "normal");
     padding: 0 map-get($margins, "normal");
 }

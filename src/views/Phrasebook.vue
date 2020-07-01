@@ -87,7 +87,7 @@ export default {
   gap: map-get($margins, "double");
 }
 .panel-solid {
-  max-height: 7 * $control-height;
+  max-height: 7 * map-get($button-height, "normal");
 }
 @media only screen and (max-width: $mobile-width) {
   .section {

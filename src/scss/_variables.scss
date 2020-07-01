@@ -19,11 +19,12 @@ $font-sizes: (
 );
 $icon-sizes: (
     "small": 16px,
-    "normal": 20px
+    "normal": 20px,
 );
-
-$control-height: 32px;
-$control-height-small: 24px;
+$button-height: (
+    "small": 24px,
+    "normal": 32px,
+);
 
 $max-width: 960px;
 $mobile-width: 568px;

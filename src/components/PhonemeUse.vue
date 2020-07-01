@@ -35,6 +35,6 @@ export default {
   margin-top: map-get($margins, "quarter");
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-  max-height: 3 * $control-height-small;
+  max-height: 3 * map-get($button-height, "small");
 }
 </style>
