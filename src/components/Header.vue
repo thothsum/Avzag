@@ -69,7 +69,6 @@ export default {
   padding: map-get($margins, "normal");
   border-radius: 0;
   overflow: hidden;
-  user-select: none;
   position: relative;
   box-shadow: map-get($shadows, "elevated");
   text-shadow: map-get($shadows, "elevated");
@@ -78,6 +77,7 @@ export default {
   }
   img {
     z-index: 0;
+    user-select: none;
     position: absolute;
     height: 192px;
     left: 0;

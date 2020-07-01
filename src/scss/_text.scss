@@ -3,35 +3,34 @@
   color: var(--color-text);
   font-family: $font-family;
 }
-
 .text-caption,
 .text-caption * {
   font-style: italic;
   font-size: map-get($font-sizes, "small");
 }
-
 .text-faded,
 .text-faded * {
   color: var(--color-text-faded);
 }
-
 .text-ipa {
   font-family: sans-serif;
   line-height: 100%;
 }
-
 .text-spaced {
   word-spacing: map-get($margins, "normal");
 }
-
 h1,
-h1 * {
-  font-size: map-get($font-sizes, "title");
-  font-weight: bold;
-}
-
 h2,
-h2 * {
+h3 {
+  user-select: none;
+  font-family: "Playfair Display";
+}
+h1 {
+  font-size: map-get($font-sizes, "title");
+}
+h2 {
   font-size: map-get($font-sizes, "large");
-  font-weight: bold;
+}
+h3 {
+  font-size: map-get($font-sizes, "normal");
 }
