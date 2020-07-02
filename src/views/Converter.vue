@@ -13,9 +13,9 @@
           <button @click="$refs.file.click()">
             <span class="icon">publish</span>
           </button>
-          <!-- <button v-show="!converters[this.mappingTo].many21" @click="swap">
+          <button v-show="!converters[this.mappingTo].many21" @click="swap">
             <span class="icon">swap_horiz</span>
-          </button>-->
+          </button>
         </div>
         <ConverterSource :source="sample" :mapping="mappingSource" @result="intermediate=$event" />
         <MappingTable v-show="showMapping" :mapping="mappingSource" />
@@ -62,6 +62,7 @@ export default {
       mappingFrom: 0,
       mappingTo: 1,
       intermediate: "",
+      result: "",
       showMapping: false
     };
   },
@@ -73,7 +74,7 @@ export default {
       return this.$store.state.converters;
     },
     mappingSource() {
-      return this.converters[this.mappingFrom].mapping.map(m => [m[0], m[1]]);
+      return this.converters[this.mappingFrom].mapping;
     },
     mappingResult() {
       return this.converters[this.mappingTo].mapping.map(m => [m[1], m[0]]);
@@ -89,20 +90,20 @@ export default {
       this.$router
         .replace({ query: { ...this.$route.query, to: to } })
         .catch(() => {});
+    },
+    "$route.query": function(query) {
+      this.mappingFrom = query.from ?? 0;
+      this.mappingTo = query.to ?? 1;
     }
-    // "$route.query": function(query) {
-    //   this.mappingFrom = query.from ?? 0;
-    //   this.mappingTo = query.to ?? 1;
-    // }
   },
   methods: {
-    // swap() {
-    //   let source = this.result;
-    //   let from = this.mappingFrom;
-    //   this.mappingFrom = this.mappingTo;
-    //   this.mappingTo = from;
-    //   this.source = source;
-    // },
+    swap() {
+      let source = this.result;
+      let from = this.mappingFrom;
+      this.mappingFrom = this.mappingTo;
+      this.mappingTo = from;
+      this.source = source;
+    },
     upload(event) {
       let reader = new FileReader();
       reader.onload = e =>

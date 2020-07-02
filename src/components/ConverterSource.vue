@@ -27,10 +27,7 @@ export default {
     },
     mapping(mapping) {
       this.text = this.readonly
-        ? this.convert(
-            this.source,
-            mapping.map(m => [m[0], m[1]])
-          )
+        ? this.convert(this.source, mapping)
         : this.convert(
             this.result,
             mapping.map(m => [m[1], m[0]])
