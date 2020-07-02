@@ -22,7 +22,7 @@
           </button>
         </div>
         <ConverterText :source="source" :mapping="mappingSource" @result="intermediate=$event" />
-        <MappingTable v-show="showMapping" :mapping="mappingSource" />
+        <MappingTable v-if="showMapping" :mapping="mappingSource" />
       </div>
       <div class="panel">
         <div class="panel-horizontal">
@@ -44,7 +44,7 @@
           :mapping="mappingResult"
           @result="result=$event"
         />
-        <MappingTable v-show="showMapping" :mapping="mappingResult" />
+        <MappingTable v-if="showMapping" :mapping="mappingResult" />
       </div>
     </div>
     <input v-show="false" type="file" ref="file" @change="upload" />
