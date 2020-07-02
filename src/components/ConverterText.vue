@@ -1,10 +1,10 @@
 <template>
-  <textarea :readonly="readonly" ref="textarea" v-model="text"></textarea>
+  <textarea ref="textarea" :readonly="readonly" v-model="text"></textarea>
 </template>
 
 <script>
 export default {
-  name: "ConverterSource",
+  name: "ConverterText",
   props: ["source", "mapping", "readonly"],
   data() {
     return {

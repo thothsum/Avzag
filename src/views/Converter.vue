@@ -17,7 +17,7 @@
             <span class="icon">swap_horiz</span>
           </button>
         </div>
-        <ConverterSource :source="sample" :mapping="mappingSource" @result="intermediate=$event" />
+        <ConverterText :source="sample" :mapping="mappingSource" @result="intermediate=$event" />
         <MappingTable v-show="showMapping" :mapping="mappingSource" />
       </div>
       <div class="panel">
@@ -29,11 +29,12 @@
             <span v-if="showMapping" class="icon">visibility_off</span>
             <span v-else class="icon">visibility</span>
           </button>
-          <!-- <button @click="copy">
+          <button @click="copy">
             <span class="icon">file_copy</span>
-          </button>-->
+          </button>
         </div>
-        <ConverterSource
+        <ConverterText
+          ref="resultText"
           :readonly="true"
           :source="intermediate"
           :mapping="mappingResult"
@@ -49,13 +50,13 @@
 
 <script>
 import MappingTable from "@/components/MappingTable";
-import ConverterSource from "@/components/ConverterSource";
+import ConverterText from "@/components/ConverterText";
 
 export default {
   name: "Converter",
   components: {
     MappingTable,
-    ConverterSource
+    ConverterText
   },
   data() {
     return {
@@ -118,6 +119,10 @@ export default {
       link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
       link.download = filename;
       link.click();
+    },
+    copy() {
+      this.$refs.resultText.$refs.textarea.select();
+      document.execCommand("copy");
     }
   }
 };
@@ -128,16 +133,12 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: map-get($margins, "normal");
-  place-items: stretch;
-  // !!
 }
 @media only screen and (max-width: $mobile-width) {
   .split {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    align-items: stretch;
-    // !!
   }
 }
 </style>
