@@ -6,8 +6,9 @@
         <span :key="g" v-for="g in graphemes">{{g}}</span>
       </div>
     </div>
+    <p class="text-caption" :key="i" v-for="(n, i) in notes">{{n}}</p>
     <div class="panel-solid scroll">
-      <template v-for="c in use">
+      <template v-for="c in cases">
         <button class="small" @click="$emit('play', s)" :key="s" v-for="s in c.samples">
           <span class="icon-small">play_arrow</span>
           <span v-html="highlight(s, c.grapheme)"></span>
@@ -20,10 +21,13 @@
 <script>
 export default {
   name: "PhonemeUse",
-  props: ["lect", "use"],
+  props: ["lect", "cases"],
   computed: {
     graphemes() {
-      return this.use.map(u => u.grapheme);
+      return this.cases.map(u => u.grapheme);
+    },
+    notes() {
+      return this.cases.map(u => u.note).filter(n => n);
     }
   },
   methods: {

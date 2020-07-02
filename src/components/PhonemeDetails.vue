@@ -3,7 +3,7 @@
     <div class="card panel-dense">
       <h2 class="text-ipa">{{phoneme.ipa}}</h2>
       <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
-      <p v-if="phoneme.note">{{phoneme.note}}</p>
+      <p class="text-caption" v-if="phoneme.note">{{phoneme.note}}</p>
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
@@ -11,7 +11,7 @@
       :key="i"
       v-for="(lc, i) in lects"
       :lect="lc"
-      :use="phoneme.uses[lc]"
+      :cases="phoneme.uses[lc]"
     />
   </div>
 </template>
