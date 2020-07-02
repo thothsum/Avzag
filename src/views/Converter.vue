@@ -10,14 +10,14 @@
               v-for="cn in converters.filter(c => !c.many21)"
             >{{cn.name}}</option>
           </select>
-          <button @click="empty=!empty">
+          <button @click="empty=!empty" :tooltip="empty ? 'paste sample text' : 'clear input text'">
             <span v-if="empty" class="icon">subject</span>
             <span v-else class="icon">clear</span>
           </button>
-          <button @click="$refs.file.click()">
+          <button @click="$refs.file.click()" tooltip="upload text file">
             <span class="icon">publish</span>
           </button>
-          <button v-show="!converters[this.mappingTo].many21" @click="swap">
+          <button v-show="!converters[this.mappingTo].many21" @click="swap" tooltip="swap writings">
             <span class="icon">swap_horiz</span>
           </button>
         </div>
@@ -29,11 +29,14 @@
           <select v-model="mappingTo">
             <option :value="cn.i" :key="cn.i" v-for="cn in converters">{{cn.name}}</option>
           </select>
-          <button @click="showMapping=!showMapping">
+          <button
+            @click="showMapping=!showMapping"
+            :tooltip="showMapping ? 'hide mapping' : 'show mapping'"
+          >
             <span v-if="showMapping" class="icon">visibility_off</span>
             <span v-else class="icon">visibility</span>
           </button>
-          <button @click="copy">
+          <button @click="copy" tooltip="copy to clipboard">
             <span class="icon">file_copy</span>
           </button>
         </div>
@@ -158,6 +161,9 @@ export default {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+  }
+  select {
+    flex: 1;
   }
 }
 </style>

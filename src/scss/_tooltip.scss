@@ -1,23 +1,26 @@
 [tooltip] {
     position: relative;
-    &:before {
+    &::before {
         z-index: 2;
         font-style: italic;
         font-size: map-get($font-sizes, "small");
         border-radius: $border-radius;
         background-color: var(--color-foreground);
         box-shadow: map-get($shadows, "elevated");
-        padding: map-get($margins, "quarter") map-get($margins, "normal");
-        position: absolute;
+        padding: map-get($margins, "half") map-get($margins, "normal");
         content: attr(tooltip);
-        opacity: 0;
-        top: 0;
-        transition: $transition;
+        position: absolute;
         pointer-events: none;
+        transition: $transition;
+        opacity: 0;
+
+        left: 50%;
+        top: -1 * map-get($margins, "double");
+        transform: translate(-50%, 0);
         width: max-content;
     }
-    &:hover:before {
+    &:hover::before {
         opacity: 1;
-        top: 3 * map-get($margins, "double");
+        top: -2 * map-get($margins, "double");
     }
 }
