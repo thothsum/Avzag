@@ -77,7 +77,7 @@ export default {
   }
   img {
     z-index: 0;
-    user-select: none;
+    pointer-events: none;
     position: absolute;
     height: 192px;
     left: 0;

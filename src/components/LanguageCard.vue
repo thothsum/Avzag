@@ -53,6 +53,7 @@ export default {
 }
 img {
   z-index: 0;
+  pointer-events: none;
   position: absolute;
   bottom: 0;
   right: 0;
