@@ -5,10 +5,10 @@
         <div class="panel-horizontal">
           <select v-model="mappingFrom">
             <option
-              :value="i"
-              :key="i"
-              v-for="(cnv, i) in converters.filter(c => !c.many21)"
-            >{{cnv.name}}</option>
+              :value="cn.i"
+              :key="cn.i"
+              v-for="cn in converters.filter(c => !c.many21)"
+            >{{cn.name}}</option>
           </select>
           <button @click="$refs.file.click()">
             <span class="icon">publish</span>
@@ -23,7 +23,7 @@
       <div class="panel">
         <div class="panel-horizontal">
           <select v-model="mappingTo">
-            <option :value="i" :key="i" v-for="(cnv, i) in converters">{{cnv.name}}</option>
+            <option :value="cn.i" :key="cn.i" v-for="cn in converters">{{cn.name}}</option>
           </select>
           <button @click="showMapping=!showMapping">
             <span v-if="showMapping" class="icon">visibility_off</span>
@@ -80,8 +80,11 @@ export default {
     }
   },
   watch: {
-    "$store.state.sample": function(sample) {
-      this.source = sample;
+    "$store.state.sample": {
+      handler(sample) {
+        this.source = sample;
+      },
+      immediate: true
     },
     mappingFrom(from) {
       this.$router
@@ -133,9 +136,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-select {
-  flex: 1;
-}
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
