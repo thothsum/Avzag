@@ -139,7 +139,7 @@ select {
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: map-get($margins, "normal");
+  gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {
   .split {
