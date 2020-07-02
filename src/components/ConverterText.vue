@@ -8,30 +8,39 @@ export default {
   props: ["source", "mapping", "readonly"],
   data() {
     return {
-      text: ""
+      text: "",
+      result: ""
     };
   },
   watch: {
     source: {
       handler() {
-        this.text = this.source;
+        this.text = this.readonly
+          ? this.convert(this.source, this.mapping)
+          : this.source;
       },
       immediate: true
     },
     text: {
       handler() {
-        this.result = this.convert(this.text, this.mapping);
+        this.result = this.readonly
+          ? this.text
+          : this.convert(this.text, this.mapping);
         this.$emit("result", this.result);
       },
       immediate: true
     },
-    mapping(mapping) {
-      this.text = this.readonly
-        ? this.convert(this.source, mapping)
-        : this.convert(
-            this.result,
-            mapping.map(m => [m[1], m[0]])
-          );
+    mapping: {
+      handler(mapping) {
+        this.text = this.readonly
+          ? this.convert(this.source, mapping)
+          : this.convert(
+              this.result,
+              mapping.map(m => [m[1], m[0]])
+            );
+      },
+      deep: true,
+      immediate: true
     }
   },
   methods: {

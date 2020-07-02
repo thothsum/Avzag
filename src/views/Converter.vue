@@ -17,7 +17,7 @@
             <span class="icon">swap_horiz</span>
           </button>
         </div>
-        <ConverterText :source="sample" :mapping="mappingSource" @result="intermediate=$event" />
+        <ConverterText :source="source" :mapping="mappingSource" @result="intermediate=$event" />
         <MappingTable v-show="showMapping" :mapping="mappingSource" />
       </div>
       <div class="panel">
@@ -60,17 +60,15 @@ export default {
   },
   data() {
     return {
-      mappingFrom: 0,
-      mappingTo: 1,
+      mappingFrom: "",
+      mappingTo: "",
+      source: "",
       intermediate: "",
       result: "",
       showMapping: false
     };
   },
   computed: {
-    sample() {
-      return this.$store.state.sample;
-    },
     converters() {
       return this.$store.state.converters;
     },
@@ -82,6 +80,9 @@ export default {
     }
   },
   watch: {
+    "$store.state.sample": function(sample) {
+      this.source = sample;
+    },
     mappingFrom(from) {
       this.$router
         .replace({ query: { ...this.$route.query, from: from } })
@@ -92,9 +93,12 @@ export default {
         .replace({ query: { ...this.$route.query, to: to } })
         .catch(() => {});
     },
-    "$route.query": function(query) {
-      this.mappingFrom = query.from ?? 0;
-      this.mappingTo = query.to ?? 1;
+    "$route.query": {
+      handler(query) {
+        this.mappingFrom = query.from ?? 0;
+        this.mappingTo = query.to ?? 1;
+      },
+      immediate: true
     }
   },
   methods: {
