@@ -8,22 +8,28 @@
             "unrounded"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "и",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "и",
-                "samples": [
-                    "и",
-                    "ила",
-                    "шин"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "и",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "и",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "и",
+                    "samples": [
+                        "и",
+                        "ила",
+                        "шин"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "и",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -34,22 +40,28 @@
             "close"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "у",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "у",
-                "samples": [
-                    "у",
-                    "уцци",
-                    "букье"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "у",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "у",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "у",
+                    "samples": [
+                        "у",
+                        "уцци",
+                        "букье"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "у",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -60,22 +72,33 @@
             "close-mid"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "э",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "э",
-                "samples": [
-                    "э",
-                    "эркӏ",
-                    "чэв"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "э",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "э",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "е",
+                    "samples": [
+                        "чев"
+                    ]
+                },
+                {
+                    "grapheme": "э",
+                    "samples": [
+                        "э",
+                        "эркӏ"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "э",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -87,22 +110,28 @@
             "unrounded"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "а",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "а",
-                "samples": [
-                    "а",
-                    "азир",
-                    "цула"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "а",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "а",
+                    "samples": [
+                        "а",
+                        "азир",
+                        "цула"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -115,22 +144,28 @@
             "unrounded"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "я",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "я",
-                "samples": [
-                    "я",
-                    "гӏяхӏле",
-                    "ця"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "я",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "я",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "я",
+                    "samples": [
+                        "я",
+                        "гӏяхӏле",
+                        "ця"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "я",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -142,22 +177,28 @@
             "labial"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "б",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "б",
-                "samples": [
-                    "б",
-                    "бекӏ",
-                    "гӏябал"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "б",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "б",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "б",
+                    "samples": [
+                        "б",
+                        "бекӏ",
+                        "гӏябал"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "б",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -169,22 +210,28 @@
             "labial"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "п",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "п",
-                "samples": [
-                    "п",
-                    "пикре",
-                    "кулпет"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "п",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "п",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "п",
+                    "samples": [
+                        "п",
+                        "пикре",
+                        "кулпет"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "п",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -197,18 +244,22 @@
             "labial"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "пп",
-                "samples": [
-                    "пп",
-                    "ппала",
-                    "тӏиппе"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "пп",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "пп",
+                    "samples": [
+                        "пп",
+                        "ппала",
+                        "тӏиппе"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "пп",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -221,18 +272,22 @@
             "labial"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "пӏ",
-                "samples": [
-                    "пӏ",
-                    "пӏялцӏикӏ",
-                    "шипӏяй"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "пӏ",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "пӏ",
+                    "samples": [
+                        "пӏ",
+                        "пӏялцӏикӏ",
+                        "шипӏяй"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "пӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -244,10 +299,12 @@
             "labiodental"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "в",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "в",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -259,14 +316,16 @@
             "bilabial"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "в",
-                "samples": [
-                    "в",
-                    "варси",
-                    "ццав"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "в",
+                    "samples": [
+                        "в",
+                        "варси",
+                        "ццав"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -278,10 +337,12 @@
             "approximant"
         ],
         "uses": {
-            "Kubachi": {
-                "grapheme": "в",
-                "samples": []
-            }
+            "Kubachi": [
+                {
+                    "grapheme": "в",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -293,22 +354,28 @@
             "nasal"
         ],
         "uses": {
-            "Kubachi": {
-                "grapheme": "м",
-                "samples": []
-            },
-            "Akusha": {
-                "grapheme": "м",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "м",
-                "samples": [
-                    "м",
-                    "мургьи",
-                    "хьулум"
-                ]
-            }
+            "Kubachi": [
+                {
+                    "grapheme": "м",
+                    "samples": []
+                }
+            ],
+            "Akusha": [
+                {
+                    "grapheme": "м",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "м",
+                    "samples": [
+                        "м",
+                        "мургьи",
+                        "хьулум"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -320,22 +387,28 @@
             "dental"
         ],
         "uses": {
-            "Kubachi": {
-                "grapheme": "д",
-                "samples": []
-            },
-            "Akusha": {
-                "grapheme": "д",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "д",
-                "samples": [
-                    "д",
-                    "дуцца",
-                    "мейдам"
-                ]
-            }
+            "Kubachi": [
+                {
+                    "grapheme": "д",
+                    "samples": []
+                }
+            ],
+            "Akusha": [
+                {
+                    "grapheme": "д",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "д",
+                    "samples": [
+                        "д",
+                        "дуцца",
+                        "мейдам"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -347,22 +420,28 @@
             "dental"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "т",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "т",
-                "samples": [
-                    "т",
-                    "талхъан",
-                    "уста"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "т",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "т",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "т",
+                    "samples": [
+                        "т",
+                        "талхъан",
+                        "уста"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "т",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -375,18 +454,22 @@
             "dental"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "тт",
-                "samples": [
-                    "тт",
-                    "ттура",
-                    "атта"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "тт",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "тт",
+                    "samples": [
+                        "тт",
+                        "ттура",
+                        "атта"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "тт",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -399,22 +482,28 @@
             "dental"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "тӏ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "тӏ",
-                "samples": [
-                    "тӏ",
-                    "тӏал",
-                    "кӏултӏа"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "тӏ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "тӏ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "тӏ",
+                    "samples": [
+                        "тӏ",
+                        "тӏал",
+                        "кӏултӏа"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "тӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -426,22 +515,28 @@
             "dental"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "ц",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "ц",
-                "samples": [
-                    "ц",
-                    "цикӏал",
-                    "бац"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "ц",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "ц",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "ц",
+                    "samples": [
+                        "ц",
+                        "цикӏал",
+                        "бац"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "ц",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -454,18 +549,22 @@
             "dental"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "цц",
-                "samples": [
-                    "цц",
-                    "цце",
-                    "луццум"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "цц",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "цц",
+                    "samples": [
+                        "цц",
+                        "цце",
+                        "луццум"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "цц",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -478,22 +577,28 @@
             "dental"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "цӏ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "цӏ",
-                "samples": [
-                    "цӏ",
-                    "цӏалип",
-                    "вецӏал"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "цӏ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "цӏ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "цӏ",
+                    "samples": [
+                        "цӏ",
+                        "цӏалип",
+                        "вецӏал"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "цӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -505,22 +610,28 @@
             "dental"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "з",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "з",
-                "samples": [
-                    "з",
-                    "зарадехь",
-                    "муза"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "з",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "з",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "з",
+                    "samples": [
+                        "з",
+                        "зарадехь",
+                        "муза"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "з",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -532,22 +643,28 @@
             "dental"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "с",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "с",
-                "samples": [
-                    "с",
-                    "сагъли",
-                    "бурсибил"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "с",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "с",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "с",
+                    "samples": [
+                        "с",
+                        "сагъли",
+                        "бурсибил"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "с",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -560,18 +677,22 @@
             "dental"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "сс",
-                "samples": [
-                    "сс",
-                    "нисса",
-                    "гьассара"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "сс",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "сс",
+                    "samples": [
+                        "сс",
+                        "нисса",
+                        "гьассара"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "сс",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -583,22 +704,28 @@
             "nasal"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "н",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "н",
-                "samples": [
-                    "н",
-                    "някъ",
-                    "манзи"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "н",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "н",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "н",
+                    "samples": [
+                        "н",
+                        "някъ",
+                        "манзи"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "н",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -611,23 +738,29 @@
             "approximant"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "л",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "л",
-                "samples": [
-                    "л",
-                    "палтар",
-                    "хьацӏил"
-                ],
-                "note": "Palatalized after /a/, /i/, /u/."
-            },
-            "Kubachi": {
-                "grapheme": "л",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "л",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "л",
+                    "samples": [
+                        "л",
+                        "палтар",
+                        "хьацӏил"
+                    ],
+                    "note": "Palatalized after /a/, /i/, /u/."
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "л",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -639,18 +772,22 @@
             "palatal"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "хь",
-                "samples": [
-                    "хь",
-                    "хьуне",
-                    "дирихь"
-                ]
-            },
-            "Akusha": {
-                "grapheme": "хь",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "хь",
+                    "samples": [
+                        "хь",
+                        "хьуне",
+                        "дирихь"
+                    ]
+                }
+            ],
+            "Akusha": [
+                {
+                    "grapheme": "хь",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -663,14 +800,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "хьв",
-                "samples": [
-                    "хьв",
-                    "белхьвана",
-                    "дехьвана"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "хьв",
+                    "samples": [
+                        "хьв",
+                        "белхьвана",
+                        "дехьвана"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -683,10 +822,12 @@
             "velar"
         ],
         "uses": {
-            "Kubachi": {
-                "grapheme": "хьхь",
-                "samples": []
-            }
+            "Kubachi": [
+                {
+                    "grapheme": "хьхь",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -699,14 +840,16 @@
             "palatal"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "хьхь",
-                "samples": [
-                    "хьхь",
-                    "кабихьхьара",
-                    "дивхьхьара"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "хьхь",
+                    "samples": [
+                        "хьхь",
+                        "кабихьхьара",
+                        "дивхьхьара"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -720,14 +863,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "хьхьв",
-                "samples": [
-                    "хьхьв",
-                    "нихьхьва",
-                    "чицахьхьвара"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "хьхьв",
+                    "samples": [
+                        "хьхьв",
+                        "нихьхьва",
+                        "чицахьхьвара"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -739,22 +884,28 @@
             "approximant"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "й",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "й",
-                "samples": [
-                    "й",
-                    "чуйна",
-                    "гъай"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "й",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "й",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "й",
+                    "samples": [
+                        "й",
+                        "чуйна",
+                        "гъай"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "й",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -766,22 +917,28 @@
             "alveolar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "ч",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "ч",
-                "samples": [
-                    "ч",
-                    "чехъил",
-                    "мичи"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "ч",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "ч",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "ч",
+                    "samples": [
+                        "ч",
+                        "чехъил",
+                        "мичи"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "ч",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -793,10 +950,12 @@
             "affricate"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "дз",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "дз",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -808,10 +967,12 @@
             "alveolar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "дж",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "дж",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -824,14 +985,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "чв",
-                "samples": [
-                    "чв",
-                    "чваква",
-                    "берчвахана"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "чв",
+                    "samples": [
+                        "чв",
+                        "чваква",
+                        "берчвахана"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -845,18 +1008,22 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "чч",
-                "samples": [
-                    "чч",
-                    "ччашин",
-                    "дучче"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "чч",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "чч",
+                    "samples": [
+                        "чч",
+                        "ччашин",
+                        "дучче"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "чч",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -869,14 +1036,16 @@
             "alveolar"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "ччв",
-                "samples": [
-                    "ччв",
-                    "ччве",
-                    "биччвахара"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "ччв",
+                    "samples": [
+                        "ччв",
+                        "ччве",
+                        "биччвахара"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -889,22 +1058,28 @@
             "alveolar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "чӏ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "чӏ",
-                "samples": [
-                    "чӏ",
-                    "чӏала",
-                    "урчӏе"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "чӏ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "чӏ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "чӏ",
+                    "samples": [
+                        "чӏ",
+                        "чӏала",
+                        "урчӏе"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "чӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -918,14 +1093,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "чӏв",
-                "samples": [
-                    "чӏв",
-                    "чӏвел",
-                    "белчӏвахана"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "чӏв",
+                    "samples": [
+                        "чӏв",
+                        "чӏвел",
+                        "белчӏвахана"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -937,22 +1114,28 @@
             "alveolar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "ж",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "ж",
-                "samples": [
-                    "ж",
-                    "житӏа",
-                    "хӏяжлачӏе"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "ж",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "ж",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "ж",
+                    "samples": [
+                        "ж",
+                        "житӏа",
+                        "хӏяжлачӏе"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "ж",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -965,14 +1148,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "жв",
-                "samples": [
-                    "жв",
-                    "кержвахара",
-                    "бевжвахана"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "жв",
+                    "samples": [
+                        "жв",
+                        "кержвахара",
+                        "бевжвахана"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -984,22 +1169,28 @@
             "alveolar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "ш",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "ш",
-                "samples": [
-                    "ш",
-                    "шалал",
-                    "урши"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "ш",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "ш",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "ш",
+                    "samples": [
+                        "ш",
+                        "шалал",
+                        "урши"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "ш",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1012,14 +1203,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "шв",
-                "samples": [
-                    "шв",
-                    "швел",
-                    "бершвахара"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "шв",
+                    "samples": [
+                        "шв",
+                        "швел",
+                        "бершвахара"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1032,18 +1225,22 @@
             "alveolar"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "шш",
-                "samples": [
-                    "шш",
-                    "шшери",
-                    "нишша"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "шш",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "шш",
+                    "samples": [
+                        "шш",
+                        "шшери",
+                        "нишша"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "шш",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1057,14 +1254,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "шшв",
-                "samples": [
-                    "шшв",
-                    "ишшвахара",
-                    "кабишшвахара"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "шшв",
+                    "samples": [
+                        "шшв",
+                        "ишшвахара",
+                        "кабишшвахара"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1076,22 +1275,28 @@
             "trill"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "р",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "р",
-                "samples": [
-                    "р",
-                    "рицци",
-                    "баргьул"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "р",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "р",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "р",
+                    "samples": [
+                        "р",
+                        "рицци",
+                        "баргьул"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "р",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1103,22 +1308,28 @@
             "velar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "г",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "г",
-                "samples": [
-                    "г",
-                    "гуневла",
-                    "чибиган"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "г",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "г",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "г",
+                    "samples": [
+                        "г",
+                        "гуневла",
+                        "чибиган"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "г",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1131,14 +1342,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "гв",
-                "samples": [
-                    "гв",
-                    "гванадехь",
-                    "делгвана"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "гв",
+                    "samples": [
+                        "гв",
+                        "гванадехь",
+                        "делгвана"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1150,22 +1363,28 @@
             "velar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "к",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "к",
-                "samples": [
-                    "к",
-                    "катӏара",
-                    "гъукле"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "к",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "к",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "к",
+                    "samples": [
+                        "к",
+                        "катӏара",
+                        "гъукле"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "к",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1178,14 +1397,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "кв",
-                "samples": [
-                    "кв",
-                    "квацци",
-                    "берквана"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "кв",
+                    "samples": [
+                        "кв",
+                        "квацци",
+                        "берквана"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1198,18 +1419,22 @@
             "velar"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "кк",
-                "samples": [
-                    "кк",
-                    "ккуртте",
-                    "бейкку"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "кк",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "кк",
+                    "samples": [
+                        "кк",
+                        "ккуртте",
+                        "бейкку"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "кк",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1223,14 +1448,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "ккв",
-                "samples": [
-                    "ккв",
-                    "рангакквар",
-                    "ччвакква"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "ккв",
+                    "samples": [
+                        "ккв",
+                        "рангакквар",
+                        "ччвакква"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1243,22 +1470,28 @@
             "velar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "кӏ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "кӏ",
-                "samples": [
-                    "кӏ",
-                    "кӏана",
-                    "декӏле"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "кӏ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "кӏ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "кӏ",
+                    "samples": [
+                        "кӏ",
+                        "кӏана",
+                        "декӏле"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "кӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1272,14 +1505,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "кӏв",
-                "samples": [
-                    "кӏв",
-                    "никӏва",
-                    "белкӏвана"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "кӏв",
+                    "samples": [
+                        "кӏв",
+                        "никӏва",
+                        "белкӏвана"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1291,22 +1526,28 @@
             "uvular"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "къ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "къ",
-                "samples": [
-                    "къ",
-                    "къатта",
-                    "вегъивкъел"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "къ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "къ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "къ",
+                    "samples": [
+                        "къ",
+                        "къатта",
+                        "вегъивкъел"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "къ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1319,14 +1560,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "къв",
-                "samples": [
-                    "къв",
-                    "къвяна",
-                    "милкъвя"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "къв",
+                    "samples": [
+                        "къв",
+                        "къвяна",
+                        "милкъвя"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1339,22 +1582,28 @@
             "aspirated"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "хъ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "хъ",
-                "samples": [
-                    "хъ",
-                    "хъале",
-                    "бихъна"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "хъ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "хъ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "хъ",
+                    "samples": [
+                        "хъ",
+                        "хъале",
+                        "бихъна"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "хъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1368,14 +1617,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "хъв",
-                "samples": [
-                    "хъв",
-                    "хъвянтӏ",
-                    "махъва"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "хъв",
+                    "samples": [
+                        "хъв",
+                        "хъвянтӏ",
+                        "махъва"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1388,18 +1639,22 @@
             "uvular"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "къкъ",
-                "samples": [
-                    "къкъ",
-                    "цакъкъара",
-                    "шукъкъа"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "къкъ",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "къкъ",
+                    "samples": [
+                        "къкъ",
+                        "цакъкъара",
+                        "шукъкъа"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "къкъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1412,22 +1667,28 @@
             "uvular"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "кь",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "кь",
-                "samples": [
-                    "кь",
-                    "кьаст",
-                    "мукьара"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "кь",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "кь",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "кь",
+                    "samples": [
+                        "кь",
+                        "кьаст",
+                        "мукьара"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "кь",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1441,14 +1702,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "кьв",
-                "samples": [
-                    "кьв",
-                    "кьвял",
-                    "чӏвакьва"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "кьв",
+                    "samples": [
+                        "кьв",
+                        "кьвял",
+                        "чӏвакьва"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1460,10 +1723,12 @@
             "velar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "гъ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1475,18 +1740,22 @@
             "uvular"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "гъ",
-                "samples": [
-                    "гъ",
-                    "гъизбе",
-                    "къабагъ"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "гъ",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "гъ",
+                    "samples": [
+                        "гъ",
+                        "гъизбе",
+                        "къабагъ"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1499,14 +1768,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "гъв",
-                "samples": [
-                    "гъв",
-                    "гъвярцӏил",
-                    "бергъвара"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "гъв",
+                    "samples": [
+                        "гъв",
+                        "гъвярцӏил",
+                        "бергъвара"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1518,18 +1789,22 @@
             "uvular"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "х",
-                "samples": [
-                    "х",
-                    "халича",
-                    "чух"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "х",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "х",
+                    "samples": [
+                        "х",
+                        "халича",
+                        "чух"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "х",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1541,14 +1816,18 @@
             "velar"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "х",
-                "samples": []
-            },
-            "Kubachi": {
-                "grapheme": "хь",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "х",
+                    "samples": []
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "хь",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1561,14 +1840,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "хв",
-                "samples": [
-                    "хв",
-                    "хвя",
-                    "керхвара"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "хв",
+                    "samples": [
+                        "хв",
+                        "хвя",
+                        "керхвара"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1581,18 +1862,22 @@
             "uvular"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "хх",
-                "samples": [
-                    "хх",
-                    "ххярбе",
-                    "ирххе"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "хх",
-                "samples": []
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "хх",
+                    "samples": [
+                        "хх",
+                        "ххярбе",
+                        "ирххе"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "хх",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1604,22 +1889,28 @@
             "pharyngeal"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "гӏ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "гӏ",
-                "samples": [
-                    "гӏ",
-                    "гӏямру",
-                    "лягӏ"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "гӏ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "гӏ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "гӏ",
+                    "samples": [
+                        "гӏ",
+                        "гӏямру",
+                        "лягӏ"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "гӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1631,22 +1922,28 @@
             "pharyngeal"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "хӏ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "хӏ",
-                "samples": [
-                    "хӏ",
-                    "хӏянчи",
-                    "дярхӏя"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "хӏ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "хӏ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "хӏ",
+                    "samples": [
+                        "хӏ",
+                        "хӏянчи",
+                        "дярхӏя"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "хӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1658,22 +1955,28 @@
             "laryngeal"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "гь",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "гь",
-                "samples": [
-                    "гь",
-                    "гьинце",
-                    "вагьла"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "гь",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "гь",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "гь",
+                    "samples": [
+                        "гь",
+                        "гьинце",
+                        "вагьла"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "гь",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -1686,14 +1989,16 @@
             "labialized"
         ],
         "uses": {
-            "Kaitag": {
-                "grapheme": "гьв",
-                "samples": [
-                    "гьв",
-                    "белгьвана",
-                    "диргьвар"
-                ]
-            }
+            "Kaitag": [
+                {
+                    "grapheme": "гьв",
+                    "samples": [
+                        "гьв",
+                        "белгьвана",
+                        "диргьвар"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -1706,21 +2011,27 @@
             "laryngeal"
         ],
         "uses": {
-            "Akusha": {
-                "grapheme": "ъ",
-                "samples": []
-            },
-            "Kaitag": {
-                "grapheme": "ъ",
-                "samples": [
-                    "маъ",
-                    "баълабай"
-                ]
-            },
-            "Kubachi": {
-                "grapheme": "ъ",
-                "samples": []
-            }
+            "Akusha": [
+                {
+                    "grapheme": "ъ",
+                    "samples": []
+                }
+            ],
+            "Kaitag": [
+                {
+                    "grapheme": "ъ",
+                    "samples": [
+                        "маъ",
+                        "баълабай"
+                    ]
+                }
+            ],
+            "Kubachi": [
+                {
+                    "grapheme": "ъ",
+                    "samples": []
+                }
+            ]
         }
     }
 ]

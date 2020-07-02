@@ -52,12 +52,7 @@ export default {
   &::after {
     color: var(--color-text-faded);
     font-family: $font-family;
-  }
-  &::before {
-    content: "/ ";
-  }
-  &::after {
-    content: " /";
+    content: "/";
   }
 }
 </style>

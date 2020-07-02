@@ -44,7 +44,7 @@ export default {
       return lects.length === 1 ? lects[0] : undefined;
     },
     graphemes() {
-      return this.phonemes.map(p => p.uses[this.singleLect]?.grapheme);
+      return this.phonemes.map(p => p.uses[this.singleLect]?.[0].grapheme);
     }
   }
 };

@@ -1,15 +1,19 @@
 <template>
   <div class="panel-dense card">
-    <p>
-      <b>{{use.grapheme}}</b>
-      — {{lect}}
-    </p>
-    <p class="text-caption text-faded" v-if="use.note">{{use.note}}</p>
-    <div class="panel-solid scroll" v-if="use.samples && use.samples.length>0">
-      <button class="small" @click="$emit('play', sm)" :key="i" v-for="(sm, i) in use.samples">
-        <span class="icon-small">play_arrow</span>
-        <span v-html="highlight(sm, use.grapheme)"></span>
-      </button>
+    <div class="title">
+      <h3>{{lect}}</h3>
+      <div class="graphemes panel-horizontal-dense">
+        <span :key="g" v-for="g in graphemes">{{g}}</span>
+      </div>
+    </div>
+    <!-- <p class="text-caption text-faded" v-if="use.note">{{use.note}}</p> -->
+    <div class="panel-solid scroll">
+      <template v-for="c in use">
+        <button class="small" @click="$emit('play', s)" :key="s" v-for="s in c.samples">
+          <span class="icon-small">play_arrow</span>
+          <span v-html="highlight(s, c.grapheme)"></span>
+        </button>
+      </template>
     </div>
   </div>
 </template>
@@ -18,6 +22,11 @@
 export default {
   name: "PhonemeUse",
   props: ["lect", "use"],
+  computed: {
+    graphemes() {
+      return this.use.map(u => u.grapheme);
+    }
+  },
   methods: {
     highlight(sample, grapheme) {
       return sample.replace(
@@ -30,6 +39,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.graphemes span {
+  &::before,
+  &::after {
+    color: var(--color-text-faded);
+    font-family: $font-family;
+    line-height: 100%;
+  }
+  &::before {
+    content: "⟨";
+  }
+  &::after {
+    content: "⟩";
+  }
+}
 .panel-solid {
   margin: -1 * map-get($margins, "normal");
   margin-top: map-get($margins, "quarter");
