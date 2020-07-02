@@ -73,10 +73,10 @@ export default {
       return this.$store.state.converters;
     },
     mappingSource() {
-      return this.getMapping(this.mappingFrom);
+      return this.converters[this.mappingFrom].mapping.map(m => [m[0], m[1]]);
     },
     mappingResult() {
-      return this.getMapping(this.mappingTo, true);
+      return this.converters[this.mappingTo].mapping.map(m => [m[1], m[0]]);
     }
   },
   watch: {
@@ -89,23 +89,13 @@ export default {
       this.$router
         .replace({ query: { ...this.$route.query, to: to } })
         .catch(() => {});
-    },
-    "$route.query": function(query) {
-      this.mappingFrom = query.from ?? 0;
-      this.mappingTo = query.to ?? 1;
     }
+    // "$route.query": function(query) {
+    //   this.mappingFrom = query.from ?? 0;
+    //   this.mappingTo = query.to ?? 1;
+    // }
   },
   methods: {
-    getMapping(index, reverse = false) {
-      let mapping = this.converters[index].mapping;
-      let ones = mapping
-        .filter(m => m[0].includes("ӏ"))
-        .map(m => [m[0].replace(new RegExp("ӏ", "g"), "1"), m[1]]);
-      mapping = mapping.concat(ones);
-
-      if (reverse) mapping = mapping.filter(m => m[1]).map(m => m.reverse());
-      return mapping;
-    },
     // swap() {
     //   let source = this.result;
     //   let from = this.mappingFrom;

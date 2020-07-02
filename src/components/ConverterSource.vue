@@ -8,8 +8,7 @@ export default {
   props: ["source", "mapping", "readonly"],
   data() {
     return {
-      text: "",
-      result: ""
+      text: ""
     };
   },
   watch: {
@@ -26,10 +25,16 @@ export default {
       },
       immediate: true
     },
-    mapping() {
+    mapping(mapping) {
       this.text = this.readonly
-        ? this.convert(this.source, this.mapping)
-        : this.convert(this.result, this.mapping, true);
+        ? this.convert(
+            this.source,
+            mapping.map(m => [m[0], m[1]])
+          )
+        : this.convert(
+            this.result,
+            mapping.map(m => [m[1], m[0]])
+          );
     }
   },
   methods: {
@@ -45,10 +50,8 @@ export default {
     replace(str, from, to) {
       return str.replace(new RegExp(from, "g"), to);
     },
-    convert(source, mapping, reverse = false) {
+    convert(source, mapping) {
       source = " " + this.replace(source, "\n", "\n ").trim();
-      if (reverse) mapping = mapping.map(m => m.reverse());
-
       for (const [from, to] of mapping) {
         source = this.replace(source, from, to);
         source = this.replace(source, this.uppercase(from), this.uppercase(to));
