@@ -2,7 +2,7 @@
   <div id="root">
     <div class="section">
       <div class="panel-horizontal">
-        <img :src="flag" draggable="false" alt="flag" />
+        <img class="no-select" :src="flag" draggable="false" alt="flag" />
         <button @click="navigate('Home')">
           <span class="icon">arrow_back</span>
         </button>
@@ -67,8 +67,8 @@ export default {
     z-index: 1;
   }
   img {
-    z-index: 0;
     pointer-events: none;
+    z-index: 0;
     position: absolute;
     height: 192px;
     left: 0;

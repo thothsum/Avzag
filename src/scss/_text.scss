@@ -14,17 +14,27 @@
   color: var(--color-text-faded);
 }
 .text-ipa {
-  font-family: sans-serif;
+  font-style: normal;
   line-height: 100%;
+  font-family: sans-serif;
+  &::before,
+  &::after {
+    content: "/";
+    color: var(--color-text-faded);
+  }
 }
 .text-spaced {
   word-spacing: map-get($margins, "normal");
 }
 
+.no-select {
+  user-select: none;
+}
+
 h1,
 h2,
 h3 {
-  user-select: none;
+  @extend .no-select;
 }
 h1 {
   &,

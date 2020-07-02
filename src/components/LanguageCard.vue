@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card panel-dense"
+    class="card panel-dense no-select"
     @click="$router.push({ name: 'Phonology', params: { lang: language } })"
   >
     <img :src="flag" draggable="false" alt="flag" />
@@ -36,7 +36,6 @@ export default {
   position: relative;
   overflow: hidden;
   text-shadow: map-get($shadows, "elevated");
-  user-select: none;
   &:hover {
     cursor: pointer;
     box-shadow: map-get($shadows, "elevated");
@@ -52,8 +51,8 @@ export default {
   }
 }
 img {
-  z-index: 0;
   pointer-events: none;
+  z-index: 0;
   position: absolute;
   bottom: 0;
   right: 0;

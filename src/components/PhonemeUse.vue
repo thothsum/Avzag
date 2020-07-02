@@ -2,11 +2,9 @@
   <div class="panel-dense card">
     <div class="title">
       <h3>{{lect}}</h3>
-      <div class="graphemes panel-horizontal-dense">
-        <span :key="g" v-for="g in graphemes">{{g}}</span>
-      </div>
+      <p v-html="graphemes"></p>
     </div>
-    <p class="text-caption" :key="i" v-for="(n, i) in notes">{{n}}</p>
+    <!-- <p class="text-caption" :key="i" v-for="(n, i) in notes">{{n}}</p> -->
     <div class="panel-solid scroll">
       <template v-for="c in cases">
         <button class="small" @click="$emit('play', s)" :key="s" v-for="s in c.samples">
@@ -24,7 +22,9 @@ export default {
   props: ["lect", "cases"],
   computed: {
     graphemes() {
-      return this.cases.map(u => u.grapheme);
+      return this.cases
+        .map(u => u.grapheme)
+        .join("<span class='text-faded no-select'> • </span>");
     },
     notes() {
       return this.cases.map(u => u.note).filter(n => n);
@@ -45,20 +45,6 @@ export default {
 .title {
   display: flex;
   justify-content: space-between;
-}
-.graphemes span {
-  &::before,
-  &::after {
-    color: var(--color-text-faded);
-    font-family: $font-family;
-    line-height: 100%;
-  }
-  &::before {
-    content: "⟨";
-  }
-  &::after {
-    content: "⟩";
-  }
 }
 .panel-solid {
   margin: -1 * map-get($margins, "normal");

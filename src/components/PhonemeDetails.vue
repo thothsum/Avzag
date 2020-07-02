@@ -3,7 +3,7 @@
     <div class="card panel-dense">
       <h2 class="text-ipa">{{phoneme.ipa}}</h2>
       <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
-      <p class="text-caption" v-if="phoneme.note">{{phoneme.note}}</p>
+      <p class="text-caption" v-if="phoneme.note" v-html="parsePhonemes(phoneme.note)"></p>
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
@@ -41,6 +41,9 @@ export default {
       const player = this.$refs.player;
       player.src = `${this.root}${lect}/audio/${sample}.mp3`;
       player.play();
+    },
+    parsePhonemes(str) {
+      return str.replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>");
     }
   }
 };
@@ -49,11 +52,5 @@ export default {
 <style lang="scss" scoped>
 .text-ipa {
   user-select: unset;
-  &::before,
-  &::after {
-    color: var(--color-text-faded);
-    font-family: $font-family;
-    content: "/";
-  }
 }
 </style>

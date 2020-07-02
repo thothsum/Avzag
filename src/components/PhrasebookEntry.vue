@@ -2,7 +2,7 @@
   <div class="card">
     <h3>{{lect}}</h3>
     <span>{{source.text}}</span>
-    <span class="text-faded text-ipa">/{{source.ipa}}/</span>
+    <span class="text-faded text-ipa">{{source.ipa}}</span>
   </div>
 </template>
 
