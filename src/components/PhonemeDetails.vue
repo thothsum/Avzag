@@ -1,11 +1,7 @@
 <template>
   <div id="root" class="panel">
     <div class="card panel-dense">
-      <h2>
-        <span class="text-faded">/&nbsp;</span>
-        <span class="text-ipa">{{phoneme.ipa}}</span>
-        <span class="text-faded">&nbsp;/</span>
-      </h2>
+      <h2 class="text-ipa">{{phoneme.ipa}}</h2>
       <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
     </div>
     <audio ref="player"></audio>
@@ -48,3 +44,20 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.text-ipa {
+  user-select: unset;
+  &::before,
+  &::after {
+    color: var(--color-text-faded);
+    font-family: $font-family;
+  }
+  &::before {
+    content: "/ ";
+  }
+  &::after {
+    content: " /";
+  }
+}
+</style>

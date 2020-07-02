@@ -29,7 +29,6 @@ export default {
   data() {
     return {
       menus: [
-        ["Map", "map"],
         ["Phonology", "audiotrack"],
         ["Converter", "sync_alt"],
         ["Phrasebook", "chat"]
@@ -79,10 +78,8 @@ export default {
   }
 }
 .section {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
 }
 button {
   font-weight: bold;
