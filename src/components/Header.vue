@@ -10,13 +10,13 @@
       </div>
       <div class="panel-horizontal scroll-hidden">
         <button
-          :class="{ highlight: $route.name === m.title }"
-          @click="navigate(m.title)"
+          :class="{ highlight: $route.name === t }"
+          @click="navigate(t)"
           :key="i"
-          v-for="(m, i) in menus"
+          v-for="[t, i] in menus"
         >
-          <span class="icon">{{ m.icon }}</span>
-          <p>{{ m.title }}</p>
+          <span class="icon">{{i}}</span>
+          <p>{{t}}</p>
         </button>
       </div>
     </div>
@@ -29,18 +29,10 @@ export default {
   data() {
     return {
       menus: [
-        {
-          title: "Phonology",
-          icon: "audiotrack"
-        },
-        {
-          title: "Converter",
-          icon: "sync_alt"
-        },
-        {
-          title: "Phrasebook",
-          icon: "chat"
-        }
+        ["Map", "map"],
+        ["Phonology", "audiotrack"],
+        ["Converter", "sync_alt"],
+        ["Phrasebook", "chat"]
       ]
     };
   },
