@@ -10,6 +10,10 @@
               v-for="cn in converters.filter(c => !c.many21)"
             >{{cn.name}}</option>
           </select>
+          <button @click="empty=!empty">
+            <span v-if="empty" class="icon">subject</span>
+            <span v-else class="icon">clear</span>
+          </button>
           <button @click="$refs.file.click()">
             <span class="icon">publish</span>
           </button>
@@ -60,8 +64,9 @@ export default {
   },
   data() {
     return {
-      mappingFrom: "",
-      mappingTo: "",
+      mappingFrom: 0,
+      mappingTo: 1,
+      empty: false,
       source: "",
       intermediate: "",
       result: "",
@@ -69,6 +74,9 @@ export default {
     };
   },
   computed: {
+    sample() {
+      return this.$store.state.sample;
+    },
     converters() {
       return this.$store.state.converters;
     },
@@ -80,11 +88,14 @@ export default {
     }
   },
   watch: {
-    "$store.state.sample": {
-      handler(sample) {
-        this.source = sample;
-      },
-      immediate: true
+    sample(sample) {
+      if (!this.empty) this.source = sample;
+    },
+    empty(empty) {
+      this.source = empty ? "" : this.sample;
+      this.$router
+        .replace({ query: { ...this.$route.query, empty: empty } })
+        .catch(() => {});
     },
     mappingFrom(from) {
       this.$router
@@ -98,6 +109,7 @@ export default {
     },
     "$route.query": {
       handler(query) {
+        this.empty = query.empty;
         this.mappingFrom = query.from ?? 0;
         this.mappingTo = query.to ?? 1;
       },
