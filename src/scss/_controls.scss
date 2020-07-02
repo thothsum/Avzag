@@ -26,14 +26,13 @@ select {
 }
 
 a {
-  color: var(--color-highlight);
-  text-decoration: underline;
   padding: map-get($margins, "half") map-get($margins, "normal");
-
+  position: relative;
+  text-decoration: var(--color-highlight) underline;
   &:hover {
-    background-color: var(--color-hover);
+    background-color: var(--color-highlight-back);
   }
   &:active {
-    background-color: var(--color-press);
+    color: var(--color-highlight);
   }
 }
