@@ -737,6 +737,7 @@
             "dental",
             "approximant"
         ],
+        "note": "Palatalized after /a/, /i/, /u/.",
         "uses": {
             "Akusha": [
                 {
@@ -751,8 +752,7 @@
                         "л",
                         "палтар",
                         "хьацӏил"
-                    ],
-                    "note": "Palatalized after /a/, /i/, /u/."
+                    ]
                 }
             ],
             "Kubachi": [

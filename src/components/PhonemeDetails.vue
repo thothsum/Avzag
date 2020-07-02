@@ -3,6 +3,7 @@
     <div class="card panel-dense">
       <h2 class="text-ipa">{{phoneme.ipa}}</h2>
       <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
+      <p v-if="phoneme.note">{{phoneme.note}}</p>
     </div>
     <audio ref="player"></audio>
     <PhonemeUse

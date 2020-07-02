@@ -6,7 +6,6 @@
         <span :key="g" v-for="g in graphemes">{{g}}</span>
       </div>
     </div>
-    <!-- <p class="text-caption text-faded" v-if="use.note">{{use.note}}</p> -->
     <div class="panel-solid scroll">
       <template v-for="c in use">
         <button class="small" @click="$emit('play', s)" :key="s" v-for="s in c.samples">
