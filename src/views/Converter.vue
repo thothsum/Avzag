@@ -133,6 +133,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+select {
+  flex: 1;
+}
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;

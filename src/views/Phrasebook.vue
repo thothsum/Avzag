@@ -1,11 +1,9 @@
 <template>
   <div class="section" v-if="phrasebook">
     <div id="translations" class="panel">
-      <h3>Category</h3>
       <select v-model="category">
         <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
       </select>
-      <h3>Phrases</h3>
       <div class="panel-solid scroll">
         <button
           :class="{highlight: i===phrase}"
@@ -81,6 +79,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+select {
+  font-weight: bold;
+}
 .section {
   display: grid;
   grid-template-columns: 300px 1fr;
