@@ -10,6 +10,7 @@
       </div>
       <div class="panel-horizontal scroll-hidden">
         <button
+          class="panel-horizontal"
           :class="{ highlight: $route.name === t }"
           @click="navigate(t)"
           :key="i"
