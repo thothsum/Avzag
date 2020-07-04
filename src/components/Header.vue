@@ -29,6 +29,7 @@ export default {
   data() {
     return {
       menus: [
+        ["Map", "map"],
         ["Phonology", "audiotrack"],
         ["Converter", "sync_alt"],
         ["Phrasebook", "chat"]
