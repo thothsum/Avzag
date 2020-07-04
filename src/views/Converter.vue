@@ -50,7 +50,7 @@
         <MappingTable v-if="showMapping" :mapping="mappingResult" />
       </div>
     </div>
-    <input v-show="false" type="file" ref="file" @change="upload" />
+    <input v-show="false" type="file" accept=".txt" ref="file" @change="upload" />
     <a v-show="false" ref="link"></a>
   </div>
 </template>
