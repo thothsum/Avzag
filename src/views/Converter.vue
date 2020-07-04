@@ -158,7 +158,6 @@ export default {
 }
 @media only screen and (max-width: $mobile-width) {
   .split {
-    display: grid;
     grid-template-columns: 1fr;
   }
   select {
