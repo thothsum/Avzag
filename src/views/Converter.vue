@@ -160,7 +160,6 @@ export default {
   .split {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
   }
   select {
     flex: 1;
