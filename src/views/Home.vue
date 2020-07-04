@@ -10,7 +10,6 @@
       <div class="panel-dense">
         <h3>Contact</h3>
         <a href="https://twitter.com/alkaitagi">Twitter</a>
-        <a href="https://t.me/alkaitagi">Telegram</a>
       </div>
       <div class="panel-dense">
         <h3>Contribute</h3>
