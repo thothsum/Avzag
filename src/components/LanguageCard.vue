@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="card panel-dense no-select"
-    @click="$router.push({ name: 'Phonology', params: { lang: language } })"
-  >
+  <div class="card panel-dense no-select" @click="open">
     <img :src="flag" draggable="false" alt="flag" />
     <h2>{{ language }}</h2>
     <div class="list">
@@ -24,6 +21,11 @@ export default {
     },
     lects() {
       return Object.values(this.info.lects).sort((a, b) => a.localeCompare(b));
+    }
+  },
+  methods: {
+    open() {
+      this.$router.push({ name: "Map", params: { lang: this.language } });
     }
   }
 };
