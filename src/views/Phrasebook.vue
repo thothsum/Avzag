@@ -1,10 +1,29 @@
 <template>
   <div class="section" v-if="phrasebook">
     <div id="translations" class="panel">
-      <select v-model="category">
-        <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
-      </select>
-      <div class="panel-solid scroll">
+      <div id="header" class="panel-horizontal">
+        <button @click="searching=!searching" :tooltip="searching ? 'view categories' : 'search'">
+          <span v-if="searching" class="icon">sort</span>
+          <span v-else class="icon">search</span>
+        </button>
+        <input v-if="searching" placeholder="search in translations" type="text" v-model="search" />
+        <select v-else v-model="category">
+          <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
+        </select>
+      </div>
+      <div v-if="searchResults" class="panel-solid scroll">
+        <template v-for="(c, i) of searchResults">
+          <h3 :key="categories[i]">{{categories[i]}}</h3>
+          <button
+            :class="{highlight: i===category && j===phrase}"
+            @click="() => {category=i; phrase=j;}"
+            :key="'-'+i+j"
+            v-for="(p, j) in c"
+          >{{phrasebook[categories[i]][p].translations.eng}}</button>
+        </template>
+      </div>
+      <p v-else-if="searching" class="text-caption">Nothing found...</p>
+      <div v-else class="panel-solid scroll">
         <button
           :class="{highlight: i===phrase}"
           @click="phrase=i"
@@ -36,7 +55,9 @@ export default {
   data() {
     return {
       category: this.$route.query.category ?? 0,
-      phrase: this.$route.query.phrase ?? 0
+      phrase: this.$route.query.phrase ?? 0,
+      searching: false,
+      search: ""
     };
   },
   computed: {
@@ -57,6 +78,23 @@ export default {
     },
     sources() {
       return this.phrases[this.phrase].sources;
+    },
+    searchResults() {
+      if (!this.searching) return null;
+
+      let results = {};
+      Object.keys(this.phrasebook).forEach((c, i) => {
+        let filtered = [];
+        this.phrasebook[c]
+          .map(p => p.translations.eng)
+          .forEach((p, j) => {
+            if (p.includes(this.search)) filtered.push(j);
+          });
+        if (filtered.length > 0) results[i] = filtered;
+      });
+
+      if (Object.keys(results).length === 0) return null;
+      else return results;
     }
   },
   watch: {
@@ -79,8 +117,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-select {
-  font-weight: bold;
+#header {
+  select {
+    font-weight: bold;
+  }
+  > *:nth-child(2) {
+    flex: 1;
+  }
 }
 .section {
   display: grid;
@@ -89,6 +132,12 @@ select {
 }
 .panel-solid {
   max-height: 7 * map-get($button-height, "normal");
+  h3 {
+    margin-bottom: map-get($margins, "normal");
+    &:not(:first-child) {
+      margin-top: map-get($margins, "normal");
+    }
+  }
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
