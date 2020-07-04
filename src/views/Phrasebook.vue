@@ -19,7 +19,7 @@
             @click="() => {category=i; phrase=j;}"
             :key="'-'+i+j"
             v-for="(p, j) in c"
-          >{{phrasebook[categories[i]][p].translations.eng}}</button>
+          >{{phrasebook[categories[i]][p].translation}}</button>
         </template>
       </div>
       <p v-else-if="searching" class="text-caption">Nothing found...</p>
@@ -74,7 +74,7 @@ export default {
       return this.phrasebook[this.categories[this.category]];
     },
     translations() {
-      return this.phrases.map(it => it.translations.eng);
+      return this.phrases.map(it => it.translation);
     },
     sources() {
       return this.phrases[this.phrase].sources;
@@ -86,7 +86,7 @@ export default {
       Object.keys(this.phrasebook).forEach((c, i) => {
         let filtered = [];
         this.phrasebook[c]
-          .map(p => p.translations.eng)
+          .map(p => p.translation)
           .forEach((p, j) => {
             if (p.includes(this.search)) filtered.push(j);
           });
