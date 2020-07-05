@@ -11,13 +11,19 @@
             "Iron": [
                 {
                     "grapheme": "а",
-                    "samples": []
+                    "samples": [
+                        "абон",
+                        "балц"
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "а",
-                    "samples": []
+                    "samples": [
+                        "арӕх",
+                        "дурусадӕ"
+                    ]
                 }
             ]
         }
@@ -33,13 +39,19 @@
             "Iron": [
                 {
                     "grapheme": "ӕ",
-                    "samples": []
+                    "samples": ["ӕххуыс", "бӕлон"
+
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ӕ",
-                    "samples": []
+                    "samples": [
+                        
+                        "ӕсхъод",
+                        "базмӕалдӕ"
+                    ]
                 }
             ]
         }
