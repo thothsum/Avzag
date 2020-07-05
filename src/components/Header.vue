@@ -1,21 +1,23 @@
 <template>
   <div id="root">
     <div class="section">
-      <div>
+      <div class="panel-horizontal">
+        <img class="no-select" :src="flag" draggable="false" alt="flag" />
         <button @click="navigate('Home')">
-          <span class="material-icons-outlined large">arrow_back</span>
+          <span class="icon">arrow_back</span>
         </button>
-        <LanguageBanner />
+        <h2>{{$store.state.language}}</h2>
       </div>
-      <div id="menu">
+      <div class="panel-horizontal scroll-hidden">
         <button
-          @click="navigate(m.title)"
-          :class="{selected: $route.name===m.title}"
+          class="panel-horizontal"
+          :class="{ highlight: $route.name === t }"
+          @click="navigate(t)"
           :key="i"
-          v-for="(m, i) in menus"
+          v-for="[t, i] in menus"
         >
-          <span class="material-icons-outlined large">{{m.icon}}</span>
-          <p>{{m.title}}</p>
+          <span class="icon">{{i}}</span>
+          <p>{{t}}</p>
         </button>
       </div>
     </div>
@@ -23,30 +25,22 @@
 </template>
 
 <script>
-import LanguageBanner from "./LanguageBanner";
-
 export default {
   name: "Header",
-  components: {
-    LanguageBanner
-  },
   data() {
     return {
       menus: [
-        {
-          title: "Phonology",
-          icon: "audiotrack"
-        },
-        {
-          title: "Converter",
-          icon: "subject"
-        },
-        {
-          title: "Phrasebook",
-          icon: "book"
-        }
+        ["Map", "map"],
+        ["Phonology", "audiotrack"],
+        ["Converter", "sync_alt"],
+        ["Phrasebook", "chat"]
       ]
     };
+  },
+  computed: {
+    flag() {
+      return this.$store.getters.languageRoot + "flag.png";
+    }
   },
   methods: {
     navigate(path) {
@@ -60,49 +54,53 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #root {
   background-color: var(--color-foreground);
-  margin: calc(var(--margin-double) * -1);
-  margin-bottom: var(--margin-large);
-  box-shadow: 0 2px 16px var(--color-shadow);
-  padding: var(--margin-double);
+  margin: -1 * map-get($margins, "normal");
+  margin-bottom: map-get($margins, "double");
+  padding: map-get($margins, "normal");
   border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: map-get($shadows, "elevated");
+  text-shadow: map-get($shadows, "elevated");
+  * {
+    z-index: 1;
+  }
+  img {
+    pointer-events: none;
+    z-index: 0;
+    position: absolute;
+    height: 192px;
+    left: 0;
+    opacity: 0.3;
+    transform: translate(-5%) rotate(-20deg);
+    mask-image: linear-gradient(90deg, white, transparent);
+  }
 }
 .section {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  display: flex;
   justify-content: space-between;
-  display: flex;
-}
-.section > div {
-  display: flex;
-  flex-wrap: nowrap;
-  place-items: center;
-  overflow-x: auto;
-}
-.section > div > *:not(:last-child) {
-  margin-right: var(--margin-double);
 }
 button {
   font-weight: bold;
 }
-#menu::-webkit-scrollbar {
-  display: none;
-}
-#menu > button {
-  border: var(--border-width) solid transparent;
-}
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     height: fit-content;
     flex-flow: column;
   }
-  .section > * {
-    width: 100%;
+  #root {
+    img {
+      left: initial;
+      right: 0;
+      transform: translate(10%, 15%) rotate(-20deg);
+      mask-image: linear-gradient(-90deg, white, transparent);
+    }
   }
-  .section > *:not(:last-child) {
-    margin-bottom: var(--margin-double);
+  .section > *:first-child {
+    margin-bottom: map-get($margins, "normal");
   }
 }
 </style>

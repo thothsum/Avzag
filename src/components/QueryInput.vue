@@ -36,11 +36,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 input {
   width: 350px;
 }
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   input {
     width: 100%;
   }

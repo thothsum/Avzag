@@ -43,6 +43,7 @@ export default new Vuex.Store({
       state.sample = text;
     },
     setConverters(state, json) {
+      json.forEach((c, i) => { c.i = i; });
       state.converters = json;
     },
     setPhrasebook(state, json) {

@@ -44,29 +44,38 @@ export default {
       return lects.length === 1 ? lects[0] : undefined;
     },
     graphemes() {
-      return this.phonemes.map(p => p.uses[this.singleLect]?.grapheme);
+      return this.phonemes.map(p => p.uses[this.singleLect]?.[0].grapheme);
     }
   }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+$item-width: 46px;
+$item-height: 40px;
+
 #root {
-  display: flex;
-  flex-wrap: wrap;
-  place-content: flex-start;
-}
-#root > *:not(:last-child) {
-  margin: 0 var(--margin) var(--margin) 0;
-}
-@media only screen and (max-width: 568px) {
-  #root {
-    flex-direction: column;
-    max-height: 200px;
-    overflow-x: auto;
+  display: grid;
+  gap: map-get($margins, "half");
+  place-items: stretch;
+  grid-template-columns: repeat(auto-fill, $item-width);
+
+  > * {
+    width: $item-width;
+    height: $item-height;
   }
-  #root.narrow {
-    max-height: 75px;
+}
+
+@media only screen and (max-width: $mobile-width) {
+  #root {
+    grid-auto-flow: column;
+    overflow-x: auto;
+    max-height: 5 * $item-height;
+    grid-template-rows: repeat(auto-fill, $item-height);
+
+    &.narrow {
+      grid-template-rows: $item-height;
+    }
   }
 }
 </style>

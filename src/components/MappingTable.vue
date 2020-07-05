@@ -1,7 +1,7 @@
 <template>
-  <div id="root">
-    <p class="txt-caption" :key="i" v-for="(pair, i) in noones">
-      <span class="txt-faded">{{pair[0].replace(" ", "_")}}</span>
+  <div class="card">
+    <p :key="i" v-for="(pair, i) in noones">
+      <span class="text-faded">{{pair[0].replace(" ", "_")}}</span>
       <span>{{pair[1].replace(" ", "_")}}</span>
     </p>
   </div>
@@ -19,32 +19,23 @@ export default {
 };
 </script>
 
-<style scoped>
-#root {
-  display: flex;
-  flex-wrap: wrap;
-  padding: var(--margin);
+<style lang="scss" scoped>
+.card {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, 60px);
+  column-gap: map-get($margins, "half");
   place-content: center;
-  box-shadow: var(--shadow);
-  background-color: var(--color-foreground);
 }
 p {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  place-content: center;
-  width: 60px;
-  margin: var(--margin-half);
-}
-span {
-  width: 50%;
-  font-style: normal;
-}
-span:nth-child(1) {
-  margin-right: var(--margin-half);
-  text-align: right;
-}
-span:nth-child(2) {
-  margin-left: var(--margin-half);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: map-get($margins, "half");
+  span {
+    font-size: map-get($font-sizes, "small");
+    &:first-child {
+      text-align: right;
+    }
+  }
 }
 </style>

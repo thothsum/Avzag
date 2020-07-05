@@ -1,0 +1,56 @@
+* {
+  color: var(--color-text);
+  font-size: map-get($font-sizes, "normal");
+  font-family: $font-family;
+}
+
+.text-caption,
+.text-caption * {
+  font-style: italic;
+  font-size: map-get($font-sizes, "small");
+}
+.text-faded,
+.text-faded * {
+  color: var(--color-text-faded);
+}
+.text-ipa {
+  font-style: normal;
+  line-height: 125%;
+  font-family: sans-serif;
+  &::before,
+  &::after {
+    content: "/";
+    color: var(--color-text-faded);
+  }
+}
+.text-spaced {
+  word-spacing: map-get($margins, "normal");
+}
+
+.no-select {
+  user-select: none;
+}
+
+h1,
+h2,
+h3 {
+  @extend .no-select;
+}
+h1 {
+  &,
+  * {
+    font-size: map-get($font-sizes, "title");
+  }
+}
+h2 {
+  &,
+  * {
+    font-size: map-get($font-sizes, "large");
+  }
+}
+h3 {
+  &,
+  * {
+    font-size: map-get($font-sizes, "normal");
+  }
+}
