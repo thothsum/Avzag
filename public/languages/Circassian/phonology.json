@@ -5,37 +5,51 @@
             "vowel"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "а",
-                "samples": [
-                    "адакъэ",
-                    "маржэ"
-                ]
-            },
-            "Baslaney": {
-                "grapheme": "а",
-                "samples": []
-            },
-            "Shapsug": {
-                "grapheme": "а",
-                "samples": []
-            },
-            "Natukhai": {
-                "grapheme": "а",
-                "samples": []
-            },
-            "Bzhedug": {
-                "grapheme": "а",
-                "samples": []
-            },
-            "Temirgoy": {
-                "grapheme": "а",
-                "samples": []
-            },
-            "Abzakh": {
-                "grapheme": "а",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "а",
+                    "samples": [
+                        "адакъэ",
+                        "маржэ"
+                    ]
+                }
+            ],
+            "Baslaney": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ],
+            "Shapsug": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ],
+            "Natukhai": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ],
+            "Bzhedug": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ],
+            "Abzakh": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -44,13 +58,15 @@
             "vowel"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "э",
-                "samples": [
-                    "мащӏэ",
-                    "ӏэфӏ"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "э",
+                    "samples": [
+                        "мащӏэ",
+                        "ӏэфӏ"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -59,13 +75,15 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "б",
-                "samples": [
-                    "быдэ",
-                    "губгъуэ"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "б",
+                    "samples": [
+                        "быдэ",
+                        "губгъуэ"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -74,10 +92,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "в",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "в",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -86,10 +106,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "г",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "г",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -98,10 +120,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "гу",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "гу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -110,10 +134,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "гъ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -122,10 +148,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "гъу",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "гъу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -134,10 +162,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "д",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "д",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -146,10 +176,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "дж",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "дж",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -158,10 +190,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "дз",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "дз",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -170,10 +204,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ж",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ж",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -182,10 +218,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "жь",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "жь",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -194,10 +232,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "з",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "з",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -206,14 +246,16 @@
             "vowel"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "и",
-                "samples": [
-                    "и",
-                    "иджы",
-                    "бэли"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "и",
+                    "samples": [
+                        "и",
+                        "иджы",
+                        "бэли"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -222,10 +264,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "й",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "й",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -234,10 +278,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "к",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "к",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -246,10 +292,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "к",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "к",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -258,10 +306,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "къ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "къ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -270,10 +320,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "къу",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "къу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -285,13 +337,15 @@
             "affricate"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "кхъ",
-                "samples": [
-                    "кхъ",
-                    "кхъужь"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "кхъ",
+                    "samples": [
+                        "кхъ",
+                        "кхъужь"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -304,14 +358,16 @@
             "labialized"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "кхъу",
-                "samples": [
-                    "кхъу",
-                    "кхъужь",
-                    "щӏакхъуэ"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "кхъу",
+                    "samples": [
+                        "кхъу",
+                        "кхъужь",
+                        "щӏакхъуэ"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -320,10 +376,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "кӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "кӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -332,10 +390,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "кӏу",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "кӏу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -344,10 +404,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "л",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "л",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -356,10 +418,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "лъ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "лъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -368,10 +432,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "лӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "лӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -380,10 +446,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "м",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "м",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -392,10 +460,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "н",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "н",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -404,14 +474,16 @@
             "vowel"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "о",
-                "samples": [
-                    "о",
-                    "ӏоху",
-                    "мобде"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "о",
+                    "samples": [
+                        "о",
+                        "ӏоху",
+                        "мобде"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -420,10 +492,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "п",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "п",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -432,10 +506,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "пӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "пӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -444,10 +520,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "р",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "р",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -456,10 +534,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "с",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "с",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -468,10 +548,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "т",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "т",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -480,10 +562,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "тӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "тӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -492,14 +576,16 @@
             "vowel"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "у",
-                "samples": [
-                    "у",
-                    "тӏу",
-                    "гу"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "у",
+                    "samples": [
+                        "у",
+                        "тӏу",
+                        "гу"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -508,10 +594,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "у",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "у",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -520,10 +608,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ф",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ф",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -532,10 +622,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "фӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "фӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -544,10 +636,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "х",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "х",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -556,10 +650,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ху",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ху",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -568,10 +664,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "хъ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "хъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -580,10 +678,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "хъу",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "хъу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -592,10 +692,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "хь",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "хь",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -604,10 +706,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ц",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ц",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -616,10 +720,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "цӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "цӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -628,10 +734,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ч",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ч",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -640,10 +748,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "чӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "чӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -652,10 +762,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ш",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ш",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -664,10 +776,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "щ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "щ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -676,10 +790,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "щӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "щӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -688,14 +804,16 @@
             "vowel"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ы",
-                "samples": [
-                    "ы",
-                    "мыӏэрысэ",
-                    "шыпс"
-                ]
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ы",
+                    "samples": [
+                        "ы",
+                        "мыӏэрысэ",
+                        "шыпс"
+                    ]
+                }
+            ]
         }
     },
     {
@@ -704,10 +822,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ӏ",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ӏ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -716,10 +836,12 @@
             "consonant"
         ],
         "uses": {
-            "Kabardian": {
-                "grapheme": "ӏу",
-                "samples": []
-            }
+            "Kabardian": [
+                {
+                    "grapheme": "ӏу",
+                    "samples": []
+                }
+            ]
         }
     }
 ]

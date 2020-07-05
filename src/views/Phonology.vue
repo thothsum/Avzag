@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="phonemes && lects">
-    <div id="phonemes">
-      <QueryList :tags="lects" @query="lectQuery=$event" />
+    <div class="panel scroll">
+      <QueryList :tags="lects" @query="lectQuery = $event" />
       <PhoneticTable
         :selected="selected"
         :phonemes="vowels"
@@ -16,7 +16,7 @@
         :lectQuery="lectQuery"
         @phoneme="select($event)"
       />
-      <QueryInput @query="featureQuery=$event" />
+      <QueryInput @query="featureQuery = $event" />
     </div>
     <PhonemeDetails :phoneme="phonemes[selected]" />
   </div>
@@ -71,27 +71,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .section {
   display: grid;
   grid-template-columns: 1fr 200px;
-  gap: var(--margin-large);
+  gap: map-get($margins, "double");
 }
-#phonemes {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-#phonemes > * {
-  width: 100%;
-}
-#phonemes > *:not(:last-child) {
-  margin-bottom: var(--margin-large);
-}
-#queries > *:not(:last-child) {
-  margin-bottom: var(--margin-double);
-}
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
     direction: ltr;

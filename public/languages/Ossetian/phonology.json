@@ -8,14 +8,18 @@
             "unrounded"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "а",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "а",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "а",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -26,14 +30,18 @@
             "central"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ӕ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "ӕ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ӕ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "ӕ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -45,14 +53,18 @@
             "unrounded"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "е",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "е",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "е",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "е",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -64,14 +76,18 @@
             "unrounded"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "и",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "и",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "и",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "и",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -83,14 +99,18 @@
             "rounded"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "о",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "о",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "о",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "о",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -101,10 +121,12 @@
             "central"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ы",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ы",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -116,14 +138,18 @@
             "rounded"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "у",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "у",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "у",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "у",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -135,14 +161,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "б",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "б",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "б",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "б",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -155,14 +185,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "п",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "п",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "п",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "п",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -174,14 +208,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "пъ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "пъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "пъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "пъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -193,14 +231,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "д",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "д",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "д",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "д",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -213,14 +255,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "т",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "т",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "т",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "т",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -232,14 +278,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "тъ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "тъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "тъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "тъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -251,14 +301,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "г",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "г",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "г",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "г",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -271,14 +325,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "гу",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "гу",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "гу",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "гу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -291,14 +349,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "к",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "к",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "к",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "к",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -311,14 +373,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "к",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "к",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ку",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "ку",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -330,14 +396,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "къ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "къ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "къ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "къ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -350,14 +420,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "къу",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "къу",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "къу",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "къу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -369,14 +443,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "хъ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "хъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "хъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "хъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -389,14 +467,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "хъу",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "хъу",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "хъу",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "хъу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -407,14 +489,18 @@
             "stop"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "гъ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "гъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -426,14 +512,18 @@
             "nasal"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "м",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "м",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "м",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "м",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -445,14 +535,18 @@
             "nasal"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "н",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "н",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "н",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "н",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -464,14 +558,18 @@
             "trill"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "р",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "р",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "р",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "р",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -483,14 +581,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ф",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "ф",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ф",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "ф",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -502,14 +604,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "в",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "в",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "в",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "в",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -521,14 +627,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "с",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "с",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "с",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "с",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -540,14 +650,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "з",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "з",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "з",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "з",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -559,10 +673,12 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ш",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ш",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -574,10 +690,12 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ж",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ж",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -589,14 +707,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "гъ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "гъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -609,14 +731,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "гъу",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "гъу",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "гъу",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "гъу",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -628,14 +754,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "х",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "х",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "х",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "х",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -648,14 +778,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ху",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "ху",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ху",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "ху",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -667,14 +801,18 @@
             "fricative"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "гъ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "гъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -686,14 +824,18 @@
             "affricate"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "дз",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "дз",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "дз",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "дз",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -705,15 +847,18 @@
             "affricate"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ц",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "ц",
-                "samples": [],
-                "note": "In Chikola dialect spelled as [tʃ] before [e], [i]."
-            }
+            "Iron": [
+                {
+                    "grapheme": "ц",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "ц",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -725,14 +870,18 @@
             "affricate"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "цъ",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "цъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "цъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "цъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -744,10 +893,12 @@
             "affricate"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "дж",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "дж",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -759,10 +910,12 @@
             "affricate"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "ч",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "ч",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -774,10 +927,12 @@
             "affricate"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "чъ",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "чъ",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -789,14 +944,18 @@
             "appoximant"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "у",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "у",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "у",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "у",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -808,14 +967,18 @@
             "appoximant"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "й",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "й",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "й",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "й",
+                    "samples": []
+                }
+            ]
         }
     },
     {
@@ -828,14 +991,18 @@
             "appoximant"
         ],
         "uses": {
-            "Iron": {
-                "grapheme": "л",
-                "samples": []
-            },
-            "Digor": {
-                "grapheme": "л",
-                "samples": []
-            }
+            "Iron": [
+                {
+                    "grapheme": "л",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "л",
+                    "samples": []
+                }
+            ]
         }
     }
 ]

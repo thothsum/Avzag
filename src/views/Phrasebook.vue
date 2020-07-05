@@ -1,21 +1,38 @@
 <template>
   <div class="section" v-if="phrasebook">
-    <div id="translations">
-      <h3>Category</h3>
-      <select v-model="category">
-        <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
-      </select>
-      <h3>Phrases</h3>
-      <div class="list">
+    <div id="translations" class="panel">
+      <div id="header" class="panel-horizontal">
+        <button @click="searching=!searching" :tooltip="searching ? 'view categories' : 'search'">
+          <span v-if="searching" class="icon">sort</span>
+          <span v-else class="icon">search</span>
+        </button>
+        <input v-if="searching" placeholder="search in translations" type="text" v-model="search" />
+        <select v-else v-model="category">
+          <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
+        </select>
+      </div>
+      <div v-if="searchResults" class="panel-solid scroll">
+        <template v-for="(c, i) of searchResults">
+          <h3 :key="categories[i]">{{categories[i]}}</h3>
+          <button
+            :class="{highlight: i===category && j===phrase}"
+            @click="() => {category=i; phrase=j;}"
+            :key="'-'+i+j"
+            v-for="(p, j) in c"
+          >{{phrasebook[categories[i]][p].translation}}</button>
+        </template>
+      </div>
+      <p v-else-if="searching" class="text-caption">Nothing found...</p>
+      <div v-else class="panel-solid scroll">
         <button
-          :class="{selected: i===phrase}"
+          :class="{highlight: i===phrase}"
           @click="phrase=i"
           :key="i"
           v-for="(tr, i) in translations"
         >{{tr}}</button>
       </div>
     </div>
-    <div id="sources">
+    <div class="panel">
       <PhrasebookEntry
         class="card"
         :key="i"
@@ -38,7 +55,9 @@ export default {
   data() {
     return {
       category: this.$route.query.category ?? 0,
-      phrase: this.$route.query.phrase ?? 0
+      phrase: this.$route.query.phrase ?? 0,
+      searching: false,
+      search: ""
     };
   },
   computed: {
@@ -55,20 +74,39 @@ export default {
       return this.phrasebook[this.categories[this.category]];
     },
     translations() {
-      return this.phrases.map(it => it.translations.eng);
+      return this.phrases.map(it => it.translation);
     },
     sources() {
       return this.phrases[this.phrase].sources;
+    },
+    searchResults() {
+      if (!this.searching) return null;
+
+      let results = {};
+      Object.keys(this.phrasebook).forEach((c, i) => {
+        let filtered = [];
+        this.phrasebook[c]
+          .map(p => p.translation)
+          .forEach((p, j) => {
+            if (p.includes(this.search)) filtered.push(j);
+          });
+        if (filtered.length > 0) results[i] = filtered;
+      });
+
+      if (Object.keys(results).length === 0) return null;
+      else return results;
     }
   },
   watch: {
-    category(val) {
-      this.$router.push({ query: { category: val, phrase: 0 } });
+    category(category) {
+      this.$router
+        .push({ query: { category: category, phrase: 0 } })
+        .catch(() => {});
     },
-    item() {
-      this.$router.push({
-        query: { ...this.$route.query, phrase: this.phrase }
-      });
+    phrase(phrase) {
+      this.$router
+        .push({ query: { ...this.$route.query, phrase: phrase } })
+        .catch(() => {});
     },
     "$route.query": function(query) {
       this.category = query.category;
@@ -78,32 +116,32 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+#header {
+  select {
+    font-weight: bold;
+  }
+  > *:nth-child(2) {
+    flex: 1;
+  }
+}
 .section {
   display: grid;
   grid-template-columns: 300px 1fr;
-  gap: var(--margin-large);
+  gap: map-get($margins, "double");
 }
-#translations {
-  display: flex;
-  flex-flow: column;
+.panel-solid {
+  max-height: 7 * map-get($button-height, "normal");
+  h3 {
+    margin-bottom: map-get($margins, "normal");
+    &:not(:first-child) {
+      margin-top: map-get($margins, "normal");
+    }
+  }
 }
-#translations > *:not(:last-child) {
-  margin-bottom: var(--margin-double);
-}
-#translations > .list > button {
-  border: var(--border-width) solid transparent;
-  height: var(--control-height);
-}
-#sources {
-  display: flex;
-  flex-direction: column;
-  place-content: flex-start;
-}
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
-    grid-template-rows: 300px 1fr;
   }
 }
 </style>

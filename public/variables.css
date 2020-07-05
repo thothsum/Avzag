@@ -1,0 +1,35 @@
+:root {
+    --color-background: rgb(245, 245, 245);
+    --color-foreground: rgb(255, 255, 255);
+    --color-shadow: rgba(0, 0, 0, 0.3);
+
+    --color-text: rgb(33, 33, 33);
+    --color-text-faded: rgb(158, 158, 158);
+
+    --color-active: rgba(0, 0, 0, 0.075);
+    --color-hover: rgba(0, 0, 0, 0.15);
+    --color-press: rgba(0, 0, 0, 0.225);
+
+    --color-highlight: rgb(33, 150, 243);
+    --color-highlight-back: rgba(33, 150, 243, 0.15);
+
+    --color-confirm: rgb(76, 175, 80);
+    --color-confirm-back: rgba(76, 175, 80, 0.15);
+
+    --color-alert: rgb(244, 67, 54);
+    --color-alert-back: rgba(244, 67, 54, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: rgb(33, 33, 33);
+        --color-foreground: rgb(66, 66, 66);
+        --color-shadow: rgba(0, 0, 0, 0.9);
+
+        --color-text: rgb(255, 255, 255);
+
+        --color-active: rgba(255, 255, 255, 0.075);
+        --color-hover: rgba(255, 255, 255, 0.15);
+        --color-press: rgba(255, 255, 255, 0.225);
+    }
+}

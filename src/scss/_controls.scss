@@ -1,0 +1,38 @@
+button,
+select,
+a {
+  user-select: none;
+  cursor: pointer;
+  text-shadow: map-get($shadows, "elevated");
+}
+
+button,
+select {
+  @extend .panel-horizontal-dense;
+
+  background-color: var(--color-active);
+  min-height: map-get($button-height, "normal");
+  padding: 0 map-get($margins, "normal");
+
+  &.small {
+    min-height: map-get($button-height, "small");
+  }
+  &:hover {
+    background-color: var(--color-hover);
+  }
+  &:active {
+    background-color: var(--color-press);
+  }
+}
+
+a {
+  padding: map-get($margins, "half") map-get($margins, "normal");
+  position: relative;
+  text-decoration: var(--color-highlight) underline;
+  &:hover {
+    background-color: var(--color-highlight-back);
+  }
+  &:active {
+    color: var(--color-highlight);
+  }
+}

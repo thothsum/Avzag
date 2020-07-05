@@ -8,8 +8,9 @@ def migrate(filename):
         data = json.load(file)
 
     for p in data:
-        p["uses"] = p["lects"]
-        del p["lects"]
+        uses = p["uses"]
+        for u in uses:
+            uses[u] = [uses[u]]
 
     with open(filename, 'w', encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
