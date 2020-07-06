@@ -55,9 +55,6 @@ export default {
     z-index: 1;
   }
 }
-.scroll {
-  padding-bottom: map-get($margins, "half");
-}
 #flag {
   position: absolute;
   top: 0;
