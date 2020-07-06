@@ -36,11 +36,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$item-width: 160px;
+$item-height: 192px;
+
 #languages {
   display: grid;
   gap: map-get($margins, "double");
   place-items: stretch;
-  grid-template-columns: repeat(auto-fill, 160px);
-  grid-template-rows: repeat(auto-fill, 192px);
+  grid-template-columns: repeat(auto-fill, $item-width);
+
+  > * {
+    width: $item-width;
+    height: $item-height;
+  }
 }
 </style>
