@@ -64,17 +64,17 @@ export default {
   overflow: hidden;
   position: relative;
   box-shadow: map-get($shadows, "elevated");
-  text-shadow: map-get($shadows, "elevated");
   * {
     z-index: 1;
   }
   img {
+    filter: blur(1px);
     pointer-events: none;
     z-index: 0;
     position: absolute;
     height: 192px;
     left: 0;
-    opacity: 0.3;
+    opacity: 0.5;
     transform: translate(-5%) rotate(-20deg);
     mask-image: linear-gradient(90deg, white, transparent);
   }

@@ -3,7 +3,6 @@ select,
 a {
   user-select: none;
   cursor: pointer;
-  text-shadow: map-get($shadows, "elevated");
 }
 
 button,

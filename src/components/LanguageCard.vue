@@ -41,16 +41,15 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
-  text-shadow: map-get($shadows, "elevated");
   &:hover {
     cursor: pointer;
     box-shadow: map-get($shadows, "elevated");
     img {
-      opacity: 0.6;
+      opacity: 0.7;
     }
   }
   &:active img {
-    opacity: 0.8;
+    opacity: 0.9;
   }
   * {
     z-index: 1;
@@ -68,13 +67,14 @@ export default {
   overflow: hidden;
 }
 img {
+  filter: blur(1px);
   pointer-events: none;
   z-index: 0;
   position: absolute;
   bottom: 0;
   right: 0;
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.5;
   transform: translate(30%, 30%) rotate(-20deg);
   mask-image: linear-gradient(transparent, white);
 }
