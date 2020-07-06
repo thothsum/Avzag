@@ -45,11 +45,11 @@ export default {
     cursor: pointer;
     box-shadow: map-get($shadows, "elevated");
     img {
-      opacity: 0.7;
+      opacity: 0.75;
     }
   }
   &:active img {
-    opacity: 0.9;
+    opacity: 1;
   }
   * {
     z-index: 1;
