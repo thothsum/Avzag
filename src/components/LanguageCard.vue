@@ -58,8 +58,8 @@ export default {
     z-index: 1;
   }
 }
-h2 {
-  flex: 1;
+.scroll {
+  padding-bottom: map-get($margins, "half");
 }
 #flag {
   position: absolute;
