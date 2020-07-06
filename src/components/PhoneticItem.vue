@@ -15,7 +15,6 @@ export default {
 <style lang="scss" scoped>
 button {
   flex-direction: column;
-  justify-items: space-between;
   place-content: center;
   > * {
     margin: 0;

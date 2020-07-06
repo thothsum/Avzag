@@ -40,6 +40,7 @@ export default {
   display: grid;
   gap: map-get($margins, "double");
   place-items: stretch;
-  grid-template-columns: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(auto-fill, 160px);
+  grid-template-rows: repeat(auto-fill, 192px);
 }
 </style>

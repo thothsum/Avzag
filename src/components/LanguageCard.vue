@@ -40,8 +40,6 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  width: 150px;
-  height: 175px;
   position: relative;
   text-shadow: map-get($shadows, "elevated");
   &:hover {
