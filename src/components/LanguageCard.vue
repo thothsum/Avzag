@@ -1,8 +1,15 @@
 <template>
   <div class="card panel-dense no-select" @click="open">
-    <img :src="flag" draggable="false" alt="flag" />
-    <h2>{{ language }}</h2>
-    <div class="list">
+    <div id="flag">
+      <img :src="flag" draggable="false" alt="flag" />
+    </div>
+    <div class="panel-horizontal">
+      <h2>{{language}}</h2>
+      <p class="panel" tooltip="work in progress">
+        <span class="icon" v-if="info.wip">construction</span>
+      </p>
+    </div>
+    <div class="panel-solid scroll">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
     </div>
   </div>
@@ -36,7 +43,6 @@ export default {
   width: 150px;
   height: 175px;
   position: relative;
-  overflow: hidden;
   text-shadow: map-get($shadows, "elevated");
   &:hover {
     cursor: pointer;
@@ -51,6 +57,17 @@ export default {
   * {
     z-index: 1;
   }
+}
+h2 {
+  flex: 1;
+}
+#flag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 img {
   pointer-events: none;

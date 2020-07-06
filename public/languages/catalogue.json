@@ -7,13 +7,15 @@
             "Tsudakhar",
             "Megeb",
             "Chirag"
-        ]
+        ],
+        "wip": true
     },
     "Ossetian": {
         "lects": [
             "Iron",
             "Digor"
-        ]
+        ],
+        "wip": true
     },
     "Circassian": {
         "lects": [
@@ -24,6 +26,7 @@
             "Natukhai",
             "Shapsug",
             "Temirgoy"
-        ]
+        ],
+        "wip": true
     }
 }
