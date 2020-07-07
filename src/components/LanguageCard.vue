@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     open() {
-      this.$router.push({ name: "Map", params: { lang: this.language } });
+      this.$router.push({ name: "Phonology", params: { lang: this.language } });
     }
   }
 };
@@ -64,7 +64,6 @@ export default {
   overflow: hidden;
 }
 img {
-  filter: blur(1px);
   pointer-events: none;
   z-index: 0;
   position: absolute;

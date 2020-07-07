@@ -30,7 +30,6 @@ export default {
   data() {
     return {
       menus: [
-        ["Map", "map"],
         ["Phonology", "audiotrack"],
         ["Converter", "sync_alt"],
         ["Phrasebook", "chat"]
@@ -68,7 +67,6 @@ export default {
     z-index: 1;
   }
   img {
-    filter: blur(1px);
     pointer-events: none;
     z-index: 0;
     position: absolute;
