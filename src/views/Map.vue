@@ -1,9 +1,10 @@
 <template>
   <div class="section panel-sparse">
     <div class="map">
-      <div class="panel">
+      <div id="menu" class="panel-solid">
         <button @mouseenter="selected=l" :key="i" v-for="(l, i) in lects">{{l}}</button>
       </div>
+      <div id="content"></div>
       <div class="images">
         <img
           :class="{highlight1: selected===l}"
@@ -39,19 +40,25 @@ export default {
 <style lang="scss" scoped>
 .map {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 150px 300px 1fr;
 }
 .images {
-  width: 512px;
+  min-width: 100%;
+  height: auto;
   position: relative;
+  &::after {
+    display: block;
+    content: "";
+    padding-bottom: 100%;
+  }
   > img {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    filter: grayscale(75%);
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
     &.highlight1 {
       z-index: 1;
-      filter: grayscale(0%);
+      opacity: 1;
     }
   }
 }
