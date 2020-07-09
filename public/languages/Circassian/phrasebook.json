@@ -1,0 +1,20 @@
+{
+    "meeting": [
+        {
+            "translations": {
+                "eng": "how are you?",
+                "rus": "как ты?"
+            },
+            "sources": {
+                "Kabardian": {
+                    "text": "дау ущыт?",
+                    "ipa": ""
+                },
+                "Temirgoy": {
+                    "text": "сыдэу ущыт?",
+                    "ipa": ""
+                }
+            }
+        }
+    ]
+}
