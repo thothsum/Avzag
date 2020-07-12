@@ -797,13 +797,13 @@
             "Iron": [
                 {
                     "grapheme": "гъу",
-                    "samples": []
+                    "samples": ["ӕвгъуаг"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "гъу",
-                    "samples": []
+                    "samples": ["гъуди"]
                 }
             ]
         }
@@ -1057,13 +1057,13 @@
             "Iron": [
                 {
                     "grapheme": "л",
-                    "samples": [""]
+                    "samples": ["лӕгъз"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "л",
-                    "samples": []
+                    "samples": ["лӕвард"]
                 }
             ]
         }
