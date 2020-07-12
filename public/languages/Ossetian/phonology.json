@@ -589,33 +589,6 @@
         }
     },
     {
-        "ipa": "ʔ",
-        "features": [
-            "consonant",
-            "glottal",
-            "stop"
-        ],
-        "uses": {
-            "Iron": [
-                {
-                    "grapheme": "гъ",
-                    "samples": [
-                        "ӕгъдау"
-                    ]
-                }
-            ],
-            "Digor": [
-                {
-                    "grapheme": "гъ",
-                    "samples": [
-                        "гъӕбес",
-                        "егъау"
-                    ]
-                }
-            ]
-        }
-    },
-    {
         "ipa": "m",
         "features": [
             "consonant",
@@ -861,13 +834,18 @@
             "Iron": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": [
+                        "ӕгъдау"
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": [
+                        "гъӕбес",
+                        "егъау"
+                    ]
                 }
             ]
         }
@@ -954,29 +932,6 @@
                     "samples": [
                         "хуæдæлдардзийнадæ"
                     ]
-                }
-            ]
-        }
-    },
-    {
-        "ipa": "h",
-        "features": [
-            "consonant",
-            "voiceless",
-            "glottal",
-            "fricative"
-        ],
-        "uses": {
-            "Iron": [
-                {
-                    "grapheme": "гъ",
-                    "samples": []
-                }
-            ],
-            "Digor": [
-                {
-                    "grapheme": "гъ",
-                    "samples": []
                 }
             ]
         }
