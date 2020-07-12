@@ -367,13 +367,13 @@
             "Iron": [
                 {
                     "grapheme": "г",
-                    "samples": []
+                    "samples": ["гага","дӕндаг"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "г",
-                    "samples": []
+                    "samples": ["гӕбӕло","силгоймаг"]
                 }
             ]
         }
@@ -391,13 +391,13 @@
             "Iron": [
                 {
                     "grapheme": "гу",
-                    "samples": []
+                    "samples": ["гуыбын","магуса"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "гу",
-                    "samples": []
+                    "samples": ["губун","ӕгудзӕгдзийнадӕ"]
                 }
             ]
         }
@@ -415,13 +415,13 @@
             "Iron": [
                 {
                     "grapheme": "к",
-                    "samples": []
+                    "samples": ["кард","ныртӕккӕ"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "к",
-                    "samples": []
+                    "samples": ["кӕдзестӕ","ӕнаккаг"]
                 }
             ]
         }
@@ -439,13 +439,13 @@
             "Iron": [
                 {
                     "grapheme": "ку",
-                    "samples": []
+                    "samples": ["куыдз","никуы"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ку",
-                    "samples": []
+                    "samples": ["кувд"]
                 }
             ]
         }
@@ -462,13 +462,13 @@
             "Iron": [
                 {
                     "grapheme": "къ",
-                    "samples": []
+                    "samples": ["къӕсӕр","хуыскъ"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "къ",
-                    "samples": []
+                    "samples": ["къӕбус"]
                 }
             ]
         }
@@ -486,13 +486,13 @@
             "Iron": [
                 {
                     "grapheme": "къу",
-                    "samples": []
+                    "samples": ["къус","фӕткъу бӕлас"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "къу",
-                    "samples": []
+                    "samples": ["къуӕх"]
                 }
             ]
         }
@@ -509,13 +509,13 @@
             "Iron": [
                 {
                     "grapheme": "хъ",
-                    "samples": []
+                    "samples": ["хъӕу","ӕнӕхъӕн"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "хъ",
-                    "samples": []
+                    "samples": ["хъӕбуза"]
                 }
             ]
         }
@@ -533,13 +533,13 @@
             "Iron": [
                 {
                     "grapheme": "хъу",
-                    "samples": []
+                    "samples": ["хъуын","уӕлхъус"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "хъу",
-                    "samples": []
+                    "samples": ["хъуӕл","дӕлхъур"]
                 }
             ]
         }
@@ -555,13 +555,13 @@
             "Iron": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": ["ӕгъдау"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": ["гъӕбес","егъау"]
                 }
             ]
         }
@@ -578,13 +578,13 @@
             "Iron": [
                 {
                     "grapheme": "м",
-                    "samples": []
+                    "samples": ["мыст","нымӕт"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "м",
-                    "samples": []
+                    "samples": ["мӕгур","къулумпи"]
                 }
             ]
         }
@@ -601,13 +601,13 @@
             "Iron": [
                 {
                     "grapheme": "н",
-                    "samples": []
+                    "samples": ["ничи","рагон"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "н",
-                    "samples": []
+                    "samples": ["нӕзи","зинкуст"]
                 }
             ]
         }
@@ -624,13 +624,13 @@
             "Iron": [
                 {
                     "grapheme": "р",
-                    "samples": []
+                    "samples": ["рахиз","сӕйраг"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "р",
-                    "samples": []
+                    "samples": ["рӕгъӕд","зукъур"]
                 }
             ]
         }
@@ -647,13 +647,13 @@
             "Iron": [
                 {
                     "grapheme": "ф",
-                    "samples": []
+                    "samples": ["фӕйнӕг","ӕфсымӕр"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ф",
-                    "samples": []
+                    "samples": ["фазон","ӕрфдойнаг"]
                 }
             ]
         }
@@ -670,7 +670,7 @@
             "Iron": [
                 {
                     "grapheme": "в",
-                    "samples": []
+                    "samples": ["вӕзн","ӕхсав"]
                 }
             ],
             "Digor": [
@@ -693,13 +693,13 @@
             "Iron": [
                 {
                     "grapheme": "с",
-                    "samples": []
+                    "samples": ["саргъ","ахситт"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "с",
-                    "samples": []
+                    "samples": ["саггурд","уесбит"]
                 }
             ]
         }
@@ -716,13 +716,13 @@
             "Iron": [
                 {
                     "grapheme": "з",
-                    "samples": []
+                    "samples": ["зачъе","лагъз"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "з",
-                    "samples": []
+                    "samples": ["зайӕгой","изгӕ"]
                 }
             ]
         }
@@ -820,13 +820,13 @@
             "Iron": [
                 {
                     "grapheme": "х",
-                    "samples": []
+                    "samples": ["хӕрӕг","къӕпхӕн"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "х",
-                    "samples": []
+                    "samples": ["хӕлаур","цӕлхвад"]
                 }
             ]
         }
@@ -844,13 +844,13 @@
             "Iron": [
                 {
                     "grapheme": "ху",
-                    "samples": []
+                    "samples": ["хус","ахуыр"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ху",
-                    "samples": []
+                    "samples": ["хуæдæлдардзийнадæ"]
                 }
             ]
         }
@@ -890,13 +890,13 @@
             "Iron": [
                 {
                     "grapheme": "дз",
-                    "samples": []
+                    "samples": ["дзаума","ӕмдзугӕнӕг"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "дз",
-                    "samples": []
+                    "samples": ["дзабре","еудзийнадӕ"]
                 }
             ]
         }
@@ -913,13 +913,13 @@
             "Iron": [
                 {
                     "grapheme": "ц",
-                    "samples": []
+                    "samples": ["цард","ӕнцон"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ц",
-                    "samples": []
+                    "samples": ["цӕвӕгау","игурцӕ"]
                 }
             ]
         }
@@ -936,13 +936,13 @@
             "Iron": [
                 {
                     "grapheme": "цъ",
-                    "samples": []
+                    "samples": ["цъиу"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "цъ",
-                    "samples": []
+                    "samples": ["цъала"]
                 }
             ]
         }
@@ -959,7 +959,7 @@
             "Iron": [
                 {
                     "grapheme": "дж",
-                    "samples": []
+                    "samples": ["джелбетт","амондджын"]
                 }
             ]
         }
@@ -976,7 +976,7 @@
             "Iron": [
                 {
                     "grapheme": "ч",
-                    "samples": []
+                    "samples": ["чиныг","рынчын"]
                 }
             ]
         }
@@ -993,7 +993,7 @@
             "Iron": [
                 {
                     "grapheme": "чъ",
-                    "samples": []
+                    "samples": ["чъизи","зачъе"]
                 }
             ]
         }
@@ -1010,13 +1010,13 @@
             "Iron": [
                 {
                     "grapheme": "у",
-                    "samples": []
+                    "samples": ["уӕрыкк","дзул"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "у",
-                    "samples": []
+                    "samples": ["уарзт","фудӕбон"]
                 }
             ]
         }
@@ -1033,13 +1033,13 @@
             "Iron": [
                 {
                     "grapheme": "й",
-                    "samples": []
+                    "samples": ["йе","иумӕйаг"]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "й",
-                    "samples": []
+                    "samples": ["йхӕсадӕ","катай"]
                 }
             ]
         }
@@ -1057,7 +1057,7 @@
             "Iron": [
                 {
                     "grapheme": "л",
-                    "samples": []
+                    "samples": [""]
                 }
             ],
             "Digor": [
