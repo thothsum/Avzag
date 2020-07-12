@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Map from '../views/Map.vue'
 import Phonology from '../views/Phonology.vue'
 import Converter from '../views/Converter.vue'
 import Phrasebook from '../views/Phrasebook.vue'
@@ -14,11 +13,6 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/map/:lang',
-    name: 'Map',
-    component: Map
   },
   {
     path: '/phonology/:lang',

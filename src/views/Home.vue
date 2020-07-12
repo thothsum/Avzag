@@ -1,20 +1,12 @@
 <template>
   <div v-if="catalogue">
-    <div class="section">
+    <div class="section panel-horizontal">
       <h1 id="header">Ævzag</h1>
+      <a href="https://twitter.com/alkaitagi">Twitter</a>
+      <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
     </div>
     <div id="languages" class="section">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
-    </div>
-    <div id="footer" class="section panel-horizontal">
-      <div class="panel-dense">
-        <h3>Contact</h3>
-        <a href="https://twitter.com/alkaitagi">Twitter</a>
-      </div>
-      <div class="panel-dense">
-        <h3>Contribute</h3>
-        <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
-      </div>
     </div>
   </div>
 </template>
@@ -44,16 +36,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$item-width: 160px;
+$item-height: 192px;
+
 #languages {
   display: grid;
   gap: map-get($margins, "double");
   place-items: stretch;
-  grid-template-columns: repeat(auto-fill, 150px);
-}
-#footer {
-  place-items: flex-start;
-  > div {
-    width: 100px;
+  grid-template-columns: repeat(auto-fill, $item-width);
+
+  > * {
+    width: $item-width;
+    height: $item-height;
   }
 }
 </style>

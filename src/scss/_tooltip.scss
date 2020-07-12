@@ -20,7 +20,6 @@
         width: max-content;
     }
     &:hover::before {
-        transition-delay: 1s;
         opacity: 1;
         top: -2 * map-get($margins, "double");
     }

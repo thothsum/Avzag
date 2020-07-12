@@ -1,8 +1,15 @@
 <template>
   <div class="card panel-dense no-select" @click="open">
-    <img :src="flag" draggable="false" alt="flag" />
-    <h2>{{ language }}</h2>
-    <div class="list">
+    <div id="flag">
+      <img :src="flag" draggable="false" alt="flag" />
+    </div>
+    <div class="panel-horizontal">
+      <h2>{{language}}</h2>
+      <p class="panel" tooltip="work in progress">
+        <span class="icon" v-if="info.wip">construction</span>
+      </p>
+    </div>
+    <div class="panel-solid scroll">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
     </div>
   </div>
@@ -25,7 +32,7 @@ export default {
   },
   methods: {
     open() {
-      this.$router.push({ name: "Map", params: { lang: this.language } });
+      this.$router.push({ name: "Phonology", params: { lang: this.language } });
     }
   }
 };
@@ -33,24 +40,28 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  width: 150px;
-  height: 175px;
   position: relative;
-  overflow: hidden;
-  text-shadow: map-get($shadows, "elevated");
   &:hover {
     cursor: pointer;
     box-shadow: map-get($shadows, "elevated");
     img {
-      opacity: 0.6;
+      opacity: 0.75;
     }
   }
   &:active img {
-    opacity: 0.8;
+    opacity: 1;
   }
   * {
     z-index: 1;
   }
+}
+#flag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 img {
   pointer-events: none;
@@ -59,7 +70,7 @@ img {
   bottom: 0;
   right: 0;
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.5;
   transform: translate(30%, 30%) rotate(-20deg);
   mask-image: linear-gradient(transparent, white);
 }
