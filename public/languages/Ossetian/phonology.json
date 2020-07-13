@@ -748,7 +748,7 @@
         }
     },
     {
-        "ipa": "s",
+        "ipa": "ʃ",
         "features": [
             "consonant",
             "voiceless",
@@ -763,6 +763,10 @@
                         "саргъ",
                         "ахситт"
                     ]
+                },
+                {
+                    "grapheme": "ш",
+                    "samples": []
                 }
             ],
             "Digor": [
@@ -772,6 +776,10 @@
                         "саггурд",
                         "уесбит"
                     ]
+                },
+                {
+                    "grapheme": "ш",
+                    "samples": []
                 }
             ]
         }
@@ -792,6 +800,10 @@
                         "зачъе",
                         "лагъз"
                     ]
+                },
+                {
+                    "grapheme": "ж",
+                    "samples": []
                 }
             ],
             "Digor": [
@@ -801,37 +813,7 @@
                         "зайӕгой",
                         "изгӕ"
                     ]
-                }
-            ]
-        }
-    },
-    {
-        "ipa": "ʃ",
-        "features": [
-            "consonant",
-            "voiceless",
-            "postalveolar",
-            "fricative"
-        ],
-        "uses": {
-            "Iron": [
-                {
-                    "grapheme": "ш",
-                    "samples": []
-                }
-            ]
-        }
-    },
-    {
-        "ipa": "ʒ",
-        "features": [
-            "consonant",
-            "voiced",
-            "postalveolar",
-            "fricative"
-        ],
-        "uses": {
-            "Iron": [
+                },
                 {
                     "grapheme": "ж",
                     "samples": []
