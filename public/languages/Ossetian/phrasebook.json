@@ -104,20 +104,5 @@
                 }
             }
         }
-    ],
-    "*section_2*": [
-        {
-            "translation": "Hello!",
-            "sources": {
-                "Iron": {
-                    "text": "Байрай!",
-                    "ipa": "ˈbajraj"
-                },
-                "Digor": {
-                    "text": "",
-                    "ipa": ""
-                }
-            }
-        }
     ]
 }
