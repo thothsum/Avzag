@@ -1,50 +1,28 @@
 <template>
   <div id="app">
-    <Header v-if="$route.name!=='Home'" />
-    <router-view></router-view>
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
 
-<script>
-import Header from "@/components/Header";
+<script lang="ts">
+import Vue from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
 
-export default {
-  name: "App",
+export default Vue.extend({
+  name: 'App',
   components: {
-    Header
-  },
-  data() {
-    return {
-      language: undefined
-    };
-  },
-  watch: {
-    "$route.params.lang": {
-      async handler() {
-        let language = this.$route.params.lang;
-        if (language && language !== this.$store.state.language)
-          this.$store.dispatch("loadLanguage", language);
-      },
-      immediate: true
-    },
-    "$route.path": {
-      handler() {
-        if (this.$route.name) localStorage.url = this.$route.path;
-      }
-    }
-  },
-  created() {
-    this.$store.dispatch("loadCatalogue");
-    if (!this.$route.name || this.$route.name === "Home")
-      this.$router.push(
-        localStorage.url && localStorage.url !== this.$route.path
-          ? { path: localStorage.url }
-          : { name: "Home" }
-      );
+    HelloWorld
   }
-};
+});
 </script>
 
 <style lang="scss">
-@import "scss/style.scss";
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
