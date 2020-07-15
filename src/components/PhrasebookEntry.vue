@@ -24,6 +24,7 @@ export default {
 @media only screen and (max-width: $mobile-width) {
   .card {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 }
 </style>
