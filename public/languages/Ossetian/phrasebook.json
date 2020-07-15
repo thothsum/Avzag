@@ -1,1 +1,123 @@
-{}
+{
+    "Greeting": [
+        {
+            "translation": "Hello.",
+            "sources": {
+                "Iron": {
+                    "text": "Байрай.",
+                    "ipa": "ˈbajraj"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": "ef"
+                }
+            }
+        },
+        {
+            "translation": "Hello. (response)",
+            "sources": {
+                "Iron": {
+                    "text": "Аегас цу.",
+                    "ipa": "ɐˈgaʃ t͡ʃu"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        },
+        {
+            "translation": "Good morning.",
+            "sources": {
+                "Iron": {
+                    "text": "Дӕ райсом хорз.",
+                    "ipa": "dɐ‿ˈrajʃom χorʒ"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        },
+        {
+            "translation": "Good day.",
+            "sources": {
+                "Iron": {
+                    "text": "Дӕ ʼбон хорз.",
+                    "ipa": "dɐ‿ˈbon χorʒ"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        },
+        {
+            "translation": "Good evening.",
+            "sources": {
+                "Iron": {
+                    "text": "Дӕ зӕр хорз.",
+                    "ipa": "ˈde‿ʒɐr χorʒ"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        },
+        {
+            "translation": "How are you?",
+            "sources": {
+                "Iron": {
+                    "text": "Куыд дӕ?",
+                    "ipa": "kʷəd‿ˈdɐ"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        },
+        {
+            "translation": "Fine, thanks, and you?",
+            "sources": {
+                "Iron": {
+                    "text": "Дзӕбӕх, бузныг, ды та?",
+                    "ipa": "d͡ʒɐˈbɐχ, ˈbuʒnəg, də‿ˈt̪a?"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        },
+        {
+            "translation": "I'm glad to see you.",
+            "sources": {
+                "Iron": {
+                    "text": "Мӕнӕн тынг ӕхсызгон у дӕ фенд.",
+                    "ipa": "mɐˈnɐn ˈt̪əng‿ɐχʃəʒgon u dɐ‿ˈfend."
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        }
+    ],
+    "*section_2*": [
+        {
+            "translation": "Hello!",
+            "sources": {
+                "Iron": {
+                    "text": "Байрай!",
+                    "ipa": "ˈbajraj"
+                },
+                "Digor": {
+                    "text": "",
+                    "ipa": ""
+                }
+            }
+        }
+    ]
+}
