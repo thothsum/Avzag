@@ -54,8 +54,8 @@ export default {
   },
   data() {
     return {
-      category: this.$route.query.category ?? 0,
-      phrase: this.$route.query.phrase ?? 0,
+      category: 0,
+      phrase: 0,
       searching: false,
       search: ""
     };
@@ -83,7 +83,7 @@ export default {
       if (!this.searching) return null;
 
       let results = {};
-      Object.keys(this.phrasebook).forEach((c, i) => {
+      this.categories.forEach((c, i) => {
         let filtered = [];
         this.phrasebook[c]
           .map(p => p.translation)
@@ -108,9 +108,12 @@ export default {
         .push({ query: { ...this.$route.query, phrase: phrase } })
         .catch(() => {});
     },
-    "$route.query": function(query) {
-      this.category = query.category;
-      this.phrase = query.phrase;
+    "$route.query": {
+      handler(query) {
+        this.category = query.category ?? 0;
+        this.phrase = query.phrase ?? 0;
+      },
+      immediate: true
     }
   }
 };
@@ -131,7 +134,6 @@ export default {
   gap: map-get($margins, "double");
 }
 .panel-solid {
-  max-height: 7 * map-get($button-height, "normal");
   h3 {
     margin-bottom: map-get($margins, "normal");
     &:not(:first-child) {
@@ -142,6 +144,9 @@ export default {
 @media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
+  }
+  .panel-solid {
+    max-height: 7 * map-get($button-height, "normal");
   }
 }
 </style>

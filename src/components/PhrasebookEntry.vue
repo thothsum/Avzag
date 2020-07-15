@@ -17,6 +17,7 @@ export default {
 .card {
   height: min-content;
   display: grid;
+  gap: map-get($margins, "normal");
   grid-template-columns: 100px 1fr 1fr;
   box-shadow: map-get($shadows, "normal");
 }
