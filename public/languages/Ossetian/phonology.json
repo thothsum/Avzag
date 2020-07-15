@@ -405,6 +405,7 @@
             "velar",
             "stop"
         ],
+        "note": "Only before vowel.",
         "uses": {
             "Iron": [
                 {
@@ -464,6 +465,7 @@
             "velar",
             "stop"
         ],
+        "note": "Only before vowel.",
         "uses": {
             "Iron": [
                 {
@@ -522,6 +524,7 @@
             "ejective",
             "stop"
         ],
+        "note": "Only before vowel.",
         "uses": {
             "Iron": [
                 {
@@ -580,6 +583,7 @@
             "uvular",
             "stop"
         ],
+        "note": "Only before vowel.",
         "uses": {
             "Iron": [
                 {
@@ -857,6 +861,7 @@
             "uvular",
             "fricative"
         ],
+        "note": "Only before vowel.",
         "uses": {
             "Iron": [
                 {
@@ -913,6 +918,7 @@
             "uvular",
             "fricative"
         ],
+        "note": "Only before vowel.",
         "uses": {
             "Iron": [
                 {
