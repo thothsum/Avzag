@@ -821,7 +821,9 @@
             "Digor": [
                 {
                     "grapheme": "гъу",
-                    "samples": []
+                    "samples": [
+                        "легъуи"
+                    ]
                 }
             ]
         }
