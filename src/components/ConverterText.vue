@@ -44,7 +44,9 @@ export default {
     }
   },
   methods: {
-    uppercase(str) {
+    uppercase(str, full = false) {
+      if (full) return str.toUpperCase();
+
       let base = "";
       let i = 0;
       if (str.charAt(0) == " ") {
@@ -57,13 +59,34 @@ export default {
       return str.replace(new RegExp(from, "g"), to);
     },
     convert(source, mapping) {
+      if (mapping.length === 0) return source;
+
       source = " " + this.replace(source, "\n", "\n ").trim();
-      for (const [from, to] of mapping) {
-        source = this.replace(source, from, to);
-        source = this.replace(source, this.uppercase(from), this.uppercase(to));
+      let result = "";
+
+      for (let i = 0; i < source.length; ) {
+        let found = false;
+        for (const [from, to] of mapping) {
+          const l = from.length;
+          const sub = source.substring(i, l);
+          
+          for (const s of [sub, this.uppercase(sub), this.uppercase(sub, true)])
+            if (s === from) {
+              found = true;
+              result += to;
+              i += l;
+              break;
+            }
+          if (found) break;
+        }
+
+        if (!found) {
+          result += source[i];
+          i++;
+        }
       }
-      source = this.replace(source, "\n ", "\n").trim();
-      return source;
+
+      return this.replace(result, "\n ", "\n").trim();
     }
   }
 };
