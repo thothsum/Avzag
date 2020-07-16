@@ -24,8 +24,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
   name: "Header",
   data() {
     return {
@@ -37,12 +39,12 @@ export default {
     };
   },
   computed: {
-    flag() {
+    flag(): string {
       return this.$store.getters.languageRoot + "flag.png";
     }
   },
   methods: {
-    navigate(path) {
+    navigate(path: string): void {
       if (this.$route.name !== path)
         this.$router.push({
           name: path,
@@ -50,7 +52,7 @@ export default {
         });
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>
