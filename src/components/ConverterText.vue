@@ -63,14 +63,21 @@ export default {
         let found = false;
         for (const [from, to] of mapping) {
           const l = from.length;
-          const sub = source.substring(i, i + l).toLowerCase();
+          const sub = source.substring(i, i + l);
+          const pairs = [
+            [from, to],
+            [this.capitalize(from), this.capitalize(to)],
+            [from.toUpperCase(), to.toUpperCase()]
+          ];
+          for (const [f, t] of pairs)
+            if (sub === f) {
+              found = true;
+              result += t;
+              i += l;
+              break;
+            }
 
-          if (sub === from) {
-            found = true;
-            result += to;
-            i += l;
-            break;
-          }
+          if (found) break;
         }
 
         if (!found) {
