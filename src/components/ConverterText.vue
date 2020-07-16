@@ -53,13 +53,10 @@ export default {
       }
       return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
     },
-    replace(str, from, to) {
-      return str.replace(new RegExp(from, "g"), to);
-    },
     convert(source, mapping) {
       if (mapping.length === 0) return source;
 
-      source = " " + this.replace(source, "\n", "\n ").trim();
+      source = " " + source.replace(/\n/g, "\n ").trim();
       let result = "";
 
       for (let i = 0; i < source.length; ) {
@@ -82,7 +79,7 @@ export default {
         }
       }
 
-      return this.replace(result, "\n ", "\n").trim();
+      return result.replace(/\n /g, "\n").trim();
     }
   }
 };
