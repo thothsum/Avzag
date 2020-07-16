@@ -69,6 +69,7 @@ export default {
             [this.capitalize(from), this.capitalize(to)],
             [from.toUpperCase(), to.toUpperCase()]
           ];
+          
           for (const [f, t] of pairs)
             if (sub === f) {
               found = true;
