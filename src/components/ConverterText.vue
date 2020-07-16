@@ -44,9 +44,7 @@ export default {
     }
   },
   methods: {
-    uppercase(str, full = false) {
-      if (full) return str.toUpperCase();
-
+    capitalize(str) {
       let base = "";
       let i = 0;
       if (str.charAt(0) == " ") {
@@ -68,16 +66,14 @@ export default {
         let found = false;
         for (const [from, to] of mapping) {
           const l = from.length;
-          const sub = source.substring(i, l);
-          
-          for (const s of [sub, this.uppercase(sub), this.uppercase(sub, true)])
-            if (s === from) {
-              found = true;
-              result += to;
-              i += l;
-              break;
-            }
-          if (found) break;
+          const sub = source.substring(i, i + l).toLowerCase();
+
+          if (sub === from) {
+            found = true;
+            result += to;
+            i += l;
+            break;
+          }
         }
 
         if (!found) {
