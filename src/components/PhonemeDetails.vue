@@ -5,7 +5,7 @@
       <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
       <p class="text-caption" v-if="phoneme.note" v-html="parsePhonemes(phoneme.note)"></p>
     </div>
-    <audio ref="player" type="audio/ogg"></audio>
+    <audio ref="player"></audio>
     <PhonemeUse
       @play="play(lc, $event)"
       :key="i"
@@ -39,7 +39,7 @@ export default {
   methods: {
     play(lect, sample) {
       const player = this.$refs.player;
-      player.src = `${this.root}${lect}/audio/${sample}.ogg`;
+      player.src = `${this.root}${lect}/audio/${sample}.mp3`;
       player.play();
     },
     parsePhonemes(str) {
