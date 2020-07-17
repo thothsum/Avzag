@@ -1,7 +1,7 @@
 import json
 
 
-def migrate(filename):
+def migrate(filename, lect):
     filename = 'public/languages/' + filename
 
     with open(filename, encoding="utf-8") as file:
@@ -9,20 +9,18 @@ def migrate(filename):
 
     result = ""
     for p in data:
-        if "Digor" not in p["uses"]:
+        if lect not in p["uses"]:
             continue
 
-        digor = p["uses"]["Digor"][0]
-        result += "\"" + digor["grapheme"] + "\"\n"
-        result += digor["samples"][0] + "\n"
-        if len(digor["samples"]) > 1:
-            result += digor["samples"][1] + "\n"
+        use = p["uses"][lect][0]
+        result += "\"" + use["grapheme"] + "\"\n"
+        result += use["samples"][0] + "\n"
+        if len(use["samples"]) > 1:
+            result += use["samples"][1] + "\n"
         result += "\n"
 
-    with open("digor.txt", 'w', encoding="utf-8") as file:
+    with open(lect + ".txt", 'w', encoding="utf-8") as file:
         file.write(result)
 
 
-filenames = ['Ossetian/phonology.json']
-
-[migrate(f) for f in filenames]
+migrate('Ossetian/phonology.json', "Iron")
