@@ -4,7 +4,7 @@
       <h3>{{lect}}</h3>
       <p v-html="graphemes"></p>
     </div>
-    <!-- <p class="text-caption" :key="i" v-for="(n, i) in notes">{{n}}</p> -->
+    <p class="text-caption" :key="i" v-for="(n, i) in notes" v-html="parsePhonemes(n)"></p>
     <div class="panel-solid scroll">
       <template v-for="c in cases">
         <button
@@ -37,6 +37,9 @@ export default {
     }
   },
   methods: {
+    parsePhonemes(str) {
+      return str.replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>");
+    },
     highlight(sample, grapheme) {
       if (sample[0] == "*") sample = sample.substr(1);
       return sample.replace(
