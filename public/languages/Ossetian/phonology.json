@@ -991,7 +991,7 @@
         }
     },
     {
-        "ipa": "t͡s",
+        "ipa": "s",
         "features": [
             "consonant",
             "voiceless",
@@ -1007,7 +1007,18 @@
                         "ӕнцон"
                     ]
                 }
-            ],
+            ]
+        }
+    },
+    {
+        "ipa": "t͡s",
+        "features": [
+            "consonant",
+            "voiceless",
+            "alveolar",
+            "affricate"
+        ],
+        "uses": {
             "Digor": [
                 {
                     "grapheme": "ц",
