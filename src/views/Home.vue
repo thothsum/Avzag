@@ -6,7 +6,7 @@
         <a href="https://twitter.com/alkaitagi">Twitter</a>
         <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
         <span class="text-faded no-select">•</span>
-        <a href="https://github.com/alkaitagi/Aevzag/credits.md">Credits</a>
+        <a href="https://github.com/alkaitagi/Aevzag/blob/master/credits.md">Credits</a>
       </div>
     </div>
     <div id="languages" class="section">
