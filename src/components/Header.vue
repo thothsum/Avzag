@@ -34,8 +34,7 @@ export default Vue.extend({
       menus: [
         ["Phonology", "audiotrack"],
         ["Converter", "sync_alt"],
-        ["Phrasebook", "chat"],
-        [null, "info"]
+        ["Phrasebook", "chat"]
       ]
     };
   },
