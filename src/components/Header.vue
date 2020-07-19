@@ -17,7 +17,7 @@
           v-for="[t, i] in menus"
         >
           <span class="icon">{{i}}</span>
-          <p>{{t}}</p>
+          <p v-if="t">{{t}}</p>
         </button>
       </div>
     </div>
@@ -34,7 +34,8 @@ export default Vue.extend({
       menus: [
         ["Phonology", "audiotrack"],
         ["Converter", "sync_alt"],
-        ["Phrasebook", "chat"]
+        ["Phrasebook", "chat"],
+        [null, "info"]
       ]
     };
   },

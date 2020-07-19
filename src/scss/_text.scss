@@ -6,7 +6,7 @@
 
 .text-caption,
 .text-caption * {
-  font-style: italic;
+  // font-style: italic;
   font-size: map-get($font-sizes, "small");
 }
 .text-faded,
