@@ -47,7 +47,6 @@ $card-size: 192px;
 #languages {
   display: grid;
   gap: map-get($margins, "double");
-  place-items: stretch;
   grid-auto-rows: $card-size;
   grid-template-columns: repeat(auto-fit, minmax($card-size, 1fr));
 }
