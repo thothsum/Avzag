@@ -40,8 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$item-width: 192px;
-$item-height: 192px;
+$card-size: 192px;
 #header {
   flex-wrap: wrap;
 }
@@ -49,12 +48,7 @@ $item-height: 192px;
   display: grid;
   gap: map-get($margins, "double");
   place-items: stretch;
-  grid-auto-rows: $item-height;
-  grid-template-columns: repeat(auto-fit, minmax($item-width, 1fr));
-
-  // > * {
-  //   width: $item-width;
-  //   height: $item-height;
-  // }
+  grid-auto-rows: $card-size;
+  grid-template-columns: repeat(auto-fit, minmax($card-size, 1fr));
 }
 </style>
