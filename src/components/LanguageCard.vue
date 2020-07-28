@@ -71,7 +71,7 @@ img {
   right: 0;
   height: 100%;
   opacity: 0.5;
-  transform: translate(30%, 30%) rotate(-20deg);
+  transform: translate(30%, 25%) rotate(-45deg);
   mask-image: linear-gradient(transparent, white);
 }
 </style>

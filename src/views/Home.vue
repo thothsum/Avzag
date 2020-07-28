@@ -21,11 +21,11 @@ import LanguageCard from "@/components/LanguageCard";
 export default {
   name: "Home",
   components: {
-    LanguageCard
+    LanguageCard,
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL
+      publicPath: process.env.BASE_URL,
     };
   },
   computed: {
@@ -34,8 +34,8 @@ export default {
     },
     languages() {
       return Object.keys(this.catalogue).sort((a, b) => a.localeCompare(b));
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -49,11 +49,12 @@ $item-height: 192px;
   display: grid;
   gap: map-get($margins, "double");
   place-items: stretch;
-  grid-template-columns: repeat(auto-fill, $item-width);
+  grid-auto-rows: $item-height;
+  grid-template-columns: repeat(auto-fit, minmax($item-width, 1fr));
 
-  > * {
-    width: $item-width;
-    height: $item-height;
-  }
+  // > * {
+  //   width: $item-width;
+  //   height: $item-height;
+  // }
 }
 </style>
