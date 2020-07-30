@@ -14,7 +14,25 @@
         },
         {
             "translation": "Come to me.",
-            "text": "How are you?",
+            "text": [
+                "You (",
+                {
+                    "id": 0,
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                ") come to ",
+                {
+                    "id": 1,
+                    "values": [
+                        "me",
+                        "us"
+                    ]
+                },
+                "."
+            ],
             "sources": {
                 "Kabardian": [
                     {
