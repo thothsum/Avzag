@@ -9,7 +9,7 @@
       >
         <pre v-if="typeof s === 'string'">{{s}}</pre>
         <pre v-else-if="s.implicit">{{s.values[selectedIds[s.id]]}}</pre>
-        <select v-else v-model="selectedIds[s.id]">
+        <select class="inline" v-else v-model="selectedIds[s.id]">
           <option :value="j" :key="j" v-for="(v, j) in s.values">{{v}}</option>
         </select>
       </span>
@@ -40,14 +40,6 @@ span {
   &.right {
     text-align-last: right;
   }
-}
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  user-select: text;
-  min-height: min-content;
-  min-width: min-content;
-  padding: 0;
 }
 .card {
   height: min-content;

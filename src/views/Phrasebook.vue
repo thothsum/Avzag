@@ -33,6 +33,11 @@
       </div>
     </div>
     <div class="panel">
+      <div class="panel-horizontal-solid">
+        <span :key="i" v-for="(s, i) in this.phrases[this.phrase].text">
+          <pre>{{typeof s === 'string' ? s : s.values[selectedIds[s.id]]}}</pre>
+        </span>
+      </div>
       <PhrasebookEntry
         class="card"
         :key="i"
