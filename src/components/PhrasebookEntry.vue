@@ -3,7 +3,8 @@
     <h3>{{lect}}</h3>
     <div class="text">
       <template v-for="(s, i) in source">
-        <span v-if="typeof s === 'string'" :key="i">{{s}}</span>
+        <pre v-if="typeof s === 'string'" :key="i">{{s}}</pre>
+        <pre v-else-if="s.implicit" :key="i">{{s.values[selectedIds[s.id]]}}</pre>
         <select v-else :key="i" v-model="selectedIds[s.id]">
           <option :value="j" :key="j" v-for="(v, j) in s.values">{{v}}</option>
         </select>
