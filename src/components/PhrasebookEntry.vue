@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <h3>{{lect}}</h3>
-    <div class="text">
+    <pre class="text">
       <template v-for="(s, i) in source">
         <pre v-if="typeof s === 'string'" :key="i">{{s}}</pre>
         <pre v-else-if="s.implicit" :key="i">{{s.values[selectedIds[s.id]]}}</pre>
@@ -9,7 +9,7 @@
           <option :value="j" :key="j" v-for="(v, j) in s.values">{{v}}</option>
         </select>
       </template>
-    </div>
+    </pre>
   </div>
 </template>
 
@@ -32,15 +32,13 @@ export default {
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
+  user-select: text;
   text-align-last: center;
   height: min-content;
   width: min-content;
   min-height: min-content;
   min-width: min-content;
-  margin: {
-    left: map-get($margins, "half");
-    right: map-get($margins, "half");
-  }
+  padding: 0;
 }
 .card {
   height: min-content;
