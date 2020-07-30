@@ -24,15 +24,6 @@ select {
   }
 }
 
-select.inline {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  user-select: text;
-  min-height: min-content;
-  min-width: min-content;
-  padding: 0;
-}
-
 a {
   padding: map-get($margins, "half") map-get($margins, "normal");
   position: relative;

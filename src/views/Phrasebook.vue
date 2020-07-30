@@ -33,18 +33,14 @@
       </div>
     </div>
     <div class="panel">
-      <div class="panel-horizontal-solid">
-        <span :key="i" v-for="(s, i) in this.phrases[this.phrase].text">
-          <pre>{{typeof s === 'string' ? s : s.values[selectedIds[s.id]]}}</pre>
-        </span>
-      </div>
+      <PhraseBuilder :source="this.phrases[this.phrase].text" :ids="ids" />
       <PhrasebookEntry
         class="card"
         :key="i"
         v-for="(lc, i) in lects"
         :lect="lc"
         :source="sources[lc]"
-        :selectedIds="selectedIds"
+        :ids="ids"
       />
     </div>
   </div>
@@ -52,11 +48,13 @@
 
 <script>
 import PhrasebookEntry from "@/components/PhrasebookEntry";
+import PhraseBuilder from "@/components/PhraseBuilder";
 
 export default {
   name: "Phrasebook",
   components: {
     PhrasebookEntry,
+    PhraseBuilder,
   },
   data() {
     return {
@@ -64,7 +62,7 @@ export default {
       phrase: 0,
       searching: false,
       search: "",
-      selectedIds: new Array(50).fill(0),
+      ids: new Array(50).fill(0),
     };
   },
   computed: {

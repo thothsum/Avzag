@@ -1,30 +1,19 @@
 <template>
   <div class="card">
     <h3>{{lect}}</h3>
-    <p class="text">
-      <span
-        :key="i"
-        v-for="(s, i) in source"
-        :class="{left: s.align=='left', right: s.align=='right'}"
-      >
-        <pre v-if="typeof s === 'string'">{{s}}</pre>
-        <pre v-else-if="s.implicit">{{s.values[selectedIds[s.id]]}}</pre>
-        <select class="inline" v-else v-model="selectedIds[s.id]">
-          <option :value="j" :key="j" v-for="(v, j) in s.values">{{v}}</option>
-        </select>
-      </span>
-    </p>
+    <PhraseBuilder :source="source" :ids="ids" />
   </div>
 </template>
 
 <script>
+import PhraseBuilder from "./PhraseBuilder";
+
 export default {
   name: "PhrasebookEntry",
-  props: ["lect", "source", "selectedIds"],
-  model: {
-    prop: "selectedIds",
-    event: "update",
+  components: {
+    PhraseBuilder,
   },
+  props: ["lect", "source", "ids"],
 };
 </script>
 
@@ -32,14 +21,6 @@ export default {
 .text {
   display: flex;
   flex-wrap: wrap;
-}
-span {
-  &.left {
-    text-align-last: left;
-  }
-  &.right {
-    text-align-last: right;
-  }
 }
 .card {
   height: min-content;
