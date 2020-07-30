@@ -18,10 +18,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text {
-  display: flex;
-  flex-wrap: wrap;
-}
 .card {
   height: min-content;
   display: grid;
