@@ -4,12 +4,10 @@
             "translation": "Hello.",
             "sources": {
                 "Iron": {
-                    "text": "Байрай.",
-                    "ipa": "ˈbajraj"
+                    "text": "Байрай."
                 },
                 "Digor": {
-                    "text": "",
-                    "ipa": "ef"
+                    "text": ""
                 }
             }
         },
@@ -17,12 +15,10 @@
             "translation": "Hello. (response)",
             "sources": {
                 "Iron": {
-                    "text": "Аегас цу.",
-                    "ipa": "ɐˈgaʃ t͡ʃu"
+                    "text": "Аегас цу."
                 },
                 "Digor": {
-                    "text": "",
-                    "ipa": ""
+                    "text": ""
                 }
             }
         },
@@ -30,12 +26,10 @@
             "translation": "Good morning.",
             "sources": {
                 "Iron": {
-                    "text": "Дӕ райсом хорз.",
-                    "ipa": "dɐ‿ˈrajʃom χorʒ"
+                    "text": "Дӕ райсом хорз."
                 },
                 "Digor": {
-                    "text": "",
-                    "ipa": ""
+                    "text": ""
                 }
             }
         },
@@ -43,12 +37,10 @@
             "translation": "Good day.",
             "sources": {
                 "Iron": {
-                    "text": "Дӕ бон хорз.",
-                    "ipa": "dɐ‿ˈbon χorʒ"
+                    "text": "Дӕ бон хорз."
                 },
                 "Digor": {
-                    "text": "",
-                    "ipa": ""
+                    "text": ""
                 }
             }
         },
@@ -56,38 +48,48 @@
             "translation": "Good evening.",
             "sources": {
                 "Iron": {
-                    "text": "Де ʼзӕр хорз.",
-                    "ipa": "ˈde‿ʒɐr χorʒ"
+                    "text": "Де ʼзӕр хорз."
                 },
                 "Digor": {
-                    "text": "",
-                    "ipa": ""
+                    "text": ""
                 }
             }
         },
         {
             "translation": "How are you?",
             "sources": {
-                "Iron": {
-                    "text": "Куыд дӕ?",
-                    "ipa": "kʷəd‿ˈdɐ"
-                },
-                "Digor": {
-                    "text": "",
-                    "ipa": ""
-                }
+                "Iron": [
+                    "Куыд ",
+                    {
+                        "id": 0,
+                        "values": [
+                            "дӕ",
+                            "ыстут"
+                        ]
+                    },
+                    "?"
+                ],
+                "Digor": [
+                    "Куд ",
+                    {
+                        "id": 0,
+                        "values": [
+                            "дӕ",
+                            "айтӕа"
+                        ]
+                    },
+                    "?"
+                ]
             }
         },
         {
             "translation": "Fine, thanks, and you?",
             "sources": {
                 "Iron": {
-                    "text": "Дзӕбӕх, бузныг, ды та?",
-                    "ipa": "d͡ʒɐˈbɐχ, ˈbuʒnəg, də‿ˈt̪a?"
+                    "text": "Дзӕбӕх, бузныг, ды та?"
                 },
                 "Digor": {
-                    "text": "",
-                    "ipa": ""
+                    "text": ""
                 }
             }
         },
@@ -95,12 +97,10 @@
             "translation": "I'm glad to see you.",
             "sources": {
                 "Iron": {
-                    "text": "Мӕнӕн тынг ӕхсызгон у дӕ фенд.",
-                    "ipa": "mɐˈnɐn ˈt̪əng‿ɐχʃəʒgon u dɐ‿ˈfend."
+                    "text": "Мӕнӕн тынг ӕхсызгон у дӕ фенд."
                 },
                 "Digor": {
-                    "text": "",
-                    "ipa": ""
+                    "text": ""
                 }
             }
         }

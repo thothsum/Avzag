@@ -39,6 +39,7 @@
         v-for="(lc, i) in lects"
         :lect="lc"
         :source="sources[lc]"
+        :selectedIds="selectedIds"
       />
     </div>
   </div>
@@ -50,19 +51,20 @@ import PhrasebookEntry from "@/components/PhrasebookEntry";
 export default {
   name: "Phrasebook",
   components: {
-    PhrasebookEntry
+    PhrasebookEntry,
   },
   data() {
     return {
       category: 0,
       phrase: 0,
       searching: false,
-      search: ""
+      search: "",
+      selectedIds: new Array(50).fill(0),
     };
   },
   computed: {
     lects() {
-      return this.$store.getters.lects.filter(l => l in this.sources);
+      return this.$store.getters.lects.filter((l) => l in this.sources);
     },
     phrasebook() {
       return this.$store.state.phrasebook;
@@ -74,7 +76,7 @@ export default {
       return this.phrasebook[this.categories[this.category]];
     },
     translations() {
-      return this.phrases.map(it => it.translation);
+      return this.phrases.map((it) => it.translation);
     },
     sources() {
       return this.phrases[this.phrase].sources;
@@ -86,7 +88,7 @@ export default {
       this.categories.forEach((c, i) => {
         let filtered = [];
         this.phrasebook[c]
-          .map(p => p.translation)
+          .map((p) => p.translation)
           .forEach((p, j) => {
             if (p.includes(this.search)) filtered.push(j);
           });
@@ -95,7 +97,7 @@ export default {
 
       if (Object.keys(results).length === 0) return null;
       else return results;
-    }
+    },
   },
   watch: {
     category(category) {
@@ -107,15 +109,17 @@ export default {
       this.$router
         .push({ query: { ...this.$route.query, phrase: phrase } })
         .catch(() => {});
+
+      this.selectedIds.fill(0);
     },
     "$route.query": {
       handler(query) {
         this.category = query.category ?? 0;
         this.phrase = query.phrase ?? 0;
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 
