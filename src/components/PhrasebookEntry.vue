@@ -1,15 +1,19 @@
 <template>
   <div class="card">
     <h3>{{lect}}</h3>
-    <pre class="text">
-      <template v-for="(s, i) in source">
-        <pre v-if="typeof s === 'string'" :key="i">{{s}}</pre>
-        <pre v-else-if="s.implicit" :key="i">{{s.values[selectedIds[s.id]]}}</pre>
-        <select v-else :key="i" v-model="selectedIds[s.id]">
+    <p class="text">
+      <span
+        :key="i"
+        v-for="(s, i) in source"
+        :class="{left: s.align=='left', right: s.align=='right'}"
+      >
+        <pre v-if="typeof s === 'string'">{{s}}</pre>
+        <pre v-else-if="s.implicit">{{s.values[selectedIds[s.id]]}}</pre>
+        <select v-else v-model="selectedIds[s.id]">
           <option :value="j" :key="j" v-for="(v, j) in s.values">{{v}}</option>
         </select>
-      </template>
-    </pre>
+      </span>
+    </p>
   </div>
 </template>
 
@@ -29,13 +33,18 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+span {
+  &.left {
+    text-align-last: left;
+  }
+  &.right {
+    text-align-last: right;
+  }
+}
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
   user-select: text;
-  text-align-last: center;
-  height: min-content;
-  width: min-content;
   min-height: min-content;
   min-width: min-content;
   padding: 0;

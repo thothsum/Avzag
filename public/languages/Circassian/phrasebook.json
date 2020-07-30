@@ -2,6 +2,7 @@
     "meeting": [
         {
             "translation": "How are you?",
+            "text": "How are you?",
             "sources": {
                 "Kabardian": [
                     "Дау ущыт?"
@@ -13,6 +14,7 @@
         },
         {
             "translation": "Come to me.",
+            "text": "How are you?",
             "sources": {
                 "Kabardian": [
                     {
