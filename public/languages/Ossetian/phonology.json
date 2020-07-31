@@ -495,7 +495,7 @@
             "velar",
             "stop"
         ],
-        "note": "Only before vowel.",
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
@@ -597,7 +597,7 @@
             "velar",
             "stop"
         ],
-        "note": "Only before vowel.",
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
@@ -657,7 +657,7 @@
             "ejective",
             "stop"
         ],
-        "note": "Only before vowel.",
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
@@ -729,7 +729,7 @@
             "uvular",
             "stop"
         ],
-        "note": "Only before vowel.",
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
@@ -752,7 +752,7 @@
             "uvular",
             "stop"
         ],
-        "note": "Only before vowel.",
+        "note": "Occurs only before vowels.",
         "uses": {
             "Digor": [
                 {
@@ -1000,7 +1000,7 @@
             "uvular",
             "fricative"
         ],
-        "note": "Only before vowel.",
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
@@ -1060,7 +1060,7 @@
             "uvular",
             "fricative"
         ],
-        "note": "Only before vowel.",
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
@@ -1128,7 +1128,7 @@
                     "samples": [
                         "*уадздзæн"
                     ],
-                    "note": "Only occurs when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."
+                    "note": "Occurs only when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."
                 }
             ],
             "Digor": [
@@ -1189,7 +1189,7 @@
                     "samples": [
                         "*ныццæвын"
                     ],
-                    "note": "Only occurs when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."
+                    "note": "Occurs only when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."
                 }
             ],
             "Digor": [
@@ -1390,7 +1390,7 @@
             "glottal",
             "fricative"
         ],
-        "note": "Only occurs in interjections.",
+        "note": "Occurs only in interjections.",
         "uses": {
             "Digor": [
                 {
