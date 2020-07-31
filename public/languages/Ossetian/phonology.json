@@ -1362,5 +1362,28 @@
                 }
             ]
         }
+    },
+    {
+        "ipa": "h",
+        "features": [
+            "voiceless",
+            "glottal",
+            "fricative"
+        ],
+        "note": "Occurs only in interjections.",
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "гъ",
+                    "samples": []
+                }
+            ]
+        }
     }
 ]
