@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="panel">
-      <PhraseBuilder :source="this.phrases[this.phrase].text" :ids="ids" />
+      <PhraseBuilder :source="text" :ids="ids" />
       <PhrasebookEntry
         class="card"
         :key="i"
@@ -62,7 +62,7 @@ export default {
       phrase: 0,
       searching: false,
       search: "",
-      ids: new Array(50).fill(0),
+      ids: {},
     };
   },
   computed: {
@@ -76,13 +76,18 @@ export default {
       return Object.keys(this.phrasebook);
     },
     phrases() {
-      return this.phrasebook[this.categories[this.category]];
+      return this.phrasebook
+        ? this.phrasebook[this.categories[this.category]]
+        : null;
     },
     translations() {
       return this.phrases.map((it) => it.translation);
     },
     sources() {
       return this.phrases[this.phrase].sources;
+    },
+    text: function () {
+      return this.phrases ? this.phrases[this.phrase].text : null;
     },
     searchResults() {
       if (!this.searching) return null;
@@ -112,8 +117,20 @@ export default {
       this.$router
         .push({ query: { ...this.$route.query, phrase: phrase } })
         .catch(() => {});
+    },
+    text: {
+      handler(text) {
+        if (!text) return;
 
-      this.selectedIds.fill(0);
+        let ids = {};
+        text.forEach((s) => {
+          if (typeof s !== "string") {
+            ids[s.id] = 0;
+          }
+        });
+        this.ids = ids;
+      },
+      immediate: true,
     },
     "$route.query": {
       handler(query) {

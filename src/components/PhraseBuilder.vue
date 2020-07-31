@@ -7,7 +7,7 @@
     >
       <pre v-if="typeof s === 'string'">{{s}}</pre>
       <pre v-else-if="s.implicit">{{s.values[ids[s.id]]}}</pre>
-      <select class="inline" v-else v-model="ids[s.id]">
+      <select class="inline" v-model="ids[s.id]" v-else>
         <option :value="j" :key="j" v-for="(v, j) in s.values">{{v}}</option>
       </select>
     </span>

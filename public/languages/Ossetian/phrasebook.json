@@ -1,14 +1,69 @@
 {
-    "Greeting": [
+    "Greetings": [
         {
             "translation": "Hello.",
-            "sources": {
-                "Iron": {
-                    "text": "Байрай."
+            "text": [
+                "Hello (",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
                 },
-                "Digor": {
-                    "text": ""
-                }
+                ") (",
+                {
+                    "id": "curc",
+                    "values": [
+                        "coming to someone",
+                        "responding to greeting",
+                        "with someone who's ill"
+                    ]
+                },
+                ")."
+            ],
+            "sources": {
+                "Iron": [
+                    {
+                        "id": "curc",
+                        "align": "right",
+                        "implicit": true,
+                        "values": [
+                            "Байрай",
+                            "Ӕгас цу",
+                            "Ӕнӕниз у"
+                        ]
+                    },
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "",
+                            "ут"
+                        ]
+                    },
+                    "."
+                ],
+                "Digor": [
+                    {
+                        "id": "curc",
+                        "align": "right",
+                        "values": [
+                            "Байрай",
+                            "Ӕгас цу",
+                            "Ӕнӕниз у"
+                        ]
+                    },
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "",
+                            "ут"
+                        ]
+                    },
+                    "."
+                ]
             }
         },
         {
@@ -75,7 +130,7 @@
                         "id": 0,
                         "values": [
                             "дӕ",
-                            "айтӕа"
+                            "айтӕ"
                         ]
                     },
                     "?"
