@@ -27,6 +27,14 @@
   word-spacing: map-get($margins, "normal");
 }
 
+.text-dot {
+  @extend .text-faded;
+  @extend .no-select;
+  &::before {
+    content: " • ";
+  }
+}
+
 .no-select {
   user-select: none;
 }

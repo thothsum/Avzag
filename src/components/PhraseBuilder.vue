@@ -29,6 +29,7 @@ select {
   min-height: min-content;
   min-width: min-content;
   padding: 0;
+  color: var(--color-highlight);
 }
 span {
   text-align-last: center;

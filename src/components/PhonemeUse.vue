@@ -29,12 +29,12 @@ export default {
   computed: {
     graphemes() {
       return this.cases
-        .map(u => u.grapheme)
-        .join("<span class='text-faded no-select'> • </span>");
+        .map((u) => u.grapheme)
+        .join("<span class='text-dot'></span>");
     },
     notes() {
-      return this.cases.map(u => u.note).filter(n => n);
-    }
+      return this.cases.map((u) => u.note).filter((n) => n);
+    },
   },
   methods: {
     parsePhonemes(str) {
@@ -46,8 +46,8 @@ export default {
         new RegExp(grapheme, "g"),
         `<span style="color: var(--color-highlight)">${grapheme}</span>`
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

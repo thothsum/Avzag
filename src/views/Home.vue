@@ -5,7 +5,7 @@
       <div class="panel-horizontal">
         <a href="https://twitter.com/alkaitagi">Twitter</a>
         <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
-        <span class="text-faded no-select">•</span>
+        <span class="text-dot"></span>
         <a href="https://github.com/alkaitagi/Aevzag/blob/master/credits.md#credits">Credits</a>
       </div>
     </div>
