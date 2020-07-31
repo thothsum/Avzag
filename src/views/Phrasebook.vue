@@ -2,7 +2,7 @@
   <div class="section" v-if="phrasebook">
     <div id="translations" class="panel">
       <div id="header" class="panel-horizontal">
-        <button @click="searching=!searching" :tooltip="searching ? 'view categories' : 'search'">
+        <button @click="searching=!searching">
           <span v-if="searching" class="icon">sort</span>
           <span v-else class="icon">search</span>
         </button>

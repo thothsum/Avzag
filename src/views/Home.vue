@@ -40,14 +40,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$card-size: 192px;
+$card-height: 192px;
+$card-width: 224px;
 #header {
   flex-wrap: wrap;
 }
 #languages {
   display: grid;
   gap: map-get($margins, "double");
-  grid-auto-rows: $card-size;
-  grid-template-columns: repeat(auto-fit, minmax($card-size, 1fr));
+  grid-auto-rows: $card-height;
+  grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
 }
 </style>

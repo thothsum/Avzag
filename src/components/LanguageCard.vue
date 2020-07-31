@@ -5,7 +5,7 @@
     </div>
     <div class="panel-horizontal">
       <h2>{{language}}</h2>
-      <p class="panel" tooltip="work in progress">
+      <p class="panel">
         <span class="icon" v-if="info.wip">construction</span>
       </p>
     </div>
@@ -28,13 +28,13 @@ export default {
     },
     lects() {
       return Object.values(this.info.lects).sort((a, b) => a.localeCompare(b));
-    }
+    },
   },
   methods: {
     open() {
       this.$router.push({ name: "Phonology", params: { lang: this.language } });
-    }
-  }
+    },
+  },
 };
 </script>
 
