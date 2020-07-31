@@ -66,6 +66,7 @@
                 "Good ",
                 {
                     "id": "time",
+                    "align": "left",
                     "values": [
                         "morning",
                         "day",
@@ -75,6 +76,7 @@
                 " [",
                 {
                     "id": "plur",
+                    "align": "left",
                     "values": [
                         "singular",
                         "plural"
@@ -86,7 +88,6 @@
                 "Iron": [
                     {
                         "id": "plur",
-                        "align": "right",
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -95,7 +96,7 @@
                     " ",
                     {
                         "id": "time",
-                        "align": "right",
+                        "align": "left",
                         "values": [
                             "райсом",
                             "бон",
@@ -107,7 +108,6 @@
                 "Digor": [
                     {
                         "id": "plur",
-                        "align": "right",
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -116,7 +116,7 @@
                     " ",
                     {
                         "id": "time",
-                        "align": "right",
+                        "align": "left",
                         "values": [
                             "сӕумӕ",
                             "бон",
@@ -145,7 +145,6 @@
                 "Iron": [
                     {
                         "id": "plur",
-                        "align": "right",
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -154,7 +153,6 @@
                     " фӕндаг раст. ",
                     {
                         "id": "plur",
-                        "align": "right",
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -165,7 +163,6 @@
                 "Digor": [
                     {
                         "id": "plur",
-                        "align": "right",
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -174,7 +171,6 @@
                     " фӕндаг раст. ",
                     {
                         "id": "plur",
-                        "align": "right",
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -195,6 +191,72 @@
                 ],
                 "Digor": [
                     "Фарнӕ аци хӕдзари. Фарнӕ уӕ бадти."
+                ]
+            }
+        },
+        {
+            "translation": "How are you?",
+            "text": [
+                "How are you [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]? Fine, thanks, and you [",
+                {
+                    "id": "plur2",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]?"
+            ],
+            "sources": {
+                "Iron": [
+                    "Куыд ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "дӕ",
+                            "ыстут"
+                        ]
+                    },
+                    "? Дзӕбӕх, бузныг, ",
+                    {
+                        "id": "plur2",
+                        "align": "right",
+                        "values": [
+                            "ды",
+                            "сымах"
+                        ]
+                    },
+                    " та?"
+                ],
+                "Digor": [
+                    "Куд ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "дӕ",
+                            "айтӕ"
+                        ]
+                    },
+                    "? Дзӕбӕх, бознӕ, ",
+                    {
+                        "id": "plur2",
+                        "align": "right",
+                        "values": [
+                            "ду",
+                            "сумах"
+                        ]
+                    },
+                    " ба?"
                 ]
             }
         }
