@@ -37,7 +37,7 @@
                     ". Ӕнӕниз ",
                     {
                         "id": "plur",
-                        "align": "right",
+                        "align": "left",
                         "values": [
                             "у",
                             "ут"
@@ -68,7 +68,7 @@
                     ". Ӕнӕнез ",
                     {
                         "id": "plur",
-                        "align": "right",
+                        "align": "left",
                         "values": [
                             "уо",
                             "уотӕ"
@@ -84,7 +84,6 @@
                 "Good morning. Good day. Good evening. [",
                 {
                     "id": "plur",
-                    "align": "left",
                     "values": [
                         "singular",
                         "plural"
@@ -285,16 +284,16 @@
             }
         },
         {
-            "translation": "I'm glad to see you.",
+            "translation": "I'm very pleased to see you.",
             "text": [
-                "I'm glad to see you."
+                "I'm very pleased to see you."
             ],
             "sources": {
                 "Iron": [
-                    "Мӕнӕн тынг ӕхсызгон у дӕ фенд"
+                    "Мӕнӕн тынг ӕхсызгон у дӕ фенд."
                 ],
                 "Digor": [
-                    "Мӕнӕн хъӕбӕр ӕхцӕуӕн ӕй дӕ фӕййиндӕ"
+                    "Мӕнӕн хъӕбӕр ӕхцӕуӕн ӕй дӕ фӕййиндӕ."
                 ]
             }
         }
