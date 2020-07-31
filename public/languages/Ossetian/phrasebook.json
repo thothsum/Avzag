@@ -34,6 +34,15 @@
                             "цӕут"
                         ]
                     },
+                    ". Ӕнӕниз ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "у",
+                            "ут"
+                        ]
+                    },
                     "."
                 ],
                 "Digor": [
@@ -56,6 +65,15 @@
                             "цӕуетӕ"
                         ]
                     },
+                    ". Ӕнӕнез ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "уо",
+                            "уотӕ"
+                        ]
+                    },
                     "."
                 ]
             }
@@ -63,17 +81,7 @@
         {
             "translation": "Good morning.",
             "text": [
-                "Good ",
-                {
-                    "id": "time",
-                    "align": "left",
-                    "values": [
-                        "morning",
-                        "day",
-                        "evening"
-                    ]
-                },
-                " [",
+                "Good morning. Good day. Good evening. [",
                 {
                     "id": "plur",
                     "align": "left",
@@ -82,7 +90,7 @@
                         "plural"
                     ]
                 },
-                "]."
+                "]"
             ],
             "sources": {
                 "Iron": [
@@ -93,17 +101,25 @@
                             "Уӕ"
                         ]
                     },
-                    " ",
+                    " райсом хорз. ",
                     {
-                        "id": "time",
-                        "align": "left",
+                        "id": "plur",
+                        "implicit": true,
                         "values": [
-                            "райсом",
-                            "бон",
-                            "’зӕр"
+                            "Дӕ",
+                            "Уӕ"
                         ]
                     },
-                    " хорз."
+                    " бон хорз. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Де",
+                            "Уе"
+                        ]
+                    },
+                    " ’зӕр хорз."
                 ],
                 "Digor": [
                     {
@@ -113,17 +129,25 @@
                             "Уӕ"
                         ]
                     },
-                    " ",
+                    " сӕумӕ хуарз. ",
                     {
-                        "id": "time",
-                        "align": "left",
+                        "id": "plur",
+                        "implicit": true,
                         "values": [
-                            "сӕумӕ",
-                            "бон",
-                            "’зӕр"
+                            "Дӕ",
+                            "Уӕ"
                         ]
                     },
-                    " хуарз."
+                    " бон хуарз. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Де",
+                            "Уе"
+                        ]
+                    },
+                    " ’зӕр хуарз."
                 ]
             }
         },
@@ -257,6 +281,20 @@
                         ]
                     },
                     " ба?"
+                ]
+            }
+        },
+        {
+            "translation": "I'm glad to see you.",
+            "text": [
+                "I'm glad to see you."
+            ],
+            "sources": {
+                "Iron": [
+                    "Мӕнӕн тынг ӕхсызгон у дӕ фенд"
+                ],
+                "Digor": [
+                    "Мӕнӕн хъӕбӕр ӕхцӕуӕн ӕй дӕ фӕййиндӕ"
                 ]
             }
         }
