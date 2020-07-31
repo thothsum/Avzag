@@ -3,7 +3,7 @@
         {
             "translation": "Hello.",
             "text": [
-                "Hello (",
+                "Hello [",
                 {
                     "id": "plur",
                     "values": [
@@ -11,18 +11,11 @@
                         "plural"
                     ]
                 },
-                ")."
+                "]."
             ],
             "sources": {
                 "Iron": [
-                    {
-                        "id": "curc",
-                        "align": "right",
-                        "implicit": true,
-                        "values": [
-                            "Байрай"
-                        ]
-                    },
+                    "Байрай",
                     {
                         "id": "plur",
                         "align": "left",
@@ -31,121 +24,40 @@
                             "ут"
                         ]
                     },
-                    "."
-                ],
-                "Digor": [
-                    {
-                        "id": "curc",
-                        "align": "right",
-                        "values": [
-                            "Байрай",
-                            "Ӕгас цу",
-                            "Ӕнӕниз у"
-                        ]
-                    },
+                    ". ",
+                    "Ӕгас ",
                     {
                         "id": "plur",
                         "align": "left",
                         "values": [
-                            "",
-                            "ут"
+                            "цу",
+                            "цӕут"
                         ]
                     },
-                    "."
-                ]
-            }
-        },
-        {
-            "translation": "Hello. (response)",
-            "sources": {
-                "Iron": {
-                    "text": "Аегас цу."
-                },
-                "Digor": {
-                    "text": ""
-                }
-            }
-        },
-        {
-            "translation": "Good morning.",
-            "sources": {
-                "Iron": {
-                    "text": "Дӕ райсом хорз."
-                },
-                "Digor": {
-                    "text": ""
-                }
-            }
-        },
-        {
-            "translation": "Good day.",
-            "sources": {
-                "Iron": {
-                    "text": "Дӕ бон хорз."
-                },
-                "Digor": {
-                    "text": ""
-                }
-            }
-        },
-        {
-            "translation": "Good evening.",
-            "sources": {
-                "Iron": {
-                    "text": "Де ʼзӕр хорз."
-                },
-                "Digor": {
-                    "text": ""
-                }
-            }
-        },
-        {
-            "translation": "How are you?",
-            "sources": {
-                "Iron": [
-                    "Куыд ",
-                    {
-                        "id": 0,
-                        "values": [
-                            "дӕ",
-                            "ыстут"
-                        ]
-                    },
-                    "?"
+                    ". "
                 ],
                 "Digor": [
-                    "Куд ",
+                    "Байрай",
                     {
-                        "id": 0,
+                        "id": "plur",
+                        "align": "left",
                         "values": [
-                            "дӕ",
-                            "айтӕ"
+                            "ӕ",
+                            "етӕ"
                         ]
                     },
-                    "?"
+                    ". ",
+                    "Ӕгас ",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "цо",
+                            "цӕуетӕ"
+                        ]
+                    },
+                    ". "
                 ]
-            }
-        },
-        {
-            "translation": "Fine, thanks, and you?",
-            "sources": {
-                "Iron": {
-                    "text": "Дзӕбӕх, бузныг, ды та?"
-                },
-                "Digor": {
-                    "text": ""
-                }
-            }
-        },
-        {
-            "translation": "I'm glad to see you.",
-            "sources": {
-                "Iron": {
-                    "text": "Мӕнӕн тынг ӕхсызгон у дӕ фенд."
-                },
-                "Digor": {
-                    "text": ""
-                }
             }
         }
     ]
