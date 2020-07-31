@@ -396,6 +396,7 @@
             "dental",
             "stop"
         ],
+        "note": "Phonetic status in question.",
         "uses": {
             "Iron": [
                 {
@@ -428,7 +429,7 @@
         }
     },
     {
-        "ipa": "t̪ʼ",
+        "ipa": "tʼ",
         "features": [
             "consonant",
             "dental",
