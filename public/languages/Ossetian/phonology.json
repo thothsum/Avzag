@@ -1124,8 +1124,10 @@
         "uses": {
             "Iron": [
                 {
-                    "grapheme": "дздз",
-                    "samples": [],
+                    "grapheme": "дз",
+                    "samples": [
+                        "*уадздзæн"
+                    ],
                     "note": "Only occurs when doubled."
                 }
             ],
@@ -1183,12 +1185,11 @@
         "uses": {
             "Iron": [
                 {
-                    "grapheme": "цц",
+                    "grapheme": "ц",
                     "samples": [
-                        "цӕвӕгау",
-                        "игурцӕ"
+                        "*ныццæвын"
                     ],
-                    "note": "Only occurs when doubled. "
+                    "note": "Only occurs when doubled, corresponds to /t͡ʃ/ in Kudar speech."
                 }
             ],
             "Digor": [
@@ -1389,6 +1390,7 @@
             "glottal",
             "fricative"
         ],
+        "note": "Only occurs in interjections.",
         "uses": {
             "Digor": [
                 {
