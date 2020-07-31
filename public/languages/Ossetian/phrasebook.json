@@ -34,7 +34,7 @@
                             "цӕут"
                         ]
                     },
-                    ". "
+                    "."
                 ],
                 "Digor": [
                     "Байрай",
@@ -56,7 +56,145 @@
                             "цӕуетӕ"
                         ]
                     },
-                    ". "
+                    "."
+                ]
+            }
+        },
+        {
+            "translation": "Good morning.",
+            "text": [
+                "Good ",
+                {
+                    "id": "time",
+                    "values": [
+                        "morning",
+                        "day",
+                        "evening"
+                    ]
+                },
+                " [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "sources": {
+                "Iron": [
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " ",
+                    {
+                        "id": "time",
+                        "align": "right",
+                        "values": [
+                            "райсом",
+                            "бон",
+                            "’зӕр"
+                        ]
+                    },
+                    " хорз."
+                ],
+                "Digor": [
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " ",
+                    {
+                        "id": "time",
+                        "align": "right",
+                        "values": [
+                            "сӕумӕ",
+                            "бон",
+                            "’зӕр"
+                        ]
+                    },
+                    " хуарз."
+                ]
+            }
+        },
+        {
+            "translation": "Good way.",
+            "text": [
+                "Good way. Let your deed be good.",
+                " [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "sources": {
+                "Iron": [
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " фӕндаг раст. ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " хъуыддаг раст."
+                ],
+                "Digor": [
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " фӕндаг раст. ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " гъуддаг раст."
+                ]
+            }
+        },
+        {
+            "translation": "Peace to this cause.",
+            "text": [
+                "Peace to this cause. Peace to your circle"
+            ],
+            "sources": {
+                "Iron": [
+                    "Фарн ацы хӕдзары. Фарн уӕ бадты."
+                ],
+                "Digor": [
+                    "Фарнӕ аци хӕдзари. Фарнӕ уӕ бадти."
                 ]
             }
         }
