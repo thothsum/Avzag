@@ -176,6 +176,7 @@
                     " фӕндаг раст. ",
                     {
                         "id": "plur",
+                        "implicit": true,
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -194,6 +195,7 @@
                     " фӕндаг раст. ",
                     {
                         "id": "plur",
+                        "implicit": true,
                         "values": [
                             "Дӕ",
                             "Уӕ"
@@ -293,7 +295,21 @@
                     "Мӕнӕн тынг ӕхсызгон у дӕ фенд."
                 ],
                 "Digor": [
-                    "Мӕнӕн хъӕбӕр ӕхцӕуӕн ӕй дӕ фӕййиндӕ."
+                    "Мӕнӕн хъӕбӕр ӕхцӕуӕн ӕй дӕ фӕууиндӕ."
+                ]
+            }
+        },
+        {
+            "translation": "Send greetings to all friends.",
+            "text": [
+                "Send greetings to all friends."
+            ],
+            "sources": {
+                "Iron": [
+                    "Саламтӕ ратт мӕ зонгӕтӕн се ’ппӕтӕн дӕр."
+                ],
+                "Digor": [
+                    "Саламтӕ раттӕ нӕ зонгутӕн се ’нккӕтемӕн дӕр"
                 ]
             }
         }
@@ -309,12 +325,12 @@
                     "Фенынмӕ."
                 ],
                 "Digor": [
-                    ""
+                    "Фӕууинунмӕ"
                 ]
             }
         },
         {
-            "translation": "Goodbye.",
+            "translation": "All the best.",
             "text": [
                 "All the best [",
                 {
@@ -339,21 +355,30 @@
                     "."
                 ],
                 "Digor": [
-                    ""
+                    "Хуарз байрай",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "ӕ",
+                            "етӕ"
+                        ]
+                    },
+                    "."
                 ]
             }
         },
         {
-            "translation": "All the best.",
+            "translation": "Good night.",
             "text": [
-                "All the best (before / after dusk)."
+                "Goodnight (before / after dark)."
             ],
             "sources": {
                 "Iron": [
                     "Хӕрзизӕр. Хӕрзӕхсӕв."
                 ],
                 "Digor": [
-                    ""
+                    "Хуӕрзизӕр. Хуӕрзӕхсӕвӕ."
                 ]
             }
         },
@@ -367,37 +392,7 @@
                     "Райсоммӕ уал."
                 ],
                 "Digor": [
-                    ""
-                ]
-            }
-        },
-        {
-            "translation": "Farewell.",
-            "text": [
-                "Farewell [",
-                {
-                    "id": "plur",
-                    "values": [
-                        "singular",
-                        "plural"
-                    ]
-                },
-                "]."
-            ],
-            "sources": {
-                "Iron": [
-                    "Хӕрзбон",
-                    {
-                        "id": "plur",
-                        "values": [
-                            "рау",
-                            "тӕ ут"
-                        ]
-                    },
-                    "."
-                ],
-                "Digor": [
-                    ""
+                    "Исонмӕ бал."
                 ]
             }
         }
