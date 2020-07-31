@@ -1122,6 +1122,13 @@
             "affricate"
         ],
         "uses": {
+            "Iron": [
+                {
+                    "grapheme": "дздз",
+                    "samples": [],
+                    "note": "Only occurs when doubled."
+                }
+            ],
             "Digor": [
                 {
                     "grapheme": "дз",
@@ -1174,6 +1181,16 @@
             "affricate"
         ],
         "uses": {
+            "Iron": [
+                {
+                    "grapheme": "цц",
+                    "samples": [
+                        "цӕвӕгау",
+                        "игурцӕ"
+                    ],
+                    "note": "Only occurs when doubled. "
+                }
+            ],
             "Digor": [
                 {
                     "grapheme": "ц",
@@ -1376,13 +1393,17 @@
             "Digor": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": [
+                        "*гъӕйтт"
+                    ]
                 }
             ],
             "Iron": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": [
+                        "*гъопп"
+                    ]
                 }
             ]
         }

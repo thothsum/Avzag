@@ -13,8 +13,7 @@
           :key="s"
           v-for="s in c.samples"
         >
-          <span v-if="s[0]=='*'" class="icon-small hidden">play_arrow</span>
-          <span v-else class="icon-small">play_arrow</span>
+          <span v-if="s[0]!='*'" class="icon-small">play_arrow</span>
           <span v-html="highlight(s, c.grapheme)"></span>
         </button>
       </template>
@@ -62,8 +61,5 @@ export default {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   max-height: 3 * map-get($button-height, "small");
-}
-.hidden {
-  color: transparent;
 }
 </style>
