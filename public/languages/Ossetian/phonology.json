@@ -1366,19 +1366,19 @@
     {
         "ipa": "h",
         "features": [
+            "consonant",
             "voiceless",
             "glottal",
             "fricative"
         ],
-        "note": "Occurs only in interjections.",
         "uses": {
-            "Iron": [
+            "Digor": [
                 {
                     "grapheme": "гъ",
                     "samples": []
                 }
             ],
-            "Digor": [
+            "Iron": [
                 {
                     "grapheme": "гъ",
                     "samples": []
