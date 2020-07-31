@@ -259,6 +259,47 @@
         }
     },
     {
+        "ipa": "pː",
+        "features": [
+            "consonant",
+            "voiceless",
+            "geminate",
+            "bilabial",
+            "stop"
+        ],
+        "note": "Phonetic status in question.",
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "пп",
+                    "samples": []
+                },
+                {
+                    "grapheme": "бб",
+                    "samples": []
+                },
+                {
+                    "grapheme": "бп",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "пп",
+                    "samples": []
+                },
+                {
+                    "grapheme": "бб",
+                    "samples": []
+                },
+                {
+                    "grapheme": "бп",
+                    "samples": []
+                }
+            ],
+        }
+    },
+    {
         "ipa": "pʼ",
         "features": [
             "consonant",
@@ -288,7 +329,7 @@
         }
     },
     {
-        "ipa": "d̪",
+        "ipa": "d",
         "features": [
             "consonant",
             "voiced",
@@ -317,7 +358,7 @@
         }
     },
     {
-        "ipa": "t̪ʰ",
+        "ipa": "tʰ",
         "features": [
             "consonant",
             "voiceless",
@@ -342,6 +383,46 @@
                         "табӕт",
                         "уодӕнст"
                     ]
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "tː",
+        "features": [
+            "consonant",
+            "voiceless",
+            "geminate",
+            "dental",
+            "stop"
+        ],
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "тт",
+                    "samples": []
+                },
+                {
+                    "grapheme": "дд",
+                    "samples": []
+                },
+                {
+                    "grapheme": "дт",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "тт",
+                    "samples": []
+                },
+                {
+                    "grapheme": "дд",
+                    "samples": []
+                },
+                {
+                    "grapheme": "дт",
+                    "samples": []
                 }
             ]
         }
@@ -465,6 +546,47 @@
             ]
         }
     },
+    {
+        "ipa": "kː",
+        "features": [
+            "consonant",
+            "voiceless",
+            "geminate",
+            "velar",
+            "stop"
+        ],
+        "note": "Phonetic status in question.",
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "кк",
+                    "samples": []
+                },
+                {
+                    "grapheme": "гг",
+                    "samples": []
+                },
+                {
+                    "grapheme": "гк",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "кк",
+                    "samples": []
+                },
+                {
+                    "grapheme": "гг",
+                    "samples": []
+                },
+                {
+                    "grapheme": "гк",
+                    "samples": []
+                }
+            ]
+        }
+    }
     {
         "ipa": "kʷ",
         "features": [

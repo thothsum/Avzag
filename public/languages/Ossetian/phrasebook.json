@@ -1,5 +1,5 @@
 {
-    "Greetings": [
+    "Greeting": [
         {
             "translation": "Hello.",
             "text": [
@@ -294,6 +294,110 @@
                 ],
                 "Digor": [
                     "Мӕнӕн хъӕбӕр ӕхцӕуӕн ӕй дӕ фӕййиндӕ."
+                ]
+            }
+        }
+    ],
+    "Farewell": [
+        {
+            "translation": "Goodbye.",
+            "text": [
+                "Goodbye."
+            ],
+            "sources": {
+                "Iron": [
+                    "Фенынмӕ."
+                ],
+                "Digor": [
+                    ""
+                ]
+            }
+        },
+        {
+            "translation": "Goodbye.",
+            "text": [
+                "All the best [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "sources": {
+                "Iron": [
+                    "Хорз байрай",
+                    {
+                        "id": "plur",
+                        "values": [
+                            "",
+                            "ут"
+                        ]
+                    },
+                    "."
+                ],
+                "Digor": [
+                    ""
+                ]
+            }
+        },
+        {
+            "translation": "All the best.",
+            "text": [
+                "All the best (before / after dusk)."
+            ],
+            "sources": {
+                "Iron": [
+                    "Хӕрзизӕр. Хӕрзӕхсӕв."
+                ],
+                "Digor": [
+                    ""
+                ]
+            }
+        },
+        {
+            "translation": "Till tomorrow.",
+            "text": [
+                "Till tomorrow."
+            ],
+            "sources": {
+                "Iron": [
+                    "Райсоммӕ уал."
+                ],
+                "Digor": [
+                    ""
+                ]
+            }
+        },
+        {
+            "translation": "Farewell.",
+            "text": [
+                "Farewell [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "sources": {
+                "Iron": [
+                    "Хӕрзбон",
+                    {
+                        "id": "plur",
+                        "values": [
+                            " рау",
+                            "тӕ ут"
+                        ]
+                    },
+                    "."
+                ],
+                "Digor": [
+                    ""
                 ]
             }
         }
