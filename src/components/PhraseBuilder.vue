@@ -22,6 +22,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+div{
+  flex-wrap: wrap;
+}
 select {
   -moz-appearance: none;
   -webkit-appearance: none;

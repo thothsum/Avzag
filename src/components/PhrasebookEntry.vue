@@ -1,6 +1,7 @@
 <template>
-  <div class="card">
+  <div class="card panel-horizontal">
     <h3>{{lect}}</h3>
+    <span class="text-dot"></span>
     <PhraseBuilder :source="source" :ids="ids" />
   </div>
 </template>
@@ -18,17 +19,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  height: min-content;
-  display: grid;
-  gap: map-get($margins, "normal");
-  grid-template-columns: 100px 1fr;
-  box-shadow: map-get($shadows, "normal");
+h3 {
+  flex: 0;
 }
-@media only screen and (max-width: $mobile-width) {
-  .card {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
+div {
+  place-items: start;
 }
 </style>
