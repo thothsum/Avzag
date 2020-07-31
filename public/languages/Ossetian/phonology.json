@@ -573,7 +573,19 @@
                         "ӕнӕхъӕн"
                     ]
                 }
-            ],
+            ]
+        }
+    },
+    {
+        "ipa": "qʰ",
+        "features": [
+            "consonant",
+            "voiceless",
+            "uvular",
+            "aspirated",
+            "stop"
+        ],
+        "uses": {
             "Digor": [
                 {
                     "grapheme": "хъ",
@@ -604,7 +616,21 @@
                         "бахъуаджы"
                     ]
                 }
-            ],
+            ]
+        }
+    },
+    {
+        "ipa": "qʰʷ",
+        "features": [
+            "consonant",
+            "voiceless",
+            "labialized",
+            "aspirated",
+            "uvular",
+            "stop"
+        ],
+        "note": "Only before vowel.",
+        "uses": {
             "Digor": [
                 {
                     "grapheme": "хъу",
@@ -769,7 +795,6 @@
             "alveolar",
             "fricative"
         ],
-        "note": "'ш' is only used in the recent Russian loanwords.",
         "uses": {
             "Iron": [
                 {
@@ -778,24 +803,13 @@
                         "саргъ",
                         "ӕхситт"
                     ],
-                    "note": "'с' corresponds to /s/ in Chisan speech."
+                    ,
+                    "note": "Corresponds to /s/ in Chisan speech."
                 },
                 {
                     "grapheme": "ш",
-                    "samples": []
-                }
-            ],
-            "Digor": [
-                {
-                    "grapheme": "с",
-                    "samples": [
-                        "саггурд",
-                        "уесӕг"
-                    ]
-                },
-                {
-                    "grapheme": "ш",
-                    "samples": []
+                    "samples": [],
+                    "note": "'ш' is only used in the recent Russian loanwords."
                 }
             ]
         }
@@ -815,24 +829,13 @@
                     "samples": [
                         "зачъе",
                         "лагъз"
-                    ]
+                    ],
+                    "note": "Corresponds to /z/ Chisan speech."
                 },
                 {
                     "grapheme": "ж",
-                    "samples": []
-                }
-            ],
-            "Digor": [
-                {
-                    "grapheme": "з",
-                    "samples": [
-                        "зайӕгой",
-                        "рӕзбун"
-                    ]
-                },
-                {
-                    "grapheme": "ж",
-                    "samples": []
+                    "samples": [],
+                    "note": "'ж' is only used in the recent Russian loanwords."
                 }
             ]
         }
@@ -972,7 +975,18 @@
                     "samples": [
                         "дзаума",
                         "къӕдзӕх"
-                    ]
+                    ],
+                    "note": "Corresponds to /d͡z/ in Chisan speech, and to /ʒ/ in Kudar speech."
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "з",
+                    "samples": [
+                        "зайӕгой",
+                        "рӕзбун"
+                    ],
+                    "note": "Palatalized into /ʒ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
@@ -992,7 +1006,8 @@
                     "samples": [
                         "дзабре",
                         "евдзи"
-                    ]
+                    ],
+                    "note": "Palatalized into /d͡ʒ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
@@ -1012,7 +1027,18 @@
                     "samples": [
                         "цард",
                         "ӕнцон"
-                    ]
+                    ],
+                    "note": "Corresponds to /t͡s/ in Chisan speech, and to /ʃ/ in Kudar speech."
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "с",
+                    "samples": [
+                        "саггурд",
+                        "уесӕг"
+                    ],
+                    "note": "Palatalized into /ʃ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
@@ -1032,7 +1058,8 @@
                     "samples": [
                         "цӕвӕгау",
                         "игурцӕ"
-                    ]
+                    ],
+                    "note": "Palatalized into /t͡ʃ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
