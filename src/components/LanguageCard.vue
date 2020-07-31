@@ -5,9 +5,10 @@
     </div>
     <div class="panel-horizontal">
       <h2>{{language}}</h2>
-      <p class="panel">
-        <span class="icon" v-if="info.wip">construction</span>
-      </p>
+      <div v-if="info.wip" class="panel-solid text-faded wip">
+        <span class="icon">construction</span>
+        <span class="text-caption">work in progress</span>
+      </div>
     </div>
     <div class="panel-solid scroll">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
@@ -54,6 +55,14 @@ export default {
   * {
     z-index: 1;
   }
+}
+.wip {
+  align-content: flex-end;
+  width: min-content;
+  text-align: right;
+  position: absolute;
+  right: map-get($margins, "normal");
+  top: map-get($margins, "normal");
 }
 #flag {
   position: absolute;

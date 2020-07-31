@@ -11,15 +11,6 @@
                         "plural"
                     ]
                 },
-                ") (",
-                {
-                    "id": "curc",
-                    "values": [
-                        "coming to someone",
-                        "responding to greeting",
-                        "with someone who's ill"
-                    ]
-                },
                 ")."
             ],
             "sources": {
@@ -29,9 +20,7 @@
                         "align": "right",
                         "implicit": true,
                         "values": [
-                            "Байрай",
-                            "Ӕгас цу",
-                            "Ӕнӕниз у"
+                            "Байрай"
                         ]
                     },
                     {
