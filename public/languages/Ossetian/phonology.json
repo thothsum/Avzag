@@ -75,7 +75,8 @@
                 },
                 {
                     "grapheme": "э",
-                    "samples": []
+                    "samples": [],
+                    "note": "'э' is used only in the recent Russian loanwords."
                 }
             ],
             "Digor": [
@@ -931,7 +932,7 @@
                 {
                     "grapheme": "ш",
                     "samples": [],
-                    "note": "'ш' is only used in the recent Russian loanwords."
+                    "note": "'ш' is used only in the recent Russian loanwords."
                 }
             ]
         }
@@ -957,7 +958,7 @@
                 {
                     "grapheme": "ж",
                     "samples": [],
-                    "note": "'ж' is only used in the recent Russian loanwords."
+                    "note": "'ж' is used only in the recent Russian loanwords."
                 }
             ]
         }

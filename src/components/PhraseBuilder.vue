@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div{
+div {
   flex-wrap: wrap;
 }
 select {
