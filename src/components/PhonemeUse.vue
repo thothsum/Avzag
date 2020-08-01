@@ -13,7 +13,7 @@
           v-for="(s, i) in c.samples"
         >
           <span v-if="s[0][0]!='*'" class="icon-small">play_arrow</span>
-          <span v-html="highlight(s[0], c.grapheme)"></span>
+          <span class="text" v-html="highlight(s[0], c.grapheme)"></span>
           <span class="text-ipa" v-if="s[1]" v-html="highlight(s[1], phoneme)"></span>
         </button>
       </template>
@@ -66,5 +66,9 @@ export default {
     margin-bottom: $margin;
     border-radius: 0 0 $border-radius $border-radius;
   }
+}
+.text {
+  flex: 1;
+  text-align: left;
 }
 </style>
