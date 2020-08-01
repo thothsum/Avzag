@@ -1,10 +1,9 @@
 <template>
-  <div class="panel-dense card">
+  <div class="panel card">
     <div class="title">
       <h3>{{lect}}</h3>
       <p v-html="graphemes"></p>
     </div>
-    <p class="text-caption" :key="i" v-for="(n, i) in notes" v-html="parsePhonemes(n)"></p>
     <div class="panel-solid scroll">
       <template v-for="c in cases">
         <button
@@ -18,6 +17,7 @@
         </button>
       </template>
     </div>
+    <p class="text-caption" :key="i" v-for="(n, i) in notes" v-html="parsePhonemes(n)"></p>
   </div>
 </template>
 
@@ -56,10 +56,14 @@ export default {
   justify-content: space-between;
 }
 .panel-solid {
-  margin: -1 * map-get($margins, "normal");
-  margin-top: map-get($margins, "quarter");
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+  $margin: -1 * map-get($margins, "normal");
+  margin-left: $margin;
+  margin-right: $margin;
+  border-radius: 0;
   max-height: 3 * map-get($button-height, "small");
+  &:last-child {
+    margin-bottom: $margin;
+    border-radius: 0 0 $border-radius $border-radius;
+  }
 }
 </style>

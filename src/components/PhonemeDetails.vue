@@ -1,6 +1,6 @@
 <template>
   <div class="panel">
-    <div class="card panel-dense">
+    <div class="card panel">
       <h2 class="text-ipa">{{phoneme.ipa}}</h2>
       <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
       <p class="text-caption" v-if="phoneme.note" v-html="parsePhonemes(phoneme.note)"></p>
