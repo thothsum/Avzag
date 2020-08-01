@@ -24,5 +24,6 @@ h3 {
 }
 div {
   place-items: start;
+  line-height: 175%;
 }
 </style>

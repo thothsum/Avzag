@@ -24,6 +24,9 @@ export default {
 <style lang="scss" scoped>
 div {
   flex-wrap: wrap;
+  * {
+    line-height: 175%;
+  }
 }
 select {
   -moz-appearance: none;
