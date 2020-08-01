@@ -10,16 +10,9 @@
               v-for="cn in converters.filter(c => !c.many21)"
             >{{cn.name}}</option>
           </select>
-          <button @click="empty=!empty">
-            <span v-if="empty" class="icon">subject</span>
-            <span v-else class="icon">clear</span>
-          </button>
-          <button @click="$refs.file.click()">
-            <span class="icon">publish</span>
-          </button>
-          <button v-show="!converters[this.mappingTo].many21" @click="swap">
-            <span class="icon">swap_horiz</span>
-          </button>
+          <button @click="empty=!empty" class="icon">{{empty ? "subject":"clear"}}</button>
+          <button @click="$refs.file.click()" class="icon">publish</button>
+          <button v-show="!converters[this.mappingTo].many21" @click="swap" class="icon">swap_horiz</button>
         </div>
         <ConverterText :source="source" :mapping="mappingSource" @result="intermediate=$event" />
         <MappingTable v-if="showMapping" :mapping="mappingSource" />
@@ -29,13 +22,11 @@
           <select v-model="mappingTo">
             <option :value="cn.i" :key="cn.i" v-for="cn in converters">{{cn.name}}</option>
           </select>
-          <button @click="showMapping=!showMapping">
-            <span v-if="showMapping" class="icon">visibility_off</span>
-            <span v-else class="icon">visibility</span>
-          </button>
-          <button @click="copy">
-            <span class="icon">file_copy</span>
-          </button>
+          <button
+            @click="showMapping=!showMapping"
+            class="icon"
+          >{{showMapping?'visibility_off':'visibility'}}</button>
+          <button @click="copy" class="icon">file_copy</button>
         </div>
         <ConverterText
           ref="resultText"

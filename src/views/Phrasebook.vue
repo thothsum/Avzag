@@ -2,10 +2,7 @@
   <div class="section" v-if="phrasebook">
     <div id="translations" class="panel">
       <div id="header" class="panel-horizontal">
-        <button @click="searching=!searching">
-          <span v-if="searching" class="icon">sort</span>
-          <span v-else class="icon">search</span>
-        </button>
+        <button @click="searching=!searching" class="icon">{{searching?"sort":"search"}}</button>
         <input v-if="searching" placeholder="search in translations" type="text" v-model="search" />
         <select v-else v-model="category">
           <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
