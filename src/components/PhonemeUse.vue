@@ -7,13 +7,14 @@
     <div class="panel-solid scroll">
       <template v-for="c in cases">
         <button
-          class="small"
-          @click="s[0]=='*' ? null : $emit('play', s)"
-          :key="s"
-          v-for="s in c.samples"
+          class="small panel-horizontal"
+          @click="s[0][0]=='*' ? null : $emit('play', s[0])"
+          :key="i"
+          v-for="(s, i) in c.samples"
         >
-          <span v-if="s[0]!='*'" class="icon-small">play_arrow</span>
-          <span v-html="highlight(s, c.grapheme)"></span>
+          <span v-if="s[0][0]!='*'" class="icon-small">play_arrow</span>
+          <span v-html="highlight(s[0], c.grapheme)"></span>
+          <span class="text-ipa" v-if="s[1]" v-html="highlight(s[1], phoneme)"></span>
         </button>
       </template>
     </div>
@@ -24,7 +25,7 @@
 <script>
 export default {
   name: "PhonemeUse",
-  props: ["lect", "cases"],
+  props: ["phoneme", "lect", "cases"],
   computed: {
     graphemes() {
       return this.cases
@@ -60,7 +61,7 @@ export default {
   margin-left: $margin;
   margin-right: $margin;
   border-radius: 0;
-  max-height: 3 * map-get($button-height, "small");
+  max-height: 3 * map-get($button-height, "normal");
   &:last-child {
     margin-bottom: $margin;
     border-radius: 0 0 $border-radius $border-radius;
