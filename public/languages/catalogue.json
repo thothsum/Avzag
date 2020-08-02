@@ -1,12 +1,20 @@
 {
     "Dargin": {
         "lects": [
-            "Kaitag",
-            "Kubachi",
             "Akusha",
+            "Amukh",
+            "Gapshima",
+            "Urakhi",
+            "Kadar",
+            "Mugi",
+            "Muiri",
             "Tsudakhar",
+            "Kaitag",
             "Megeb",
-            "Chirag"
+            "Itsari",
+            "Sirkhi",
+            "Chirag",
+            "Kubachi"
         ],
         "wip": true
     },

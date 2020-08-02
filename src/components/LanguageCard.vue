@@ -10,7 +10,7 @@
         <span class="text-caption">work in progress</span>
       </div>
     </div>
-    <div class="panel-solid scroll">
+    <div id="lects" class="panel-solid">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
     </div>
   </div>
@@ -63,6 +63,14 @@ export default {
   position: absolute;
   right: map-get($margins, "normal");
   top: map-get($margins, "normal");
+}
+#lects {
+  flex-wrap: wrap;
+  place-content: flex-start;
+  > * {
+    width: min-content;
+    margin-right: map-get($margins, "double");
+  }
 }
 #flag {
   position: absolute;
