@@ -1323,14 +1323,7 @@
             "dental",
             "affricate"
         ],
-        "uses": {
-            "Akusha": [
-                {
-                    "grapheme": "дз",
-                    "samples": []
-                }
-            ]
-        }
+        "uses": {}
     },
     {
         "ipa": "d͡ʒ",
@@ -1340,14 +1333,7 @@
             "voiced",
             "alveolar"
         ],
-        "uses": {
-            "Akusha": [
-                {
-                    "grapheme": "дж",
-                    "samples": []
-                }
-            ]
-        }
+        "uses": {}
     },
     {
         "ipa": "t͡ʃʷ",
@@ -2611,17 +2597,6 @@
             "pharyngeal"
         ],
         "uses": {
-            "Akusha": [
-                {
-                    "grapheme": "гӏ",
-                    "samples": [
-                        [
-                            "гӏинц",
-                            ""
-                        ]
-                    ]
-                }
-            ],
             "Kaitag": [
                 {
                     "grapheme": "гӏ",
