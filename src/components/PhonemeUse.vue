@@ -5,11 +5,11 @@
       <p v-html="graphemes"></p>
     </div>
     <div class="panel-solid scroll">
-      <template v-for="c in cases">
+      <template v-for="(c, j) in cases">
         <button
           class="small panel-horizontal"
           @click="s[0][0]=='*' ? null : $emit('play', s[0])"
-          :key="i"
+          :key="j*10+i"
           v-for="(s, i) in c.samples"
         >
           <span v-if="s[0][0]!='*'" class="icon-small">play_arrow</span>
@@ -29,7 +29,7 @@ export default {
   computed: {
     graphemes() {
       return this.cases
-        .map((u) => u.grapheme)
+        .map((u) => `<b>${u.grapheme}</b>`)
         .join("<span class='text-dot'></span>");
     },
     notes() {
@@ -38,7 +38,9 @@ export default {
   },
   methods: {
     parsePhonemes(str) {
-      return str.replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>");
+      return str
+        .replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>")
+        .replace(/⟨(.+)⟩/g, "<b>$1</b>");
     },
     highlight(sample, grapheme) {
       if (sample[0] == "*") sample = sample.substr(1);
