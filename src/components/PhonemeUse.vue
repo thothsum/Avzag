@@ -13,7 +13,7 @@
           v-for="(s, i) in c.samples"
         >
           <span v-if="s[0][0]!='*'" class="icon-small">play_arrow</span>
-          <span class="text" v-html="highlight(s[0], c.grapheme)"></span>
+          <span class="text" v-html="highlight(s[0], c.grapheme, s[2])"></span>
           <span class="text-ipa" v-if="s[1]" v-html="highlight(s[1], phoneme)"></span>
         </button>
       </template>
@@ -42,12 +42,18 @@ export default {
         .replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>")
         .replace(/⟨(.+)⟩/g, "<b>$1</b>");
     },
-    highlight(sample, grapheme) {
+    highlight(sample, grapheme, indexes) {
       if (sample[0] == "*") sample = sample.substr(1);
-      return sample.replace(
-        new RegExp(grapheme, "g"),
-        `<span style="color: var(--color-highlight)">${grapheme}</span>`
-      );
+      const regex = new RegExp(grapheme, "g");
+      const match = `<span style="color: var(--color-highlight)">${grapheme}</span>`;
+
+      if (indexes) {
+        let i = 0;
+        return sample.replace(regex, function (m) {
+          return indexes.includes(i++) ? match : m;
+        });
+      }
+      return sample.replace(regex, match);
     },
   },
 };
