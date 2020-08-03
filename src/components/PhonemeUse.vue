@@ -8,7 +8,7 @@
       <template v-for="(c, j) in cases">
         <button
           class="small panel-horizontal"
-          @click="s[0][0]=='*' ? null : $emit('play', s[0])"
+          @click="$emit('play', s[0])"
           :key="j*10+i"
           v-for="(s, i) in c.samples"
         >
@@ -18,13 +18,16 @@
         </button>
       </template>
     </div>
-    <p class="text-caption" :key="i" v-for="(n, i) in notes" v-html="parsePhonemes(n)"></p>
+    <PhoneticNote :key="i" v-for="(n, i) in notes" :text="n" />
   </div>
 </template>
 
 <script>
+import PhoneticNote from "./PhoneticNote";
+
 export default {
   name: "PhonemeUse",
+  components: { PhoneticNote },
   props: ["phoneme", "lect", "cases"],
   computed: {
     graphemes() {
@@ -37,11 +40,6 @@ export default {
     },
   },
   methods: {
-    parsePhonemes(str) {
-      return str
-        .replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>")
-        .replace(/⟨(.+)⟩/g, "<b>$1</b>");
-    },
     highlight(sample, grapheme, indexes) {
       if (sample[0] == "*") sample = sample.substr(1);
       const regex = new RegExp(grapheme, "g");

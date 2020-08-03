@@ -3,7 +3,7 @@
     <div class="card panel">
       <h2 class="text-ipa">{{phoneme.ipa}}</h2>
       <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
-      <p class="text-caption" v-if="phoneme.note" v-html="parsePhonemes(phoneme.note)"></p>
+      <PhoneticNote :text="phoneme.note" />
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
@@ -19,11 +19,13 @@
 
 <script>
 import PhonemeUse from "./PhonemeUse";
+import PhoneticNote from "./PhoneticNote";
 
 export default {
   name: "PhonemeDetails",
   components: {
     PhonemeUse,
+    PhoneticNote,
   },
   props: ["phoneme"],
   computed: {
@@ -42,9 +44,6 @@ export default {
       const player = this.$refs.player;
       player.src = `${this.root}${lect}/audio/${sample}.mp3`;
       player.play();
-    },
-    parsePhonemes(str) {
-      return str.replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>");
     },
   },
 };
