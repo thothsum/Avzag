@@ -360,7 +360,12 @@
                 },
                 {
                     "grapheme": "б",
-                    "samples": [],
+                    "samples": [
+                        [
+                            "*наиб",
+                            "naipʰ"
+                        ]
+                    ],
                     "note": "Only when ⟨б⟩ is in the last position."
                 }
             ]
@@ -747,6 +752,10 @@
                         [
                             "кард",
                             "kʰard"
+                        ],
+                        [
+                            "*акаст",
+                            "akʰastʰ"
                         ]
                     ]
                 }
@@ -758,6 +767,10 @@
                         [
                             "кӕдзестӕ",
                             "kʰɐd͡zestʰɐ"
+                        ],
+                        [
+                            "зинкуст",
+                            "zinkʰustʰ"
                         ]
                     ]
                 },
@@ -1370,6 +1383,10 @@
                         [
                             "гъӕбес",
                             "ʁɐbes"
+                        ],
+                        [
+                            "*игъосун",
+                            "iʁosun"
                         ]
                     ]
                 }
@@ -1683,11 +1700,6 @@
                         ]
                     ],
                     "note": "Palatalized into /t͡ʃ/ before /i/, /e/ in Chikola speech."
-                },
-                {
-                    "grapheme": "дз",
-                    "samples": [],
-                    "note": "Only when ⟨дз⟩ is in the last position."
                 }
             ]
         }
