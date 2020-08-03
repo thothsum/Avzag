@@ -11,7 +11,12 @@
             "Akusha": [
                 {
                     "grapheme": "и",
-                    "samples": []
+                    "samples": [
+                        [
+                            "игит",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -52,7 +57,12 @@
             "Akusha": [
                 {
                     "grapheme": "у",
-                    "samples": []
+                    "samples": [
+                        [
+                            "урши",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -93,7 +103,12 @@
             "Akusha": [
                 {
                     "grapheme": "э",
-                    "samples": []
+                    "samples": [
+                        [
+                            "эмхӏе",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -137,7 +152,12 @@
             "Akusha": [
                 {
                     "grapheme": "а",
-                    "samples": []
+                    "samples": [
+                        [
+                            "асар",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -180,7 +200,12 @@
             "Akusha": [
                 {
                     "grapheme": "я",
-                    "samples": []
+                    "samples": [
+                        [
+                            "хъяр",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -222,7 +247,12 @@
             "Akusha": [
                 {
                     "grapheme": "б",
-                    "samples": []
+                    "samples": [
+                        [
+                            "бугъа",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -264,7 +294,12 @@
             "Akusha": [
                 {
                     "grapheme": "п",
-                    "samples": []
+                    "samples": [
+                        [
+                            "партал",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -365,6 +400,17 @@
                     "grapheme": "пӏ",
                     "samples": []
                 }
+            ],
+            "Akusha": [
+                {
+                    "grapheme": "пӏ",
+                    "samples": [
+                        [
+                            "пӏялцӏикӏ",
+                            ""
+                        ]
+                    ]
+                }
             ]
         }
     },
@@ -380,7 +426,12 @@
             "Akusha": [
                 {
                     "grapheme": "в",
-                    "samples": []
+                    "samples": [
+                        [
+                            "варгьи",
+                            ""
+                        ]
+                    ]
                 }
             ]
         }
@@ -450,7 +501,12 @@
             "Akusha": [
                 {
                     "grapheme": "м",
-                    "samples": []
+                    "samples": [
+                        [
+                            "мицӏираг",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -492,7 +548,12 @@
             "Akusha": [
                 {
                     "grapheme": "д",
-                    "samples": []
+                    "samples": [
+                        [
+                            "дергъ",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -528,7 +589,12 @@
             "Akusha": [
                 {
                     "grapheme": "т",
-                    "samples": []
+                    "samples": [
+                        [
+                            "тухтур",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -608,7 +674,12 @@
             "Akusha": [
                 {
                     "grapheme": "тӏ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "тӏутӏи",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -650,7 +721,12 @@
             "Akusha": [
                 {
                     "grapheme": "ц",
-                    "samples": []
+                    "samples": [
+                        [
+                            "царка",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -730,7 +806,12 @@
             "Akusha": [
                 {
                     "grapheme": "цӏ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "цӏедеш",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -772,7 +853,12 @@
             "Akusha": [
                 {
                     "grapheme": "з",
-                    "samples": []
+                    "samples": [
+                        [
+                            "зубарти",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -814,7 +900,12 @@
             "Akusha": [
                 {
                     "grapheme": "с",
-                    "samples": []
+                    "samples": [
+                        [
+                            "сири",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -893,7 +984,12 @@
             "Akusha": [
                 {
                     "grapheme": "н",
-                    "samples": []
+                    "samples": [
+                        [
+                            "насаб",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -937,7 +1033,12 @@
             "Akusha": [
                 {
                     "grapheme": "л",
-                    "samples": []
+                    "samples": [
+                        [
+                            "лами",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -998,7 +1099,12 @@
             "Akusha": [
                 {
                     "grapheme": "хь",
-                    "samples": []
+                    "samples": [
+                        [
+                            "хьунул",
+                            ""
+                        ]
+                    ]
                 }
             ]
         }
@@ -1127,7 +1233,12 @@
             "Akusha": [
                 {
                     "grapheme": "й",
-                    "samples": []
+                    "samples": [
+                        [
+                            "къайгъи",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1169,7 +1280,12 @@
             "Akusha": [
                 {
                     "grapheme": "ч",
-                    "samples": []
+                    "samples": [
+                        [
+                            "чарма",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1207,14 +1323,7 @@
             "dental",
             "affricate"
         ],
-        "uses": {
-            "Akusha": [
-                {
-                    "grapheme": "дз",
-                    "samples": []
-                }
-            ]
-        }
+        "uses": {}
     },
     {
         "ipa": "d͡ʒ",
@@ -1224,14 +1333,7 @@
             "voiced",
             "alveolar"
         ],
-        "uses": {
-            "Akusha": [
-                {
-                    "grapheme": "дж",
-                    "samples": []
-                }
-            ]
-        }
+        "uses": {}
     },
     {
         "ipa": "t͡ʃʷ",
@@ -1346,7 +1448,12 @@
             "Akusha": [
                 {
                     "grapheme": "чӏ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "чӏичӏала",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1420,7 +1527,12 @@
             "Akusha": [
                 {
                     "grapheme": "ж",
-                    "samples": []
+                    "samples": [
+                        [
+                            "журуга",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1493,7 +1605,12 @@
             "Akusha": [
                 {
                     "grapheme": "ш",
-                    "samples": []
+                    "samples": [
+                        [
+                            "шагьар",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1635,7 +1752,12 @@
             "Akusha": [
                 {
                     "grapheme": "р",
-                    "samples": []
+                    "samples": [
+                        [
+                            "рурси",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1677,7 +1799,12 @@
             "Akusha": [
                 {
                     "grapheme": "г",
-                    "samples": []
+                    "samples": [
+                        [
+                            "галга",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1750,7 +1877,12 @@
             "Akusha": [
                 {
                     "grapheme": "к",
-                    "samples": []
+                    "samples": [
+                        [
+                            "кам",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1893,7 +2025,12 @@
             "Akusha": [
                 {
                     "grapheme": "кӏ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "кӏапӏи",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -1967,7 +2104,12 @@
             "Akusha": [
                 {
                     "grapheme": "къ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "къаркъа",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -2041,7 +2183,12 @@
             "Akusha": [
                 {
                     "grapheme": "хъ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "хъяр",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -2153,7 +2300,12 @@
             "Akusha": [
                 {
                     "grapheme": "кь",
-                    "samples": []
+                    "samples": [
+                        [
+                            "кьацӏ",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -2227,7 +2379,12 @@
             "Akusha": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "гъум",
+                            ""
+                        ]
+                    ]
                 }
             ]
         }
@@ -2347,7 +2504,12 @@
             "Akusha": [
                 {
                     "grapheme": "х",
-                    "samples": []
+                    "samples": [
+                        [
+                            "халадудеш",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kubachi": [
@@ -2435,12 +2597,6 @@
             "pharyngeal"
         ],
         "uses": {
-            "Akusha": [
-                {
-                    "grapheme": "гӏ",
-                    "samples": []
-                }
-            ],
             "Kaitag": [
                 {
                     "grapheme": "гӏ",
@@ -2480,7 +2636,12 @@
             "Akusha": [
                 {
                     "grapheme": "хӏ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "хӏяйван",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -2522,7 +2683,12 @@
             "Akusha": [
                 {
                     "grapheme": "гь",
-                    "samples": []
+                    "samples": [
+                        [
+                            "гьая",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
@@ -2596,7 +2762,12 @@
             "Akusha": [
                 {
                     "grapheme": "ъ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "ниъ",
+                            ""
+                        ]
+                    ]
                 }
             ],
             "Kaitag": [
