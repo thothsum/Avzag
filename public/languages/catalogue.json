@@ -35,5 +35,13 @@
             "Temirgoy"
         ],
         "wip": true
+    },
+    "Aghul": {
+        "lects": [
+            "Qushan",
+            "Tpig",
+            "Keren"
+        ],
+        "wip": true
     }
 }
