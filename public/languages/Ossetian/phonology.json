@@ -271,7 +271,7 @@
                         ],
                         [
                             "улдугъ",
-                            "ulduʁ"
+                            "ulduχ"
                         ]
                     ]
                 }
@@ -357,6 +357,11 @@
                             "rɐmpʰɐ"
                         ]
                     ]
+                },
+                {
+                    "grapheme": "б",
+                    "samples": [],
+                    "note": "Only when ⟨б⟩ is in the last position."
                 }
             ]
         }
@@ -677,8 +682,7 @@
                                 0
                             ]
                         ]
-                    ],
-                    "note": "⟨г⟩ is voiceless in the last position."
+                    ]
                 }
             ]
         }
@@ -761,9 +765,19 @@
                         ],
                         [
                             "ӕнаккаг",
-                            "ɐnakːag"
+                            "ɐnakːakʰ"
                         ]
                     ]
+                },
+                {
+                    "grapheme": "г",
+                    "samples": [
+                        [
+                            "ӕнаккаг",
+                            "ɐnakːakʰ"
+                        ]
+                    ],
+                    "note": "Only when ⟨г⟩ is in the last position."
                 }
             ]
         }
@@ -803,7 +817,7 @@
                     "grapheme": "кк",
                     "samples": [
                         [
-                            "*аккаг",
+                            "*аккаkʰ",
                             "akːag"
                         ]
                     ]
@@ -1167,8 +1181,8 @@
                     "grapheme": "р",
                     "samples": [
                         [
-                            "рӕгъӕд",
-                            "rɐʁɐd"
+                            "рӕгъӕtʰ",
+                            "rɐʁɐ"
                         ],
                         [
                             "зукъур",
@@ -1213,9 +1227,19 @@
                         ],
                         [
                             "арфиаг",
-                            "arfiag"
+                            "arfiakʰ"
                         ]
                     ]
+                },
+                {
+                    "grapheme": "в",
+                    "samples": [
+                        [
+                            "аййев",
+                            "ajːef"
+                        ]
+                    ],
+                    "note": "Only when ⟨в⟩ is in the last position."
                 }
             ]
         }
@@ -1287,7 +1311,6 @@
                 },
                 {
                     "grapheme": "ш",
-                    "samples": [],
                     "note": "⟨ш⟩ is used only in recent Russian loanwords."
                 }
             ]
@@ -1319,7 +1342,6 @@
                 },
                 {
                     "grapheme": "ж",
-                    "samples": [],
                     "note": "⟨ж⟩ is used only in recent Russian loanwords."
                 }
             ]
@@ -1356,10 +1378,6 @@
                         [
                             "гъӕбес",
                             "ʁɐbes"
-                        ],
-                        [
-                            "рӕбундогъ",
-                            "rɐbundoʁ"
                         ]
                     ]
                 }
@@ -1443,9 +1461,19 @@
                         ],
                         [
                             "цӕлхвад",
-                            "t͡sɐlχvad"
+                            "t͡sɐlχvatʰ"
                         ]
                     ]
+                },
+                {
+                    "grapheme": "гъ",
+                    "samples": [
+                        [
+                            "рӕбундогъ",
+                            "rɐbundoχ"
+                        ]
+                    ],
+                    "note": "Only when ⟨гъ⟩ is in the last position."
                 }
             ]
         }
@@ -1606,14 +1634,24 @@
                     "samples": [
                         [
                             "саггурд",
-                            "sakːurd"
+                            "sakːurtʰ"
                         ],
                         [
                             "уесӕг",
-                            "wesɐg"
+                            "wesɐkʰ"
                         ]
                     ],
                     "note": "Palatalized into /ʃ/ before /i/, /e/ in Chikola speech."
+                },
+                {
+                    "grapheme": "з",
+                    "samples": [
+                        [
+                            "пӕлӕз",
+                            "pʰɐlɐs"
+                        ]
+                    ],
+                    "note": "Only when ⟨з⟩ is in the last position."
                 }
             ]
         }
@@ -1653,6 +1691,11 @@
                         ]
                     ],
                     "note": "Palatalized into /t͡ʃ/ before /i/, /e/ in Chikola speech."
+                },
+                {
+                    "grapheme": "дз",
+                    "samples": [],
+                    "note": "Only when ⟨дз⟩ is in the last position."
                 }
             ]
         }
@@ -1811,7 +1854,7 @@
                         ],
                         [
                             "нӕлуӕг",
-                            "nɐlwɐg"
+                            "nɐlwɐkʰ"
                         ]
                     ]
                 }
@@ -1890,7 +1933,7 @@
                     "samples": [
                         [
                             "лӕвард",
-                            "lɐvard"
+                            "lɐvartʰ"
                         ],
                         [
                             "аггӕл",
