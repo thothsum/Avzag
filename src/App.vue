@@ -5,10 +5,11 @@
   </div>
 </template>
 
-<script>
-import Header from "@/components/Header";
+<script lang="ts">
+import Vue from "vue";
+import Header from "./components/Header.vue";
 
-export default {
+export default Vue.extend({
   name: "App",
   components: {
     Header
@@ -28,7 +29,7 @@ export default {
       immediate: true
     },
     "$route.path": {
-      handler() {
+      handler(): void {
         if (this.$route.name) localStorage.url = this.$route.path;
       }
     }
@@ -42,7 +43,7 @@ export default {
           : { name: "Home" }
       );
   }
-};
+});
 </script>
 
 <style lang="scss">

@@ -1,82 +1,73 @@
 {
     "meeting": [
         {
-            "translation": "how are you?",
+            "translation": "Come to me.",
+            "text": [
+                "You (",
+                {
+                    "id": 0,
+                    "values": [
+                        "masculine",
+                        "feminine",
+                        "inanimate",
+                        "plural"
+                    ]
+                },
+                ") come to ",
+                {
+                    "id": 1,
+                    "values": [
+                        "me",
+                        "us"
+                    ]
+                },
+                "."
+            ],
             "sources": {
-                "Kaitag": {
-                    "text": "цигледей?",
-                    "ipa": "ˈt͡sigledej"
-                },
-                "Akusha": {
-                    "text": "сенсайри?",
-                    "ipa": "ˈsensɑjri"
-                }
-            }
-        }
-    ],
-    "family": [
-        {
-            "translation": "mother",
-            "sources": {
-                "Kaitag": {
-                    "text": "уба",
-                    "ipa": "ˈubɑ"
-                },
-                "Akusha": {
-                    "text": "неш",
-                    "ipa": "ˈneʃ"
-                }
-            }
-        },
-        {
-            "translation": "father",
-            "sources": {
-                "Kaitag": {
-                    "text": "атта",
-                    "ipa": "ˈɑtːɑ"
-                },
-                "Akusha": {
-                    "text": "дудеш",
-                    "ipa": "duˈdeʃ"
-                },
-                "Tsudakhar": {
-                    "text": "тӏутӏеш",
-                    "ipa": "tʼuˈtʼeʃ"
-                },
-                "Chirag": {
-                    "text": "датте",
-                    "ipa": "dˈɑtːe"
-                },
-                "Megeb": {
-                    "text": "адай",
-                    "ipa": "ɑˈdɑj"
-                }
-            }
-        },
-        {
-            "translation": "brother",
-            "sources": {
-                "Kaitag": {
-                    "text": "уцци",
-                    "ipa": "uˈt͡sːi"
-                },
-                "Akusha": {
-                    "text": "узи",
-                    "ipa": "uˈzi"
-                }
-            }
-        },
-        {
-            "translation": "sister",
-            "sources": {
-                "Kaitag": {
-                    "text": "рицци",
-                    "ipa": "riˈt͡sːi"
-                },
-                "Akusha": {
-                    "text": "рузи",
-                    "ipa": "ruˈzi"
-                }
+                "Akusha": [
+                    {
+                        "id": 1,
+                        "align": "right",
+                        "values": [
+                            "Ди",
+                            "Нуша"
+                        ]
+                    },
+                    "чу ",
+                    {
+                        "id": 0,
+                        "values": [
+                            "ва",
+                            "ра",
+                            "ва",
+                            "да"
+                        ]
+                    },
+                    "ше."
+                ],
+                "Kaitag": [
+                    "Ця",
+                    {
+                        "id": 0,
+                        "align": "left",
+                        "values": [
+                            "",
+                            "ре",
+                            "бе",
+                            "дая"
+                        ]
+                    },
+                    " ",
+                    {
+                        "id": 1,
+                        "align": "right",
+                        "values": [
+                            "ду",
+                            "нисса"
+                        ]
+                    },
+                    "са."
+                ]
             }
         }
     ]

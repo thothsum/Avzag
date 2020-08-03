@@ -2,10 +2,7 @@
   <div class="section" v-if="phrasebook">
     <div id="translations" class="panel">
       <div id="header" class="panel-horizontal">
-        <button @click="searching=!searching" :tooltip="searching ? 'view categories' : 'search'">
-          <span v-if="searching" class="icon">sort</span>
-          <span v-else class="icon">search</span>
-        </button>
+        <button @click="searching=!searching" class="icon">{{searching?"sort":"search"}}</button>
         <input v-if="searching" placeholder="search in translations" type="text" v-model="search" />
         <select v-else v-model="category">
           <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
@@ -33,12 +30,14 @@
       </div>
     </div>
     <div class="panel">
+      <PhraseBuilder :source="text" :ids="ids" />
       <PhrasebookEntry
         class="card"
         :key="i"
         v-for="(lc, i) in lects"
         :lect="lc"
         :source="sources[lc]"
+        :ids="ids"
       />
     </div>
   </div>
@@ -46,23 +45,26 @@
 
 <script>
 import PhrasebookEntry from "@/components/PhrasebookEntry";
+import PhraseBuilder from "@/components/PhraseBuilder";
 
 export default {
   name: "Phrasebook",
   components: {
-    PhrasebookEntry
+    PhrasebookEntry,
+    PhraseBuilder,
   },
   data() {
     return {
-      category: this.$route.query.category ?? 0,
-      phrase: this.$route.query.phrase ?? 0,
+      category: 0,
+      phrase: 0,
       searching: false,
-      search: ""
+      search: "",
+      ids: {},
     };
   },
   computed: {
     lects() {
-      return this.$store.getters.lects.filter(l => l in this.sources);
+      return this.$store.getters.lects.filter((l) => l in this.sources);
     },
     phrasebook() {
       return this.$store.state.phrasebook;
@@ -71,22 +73,27 @@ export default {
       return Object.keys(this.phrasebook);
     },
     phrases() {
-      return this.phrasebook[this.categories[this.category]];
+      return this.phrasebook
+        ? this.phrasebook[this.categories[this.category]]
+        : null;
     },
     translations() {
-      return this.phrases.map(it => it.translation);
+      return this.phrases.map((it) => it.translation);
     },
     sources() {
       return this.phrases[this.phrase].sources;
+    },
+    text: function () {
+      return this.phrases ? this.phrases[this.phrase].text : null;
     },
     searchResults() {
       if (!this.searching) return null;
 
       let results = {};
-      Object.keys(this.phrasebook).forEach((c, i) => {
+      this.categories.forEach((c, i) => {
         let filtered = [];
         this.phrasebook[c]
-          .map(p => p.translation)
+          .map((p) => p.translation)
           .forEach((p, j) => {
             if (p.includes(this.search)) filtered.push(j);
           });
@@ -95,7 +102,7 @@ export default {
 
       if (Object.keys(results).length === 0) return null;
       else return results;
-    }
+    },
   },
   watch: {
     category(category) {
@@ -108,11 +115,28 @@ export default {
         .push({ query: { ...this.$route.query, phrase: phrase } })
         .catch(() => {});
     },
-    "$route.query": function(query) {
-      this.category = query.category;
-      this.phrase = query.phrase;
-    }
-  }
+    text: {
+      handler(text) {
+        if (!text) return;
+
+        let ids = {};
+        text.forEach((s) => {
+          if (typeof s !== "string") {
+            ids[s.id] = 0;
+          }
+        });
+        this.ids = ids;
+      },
+      immediate: true,
+    },
+    "$route.query": {
+      handler(query) {
+        this.category = query.category ?? 0;
+        this.phrase = query.phrase ?? 0;
+      },
+      immediate: true,
+    },
+  },
 };
 </script>
 
@@ -131,7 +155,6 @@ export default {
   gap: map-get($margins, "double");
 }
 .panel-solid {
-  max-height: 7 * map-get($button-height, "normal");
   h3 {
     margin-bottom: map-get($margins, "normal");
     &:not(:first-child) {
@@ -142,6 +165,9 @@ export default {
 @media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;
+  }
+  .panel-solid {
+    max-height: 7 * map-get($button-height, "normal");
   }
 }
 </style>

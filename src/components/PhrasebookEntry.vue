@@ -1,28 +1,29 @@
 <template>
-  <div class="card">
+  <div class="card panel-horizontal">
     <h3>{{lect}}</h3>
-    <span>{{source.text}}</span>
-    <span class="text-faded text-ipa">{{source.ipa}}</span>
+    <span class="text-dot"></span>
+    <PhraseBuilder :source="source" :ids="ids" />
   </div>
 </template>
 
 <script>
+import PhraseBuilder from "./PhraseBuilder";
+
 export default {
   name: "PhrasebookEntry",
-  props: ["lect", "source"]
+  components: {
+    PhraseBuilder,
+  },
+  props: ["lect", "source", "ids"],
 };
 </script>
 
 <style lang="scss" scoped>
-.card {
-  height: min-content;
-  display: grid;
-  grid-template-columns: 100px 1fr 1fr;
-  box-shadow: map-get($shadows, "normal");
+h3 {
+  flex: 0;
 }
-@media only screen and (max-width: $mobile-width) {
-  .card {
-    grid-template-columns: 1fr;
-  }
+div {
+  place-items: start;
+  line-height: 175%;
 }
 </style>

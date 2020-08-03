@@ -3,12 +3,10 @@
     <div class="section">
       <div class="panel-horizontal">
         <img class="no-select" :src="flag" draggable="false" alt="flag" />
-        <button @click="navigate('Home')">
-          <span class="icon">arrow_back</span>
-        </button>
+        <button @click="navigate('Home')" class="icon">arrow_back</button>
         <h2>{{$store.state.language}}</h2>
       </div>
-      <div class="panel-horizontal scroll-hidden">
+      <div id="nav" class="panel-horizontal scroll-hidden">
         <button
           class="panel-horizontal"
           :class="{ highlight: $route.name === t }"
@@ -17,40 +15,42 @@
           v-for="[t, i] in menus"
         >
           <span class="icon">{{i}}</span>
-          <p>{{t}}</p>
+          <p v-if="t">{{t}}</p>
         </button>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
   name: "Header",
   data() {
     return {
       menus: [
         ["Phonology", "audiotrack"],
         ["Converter", "sync_alt"],
-        ["Phrasebook", "chat"]
-      ]
+        ["Phrasebook", "chat"],
+      ],
     };
   },
   computed: {
-    flag() {
+    flag(): string {
       return this.$store.getters.languageRoot + "flag.png";
-    }
+    },
   },
   methods: {
-    navigate(path) {
+    navigate(path: string): void {
       if (this.$route.name !== path)
         this.$router.push({
           name: path,
-          params: { lang: this.$route.params.lang }
+          params: { lang: this.$route.params.lang },
         });
-    }
-  }
-};
+    },
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -81,7 +81,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-button {
+#nav button {
   font-weight: bold;
 }
 @media only screen and (max-width: $mobile-width) {

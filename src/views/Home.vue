@@ -1,9 +1,13 @@
 <template>
   <div v-if="catalogue">
-    <div class="section panel-horizontal">
-      <h1 id="header">Ævzag</h1>
-      <a href="https://twitter.com/alkaitagi">Twitter</a>
-      <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
+    <div id="header" class="section panel-horizontal">
+      <h1>Ævzag</h1>
+      <div class="panel-horizontal">
+        <a href="https://twitter.com/alkaitagi">Twitter</a>
+        <a href="https://github.com/alkaitagi/Aevzag">GitHub</a>
+        <span class="text-dot"></span>
+        <a href="https://github.com/alkaitagi/Aevzag/blob/master/credits.md#credits">Credits</a>
+      </div>
     </div>
     <div id="languages" class="section">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
@@ -17,11 +21,11 @@ import LanguageCard from "@/components/LanguageCard";
 export default {
   name: "Home",
   components: {
-    LanguageCard
+    LanguageCard,
   },
   data() {
     return {
-      publicPath: process.env.BASE_URL
+      publicPath: process.env.BASE_URL,
     };
   },
   computed: {
@@ -30,24 +34,21 @@ export default {
     },
     languages() {
       return Object.keys(this.catalogue).sort((a, b) => a.localeCompare(b));
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-$item-width: 160px;
-$item-height: 192px;
-
+$card-height: 192px;
+$card-width: 224px;
+#header {
+  flex-wrap: wrap;
+}
 #languages {
   display: grid;
   gap: map-get($margins, "double");
-  place-items: stretch;
-  grid-template-columns: repeat(auto-fill, $item-width);
-
-  > * {
-    width: $item-width;
-    height: $item-height;
-  }
+  grid-auto-rows: $card-height;
+  grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
 }
 </style>

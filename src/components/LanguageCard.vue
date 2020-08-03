@@ -5,11 +5,12 @@
     </div>
     <div class="panel-horizontal">
       <h2>{{language}}</h2>
-      <p class="panel" tooltip="work in progress">
-        <span class="icon" v-if="info.wip">construction</span>
-      </p>
+      <div v-if="info.wip" class="panel-solid text-faded wip">
+        <span class="icon">construction</span>
+        <span class="text-caption">work in progress</span>
+      </div>
     </div>
-    <div class="panel-solid scroll">
+    <div id="lects" class="panel-solid">
       <p :key="i" v-for="(lc, i) in lects">{{ lc }}</p>
     </div>
   </div>
@@ -28,13 +29,13 @@ export default {
     },
     lects() {
       return Object.values(this.info.lects).sort((a, b) => a.localeCompare(b));
-    }
+    },
   },
   methods: {
     open() {
       this.$router.push({ name: "Phonology", params: { lang: this.language } });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -55,6 +56,22 @@ export default {
     z-index: 1;
   }
 }
+.wip {
+  align-content: flex-end;
+  width: min-content;
+  text-align: right;
+  position: absolute;
+  right: map-get($margins, "normal");
+  top: map-get($margins, "normal");
+}
+#lects {
+  flex-wrap: wrap;
+  place-content: flex-start;
+  > * {
+    width: min-content;
+    margin-right: map-get($margins, "double");
+  }
+}
 #flag {
   position: absolute;
   top: 0;
@@ -71,7 +88,7 @@ img {
   right: 0;
   height: 100%;
   opacity: 0.5;
-  transform: translate(30%, 30%) rotate(-20deg);
+  transform: translate(30%, 25%) rotate(-45deg);
   mask-image: linear-gradient(transparent, white);
 }
 </style>

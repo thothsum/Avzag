@@ -44,7 +44,7 @@ export default {
     }
   },
   methods: {
-    uppercase(str) {
+    capitalize(str) {
       let base = "";
       let i = 0;
       if (str.charAt(0) == " ") {
@@ -53,17 +53,41 @@ export default {
       }
       return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
     },
-    replace(str, from, to) {
-      return str.replace(new RegExp(from, "g"), to);
-    },
     convert(source, mapping) {
-      source = " " + this.replace(source, "\n", "\n ").trim();
-      for (const [from, to] of mapping) {
-        source = this.replace(source, from, to);
-        source = this.replace(source, this.uppercase(from), this.uppercase(to));
+      if (mapping.length === 0) return source;
+
+      source = " " + source.replace(/\n/g, "\n ").trim();
+      let result = "";
+
+      for (let i = 0; i < source.length; ) {
+        let found = false;
+        for (const [from, to] of mapping) {
+          const l = from.length;
+          const sub = source.substring(i, i + l);
+          const pairs = [
+            [from, to],
+            [this.capitalize(from), this.capitalize(to)],
+            [from.toUpperCase(), to.toUpperCase()]
+          ];
+          
+          for (const [f, t] of pairs)
+            if (sub === f) {
+              found = true;
+              result += t;
+              i += l;
+              break;
+            }
+
+          if (found) break;
+        }
+
+        if (!found) {
+          result += source[i];
+          i++;
+        }
       }
-      source = this.replace(source, "\n ", "\n").trim();
-      return source;
+
+      return result.replace(/\n /g, "\n").trim();
     }
   }
 };

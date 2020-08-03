@@ -6,7 +6,7 @@
 
 .text-caption,
 .text-caption * {
-  font-style: italic;
+  // font-style: italic;
   font-size: map-get($font-sizes, "small");
 }
 .text-faded,
@@ -25,6 +25,14 @@
 }
 .text-spaced {
   word-spacing: map-get($margins, "normal");
+}
+
+.text-dot {
+  @extend .text-faded;
+  @extend .no-select;
+  &::before {
+    content: " • ";
+  }
 }
 
 .no-select {

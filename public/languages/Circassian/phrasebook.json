@@ -1,19 +1,75 @@
 {
     "meeting": [
         {
-            "translations": {
-                "eng": "how are you?",
-                "rus": "как ты?"
-            },
+            "translation": "How are you?",
+            "text": "How are you?",
             "sources": {
-                "Kabardian": {
-                    "text": "дау ущыт?",
-                    "ipa": ""
+                "Kabardian": [
+                    "Дау ущыт?"
+                ],
+                "Temirgoy": [
+                    "Сыдэу ущыт?"
+                ]
+            }
+        },
+        {
+            "translation": "Come to me.",
+            "text": [
+                "You (",
+                {
+                    "id": 0,
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
                 },
-                "Temirgoy": {
-                    "text": "сыдэу ущыт?",
-                    "ipa": ""
-                }
+                ") come to ",
+                {
+                    "id": 1,
+                    "values": [
+                        "me",
+                        "us"
+                    ]
+                },
+                "."
+            ],
+            "sources": {
+                "Kabardian": [
+                    {
+                        "id": 0,
+                        "values": [
+                            "Сиде",
+                            "Диде"
+                        ]
+                    },
+                    " ",
+                    {
+                        "id": 1,
+                        "values": [
+                            "",
+                            "фы"
+                        ]
+                    },
+                    "къакӏуэ."
+                ],
+                "Temirgoy": [
+                    {
+                        "id": 0,
+                        "values": [
+                            "Садэжь",
+                            "Тадэжь"
+                        ]
+                    },
+                    " ",
+                    {
+                        "id": 1,
+                        "values": [
+                            "",
+                            "шъу"
+                        ]
+                    },
+                    "къакӏу."
+                ]
             }
         }
     ]

@@ -18,7 +18,7 @@ import PhoneticItem from "./PhoneticItem";
 export default {
   name: "PhoneticTable",
   components: {
-    PhoneticItem
+    PhoneticItem,
   },
   props: ["selected", "lectQuery", "featureQuery", "phonemes"],
   methods: {
@@ -27,12 +27,12 @@ export default {
         if (mode !== tags.includes(tag)) return false;
       }
       return true;
-    }
+    },
   },
   computed: {
     fitting() {
       return this.phonemes.map(
-        p =>
+        (p) =>
           this.pass(Object.keys(p.uses), this.lectQuery) &&
           this.pass(p.features, this.featureQuery)
       );
@@ -44,9 +44,9 @@ export default {
       return lects.length === 1 ? lects[0] : undefined;
     },
     graphemes() {
-      return this.phonemes.map(p => p.uses[this.singleLect]?.[0].grapheme);
-    }
-  }
+      return this.phonemes.map((p) => p.uses[this.singleLect]?.[0].grapheme);
+    },
+  },
 };
 </script>
 
@@ -57,13 +57,8 @@ $item-height: 40px;
 #root {
   display: grid;
   gap: map-get($margins, "half");
-  place-items: stretch;
-  grid-template-columns: repeat(auto-fill, $item-width);
-
-  > * {
-    width: $item-width;
-    height: $item-height;
-  }
+  grid-template-columns: repeat(auto-fit, $item-width);
+  grid-auto-rows: $item-height;
 }
 
 @media only screen and (max-width: $mobile-width) {
@@ -71,8 +66,9 @@ $item-height: 40px;
     grid-auto-flow: column;
     overflow-x: auto;
     max-height: 5 * $item-height;
+    grid-auto-columns: $item-width;
     grid-template-rows: repeat(auto-fill, $item-height);
-
+    
     &.narrow {
       grid-template-rows: $item-height;
     }

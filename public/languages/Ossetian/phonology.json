@@ -12,8 +12,14 @@
                 {
                     "grapheme": "а",
                     "samples": [
-                        "абон",
-                        "балц"
+                        [
+                            "абон",
+                            "abon"
+                        ],
+                        [
+                            "балц",
+                            "bals"
+                        ]
                     ]
                 }
             ],
@@ -21,8 +27,14 @@
                 {
                     "grapheme": "а",
                     "samples": [
-                        "арӕх",
-                        "дурусадӕ"
+                        [
+                            "арӕх",
+                            "arɐχ"
+                        ],
+                        [
+                            "езгард",
+                            "jezgard"
+                        ]
                     ]
                 }
             ]
@@ -40,8 +52,14 @@
                 {
                     "grapheme": "ӕ",
                     "samples": [
-                        "ӕххуыс",
-                        "бӕлон"
+                        [
+                            "ӕххуыс",
+                            "ɐχːʷəʃ"
+                        ],
+                        [
+                            "уыгӕрдӕн",
+                            "wəgɐrdɐn"
+                        ]
                     ]
                 }
             ],
@@ -49,8 +67,14 @@
                 {
                     "grapheme": "ӕ",
                     "samples": [
-                        "ӕсхъод",
-                        "базмӕалдӕ"
+                        [
+                            "ӕсхъод",
+                            "ɐsqʰod"
+                        ],
+                        [
+                            "базмӕлдӕ",
+                            "bazmɐldɐ"
+                        ]
                     ]
                 }
             ]
@@ -69,18 +93,39 @@
                 {
                     "grapheme": "е",
                     "samples": [
-                        "егъау",
-                        "ӕппӕтдунеон"
+                        [
+                            "егъау",
+                            "jeʁaw"
+                        ],
+                        [
+                            "дуне",
+                            "dune"
+                        ]
                     ]
+                },
+                {
+                    "grapheme": "э",
+                    "samples": [],
+                    "note": "⟨э⟩ is used only in recent Russian loanwords."
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "е",
                     "samples": [
-                        "ерисхӕ",
-                        "келбетон"
+                        [
+                            "ерисхӕ",
+                            "jerisχɐ"
+                        ],
+                        [
+                            "аййев",
+                            "ajːev"
+                        ]
                     ]
+                },
+                {
+                    "grapheme": "э",
+                    "samples": []
                 }
             ]
         }
@@ -98,8 +143,14 @@
                 {
                     "grapheme": "и",
                     "samples": [
-                        "изӕар",
-                        "къалиу"
+                        [
+                            "изӕр",
+                            "iʒɐr"
+                        ],
+                        [
+                            "къалиу",
+                            "kʼaliw"
+                        ]
                     ]
                 }
             ],
@@ -107,8 +158,14 @@
                 {
                     "grapheme": "и",
                     "samples": [
-                        "истӕан",
-                        "кизгӕ"
+                        [
+                            "истӕн",
+                            "istʰɐn"
+                        ],
+                        [
+                            "кизгӕ",
+                            "kʰizgɐ"
+                        ]
                     ]
                 }
             ]
@@ -126,13 +183,31 @@
             "Iron": [
                 {
                     "grapheme": "о",
-                    "samples": []
+                    "samples": [
+                        [
+                            "обау",
+                            "obaw"
+                        ],
+                        [
+                            "райсом",
+                            "rajʃom"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "о",
-                    "samples": []
+                    "samples": [
+                        [
+                            "уосӕ",
+                            "wosɐ"
+                        ],
+                        [
+                            "кӕдзос",
+                            "kʰɐd͡zos"
+                        ]
+                    ]
                 }
             ]
         }
@@ -148,7 +223,16 @@
             "Iron": [
                 {
                     "grapheme": "ы",
-                    "samples": []
+                    "samples": [
+                        [
+                            "сыффытт",
+                            "ʃəffətː"
+                        ],
+                        [
+                            "ралыгъд",
+                            "raləʁd"
+                        ]
+                    ]
                 }
             ]
         }
@@ -166,8 +250,14 @@
                 {
                     "grapheme": "у",
                     "samples": [
-                        "уазӕг",
-                        "хау"
+                        [
+                            "усгур",
+                            "uʃgur"
+                        ],
+                        [
+                            "худын",
+                            "χudən"
+                        ]
                     ]
                 }
             ],
@@ -175,8 +265,14 @@
                 {
                     "grapheme": "у",
                     "samples": [
-                        "уалдзӕг",
-                        "федеуӕг"
+                        [
+                            "удзӕл",
+                            "ud͡zɐl"
+                        ],
+                        [
+                            "улдугъ",
+                            "ulduʁ"
+                        ]
                     ]
                 }
             ]
@@ -195,8 +291,14 @@
                 {
                     "grapheme": "б",
                     "samples": [
-                        "байзӕддаг",
-                        "къӕбӕр"
+                        [
+                            "байзӕддаг",
+                            "bajʒɐtːag"
+                        ],
+                        [
+                            "къӕбӕр",
+                            "kʼɐbɐr"
+                        ]
                     ]
                 }
             ],
@@ -204,8 +306,14 @@
                 {
                     "grapheme": "б",
                     "samples": [
-                        "базицъарӕ",
-                        "келбет"
+                        [
+                            "базицъарӕ",
+                            "bazit͡sʼarɐ"
+                        ],
+                        [
+                            "келбет",
+                            "kʰelbetʰ"
+                        ]
                     ]
                 }
             ]
@@ -225,8 +333,14 @@
                 {
                     "grapheme": "п",
                     "samples": [
-                        "пурти",
-                        "ӕппӕтон"
+                        [
+                            "пурти",
+                            "pʰurtʰi"
+                        ],
+                        [
+                            "*аипджын",
+                            "aipʰd͡ʒən"
+                        ]
                     ]
                 }
             ],
@@ -234,9 +348,66 @@
                 {
                     "grapheme": "п",
                     "samples": [
-                        "паддзахуосӕ",
-                        "тӕпподдзийнадӕ"
+                        [
+                            "пӕлӕз",
+                            "pʰɐlɐz"
+                        ],
+                        [
+                            "рӕмпӕ",
+                            "rɐmpʰɐ"
+                        ]
                     ]
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "pː",
+        "features": [
+            "consonant",
+            "voiceless",
+            "geminate",
+            "bilabial",
+            "stop"
+        ],
+        "note": "Phonetic status in question.",
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "пп",
+                    "samples": [
+                        [
+                            "*ӕппӕлын",
+                            "ɐpːɐlən"
+                        ]
+                    ]
+                },
+                {
+                    "grapheme": "бб",
+                    "samples": []
+                },
+                {
+                    "grapheme": "бп",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "пп",
+                    "samples": [
+                        [
+                            "*ӕппӕлун",
+                            "ɐpːɐlun"
+                        ]
+                    ]
+                },
+                {
+                    "grapheme": "бб",
+                    "samples": []
+                },
+                {
+                    "grapheme": "бп",
+                    "samples": []
                 }
             ]
         }
@@ -254,7 +425,14 @@
                 {
                     "grapheme": "пъ",
                     "samples": [
-                        "пъазбын"
+                        [
+                            "пъазбын",
+                            "pʼaʒbən"
+                        ],
+                        [
+                            "пъырыпъыф",
+                            "pʼərəpʼəf"
+                        ]
                     ]
                 }
             ],
@@ -262,14 +440,21 @@
                 {
                     "grapheme": "пъ",
                     "samples": [
-                        "пъӕра"
+                        [
+                            "пъӕра",
+                            "pʼɐra"
+                        ],
+                        [
+                            "исӕмпъохун",
+                            "isɐmpʼoχun"
+                        ]
                     ]
                 }
             ]
         }
     },
     {
-        "ipa": "d̪",
+        "ipa": "d",
         "features": [
             "consonant",
             "voiced",
@@ -281,8 +466,14 @@
                 {
                     "grapheme": "д",
                     "samples": [
-                        "дыргъ",
-                        "зӕд"
+                        [
+                            "дыргъ",
+                            "dərʁ"
+                        ],
+                        [
+                            "зӕд",
+                            "ʒɐd"
+                        ]
                     ]
                 }
             ],
@@ -290,15 +481,21 @@
                 {
                     "grapheme": "д",
                     "samples": [
-                        "давой",
-                        "зард"
+                        [
+                            "давой",
+                            "davoj"
+                        ],
+                        [
+                            "зард",
+                            "zard"
+                        ]
                     ]
                 }
             ]
         }
     },
     {
-        "ipa": "t̪ʰ",
+        "ipa": "tʰ",
         "features": [
             "consonant",
             "voiceless",
@@ -311,8 +508,14 @@
                 {
                     "grapheme": "т",
                     "samples": [
-                        "тӕрхондон",
-                        "фарст"
+                        [
+                            "тӕрхондон",
+                            "tʰɐrχondon"
+                        ],
+                        [
+                            "фарст",
+                            "farʃtʰ"
+                        ]
                     ]
                 }
             ],
@@ -320,15 +523,72 @@
                 {
                     "grapheme": "т",
                     "samples": [
-                        "табӕт",
-                        "уодӕнст"
+                        [
+                            "табӕт",
+                            "tʰabɐtʰ"
+                        ],
+                        [
+                            "уодӕнст",
+                            "wodɐnstʰ"
+                        ]
                     ]
                 }
             ]
         }
     },
     {
-        "ipa": "t̪ʼ",
+        "ipa": "tː",
+        "features": [
+            "consonant",
+            "voiceless",
+            "geminate",
+            "dental",
+            "stop"
+        ],
+        "note": "Phonetic status in question.",
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "тт",
+                    "samples": [
+                        [
+                            "*ныттонын",
+                            "nətːonən"
+                        ]
+                    ]
+                },
+                {
+                    "grapheme": "дд",
+                    "samples": []
+                },
+                {
+                    "grapheme": "дт",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "тт",
+                    "samples": [
+                        [
+                            "*ниттонун",
+                            "nitːonun"
+                        ]
+                    ]
+                },
+                {
+                    "grapheme": "дд",
+                    "samples": []
+                },
+                {
+                    "grapheme": "дт",
+                    "samples": []
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "tʼ",
         "features": [
             "consonant",
             "dental",
@@ -340,8 +600,14 @@
                 {
                     "grapheme": "тъ",
                     "samples": [
-                        "тъӕпӕан",
-                        "джитъри"
+                        [
+                            "тъӕпӕн",
+                            "tʼɐpʰɐn"
+                        ],
+                        [
+                            "джитъри",
+                            "d͡ʒitʼri"
+                        ]
                     ]
                 }
             ],
@@ -349,7 +615,14 @@
                 {
                     "grapheme": "тъ",
                     "samples": [
-                        "тъибила"
+                        [
+                            "тъибила",
+                            "tʼibila"
+                        ],
+                        [
+                            "ӕртитъафуг",
+                            "ɐrtʰitʼafug"
+                        ]
                     ]
                 }
             ]
@@ -367,13 +640,31 @@
             "Iron": [
                 {
                     "grapheme": "г",
-                    "samples": ["гага","дӕндаг"]
+                    "samples": [
+                        [
+                            "гага",
+                            "gaga"
+                        ],
+                        [
+                            "дӕндаг",
+                            "dɐndag"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "г",
-                    "samples": ["гӕбӕло","силгоймаг"]
+                    "samples": [
+                        [
+                            "гӕбӕло",
+                            "gɐbɐlo"
+                        ],
+                        [
+                            "силгоймаг",
+                            "silgojmag"
+                        ]
+                    ]
                 }
             ]
         }
@@ -387,17 +678,36 @@
             "velar",
             "stop"
         ],
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
                     "grapheme": "гу",
-                    "samples": ["гуыбын","магуса"]
+                    "samples": [
+                        [
+                            "гуыбын",
+                            "gʷəbən"
+                        ],
+                        [
+                            "уазӕгуаты",
+                            "waʒɐgʷatʰə"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "гу",
-                    "samples": ["губун","ӕгудзӕгдзийнадӕ"]
+                    "samples": [
+                        [
+                            "гуӕдзӕга",
+                            "gʷɐd͡zɐga"
+                        ],
+                        [
+                            "гуайӕн",
+                            "gʷajɐn"
+                        ]
+                    ]
                 }
             ]
         }
@@ -415,13 +725,82 @@
             "Iron": [
                 {
                     "grapheme": "к",
-                    "samples": ["кард","ныртӕккӕ"]
+                    "samples": [
+                        [
+                            "кард",
+                            "kʰard"
+                        ],
+                        [
+                            "ныртӕккӕ",
+                            "nərtʰɐkːɐ"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "к",
-                    "samples": ["кӕдзестӕ","ӕнаккаг"]
+                    "samples": [
+                        [
+                            "кӕдзестӕ",
+                            "kʰɐd͡zestʰɐ"
+                        ],
+                        [
+                            "ӕнаккаг",
+                            "ɐnakːag"
+                        ]
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "kː",
+        "features": [
+            "consonant",
+            "voiceless",
+            "geminate",
+            "velar",
+            "stop"
+        ],
+        "note": "Phonetic status in question.",
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "кк",
+                    "samples": [
+                        [
+                            "*аккаг",
+                            "akːag"
+                        ]
+                    ]
+                },
+                {
+                    "grapheme": "гг",
+                    "samples": []
+                },
+                {
+                    "grapheme": "гк",
+                    "samples": []
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "кк",
+                    "samples": [
+                        [
+                            "*аккаг",
+                            "akːag"
+                        ]
+                    ]
+                },
+                {
+                    "grapheme": "гг",
+                    "samples": []
+                },
+                {
+                    "grapheme": "гк",
+                    "samples": []
                 }
             ]
         }
@@ -435,17 +814,36 @@
             "velar",
             "stop"
         ],
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
                     "grapheme": "ку",
-                    "samples": ["куыдз","никуы"]
+                    "samples": [
+                        [
+                            "куыдз",
+                            "kʷəz"
+                        ],
+                        [
+                            "никуы",
+                            "nikʷə"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ку",
-                    "samples": ["кувд"]
+                    "samples": [
+                        [
+                            "куатӕ",
+                            "kʷatɐ"
+                        ],
+                        [
+                            "скуӕнхун",
+                            "skʷɐnχun"
+                        ]
+                    ]
                 }
             ]
         }
@@ -462,13 +860,31 @@
             "Iron": [
                 {
                     "grapheme": "къ",
-                    "samples": ["къӕсӕр","хуыскъ"]
+                    "samples": [
+                        [
+                            "къӕсӕр",
+                            "kʼɐʃɐr"
+                        ],
+                        [
+                            "хуыскъ",
+                            "χʷəʃkʼ"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "къ",
-                    "samples": ["къӕбус"]
+                    "samples": [
+                        [
+                            "къӕбус",
+                            "kʼɐbus"
+                        ],
+                        [
+                            "нӕкъех",
+                            "nɐkʼeχ"
+                        ]
+                    ]
                 }
             ]
         }
@@ -482,17 +898,36 @@
             "ejective",
             "stop"
         ],
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
                     "grapheme": "къу",
-                    "samples": ["къус","фӕткъу бӕлас"]
+                    "samples": [
+                        [
+                            "къуым",
+                            "kʼʷəm"
+                        ],
+                        [
+                            "аскъуынын",
+                            "aʃkʼʷənən"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "къу",
-                    "samples": ["къуӕх"]
+                    "samples": [
+                        [
+                            "къуӕх",
+                            "kʼʷɐχ"
+                        ],
+                        [
+                            "ӕнкъуӕлхӕ",
+                            "ɐnkʼʷɐlχɐ"
+                        ]
+                    ]
                 }
             ]
         }
@@ -509,13 +944,43 @@
             "Iron": [
                 {
                     "grapheme": "хъ",
-                    "samples": ["хъӕу","ӕнӕхъӕн"]
+                    "samples": [
+                        [
+                            "хъӕу",
+                            "qɐw"
+                        ],
+                        [
+                            "ӕнӕхъӕн",
+                            "ɐnɐqɐn"
+                        ]
+                    ]
                 }
-            ],
+            ]
+        }
+    },
+    {
+        "ipa": "qʰ",
+        "features": [
+            "consonant",
+            "voiceless",
+            "uvular",
+            "aspirated",
+            "stop"
+        ],
+        "uses": {
             "Digor": [
                 {
                     "grapheme": "хъ",
-                    "samples": ["хъӕбуза"]
+                    "samples": [
+                        [
+                            "хъӕбуза",
+                            "qʰɐbuza"
+                        ],
+                        [
+                            "къосхъалон",
+                            "kʼosqʰalon"
+                        ]
+                    ]
                 }
             ]
         }
@@ -529,39 +994,50 @@
             "uvular",
             "stop"
         ],
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
                     "grapheme": "хъу",
-                    "samples": ["хъуын","уӕлхъус"]
-                }
-            ],
-            "Digor": [
-                {
-                    "grapheme": "хъу",
-                    "samples": ["хъуӕл","дӕлхъур"]
+                    "samples": [
+                        [
+                            "хъуын",
+                            "qʷən"
+                        ],
+                        [
+                            "бахъуаджы",
+                            "baqʷad͡ʒə"
+                        ]
+                    ]
                 }
             ]
         }
     },
     {
-        "ipa": "ʔ",
+        "ipa": "qʰʷ",
         "features": [
             "consonant",
-            "glottal",
+            "voiceless",
+            "labialized",
+            "aspirated",
+            "uvular",
             "stop"
         ],
+        "note": "Occurs only before vowels.",
         "uses": {
-            "Iron": [
-                {
-                    "grapheme": "гъ",
-                    "samples": ["ӕгъдау"]
-                }
-            ],
             "Digor": [
                 {
-                    "grapheme": "гъ",
-                    "samples": ["гъӕбес","егъау"]
+                    "grapheme": "хъу",
+                    "samples": [
+                        [
+                            "хъуӕл",
+                            "qʰʷɐl"
+                        ],
+                        [
+                            "лӕхъуӕн",
+                            "lɐqʰʷɐn"
+                        ]
+                    ]
                 }
             ]
         }
@@ -578,13 +1054,31 @@
             "Iron": [
                 {
                     "grapheme": "м",
-                    "samples": ["мыст","нымӕт"]
+                    "samples": [
+                        [
+                            "мыст",
+                            "məʃtʰ"
+                        ],
+                        [
+                            "нымӕт",
+                            "nəmɐtʰ"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "м",
-                    "samples": ["мӕгур","къулумпи"]
+                    "samples": [
+                        [
+                            "мӕгур",
+                            "mɐgur"
+                        ],
+                        [
+                            "къулумпи",
+                            "kʼulumpʰi"
+                        ]
+                    ]
                 }
             ]
         }
@@ -601,13 +1095,31 @@
             "Iron": [
                 {
                     "grapheme": "н",
-                    "samples": ["ничи","рагон"]
+                    "samples": [
+                        [
+                            "ничи",
+                            "nit͡ʃi"
+                        ],
+                        [
+                            "рагон",
+                            "ragon"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "н",
-                    "samples": ["нӕзи","зинкуст"]
+                    "samples": [
+                        [
+                            "нӕзи",
+                            "nɐzi"
+                        ],
+                        [
+                            "зинкуст",
+                            "zinkʰustʰ"
+                        ]
+                    ]
                 }
             ]
         }
@@ -624,13 +1136,31 @@
             "Iron": [
                 {
                     "grapheme": "р",
-                    "samples": ["рахиз","сӕйраг"]
+                    "samples": [
+                        [
+                            "рахиз",
+                            "raχiʒ"
+                        ],
+                        [
+                            "сӕйраг",
+                            "ʃɐjrag"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "р",
-                    "samples": ["рӕгъӕд","зукъур"]
+                    "samples": [
+                        [
+                            "рӕгъӕд",
+                            "rɐʁɐd"
+                        ],
+                        [
+                            "зукъур",
+                            "zukʼur"
+                        ]
+                    ]
                 }
             ]
         }
@@ -647,13 +1177,31 @@
             "Iron": [
                 {
                     "grapheme": "ф",
-                    "samples": ["фӕйнӕг","ӕфсымӕр"]
+                    "samples": [
+                        [
+                            "фӕйнӕг",
+                            "fɐjnɐg"
+                        ],
+                        [
+                            "арфӕ",
+                            "arfɐ"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ф",
-                    "samples": ["фазон","ӕрфдойнаг"]
+                    "samples": [
+                        [
+                            "фазон",
+                            "fazon"
+                        ],
+                        [
+                            "арфиаг",
+                            "arfiag"
+                        ]
+                    ]
                 }
             ]
         }
@@ -670,59 +1218,31 @@
             "Iron": [
                 {
                     "grapheme": "в",
-                    "samples": ["вӕзн","ӕхсав"]
+                    "samples": [
+                        [
+                            "вӕзн",
+                            "vɐʒn"
+                        ],
+                        [
+                            "ӕхсӕв",
+                            "ɐχʃɐv"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "в",
-                    "samples": []
-                }
-            ]
-        }
-    },
-    {
-        "ipa": "s",
-        "features": [
-            "consonant",
-            "voiceless",
-            "alveolar",
-            "fricative"
-        ],
-        "uses": {
-            "Iron": [
-                {
-                    "grapheme": "с",
-                    "samples": ["саргъ","ахситт"]
-                }
-            ],
-            "Digor": [
-                {
-                    "grapheme": "с",
-                    "samples": ["саггурд","уесбит"]
-                }
-            ]
-        }
-    },
-    {
-        "ipa": "z",
-        "features": [
-            "consonant",
-            "voiced",
-            "alveolar",
-            "fricative"
-        ],
-        "uses": {
-            "Iron": [
-                {
-                    "grapheme": "з",
-                    "samples": ["зачъе","лагъз"]
-                }
-            ],
-            "Digor": [
-                {
-                    "grapheme": "з",
-                    "samples": ["зайӕгой","изгӕ"]
+                    "samples": [
+                        [
+                            "ивӕзнӕ",
+                            "ivɐznɐ"
+                        ],
+                        [
+                            "ӕртинвадӕ",
+                            "ɐrtʰinvadɐ"
+                        ]
+                    ]
                 }
             ]
         }
@@ -732,14 +1252,29 @@
         "features": [
             "consonant",
             "voiceless",
-            "postalveolar",
+            "alveolar",
             "fricative"
         ],
         "uses": {
             "Iron": [
                 {
+                    "grapheme": "с",
+                    "samples": [
+                        [
+                            "саргъ",
+                            "ʃarʁ"
+                        ],
+                        [
+                            "ӕхситт",
+                            "ɐχʃitː"
+                        ]
+                    ],
+                    "note": "Corresponds to /s/ in Chisan and Kudar speech."
+                },
+                {
                     "grapheme": "ш",
-                    "samples": []
+                    "samples": [],
+                    "note": "⟨ш⟩ is used only in recent Russian loanwords."
                 }
             ]
         }
@@ -749,14 +1284,29 @@
         "features": [
             "consonant",
             "voiced",
-            "postalveolar",
+            "alveolar",
             "fricative"
         ],
         "uses": {
             "Iron": [
                 {
+                    "grapheme": "з",
+                    "samples": [
+                        [
+                            "зачъе",
+                            "ʒat͡ʃʼe"
+                        ],
+                        [
+                            "лагъз",
+                            "laʁʒ"
+                        ]
+                    ],
+                    "note": "Corresponds to /z/ in Chisan and Kudar speech."
+                },
+                {
                     "grapheme": "ж",
-                    "samples": []
+                    "samples": [],
+                    "note": "⟨ж⟩ is used only in recent Russian loanwords."
                 }
             ]
         }
@@ -773,13 +1323,31 @@
             "Iron": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "ӕгъдау",
+                            "ɐʁdaw"
+                        ],
+                        [
+                            "уаргъ",
+                            "warʁ"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "гъ",
-                    "samples": []
+                    "samples": [
+                        [
+                            "гъӕбес",
+                            "ʁɐbes"
+                        ],
+                        [
+                            "рӕбундогъ",
+                            "rɐbundoʁ"
+                        ]
+                    ]
                 }
             ]
         }
@@ -793,17 +1361,36 @@
             "uvular",
             "fricative"
         ],
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
                     "grapheme": "гъу",
-                    "samples": ["ӕвгъуаг"]
+                    "samples": [
+                        [
+                            "агъуыст",
+                            "aʁʷəʃtʰ"
+                        ],
+                        [
+                            "ӕвгъуаг",
+                            "ɐvʁʷag"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "гъу",
-                    "samples": ["гъуди"]
+                    "samples": [
+                        [
+                            "гъуассӕ",
+                            "ʁʷassɐ"
+                        ],
+                        [
+                            "догъуат",
+                            "doʁʷatʰ"
+                        ]
+                    ]
                 }
             ]
         }
@@ -820,13 +1407,31 @@
             "Iron": [
                 {
                     "grapheme": "х",
-                    "samples": ["хӕрӕг","къӕпхӕн"]
+                    "samples": [
+                        [
+                            "хӕрӕг",
+                            "χɐrɐg"
+                        ],
+                        [
+                            "къӕпхӕн",
+                            "kʼɐpχɐn"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "х",
-                    "samples": ["хӕлаур","цӕлхвад"]
+                    "samples": [
+                        [
+                            "хӕлаур",
+                            "χɐlawr"
+                        ],
+                        [
+                            "цӕлхвад",
+                            "t͡sɐlχvad"
+                        ]
+                    ]
                 }
             ]
         }
@@ -840,40 +1445,79 @@
             "uvular",
             "fricative"
         ],
+        "note": "Occurs only before vowels.",
         "uses": {
             "Iron": [
                 {
                     "grapheme": "ху",
-                    "samples": ["хус","ахуыр"]
+                    "samples": [
+                        [
+                            "хуым",
+                            "χʷəm"
+                        ],
+                        [
+                            "ахуыр",
+                            "aχʷər"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ху",
-                    "samples": ["хуæдæлдардзийнадæ"]
+                    "samples": [
+                        [
+                            "хуӕдбарӕ",
+                            "χʷɐarɐ"
+                        ],
+                        [
+                            "адӕмхуар",
+                            "adɐmχʷar"
+                        ]
+                    ]
                 }
             ]
         }
     },
     {
-        "ipa": "h",
+        "ipa": "z",
         "features": [
             "consonant",
-            "voiceless",
-            "glottal",
-            "fricative"
+            "voiced",
+            "alveolar",
+            "affricate"
         ],
         "uses": {
             "Iron": [
                 {
-                    "grapheme": "гъ",
-                    "samples": []
+                    "grapheme": "дз",
+                    "samples": [
+                        [
+                            "дзаума",
+                            "zawma"
+                        ],
+                        [
+                            "къӕдзӕх",
+                            "kʼɐzɐχ"
+                        ]
+                    ],
+                    "note": "Corresponds to /d͡z/ in Chisan speech, and to /ʒ/ in Kudar speech."
                 }
             ],
             "Digor": [
                 {
-                    "grapheme": "гъ",
-                    "samples": []
+                    "grapheme": "з",
+                    "samples": [
+                        [
+                            "зайӕгой",
+                            "zajɐgoj"
+                        ],
+                        [
+                            "рӕзбун",
+                            "rɐzbun"
+                        ]
+                    ],
+                    "note": "Palatalized into /ʒ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
@@ -890,13 +1534,72 @@
             "Iron": [
                 {
                     "grapheme": "дз",
-                    "samples": ["дзаума","ӕмдзугӕнӕг"]
+                    "samples": [
+                        [
+                            "*уадздзæн",
+                            "wad͡zːɐn"
+                        ]
+                    ],
+                    "note": "Occurs only when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "дз",
-                    "samples": ["дзабре","еудзийнадӕ"]
+                    "samples": [
+                        [
+                            "дзабре",
+                            "d͡zabre"
+                        ],
+                        [
+                            "евдзи",
+                            "jevd͡zi"
+                        ]
+                    ],
+                    "note": "Palatalized into /d͡ʒ/ before /i/, /e/ in Chikola speech."
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "s",
+        "features": [
+            "consonant",
+            "voiceless",
+            "alveolar",
+            "affricate"
+        ],
+        "uses": {
+            "Iron": [
+                {
+                    "grapheme": "ц",
+                    "samples": [
+                        [
+                            "цард",
+                            "sard"
+                        ],
+                        [
+                            "ӕнцон",
+                            "ɐnson"
+                        ]
+                    ],
+                    "note": "Corresponds to /t͡s/ in Chisan speech, and to /ʃ/ in Kudar speech."
+                }
+            ],
+            "Digor": [
+                {
+                    "grapheme": "с",
+                    "samples": [
+                        [
+                            "саггурд",
+                            "sakːurd"
+                        ],
+                        [
+                            "уесӕг",
+                            "wesɐg"
+                        ]
+                    ],
+                    "note": "Palatalized into /ʃ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
@@ -913,13 +1616,29 @@
             "Iron": [
                 {
                     "grapheme": "ц",
-                    "samples": ["цард","ӕнцон"]
+                    "samples": [
+                        [
+                            "*ныццæвын",
+                            "nət͡sːɐvən"
+                        ]
+                    ],
+                    "note": "Occurs only when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "ц",
-                    "samples": ["цӕвӕгау","игурцӕ"]
+                    "samples": [
+                        [
+                            "цӕвӕгау",
+                            "t͡sɐvɐgaw"
+                        ],
+                        [
+                            "игурцӕ",
+                            "igurt͡sɐ"
+                        ]
+                    ],
+                    "note": "Palatalized into /t͡ʃ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
@@ -936,13 +1655,32 @@
             "Iron": [
                 {
                     "grapheme": "цъ",
-                    "samples": ["цъиу"]
+                    "samples": [
+                        [
+                            "цъиу",
+                            "t͡sʼiw"
+                        ],
+                        [
+                            "сауцъар",
+                            "ʃawt͡sʼar"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "цъ",
-                    "samples": ["цъала"]
+                    "samples": [
+                        [
+                            "цъала",
+                            "t͡sʼala"
+                        ],
+                        [
+                            "ӕфсерцъух",
+                            "ɐfsert͡sʼuχ"
+                        ]
+                    ],
+                    "note": "Palatalized into /t͡ʃʼ/ before /i/, /e/ in Chikola speech."
                 }
             ]
         }
@@ -959,7 +1697,16 @@
             "Iron": [
                 {
                     "grapheme": "дж",
-                    "samples": ["джелбетт","амондджын"]
+                    "samples": [
+                        [
+                            "джелбетт",
+                            "d͡ʒelbetː"
+                        ],
+                        [
+                            "исджын",
+                            "iʃd͡ʒən"
+                        ]
+                    ]
                 }
             ]
         }
@@ -976,7 +1723,16 @@
             "Iron": [
                 {
                     "grapheme": "ч",
-                    "samples": ["чиныг","рынчын"]
+                    "samples": [
+                        [
+                            "чиныг",
+                            "t͡ʃinəg"
+                        ],
+                        [
+                            "рынчын",
+                            "rənt͡ʃən"
+                        ]
+                    ]
                 }
             ]
         }
@@ -993,7 +1749,16 @@
             "Iron": [
                 {
                     "grapheme": "чъ",
-                    "samples": ["чъизи","зачъе"]
+                    "samples": [
+                        [
+                            "чъизи",
+                            "t͡ʃʼiʒi"
+                        ],
+                        [
+                            "санчъех",
+                            "ʃant͡ʃʼeχ"
+                        ]
+                    ]
                 }
             ]
         }
@@ -1010,13 +1775,31 @@
             "Iron": [
                 {
                     "grapheme": "у",
-                    "samples": ["уӕрыкк","дзул"]
+                    "samples": [
+                        [
+                            "уӕрыкк",
+                            "wɐrəkː"
+                        ],
+                        [
+                            "цӕуинаг",
+                            "t͡sɐwinag"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "у",
-                    "samples": ["уарзт","фудӕбон"]
+                    "samples": [
+                        [
+                            "уорсой",
+                            "worsoj"
+                        ],
+                        [
+                            "нӕлуӕг",
+                            "nɐlwɐg"
+                        ]
+                    ]
                 }
             ]
         }
@@ -1033,13 +1816,31 @@
             "Iron": [
                 {
                     "grapheme": "й",
-                    "samples": ["йе","иумӕйаг"]
+                    "samples": [
+                        [
+                            "вӕййын",
+                            "vɐjːən"
+                        ],
+                        [
+                            "иумӕйаг",
+                            "iwmɐjag"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "й",
-                    "samples": ["йхӕсадӕ","катай"]
+                    "samples": [
+                        [
+                            "уйнадӕ",
+                            "ujnadɐ"
+                        ],
+                        [
+                            "катай",
+                            "kʰataj"
+                        ]
+                    ]
                 }
             ]
         }
@@ -1057,13 +1858,65 @@
             "Iron": [
                 {
                     "grapheme": "л",
-                    "samples": ["лӕгъз"]
+                    "samples": [
+                        [
+                            "лӕгъз",
+                            "lɐʁʒ"
+                        ],
+                        [
+                            "ӕдылы",
+                            "ɐdələ"
+                        ]
+                    ]
                 }
             ],
             "Digor": [
                 {
                     "grapheme": "л",
-                    "samples": ["лӕвард"]
+                    "samples": [
+                        [
+                            "лӕвард",
+                            "lɐvard"
+                        ],
+                        [
+                            "аггӕл",
+                            "akːɐl"
+                        ]
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "h",
+        "features": [
+            "consonant",
+            "voiceless",
+            "glottal",
+            "fricative"
+        ],
+        "note": "Occurs only in interjections.",
+        "uses": {
+            "Digor": [
+                {
+                    "grapheme": "гъ",
+                    "samples": [
+                        [
+                            "*гъӕйтт",
+                            "hɐjtː"
+                        ]
+                    ]
+                }
+            ],
+            "Iron": [
+                {
+                    "grapheme": "гъ",
+                    "samples": [
+                        [
+                            "*гъопп",
+                            "hopː"
+                        ]
+                    ]
                 }
             ]
         }

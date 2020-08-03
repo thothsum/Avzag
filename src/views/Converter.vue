@@ -10,16 +10,9 @@
               v-for="cn in converters.filter(c => !c.many21)"
             >{{cn.name}}</option>
           </select>
-          <button @click="empty=!empty" :tooltip="empty ? 'paste sample text' : 'clear input text'">
-            <span v-if="empty" class="icon">subject</span>
-            <span v-else class="icon">clear</span>
-          </button>
-          <button @click="$refs.file.click()" tooltip="upload text file">
-            <span class="icon">publish</span>
-          </button>
-          <button v-show="!converters[this.mappingTo].many21" @click="swap" tooltip="swap writings">
-            <span class="icon">swap_horiz</span>
-          </button>
+          <button @click="empty=!empty" class="icon">{{empty ? "subject":"clear"}}</button>
+          <button @click="$refs.file.click()" class="icon">publish</button>
+          <button v-show="!converters[this.mappingTo].many21" @click="swap" class="icon">swap_horiz</button>
         </div>
         <ConverterText :source="source" :mapping="mappingSource" @result="intermediate=$event" />
         <MappingTable v-if="showMapping" :mapping="mappingSource" />
@@ -31,14 +24,9 @@
           </select>
           <button
             @click="showMapping=!showMapping"
-            :tooltip="showMapping ? 'hide mapping' : 'show mapping'"
-          >
-            <span v-if="showMapping" class="icon">visibility_off</span>
-            <span v-else class="icon">visibility</span>
-          </button>
-          <button @click="copy" tooltip="copy to clipboard">
-            <span class="icon">file_copy</span>
-          </button>
+            class="icon"
+          >{{showMapping?'visibility_off':'visibility'}}</button>
+          <button @click="copy" class="icon">file_copy</button>
         </div>
         <ConverterText
           ref="resultText"
@@ -63,7 +51,7 @@ export default {
   name: "Converter",
   components: {
     MappingTable,
-    ConverterText
+    ConverterText,
   },
   data() {
     return {
@@ -73,7 +61,7 @@ export default {
       source: "",
       intermediate: "",
       result: "",
-      showMapping: false
+      showMapping: false,
     };
   },
   computed: {
@@ -87,8 +75,8 @@ export default {
       return this.converters[this.mappingFrom].mapping;
     },
     mappingResult() {
-      return this.converters[this.mappingTo].mapping.map(m => [m[1], m[0]]);
-    }
+      return this.converters[this.mappingTo].mapping.map((m) => [m[1], m[0]]);
+    },
   },
   watch: {
     sample(sample) {
@@ -116,8 +104,8 @@ export default {
         this.mappingFrom = query.from ?? 0;
         this.mappingTo = query.to ?? 1;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     swap() {
@@ -129,7 +117,7 @@ export default {
     },
     upload(event) {
       let reader = new FileReader();
-      reader.onload = e =>
+      reader.onload = (e) =>
         this.download(
           event.target.files[0].name,
           this.convert(e.target.result)
@@ -145,8 +133,8 @@ export default {
     copy() {
       this.$refs.resultText.$refs.textarea.select();
       document.execCommand("copy");
-    }
-  }
+    },
+  },
 };
 </script>
 

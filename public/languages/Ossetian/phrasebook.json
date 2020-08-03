@@ -1,1 +1,400 @@
-{}
+{
+    "Greeting": [
+        {
+            "translation": "Hello.",
+            "text": [
+                "Hello (propose, response, to ill person) [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "sources": {
+                "Iron": [
+                    "Байрай",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "",
+                            "ут"
+                        ]
+                    },
+                    ". ",
+                    "Ӕгас ",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "цу",
+                            "цӕут"
+                        ]
+                    },
+                    ". Ӕнӕниз ",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "у",
+                            "ут"
+                        ]
+                    },
+                    "."
+                ],
+                "Digor": [
+                    "Байрай",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "ӕ",
+                            "етӕ"
+                        ]
+                    },
+                    ". ",
+                    "Ӕгас ",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "цо",
+                            "цӕуетӕ"
+                        ]
+                    },
+                    ". Ӕнӕнез ",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "уо",
+                            "уотӕ"
+                        ]
+                    },
+                    "."
+                ]
+            }
+        },
+        {
+            "translation": "Good morning.",
+            "text": [
+                "Good morning. Good day. Good evening. [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]"
+            ],
+            "sources": {
+                "Iron": [
+                    {
+                        "id": "plur",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " райсом хорз. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " бон хорз. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Де",
+                            "Уе"
+                        ]
+                    },
+                    " ’зӕр хорз."
+                ],
+                "Digor": [
+                    {
+                        "id": "plur",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " сӕумӕ хуарз. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " бон хуарз. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Де",
+                            "Уе"
+                        ]
+                    },
+                    " ’зӕр хуарз."
+                ]
+            }
+        },
+        {
+            "translation": "Good way.",
+            "text": [
+                "Good way. Let your deed be good.",
+                " [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "sources": {
+                "Iron": [
+                    {
+                        "id": "plur",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " фӕндаг раст. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " хъуыддаг раст."
+                ],
+                "Digor": [
+                    {
+                        "id": "plur",
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " фӕндаг раст. ",
+                    {
+                        "id": "plur",
+                        "implicit": true,
+                        "values": [
+                            "Дӕ",
+                            "Уӕ"
+                        ]
+                    },
+                    " гъуддаг раст."
+                ]
+            }
+        },
+        {
+            "translation": "Peace to this cause.",
+            "text": [
+                "Peace to this cause. Peace to your circle"
+            ],
+            "sources": {
+                "Iron": [
+                    "Фарн ацы хӕдзары. Фарн уӕ бадты."
+                ],
+                "Digor": [
+                    "Фарнӕ аци хӕдзари. Фарнӕ уӕ бадти."
+                ]
+            }
+        },
+        {
+            "translation": "How are you?",
+            "text": [
+                "How are you [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]? Fine, thanks, and you [",
+                {
+                    "id": "plur2",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]?"
+            ],
+            "sources": {
+                "Iron": [
+                    "Куыд ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "дӕ",
+                            "ыстут"
+                        ]
+                    },
+                    "? Дзӕбӕх, бузныг, ",
+                    {
+                        "id": "plur2",
+                        "align": "right",
+                        "values": [
+                            "ды",
+                            "сымах"
+                        ]
+                    },
+                    " та?"
+                ],
+                "Digor": [
+                    "Куд ",
+                    {
+                        "id": "plur",
+                        "align": "right",
+                        "values": [
+                            "дӕ",
+                            "айтӕ"
+                        ]
+                    },
+                    "? Дзӕбӕх, бознӕ, ",
+                    {
+                        "id": "plur2",
+                        "align": "right",
+                        "values": [
+                            "ду",
+                            "сумах"
+                        ]
+                    },
+                    " ба?"
+                ]
+            }
+        },
+        {
+            "translation": "I'm very pleased to see you.",
+            "text": [
+                "I'm very pleased to see you."
+            ],
+            "sources": {
+                "Iron": [
+                    "Мӕнӕн тынг ӕхсызгон у дӕ фенд."
+                ],
+                "Digor": [
+                    "Мӕнӕн хъӕбӕр ӕхцӕуӕн ӕй дӕ фӕууиндӕ."
+                ]
+            }
+        },
+        {
+            "translation": "Send greetings to all friends.",
+            "text": [
+                "Send greetings to all friends."
+            ],
+            "sources": {
+                "Iron": [
+                    "Саламтӕ ратт мӕ зонгӕтӕн се ’ппӕтӕн дӕр."
+                ],
+                "Digor": [
+                    "Саламтӕ раттӕ нӕ зонгутӕн се ’нккӕтемӕн дӕр"
+                ]
+            }
+        }
+    ],
+    "Farewell": [
+        {
+            "translation": "Goodbye.",
+            "text": [
+                "Goodbye."
+            ],
+            "sources": {
+                "Iron": [
+                    "Фенынмӕ."
+                ],
+                "Digor": [
+                    "Фӕууинунмӕ"
+                ]
+            }
+        },
+        {
+            "translation": "All the best.",
+            "text": [
+                "All the best [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "sources": {
+                "Iron": [
+                    "Хорз байрай",
+                    {
+                        "id": "plur",
+                        "values": [
+                            "",
+                            "ут"
+                        ]
+                    },
+                    "."
+                ],
+                "Digor": [
+                    "Хуарз байрай",
+                    {
+                        "id": "plur",
+                        "align": "left",
+                        "values": [
+                            "ӕ",
+                            "етӕ"
+                        ]
+                    },
+                    "."
+                ]
+            }
+        },
+        {
+            "translation": "Good night.",
+            "text": [
+                "Goodnight (before / after dark)."
+            ],
+            "sources": {
+                "Iron": [
+                    "Хӕрзизӕр. Хӕрзӕхсӕв."
+                ],
+                "Digor": [
+                    "Хуӕрзизӕр. Хуӕрзӕхсӕвӕ."
+                ]
+            }
+        },
+        {
+            "translation": "Till tomorrow.",
+            "text": [
+                "Till tomorrow."
+            ],
+            "sources": {
+                "Iron": [
+                    "Райсоммӕ уал."
+                ],
+                "Digor": [
+                    "Исонмӕ бал."
+                ]
+            }
+        }
+    ]
+}

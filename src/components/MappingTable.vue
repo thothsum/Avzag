@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <p :key="i" v-for="(pair, i) in noones">
+  <div class="card" v-if="mapping.length > 0">
+    <p :key="i" v-for="(pair, i) in mapping">
       <span class="text-faded">{{pair[0].replace(" ", "_")}}</span>
       <span>{{pair[1].replace(" ", "_")}}</span>
     </p>
@@ -11,11 +11,6 @@
 export default {
   name: "MappingTable",
   props: ["mapping"],
-  computed: {
-    noones() {
-      return this.mapping.filter(a => !a[0].includes("1"));
-    }
-  }
 };
 </script>
 
