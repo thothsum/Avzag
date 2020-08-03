@@ -2,12 +2,12 @@
   <p class="text-caption" v-html="parsed" v-if="parsed"></p>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: "PhoneticNote",
-  props: { text: String },
+  props: ["text"],
   computed: {
-    parsed(): string {
+    parsed() {
       return this.text
         ? this.text
             .replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>")
