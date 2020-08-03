@@ -9,7 +9,7 @@
         <a href="https://github.com/alkaitagi/Aevzag/blob/master/credits.md#credits">Credits</a>
       </div>
     </div>
-    <div id="languages" class="section">
+    <div id="languages" class="section panel-horizontal-sparse">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
     </div>
   </div>
@@ -46,9 +46,15 @@ $card-width: 224px;
   flex-wrap: wrap;
 }
 #languages {
-  display: grid;
-  gap: map-get($margins, "double");
-  grid-auto-rows: $card-height;
-  grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+  flex-wrap: wrap;
+  > * {
+    flex: 1;
+    min-width: $card-width;
+    height: $card-height;
+  }
+  // display: grid;
+  // gap: map-get($margins, "double");
+  // grid-auto-rows: $card-height;
+  // grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
 }
 </style>

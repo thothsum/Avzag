@@ -10,14 +10,12 @@
 }
 
 @mixin density($parent, $side) {
-  @include last-margin($side, "normal");
+  gap: map-get($margins, "normal");
 
   &-solid {
     @extend #{$parent};
     overflow: hidden;
-    > :not(:last-child) {
-      margin: 0;
-    }
+    gap: 0;
     > * {
       border-radius: 0;
     }
@@ -25,12 +23,12 @@
 
   &-dense {
     @extend #{$parent};
-    @include last-margin($side, "half");
+    gap: map-get($margins, "half");
   }
 
   &-sparse {
     @extend #{$parent};
-    @include last-margin($side, "double");
+    gap: map-get($margins, "double");
   }
 }
 

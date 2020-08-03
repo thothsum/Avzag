@@ -67,9 +67,9 @@ export default {
 #lects {
   flex-wrap: wrap;
   place-content: flex-start;
+  column-gap: 10px;
   > * {
     width: min-content;
-    margin-right: map-get($margins, "double");
   }
 }
 #flag {
