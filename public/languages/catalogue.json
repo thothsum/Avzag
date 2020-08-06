@@ -44,5 +44,13 @@
             "Gequn"
         ],
         "wip": true
+    },
+    "Lezgi": {
+        "lects": [
+            "Kuiri",
+            "Samur",
+            "Quba"
+        ],
+        "wip": true
     }
 }
