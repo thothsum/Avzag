@@ -1,6 +1,6 @@
 // This is the service worker with the Cache-first network
 
-const CACHE = "sw-aevzag-precache";
+const CACHE = "sw-avzag-precache";
 const precacheFiles = self.__precacheManifest.map(f => f.url);
 
 self.addEventListener("install", function (event) {

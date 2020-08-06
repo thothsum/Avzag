@@ -3,7 +3,7 @@ module.exports = {
         devtool: 'source-map'
     },
     publicPath: process.env.NODE_ENV === 'production'
-        ? '/Aevzag/'
+        ? '/Avzag/'
         : '/',
     css: {
         loaderOptions: {
@@ -18,11 +18,11 @@ module.exports = {
         manifestOptions: {
             dir: "ltr",
             lang: "English",
-            name: "Aevzag - sounds & scripts",
+            name: "Avzag - sounds & scripts",
             scope: ".",
             display: "standalone",
             start_url: ".",
-            short_name: "Aevzag",
+            short_name: "Avzag",
             theme_color: "#201F1E",
             description: "An attempt to help our languages.",
             orientation: "natural",
