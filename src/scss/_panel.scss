@@ -1,15 +1,8 @@
 %panel {
   display: flex;
-  flex-wrap: nowrap;
 }
 
-@mixin last-margin($side, $size) {
-  > :not(:last-child) {
-    margin-#{$side}: map-get($margins, $size);
-  }
-}
-
-@mixin density($parent, $side) {
+@mixin density($parent) {
   gap: map-get($margins, "normal");
 
   &-solid {
@@ -34,13 +27,17 @@
 
 .panel {
   @extend %panel;
-  @include density(".panel", bottom);
+  @include density(".panel");
   flex-direction: column;
 }
 
 .panel-horizontal {
   @extend %panel;
-  @include density(".panel-horizontal", right);
+  @include density(".panel-horizontal");
   place-items: center;
   flex-direction: row;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }

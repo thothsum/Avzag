@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-solid">
+  <div class="panel-horizontal-solid wrap">
     <span
       :key="i"
       v-for="(s, i) in source"
@@ -22,11 +22,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
-  flex-wrap: wrap;
-  * {
-    line-height: 175%;
-  }
+div * {
+  line-height: 175%;
 }
 select {
   -moz-appearance: none;
