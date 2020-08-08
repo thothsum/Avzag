@@ -40,9 +40,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#languages > * {
-  flex: 1;
-  min-width: 288px;
-  height: 192px;
+#languages {
+  place-content: center;
+  > * {
+    flex: 1;
+    min-width: 256px;
+    height: 192px;
+  }
 }
 </style>
