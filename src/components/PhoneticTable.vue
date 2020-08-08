@@ -66,7 +66,7 @@ $item-height: 40px;
     place-content: flex-start;
     overflow-x: auto;
     max-height: 5 * $item-height;
-    
+
     &.narrow {
       max-height: $item-height;
     }
