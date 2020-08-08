@@ -6,7 +6,7 @@ to be done...
 
 ## Contacts
 
-[Magomed](https://twitter.com/alkaitagi) - technical issues.
+[Magomed](https://twitter.com/alkaitagi) - technical issues.  
 [Azamat](https://twitter.com/alkaitagi) - language contents.
 
 ## Credits
