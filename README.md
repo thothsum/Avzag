@@ -1,24 +1,23 @@
-# avzag
+# Avzag
 
 ## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+to be done...
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Contacts
 
-### Lints and fixes files
-```
-npm run lint
-```
+[Magomed](https://twitter.com/alkaitagi) - technical issues.
+[Azamat](https://twitter.com/alkaitagi) - language contents.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Credits
+
+### Dargin
+
+Akusha voiceover by **Sabina Halalmagomedova**.  
+Kaitag voiceover by **Magomed Magomedov**.  
+
+### Ossetian
+
+Under the supervision of **Roman Xugati**.  
+Digor voiceover by **Vadim Tsallati**.  
+Iron voiceover by **Zaurbek Tokati**.  
