@@ -1,5 +1,5 @@
 <template>
-  <div id="root" :class="{narrow: phonemes.length <= 12}">
+  <div id="root" :class="{narrow: phonemes.length <= 12}" class="panel-horizontal-dense wrap">
     <PhoneticItem
       @click.native="$emit('phoneme', phn.i)"
       :selected="selected==phn.i"
@@ -51,26 +51,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/panels";
 $item-width: 46px;
 $item-height: 40px;
 
-#root {
-  display: grid;
-  gap: map-get($margins, "half");
-  grid-template-columns: repeat(auto-fit, $item-width);
-  grid-auto-rows: $item-height;
+#root > * {
+  width: $item-width;
+  height: $item-height;
 }
 
 @media only screen and (max-width: $mobile-width) {
   #root {
-    grid-auto-flow: column;
+    flex-direction: column;
+    place-content: flex-start;
     overflow-x: auto;
     max-height: 5 * $item-height;
-    grid-auto-columns: $item-width;
-    grid-template-rows: repeat(auto-fill, $item-height);
     
     &.narrow {
-      grid-template-rows: $item-height;
+      max-height: $item-height;
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="card" v-if="mapping.length > 0">
+  <div class="card panel-horizontal wrap" v-if="mapping.length > 0">
     <p :key="i" v-for="(pair, i) in mapping">
       <span class="text-faded">{{pair[0].replace(" ", "_")}}</span>
       <span>{{pair[1].replace(" ", "_")}}</span>
@@ -15,14 +15,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(auto-fill, 60px);
-  column-gap: map-get($margins, "half");
-  place-content: center;
+div {
+  justify-content: center;
+  row-gap: 0;
 }
 p {
+  width: 64px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: map-get($margins, "half");
