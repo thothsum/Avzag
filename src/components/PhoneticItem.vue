@@ -1,5 +1,5 @@
 <template>
-  <button :class="{ 'text-faded': faded, highlight: selected }">
+  <button :class="{ 'text-faded': faded, highlight: selected }" class="panel-solid">
     <b>{{str}}</b>
     <span class="text-ipa">{{ ipa }}</span>
   </button>
@@ -8,17 +8,13 @@
 <script>
 export default {
   name: "PhoneticItem",
-  props: ["selected", "faded", "ipa", "str"]
+  props: ["selected", "faded", "ipa", "str"],
 };
 </script>
 
 <style lang="scss" scoped>
 button {
-  flex-direction: column;
   place-content: center;
-  > * {
-    margin: 0;
-  }
 }
 .text-faded {
   background-color: transparent !important;

@@ -1,0 +1,43 @@
+%panel {
+  display: flex;
+}
+
+@mixin density($parent) {
+  gap: map-get($margins, "normal");
+
+  &-solid {
+    @extend #{$parent};
+    overflow: hidden;
+    gap: 0;
+    > * {
+      border-radius: 0;
+    }
+  }
+
+  &-dense {
+    @extend #{$parent};
+    gap: map-get($margins, "half");
+  }
+
+  &-sparse {
+    @extend #{$parent};
+    gap: map-get($margins, "double");
+  }
+}
+
+.panel {
+  @extend %panel;
+  @include density(".panel");
+  flex-direction: column;
+}
+
+.panel-horizontal {
+  @extend %panel;
+  @include density(".panel-horizontal");
+  place-items: center;
+  flex-direction: row;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}

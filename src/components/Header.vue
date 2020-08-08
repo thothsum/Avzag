@@ -79,6 +79,7 @@ export default Vue.extend({
 }
 .section {
   display: flex;
+  gap: map-get($margins, "normal");
   justify-content: space-between;
 }
 #nav button {
@@ -86,7 +87,6 @@ export default Vue.extend({
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
-    height: fit-content;
     flex-flow: column;
   }
   #root {
@@ -96,9 +96,6 @@ export default Vue.extend({
       transform: translate(10%, 15%) rotate(-20deg);
       mask-image: linear-gradient(-90deg, white, transparent);
     }
-  }
-  .section > *:first-child {
-    margin-bottom: map-get($margins, "normal");
   }
 }
 </style>

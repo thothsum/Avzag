@@ -1,6 +1,6 @@
 <template>
   <div v-if="catalogue">
-    <div id="header" class="section panel-horizontal">
+    <div id="header" class="section panel-horizontal wrap">
       <h1>Ævzag</h1>
       <div class="panel-horizontal">
         <a href="https://twitter.com/alkaitagi">Twitter</a>
@@ -9,7 +9,7 @@
         <a href="https://github.com/alkaitagi/Avzag/blob/master/credits.md#credits">Credits</a>
       </div>
     </div>
-    <div id="languages" class="section">
+    <div id="languages" class="section panel-horizontal-sparse wrap">
       <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
     </div>
   </div>
@@ -40,15 +40,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$card-height: 192px;
-$card-width: 224px;
-#header {
-  flex-wrap: wrap;
-}
-#languages {
-  display: grid;
-  gap: map-get($margins, "double");
-  grid-auto-rows: $card-height;
-  grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+#languages > * {
+  flex: 1;
+  min-width: 288px;
+  height: 192px;
 }
 </style>
