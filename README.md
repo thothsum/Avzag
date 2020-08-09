@@ -8,7 +8,7 @@ to be done...
 
 [Magomed](https://twitter.com/alkaitagi) - technical issues.  
 [Azamat](https://twitter.com/alkaitagi) - language contents.  
-Telegram [channel](https://t.me/avzag) with announcements (for now in Russian).
+Telegram [channel](https://t.me/avzag) with announcements.
 
 ## Credits
 
