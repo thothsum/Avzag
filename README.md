@@ -12,6 +12,10 @@ Telegram [channel](https://t.me/avzag) with announcements (for now in Russian).
 
 ## Credits
 
+### Circassian
+
+Kabardian voiceover by **Azamat Birmamitov**. 
+
 ### Dargin
 
 Akusha voiceover by **Sabina Halalmagomedova**.  
