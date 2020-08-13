@@ -20,40 +20,27 @@
                     ]
                 }
             ],
-            "Baslaney": [
+            "Temirgoy": [
                 {
-                    "grapheme": "а",
-                    "samples": []
+                    "grapheme": "а"
                 }
-            ],
-            "Shapsug": [
+            ]
+        }
+    },
+    {
+        "ipa": "jaː",
+        "features": [
+            "vowel"
+        ],
+        "uses": {
+            "Kabardian": [
                 {
-                    "grapheme": "а",
-                    "samples": []
-                }
-            ],
-            "Natukhai": [
-                {
-                    "grapheme": "а",
-                    "samples": []
-                }
-            ],
-            "Bzhedug": [
-                {
-                    "grapheme": "а",
-                    "samples": []
+                    "grapheme": "я"
                 }
             ],
             "Temirgoy": [
                 {
-                    "grapheme": "а",
-                    "samples": []
-                }
-            ],
-            "Abzakh": [
-                {
-                    "grapheme": "а",
-                    "samples": []
+                    "grapheme": "я"
                 }
             ]
         }
@@ -78,6 +65,11 @@
                         ]
                     ]
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "э"
+                }
             ]
         }
     },
@@ -101,6 +93,11 @@
                         ]
                     ]
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "б"
+                }
             ]
         }
     },
@@ -113,7 +110,17 @@
             "Kabardian": [
                 {
                     "grapheme": "в",
-                    "samples": [["вагъуэ",""]]
+                    "samples": [
+                        [
+                            "вагъуэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "в"
                 }
             ]
         }
@@ -127,21 +134,54 @@
             "Kabardian": [
                 {
                     "grapheme": "г",
-                    "samples": [["гыныплъ",""]]
+                    "samples": [
+                        [
+                            "гыныплъ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "г"
                 }
             ]
         }
     },
     {
-        "ipa": "ɡʷ",
+        "ipa": "ɣ",
         "features": [
             "consonant"
         ],
         "uses": {
             "Kabardian": [
                 {
-                    "grapheme": "гу",
-                    "samples": [["гущэ",""]]
+                    "grapheme": "г",
+                    "samples": [
+                        [
+                            "гыныплъ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "г"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "ɡ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "г"
                 }
             ]
         }
@@ -155,7 +195,17 @@
             "Kabardian": [
                 {
                     "grapheme": "гъ",
-                    "samples": [["гъавэ",""]]
+                    "samples": [
+                        [
+                            "гъавэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "гъ"
                 }
             ]
         }
@@ -169,7 +219,17 @@
             "Kabardian": [
                 {
                     "grapheme": "гъу",
-                    "samples": [["гъубжэ",""]]
+                    "samples": [
+                        [
+                            "гъубжэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "гъу"
                 }
             ]
         }
@@ -183,7 +243,17 @@
             "Kabardian": [
                 {
                     "grapheme": "д",
-                    "samples": [["дагъэ",""]]
+                    "samples": [
+                        [
+                            "дагъэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "д"
                 }
             ]
         }
@@ -197,7 +267,17 @@
             "Kabardian": [
                 {
                     "grapheme": "дж",
-                    "samples": [["джыдэ",""]]
+                    "samples": [
+                        [
+                            "джыдэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "дж"
                 }
             ]
         }
@@ -211,7 +291,30 @@
             "Kabardian": [
                 {
                     "grapheme": "дз",
-                    "samples": [["дзыгъуэ",""]]
+                    "samples": [
+                        [
+                            "дзыгъуэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "дз"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "d͡zʷ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "дзу"
                 }
             ]
         }
@@ -225,7 +328,17 @@
             "Kabardian": [
                 {
                     "grapheme": "ж",
-                    "samples": [["жэш",""]]
+                    "samples": [
+                        [
+                            "жэш",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ж"
                 }
             ]
         }
@@ -239,7 +352,30 @@
             "Kabardian": [
                 {
                     "grapheme": "жь",
-                    "samples": [["жьынду",""]]
+                    "samples": [
+                        [
+                            "жьынду",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "жь"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "ʐ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "жъ"
                 }
             ]
         }
@@ -253,7 +389,17 @@
             "Kabardian": [
                 {
                     "grapheme": "з",
-                    "samples": [["зауэ",""]]
+                    "samples": [
+                        [
+                            "зауэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "з"
                 }
             ]
         }
@@ -282,6 +428,11 @@
                         ]
                     ]
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "и"
+                }
             ]
         }
     },
@@ -295,6 +446,11 @@
                 {
                     "grapheme": "й",
                     "samples": []
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "й"
                 }
             ]
         }
@@ -310,6 +466,11 @@
                     "grapheme": "к",
                     "samples": []
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "к"
+                }
             ]
         }
     },
@@ -322,7 +483,17 @@
             "Kabardian": [
                 {
                     "grapheme": "ку",
-                    "samples": [["куабжэ",""]]
+                    "samples": [
+                        [
+                            "куабжэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ку"
                 }
             ]
         }
@@ -336,13 +507,23 @@
             "Kabardian": [
                 {
                     "grapheme": "къ",
-                    "samples": [["къабзэ",""]]
+                    "samples": [
+                        [
+                            "къабзэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "къ"
                 }
             ]
         }
     },
     {
-        "ipa": "kʷ",
+        "ipa": "qʷ",
         "features": [
             "consonant"
         ],
@@ -350,7 +531,17 @@
             "Kabardian": [
                 {
                     "grapheme": "къу",
-                    "samples": [["къуаргъ",""]]
+                    "samples": [
+                        [
+                            "къуаргъ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "къу"
                 }
             ]
         }
@@ -421,13 +612,23 @@
             "Kabardian": [
                 {
                     "grapheme": "кӏ",
-                    "samples": [["кӏапсэ",""]]
+                    "samples": [
+                        [
+                            "кӏапсэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "кӏ"
                 }
             ]
         }
     },
     {
-        "ipa": "kʷʼ",
+        "ipa": "kʼʷ",
         "features": [
             "consonant"
         ],
@@ -435,7 +636,17 @@
             "Kabardian": [
                 {
                     "grapheme": "кӏу",
-                    "samples": [["кӏуэцӏ",""]]
+                    "samples": [
+                        [
+                            "кӏуэцӏ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "кӏу"
                 }
             ]
         }
@@ -449,7 +660,17 @@
             "Kabardian": [
                 {
                     "grapheme": "л",
-                    "samples": [["лы",""]]
+                    "samples": [
+                        [
+                            "лы",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "л"
                 }
             ]
         }
@@ -463,7 +684,17 @@
             "Kabardian": [
                 {
                     "grapheme": "лъ",
-                    "samples": [["лъапсэ",""]]
+                    "samples": [
+                        [
+                            "лъапсэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "лъ"
                 }
             ]
         }
@@ -477,7 +708,17 @@
             "Kabardian": [
                 {
                     "grapheme": "лӏ",
-                    "samples": [["лӏы",""]]
+                    "samples": [
+                        [
+                            "лӏы",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "лӏ"
                 }
             ]
         }
@@ -491,7 +732,17 @@
             "Kabardian": [
                 {
                     "grapheme": "м",
-                    "samples": [["мазэ",""]]
+                    "samples": [
+                        [
+                            "мазэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "м"
                 }
             ]
         }
@@ -505,7 +756,17 @@
             "Kabardian": [
                 {
                     "grapheme": "н",
-                    "samples": [["нащэ",""]]
+                    "samples": [
+                        [
+                            "нащэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "н"
                 }
             ]
         }
@@ -534,6 +795,11 @@
                         ]
                     ]
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "о"
+                }
             ]
         }
     },
@@ -546,7 +812,17 @@
             "Kabardian": [
                 {
                     "grapheme": "п",
-                    "samples": [["пыӏэ",""]]
+                    "samples": [
+                        [
+                            "пыӏэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "п"
                 }
             ]
         }
@@ -560,7 +836,30 @@
             "Kabardian": [
                 {
                     "grapheme": "пӏ",
-                    "samples": [["пӏырыпӏ",""]]
+                    "samples": [
+                        [
+                            "пӏырыпӏ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "пӏ"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "pʼʷ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "пӏу"
                 }
             ]
         }
@@ -574,7 +873,17 @@
             "Kabardian": [
                 {
                     "grapheme": "р",
-                    "samples": [["сэхуран",""]]
+                    "samples": [
+                        [
+                            "сэхуран",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "р"
                 }
             ]
         }
@@ -588,7 +897,17 @@
             "Kabardian": [
                 {
                     "grapheme": "с",
-                    "samples": [["сэмэгу",""]]
+                    "samples": [
+                        [
+                            "сэмэгу",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "с"
                 }
             ]
         }
@@ -602,7 +921,17 @@
             "Kabardian": [
                 {
                     "grapheme": "т",
-                    "samples": [["тэмакъ",""]]
+                    "samples": [
+                        [
+                            "тэмакъ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "т"
                 }
             ]
         }
@@ -616,7 +945,30 @@
             "Kabardian": [
                 {
                     "grapheme": "тӏ",
-                    "samples": [["тӏы",""]]
+                    "samples": [
+                        [
+                            "тӏы",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "тӏ"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "tʼʷ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "тӏу"
                 }
             ]
         }
@@ -645,6 +997,11 @@
                         ]
                     ]
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "у"
+                }
             ]
         }
     },
@@ -657,7 +1014,20 @@
             "Kabardian": [
                 {
                     "grapheme": "у",
-                    "samples": [["унагъуэ","",[0]]]
+                    "samples": [
+                        [
+                            "унагъуэ",
+                            "",
+                            [
+                                0
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "у"
                 }
             ]
         }
@@ -671,7 +1041,17 @@
             "Kabardian": [
                 {
                     "grapheme": "ф",
-                    "samples": [["фыз",""]]
+                    "samples": [
+                        [
+                            "фыз",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ф"
                 }
             ]
         }
@@ -685,7 +1065,17 @@
             "Kabardian": [
                 {
                     "grapheme": "фӏ",
-                    "samples": [["фӏэмыщӏ",""]]
+                    "samples": [
+                        [
+                            "фӏэмыщӏ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "фӏ"
                 }
             ]
         }
@@ -699,7 +1089,17 @@
             "Kabardian": [
                 {
                     "grapheme": "х",
-                    "samples": [["хадэ",""]]
+                    "samples": [
+                        [
+                            "хадэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "х"
                 }
             ]
         }
@@ -713,7 +1113,17 @@
             "Kabardian": [
                 {
                     "grapheme": "ху",
-                    "samples": [["хуабэ",""]]
+                    "samples": [
+                        [
+                            "хуабэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ху"
                 }
             ]
         }
@@ -727,7 +1137,17 @@
             "Kabardian": [
                 {
                     "grapheme": "хъ",
-                    "samples": [["хъыринэ",""]]
+                    "samples": [
+                        [
+                            "хъыринэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "хъ"
                 }
             ]
         }
@@ -741,7 +1161,17 @@
             "Kabardian": [
                 {
                     "grapheme": "хъу",
-                    "samples": [["хъумакӏуэ",""]]
+                    "samples": [
+                        [
+                            "хъумакӏуэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "хъу"
                 }
             ]
         }
@@ -755,7 +1185,17 @@
             "Kabardian": [
                 {
                     "grapheme": "хь",
-                    "samples": [["хьэ",""]]
+                    "samples": [
+                        [
+                            "хьэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "хь"
                 }
             ]
         }
@@ -769,7 +1209,30 @@
             "Kabardian": [
                 {
                     "grapheme": "ц",
-                    "samples": [["хьэнцэ",""]]
+                    "samples": [
+                        [
+                            "хьэнцэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ц"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "t͡sʷ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "цу"
                 }
             ]
         }
@@ -783,7 +1246,17 @@
             "Kabardian": [
                 {
                     "grapheme": "цӏ",
-                    "samples": [["пцӏанэ",""]]
+                    "samples": [
+                        [
+                            "пцӏанэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "цӏ"
                 }
             ]
         }
@@ -797,7 +1270,17 @@
             "Kabardian": [
                 {
                     "grapheme": "ч",
-                    "samples": [["чэф",""]]
+                    "samples": [
+                        [
+                            "чэф",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ч"
                 }
             ]
         }
@@ -813,6 +1296,24 @@
                     "grapheme": "чӏ",
                     "samples": []
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "чӏ"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "t͡ʂ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "чъ"
+                }
             ]
         }
     },
@@ -825,7 +1326,43 @@
             "Kabardian": [
                 {
                     "grapheme": "ш",
-                    "samples": [["шабзэ",""]]
+                    "samples": [
+                        [
+                            "шабзэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ш"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "ʂ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "шъ"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "ʂʷ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "шъу"
                 }
             ]
         }
@@ -839,7 +1376,17 @@
             "Kabardian": [
                 {
                     "grapheme": "щ",
-                    "samples": [["щабэ",""]]
+                    "samples": [
+                        [
+                            "щабэ",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "щ"
                 }
             ]
         }
@@ -853,7 +1400,30 @@
             "Kabardian": [
                 {
                     "grapheme": "щӏ",
-                    "samples": [["щӏыб",""]]
+                    "samples": [
+                        [
+                            "щӏыб",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "щӏ"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "ɕʼʷ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "щӏу"
                 }
             ]
         }
@@ -882,6 +1452,11 @@
                         ]
                     ]
                 }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ы"
+                }
             ]
         }
     },
@@ -894,7 +1469,16 @@
             "Kabardian": [
                 {
                     "grapheme": "ӏ",
-                    "samples": [["ӏэ"]]
+                    "samples": [
+                        [
+                            "ӏэ"
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ӏ"
                 }
             ]
         }
@@ -908,7 +1492,81 @@
             "Kabardian": [
                 {
                     "grapheme": "ӏу",
-                    "samples": [["ӏупэ"]]
+                    "samples": [
+                        [
+                            "ӏупэ"
+                        ]
+                    ]
+                }
+            ],
+            "Temirgoy": [
+                {
+                    "grapheme": "ӏу"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "gʲ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "гь"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "kʲ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "кь"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "sʼ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "сӏ"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "t͡ʃʷ",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "чу"
+                }
+            ]
+        }
+    },
+    {
+        "ipa": "h",
+        "features": [
+            "consonant"
+        ],
+        "uses": {
+            "Temirgoy": [
+                {
+                    "grapheme": "ӏь"
                 }
             ]
         }
