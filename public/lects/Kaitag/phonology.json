@@ -457,7 +457,9 @@
             "dental",
             "approximant"
         ],
-        "note": "Palatalized after /a/, /i/, /u/.",
+        "notes": [
+            "Palatalized after /a/, /i/, /u/."
+        ],
         "uses": [
             {
                 "grapheme": "л",
