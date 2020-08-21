@@ -1,527 +1,494 @@
-[
-    {
-        "ipa": "i",
-        "uses": [
-            {
-                "grapheme": "и",
-                "samples": [
-                    [
-                        "игит",
-                        "igit"
+{
+    "vowels": {
+        "i": {
+            "uses": [
+                {
+                    "grapheme": "и",
+                    "samples": [
+                        [
+                            "игит",
+                            "igit"
+                        ]
                     ]
-                ]
-            }
-        ]
+                }
+            ]
+        },
+        "u": {
+            "uses": [
+                {
+                    "grapheme": "у",
+                    "samples": [
+                        [
+                            "урши",
+                            "urʃi"
+                        ]
+                    ]
+                }
+            ]
+        },
+        "e": {
+            "uses": [
+                {
+                    "grapheme": "е"
+                },
+                {
+                    "grapheme": "э",
+                    "samples": [
+                        [
+                            "эмхӏе",
+                            "emħe"
+                        ]
+                    ]
+                }
+            ]
+        },
+        "ɑ": {
+            "uses": [
+                {
+                    "grapheme": "а",
+                    "samples": [
+                        [
+                            "асар",
+                            "ɑsɑr"
+                        ]
+                    ]
+                }
+            ]
+        },
+        "æ": {
+            "str": "я",
+            "uses": [
+                {
+                    "grapheme": "я",
+                    "samples": [
+                        [
+                            "хъяр",
+                            "qʰær"
+                        ]
+                    ]
+                }
+            ]
+        }
     },
-    {
-        "ipa": "u",
-        "uses": [
-            {
-                "grapheme": "у",
-                "samples": [
-                    [
-                        "урши",
-                        "urʃi"
+    "consonants": {
+        "b": {
+            "uses": [
+                {
+                    "grapheme": "б",
+                    "samples": [
+                        [
+                            "бугъа",
+                            "buʁɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "e",
-        "uses": [
-            {
-                "grapheme": "е"
-            },
-            {
-                "grapheme": "э",
-                "samples": [
-                    [
-                        "эмхӏе",
-                        "emħe"
+                }
+            ]
+        },
+        "p": {
+            "uses": [
+                {
+                    "grapheme": "п",
+                    "samples": [
+                        [
+                            "партал",
+                            "pɑrtɑl"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "ɑ",
-        "uses": [
-            {
-                "grapheme": "а",
-                "samples": [
-                    [
-                        "асар",
-                        "ɑsɑr"
+                }
+            ]
+        },
+        "pʼ": {
+            "uses": [
+                {
+                    "grapheme": "пӏ",
+                    "samples": [
+                        [
+                            "пӏялцӏикӏ",
+                            "pʼælt͡sʼikʼ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "str": "я",
-        "ipa": "æ",
-        "uses": [
-            {
-                "grapheme": "я",
-                "samples": [
-                    [
-                        "хъяр",
-                        "qʰær"
+                }
+            ]
+        },
+        "v": {
+            "uses": [
+                {
+                    "grapheme": "в",
+                    "samples": [
+                        [
+                            "варгьи",
+                            "vɑrhi"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "b",
-        "uses": [
-            {
-                "grapheme": "б",
-                "samples": [
-                    [
-                        "бугъа",
-                        "buʁɑ"
+                }
+            ]
+        },
+        "m": {
+            "uses": [
+                {
+                    "grapheme": "м",
+                    "samples": [
+                        [
+                            "мицӏираг",
+                            "mit͡sʼirag"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "p",
-        "uses": [
-            {
-                "grapheme": "п",
-                "samples": [
-                    [
-                        "партал",
-                        "pɑrtɑl"
+                }
+            ]
+        },
+        "d": {
+            "uses": [
+                {
+                    "grapheme": "д",
+                    "samples": [
+                        [
+                            "дергъ",
+                            "derʁ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "pʼ",
-        "uses": [
-            {
-                "grapheme": "пӏ",
-                "samples": [
-                    [
-                        "пӏялцӏикӏ",
-                        "pʼælt͡sʼikʼ"
+                }
+            ]
+        },
+        "t": {
+            "uses": [
+                {
+                    "grapheme": "т",
+                    "samples": [
+                        [
+                            "тухтур",
+                            "tuxtur"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "v",
-        "uses": [
-            {
-                "grapheme": "в",
-                "samples": [
-                    [
-                        "варгьи",
-                        "vɑrhi"
+                }
+            ]
+        },
+        "tʼ": {
+            "uses": [
+                {
+                    "grapheme": "тӏ",
+                    "samples": [
+                        [
+                            "тӏутӏи",
+                            "tʼutʼi"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "m",
-        "uses": [
-            {
-                "grapheme": "м",
-                "samples": [
-                    [
-                        "мицӏираг",
-                        "mit͡sʼirag"
+                }
+            ]
+        },
+        "t͡s": {
+            "uses": [
+                {
+                    "grapheme": "ц",
+                    "samples": [
+                        [
+                            "царка",
+                            "t͡sɑrkɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "d",
-        "uses": [
-            {
-                "grapheme": "д",
-                "samples": [
-                    [
-                        "дергъ",
-                        "derʁ"
+                }
+            ]
+        },
+        "t͡sʼ": {
+            "uses": [
+                {
+                    "grapheme": "цӏ",
+                    "samples": [
+                        [
+                            "цӏедеш",
+                            "t͡sʼedeʃ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "t",
-        "uses": [
-            {
-                "grapheme": "т",
-                "samples": [
-                    [
-                        "тухтур",
-                        "tuxtur"
+                }
+            ]
+        },
+        "z": {
+            "uses": [
+                {
+                    "grapheme": "з",
+                    "samples": [
+                        [
+                            "зубарти",
+                            "zubɑrti"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "tʼ",
-        "uses": [
-            {
-                "grapheme": "тӏ",
-                "samples": [
-                    [
-                        "тӏутӏи",
-                        "tʼutʼi"
+                }
+            ]
+        },
+        "s": {
+            "uses": [
+                {
+                    "grapheme": "с",
+                    "samples": [
+                        [
+                            "сири",
+                            "siri"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "t͡s",
-        "uses": [
-            {
-                "grapheme": "ц",
-                "samples": [
-                    [
-                        "царка",
-                        "t͡sɑrkɑ"
+                }
+            ]
+        },
+        "n": {
+            "uses": [
+                {
+                    "grapheme": "н",
+                    "samples": [
+                        [
+                            "насаб",
+                            "nɑsɑb"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "t͡sʼ",
-        "uses": [
-            {
-                "grapheme": "цӏ",
-                "samples": [
-                    [
-                        "цӏедеш",
-                        "t͡sʼedeʃ"
+                }
+            ]
+        },
+        "l": {
+            "notes": [
+                "Palatalized after /a/, /i/, /u/."
+            ],
+            "uses": [
+                {
+                    "grapheme": "л",
+                    "samples": [
+                        [
+                            "лами",
+                            "lɑmi"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "z",
-        "uses": [
-            {
-                "grapheme": "з",
-                "samples": [
-                    [
-                        "зубарти",
-                        "zubɑrti"
+                }
+            ]
+        },
+        "ç": {
+            "uses": [
+                {
+                    "grapheme": "хь",
+                    "samples": [
+                        [
+                            "хьунул",
+                            ""
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "s",
-        "uses": [
-            {
-                "grapheme": "с",
-                "samples": [
-                    [
-                        "сири",
-                        "siri"
+                }
+            ]
+        },
+        "j": {
+            "uses": [
+                {
+                    "grapheme": "й",
+                    "samples": [
+                        [
+                            "къайгъи",
+                            "qɑjʁi"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "n",
-        "uses": [
-            {
-                "grapheme": "н",
-                "samples": [
-                    [
-                        "насаб",
-                        "nɑsɑb"
+                }
+            ]
+        },
+        "t͡ʃ": {
+            "uses": [
+                {
+                    "grapheme": "ч",
+                    "samples": [
+                        [
+                            "чарма",
+                            "t͡ʃɑrmɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "l",
-        "notes": [
-            "Palatalized after /a/, /i/, /u/."
-        ],
-        "uses": [
-            {
-                "grapheme": "л",
-                "samples": [
-                    [
-                        "лами",
-                        "lɑmi"
+                }
+            ]
+        },
+        "t͡ʃʼ": {
+            "uses": [
+                {
+                    "grapheme": "чӏ",
+                    "samples": [
+                        [
+                            "чӏичӏала",
+                            "t͡ʃʼit͡ʃʼɑlɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "ç",
-        "uses": [
-            {
-                "grapheme": "хь",
-                "samples": [
-                    [
-                        "хьунул",
-                        ""
+                }
+            ]
+        },
+        "ʒ": {
+            "uses": [
+                {
+                    "grapheme": "ж",
+                    "samples": [
+                        [
+                            "журуга",
+                            "ʒurugɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "j",
-        "uses": [
-            {
-                "grapheme": "й",
-                "samples": [
-                    [
-                        "къайгъи",
-                        "qɑjʁi"
+                }
+            ]
+        },
+        "ʃ": {
+            "uses": [
+                {
+                    "grapheme": "ш",
+                    "samples": [
+                        [
+                            "шагьар",
+                            "ʃɑhɑr"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "t͡ʃ",
-        "uses": [
-            {
-                "grapheme": "ч",
-                "samples": [
-                    [
-                        "чарма",
-                        "t͡ʃɑrmɑ"
+                }
+            ]
+        },
+        "r": {
+            "uses": [
+                {
+                    "grapheme": "р",
+                    "samples": [
+                        [
+                            "рурси",
+                            "rursi"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "t͡ʃʼ",
-        "uses": [
-            {
-                "grapheme": "чӏ",
-                "samples": [
-                    [
-                        "чӏичӏала",
-                        "t͡ʃʼit͡ʃʼɑlɑ"
+                }
+            ]
+        },
+        "g": {
+            "uses": [
+                {
+                    "grapheme": "г",
+                    "samples": [
+                        [
+                            "галга",
+                            "gɑlgɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "ʒ",
-        "uses": [
-            {
-                "grapheme": "ж",
-                "samples": [
-                    [
-                        "журуга",
-                        "ʒurugɑ"
+                }
+            ]
+        },
+        "k": {
+            "uses": [
+                {
+                    "grapheme": "к",
+                    "samples": [
+                        [
+                            "кам",
+                            "kɑm"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "ʃ",
-        "uses": [
-            {
-                "grapheme": "ш",
-                "samples": [
-                    [
-                        "шагьар",
-                        "ʃɑhɑr"
+                }
+            ]
+        },
+        "kʼ": {
+            "uses": [
+                {
+                    "grapheme": "кӏ",
+                    "samples": [
+                        [
+                            "кӏапӏи",
+                            "kʼɑpʼi"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "r",
-        "uses": [
-            {
-                "grapheme": "р",
-                "samples": [
-                    [
-                        "рурси",
-                        "rursi"
+                }
+            ]
+        },
+        "q": {
+            "uses": [
+                {
+                    "grapheme": "къ",
+                    "samples": [
+                        [
+                            "къаркъа",
+                            "qɑrqɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "g",
-        "uses": [
-            {
-                "grapheme": "г",
-                "samples": [
-                    [
-                        "галга",
-                        "gɑlgɑ"
+                }
+            ]
+        },
+        "qʰ": {
+            "uses": [
+                {
+                    "grapheme": "хъ",
+                    "samples": [
+                        [
+                            "хъяр",
+                            "qʰær"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "k",
-        "uses": [
-            {
-                "grapheme": "к",
-                "samples": [
-                    [
-                        "кам",
-                        "kɑm"
+                }
+            ]
+        },
+        "qʼ": {
+            "uses": [
+                {
+                    "grapheme": "кь",
+                    "samples": [
+                        [
+                            "кьацӏ",
+                            "qʼɑt͡sʼ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "kʼ",
-        "uses": [
-            {
-                "grapheme": "кӏ",
-                "samples": [
-                    [
-                        "кӏапӏи",
-                        "kʼɑpʼi"
+                }
+            ]
+        },
+        "ɣ": {
+            "uses": [
+                {
+                    "grapheme": "гъ",
+                    "samples": [
+                        [
+                            "гъум",
+                            "ɣum"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "q",
-        "uses": [
-            {
-                "grapheme": "къ",
-                "samples": [
-                    [
-                        "къаркъа",
-                        "qɑrqɑ"
+                }
+            ]
+        },
+        "x": {
+            "uses": [
+                {
+                    "grapheme": "х",
+                    "samples": [
+                        [
+                            "халадудеш",
+                            "xɑlɑdudeʃ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "qʰ",
-        "uses": [
-            {
-                "grapheme": "хъ",
-                "samples": [
-                    [
-                        "хъяр",
-                        "qʰær"
+                }
+            ]
+        },
+        "ħ": {
+            "uses": [
+                {
+                    "grapheme": "хӏ",
+                    "samples": [
+                        [
+                            "хӏяйван",
+                            "ħæjvɑn"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "qʼ",
-        "uses": [
-            {
-                "grapheme": "кь",
-                "samples": [
-                    [
-                        "кьацӏ",
-                        "qʼɑt͡sʼ"
+                }
+            ]
+        },
+        "h": {
+            "uses": [
+                {
+                    "grapheme": "гь",
+                    "samples": [
+                        [
+                            "гьая",
+                            "hɑjɑ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "ɣ",
-        "uses": [
-            {
-                "grapheme": "гъ",
-                "samples": [
-                    [
-                        "гъум",
-                        "ɣum"
+                }
+            ]
+        },
+        "ʔ": {
+            "uses": [
+                {
+                    "grapheme": "ъ",
+                    "samples": [
+                        [
+                            "ниъ",
+                            "niʔ"
+                        ]
                     ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "x",
-        "uses": [
-            {
-                "grapheme": "х",
-                "samples": [
-                    [
-                        "халадудеш",
-                        "xɑlɑdudeʃ"
-                    ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "ħ",
-        "uses": [
-            {
-                "grapheme": "хӏ",
-                "samples": [
-                    [
-                        "хӏяйван",
-                        "ħæjvɑn"
-                    ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "h",
-        "uses": [
-            {
-                "grapheme": "гь",
-                "samples": [
-                    [
-                        "гьая",
-                        "hɑjɑ"
-                    ]
-                ]
-            }
-        ]
-    },
-    {
-        "ipa": "ʔ",
-        "uses": [
-            {
-                "grapheme": "ъ",
-                "samples": [
-                    [
-                        "ниъ",
-                        "niʔ"
-                    ]
-                ]
-            }
-        ]
+                }
+            ]
+        }
     }
-]
+}
