@@ -1,18 +1,18 @@
 <template>
   <div class="panel">
     <div class="card panel">
-      <h2 class="text-ipa">{{phoneme.ipa}}</h2>
-      <p class="text-caption text-faded text-spaced" v-if="features">{{features}}</p>
-      <PhoneticNote :text="phoneme.note" />
+      <h2 class="text-ipa">{{phoneme}}</h2>
+      <p class="text-caption text-faded text-spaced">{{tags}}</p>
+      <!-- <PhoneticNote :text="phoneme.note" /> -->
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
-      @play="play(lc, $event)"
-      :key="i"
-      v-for="(lc, i) in lects"
-      :phoneme="phoneme.ipa"
-      :lect="lc"
-      :cases="phoneme.uses[lc]"
+      @play="play(l, $event)"
+      :key="l"
+      v-for="l in lects"
+      :phoneme="phoneme"
+      :lect="l"
+      :uses="database.uses[l]"
     />
   </div>
 </template>
@@ -27,16 +27,17 @@ export default {
     PhonemeUse,
     PhoneticNote,
   },
-  props: ["phoneme"],
+  props: ["phoneme", "database"],
   computed: {
-    lects() {
-      return this.$store.getters.lects.filter((l) => l in this.phoneme.uses);
-    },
-    features() {
-      return this.phoneme["features"]?.reduce((a, t) => (a = `${a} ${t}`));
-    },
     root() {
-      return this.$store.getters.languageRoot;
+      return this.$store.state.root;
+    },
+    lects() {
+      return Object.keys(this.database.uses);
+      //  this.$store.getters.lects.filter((l) => l in this.phoneme.uses);
+    },
+    tags() {
+      return this.database.tags.reduce((a, t) => (a = `${a} ${t}`), "");
     },
   },
   methods: {

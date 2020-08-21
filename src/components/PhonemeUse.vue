@@ -5,15 +5,15 @@
       <p v-html="graphemes"></p>
     </div>
     <div class="panel-solid scroll">
-      <template v-for="(c, j) in cases">
+      <template v-for="(u, j) in uses">
         <button
           class="small panel-horizontal"
           @click="$emit('play', s[0])"
           :key="j*10+i"
-          v-for="(s, i) in c.samples"
+          v-for="(s, i) in u.samples"
         >
           <span v-if="s[0][0]!='*'" class="icon-small">play_arrow</span>
-          <span class="text" v-html="highlight(s[0], c.grapheme, s[2])"></span>
+          <span class="text" v-html="highlight(s[0], u.grapheme, s[2])"></span>
           <span class="text-ipa" v-if="s[1]" v-html="highlight(s[1], phoneme)"></span>
         </button>
       </template>
@@ -28,15 +28,15 @@ import PhoneticNote from "./PhoneticNote";
 export default {
   name: "PhonemeUse",
   components: { PhoneticNote },
-  props: ["phoneme", "lect", "cases"],
+  props: ["phoneme", "lect", "uses"],
   computed: {
     graphemes() {
-      return this.cases
+      return this.uses
         .map((u) => `<b>${u.grapheme}</b>`)
         .join("<span class='text-dot'></span>");
     },
     notes() {
-      return this.cases.map((u) => u.note).filter((n) => n);
+      return this.uses.map((u) => u.note).filter((n) => n);
     },
   },
   methods: {

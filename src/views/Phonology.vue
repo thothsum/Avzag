@@ -13,7 +13,7 @@
       />
       <QueryInput @query="featureQuery=$event" />
     </div>
-    <!-- <PhonemeDetails :phoneme="phonemes[selected]" /> -->
+    <PhonemeDetails :phoneme="selected" :database="selectedData" />
   </div>
 </template>
 
@@ -21,20 +21,20 @@
 import QueryList from "@/components/QueryList";
 import QueryInput from "@/components/QueryInput";
 import PhoneticTable from "@/components/PhoneticTable";
-// import PhonemeDetails from "@/components/PhonemeDetails";
+import PhonemeDetails from "@/components/PhonemeDetails";
 
 export default {
   name: "Phonology",
   components: {
     PhoneticTable,
-    // PhonemeDetails,
+    PhonemeDetails,
     QueryList,
     QueryInput,
   },
   data() {
     return {
       types: ["vowels", "consonants"],
-      selected: "",
+      selected: undefined,
       lectQuery: {},
       featureQuery: {},
     };
@@ -50,6 +50,8 @@ export default {
       return Object.keys(this.lects);
     },
     phonemes() {
+      if (!this.lects) return;
+
       let phonemes = {};
       for (const t of this.types) {
         phonemes[t] = [
@@ -58,7 +60,9 @@ export default {
               .map((l) => Object.keys(this.lects[l].phonemes[t]))
               .flat()
           ),
-        ];
+        ].sort(function (a, b) {
+          return a.localeCompare(b);
+        });
       }
       return phonemes;
     },
@@ -75,8 +79,18 @@ export default {
       }
       return data;
     },
+    selectedData() {
+      for (const t of this.types) {
+        const data = this.database[t][this.selected];
+        if (data) return data;
+      }
+    },
   },
-  watch: {},
+  watch: {
+    phonemes() {
+      this.selected = this.phonemes[this.types[0]][0];
+    },
+  },
   methods: {
     getTags(p, t) {
       let tags = [];
