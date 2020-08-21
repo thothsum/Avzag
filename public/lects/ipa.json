@@ -1,13 +1,16 @@
 {
-    "vowels": {},
+    "vowels": {
+        "ɑ": "open back unrounded"
+    },
     "consonants": {
+        "k": "voiceless velar stop"
     },
     "modifiers": {
-        "ʷ": "labialization",
-        "ʲ": "palatalization",
-        "ˠ": "velarization",
-        "ˤ": "pharyngealization",
-        "͡": "affricate",
+        "ʷ": "labialized",
+        "ʲ": "palatalized",
+        "ʰ": "aspirated",
+        "ˠ": "velarized",
+        "ˤ": "pharyngealized",
         "ʼ": "ejective",
         "ː": "geminate"
     }

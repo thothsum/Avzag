@@ -43,11 +43,11 @@ export default {
     };
   },
   computed: {
-    names() {
-      return Object.keys(this.$store.state.lects);
-    },
     lects() {
       return this.$store.state.lects;
+    },
+    lectNames() {
+      return Object.keys(this.lects);
     },
     vowels() {
       return this.categorize("vowel");

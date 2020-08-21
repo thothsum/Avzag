@@ -20,7 +20,7 @@ export default Vue.extend({
     };
   },
   created() {
-    this.$store.dispatch("loadCatalogue");
+    this.$store.dispatch("initialize");
     this.$store.dispatch("loadLects", ["Iron", "Aqusha"]);
   },
 });

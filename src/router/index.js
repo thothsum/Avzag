@@ -15,17 +15,17 @@ const routes = [
     component: Home
   },
   {
-    path: '/phonology/:lang',
+    path: '/phonology/',
     name: 'Phonology',
     component: Phonology
   },
   {
-    path: '/converter/:lang',
+    path: '/converter/',
     name: 'Converter',
     component: Converter
   },
   {
-    path: '/phrasebook/:lang',
+    path: '/phrasebook/',
     name: 'Phrasebook',
     component: Phrasebook
   },
