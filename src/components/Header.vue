@@ -1,23 +1,17 @@
 <template>
   <div id="root">
-    <div class="section">
-      <div class="panel-horizontal">
-        <img class="no-select" :src="flag" draggable="false" alt="flag" />
-        <button @click="navigate('Home')" class="icon">arrow_back</button>
-        <h2>{{$store.state.language}}</h2>
-      </div>
-      <div id="nav" class="panel-horizontal scroll-hidden">
-        <button
-          class="panel-horizontal"
-          :class="{ highlight: $route.name === t }"
-          @click="navigate(t)"
-          :key="i"
-          v-for="[t, i] in menus"
-        >
-          <span class="icon">{{i}}</span>
-          <p v-if="t">{{t}}</p>
-        </button>
-      </div>
+    <div class="section panel-horizontal">
+      <button @click="navigate('Home')" class="icon">arrow_back</button>
+      <button
+        class="panel-horizontal"
+        :class="{ highlight: $route.name === t }"
+        @click="navigate(t)"
+        :key="i"
+        v-for="[t, i] in menus"
+      >
+        <span class="icon">{{i}}</span>
+        <p v-if="t">{{t}}</p>
+      </button>
     </div>
   </div>
 </template>
@@ -35,11 +29,6 @@ export default Vue.extend({
         ["Phrasebook", "chat"],
       ],
     };
-  },
-  computed: {
-    flag(): string {
-      return this.$store.getters.languageRoot + "flag.png";
-    },
   },
   methods: {
     navigate(path: string): void {
@@ -63,39 +52,8 @@ export default Vue.extend({
   overflow: hidden;
   position: relative;
   box-shadow: map-get($shadows, "elevated");
-  * {
-    z-index: 1;
-  }
-  img {
-    pointer-events: none;
-    z-index: 0;
-    position: absolute;
-    height: 192px;
-    left: 0;
-    opacity: 0.5;
-    transform: translate(-5%) rotate(-20deg);
-    mask-image: linear-gradient(90deg, white, transparent);
-  }
 }
-.section {
-  display: flex;
-  gap: map-get($margins, "normal");
-  justify-content: space-between;
-}
-#nav button {
+button.panel-horizontal {
   font-weight: bold;
-}
-@media only screen and (max-width: $mobile-width) {
-  .section {
-    flex-flow: column;
-  }
-  #root {
-    img {
-      left: initial;
-      right: 0;
-      transform: translate(10%, 15%) rotate(-20deg);
-      mask-image: linear-gradient(-90deg, white, transparent);
-    }
-  }
 }
 </style>
