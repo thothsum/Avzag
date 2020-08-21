@@ -1,12 +1,6 @@
 [
     {
         "ipa": "i",
-        "features": [
-            "vowel",
-            "front",
-            "close",
-            "unrounded"
-        ],
         "uses": [
             {
                 "grapheme": "и",
@@ -21,11 +15,6 @@
     },
     {
         "ipa": "u",
-        "features": [
-            "vowel",
-            "back",
-            "close"
-        ],
         "uses": [
             {
                 "grapheme": "у",
@@ -40,11 +29,6 @@
     },
     {
         "ipa": "e",
-        "features": [
-            "vowel",
-            "front",
-            "close-mid"
-        ],
         "uses": [
             {
                 "grapheme": "е"
@@ -62,12 +46,6 @@
     },
     {
         "ipa": "ɑ",
-        "features": [
-            "vowel",
-            "open",
-            "back",
-            "unrounded"
-        ],
         "uses": [
             {
                 "grapheme": "а",
@@ -83,12 +61,6 @@
     {
         "str": "я",
         "ipa": "æ",
-        "features": [
-            "vowel",
-            "front",
-            "near-open",
-            "unrounded"
-        ],
         "uses": [
             {
                 "grapheme": "я",
@@ -103,12 +75,6 @@
     },
     {
         "ipa": "b",
-        "features": [
-            "consonant",
-            "stop",
-            "voiced",
-            "labial"
-        ],
         "uses": [
             {
                 "grapheme": "б",
@@ -123,12 +89,6 @@
     },
     {
         "ipa": "p",
-        "features": [
-            "consonant",
-            "stop",
-            "voiceless",
-            "labial"
-        ],
         "uses": [
             {
                 "grapheme": "п",
@@ -143,13 +103,6 @@
     },
     {
         "ipa": "pʼ",
-        "features": [
-            "consonant",
-            "stop",
-            "voiceless",
-            "ejective",
-            "labial"
-        ],
         "uses": [
             {
                 "grapheme": "пӏ",
@@ -164,12 +117,6 @@
     },
     {
         "ipa": "v",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiced",
-            "labiodental"
-        ],
         "uses": [
             {
                 "grapheme": "в",
@@ -184,12 +131,6 @@
     },
     {
         "ipa": "m",
-        "features": [
-            "consonant",
-            "voiced",
-            "labial",
-            "nasal"
-        ],
         "uses": [
             {
                 "grapheme": "м",
@@ -204,12 +145,6 @@
     },
     {
         "ipa": "d",
-        "features": [
-            "consonant",
-            "stop",
-            "voiced",
-            "dental"
-        ],
         "uses": [
             {
                 "grapheme": "д",
@@ -224,12 +159,6 @@
     },
     {
         "ipa": "t",
-        "features": [
-            "consonant",
-            "stop",
-            "voiceless",
-            "dental"
-        ],
         "uses": [
             {
                 "grapheme": "т",
@@ -244,13 +173,6 @@
     },
     {
         "ipa": "tʼ",
-        "features": [
-            "consonant",
-            "stop",
-            "voiceless",
-            "ejective",
-            "dental"
-        ],
         "uses": [
             {
                 "grapheme": "тӏ",
@@ -265,12 +187,6 @@
     },
     {
         "ipa": "t͡s",
-        "features": [
-            "consonant",
-            "affricate",
-            "voiceless",
-            "dental"
-        ],
         "uses": [
             {
                 "grapheme": "ц",
@@ -285,13 +201,6 @@
     },
     {
         "ipa": "t͡sʼ",
-        "features": [
-            "consonant",
-            "affricate",
-            "voiceless",
-            "ejective",
-            "dental"
-        ],
         "uses": [
             {
                 "grapheme": "цӏ",
@@ -306,12 +215,6 @@
     },
     {
         "ipa": "z",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiced",
-            "dental"
-        ],
         "uses": [
             {
                 "grapheme": "з",
@@ -326,12 +229,6 @@
     },
     {
         "ipa": "s",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiceless",
-            "dental"
-        ],
         "uses": [
             {
                 "grapheme": "с",
@@ -346,12 +243,6 @@
     },
     {
         "ipa": "n",
-        "features": [
-            "consonant",
-            "voiced",
-            "alveolar",
-            "nasal"
-        ],
         "uses": [
             {
                 "grapheme": "н",
@@ -366,13 +257,6 @@
     },
     {
         "ipa": "l",
-        "features": [
-            "consonant",
-            "voiced",
-            "lateral",
-            "dental",
-            "approximant"
-        ],
         "notes": [
             "Palatalized after /a/, /i/, /u/."
         ],
@@ -390,12 +274,6 @@
     },
     {
         "ipa": "ç",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiceless",
-            "palatal"
-        ],
         "uses": [
             {
                 "grapheme": "хь",
@@ -410,12 +288,6 @@
     },
     {
         "ipa": "j",
-        "features": [
-            "consonant",
-            "voiced",
-            "palatal",
-            "approximant"
-        ],
         "uses": [
             {
                 "grapheme": "й",
@@ -430,12 +302,6 @@
     },
     {
         "ipa": "t͡ʃ",
-        "features": [
-            "consonant",
-            "affricate",
-            "voiceless",
-            "alveolar"
-        ],
         "uses": [
             {
                 "grapheme": "ч",
@@ -450,13 +316,6 @@
     },
     {
         "ipa": "t͡ʃʼ",
-        "features": [
-            "consonant",
-            "affricate",
-            "voiceless",
-            "ejective",
-            "alveolar"
-        ],
         "uses": [
             {
                 "grapheme": "чӏ",
@@ -471,12 +330,6 @@
     },
     {
         "ipa": "ʒ",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiced",
-            "alveolar"
-        ],
         "uses": [
             {
                 "grapheme": "ж",
@@ -491,12 +344,6 @@
     },
     {
         "ipa": "ʃ",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiceless",
-            "alveolar"
-        ],
         "uses": [
             {
                 "grapheme": "ш",
@@ -511,12 +358,6 @@
     },
     {
         "ipa": "r",
-        "features": [
-            "consonant",
-            "voiced",
-            "alveolar",
-            "trill"
-        ],
         "uses": [
             {
                 "grapheme": "р",
@@ -531,12 +372,6 @@
     },
     {
         "ipa": "g",
-        "features": [
-            "consonant",
-            "stop",
-            "voiced",
-            "velar"
-        ],
         "uses": [
             {
                 "grapheme": "г",
@@ -551,12 +386,6 @@
     },
     {
         "ipa": "k",
-        "features": [
-            "consonant",
-            "stop",
-            "voiceless",
-            "velar"
-        ],
         "uses": [
             {
                 "grapheme": "к",
@@ -571,13 +400,6 @@
     },
     {
         "ipa": "kʼ",
-        "features": [
-            "consonant",
-            "stop",
-            "voiceless",
-            "ejective",
-            "velar"
-        ],
         "uses": [
             {
                 "grapheme": "кӏ",
@@ -592,12 +414,6 @@
     },
     {
         "ipa": "q",
-        "features": [
-            "consonant",
-            "stop",
-            "voiced",
-            "uvular"
-        ],
         "uses": [
             {
                 "grapheme": "къ",
@@ -612,13 +428,6 @@
     },
     {
         "ipa": "qʰ",
-        "features": [
-            "consonant",
-            "stop",
-            "voiced",
-            "uvular",
-            "aspirated"
-        ],
         "uses": [
             {
                 "grapheme": "хъ",
@@ -633,13 +442,6 @@
     },
     {
         "ipa": "qʼ",
-        "features": [
-            "consonant",
-            "stop",
-            "voiced",
-            "ejective",
-            "uvular"
-        ],
         "uses": [
             {
                 "grapheme": "кь",
@@ -654,12 +456,6 @@
     },
     {
         "ipa": "ɣ",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiced",
-            "velar"
-        ],
         "uses": [
             {
                 "grapheme": "гъ",
@@ -674,12 +470,6 @@
     },
     {
         "ipa": "x",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiceless",
-            "velar"
-        ],
         "uses": [
             {
                 "grapheme": "х",
@@ -694,12 +484,6 @@
     },
     {
         "ipa": "ħ",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiceless",
-            "pharyngeal"
-        ],
         "uses": [
             {
                 "grapheme": "хӏ",
@@ -714,12 +498,6 @@
     },
     {
         "ipa": "h",
-        "features": [
-            "consonant",
-            "fricative",
-            "voiceless",
-            "laryngeal"
-        ],
         "uses": [
             {
                 "grapheme": "гь",
@@ -734,13 +512,6 @@
     },
     {
         "ipa": "ʔ",
-        "features": [
-            "consonant",
-            "stop",
-            "voiceless",
-            "ejective",
-            "laryngeal"
-        ],
         "uses": [
             {
                 "grapheme": "ъ",

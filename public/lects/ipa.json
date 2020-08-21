@@ -1,0 +1,14 @@
+{
+    "vowels": {},
+    "consonants": {
+    },
+    "modifiers": {
+        "ʷ": "labialization",
+        "ʲ": "palatalization",
+        "ˠ": "velarization",
+        "ˤ": "pharyngealization",
+        "͡": "affricate",
+        "ʼ": "ejective",
+        "ː": "geminate"
+    }
+}

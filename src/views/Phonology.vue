@@ -34,21 +34,17 @@ export default {
     PhoneticTable,
     PhonemeDetails,
     QueryList,
-    QueryInput
+    QueryInput,
   },
   data() {
     return {
       lectQuery: {},
-      featureQuery: {}
+      featureQuery: {},
     };
   },
   computed: {
-    selected() {
-      let index = this.$route.query.phoneme ?? 0;
-      return index < this.phonemes.length ? index : 0;
-    },
-    phonemes() {
-      return this.$store.state.phonology;
+    names() {
+      return Object.keys(this.$store.state.lects);
     },
     lects() {
       return this.$store.state.lects;
@@ -58,16 +54,16 @@ export default {
     },
     consonants() {
       return this.categorize("consonant");
-    }
+    },
   },
   methods: {
     select(i) {
       if (this.selected !== i) this.$router.replace({ query: { phoneme: i } });
     },
     categorize(category) {
-      return this.phonemes.filter(p => p.features.includes(category));
-    }
-  }
+      return this.phonemes.filter((p) => p.features.includes(category));
+    },
+  },
 };
 </script>
 

@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     root: process.env.BASE_URL + "lects/",
     catalogue: undefined,
-    lects: undefined,
+    lects: undefined
   },
   mutations: {
     setCatalogue(state, catalogue) {
@@ -26,7 +26,7 @@ export default new Vuex.Store({
       for (const n of lectNames) {
         const root = state.root + n + "/";
         const phonology = await dispatch("loadJson", root + "phonology.json");
-        lects[n] = { root, phonology };
+        lects += { root, phonology };
       }
       commit("setLects", lects);
     },
