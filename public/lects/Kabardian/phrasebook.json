@@ -1,0 +1,30 @@
+{
+    "Greeting": [
+        {
+            "translation": "Hello.",
+            "text": [
+                "Hello [",
+                {
+                    "id": "plur",
+                    "values": [
+                        "singular",
+                        "plural"
+                    ]
+                },
+                "]."
+            ],
+            "source": [
+                "Дауэ ",
+                {
+                    "id": "plur",
+                    "align": "right",
+                    "values": [
+                        "ущыт",
+                        "фыщыт"
+                    ]
+                },
+                "."
+            ]
+        }
+    ]
+}

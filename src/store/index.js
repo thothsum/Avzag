@@ -25,9 +25,10 @@ export default new Vuex.Store({
     async loadLects({ dispatch, commit, state }, lectNames) {
       let lects = {};
       for (const n of lectNames) {
-        const root = state.root + n + "/";
-        const phonemes = await dispatch("loadJson", root + "phonemes.json");
-        lects[n] = { root, phonemes };
+        const r = state.root + n + "/";
+        lects[n] = {};
+        for (const f of ["phonemes", "phrasebook"])
+          lects[n][f] = await dispatch("loadJson", r + f + ".json");
       }
       commit("setState", ["lects", lects]);
     },
