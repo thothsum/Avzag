@@ -1,27 +1,26 @@
 <template>
   <div id="root" :class="{narrow: phonemes.length <= 12}" class="panel-horizontal-dense wrap">
-    <!-- <PhoneticItem
-      @click.native="$emit('select', phn)"
-      :selected="selected==phn"
+    <PhoneticItem
+      @click.native="$emit('select', p)"
+      :selected="selected==p"
       :faded="!fitting[i]"
-      :ipa="phn.ipa"
+      :ipa="p"
       :str="graphemes[i]"
-      :key="i"
-      v-for="(phn, i) in phonemes"
-    />-->
-    <p @click="$emit('select', p)" :key="p" v-for="p in phonemes">{{p}}</p>
+      :key="p"
+      v-for="(p,i) in phonemes"
+    />
   </div>
 </template>
 
 <script>
-// import PhoneticItem from "./PhoneticItem";
+import PhoneticItem from "./PhoneticItem";
 
 export default {
   name: "PhoneticTable",
   components: {
-    // PhoneticItem,
+    PhoneticItem,
   },
-  props: ["selected", "lectQuery", "featureQuery", "phonemes"],
+  props: ["selected", "lectQuery", "featureQuery", "phonemes", "database"],
   model: {
     prop: "selected",
     event: "select",
@@ -29,27 +28,31 @@ export default {
   methods: {
     pass(tags, query) {
       for (const [tag, mode] of Object.entries(query)) {
-        if (mode !== tags.includes(tag)) return false;
+        if (mode != tags.includes(tag)) return false;
       }
       return true;
     },
   },
   computed: {
     fitting() {
-      return this.phonemes.map(
-        (p) =>
-          this.pass(Object.keys(p.uses), this.lectQuery) &&
-          this.pass(p.features, this.featureQuery)
-      );
+      return this.phonemes
+        .map((p) => this.database[p])
+        .map(
+          (d) =>
+            this.pass(Object.keys(d.uses), this.lectQuery) &&
+            this.pass(d.tags, this.featureQuery)
+        );
     },
     singleLect() {
       let lects = [];
       for (const [lect, mode] of Object.entries(this.lectQuery))
         if (mode) lects.push(lect);
-      return lects.length === 1 ? lects[0] : undefined;
+      return lects.length == 1 ? lects[0] : undefined;
     },
     graphemes() {
-      return this.phonemes.map((p) => p.uses[this.singleLect]?.[0].grapheme);
+      return this.phonemes.map(
+        (p) => this.database[p].uses[this.singleLect]?.[0].grapheme
+      );
     },
   },
 };

@@ -4,16 +4,12 @@
       <QueryList :tags="lectNames" @query="lectQuery=$event" />
       <PhoneticTable
         v-model="selected"
-        :phonemes="phonemes.vowels"
         :featureQuery="featureQuery"
         :lectQuery="lectQuery"
-        @phoneme="select($event)"
-      />
-      <PhoneticTable
-        v-model="selected"
-        :phonemes="phonemes.consonants"
-        :featureQuery="featureQuery"
-        :lectQuery="lectQuery"
+        :phonemes="phonemes[t]"
+        :database="database[t]"
+        :key="t"
+        v-for="t in types"
       />
       <QueryInput @query="featureQuery=$event" />
     </div>
@@ -56,11 +52,13 @@ export default {
     phonemes() {
       let phonemes = {};
       for (const t of this.types) {
-        phonemes[t] = new Set(
-          this.lectNames
-            .map((l) => Object.keys(this.lects[l].phonemes[t]))
-            .flat()
-        );
+        phonemes[t] = [
+          ...new Set(
+            this.lectNames
+              .map((l) => Object.keys(this.lects[l].phonemes[t]))
+              .flat()
+          ),
+        ];
       }
       return phonemes;
     },
