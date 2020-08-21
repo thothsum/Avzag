@@ -2,20 +2,19 @@
   <div class="section" v-if="lects">
     <div class="panel scroll">
       <QueryList :tags="lectNames" @query="lectQuery=$event" />
-      <!-- <PhoneticTable
-        :selected="selected"
-        :phonemes="vowels"
+      <PhoneticTable
+        v-model="selected"
+        :phonemes="phonemes.vowels"
         :featureQuery="featureQuery"
         :lectQuery="lectQuery"
         @phoneme="select($event)"
       />
       <PhoneticTable
-        :selected="selected"
-        :phonemes="consonants"
+        v-model="selected"
+        :phonemes="phonemes.consonants"
         :featureQuery="featureQuery"
         :lectQuery="lectQuery"
-        @phoneme="select($event)"
-      /> -->
+      />
       <QueryInput @query="featureQuery=$event" />
     </div>
     <!-- <PhonemeDetails :phoneme="phonemes[selected]" /> -->
@@ -25,20 +24,21 @@
 <script>
 import QueryList from "@/components/QueryList";
 import QueryInput from "@/components/QueryInput";
-// import PhoneticTable from "@/components/PhoneticTable";
+import PhoneticTable from "@/components/PhoneticTable";
 // import PhonemeDetails from "@/components/PhonemeDetails";
 
 export default {
   name: "Phonology",
   components: {
-    // PhoneticTable,
+    PhoneticTable,
     // PhonemeDetails,
     QueryList,
     QueryInput,
   },
   data() {
     return {
-      selected: 0,
+      types: ["vowels", "consonants"],
+      selected: "",
       lectQuery: {},
       featureQuery: {},
     };
@@ -53,51 +53,54 @@ export default {
     lectNames() {
       return Object.keys(this.lects);
     },
-    // vowels() {
-    //   return this.categorize("vowel");
-    // },
-    // consonants() {
-    //   return this.categorize("consonant");
-    // },
-  },
-  watch: {
-    lects(lects) {
-      if (lects == null) return;
-
-      for (let lect in lects) {
-        let phonology = lects[lect].phonology;
-
-        let vowels = phonology.vowels;
-        for (const ph in vowels) {
-          if (vowels[ph].tags?.length == 0) {
-            vowels[ph].tags = [];
-            for (const ipa in this.ipa.vowels)
-              if (ph.includes(ipa)) {
-                vowels[ph].tags.push(this.ipa.vowels[ipa]);
-                break;
-              }
-          }
-        }
-
-        let consonants = phonology.consonants;
-        for (const ph in consonants) {
-          if (consonants[ph].tags?.length == 0) {
-            consonants[ph].tags = [];
-            for (const ipa in this.ipa.consonants)
-              if (ph.includes(ipa)) {
-                consonants[ph].tags.push(this.ipa.consonants[ipa]);
-                break;
-              }
-          }
-        }
+    phonemes() {
+      let phonemes = {};
+      for (const t of this.types) {
+        phonemes[t] = new Set(
+          this.lectNames
+            .map((l) => Object.keys(this.lects[l].phonemes[t]))
+            .flat()
+        );
       }
+      return phonemes;
+    },
+    database() {
+      let data = {};
+      for (const t of this.types) {
+        let type = {};
+        for (const p of this.phonemes[t]) {
+          const tags = this.getTags(p, t);
+          const uses = this.getUses(p, t);
+          type[p] = { tags, uses };
+        }
+        data[t] = type;
+      }
+      return data;
     },
   },
+  watch: {},
   methods: {
-    select(i) {
-      console.log("selecting", i);
-      // if (this.selected !== i) this.$router.replace({ query: { phoneme: i } });
-    }
+    getTags(p, t) {
+      let tags = [];
+      for (const i in this.ipa[t])
+        if (p.includes(i)) {
+          tags = tags.concat(this.ipa[t][i].split(" "));
+          break;
+        }
+      for (const i in this.ipa.secondary)
+        if (p.includes(i)) {
+          tags = tags.concat(this.ipa.secondary[i].split(" "));
+        }
+      return tags;
+    },
+    getUses(p, t) {
+      let uses = {};
+      for (const l of this.lectNames) {
+        const use = this.lects[l].phonemes[t][p]?.uses;
+        if (use) uses[l] = use;
+      }
+      return uses;
+    },
   },
 };
 </script>

@@ -26,8 +26,8 @@ export default new Vuex.Store({
       let lects = {};
       for (const n of lectNames) {
         const root = state.root + n + "/";
-        const phonology = await dispatch("loadJson", root + "phonology.json");
-        lects[n] = { root, phonology };
+        const phonemes = await dispatch("loadJson", root + "phonemes.json");
+        lects[n] = { root, phonemes };
       }
       commit("setState", ["lects", lects]);
     },

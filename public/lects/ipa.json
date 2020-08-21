@@ -1,11 +1,12 @@
 {
     "vowels": {
+        "a": "vowel open central unrounded",
         "ɑ": "open back unrounded"
     },
     "consonants": {
         "k": "voiceless velar stop"
     },
-    "modifiers": {
+    "secondary": {
         "ʷ": "labialized",
         "ʲ": "palatalized",
         "ʰ": "aspirated",

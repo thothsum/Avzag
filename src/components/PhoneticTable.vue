@@ -1,26 +1,31 @@
 <template>
   <div id="root" :class="{narrow: phonemes.length <= 12}" class="panel-horizontal-dense wrap">
-    <PhoneticItem
-      @click.native="$emit('phoneme', phn.i)"
-      :selected="selected==phn.i"
+    <!-- <PhoneticItem
+      @click.native="$emit('select', phn)"
+      :selected="selected==phn"
       :faded="!fitting[i]"
       :ipa="phn.ipa"
       :str="graphemes[i]"
       :key="i"
       v-for="(phn, i) in phonemes"
-    />
+    />-->
+    <p @click="$emit('select', p)" :key="p" v-for="p in phonemes">{{p}}</p>
   </div>
 </template>
 
 <script>
-import PhoneticItem from "./PhoneticItem";
+// import PhoneticItem from "./PhoneticItem";
 
 export default {
   name: "PhoneticTable",
   components: {
-    PhoneticItem,
+    // PhoneticItem,
   },
   props: ["selected", "lectQuery", "featureQuery", "phonemes"],
+  model: {
+    prop: "selected",
+    event: "select",
+  },
   methods: {
     pass(tags, query) {
       for (const [tag, mode] of Object.entries(query)) {
