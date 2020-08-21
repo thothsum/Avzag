@@ -12,37 +12,17 @@ import Header from "./components/Header.vue";
 export default Vue.extend({
   name: "App",
   components: {
-    Header
+    Header,
   },
   data() {
     return {
-      language: undefined
+      language: undefined,
     };
-  },
-  watch: {
-    "$route.params.lang": {
-      async handler() {
-        let language = this.$route.params.lang;
-        if (language && language !== this.$store.state.language)
-          this.$store.dispatch("loadLanguage", language);
-      },
-      immediate: true
-    },
-    "$route.path": {
-      handler(): void {
-        if (this.$route.name) localStorage.url = this.$route.path;
-      }
-    }
   },
   created() {
     this.$store.dispatch("loadCatalogue");
-    if (!this.$route.name || this.$route.name === "Home")
-      this.$router.push(
-        localStorage.url && localStorage.url !== this.$route.path
-          ? { path: localStorage.url }
-          : { name: "Home" }
-      );
-  }
+    this.$store.dispatch("loadLects", ["Iron", "Aqusha"]);
+  },
 });
 </script>
 

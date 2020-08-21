@@ -51,7 +51,7 @@ export default {
       return this.$store.state.phonology;
     },
     lects() {
-      return this.$store.getters.languageInfo?.lects;
+      return this.$store.state.lects;
     },
     vowels() {
       return this.categorize("vowel");

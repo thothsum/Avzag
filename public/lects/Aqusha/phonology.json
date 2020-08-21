@@ -1,0 +1,754 @@
+[
+    {
+        "ipa": "i",
+        "features": [
+            "vowel",
+            "front",
+            "close",
+            "unrounded"
+        ],
+        "uses": [
+            {
+                "grapheme": "и",
+                "samples": [
+                    [
+                        "игит",
+                        "igit"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "u",
+        "features": [
+            "vowel",
+            "back",
+            "close"
+        ],
+        "uses": [
+            {
+                "grapheme": "у",
+                "samples": [
+                    [
+                        "урши",
+                        "urʃi"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "e",
+        "features": [
+            "vowel",
+            "front",
+            "close-mid"
+        ],
+        "uses": [
+            {
+                "grapheme": "е"
+            },
+            {
+                "grapheme": "э",
+                "samples": [
+                    [
+                        "эмхӏе",
+                        "emħe"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ɑ",
+        "features": [
+            "vowel",
+            "open",
+            "back",
+            "unrounded"
+        ],
+        "uses": [
+            {
+                "grapheme": "а",
+                "samples": [
+                    [
+                        "асар",
+                        "ɑsɑr"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "str": "я",
+        "ipa": "æ",
+        "features": [
+            "vowel",
+            "front",
+            "near-open",
+            "unrounded"
+        ],
+        "uses": [
+            {
+                "grapheme": "я",
+                "samples": [
+                    [
+                        "хъяр",
+                        "qʰær"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "b",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "labial"
+        ],
+        "uses": [
+            {
+                "grapheme": "б",
+                "samples": [
+                    [
+                        "бугъа",
+                        "buʁɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "p",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "labial"
+        ],
+        "uses": [
+            {
+                "grapheme": "п",
+                "samples": [
+                    [
+                        "партал",
+                        "pɑrtɑl"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "pʼ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "labial"
+        ],
+        "uses": [
+            {
+                "grapheme": "пӏ",
+                "samples": [
+                    [
+                        "пӏялцӏикӏ",
+                        "pʼælt͡sʼikʼ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "v",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "labiodental"
+        ],
+        "uses": [
+            {
+                "grapheme": "в",
+                "samples": [
+                    [
+                        "варгьи",
+                        "vɑrhi"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "m",
+        "features": [
+            "consonant",
+            "voiced",
+            "labial",
+            "nasal"
+        ],
+        "uses": [
+            {
+                "grapheme": "м",
+                "samples": [
+                    [
+                        "мицӏираг",
+                        "mit͡sʼirag"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "d",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "dental"
+        ],
+        "uses": [
+            {
+                "grapheme": "д",
+                "samples": [
+                    [
+                        "дергъ",
+                        "derʁ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "t",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "dental"
+        ],
+        "uses": [
+            {
+                "grapheme": "т",
+                "samples": [
+                    [
+                        "тухтур",
+                        "tuxtur"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "tʼ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "dental"
+        ],
+        "uses": [
+            {
+                "grapheme": "тӏ",
+                "samples": [
+                    [
+                        "тӏутӏи",
+                        "tʼutʼi"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "t͡s",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "dental"
+        ],
+        "uses": [
+            {
+                "grapheme": "ц",
+                "samples": [
+                    [
+                        "царка",
+                        "t͡sɑrkɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "t͡sʼ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "dental"
+        ],
+        "uses": [
+            {
+                "grapheme": "цӏ",
+                "samples": [
+                    [
+                        "цӏедеш",
+                        "t͡sʼedeʃ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "z",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "dental"
+        ],
+        "uses": [
+            {
+                "grapheme": "з",
+                "samples": [
+                    [
+                        "зубарти",
+                        "zubɑrti"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "s",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "dental"
+        ],
+        "uses": [
+            {
+                "grapheme": "с",
+                "samples": [
+                    [
+                        "сири",
+                        "siri"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "n",
+        "features": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "nasal"
+        ],
+        "uses": [
+            {
+                "grapheme": "н",
+                "samples": [
+                    [
+                        "насаб",
+                        "nɑsɑb"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "l",
+        "features": [
+            "consonant",
+            "voiced",
+            "lateral",
+            "dental",
+            "approximant"
+        ],
+        "note": "Palatalized after /a/, /i/, /u/.",
+        "uses": [
+            {
+                "grapheme": "л",
+                "samples": [
+                    [
+                        "лами",
+                        "lɑmi"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ç",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "palatal"
+        ],
+        "uses": [
+            {
+                "grapheme": "хь",
+                "samples": [
+                    [
+                        "хьунул",
+                        ""
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "j",
+        "features": [
+            "consonant",
+            "voiced",
+            "palatal",
+            "approximant"
+        ],
+        "uses": [
+            {
+                "grapheme": "й",
+                "samples": [
+                    [
+                        "къайгъи",
+                        "qɑjʁi"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "alveolar"
+        ],
+        "uses": [
+            {
+                "grapheme": "ч",
+                "samples": [
+                    [
+                        "чарма",
+                        "t͡ʃɑrmɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "t͡ʃʼ",
+        "features": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "ejective",
+            "alveolar"
+        ],
+        "uses": [
+            {
+                "grapheme": "чӏ",
+                "samples": [
+                    [
+                        "чӏичӏала",
+                        "t͡ʃʼit͡ʃʼɑlɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ʒ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "alveolar"
+        ],
+        "uses": [
+            {
+                "grapheme": "ж",
+                "samples": [
+                    [
+                        "журуга",
+                        "ʒurugɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ʃ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "alveolar"
+        ],
+        "uses": [
+            {
+                "grapheme": "ш",
+                "samples": [
+                    [
+                        "шагьар",
+                        "ʃɑhɑr"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "r",
+        "features": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "trill"
+        ],
+        "uses": [
+            {
+                "grapheme": "р",
+                "samples": [
+                    [
+                        "рурси",
+                        "rursi"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "g",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "velar"
+        ],
+        "uses": [
+            {
+                "grapheme": "г",
+                "samples": [
+                    [
+                        "галга",
+                        "gɑlgɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "k",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "velar"
+        ],
+        "uses": [
+            {
+                "grapheme": "к",
+                "samples": [
+                    [
+                        "кам",
+                        "kɑm"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "kʼ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "velar"
+        ],
+        "uses": [
+            {
+                "grapheme": "кӏ",
+                "samples": [
+                    [
+                        "кӏапӏи",
+                        "kʼɑpʼi"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "q",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "uvular"
+        ],
+        "uses": [
+            {
+                "grapheme": "къ",
+                "samples": [
+                    [
+                        "къаркъа",
+                        "qɑrqɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "qʰ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "uvular",
+            "aspirated"
+        ],
+        "uses": [
+            {
+                "grapheme": "хъ",
+                "samples": [
+                    [
+                        "хъяр",
+                        "qʰær"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "qʼ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiced",
+            "ejective",
+            "uvular"
+        ],
+        "uses": [
+            {
+                "grapheme": "кь",
+                "samples": [
+                    [
+                        "кьацӏ",
+                        "qʼɑt͡sʼ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ɣ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "velar"
+        ],
+        "uses": [
+            {
+                "grapheme": "гъ",
+                "samples": [
+                    [
+                        "гъум",
+                        "ɣum"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "x",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "velar"
+        ],
+        "uses": [
+            {
+                "grapheme": "х",
+                "samples": [
+                    [
+                        "халадудеш",
+                        "xɑlɑdudeʃ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ħ",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "pharyngeal"
+        ],
+        "uses": [
+            {
+                "grapheme": "хӏ",
+                "samples": [
+                    [
+                        "хӏяйван",
+                        "ħæjvɑn"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "h",
+        "features": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "laryngeal"
+        ],
+        "uses": [
+            {
+                "grapheme": "гь",
+                "samples": [
+                    [
+                        "гьая",
+                        "hɑjɑ"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "ipa": "ʔ",
+        "features": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "ejective",
+            "laryngeal"
+        ],
+        "uses": [
+            {
+                "grapheme": "ъ",
+                "samples": [
+                    [
+                        "ниъ",
+                        "niʔ"
+                    ]
+                ]
+            }
+        ]
+    }
+]

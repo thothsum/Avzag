@@ -1,5 +1,5 @@
 <template>
-  <div v-if="catalogue">
+  <div v-if="lects">
     <div id="header" class="section panel-horizontal wrap">
       <h1>Ævzag</h1>
       <div class="panel-horizontal">
@@ -10,30 +10,20 @@
       </div>
     </div>
     <div id="languages" class="section panel-horizontal-sparse wrap">
-      <LanguageCard :key="i" v-for="(lg, i) in languages" :language="lg" />
+      <button :key="i" v-for="(l, i) in lectNames">{{l}}</button>
     </div>
   </div>
 </template>
 
 <script>
-import LanguageCard from "@/components/LanguageCard";
-
 export default {
   name: "Home",
-  components: {
-    LanguageCard,
-  },
-  data() {
-    return {
-      publicPath: process.env.BASE_URL,
-    };
-  },
   computed: {
-    catalogue() {
-      return this.$store.state.catalogue;
+    lects() {
+      return this.$store.state.lects;
     },
-    languages() {
-      return Object.keys(this.catalogue).sort((a, b) => a.localeCompare(b));
+    lectNames() {
+      return Object.keys(this.lects);
     },
   },
 };

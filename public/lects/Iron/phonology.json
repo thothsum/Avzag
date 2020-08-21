@@ -1,0 +1,26 @@
+[
+    {
+        "ipa": "a",
+        "features": [
+            "vowel",
+            "open",
+            "central",
+            "unrounded"
+        ],
+        "uses": [
+            {
+                "grapheme": "а",
+                "samples": [
+                    [
+                        "абон",
+                        "abon"
+                    ],
+                    [
+                        "балц",
+                        "bals"
+                    ]
+                ]
+            }
+        ]
+    }
+]
