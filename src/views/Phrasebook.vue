@@ -1,7 +1,7 @@
 <template>
-  <div class="section" v-if="phrasebook">
+  <div class="section" v-if="phrasebooks">
     <div id="translations" class="panel">
-      <div id="header" class="panel-horizontal">
+      <!-- <div id="header" class="panel-horizontal">
         <button @click="searching=!searching" class="icon">{{searching?"sort":"search"}}</button>
         <input v-if="searching" placeholder="search in translations" type="text" v-model="search" />
         <select v-else v-model="category">
@@ -27,16 +27,16 @@
           :key="i"
           v-for="(tr, i) in translations"
         >{{tr}}</button>
-      </div>
+      </div>-->
     </div>
-    <div class="panel">
+    <div class="panel" v-if="phrasebooks">
       <PhraseBuilder :source="text" :ids="ids" />
       <PhrasebookEntry
         class="card"
         :key="i"
-        v-for="(lc, i) in lects"
-        :lect="lc"
-        :source="sources[lc]"
+        v-for="(l, i) in lectNames"
+        :lect="l"
+        :source="lang_sources[i]"
         :ids="ids"
       />
     </div>
@@ -55,7 +55,7 @@ export default {
   },
   data() {
     return {
-      category: 0,
+      // category: 0,
       phrase: 0,
       searching: false,
       search: "",
@@ -64,61 +64,30 @@ export default {
   },
   computed: {
     lects() {
-      return this.$store.getters.lects.filter((l) => l in this.sources);
+      return this.$store.state.lects;
     },
-    phrasebook() {
-      return this.$store.state.phrasebook;
+    lectNames() {
+      return Object.keys(this.lects);
     },
-    categories() {
-      return Object.keys(this.phrasebook);
+    phrasebooks() {
+      return this.lectNames.map((l) => this.lects[l].phrasebook);
     },
-    phrases() {
-      return this.phrasebook
-        ? this.phrasebook[this.categories[this.category]]
-        : null;
+    text() {
+      return this.phrasebooks[0]["Greeting"][0].text;
     },
-    translations() {
-      return this.phrases.map((it) => it.translation);
+    lang_sources() {
+      return this.phrasebooks.map((p) => p["Greeting"][0].source);
     },
-    sources() {
-      return this.phrases[this.phrase].sources;
-    },
-    text: function () {
-      return this.phrases ? this.phrases[this.phrase].text : null;
-    },
-    searchResults() {
-      if (!this.searching) return null;
-
-      let results = {};
-      this.categories.forEach((c, i) => {
-        let filtered = [];
-        this.phrasebook[c]
-          .map((p) => p.translation)
-          .forEach((p, j) => {
-            if (p.includes(this.search)) filtered.push(j);
-          });
-        if (filtered.length > 0) results[i] = filtered;
-      });
-
-      if (Object.keys(results).length === 0) return null;
-      else return results;
-    },
+    // phrases() {
+    //   return this.phrasebook
+    //     ? this.phrasebook[this.categories[this.category]]
+    //     : null;
+    // },
   },
   watch: {
-    category(category) {
-      this.$router
-        .push({ query: { category: category, phrase: 0 } })
-        .catch(() => {});
-    },
-    phrase(phrase) {
-      this.$router
-        .push({ query: { ...this.$route.query, phrase: phrase } })
-        .catch(() => {});
-    },
     text: {
       handler(text) {
         if (!text) return;
-
         let ids = {};
         text.forEach((s) => {
           if (typeof s !== "string") {
@@ -126,13 +95,6 @@ export default {
           }
         });
         this.ids = ids;
-      },
-      immediate: true,
-    },
-    "$route.query": {
-      handler(query) {
-        this.category = query.category ?? 0;
-        this.phrase = query.phrase ?? 0;
       },
       immediate: true,
     },
