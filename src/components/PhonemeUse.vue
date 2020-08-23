@@ -2,19 +2,19 @@
   <div class="panel card">
     <div class="title">
       <h3>{{lect}}</h3>
-      <p v-html="graphemes"></p>
+      <p v-html="header"></p>
     </div>
     <div class="panel-solid scroll">
-      <template v-for="(u, j) in use.samples">
+      <template v-for="g in graphemes">
         <button
           class="small panel-horizontal"
-          @click="$emit('play', s[0])"
-          :key="j*10+i"
-          v-for="(s, i) in u.samples"
+          @click="play(s)"
+          :key="g+'.'+s.word"
+          v-for="s in use.samples[g]"
         >
-          <span v-if="!s['muted']" class="icon-small">play_arrow</span>
-          <span class="text" v-html="highlight(s['word'], u.grapheme, s['highlights'])"></span>
-          <span class="text-ipa" v-if="s[1]" v-html="highlight(s['ipa'], phoneme)"></span>
+          <span v-if="!s.muted" class="icon-small">play_arrow</span>
+          <span class="text" v-html="highlight(s.word, g, s.highlights)"></span>
+          <span class="text-ipa" v-if="s.ipa" v-html="highlight(s.ipa, phoneme)"></span>
         </button>
       </template>
     </div>
@@ -28,11 +28,14 @@ import PhoneticNote from "./PhoneticNote";
 export default {
   name: "PhonemeUse",
   components: { PhoneticNote },
-  props: ["phoneme", "lect", "use", "notes"],
+  props: ["phoneme", "lect", "use"],
   computed: {
     graphemes() {
-      return this.use.samples
-        .map((u) => `<b>${u.grapheme}</b>`)
+      return Object.keys(this.use.samples);
+    },
+    header() {
+      return this.graphemes
+        .map((g) => `<b>${g}</b>`)
         .join("<span class='text-dot'></span>");
     },
   },
@@ -48,6 +51,9 @@ export default {
         });
       }
       return sample.replace(regex, match);
+    },
+    play(sample) {
+      if (!sample.muted) this.$emit("play", sample.word);
     },
   },
 };
