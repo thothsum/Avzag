@@ -60,9 +60,9 @@ export default {
       this.types.forEach((t) => {
         phonemes[t] = [
           ...new Set(
-            this.lectNames
-              .map((l) => Object.keys(this.lects[l].phonemes[t]))
-              .flat()
+            this.lectNames.flatMap((l) =>
+              Object.keys(this.lects[l].phonemes[t])
+            )
           ),
         ].sort(function (a, b) {
           return a.localeCompare(b);
@@ -87,10 +87,10 @@ export default {
     phonemes() {
       this.selected = this.phonemes[this.types[0]][0];
     },
-    singleLect(val) {
-      if (!val) return;
+    singleLect(lect) {
+      if (!lect) return;
       this.lectQuery = {};
-      this.lectQuery[val] = true;
+      this.lectQuery[lect] = true;
     },
     selected(val) {
       this.$router.replace({ query: { p: val } });

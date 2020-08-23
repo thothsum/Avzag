@@ -8,9 +8,9 @@
             @click.native="selectPhoneme(t,p)"
             :selected="selectedPhoneme==p"
             :ipa="p"
-            :str="Object.keys(u.samples)[0]"
-            :key="p"
-            v-for="(u, p) of file[t]"
+            :str="graphemes[t][i]"
+            :key="i"
+            v-for="(p,i) in phonemes[t]"
           />
           <button class="add icon" @click="addPhoneme(t)">add</button>
         </div>
@@ -22,29 +22,31 @@
         <button @click="applyPhoneme" class="small">apply all changes</button>
       </div>
       <input type="text" v-model="selectedCopy.phoneme" />
-      <div class="panel-horizontal">
-        <h3>Notes</h3>
-        <button @click="addNote" class="icon add small">add</button>
-      </div>
-      <div :key="i" v-for="(n,i) in selectedCopy.notes" class="panel-horizontal">
-        <textarea v-model="selectedCopy.notes[i]" style="flex:1" />
-        <button @click="deleteNote(i)" class="icon delete">delete</button>
+      <div>
+        <div class="panel-horizontal">
+          <h3>Notes</h3>
+          <button @click="addNote" class="icon add small">add</button>
+        </div>
+        <div :key="i" v-for="(n,i) in selectedCopy.notes" class="panel-horizontal">
+          <textarea v-model="selectedCopy.notes[i]" style="flex:1" />
+          <button @click="deleteNote(i)" class="icon delete">delete</button>
+        </div>
       </div>
       <div class="panel-horizontal">
         <h3>Samples</h3>
         <button @click="addSample" class="icon add small">add</button>
       </div>
-      <div :key="g" v-for="(s, g) of selectedCopy.samples" class="panel">
-        <div :key="i" v-for="(w,i) in s" class="panel-horizontal">
-          <div class="panel-dense">
-            <input type="text" v-model="w.word" />
-            <input type="text" v-model="w.ipa" />
-            <div class="panel-horizontal">
-              <input type="checkbox" v-model="w.muted" />muted
-            </div>
+      <div :key="i" v-for="(s,i) in selectedCopy.samples" class="panel-horizontal">
+        <div class="panel-dense">
+          <input type="text" v-model="s.grapheme" />
+          <input type="text" v-model="s.word" />
+          <input type="text" v-model="s.ipa" />
+          <input type="text" v-model="s.indexes" />
+          <div class="panel-horizontal">
+            <input type="checkbox" v-model="s.muted" />muted
           </div>
-          <button @click="deleteSample(i)" class="icon delete">delete</button>
         </div>
+        <button @click="deleteSample(i)" class="icon delete">delete</button>
       </div>
     </div>
   </div>
@@ -71,6 +73,21 @@ export default {
     text() {
       return JSON.stringify(this.file);
     },
+    phonemes() {
+      let phonemes = {};
+      for (const t of this.types) phonemes[t] = Object.keys(this.file[t]);
+      return phonemes;
+    },
+    graphemes() {
+      let graphemes = {};
+      this.types.forEach(
+        (t) =>
+          (graphemes[t] = this.phonemes[t].map(
+            (p) => this.file[t][p]?.samples?.[0]?.graphemes
+          ))
+      );
+      return graphemes;
+    },
   },
   watch: {
     selectedCopy(val) {
@@ -83,9 +100,6 @@ export default {
         }
       }
       this.selectedCopyData = data;
-    },
-    file() {
-      this.$forceUpdate();
     },
   },
   async mounted() {
@@ -105,14 +119,19 @@ export default {
       this.selectedCopy = JSON.parse(JSON.stringify(this.file[t][p]));
       this.selectedCopy.phoneme = p;
       this.selectedCopy.type = t;
+      this.$forceUpdate();
     },
     addPhoneme(type) {
-      if ("new" in this.file[type]) return;
-      this.file[type]["new"] = { samples: { new: [] } };
+      const cat = this.file[type];
+      if ("new" in cat) return;
+      cat["new"] = { samples: { new: [] } };
+      this.file[type] = cat;
+      this.$forceUpdate();
     },
     deletePhoneme() {
       delete this.file[this.selectedCopy.type][this.selectedCopy.phoneme];
       this.selectedCopy = null;
+      this.$forceUpdate();
     },
     applyPhoneme() {
       const t = this.selectedCopy.type;
@@ -124,22 +143,25 @@ export default {
       this.selectPhoneme(t, p);
     },
     addNote() {
-      if (!this.selectedCopy.notes) {
-        this.selectedCopy.notes = [];
-        this.$forceUpdate();
-      }
+      if (!this.selectedCopy.notes) this.selectedCopy.notes = [];
       this.selectedCopy.notes.push("");
+      this.$forceUpdate();
     },
     deleteNote(i) {
       this.selectedCopy.notes.splice(i, 1);
-      if (this.selectedCopy.notes.length == 0) {
-        delete this.selectedCopy.notes;
-        this.$forceUpdate();
-      }
+      if (this.selectedCopy.notes.length == 0) delete this.selectedCopy.notes;
+      this.$forceUpdate();
     },
-    addSample() {},
+    addSample() {
+      if (!this.selectedCopy.samples) this.selectedCopy.samples = [];
+      this.selectedCopy.samples.push({});
+      this.$forceUpdate();
+    },
     deleteSample(i) {
-      console.log("delete sample", i);
+      this.selectedCopy.samples.splice(i, 1);
+      if (this.selectedCopy.samples.length == 0)
+        delete this.selectedCopy.samples;
+      this.$forceUpdate();
     },
   },
 };
