@@ -5,18 +5,11 @@
       <p v-html="header"></p>
     </div>
     <div class="panel-solid scroll">
-      <template v-for="g in graphemes">
-        <button
-          class="small panel-horizontal"
-          @click="play(s)"
-          :key="g+'.'+s.word"
-          v-for="s in use.samples[g]"
-        >
-          <span v-if="!s.muted" class="icon-small">play_arrow</span>
-          <span class="text" v-html="highlight(s.word, g, s.highlights)"></span>
-          <span class="text-ipa" v-if="s.ipa" v-html="highlight(s.ipa, phoneme)"></span>
-        </button>
-      </template>
+      <button class="small panel-horizontal" @click="play(s)" :key="i" v-for="(s,i) in use.samples">
+        <span v-if="!s.muted" class="icon-small">play_arrow</span>
+        <span class="text" v-html="highlight(s.word, s.grapheme, s.indexes)"></span>
+        <span class="text-ipa" v-if="s.ipa" v-html="highlight(s.ipa, phoneme)"></span>
+      </button>
     </div>
     <PhoneticNote :key="i" v-for="(n, i) in use.notes" :text="n" />
   </div>
@@ -30,27 +23,25 @@ export default {
   components: { PhoneticNote },
   props: ["phoneme", "lect", "use"],
   computed: {
-    graphemes() {
-      return Object.keys(this.use.samples);
-    },
     header() {
-      return this.graphemes
+      return [...new Set(this.use.samples.map((s) => s.grapheme))]
         .map((g) => `<b>${g}</b>`)
         .join("<span class='text-dot'></span>");
     },
   },
   methods: {
-    highlight(sample, grapheme, indexes) {
+    highlight(text, grapheme, indexes) {
       const regex = new RegExp(grapheme, "g");
       const match = `<span style="color: var(--color-highlight)">${grapheme}</span>`;
 
       if (indexes) {
+        indexes = indexes.split(" ");
         let i = 0;
-        return sample.replace(regex, function (m) {
-          return indexes.includes(i++) ? match : m;
+        return text.replace(regex, function (m) {
+          return indexes.includes((i++).toString()) ? match : m;
         });
       }
-      return sample.replace(regex, match);
+      return text.replace(regex, match);
     },
     play(sample) {
       if (!sample.muted) this.$emit("play", sample.word);

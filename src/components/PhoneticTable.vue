@@ -50,10 +50,11 @@ export default {
       return lects.length == 1 ? lects[0] : undefined;
     },
     graphemes() {
-      return this.phonemes.map(
-        (p) =>
-          Object.keys(this.database[p].uses[this.singleLect]?.samples ?? {})[0]
-      );
+      return this.phonemes.map((p) => {
+        if (!this.singleLect) return null;
+        const samples = this.database[p].uses[this.singleLect]?.samples;
+        return samples ? samples[0]?.grapheme : null;
+      });
     },
   },
 };
