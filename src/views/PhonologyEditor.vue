@@ -9,9 +9,9 @@
         <div :key="g" v-for="(s, g) of u.samples" class="panel-horizontal">
           {{g}}
           <div :key="i" v-for="(w,i) in s">
-            <p>{{w.word}}</p>
-            <p>{{w.ipa}}</p>
-            <p>{{w.muted ? 1 : 0}}</p>
+            <input type="text" v-model="w.word" />
+            <input type="text" v-model="w.ipa" />
+            <input type="checkbox" v-model="w.muted" />
           </div>
         </div>
       </div>
@@ -34,12 +34,19 @@ export default {
     },
   },
   async mounted() {
-    const r = this.$store.state.root;
     const l = this.$route.query.lect;
+    if (!l) {
+      this.file = {};
+      return;
+    }
+    const r = this.$store.state.root;
     this.file = await fetch(`${r}${l}/phonemes.json`).then((r) => r.json());
   },
 };
 </script>
 
 <style lang="scss" scoped>
+input[type="text"] {
+  height: map-get($button-height, "small");
+}
 </style>
