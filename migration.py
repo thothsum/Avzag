@@ -1,16 +1,17 @@
 import json
 
-ct = ["Aqusha", "Kaitag", "Kabardian", "Iron"]
+names = ["Aqusha", "Kaitag", "Kabardian", "Iron"]
 
-for lc in ct:
-    jn = json.loads(open("public/lects/"+lc+"/phonology.json",
-                         "r", encoding="utf8").read())
-    dc = {}
+for name in names:
+    source = json.loads(open("public/lects/"+name+"/phonemes.json",
+                             "r", encoding="utf8").read())
+    result = source
 
-    for ph in list(jn.keys()):
-        if "features" in jn[ph]:
-            del jn[ph]["features"]
-        dc[ph] = jn[ph]
+    for type in ["vowels", "consonants"]:
+        phonemes = []
+        for phoneme in source[type]:
+            for use in phoneme["uses"]:
+                
 
-    open("public/lects/"+lc+"/phonology.json", "w",
-         encoding="utf8").write(json.dumps(dc, ensure_ascii=False))
+    open("public/lects/"+name+"/phonemes.json", "w",
+         encoding="utf8").write(json.dumps(result, ensure_ascii=False))
