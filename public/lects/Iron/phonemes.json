@@ -1,6 +1,6 @@
 {
-    "vowels": [
-        {
+    "vowels": {
+        "a": {
             "uses": [
                 {
                     "grapheme": "а",
@@ -15,10 +15,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "a"
+            ]
         },
-        {
+        "ɐ": {
             "uses": [
                 {
                     "grapheme": "ӕ",
@@ -33,10 +32,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "ɐ"
+            ]
         },
-        {
+        "e": {
             "notes": [
                 "⟨э⟩ is used only in recent Russian loanwords."
             ],
@@ -57,10 +55,9 @@
                 {
                     "grapheme": "э"
                 }
-            ],
-            "phoneme": "e"
+            ]
         },
-        {
+        "i": {
             "uses": [
                 {
                     "grapheme": "и",
@@ -75,10 +72,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "i"
+            ]
         },
-        {
+        "o": {
             "uses": [
                 {
                     "grapheme": "о",
@@ -93,10 +89,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "o"
+            ]
         },
-        {
+        "ə": {
             "uses": [
                 {
                     "grapheme": "ы",
@@ -111,10 +106,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "ə"
+            ]
         },
-        {
+        "u": {
             "uses": [
                 {
                     "grapheme": "у",
@@ -129,12 +123,11 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "u"
+            ]
         }
-    ],
-    "consonants": [
-        {
+    },
+    "consonants": {
+        "b": {
             "uses": [
                 {
                     "grapheme": "б",
@@ -149,10 +142,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "b"
+            ]
         },
-        {
+        "pʰ": {
             "uses": [
                 {
                     "grapheme": "п",
@@ -168,10 +160,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "pʰ"
+            ]
         },
-        {
+        "pː": {
             "notes": [
                 "Phonetic status in question."
             ],
@@ -194,10 +185,9 @@
                     "grapheme": "бп",
                     "samples": []
                 }
-            ],
-            "phoneme": "pː"
+            ]
         },
-        {
+        "pʼ": {
             "uses": [
                 {
                     "grapheme": "пъ",
@@ -212,10 +202,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "pʼ"
+            ]
         },
-        {
+        "d": {
             "uses": [
                 {
                     "grapheme": "д",
@@ -230,10 +219,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "d"
+            ]
         },
-        {
+        "tʰ": {
             "uses": [
                 {
                     "grapheme": "т",
@@ -248,10 +236,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "tʰ"
+            ]
         },
-        {
+        "tː": {
             "notes": [
                 "Phonetic status in question."
             ],
@@ -274,10 +261,9 @@
                     "grapheme": "дт",
                     "samples": []
                 }
-            ],
-            "phoneme": "tː"
+            ]
         },
-        {
+        "tʼ": {
             "uses": [
                 {
                     "grapheme": "тъ",
@@ -292,10 +278,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "tʼ"
+            ]
         },
-        {
+        "g": {
             "uses": [
                 {
                     "grapheme": "г",
@@ -310,10 +295,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "g"
+            ]
         },
-        {
+        "gʷ": {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -331,10 +315,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "gʷ"
+            ]
         },
-        {
+        "kʰ": {
             "uses": [
                 {
                     "grapheme": "к",
@@ -350,10 +333,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "kʰ"
+            ]
         },
-        {
+        "kː": {
             "notes": [
                 "Phonetic status in question."
             ],
@@ -375,10 +357,9 @@
                     "grapheme": "гк",
                     "samples": []
                 }
-            ],
-            "phoneme": "kː"
+            ]
         },
-        {
+        "kʷ": {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -396,10 +377,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "kʷ"
+            ]
         },
-        {
+        "kʼ": {
             "uses": [
                 {
                     "grapheme": "къ",
@@ -414,10 +394,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "kʼ"
+            ]
         },
-        {
+        "kʼʷ": {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -435,10 +414,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "kʼʷ"
+            ]
         },
-        {
+        "q": {
             "uses": [
                 {
                     "grapheme": "хъ",
@@ -453,10 +431,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "q"
+            ]
         },
-        {
+        "qʷ": {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -474,10 +451,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "qʷ"
+            ]
         },
-        {
+        "m": {
             "uses": [
                 {
                     "grapheme": "м",
@@ -492,10 +468,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "m"
+            ]
         },
-        {
+        "n": {
             "uses": [
                 {
                     "grapheme": "н",
@@ -510,10 +485,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "n"
+            ]
         },
-        {
+        "r": {
             "uses": [
                 {
                     "grapheme": "р",
@@ -528,10 +502,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "r"
+            ]
         },
-        {
+        "f": {
             "uses": [
                 {
                     "grapheme": "ф",
@@ -546,10 +519,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "f"
+            ]
         },
-        {
+        "v": {
             "uses": [
                 {
                     "grapheme": "в",
@@ -564,10 +536,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "v"
+            ]
         },
-        {
+        "ʃ": {
             "notes": [
                 "Corresponds to /s/ in Chisan and Kudar speech.",
                 "⟨ш⟩ is used only in recent Russian loanwords."
@@ -589,10 +560,9 @@
                 {
                     "grapheme": "ш"
                 }
-            ],
-            "phoneme": "ʃ"
+            ]
         },
-        {
+        "ʒ": {
             "notes": [
                 "Corresponds to /z/ in Chisan and Kudar speech.",
                 "⟨ж⟩ is used only in recent Russian loanwords."
@@ -614,10 +584,9 @@
                 {
                     "grapheme": "ж"
                 }
-            ],
-            "phoneme": "ʒ"
+            ]
         },
-        {
+        "ʁ": {
             "uses": [
                 {
                     "grapheme": "гъ",
@@ -632,10 +601,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "ʁ"
+            ]
         },
-        {
+        "ʁʷ": {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -653,10 +621,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "ʁʷ"
+            ]
         },
-        {
+        "χ": {
             "uses": [
                 {
                     "grapheme": "х",
@@ -671,10 +638,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "χ"
+            ]
         },
-        {
+        "χʷ": {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -692,10 +658,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "χʷ"
+            ]
         },
-        {
+        "z": {
             "notes": [
                 "Corresponds to /d͡z/ in Chisan speech, and to /ʒ/ in Kudar speech."
             ],
@@ -713,10 +678,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "z"
+            ]
         },
-        {
+        "d͡z": {
             "notes": [
                 "Occurs only when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."
             ],
@@ -731,10 +695,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "d͡z"
+            ]
         },
-        {
+        "s": {
             "notes": [
                 "Corresponds to /t͡s/ in Chisan speech, and to /ʃ/ in Kudar speech."
             ],
@@ -752,10 +715,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "s"
+            ]
         },
-        {
+        "t͡s": {
             "notes": [
                 "Occurs only when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."
             ],
@@ -770,10 +732,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "t͡s"
+            ]
         },
-        {
+        "t͡sʼ": {
             "uses": [
                 {
                     "grapheme": "цъ",
@@ -788,10 +749,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "t͡sʼ"
+            ]
         },
-        {
+        "d͡ʒ": {
             "uses": [
                 {
                     "grapheme": "дж",
@@ -806,10 +766,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "d͡ʒ"
+            ]
         },
-        {
+        "t͡ʃ": {
             "uses": [
                 {
                     "grapheme": "ч",
@@ -824,10 +783,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "t͡ʃ"
+            ]
         },
-        {
+        "t͡ʃʼ": {
             "uses": [
                 {
                     "grapheme": "чъ",
@@ -842,10 +800,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "t͡ʃʼ"
+            ]
         },
-        {
+        "w": {
             "uses": [
                 {
                     "grapheme": "у",
@@ -860,10 +817,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "w"
+            ]
         },
-        {
+        "j": {
             "uses": [
                 {
                     "grapheme": "й",
@@ -878,10 +834,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "j"
+            ]
         },
-        {
+        "l": {
             "uses": [
                 {
                     "grapheme": "л",
@@ -896,10 +851,9 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "l"
+            ]
         },
-        {
+        "h": {
             "notes": [
                 "Occurs only in interjections."
             ],
@@ -914,8 +868,7 @@
                         }
                     ]
                 }
-            ],
-            "phoneme": "h"
+            ]
         }
-    ]
+    }
 }
