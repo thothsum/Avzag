@@ -2,15 +2,16 @@
   <div class="section" v-if="lects && database">
     <div class="panel scroll">
       <QueryList v-if="!singleLect" :tags="lectNames" @query="lectQuery=$event" />
-      <PhoneticTable
-        v-model="selected"
-        :featureQuery="featureQuery"
-        :lectQuery="lectQuery"
-        :phonemes="phonemes[t]"
-        :database="database[t]"
-        :key="t"
-        v-for="t in types"
-      />
+      <div class="panel" :key="t" v-for="t in types">
+        <h3>{{t}}</h3>
+        <PhoneticTable
+          v-model="selected"
+          :featureQuery="featureQuery"
+          :lectQuery="lectQuery"
+          :phonemes="phonemes[t]"
+          :database="database[t]"
+        />
+      </div>
       <QueryInput @query="featureQuery=$event" />
     </div>
     <PhonemeDetails :phoneme="selected" :database="selectedData" />

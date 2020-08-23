@@ -15,6 +15,8 @@ export default {
 <style lang="scss" scoped>
 button {
   place-content: center;
+  width: 46px;
+  height: 40px;
 }
 .text-faded {
   background-color: transparent !important;
