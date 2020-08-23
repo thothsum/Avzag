@@ -1,1 +1,921 @@
-{"vowels": [{"uses": [{"grapheme": "а", "samples": [["абон", "abon"], ["балц", "bals"]]}], "phoneme": "a"}, {"uses": [{"grapheme": "ӕ", "samples": [["ӕххуыс", "ɐχːʷəʃ"], ["уыгӕрдӕн", "wəgɐrdɐn"]]}], "phoneme": "ɐ"}, {"notes": ["⟨э⟩ is used only in recent Russian loanwords."], "uses": [{"grapheme": "е", "samples": [["егъау", "jeʁaw"], ["дуне", "dune"]]}, {"grapheme": "э"}], "phoneme": "e"}, {"uses": [{"grapheme": "и", "samples": [["изӕр", "iʒɐr"], ["къалиу", "kʼaliw"]]}], "phoneme": "i"}, {"uses": [{"grapheme": "о", "samples": [["обау", "obaw"], ["райсом", "rajʃom"]]}], "phoneme": "o"}, {"uses": [{"grapheme": "ы", "samples": [["сыффытт", "ʃəffətː"], ["ралыгъд", "raləʁd"]]}], "phoneme": "ə"}, {"uses": [{"grapheme": "у", "samples": [["усгур", "uʃgur"], ["худын", "χudən"]]}], "phoneme": "u"}], "consonants": [{"uses": [{"grapheme": "б", "samples": [["байзӕддаг", "bajʒɐtːag"], ["къӕбӕр", "kʼɐbɐr"]]}], "phoneme": "b"}, {"uses": [{"grapheme": "п", "samples": [["пурти", "pʰurtʰi"], ["*аипджын", "aipʰd͡ʒən"]]}], "phoneme": "pʰ"}, {"notes": ["Phonetic status in question."], "uses": [{"grapheme": "пп", "samples": [["*ӕппӕлын", "ɐpːɐlən"]]}, {"grapheme": "бб", "samples": []}, {"grapheme": "бп", "samples": []}], "phoneme": "pː"}, {"uses": [{"grapheme": "пъ", "samples": [["пъазбын", "pʼaʒbən"], ["пъырыпъыф", "pʼərəpʼəf"]]}], "phoneme": "pʼ"}, {"uses": [{"grapheme": "д", "samples": [["дыргъ", "dərʁ"], ["зӕд", "ʒɐd"]]}], "phoneme": "d"}, {"uses": [{"grapheme": "т", "samples": [["тӕрхондон", "tʰɐrχondon"], ["фарст", "farʃtʰ"]]}], "phoneme": "tʰ"}, {"notes": ["Phonetic status in question."], "uses": [{"grapheme": "тт", "samples": [["*ныттонын", "nətːonən"]]}, {"grapheme": "дд", "samples": []}, {"grapheme": "дт", "samples": []}], "phoneme": "tː"}, {"uses": [{"grapheme": "тъ", "samples": [["тъӕпӕн", "tʼɐpʰɐn"], ["джитъри", "d͡ʒitʼri"]]}], "phoneme": "tʼ"}, {"uses": [{"grapheme": "г", "samples": [["гага", "gaga"], ["дӕндаг", "dɐndag"]]}], "phoneme": "g"}, {"notes": ["Occurs only before vowels."], "uses": [{"grapheme": "гу", "samples": [["гуыбын", "gʷəbən"], ["уазӕгуаты", "waʒɐgʷatʰə"]]}], "phoneme": "gʷ"}, {"uses": [{"grapheme": "к", "samples": [["кард", "kʰard"], ["*акаст", "akʰastʰ"]]}], "phoneme": "kʰ"}, {"notes": ["Phonetic status in question."], "uses": [{"grapheme": "кк", "samples": [["ныртӕккӕ", "nərtʰɐkːɐ"]]}, {"grapheme": "гг", "samples": []}, {"grapheme": "гк", "samples": []}], "phoneme": "kː"}, {"notes": ["Occurs only before vowels."], "uses": [{"grapheme": "ку", "samples": [["куыдз", "kʷəz"], ["никуы", "nikʷə"]]}], "phoneme": "kʷ"}, {"uses": [{"grapheme": "къ", "samples": [["къӕсӕр", "kʼɐʃɐr"], ["хуыскъ", "χʷəʃkʼ"]]}], "phoneme": "kʼ"}, {"notes": ["Occurs only before vowels."], "uses": [{"grapheme": "къу", "samples": [["къуым", "kʼʷəm"], ["аскъуынын", "aʃkʼʷənən"]]}], "phoneme": "kʼʷ"}, {"uses": [{"grapheme": "хъ", "samples": [["хъӕу", "qɐw"], ["ӕнӕхъӕн", "ɐnɐqɐn"]]}], "phoneme": "q"}, {"notes": ["Occurs only before vowels."], "uses": [{"grapheme": "хъу", "samples": [["хъуын", "qʷən"], ["бахъуаджы", "baqʷad͡ʒə"]]}], "phoneme": "qʷ"}, {"uses": [{"grapheme": "м", "samples": [["мыст", "məʃtʰ"], ["нымӕт", "nəmɐtʰ"]]}], "phoneme": "m"}, {"uses": [{"grapheme": "н", "samples": [["ничи", "nit͡ʃi"], ["рагон", "ragon"]]}], "phoneme": "n"}, {"uses": [{"grapheme": "р", "samples": [["рахиз", "raχiʒ"], ["сӕйраг", "ʃɐjrag"]]}], "phoneme": "r"}, {"uses": [{"grapheme": "ф", "samples": [["фӕйнӕг", "fɐjnɐg"], ["арфӕ", "arfɐ"]]}], "phoneme": "f"}, {"uses": [{"grapheme": "в", "samples": [["вӕзн", "vɐʒn"], ["ӕхсӕв", "ɐχʃɐv"]]}], "phoneme": "v"}, {"notes": ["Corresponds to /s/ in Chisan and Kudar speech.", "⟨ш⟩ is used only in recent Russian loanwords."], "uses": [{"grapheme": "с", "samples": [["саргъ", "ʃarʁ"], ["ӕхситт", "ɐχʃitː"]]}, {"grapheme": "ш"}], "phoneme": "ʃ"}, {"notes": ["Corresponds to /z/ in Chisan and Kudar speech.", "⟨ж⟩ is used only in recent Russian loanwords."], "uses": [{"grapheme": "з", "samples": [["зачъе", "ʒat͡ʃʼe"], ["лагъз", "laʁʒ"]]}, {"grapheme": "ж"}], "phoneme": "ʒ"}, {"uses": [{"grapheme": "гъ", "samples": [["ӕгъдау", "ɐʁdaw"], ["уаргъ", "warʁ"]]}], "phoneme": "ʁ"}, {"notes": ["Occurs only before vowels."], "uses": [{"grapheme": "гъу", "samples": [["агъуыст", "aʁʷəʃtʰ"], ["ӕвгъуаг", "ɐvʁʷag"]]}], "phoneme": "ʁʷ"}, {"uses": [{"grapheme": "х", "samples": [["хӕрӕг", "χɐrɐg"], ["къӕпхӕн", "kʼɐpχɐn"]]}], "phoneme": "χ"}, {"notes": ["Occurs only before vowels."], "uses": [{"grapheme": "ху", "samples": [["хуым", "χʷəm"], ["ахуыр", "aχʷər"]]}], "phoneme": "χʷ"}, {"notes": ["Corresponds to /d͡z/ in Chisan speech, and to /ʒ/ in Kudar speech."], "uses": [{"grapheme": "дз", "samples": [["дзаума", "zawma"], ["къӕдзӕх", "kʼɐzɐχ"]]}], "phoneme": "z"}, {"notes": ["Occurs only when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."], "uses": [{"grapheme": "дз", "samples": [["*уадздзæн", "wad͡zːɐn"]]}], "phoneme": "d͡z"}, {"notes": ["Corresponds to /t͡s/ in Chisan speech, and to /ʃ/ in Kudar speech."], "uses": [{"grapheme": "ц", "samples": [["цард", "sard"], ["ӕнцон", "ɐnson"]]}], "phoneme": "s"}, {"notes": ["Occurs only when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."], "uses": [{"grapheme": "ц", "samples": [["*ныццæвын", "nət͡sːɐvən"]]}], "phoneme": "t͡s"}, {"uses": [{"grapheme": "цъ", "samples": [["цъиу", "t͡sʼiw"], ["сауцъар", "ʃawt͡sʼar"]]}], "phoneme": "t͡sʼ"}, {"uses": [{"grapheme": "дж", "samples": [["джелбетт", "d͡ʒelbetː"], ["исджын", "iʃd͡ʒən"]]}], "phoneme": "d͡ʒ"}, {"uses": [{"grapheme": "ч", "samples": [["чиныг", "t͡ʃinəg"], ["рынчын", "rənt͡ʃən"]]}], "phoneme": "t͡ʃ"}, {"uses": [{"grapheme": "чъ", "samples": [["чъизи", "t͡ʃʼiʒi"], ["санчъех", "ʃant͡ʃʼeχ"]]}], "phoneme": "t͡ʃʼ"}, {"uses": [{"grapheme": "у", "samples": [["уӕрыкк", "wɐrəkː"], ["цӕуинаг", "t͡sɐwinag"]]}], "phoneme": "w"}, {"uses": [{"grapheme": "й", "samples": [["вӕййын", "vɐjːən"], ["иумӕйаг", "iwmɐjag"]]}], "phoneme": "j"}, {"uses": [{"grapheme": "л", "samples": [["лӕгъз", "lɐʁʒ"], ["ӕдылы", "ɐdələ"]]}], "phoneme": "l"}, {"notes": ["Occurs only in interjections."], "uses": [{"grapheme": "гъ", "samples": [["*гъопп", "hopː"]]}], "phoneme": "h"}]}
+{
+    "vowels": [
+        {
+            "uses": [
+                {
+                    "grapheme": "а",
+                    "samples": [
+                        {
+                            "word": "абон",
+                            "ipa": "abon"
+                        },
+                        {
+                            "word": "балц",
+                            "ipa": "bals"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "a"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "ӕ",
+                    "samples": [
+                        {
+                            "word": "ӕххуыс",
+                            "ipa": "ɐχːʷəʃ"
+                        },
+                        {
+                            "word": "уыгӕрдӕн",
+                            "ipa": "wəgɐrdɐn"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "ɐ"
+        },
+        {
+            "notes": [
+                "⟨э⟩ is used only in recent Russian loanwords."
+            ],
+            "uses": [
+                {
+                    "grapheme": "е",
+                    "samples": [
+                        {
+                            "word": "егъау",
+                            "ipa": "jeʁaw"
+                        },
+                        {
+                            "word": "дуне",
+                            "ipa": "dune"
+                        }
+                    ]
+                },
+                {
+                    "grapheme": "э"
+                }
+            ],
+            "phoneme": "e"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "и",
+                    "samples": [
+                        {
+                            "word": "изӕр",
+                            "ipa": "iʒɐr"
+                        },
+                        {
+                            "word": "къалиу",
+                            "ipa": "kʼaliw"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "i"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "о",
+                    "samples": [
+                        {
+                            "word": "обау",
+                            "ipa": "obaw"
+                        },
+                        {
+                            "word": "райсом",
+                            "ipa": "rajʃom"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "o"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "ы",
+                    "samples": [
+                        {
+                            "word": "сыффытт",
+                            "ipa": "ʃəffətː"
+                        },
+                        {
+                            "word": "ралыгъд",
+                            "ipa": "raləʁd"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "ə"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "у",
+                    "samples": [
+                        {
+                            "word": "усгур",
+                            "ipa": "uʃgur"
+                        },
+                        {
+                            "word": "худын",
+                            "ipa": "χudən"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "u"
+        }
+    ],
+    "consonants": [
+        {
+            "uses": [
+                {
+                    "grapheme": "б",
+                    "samples": [
+                        {
+                            "word": "байзӕддаг",
+                            "ipa": "bajʒɐtːag"
+                        },
+                        {
+                            "word": "къӕбӕр",
+                            "ipa": "kʼɐbɐr"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "b"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "п",
+                    "samples": [
+                        {
+                            "word": "пурти",
+                            "ipa": "pʰurtʰi"
+                        },
+                        {
+                            "word": "аипджын",
+                            "ipa": "aipʰd͡ʒən",
+                            "muted": true
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "pʰ"
+        },
+        {
+            "notes": [
+                "Phonetic status in question."
+            ],
+            "uses": [
+                {
+                    "grapheme": "пп",
+                    "samples": [
+                        {
+                            "word": "ӕппӕлын",
+                            "ipa": "ɐpːɐlən",
+                            "muted": true
+                        }
+                    ]
+                },
+                {
+                    "grapheme": "бб",
+                    "samples": []
+                },
+                {
+                    "grapheme": "бп",
+                    "samples": []
+                }
+            ],
+            "phoneme": "pː"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "пъ",
+                    "samples": [
+                        {
+                            "word": "пъазбын",
+                            "ipa": "pʼaʒbən"
+                        },
+                        {
+                            "word": "пъырыпъыф",
+                            "ipa": "pʼərəpʼəf"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "pʼ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "д",
+                    "samples": [
+                        {
+                            "word": "дыргъ",
+                            "ipa": "dərʁ"
+                        },
+                        {
+                            "word": "зӕд",
+                            "ipa": "ʒɐd"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "d"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "т",
+                    "samples": [
+                        {
+                            "word": "тӕрхондон",
+                            "ipa": "tʰɐrχondon"
+                        },
+                        {
+                            "word": "фарст",
+                            "ipa": "farʃtʰ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "tʰ"
+        },
+        {
+            "notes": [
+                "Phonetic status in question."
+            ],
+            "uses": [
+                {
+                    "grapheme": "тт",
+                    "samples": [
+                        {
+                            "word": "ныттонын",
+                            "ipa": "nətːonən",
+                            "muted": true
+                        }
+                    ]
+                },
+                {
+                    "grapheme": "дд",
+                    "samples": []
+                },
+                {
+                    "grapheme": "дт",
+                    "samples": []
+                }
+            ],
+            "phoneme": "tː"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "тъ",
+                    "samples": [
+                        {
+                            "word": "тъӕпӕн",
+                            "ipa": "tʼɐpʰɐn"
+                        },
+                        {
+                            "word": "джитъри",
+                            "ipa": "d͡ʒitʼri"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "tʼ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "г",
+                    "samples": [
+                        {
+                            "word": "гага",
+                            "ipa": "gaga"
+                        },
+                        {
+                            "word": "дӕндаг",
+                            "ipa": "dɐndag"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "g"
+        },
+        {
+            "notes": [
+                "Occurs only before vowels."
+            ],
+            "uses": [
+                {
+                    "grapheme": "гу",
+                    "samples": [
+                        {
+                            "word": "гуыбын",
+                            "ipa": "gʷəbən"
+                        },
+                        {
+                            "word": "уазӕгуаты",
+                            "ipa": "waʒɐgʷatʰə"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "gʷ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "к",
+                    "samples": [
+                        {
+                            "word": "кард",
+                            "ipa": "kʰard"
+                        },
+                        {
+                            "word": "акаст",
+                            "ipa": "akʰastʰ",
+                            "muted": true
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "kʰ"
+        },
+        {
+            "notes": [
+                "Phonetic status in question."
+            ],
+            "uses": [
+                {
+                    "grapheme": "кк",
+                    "samples": [
+                        {
+                            "word": "ныртӕккӕ",
+                            "ipa": "nərtʰɐkːɐ"
+                        }
+                    ]
+                },
+                {
+                    "grapheme": "гг",
+                    "samples": []
+                },
+                {
+                    "grapheme": "гк",
+                    "samples": []
+                }
+            ],
+            "phoneme": "kː"
+        },
+        {
+            "notes": [
+                "Occurs only before vowels."
+            ],
+            "uses": [
+                {
+                    "grapheme": "ку",
+                    "samples": [
+                        {
+                            "word": "куыдз",
+                            "ipa": "kʷəz"
+                        },
+                        {
+                            "word": "никуы",
+                            "ipa": "nikʷə"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "kʷ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "къ",
+                    "samples": [
+                        {
+                            "word": "къӕсӕр",
+                            "ipa": "kʼɐʃɐr"
+                        },
+                        {
+                            "word": "хуыскъ",
+                            "ipa": "χʷəʃkʼ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "kʼ"
+        },
+        {
+            "notes": [
+                "Occurs only before vowels."
+            ],
+            "uses": [
+                {
+                    "grapheme": "къу",
+                    "samples": [
+                        {
+                            "word": "къуым",
+                            "ipa": "kʼʷəm"
+                        },
+                        {
+                            "word": "аскъуынын",
+                            "ipa": "aʃkʼʷənən"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "kʼʷ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "хъ",
+                    "samples": [
+                        {
+                            "word": "хъӕу",
+                            "ipa": "qɐw"
+                        },
+                        {
+                            "word": "ӕнӕхъӕн",
+                            "ipa": "ɐnɐqɐn"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "q"
+        },
+        {
+            "notes": [
+                "Occurs only before vowels."
+            ],
+            "uses": [
+                {
+                    "grapheme": "хъу",
+                    "samples": [
+                        {
+                            "word": "хъуын",
+                            "ipa": "qʷən"
+                        },
+                        {
+                            "word": "бахъуаджы",
+                            "ipa": "baqʷad͡ʒə"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "qʷ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "м",
+                    "samples": [
+                        {
+                            "word": "мыст",
+                            "ipa": "məʃtʰ"
+                        },
+                        {
+                            "word": "нымӕт",
+                            "ipa": "nəmɐtʰ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "m"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "н",
+                    "samples": [
+                        {
+                            "word": "ничи",
+                            "ipa": "nit͡ʃi"
+                        },
+                        {
+                            "word": "рагон",
+                            "ipa": "ragon"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "n"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "р",
+                    "samples": [
+                        {
+                            "word": "рахиз",
+                            "ipa": "raχiʒ"
+                        },
+                        {
+                            "word": "сӕйраг",
+                            "ipa": "ʃɐjrag"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "r"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "ф",
+                    "samples": [
+                        {
+                            "word": "фӕйнӕг",
+                            "ipa": "fɐjnɐg"
+                        },
+                        {
+                            "word": "арфӕ",
+                            "ipa": "arfɐ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "f"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "в",
+                    "samples": [
+                        {
+                            "word": "вӕзн",
+                            "ipa": "vɐʒn"
+                        },
+                        {
+                            "word": "ӕхсӕв",
+                            "ipa": "ɐχʃɐv"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "v"
+        },
+        {
+            "notes": [
+                "Corresponds to /s/ in Chisan and Kudar speech.",
+                "⟨ш⟩ is used only in recent Russian loanwords."
+            ],
+            "uses": [
+                {
+                    "grapheme": "с",
+                    "samples": [
+                        {
+                            "word": "саргъ",
+                            "ipa": "ʃarʁ"
+                        },
+                        {
+                            "word": "ӕхситт",
+                            "ipa": "ɐχʃitː"
+                        }
+                    ]
+                },
+                {
+                    "grapheme": "ш"
+                }
+            ],
+            "phoneme": "ʃ"
+        },
+        {
+            "notes": [
+                "Corresponds to /z/ in Chisan and Kudar speech.",
+                "⟨ж⟩ is used only in recent Russian loanwords."
+            ],
+            "uses": [
+                {
+                    "grapheme": "з",
+                    "samples": [
+                        {
+                            "word": "зачъе",
+                            "ipa": "ʒat͡ʃʼe"
+                        },
+                        {
+                            "word": "лагъз",
+                            "ipa": "laʁʒ"
+                        }
+                    ]
+                },
+                {
+                    "grapheme": "ж"
+                }
+            ],
+            "phoneme": "ʒ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "гъ",
+                    "samples": [
+                        {
+                            "word": "ӕгъдау",
+                            "ipa": "ɐʁdaw"
+                        },
+                        {
+                            "word": "уаргъ",
+                            "ipa": "warʁ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "ʁ"
+        },
+        {
+            "notes": [
+                "Occurs only before vowels."
+            ],
+            "uses": [
+                {
+                    "grapheme": "гъу",
+                    "samples": [
+                        {
+                            "word": "агъуыст",
+                            "ipa": "aʁʷəʃtʰ"
+                        },
+                        {
+                            "word": "ӕвгъуаг",
+                            "ipa": "ɐvʁʷag"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "ʁʷ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "х",
+                    "samples": [
+                        {
+                            "word": "хӕрӕг",
+                            "ipa": "χɐrɐg"
+                        },
+                        {
+                            "word": "къӕпхӕн",
+                            "ipa": "kʼɐpχɐn"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "χ"
+        },
+        {
+            "notes": [
+                "Occurs only before vowels."
+            ],
+            "uses": [
+                {
+                    "grapheme": "ху",
+                    "samples": [
+                        {
+                            "word": "хуым",
+                            "ipa": "χʷəm"
+                        },
+                        {
+                            "word": "ахуыр",
+                            "ipa": "aχʷər"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "χʷ"
+        },
+        {
+            "notes": [
+                "Corresponds to /d͡z/ in Chisan speech, and to /ʒ/ in Kudar speech."
+            ],
+            "uses": [
+                {
+                    "grapheme": "дз",
+                    "samples": [
+                        {
+                            "word": "дзаума",
+                            "ipa": "zawma"
+                        },
+                        {
+                            "word": "къӕдзӕх",
+                            "ipa": "kʼɐzɐχ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "z"
+        },
+        {
+            "notes": [
+                "Occurs only when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."
+            ],
+            "uses": [
+                {
+                    "grapheme": "дз",
+                    "samples": [
+                        {
+                            "word": "уадздзæн",
+                            "ipa": "wad͡zːɐn",
+                            "muted": true
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "d͡z"
+        },
+        {
+            "notes": [
+                "Corresponds to /t͡s/ in Chisan speech, and to /ʃ/ in Kudar speech."
+            ],
+            "uses": [
+                {
+                    "grapheme": "ц",
+                    "samples": [
+                        {
+                            "word": "цард",
+                            "ipa": "sard"
+                        },
+                        {
+                            "word": "ӕнцон",
+                            "ipa": "ɐnson"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "s"
+        },
+        {
+            "notes": [
+                "Occurs only when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."
+            ],
+            "uses": [
+                {
+                    "grapheme": "ц",
+                    "samples": [
+                        {
+                            "word": "ныццæвын",
+                            "ipa": "nət͡sːɐvən",
+                            "muted": true
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "t͡s"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "цъ",
+                    "samples": [
+                        {
+                            "word": "цъиу",
+                            "ipa": "t͡sʼiw"
+                        },
+                        {
+                            "word": "сауцъар",
+                            "ipa": "ʃawt͡sʼar"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "t͡sʼ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "дж",
+                    "samples": [
+                        {
+                            "word": "джелбетт",
+                            "ipa": "d͡ʒelbetː"
+                        },
+                        {
+                            "word": "исджын",
+                            "ipa": "iʃd͡ʒən"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "d͡ʒ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "ч",
+                    "samples": [
+                        {
+                            "word": "чиныг",
+                            "ipa": "t͡ʃinəg"
+                        },
+                        {
+                            "word": "рынчын",
+                            "ipa": "rənt͡ʃən"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "t͡ʃ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "чъ",
+                    "samples": [
+                        {
+                            "word": "чъизи",
+                            "ipa": "t͡ʃʼiʒi"
+                        },
+                        {
+                            "word": "санчъех",
+                            "ipa": "ʃant͡ʃʼeχ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "t͡ʃʼ"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "у",
+                    "samples": [
+                        {
+                            "word": "уӕрыкк",
+                            "ipa": "wɐrəkː"
+                        },
+                        {
+                            "word": "цӕуинаг",
+                            "ipa": "t͡sɐwinag"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "w"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "й",
+                    "samples": [
+                        {
+                            "word": "вӕййын",
+                            "ipa": "vɐjːən"
+                        },
+                        {
+                            "word": "иумӕйаг",
+                            "ipa": "iwmɐjag"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "j"
+        },
+        {
+            "uses": [
+                {
+                    "grapheme": "л",
+                    "samples": [
+                        {
+                            "word": "лӕгъз",
+                            "ipa": "lɐʁʒ"
+                        },
+                        {
+                            "word": "ӕдылы",
+                            "ipa": "ɐdələ"
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "l"
+        },
+        {
+            "notes": [
+                "Occurs only in interjections."
+            ],
+            "uses": [
+                {
+                    "grapheme": "гъ",
+                    "samples": [
+                        {
+                            "word": "гъопп",
+                            "ipa": "hopː",
+                            "muted": true
+                        }
+                    ]
+                }
+            ],
+            "phoneme": "h"
+        }
+    ]
+}
