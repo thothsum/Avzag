@@ -32,17 +32,18 @@
       </div>
       <div class="panel-horizontal">
         <h3>Samples</h3>
-        <button @click="addGrapheme" class="icon add small">add</button>
+        <button @click="addSample" class="icon add small">add</button>
       </div>
-      <div :key="g" v-for="(s, g) of selectedCopy.samples" class="card panel">
-        {{g}}
-        <button @click="deletePhoneme" class="small">add sample</button>
-        <div :key="i" v-for="(w,i) in s" class="panel-dense">
-          <input type="text" v-model="w.word" />
-          <input type="text" v-model="w.ipa" />
-          <div class="panel-horizontal">
-            <input type="checkbox" v-model="w.muted" />muted
+      <div :key="g" v-for="(s, g) of selectedCopy.samples" class="panel">
+        <div :key="i" v-for="(w,i) in s" class="panel-horizontal">
+          <div class="panel-dense">
+            <input type="text" v-model="w.word" />
+            <input type="text" v-model="w.ipa" />
+            <div class="panel-horizontal">
+              <input type="checkbox" v-model="w.muted" />muted
+            </div>
           </div>
+          <button @click="deleteSample(i)" class="icon delete">delete</button>
         </div>
       </div>
     </div>
@@ -136,7 +137,10 @@ export default {
         this.$forceUpdate();
       }
     },
-    addGrapheme() {},
+    addSample() {},
+    deleteSample(i) {
+      console.log("delete sample", i);
+    },
   },
 };
 </script>
