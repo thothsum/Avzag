@@ -51,7 +51,8 @@ export default {
     },
     graphemes() {
       return this.phonemes.map(
-        (p) => this.database[p].uses[this.singleLect]?.[0].grapheme
+        (p) =>
+          Object.keys(this.database[p].uses[this.singleLect]?.samples ?? {})[0]
       );
     },
   },

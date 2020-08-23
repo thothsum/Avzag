@@ -1,7 +1,7 @@
 <template>
-  <div class="section" v-if="lects">
+  <div class="section" v-if="lects && database">
     <div class="panel scroll">
-      <QueryList :tags="lectNames" @query="lectQuery=$event" />
+      <QueryList v-if="!singleLect" :tags="lectNames" @query="lectQuery=$event" />
       <PhoneticTable
         v-model="selected"
         :featureQuery="featureQuery"
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       types: ["vowels", "consonants"],
-      selected: undefined,
+      selected: null,
       lectQuery: {},
       featureQuery: {},
     };
@@ -47,13 +47,16 @@ export default {
       return this.$store.state.lects;
     },
     lectNames() {
-      return Object.keys(this.lects);
+      return Object.keys(this.lects ?? {});
+    },
+    singleLect() {
+      return this.lectNames.length == 1 ? this.lectNames[0] : null;
     },
     phonemes() {
       if (!this.lects) return;
 
       let phonemes = {};
-      for (const t of this.types) {
+      this.types.forEach((t) => {
         phonemes[t] = [
           ...new Set(
             this.lectNames
@@ -63,7 +66,7 @@ export default {
         ].sort(function (a, b) {
           return a.localeCompare(b);
         });
-      }
+      });
       return phonemes;
     },
     database() {
@@ -82,8 +85,8 @@ export default {
     },
     selectedData() {
       for (const t of this.types) {
-        const type = this.database[t];
-        if (this.selected in type) return type[this.selected];
+        const data = this.database[t][this.selected];
+        if (data) return data;
       }
       return null;
     },
@@ -91,6 +94,11 @@ export default {
   watch: {
     phonemes() {
       this.selected = this.phonemes[this.types[0]][0];
+    },
+    singleLect(val) {
+      if (!val) return;
+      this.lectQuery = {};
+      this.lectQuery[val] = true;
     },
   },
   methods: {
@@ -109,10 +117,10 @@ export default {
     },
     getUses(p, t) {
       let uses = {};
-      for (const l of this.lectNames) {
+      this.lectNames.forEach((l) => {
         const use = this.lects[l].phonemes[t][p];
         if (use) uses[l] = use;
-      }
+      });
       return uses;
     },
   },
