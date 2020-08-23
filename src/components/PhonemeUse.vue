@@ -5,20 +5,20 @@
       <p v-html="graphemes"></p>
     </div>
     <div class="panel-solid scroll">
-      <template v-for="(u, j) in uses">
+      <template v-for="(u, j) in use.samples">
         <button
           class="small panel-horizontal"
           @click="$emit('play', s[0])"
           :key="j*10+i"
           v-for="(s, i) in u.samples"
         >
-          <span v-if="s[0][0]!='*'" class="icon-small">play_arrow</span>
-          <span class="text" v-html="highlight(s[0], u.grapheme, s[2])"></span>
-          <span class="text-ipa" v-if="s[1]" v-html="highlight(s[1], phoneme)"></span>
+          <span v-if="!s['muted']" class="icon-small">play_arrow</span>
+          <span class="text" v-html="highlight(s['word'], u.grapheme, s['highlights'])"></span>
+          <span class="text-ipa" v-if="s[1]" v-html="highlight(s['ipa'], phoneme)"></span>
         </button>
       </template>
     </div>
-    <PhoneticNote :key="i" v-for="(n, i) in notes" :text="n" />
+    <PhoneticNote :key="i" v-for="(n, i) in use.notes" :text="n" />
   </div>
 </template>
 
@@ -28,20 +28,16 @@ import PhoneticNote from "./PhoneticNote";
 export default {
   name: "PhonemeUse",
   components: { PhoneticNote },
-  props: ["phoneme", "lect", "uses"],
+  props: ["phoneme", "lect", "use", "notes"],
   computed: {
     graphemes() {
-      return this.uses
+      return this.use.samples
         .map((u) => `<b>${u.grapheme}</b>`)
         .join("<span class='text-dot'></span>");
-    },
-    notes() {
-      return this.uses.map((u) => u.note).filter((n) => n);
     },
   },
   methods: {
     highlight(sample, grapheme, indexes) {
-      if (sample[0] == "*") sample = sample.substr(1);
       const regex = new RegExp(grapheme, "g");
       const match = `<span style="color: var(--color-highlight)">${grapheme}</span>`;
 

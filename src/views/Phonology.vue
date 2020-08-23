@@ -68,22 +68,24 @@ export default {
     },
     database() {
       let data = {};
-      for (const t of this.types) {
+      this.types.forEach((t) => {
         let type = {};
-        for (const p of this.phonemes[t]) {
-          const tags = this.getTags(p, t);
-          const uses = this.getUses(p, t);
-          type[p] = { tags, uses };
-        }
+        this.phonemes[t].forEach((p) => {
+          type[p] = {
+            tags: this.getTags(p, t),
+            uses: this.getUses(p, t),
+          };
+        });
         data[t] = type;
-      }
+      });
       return data;
     },
     selectedData() {
       for (const t of this.types) {
-        const data = this.database[t][this.selected];
-        if (data) return data;
+        const type = this.database[t];
+        if (this.selected in type) return type[this.selected];
       }
+      return null;
     },
   },
   watch: {
@@ -108,7 +110,7 @@ export default {
     getUses(p, t) {
       let uses = {};
       for (const l of this.lectNames) {
-        const use = this.lects[l].phonemes[t][p]?.uses;
+        const use = this.lects[l].phonemes[t][p];
         if (use) uses[l] = use;
       }
       return uses;

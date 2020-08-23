@@ -1,7 +1,7 @@
 {
     "vowels": {
         "a": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "а",
                     "samples": [
@@ -18,7 +18,7 @@
             ]
         },
         "ɐ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ӕ",
                     "samples": [
@@ -38,7 +38,7 @@
             "notes": [
                 "⟨э⟩ is used only in recent Russian loanwords."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "е",
                     "samples": [
@@ -58,7 +58,7 @@
             ]
         },
         "i": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "и",
                     "samples": [
@@ -75,7 +75,7 @@
             ]
         },
         "o": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "о",
                     "samples": [
@@ -92,7 +92,7 @@
             ]
         },
         "ə": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ы",
                     "samples": [
@@ -109,7 +109,7 @@
             ]
         },
         "u": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "у",
                     "samples": [
@@ -128,7 +128,7 @@
     },
     "consonants": {
         "b": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "б",
                     "samples": [
@@ -145,7 +145,7 @@
             ]
         },
         "pʰ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "п",
                     "samples": [
@@ -166,7 +166,7 @@
             "notes": [
                 "Phonetic status in question."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "пп",
                     "samples": [
@@ -188,7 +188,7 @@
             ]
         },
         "pʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "пъ",
                     "samples": [
@@ -205,7 +205,7 @@
             ]
         },
         "d": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "д",
                     "samples": [
@@ -222,7 +222,7 @@
             ]
         },
         "tʰ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "т",
                     "samples": [
@@ -242,7 +242,7 @@
             "notes": [
                 "Phonetic status in question."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "тт",
                     "samples": [
@@ -264,7 +264,7 @@
             ]
         },
         "tʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "тъ",
                     "samples": [
@@ -281,7 +281,7 @@
             ]
         },
         "g": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "г",
                     "samples": [
@@ -301,7 +301,7 @@
             "notes": [
                 "Occurs only before vowels."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "гу",
                     "samples": [
@@ -318,7 +318,7 @@
             ]
         },
         "kʰ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "к",
                     "samples": [
@@ -339,7 +339,7 @@
             "notes": [
                 "Phonetic status in question."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "кк",
                     "samples": [
@@ -363,7 +363,7 @@
             "notes": [
                 "Occurs only before vowels."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ку",
                     "samples": [
@@ -380,7 +380,7 @@
             ]
         },
         "kʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "къ",
                     "samples": [
@@ -400,7 +400,7 @@
             "notes": [
                 "Occurs only before vowels."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "къу",
                     "samples": [
@@ -417,7 +417,7 @@
             ]
         },
         "q": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "хъ",
                     "samples": [
@@ -437,7 +437,7 @@
             "notes": [
                 "Occurs only before vowels."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "хъу",
                     "samples": [
@@ -454,7 +454,7 @@
             ]
         },
         "m": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "м",
                     "samples": [
@@ -471,7 +471,7 @@
             ]
         },
         "n": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "н",
                     "samples": [
@@ -488,7 +488,7 @@
             ]
         },
         "r": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "р",
                     "samples": [
@@ -505,7 +505,7 @@
             ]
         },
         "f": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ф",
                     "samples": [
@@ -522,7 +522,7 @@
             ]
         },
         "v": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "в",
                     "samples": [
@@ -543,7 +543,7 @@
                 "Corresponds to /s/ in Chisan and Kudar speech.",
                 "⟨ш⟩ is used only in recent Russian loanwords."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "с",
                     "samples": [
@@ -567,7 +567,7 @@
                 "Corresponds to /z/ in Chisan and Kudar speech.",
                 "⟨ж⟩ is used only in recent Russian loanwords."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "з",
                     "samples": [
@@ -587,7 +587,7 @@
             ]
         },
         "ʁ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "гъ",
                     "samples": [
@@ -607,7 +607,7 @@
             "notes": [
                 "Occurs only before vowels."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "гъу",
                     "samples": [
@@ -624,7 +624,7 @@
             ]
         },
         "χ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "х",
                     "samples": [
@@ -644,7 +644,7 @@
             "notes": [
                 "Occurs only before vowels."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ху",
                     "samples": [
@@ -664,7 +664,7 @@
             "notes": [
                 "Corresponds to /d͡z/ in Chisan speech, and to /ʒ/ in Kudar speech."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "дз",
                     "samples": [
@@ -684,7 +684,7 @@
             "notes": [
                 "Occurs only when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "дз",
                     "samples": [
@@ -701,7 +701,7 @@
             "notes": [
                 "Corresponds to /t͡s/ in Chisan speech, and to /ʃ/ in Kudar speech."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ц",
                     "samples": [
@@ -721,7 +721,7 @@
             "notes": [
                 "Occurs only when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ц",
                     "samples": [
@@ -735,7 +735,7 @@
             ]
         },
         "t͡sʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "цъ",
                     "samples": [
@@ -752,7 +752,7 @@
             ]
         },
         "d͡ʒ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "дж",
                     "samples": [
@@ -769,7 +769,7 @@
             ]
         },
         "t͡ʃ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ч",
                     "samples": [
@@ -786,7 +786,7 @@
             ]
         },
         "t͡ʃʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "чъ",
                     "samples": [
@@ -803,7 +803,7 @@
             ]
         },
         "w": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "у",
                     "samples": [
@@ -820,7 +820,7 @@
             ]
         },
         "j": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "й",
                     "samples": [
@@ -837,7 +837,7 @@
             ]
         },
         "l": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "л",
                     "samples": [
@@ -857,7 +857,7 @@
             "notes": [
                 "Occurs only in interjections."
             ],
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "гъ",
                     "samples": [

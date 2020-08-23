@@ -1,7 +1,7 @@
 {
     "vowels": {
         "aː": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "а",
                     "samples": [
@@ -18,14 +18,14 @@
             ]
         },
         "jaː": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "я"
                 }
             ]
         },
         "a": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "э",
                     "samples": [
@@ -42,7 +42,7 @@
             ]
         },
         "i": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "и",
                     "samples": [
@@ -63,7 +63,7 @@
             ]
         },
         "o": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "о",
                     "samples": [
@@ -84,7 +84,7 @@
             ]
         },
         "u": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "у",
                     "samples": [
@@ -107,7 +107,7 @@
     },
     "consonants": {
         "b": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "б",
                     "samples": [
@@ -124,7 +124,7 @@
             ]
         },
         "v": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "в",
                     "samples": [
@@ -137,7 +137,7 @@
             ]
         },
         "ɣ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "г",
                     "samples": [
@@ -150,7 +150,7 @@
             ]
         },
         "ʁ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "гъ",
                     "samples": [
@@ -163,7 +163,7 @@
             ]
         },
         "ʁʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "гъу",
                     "samples": [
@@ -176,7 +176,7 @@
             ]
         },
         "d": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "д",
                     "samples": [
@@ -189,7 +189,7 @@
             ]
         },
         "d͡ʒ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "дж",
                     "samples": [
@@ -202,7 +202,7 @@
             ]
         },
         "d͡z": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "дз",
                     "samples": [
@@ -215,7 +215,7 @@
             ]
         },
         "ʒ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ж",
                     "samples": [
@@ -228,7 +228,7 @@
             ]
         },
         "ʑ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "жь",
                     "samples": [
@@ -241,7 +241,7 @@
             ]
         },
         "z": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "з",
                     "samples": [
@@ -254,7 +254,7 @@
             ]
         },
         "j": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "й",
                     "samples": []
@@ -262,7 +262,7 @@
             ]
         },
         "k": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "к",
                     "samples": []
@@ -270,7 +270,7 @@
             ]
         },
         "kʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ку",
                     "samples": [
@@ -283,7 +283,7 @@
             ]
         },
         "q": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "къ",
                     "samples": [
@@ -296,7 +296,7 @@
             ]
         },
         "qʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "къу",
                     "samples": [
@@ -309,7 +309,7 @@
             ]
         },
         "q͡χ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "кхъ",
                     "samples": [
@@ -326,7 +326,7 @@
             ]
         },
         "q͡χʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "кхъу",
                     "samples": [
@@ -347,7 +347,7 @@
             ]
         },
         "t͡ʃʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "чӏ",
                     "samples": []
@@ -355,7 +355,7 @@
             ]
         },
         "kʼʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "кӏу",
                     "samples": [
@@ -368,7 +368,7 @@
             ]
         },
         "ɮ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "л",
                     "samples": [
@@ -381,7 +381,7 @@
             ]
         },
         "ɬ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "лъ",
                     "samples": [
@@ -394,7 +394,7 @@
             ]
         },
         "ɬʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "лӏ",
                     "samples": [
@@ -407,7 +407,7 @@
             ]
         },
         "m": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "м",
                     "samples": [
@@ -420,7 +420,7 @@
             ]
         },
         "n": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "н",
                     "samples": [
@@ -433,7 +433,7 @@
             ]
         },
         "p": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "п",
                     "samples": [
@@ -446,7 +446,7 @@
             ]
         },
         "pʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "пӏ",
                     "samples": [
@@ -459,7 +459,7 @@
             ]
         },
         "r": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "р",
                     "samples": [
@@ -472,7 +472,7 @@
             ]
         },
         "s": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "с",
                     "samples": [
@@ -485,7 +485,7 @@
             ]
         },
         "t": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "т",
                     "samples": [
@@ -498,7 +498,7 @@
             ]
         },
         "tʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "тӏ",
                     "samples": [
@@ -511,7 +511,7 @@
             ]
         },
         "w": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "у",
                     "samples": [
@@ -527,7 +527,7 @@
             ]
         },
         "f": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ф",
                     "samples": [
@@ -540,7 +540,7 @@
             ]
         },
         "fʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "фӏ",
                     "samples": [
@@ -553,7 +553,7 @@
             ]
         },
         "x": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "х",
                     "samples": [
@@ -566,7 +566,7 @@
             ]
         },
         "xʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ху",
                     "samples": [
@@ -579,7 +579,7 @@
             ]
         },
         "χ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "хъ",
                     "samples": [
@@ -592,7 +592,7 @@
             ]
         },
         "χʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "хъу",
                     "samples": [
@@ -605,7 +605,7 @@
             ]
         },
         "ħ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "хь",
                     "samples": [
@@ -618,7 +618,7 @@
             ]
         },
         "t͡s": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ц",
                     "samples": [
@@ -631,7 +631,7 @@
             ]
         },
         "t͡sʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "цӏ",
                     "samples": [
@@ -644,7 +644,7 @@
             ]
         },
         "t͡ʃ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ч",
                     "samples": [
@@ -657,7 +657,7 @@
             ]
         },
         "ʃ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ш",
                     "samples": [
@@ -670,7 +670,7 @@
             ]
         },
         "ɕ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "щ",
                     "samples": [
@@ -683,7 +683,7 @@
             ]
         },
         "ɕʼ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "щӏ",
                     "samples": [
@@ -696,7 +696,7 @@
             ]
         },
         "ə": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ы",
                     "samples": [
@@ -717,7 +717,7 @@
             ]
         },
         "ʔ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ӏ",
                     "samples": [
@@ -729,7 +729,7 @@
             ]
         },
         "ʔʷ": {
-            "uses": [
+            "samples": [
                 {
                     "grapheme": "ӏу",
                     "samples": [
