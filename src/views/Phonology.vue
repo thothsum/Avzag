@@ -9,12 +9,12 @@
           :featureQuery="featureQuery"
           :lectQuery="lectQuery"
           :phonemes="phonemes[t]"
-          :database="database[t]"
+          :database="database"
         />
       </div>
       <QueryInput @query="featureQuery=$event" />
     </div>
-    <PhonemeDetails :phoneme="selected" :database="selectedData" />
+    <PhonemeDetails :phoneme="selected" :database="database[selected]" />
   </div>
 </template>
 
@@ -73,23 +73,14 @@ export default {
     database() {
       let data = {};
       this.types.forEach((t) => {
-        let type = {};
         this.phonemes[t].forEach((p) => {
-          type[p] = {
+          data[p] = {
             tags: this.getTags(p, t),
             uses: this.getUses(p, t),
           };
         });
-        data[t] = type;
       });
       return data;
-    },
-    selectedData() {
-      for (const t of this.types) {
-        const data = this.database[t][this.selected];
-        if (data) return data;
-      }
-      return null;
     },
   },
   watch: {
@@ -100,6 +91,9 @@ export default {
       if (!val) return;
       this.lectQuery = {};
       this.lectQuery[val] = true;
+    },
+    selected(val) {
+      this.$router.replace({ query: { p: val } });
     },
   },
   methods: {
