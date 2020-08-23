@@ -6,25 +6,37 @@
         <div class="table panel-horizontal-dense wrap">
           <PhoneticItem
             @click.native="selectPhoneme(t,p)"
-            :selectedCopy="selectedCopy && selectedCopy.phoneme==p"
+            :selected="selectedPhoneme==p"
             :ipa="p"
             :str="Object.keys(u.samples)[0]"
             :key="p"
             v-for="(u, p) of file[t]"
           />
-          <button class="add" @click="addPhoneme(t)">+</button>
+          <button class="add icon" @click="addPhoneme(t)">add</button>
         </div>
       </div>
     </div>
     <div class="card panel" v-if="selectedCopy">
-      <button @click="deletePhoneme">delete</button>
-      <button @click="applyPhoneme">apply</button>
+      <div class="panel-horizontal">
+        <button @click="deletePhoneme" class="small">delete phoneme</button>
+        <button @click="applyPhoneme" class="small">apply all changes</button>
+      </div>
       <input type="text" v-model="selectedCopy.phoneme" />
-      <h3 v-if="selectedCopy.notes">Notes</h3>
-      <textarea v-model="selectedCopy.notes[i]" :key="i" v-for="(n,i) in selectedCopy.notes" />
-      <h3 v-if="selectedCopy.samples">Samples</h3>
-      <div :key="g" v-for="(s, g) of selectedCopy.samples" class="panel">
+      <div class="panel-horizontal">
+        <h3>Notes</h3>
+        <button @click="addNote" class="icon add small">add</button>
+      </div>
+      <div :key="i" v-for="(n,i) in selectedCopy.notes" class="panel-horizontal">
+        <textarea v-model="selectedCopy.notes[i]" style="flex:1" />
+        <button @click="deleteNote(i)" class="icon delete">delete</button>
+      </div>
+      <div class="panel-horizontal">
+        <h3>Samples</h3>
+        <button @click="addGrapheme" class="icon add small">add</button>
+      </div>
+      <div :key="g" v-for="(s, g) of selectedCopy.samples" class="card panel">
         {{g}}
+        <button @click="deletePhoneme" class="small">add sample</button>
         <div :key="i" v-for="(w,i) in s" class="panel-dense">
           <input type="text" v-model="w.word" />
           <input type="text" v-model="w.ipa" />
@@ -110,6 +122,21 @@ export default {
       this.file[t][p] = JSON.parse(JSON.stringify(this.selectedCopy));
       this.selectPhoneme(t, p);
     },
+    addNote() {
+      if (!this.selectedCopy.notes) {
+        this.selectedCopy.notes = [];
+        this.$forceUpdate();
+      }
+      this.selectedCopy.notes.push("");
+    },
+    deleteNote(i) {
+      this.selectedCopy.notes.splice(i, 1);
+      if (this.selectedCopy.notes.length == 0) {
+        delete this.selectedCopy.notes;
+        this.$forceUpdate();
+      }
+    },
+    addGrapheme() {},
   },
 };
 </script>
@@ -117,12 +144,16 @@ export default {
 <style lang="scss" scoped>
 .section {
   display: grid;
-  grid-template-columns: 1fr 224px;
+  grid-template-columns: 1fr 300px;
   gap: map-get($margins, "double");
 }
 button.add {
-  font-size: map-get($font-sizes, "title");
   color: var(--color-highlight);
+}
+button.delete {
+  color: var(--color-alert);
+}
+.table button.add {
   height: 40px;
 }
 input[type="text"] {
