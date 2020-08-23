@@ -62,6 +62,7 @@ export default {
   },
   methods: {
     addPhoneme(type) {
+      if ("new" in this.file[type]) return;
       this.file[type]["new"] = { samples: { new: [] } };
       this.$forceUpdate();
     },
