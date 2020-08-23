@@ -38,7 +38,5 @@ export default new Vuex.Store({
     async loadText(_, file) {
       return await fetch(file).then(r => r.text());
     }
-  },
-  modules: {
   }
 })
