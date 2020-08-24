@@ -8,7 +8,7 @@
             @click.native="selectPhoneme(t,p)"
             :selected="selectedPhoneme==p"
             :ipa="p"
-            :str="u.samples[0] ? u.samples[0].grapheme : null"
+            :str="u.samples && u.samples[0] ? u.samples[0].grapheme : null"
             :key="p"
             v-for="(u,p) of file[t]"
           />
@@ -133,7 +133,7 @@ export default {
     addPhoneme(type) {
       const cat = this.file[type];
       if ("new" in cat) return;
-      cat["new"] = { samples: { new: [] } };
+      cat["new"] = {};
       this.file[type] = cat;
       this.$forceUpdate();
     },

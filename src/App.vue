@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header v-if="$route.name!=='Home'" />
+    <Header v-if="showHeader" />
     <router-view></router-view>
   </div>
 </template>
@@ -13,6 +13,13 @@ export default Vue.extend({
   name: "App",
   components: {
     Header,
+  },
+  computed: {
+    showHeader() {
+      return (
+        this.$route.name != "Home" && !this.$route.path.includes("/editor/")
+      );
+    },
   },
   created() {
     this.$store.dispatch("initialize");
