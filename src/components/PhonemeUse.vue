@@ -7,7 +7,7 @@
     <div class="panel-solid scroll">
       <button class="small panel-horizontal" @click="play(i)" :key="i" v-for="(s,i) in use.samples">
         <span class="icon-small">{{playable[i] ? 'play_arrow' : 'arrow_right'}}</span>
-        <span class="text" v-html="highlight(s.word, s.grapheme, s.indexes)"></span>
+        <span class="text" v-html="highlight(s.word, s.grapheme)"></span>
         <span class="text-ipa" v-html="highlight(s.ipa, phoneme)"></span>
       </button>
     </div>
@@ -54,20 +54,14 @@ export default {
     },
   },
   methods: {
-    highlight(text, grapheme, indexes) {
-      if (!text) return null;
-
-      const regex = new RegExp(grapheme, "g");
-      const match = `<span style="color: var(--color-highlight)">${grapheme}</span>`;
-
-      if (indexes) {
-        indexes = indexes.split(" ");
-        let i = 0;
-        return text.replace(regex, function (m) {
-          return indexes.includes((i++).toString()) ? match : m;
-        });
-      }
-      return text.replace(regex, match);
+    color(s) {
+      return `<span style='color: var(--color-highlight)'>${s}</span>`;
+    },
+    highlight(word, grap) {
+      if (!word) return null;
+      return word.includes("*")
+        ? word.replace(/\*(.+)\*/g, this.color("$1"))
+        : word.replace(new RegExp(grap, "g"), this.color(grap));
     },
     play(i) {
       if (this.playable[i]) this.$emit("play", this.audios[i]);
