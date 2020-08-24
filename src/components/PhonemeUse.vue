@@ -60,7 +60,7 @@ export default {
     highlight(word, grap) {
       if (!word) return null;
       return word.includes("*")
-        ? word.replace(/\*(.+)\*/g, this.color("$1"))
+        ? word.replace(/\*([^*]+)\*/g, this.color("$1"))
         : word.replace(new RegExp(grap, "g"), this.color(grap));
     },
     play(i) {
