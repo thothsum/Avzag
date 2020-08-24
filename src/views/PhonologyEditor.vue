@@ -48,13 +48,7 @@
               <input type="text" v-model="s.ipa" />
             </div>
           </div>
-          <div class="panel-dense">
-            <button
-              @click="toggleMute(i)"
-              class="icon small"
-            >{{s.muted ? 'music_off' : 'music_note'}}</button>
-            <button @click="deleteSample(i)" class="icon delete small">delete</button>
-          </div>
+          <button @click="deleteSample(i)" class="icon delete small">delete</button>
         </div>
       </div>
     </div>
@@ -171,13 +165,6 @@ export default {
       this.selectedCopy.samples.splice(i, 1);
       if (this.selectedCopy.samples.length == 0)
         delete this.selectedCopy.samples;
-      this.$forceUpdate();
-    },
-    toggleMute(i) {
-      var sample = this.selectedCopy.samples[i];
-      sample.muted = !sample.muted;
-      if (!sample.muted) delete sample.muted;
-      this.selectedCopy.samples[i] = sample;
       this.$forceUpdate();
     },
   },

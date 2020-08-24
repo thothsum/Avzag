@@ -5,10 +5,10 @@
       <p v-html="header"></p>
     </div>
     <div class="panel-solid scroll">
-      <button class="small panel-horizontal" @click="play(s)" :key="i" v-for="(s,i) in use.samples">
-        <span v-if="!s.muted" class="icon-small">play_arrow</span>
+      <button class="small panel-horizontal" @click="play(i)" :key="i" v-for="(s,i) in use.samples">
+        <span class="icon-small">{{playable[i] ? 'play_arrow' : 'arrow_right'}}</span>
         <span class="text" v-html="highlight(s.word, s.grapheme, s.indexes)"></span>
-        <span class="text-ipa" v-if="s.ipa" v-html="highlight(s.ipa, phoneme)"></span>
+        <span class="text-ipa" v-html="highlight(s.ipa, phoneme)"></span>
       </button>
     </div>
     <PhoneticNote :key="i" v-for="(n, i) in use.notes" :text="n" />
@@ -22,15 +22,41 @@ export default {
   name: "PhonemeUse",
   components: { PhoneticNote },
   props: ["phoneme", "lect", "use"],
+  data() {
+    return {
+      audios: [],
+    };
+  },
   computed: {
+    root() {
+      return this.$store.state.root + this.lect + "/audio/";
+    },
+    playable() {
+      return this.audios.map((a) => a.type.includes("audio"));
+    },
     header() {
       return [...new Set(this.use.samples.map((s) => s.grapheme))]
         .map((g) => `<b>${g}</b>`)
         .join("<span class='text-dot'></span>");
     },
   },
+  watch: {
+    use: {
+      handler() {
+        this.audios = [];
+        this.use.samples
+          .map((s) => this.root + s.word + ".mp3")
+          .map((f) => fetch(f).then((r) => r.blob()))
+          .map((r) => r.then((a) => this.audios.push(a)));
+      },
+      immediate: true,
+      deep: true,
+    },
+  },
   methods: {
     highlight(text, grapheme, indexes) {
+      if (!text) return null;
+
       const regex = new RegExp(grapheme, "g");
       const match = `<span style="color: var(--color-highlight)">${grapheme}</span>`;
 
@@ -43,8 +69,8 @@ export default {
       }
       return text.replace(regex, match);
     },
-    play(sample) {
-      if (!sample.muted) this.$emit("play", sample.word);
+    play(i) {
+      if (this.playable[i]) this.$emit("play", this.audios[i]);
     },
   },
 };

@@ -6,7 +6,7 @@
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
-      @play="play(l, $event)"
+      @play="play"
       :key="l"
       v-for="l in lects"
       :phoneme="phoneme"
@@ -26,9 +26,6 @@ export default {
   },
   props: ["phoneme", "database"],
   computed: {
-    root() {
-      return this.$store.state.root;
-    },
     lects() {
       return Object.keys(this.database.uses);
     },
@@ -37,10 +34,11 @@ export default {
     },
   },
   methods: {
-    play(lect, sample) {
-      const player = this.$refs.player;
-      player.src = `${this.root}${lect}/audio/${sample}.mp3`;
-      player.play();
+    play(audio) {
+      console.log(audio.type);
+      // const player = this.$refs.player;
+      // player.src = audio;
+      // player.play();
     },
   },
 };

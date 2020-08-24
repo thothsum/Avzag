@@ -127,7 +127,6 @@
                 {
                     "word": "аипджын",
                     "ipa": "aipʰd͡ʒən",
-                    "muted": true,
                     "grapheme": "п"
                 }
             ]
@@ -140,7 +139,6 @@
                 {
                     "word": "ӕппӕлын",
                     "ipa": "ɐpːɐlən",
-                    "muted": true,
                     "grapheme": "пп"
                 }
             ]
@@ -195,7 +193,6 @@
                 {
                     "word": "ныттонын",
                     "ipa": "nətːonən",
-                    "muted": true,
                     "grapheme": "тт"
                 }
             ]
@@ -255,7 +252,6 @@
                 {
                     "word": "акаст",
                     "ipa": "akʰastʰ",
-                    "muted": true,
                     "grapheme": "к"
                 }
             ]
@@ -544,7 +540,6 @@
                 {
                     "word": "уадздзæн",
                     "ipa": "wad͡zːɐn",
-                    "muted": true,
                     "grapheme": "дз"
                 }
             ]
@@ -574,7 +569,6 @@
                 {
                     "word": "ныццæвын",
                     "ipa": "nət͡sːɐvən",
-                    "muted": true,
                     "grapheme": "ц"
                 }
             ]
@@ -685,7 +679,6 @@
                 {
                     "word": "гъопп",
                     "ipa": "hopː",
-                    "muted": true,
                     "grapheme": "гъ"
                 }
             ]
