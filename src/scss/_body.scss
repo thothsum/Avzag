@@ -9,7 +9,10 @@
     margin: 0;
     background-color: transparent;
 }
-
+hr {
+    height: 2px;
+    width: 100%;
+}
 body {
     margin: map-get($margins, "normal");
     background-color: var(--color-background);

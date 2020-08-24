@@ -16,37 +16,46 @@
         </div>
       </div>
     </div>
-    <div class="card panel" v-if="selectedCopy">
-      <div class="panel-horizontal">
-        <button @click="deletePhoneme" class="small">delete phoneme</button>
-        <button @click="applyPhoneme" class="small">apply all changes</button>
+    <div class="panel" v-if="selectedCopy">
+      <div class="panel-horizontal-dense card">
+        <input type="text" v-model="selectedCopy.phoneme" />
+        <button @click="deletePhoneme" class="small">delete</button>
+        <button @click="applyPhoneme" class="small">apply</button>
       </div>
-      <input type="text" v-model="selectedCopy.phoneme" />
-      <div>
-        <div class="panel-horizontal">
+      <div class="panel card">
+        <div class="panel-horizontal-dense">
           <h3>Notes</h3>
           <button @click="addNote" class="icon add small">add</button>
         </div>
-        <div :key="i" v-for="(n,i) in selectedCopy.notes" class="panel-horizontal">
-          <textarea v-model="selectedCopy.notes[i]" style="flex:1" />
-          <button @click="deleteNote(i)" class="icon delete">delete</button>
+        <div :key="i" v-for="(n,i) in selectedCopy.notes" class="panel-horizontal edit">
+          <textarea v-model="selectedCopy.notes[i]" class="flex" />
+          <button @click="deleteNote(i)" class="icon delete small">delete</button>
         </div>
       </div>
-      <div class="panel-horizontal">
-        <h3>Samples</h3>
-        <button @click="addSample" class="icon add small">add</button>
-      </div>
-      <div :key="i" v-for="(s,i) in selectedCopy.samples" class="panel-horizontal">
-        <div class="panel-dense">
-          <input type="text" v-model="s.grapheme" />
-          <input type="text" v-model="s.word" />
-          <input type="text" v-model="s.ipa" />
-          <input type="text" v-model="s.indexes" />
-          <div class="panel-horizontal">
-            <input type="checkbox" v-model="s.muted" />muted
+      <div class="panel card">
+        <div class="panel-horizontal">
+          <h3>Samples</h3>
+          <button @click="addSample" class="icon add small">add</button>
+        </div>
+        <div :key="i" v-for="(s,i) in selectedCopy.samples" class="panel edit">
+          <div class="panel-dense">
+            <div class="panel-horizontal-dense flex">
+              <input type="text" v-model="s.grapheme" />
+              <input type="text" v-model="s.indexes" />
+            </div>
+            <div class="panel-horizontal-dense flex">
+              <input type="text" v-model="s.word" />
+              <input type="text" v-model="s.ipa" />
+            </div>
+          </div>
+          <div class="panel-dense">
+            <button
+              @click="selectedCopy.muted=!selectedCopy.muted"
+              class="icon small"
+            >{{selectedCopy.muted ? 'volume_mute' : 'volume_up'}}</button>
+            <button @click="deleteSample(i)" class="icon delete small">delete</button>
           </div>
         </div>
-        <button @click="deleteSample(i)" class="icon delete">delete</button>
       </div>
     </div>
   </div>
@@ -136,6 +145,7 @@ export default {
     applyPhoneme() {
       const t = this.selectedCopy.type;
       const p = this.selectedCopy.phoneme;
+      if (!p) return;
       delete this.selectedCopy.type;
       delete this.selectedCopy.phoneme;
       delete this.file[this.selectedType][this.selectedPhoneme];
@@ -184,5 +194,13 @@ button.delete {
 }
 input[type="text"] {
   height: map-get($button-height, "small");
+  width: 100px;
+  flex: 1;
+}
+.edit {
+  display: grid;
+  grid-template-columns: 1fr 36px;
+  justify-items: stretch;
+  align-items: inherit;
 }
 </style>
