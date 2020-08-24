@@ -14,11 +14,6 @@ export default Vue.extend({
   components: {
     Header,
   },
-  data() {
-    return {
-      language: undefined,
-    };
-  },
   created() {
     this.$store.dispatch("initialize");
     this.$store.dispatch("loadLects", ["Iron", "Kaitag"]);

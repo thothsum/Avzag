@@ -8,9 +8,9 @@
             @click.native="selectPhoneme(t,p)"
             :selected="selectedPhoneme==p"
             :ipa="p"
-            :str="graphemes[t][i]"
-            :key="i"
-            v-for="(p,i) in phonemes[t]"
+            :str="u.samples[0] ? u.samples[0].grapheme : null"
+            :key="p"
+            v-for="(u,p) of file[t]"
           />
           <button class="add icon" @click="addPhoneme(t)">add</button>
         </div>
@@ -50,9 +50,9 @@
           </div>
           <div class="panel-dense">
             <button
-              @click="selectedCopy.muted=!selectedCopy.muted"
+              @click="toggleMute(i)"
               class="icon small"
-            >{{selectedCopy.muted ? 'volume_mute' : 'volume_up'}}</button>
+            >{{s.muted ? 'music_off' : 'music_note'}}</button>
             <button @click="deleteSample(i)" class="icon delete small">delete</button>
           </div>
         </div>
@@ -92,7 +92,7 @@ export default {
       this.types.forEach(
         (t) =>
           (graphemes[t] = this.phonemes[t].map(
-            (p) => this.file[t][p]?.samples?.[0]?.graphemes
+            (p) => this.file[t][p]?.samples?.[0]?.grapheme
           ))
       );
       return graphemes;
@@ -173,6 +173,13 @@ export default {
         delete this.selectedCopy.samples;
       this.$forceUpdate();
     },
+    toggleMute(i) {
+      var sample = this.selectedCopy.samples[i];
+      sample.muted = !sample.muted;
+      if (!sample.muted) delete sample.muted;
+      this.selectedCopy.samples[i] = sample;
+      this.$forceUpdate();
+    },
   },
 };
 </script>
@@ -191,6 +198,9 @@ button.delete {
 }
 .table button.add {
   height: 40px;
+}
+textarea {
+  font-size: map-get($font-sizes, "small");
 }
 input[type="text"] {
   height: map-get($button-height, "small");
