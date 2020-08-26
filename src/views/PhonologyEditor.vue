@@ -19,36 +19,32 @@
     <div class="panel" v-if="selectedCopy">
       <div class="panel-horizontal-dense card">
         <h3>Phoneme</h3>
-        <input type="text" v-model="selectedCopy.phoneme" />
+        <input type="text" v-model="selectedCopy.phoneme" placeholder="phoneme" />
         <button @click="deletePhoneme" class="small">delete</button>
         <button @click="submitPhoneme" class="small">submit</button>
       </div>
       <div class="panel card">
         <div class="panel-horizontal-dense">
           <h3>Notes</h3>
-          <button @click="addNote" class="icon add small">add</button>
+          <button @click="addItem('notes', '')" class="icon add small">add</button>
         </div>
         <div :key="i" v-for="(n,i) in selectedCopy.notes" class="edit">
           <textarea v-model="selectedCopy.notes[i]" class="flex" />
-          <button @click="deleteNote(i)" class="icon delete small">delete</button>
+          <button @click="deleteItem(i, 'notes')" class="icon delete small">delete</button>
         </div>
       </div>
       <div class="panel card">
         <div class="panel-horizontal-dense">
-          <div class="sample">
-            <h3>Samples</h3>
-            <p>word</p>
-            <p>ipa</p>
-          </div>
-          <button @click="addSample" class="icon add small">add</button>
+          <h3>Samples</h3>
+          <button @click="addItem('samples', {})" class="icon add small">add</button>
         </div>
         <div :key="i" v-for="(s,i) in selectedCopy.samples" class="panel-dense edit">
           <div class="sample">
-            <input type="text" v-model="s.grapheme" />
-            <input type="text" v-model="s.word" />
-            <input type="text" v-model="s.ipa" />
+            <input type="text" v-model="s.grapheme" placeholder="grapheme" />
+            <input type="text" v-model="s.word" placeholder="word" />
+            <input type="text" v-model="s.ipa" placeholder="ipa" />
           </div>
-          <button @click="deleteSample(i)" class="icon delete small">delete</button>
+          <button @click="deleteItem(i, 'samples')" class="icon delete small">delete</button>
         </div>
       </div>
     </div>
@@ -119,9 +115,11 @@ export default {
       this.selectedType = t;
       this.selectedPhoneme = p;
 
-      this.selectedCopy = JSON.parse(JSON.stringify(this.file[t][p]));
-      this.selectedCopy.phoneme = p;
-      this.selectedCopy.type = t;
+      let copy = JSON.parse(JSON.stringify(this.file[t][p]));
+      copy.phoneme = p;
+      if (!copy.notes) copy.notes = [];
+      if (!copy.samples) copy.samples = [];
+      this.selectedCopy = copy;
       this.$forceUpdate();
     },
     addPhoneme(type) {
@@ -131,7 +129,7 @@ export default {
       if (n in cat) return;
       cat[n] = {};
       this.file[type] = cat;
-      this.$forceUpdate();
+      this.selectPhoneme(type, n);
     },
     deletePhoneme() {
       delete this.file[this.selectedCopy.type][this.selectedCopy.phoneme];
@@ -139,34 +137,21 @@ export default {
       this.$forceUpdate();
     },
     submitPhoneme() {
-      const t = this.selectedCopy.type;
-      const p = this.selectedCopy.phoneme;
-      if (!p) return;
-      delete this.selectedCopy.type;
+      if (!this.selectedCopy.phoneme) return;
+      const t = this.selectedType;
+      const p = this.selectedPhoneme;
+      const np = this.selectedCopy.phoneme;
+      delete this.file[t][p];
       delete this.selectedCopy.phoneme;
-      delete this.file[this.selectedType][this.selectedPhoneme];
-      this.file[t][p] = JSON.parse(JSON.stringify(this.selectedCopy));
-      this.selectPhoneme(t, p);
+      this.file[t][np] = JSON.parse(JSON.stringify(this.selectedCopy));
+      this.selectPhoneme(t, np);
     },
-    addNote() {
-      if (!this.selectedCopy.notes) this.selectedCopy.notes = [];
-      this.selectedCopy.notes.push("");
+    addItem(key, value) {
+      this.selectedCopy[key].push(value);
       this.$forceUpdate();
     },
-    deleteNote(i) {
-      this.selectedCopy.notes.splice(i, 1);
-      if (this.selectedCopy.notes.length == 0) delete this.selectedCopy.notes;
-      this.$forceUpdate();
-    },
-    addSample() {
-      if (!this.selectedCopy.samples) this.selectedCopy.samples = [];
-      this.selectedCopy.samples.push({});
-      this.$forceUpdate();
-    },
-    deleteSample(i) {
-      this.selectedCopy.samples.splice(i, 1);
-      if (this.selectedCopy.samples.length == 0)
-        delete this.selectedCopy.samples;
+    deleteItem(i, key) {
+      this.selectedCopy[key].splice(i, 1);
       this.$forceUpdate();
     },
   },
