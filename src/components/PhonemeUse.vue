@@ -24,6 +24,7 @@ export default {
   props: ["phoneme", "lect", "use"],
   data() {
     return {
+      urls: [],
       audios: [],
     };
   },
@@ -43,9 +44,9 @@ export default {
   watch: {
     use: {
       handler() {
+        this.urls = this.use.samples.map((s) => this.root + s.word + ".mp3");
         this.audios = [];
-        this.use.samples
-          .map((s) => this.root + s.word + ".mp3")
+        this.urls
           .map((f) => fetch(f).then((r) => r.blob()))
           .map((r) => r.then((a) => this.audios.push(a)));
       },
@@ -64,7 +65,7 @@ export default {
         : word.replace(new RegExp(grap, "g"), this.color(grap));
     },
     play(i) {
-      if (this.playable[i]) this.$emit("play", this.audios[i]);
+      if (this.playable[i]) this.$emit("play", this.urls[i]);
     },
   },
 };

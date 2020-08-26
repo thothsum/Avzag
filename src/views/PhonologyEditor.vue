@@ -15,6 +15,16 @@
           <button class="add icon" @click="addPhoneme(t)">add</button>
         </div>
       </div>
+      <div class="panel">
+        <h3>JSON</h3>
+
+        <div class="panel-horizontal-dense">
+          <button class="small" @click="loadFromLect">import from lect</button>
+          <button class="small" @click="loadFromJson">import from JSON</button>
+          <button class="small" @click="loadToJson">export to JSON</button>
+        </div>
+        <textarea v-model="jsonInput"></textarea>
+      </div>
     </div>
     <div class="panel" v-if="selectedCopy">
       <div class="panel-horizontal-dense card">
@@ -29,7 +39,7 @@
           <button @click="addItem('notes', '')" class="icon add small">add</button>
         </div>
         <div :key="i" v-for="(n,i) in selectedCopy.notes" class="edit">
-          <textarea v-model="selectedCopy.notes[i]" class="flex" />
+          <textarea v-model="selectedCopy.notes[i]" class="flex note" />
           <button @click="deleteItem(i, 'notes')" class="icon delete small">delete</button>
         </div>
       </div>
@@ -66,6 +76,7 @@ export default {
       selectedType: null,
       selectedPhoneme: null,
       selectedCopy: null,
+      jsonInput: null,
     };
   },
   computed: {
@@ -87,28 +98,6 @@ export default {
       );
       return graphemes;
     },
-  },
-  watch: {
-    selectedCopy(val) {
-      let data = null;
-      for (const t of this.types) {
-        data = this.file[t][this.selectedCopy];
-        if (data) {
-          data.phoneme = val;
-          break;
-        }
-      }
-      this.selectedCopyData = data;
-    },
-  },
-  async mounted() {
-    const l = this.$route.query.lect;
-    if (!l) {
-      this.file = {};
-      return;
-    }
-    const r = this.$store.state.root;
-    this.file = await fetch(`${r}${l}/phonemes.json`).then((r) => r.json());
   },
   methods: {
     selectPhoneme(t, p) {
@@ -132,9 +121,8 @@ export default {
       this.selectPhoneme(type, n);
     },
     deletePhoneme() {
-      delete this.file[this.selectedCopy.type][this.selectedCopy.phoneme];
-      this.selectedCopy = null;
-      this.$forceUpdate();
+      delete this.file[this.selectedType][this.selectedPhoneme];
+      this.selectFirst();
     },
     submitPhoneme() {
       if (!this.selectedCopy.phoneme) return;
@@ -153,6 +141,22 @@ export default {
     deleteItem(i, key) {
       this.selectedCopy[key].splice(i, 1);
       this.$forceUpdate();
+    },
+    loadFromLect() {
+      fetch(this.$store.state.root + this.jsonInput + "/phonemes.json")
+        .then((r) => r.json())
+        .then((j) => {
+          if (j) this.file = j;
+        });
+      this.$forceUpdate();
+    },
+    loadFromJson() {
+      const json = JSON.parse(this.jsonInput);
+      if (json) this.file = json;
+      this.$forceUpdate();
+    },
+    loadToJson() {
+      this.jsonInput = JSON.stringify(this.file);
     },
   },
 };

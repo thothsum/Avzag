@@ -35,10 +35,9 @@ export default {
   },
   methods: {
     play(audio) {
-      console.log(audio.type);
-      // const player = this.$refs.player;
-      // player.src = audio;
-      // player.play();
+      const player = this.$refs.player;
+      player.src = audio;
+      player.play();
     },
   },
 };
