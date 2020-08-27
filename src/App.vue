@@ -23,7 +23,6 @@ export default Vue.extend({
   },
   created() {
     this.$store.dispatch("initialize");
-    this.$store.dispatch("loadLects", ["Iron", "Kaitag", "Kabardian"]);
   },
 });
 </script>

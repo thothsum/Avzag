@@ -33,7 +33,8 @@ export default new Vuex.Store({
       commit("setState", ["lects", lects]);
     },
     async loadJson(_, file) {
-      return await fetch(file).then(r => r.json());
+      try { return await fetch(file).then(r => r.json()) }
+      catch  { return {} }
     },
     async loadText(_, file) {
       return await fetch(file).then(r => r.text());

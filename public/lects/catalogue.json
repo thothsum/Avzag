@@ -1,6 +1,13 @@
-[
-    "Iron",
-    "Aqusha",
-    "Kabardian",
-    "Kaitag"
-]
+{
+    "Ossetian": [
+        "Iron",
+        "Digor"
+    ],
+    "Dargin": [
+        "Kaitag",
+        "Aqusha"
+    ],
+    "Circassian": [
+        "Kabardian"
+    ]
+}
