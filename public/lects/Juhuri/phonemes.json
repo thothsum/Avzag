@@ -222,8 +222,9 @@
             "notes": [],
             "samples": [
                 {
-                    "word": "",
-                    "grapheme": "ç"
+                    "grapheme": "ç",
+                    "word": "ḩənç",
+                    "ipa": "ʕænd͡ʒ"
                 }
             ]
         },
@@ -239,8 +240,7 @@
             "notes": [],
             "samples": [
                 {
-                    "grapheme": "q",
-                    "ipa": "ʕænd͡ʒ"
+                    "grapheme": "q"
                 }
             ]
         }

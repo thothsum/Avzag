@@ -129,9 +129,14 @@ export default {
       const t = this.selectedType;
       const p = this.selectedPhoneme;
       const np = this.selectedCopy.phoneme;
+
+      let copy = this.selectedCopy;
       delete this.file[t][p];
-      delete this.selectedCopy.phoneme;
-      this.file[t][np] = JSON.parse(JSON.stringify(this.selectedCopy));
+      delete copy.phoneme;
+      if (copy.samples.length == 0) delete copy.samples;
+      if (copy.notes.length == 0) delete copy.notes;
+
+      this.file[t][np] = JSON.parse(JSON.stringify(copy));
       this.selectPhoneme(t, np);
     },
     addItem(key, value) {
