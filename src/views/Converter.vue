@@ -1,6 +1,7 @@
 <template>
-  <div class="section" v-if="converters">
-    <div class="split">
+  <div class="section">
+    <ChipsSelect v-model="selectedLect" :items="lectNames" />
+    <!-- <div class="split">
       <div class="panel">
         <div class="panel-horizontal">
           <select v-model="mappingFrom">
@@ -39,22 +40,25 @@
       </div>
     </div>
     <input v-show="false" type="file" accept=".txt" ref="file" @change="upload" />
-    <a v-show="false" ref="link"></a>
+    <a v-show="false" ref="link"></a>-->
   </div>
 </template>
 
 <script>
-import MappingTable from "@/components/MappingTable";
-import ConverterText from "@/components/ConverterText";
+import ChipsSelect from "@/components/ChipsSelect";
+// import MappingTable from "@/components/MappingTable";
+// import ConverterText from "@/components/ConverterText";
 
 export default {
   name: "Converter",
   components: {
-    MappingTable,
-    ConverterText,
+    ChipsSelect,
+    // MappingTable,
+    // ConverterText,
   },
   data() {
     return {
+      selectedLect: "",
       mappingFrom: 0,
       mappingTo: 1,
       empty: false,
@@ -65,17 +69,26 @@ export default {
     };
   },
   computed: {
+    lects() {
+      return this.$store.state.lects;
+    },
+    lectNames() {
+      return Object.keys(this.lects ?? {});
+    },
     sample() {
       return this.$store.state.sample;
     },
-    converters() {
-      return this.$store.state.converters;
+    converter() {
+      return this.lects[this.selectedLect]?.converter;
     },
     mappingSource() {
-      return this.converters[this.mappingFrom].mapping;
+      return this.converter?.mappings[this.mappingFrom].pairs;
     },
     mappingResult() {
-      return this.converters[this.mappingTo].mapping.map((m) => [m[1], m[0]]);
+      return this.converter?.mappings[this.mappingTo].pairs.map((m) => [
+        m[1],
+        m[0],
+      ]);
     },
   },
   watch: {

@@ -27,7 +27,7 @@ export default new Vuex.Store({
       for (const n of lectNames) {
         const r = state.root + n + "/";
         lects[n] = {};
-        for (const f of ["phonemes", "phrasebook"])
+        for (const f of ["phonemes", "phrasebook", "converter"])
           lects[n][f] = await dispatch("loadJson", r + f + ".json");
       }
       commit("setState", ["lects", lects]);

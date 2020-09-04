@@ -12,7 +12,7 @@
             :key="p"
             v-for="(u,p) of file[t]"
           />
-          <button class="add icon" @click="addPhoneme(t)">add</button>
+          <button class="add icon phoneme" @click="addPhoneme(t)">add</button>
         </div>
       </div>
       <div class="panel">
@@ -177,6 +177,11 @@ export default {
 }
 button.add {
   color: var(--color-highlight);
+  &.phoneme {
+    place-content: center;
+    width: 46px;
+    height: 40px;
+  }
 }
 button.delete {
   color: var(--color-alert);

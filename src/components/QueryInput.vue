@@ -1,6 +1,6 @@
 <template>
   <div id="root">
-    <input placeholder="search for phonetic features, '-' to exclude" type="text" v-model="input" />
+    <input placeholder="query features, e.g. voiced -velar" type="text" v-model="input" />
   </div>
 </template>
 

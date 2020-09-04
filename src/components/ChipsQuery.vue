@@ -1,23 +1,23 @@
 <template>
   <div class="panel-horizontal-dense scroll">
     <button @click="reset" class="small icon-small round">clear</button>
-    <QueryParam :text="t" v-model="values[i]" :key="i" v-for="(t, i) in tags" />
+    <button
+      class="small round"
+      :class="{'highlight-confirm': value[i]===1, 'highlight-alert': value[i]===-1}"
+      @click="update(i)"
+      :key="i"
+      v-for="i in items"
+    >{{i}}</button>
   </div>
 </template>
 
 <script>
-import QueryParam from "./QueryParam";
-
 export default {
-  name: "QueryList",
-  components: {
-    QueryParam,
-  },
-  props: ["tags"],
-  data() {
-    return {
-      values: [],
-    };
+  name: "ChipsQuery",
+  props: ["value", "items"],
+  model: {
+    prop: "value",
+    event: "update",
   },
   computed: {
     result() {
@@ -42,6 +42,10 @@ export default {
     },
   },
   methods: {
+    update(i) {
+      this.value[i] = ((this.value[i] + 2) % 3) - 1;
+      this.$emit("update", this.value);
+    },
     reset() {
       this.values = new Array(this.tags.length).fill(0);
     },

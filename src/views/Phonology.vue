@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="lects && database">
     <div class="panel scroll">
-      <QueryList v-if="!singleLect" :tags="lectNames" @query="lectQuery=$event" />
+      <ChipsQuery v-if="!singleLect" :tags="lectNames" @query="lectQuery=$event" />
       <div class="panel" :key="t" v-for="t in types">
         <h3>{{t}}</h3>
         <PhoneticTable
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import QueryList from "@/components/QueryList";
+import ChipsQuery from "@/components/ChipsQuery";
 import QueryInput from "@/components/QueryInput";
 import PhoneticTable from "@/components/PhoneticTable";
 import PhonemeDetails from "@/components/PhonemeDetails";
@@ -29,7 +29,7 @@ export default {
   components: {
     PhoneticTable,
     PhonemeDetails,
-    QueryList,
+    ChipsQuery,
     QueryInput,
   },
   data() {

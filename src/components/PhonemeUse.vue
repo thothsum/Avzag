@@ -4,7 +4,7 @@
       <h3>{{lect}}</h3>
       <p v-html="header"></p>
     </div>
-    <div class="panel-solid scroll">
+    <div class="panel-solid">
       <button class="small panel-horizontal" @click="play(i)" :key="i" v-for="(s,i) in use.samples">
         <span class="icon-small">{{playable[i] ? 'play_arrow' : 'arrow_right'}}</span>
         <span class="text" v-html="highlight(s.word, s.grapheme)"></span>
@@ -81,7 +81,6 @@ export default {
   margin-left: $margin;
   margin-right: $margin;
   border-radius: 0;
-  max-height: 3 * map-get($button-height, "normal");
   &:last-child {
     margin-bottom: $margin;
     border-radius: 0 0 $border-radius $border-radius;
