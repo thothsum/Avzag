@@ -1,23 +1,23 @@
 <template>
   <div class="section panel">
-    <ChipsSelect v-model="selectedLect" :items="lectNames" />
+    <ChipsSelect v-model="selectedLect" :items="lects.map(l => l.name)" />
     <div class="split" v-if="converter">
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="mappingFrom">
-            <option :value="n" :key="n" v-for="n in many21Names">{{n}}</option>
+          <select v-model="sourceMapping">
+            <option :value="m" :key="m.name" v-for="m in mappings">{{m.name}}</option>
           </select>
           <button @click="empty=!source" class="icon">{{source?"subject":"clear"}}</button>
           <button @click="$refs.file.click()" class="icon">publish</button>
-          <button v-show="canSwap" @click="swap" class="icon">swap_horiz</button>
+          <button v-show="!sourceMapping.many21" @click="swap" class="icon">swap_horiz</button>
         </div>
-        <ConverterText :source="source" :mapping="mappingSource" @result="intermediate=$event" />
-        <MappingTable v-if="showMapping" :mapping="mappingSource" />
+        <ConverterText :source="source" :mapping="sourcePairs" @result="intermediate=$event" />
+        <MappingTable v-if="showMapping" :mapping="sourcePairs" />
       </div>
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="mappingTo">
-            <option :value="n" :key="n" v-for="n in mappingNames">{{n}}</option>
+          <select v-model="resultMapping">
+            <option :value="m" :key="m.name" v-for="m in mappings">{{m.name}}</option>
           </select>
           <button
             @click="showMapping=!showMapping"
@@ -29,10 +29,10 @@
           ref="resultText"
           :readonly="true"
           :source="intermediate"
-          :mapping="mappingResult"
+          :mapping="resultPairs"
           @result="result=$event"
         />
-        <MappingTable v-if="showMapping" :mapping="mappingResult" />
+        <MappingTable v-if="showMapping" :mapping="resultPairs" />
       </div>
     </div>
     <h2 v-else>No data for this lect</h2>
@@ -55,55 +55,52 @@ export default {
   },
   data() {
     return {
-      selectedLect: "",
-      mappingFrom: "",
-      mappingTo: "",
+      selectedLect: undefined,
       source: "",
+      sourceMapping: undefined,
+      result: "",
+      resultMapping: undefined,
       empty: false,
       intermediate: "",
-      result: "",
       showMapping: false,
     };
   },
   computed: {
     lects() {
-      return this.$store.state.lects;
-    },
-    lectNames() {
-      return Object.keys(this.lects);
+      const st = this.$store.state.lects;
+      return Object.keys(st).map((n) => {
+        let l = st[n];
+        l.name = n;
+        return l;
+      });
     },
     converter() {
-      return this.lects[this.selectedLect]?.converter;
+      return this.selectedLect?.converter;
+    },
+    mappings() {
+      return this.converter?.mappings;
+    },
+    sourcePairs() {
+      return this.sourceMapping.pairs;
+    },
+    resultPairs() {
+      return this.resultMapping.pairs.map((m) => [m[1], m[0]]) ?? [];
     },
     defaultConversion() {
       return this.converter?.defaultConversion;
     },
-    mappings() {
-      return this.converter.mappings;
-    },
-    mappingNames() {
-      return Object.keys(this.mappings);
-    },
-    many21Names() {
-      return this.mappingNames.filter((n) => !this.mappings[n].many21);
-    },
-    canSwap() {
-      return this.many21Names.includes(this.mappingTo);
-    },
     sample() {
       return this.converter?.sample ?? "";
     },
-    mappingSource() {
-      return this.mappings[this.mappingFrom]?.pairs;
-    },
-    mappingResult() {
-      return this.mappings[this.mappingTo]?.pairs?.map((m) => [m[1], m[0]]);
-    },
   },
   watch: {
-    defaultConversion(c) {
-      this.mappingFrom = c[0];
-      this.mappingTo = c[1];
+    mappings(m) {
+      this.sourceMapping = m[0];
+      this.resultMapping = m[1];
+    },
+    defaultConversion() {
+      this.sourceMapping = this.mappings?.find((m) => (m.name = c[0]));
+      this.mappingTo = this.mappings?.find((m) => (m.name = c[1]));
     },
     sample(s) {
       this.source = s;
@@ -114,10 +111,10 @@ export default {
   },
   methods: {
     swap() {
-      let source = this.result;
-      let from = this.mappingFrom;
-      this.mappingFrom = this.mappingTo;
-      this.mappingTo = from;
+      const source = this.result;
+      const mapping = this.sourceMapping;
+      this.sourceMapping = this.resultMapping;
+      this.resultMapping = mapping;
       this.source = source;
     },
     upload(event) {
