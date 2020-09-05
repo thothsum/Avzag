@@ -2,11 +2,11 @@
   <div class="panel-horizontal-dense scroll">
     <button
       class="small round"
-      :class="{'highlight': value==i}"
-      @click="update(i)"
-      :key="i"
-      v-for="i in items"
-    >{{i}}</button>
+      :class="{'highlight': value==it}"
+      @click="select(it)"
+      :key="it"
+      v-for="it in items"
+    >{{it}}</button>
   </div>
 </template>
 
@@ -16,19 +16,19 @@ export default {
   props: ["value", "items"],
   model: {
     prop: "value",
-    event: "update",
+    event: "select",
   },
   watch: {
     value: {
       handler() {
-        if (!this.value) this.update(this.items[0]);
+        if (!this.value) this.select(this.items[0]);
       },
       immediate: true,
     },
   },
   methods: {
-    update(i) {
-      this.$emit("update", i);
+    select(it) {
+      this.$emit("select", it);
     },
   },
 };

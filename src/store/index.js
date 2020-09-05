@@ -34,7 +34,7 @@ export default new Vuex.Store({
     },
     async loadJson(_, file) {
       try { return await fetch(file).then(r => r.json()) }
-      catch  { return {} }
+      catch  { return }
     },
     async loadText(_, file) {
       return await fetch(file).then(r => r.text());

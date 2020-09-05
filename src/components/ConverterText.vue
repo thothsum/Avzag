@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       text: "",
-      result: ""
+      result: "",
     };
   },
   watch: {
@@ -19,7 +19,7 @@ export default {
           ? this.convert(this.source, this.mapping)
           : this.source;
       },
-      immediate: true
+      immediate: true,
     },
     text: {
       handler() {
@@ -28,7 +28,7 @@ export default {
           : this.convert(this.text, this.mapping);
         this.$emit("result", this.result);
       },
-      immediate: true
+      immediate: true,
     },
     mapping: {
       handler(mapping) {
@@ -36,12 +36,12 @@ export default {
           ? this.convert(this.source, mapping)
           : this.convert(
               this.result,
-              mapping.map(m => [m[1], m[0]])
+              mapping.map((m) => [m[1], m[0]])
             );
       },
       deep: true,
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     capitalize(str) {
@@ -54,7 +54,7 @@ export default {
       return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
     },
     convert(source, mapping) {
-      if (mapping.length === 0) return source;
+      if (!mapping || mapping.length === 0) return source;
 
       source = " " + source.replace(/\n/g, "\n ").trim();
       let result = "";
@@ -67,9 +67,9 @@ export default {
           const pairs = [
             [from, to],
             [this.capitalize(from), this.capitalize(to)],
-            [from.toUpperCase(), to.toUpperCase()]
+            [from.toUpperCase(), to.toUpperCase()],
           ];
-          
+
           for (const [f, t] of pairs)
             if (sub === f) {
               found = true;
@@ -88,8 +88,8 @@ export default {
       }
 
       return result.replace(/\n /g, "\n").trim();
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,19 +1,15 @@
 <template>
-  <div class="section">
+  <div class="section panel">
     <ChipsSelect v-model="selectedLect" :items="lectNames" />
-    <!-- <div class="split">
+    <div class="split" v-if="converter">
       <div class="panel">
         <div class="panel-horizontal">
           <select v-model="mappingFrom">
-            <option
-              :value="cn.i"
-              :key="cn.i"
-              v-for="cn in converters.filter(c => !c.many21)"
-            >{{cn.name}}</option>
+            <option :value="n" :key="n" v-for="n in many21Names">{{n}}</option>
           </select>
-          <button @click="empty=!empty" class="icon">{{empty ? "subject":"clear"}}</button>
+          <button @click="empty=!source" class="icon">{{source?"subject":"clear"}}</button>
           <button @click="$refs.file.click()" class="icon">publish</button>
-          <button v-show="!converters[this.mappingTo].many21" @click="swap" class="icon">swap_horiz</button>
+          <button v-show="canSwap" @click="swap" class="icon">swap_horiz</button>
         </div>
         <ConverterText :source="source" :mapping="mappingSource" @result="intermediate=$event" />
         <MappingTable v-if="showMapping" :mapping="mappingSource" />
@@ -21,7 +17,7 @@
       <div class="panel">
         <div class="panel-horizontal">
           <select v-model="mappingTo">
-            <option :value="cn.i" :key="cn.i" v-for="cn in converters">{{cn.name}}</option>
+            <option :value="n" :key="n" v-for="n in mappingNames">{{n}}</option>
           </select>
           <button
             @click="showMapping=!showMapping"
@@ -39,30 +35,31 @@
         <MappingTable v-if="showMapping" :mapping="mappingResult" />
       </div>
     </div>
+    <h2 v-else>No data for this lect</h2>
     <input v-show="false" type="file" accept=".txt" ref="file" @change="upload" />
-    <a v-show="false" ref="link"></a>-->
+    <a v-show="false" ref="link"></a>
   </div>
 </template>
 
 <script>
 import ChipsSelect from "@/components/ChipsSelect";
-// import MappingTable from "@/components/MappingTable";
-// import ConverterText from "@/components/ConverterText";
+import MappingTable from "@/components/MappingTable";
+import ConverterText from "@/components/ConverterText";
 
 export default {
   name: "Converter",
   components: {
     ChipsSelect,
-    // MappingTable,
-    // ConverterText,
+    MappingTable,
+    ConverterText,
   },
   data() {
     return {
       selectedLect: "",
-      mappingFrom: 0,
-      mappingTo: 1,
-      empty: false,
+      mappingFrom: "",
+      mappingTo: "",
       source: "",
+      empty: false,
       intermediate: "",
       result: "",
       showMapping: false,
@@ -73,51 +70,46 @@ export default {
       return this.$store.state.lects;
     },
     lectNames() {
-      return Object.keys(this.lects ?? {});
-    },
-    sample() {
-      return this.$store.state.sample;
+      return Object.keys(this.lects);
     },
     converter() {
       return this.lects[this.selectedLect]?.converter;
     },
+    defaultConversion() {
+      return this.converter?.defaultConversion;
+    },
+    mappings() {
+      return this.converter.mappings;
+    },
+    mappingNames() {
+      return Object.keys(this.mappings);
+    },
+    many21Names() {
+      return this.mappingNames.filter((n) => !this.mappings[n].many21);
+    },
+    canSwap() {
+      return this.many21Names.includes(this.mappingTo);
+    },
+    sample() {
+      return this.converter?.sample ?? "";
+    },
     mappingSource() {
-      return this.converter?.mappings[this.mappingFrom].pairs;
+      return this.mappings[this.mappingFrom]?.pairs;
     },
     mappingResult() {
-      return this.converter?.mappings[this.mappingTo].pairs.map((m) => [
-        m[1],
-        m[0],
-      ]);
+      return this.mappings[this.mappingTo]?.pairs?.map((m) => [m[1], m[0]]);
     },
   },
   watch: {
-    sample(sample) {
-      if (!this.empty) this.source = sample;
+    defaultConversion(c) {
+      this.mappingFrom = c[0];
+      this.mappingTo = c[1];
     },
-    empty(empty) {
-      this.source = empty ? "" : this.sample;
-      this.$router
-        .replace({ query: { ...this.$route.query, empty: empty } })
-        .catch(() => {});
+    sample(s) {
+      this.source = s;
     },
-    mappingFrom(from) {
-      this.$router
-        .replace({ query: { ...this.$route.query, from: from } })
-        .catch(() => {});
-    },
-    mappingTo(to) {
-      this.$router
-        .replace({ query: { ...this.$route.query, to: to } })
-        .catch(() => {});
-    },
-    "$route.query": {
-      handler(query) {
-        this.empty = query.empty;
-        this.mappingFrom = query.from ?? 0;
-        this.mappingTo = query.to ?? 1;
-      },
-      immediate: true,
+    empty(e) {
+      this.source = e ? this.sample : "";
     },
   },
   methods: {
