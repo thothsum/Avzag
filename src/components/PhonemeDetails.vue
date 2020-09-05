@@ -30,7 +30,7 @@ export default {
       return Object.keys(this.database.uses);
     },
     tags() {
-      return this.database.tags.reduce((a, t) => (a = `${a} ${t}`), "");
+      return this.database.tags.reduce((a, t) => (a += " " + t), "");
     },
   },
   methods: {

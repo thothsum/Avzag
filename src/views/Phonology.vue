@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="lects && database">
     <div class="panel scroll">
-      <ChipsQuery v-if="!singleLect" :tags="lectNames" @query="lectQuery=$event" />
+      <ChipsQuery v-if="!singleLect" :items="lectNames" @query="lectQuery=$event" />
       <div class="panel" :key="t" v-for="t in types">
         <h3>{{t}}</h3>
         <PhoneticTable
@@ -12,7 +12,7 @@
           :database="database"
         />
       </div>
-      <QueryInput @query="featureQuery=$event" />
+      <InputQuery placeholder="e.g. voiced -velar" @query="featureQuery=$event" />
     </div>
     <PhonemeDetails :phoneme="selected" :database="database[selected]" />
   </div>
@@ -20,7 +20,7 @@
 
 <script>
 import ChipsQuery from "@/components/ChipsQuery";
-import QueryInput from "@/components/QueryInput";
+import InputQuery from "@/components/InputQuery";
 import PhoneticTable from "@/components/PhoneticTable";
 import PhonemeDetails from "@/components/PhonemeDetails";
 
@@ -30,7 +30,7 @@ export default {
     PhoneticTable,
     PhonemeDetails,
     ChipsQuery,
-    QueryInput,
+    InputQuery,
   },
   data() {
     return {

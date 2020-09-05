@@ -3,38 +3,36 @@
     <button @click="reset" class="small icon-small round">clear</button>
     <button
       class="small round"
-      :class="{'highlight-confirm': value[i]===1, 'highlight-alert': value[i]===-1}"
-      @click="update(i)"
+      :class="{'highlight-confirm': v>0, 'highlight-alert': v<0}"
+      @click="toggle(i)"
       :key="i"
-      v-for="i in items"
-    >{{i}}</button>
+      v-for="(v, i) in values"
+    >{{items[i]}}</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "ChipsQuery",
-  props: ["value", "items"],
-  model: {
-    prop: "value",
-    event: "update",
-  },
-  computed: {
-    result() {
-      return this.tags.reduce((q, t, i) => {
-        if (this.values[i]) q[t] = this.values[i] > 0;
-        return q;
-      }, {});
-    },
+  props: ["items"],
+  data() {
+    return {
+      values: [],
+    };
   },
   watch: {
-    result: {
-      handler() {
-        this.$emit("query", this.result);
+    values: {
+      handler(val) {
+        this.$emit(
+          "query",
+          val.reduce((q, v, i) => {
+            if (v) q[this.items[i]] = v > 0;
+            return q;
+          }, {})
+        );
       },
-      immediate: true,
     },
-    tags: {
+    items: {
       handler() {
         this.reset();
       },
@@ -42,12 +40,11 @@ export default {
     },
   },
   methods: {
-    update(i) {
-      this.value[i] = ((this.value[i] + 2) % 3) - 1;
-      this.$emit("update", this.value);
+    toggle(i) {
+      this.values.splice(i, 1, ((this.values[i] + 2) % 3) - 1);
     },
     reset() {
-      this.values = new Array(this.tags.length).fill(0);
+      this.values = new Array(this.items.length).fill(0);
     },
   },
 };

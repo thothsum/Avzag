@@ -1,15 +1,16 @@
 <template>
   <div id="root">
-    <input placeholder="query features, e.g. voiced -velar" type="text" v-model="input" />
+    <input :placeholder="placeholder" type="text" v-model="input" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "QueryInput",
+  name: "InputQuery",
+  props: ["placeholder"],
   data() {
     return {
-      input: ""
+      input: "",
     };
   },
   computed: {
@@ -17,22 +18,22 @@ export default {
       return this.input
         .toLowerCase()
         .split(" ")
-        .filter(s => s)
+        .filter((s) => s)
         .reduce((q, t) => {
           if (t[0] === "-") q[t.substr(1)] = false;
           else q[t] = true;
           return q;
         }, {});
-    }
+    },
   },
   watch: {
     result: {
       handler() {
         this.$emit("query", this.result);
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 
