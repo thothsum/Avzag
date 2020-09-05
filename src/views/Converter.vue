@@ -1,6 +1,6 @@
 <template>
   <div class="section panel">
-    <ChipsSelect v-model="selectedLect" :items="lects.map(l => l.name)" />
+    <ChipsSelect v-model="selectedLect" :items="lects" itemKey="name" />
     <div class="split" v-if="converter">
       <div class="panel">
         <div class="panel-horizontal">
@@ -98,9 +98,9 @@ export default {
       this.sourceMapping = m[0];
       this.resultMapping = m[1];
     },
-    defaultConversion() {
-      this.sourceMapping = this.mappings?.find((m) => (m.name = c[0]));
-      this.mappingTo = this.mappings?.find((m) => (m.name = c[1]));
+    defaultConversion(c) {
+      this.sourceMapping = this.mappings.find((m) => m.name == c[0]);
+      this.resultMapping = this.mappings.find((m) => m.name == c[1]);
     },
     sample(s) {
       this.source = s;
