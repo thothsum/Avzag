@@ -5,7 +5,7 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select v-model="sourceMapping" :items="mappings" itemKey="name" />
-          <Button @click.native="empty=!empty" :icon="empty?'subject':'clear'" />
+          <Toggle v-model="empty" :icons="['subject','clear']" />
           <!-- <button @click="empty=!source" class="icon">{{source?"subject":"clear"}}</button> -->
           <Button @click.native="$refs.file.click()" icon="publish" />
           <Button v-show="!resultMapping.many21" @click.native="swap" icon="swap_horiz" />
@@ -16,10 +16,7 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select v-model="resultMapping" :items="mappings" itemKey="name" />
-          <Button
-            @click.native="showMapping=!showMapping"
-            :icon="showMapping?'visibility_off':'visibility'"
-          />
+          <Toggle v-model="showMapping" :icons="['visibility','visibility_off']" />
           <Button @click.native="copy" icon="file_copy" />
         </div>
         <ConverterText
@@ -39,8 +36,9 @@
 </template>
 
 <script>
-import Select from "@/components/Select";
 import Button from "@/components/Button";
+import Toggle from "@/components/Toggle";
+import Select from "@/components/Select";
 
 import ChipsSelect from "@/components/ChipsSelect";
 import MappingTable from "@/components/MappingTable";
@@ -49,8 +47,9 @@ import ConverterText from "@/components/ConverterText";
 export default {
   name: "Converter",
   components: {
-    Select,
     Button,
+    Toggle,
+    Select,
     ChipsSelect,
     MappingTable,
     ConverterText,

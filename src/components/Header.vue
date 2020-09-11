@@ -2,16 +2,15 @@
   <div id="root">
     <div class="section panel-horizontal">
       <Button @click.native="navigate('Home')" icon="arrow_back" />
-      <button
-        class="panel-horizontal"
-        :class="{ highlight: $route.name === t }"
-        @click="navigate(t)"
+      <Button
+        @click.native="navigate(t)"
+        class="nav"
+        :class="{ 'highlight': $route.name === t }"
+        :icon="i"
+        :text="t"
         :key="i"
         v-for="[t, i] in menus"
-      >
-        <span class="icon">{{i}}</span>
-        <p v-if="t">{{t}}</p>
-      </button>
+      />
     </div>
   </div>
 </template>
@@ -56,7 +55,7 @@ export default {
   position: relative;
   box-shadow: map-get($shadows, "elevated");
 }
-button.panel-horizontal {
+.nav {
   font-weight: bold;
 }
 </style>
