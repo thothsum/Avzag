@@ -4,9 +4,7 @@
     <div class="split" v-if="converter">
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="sourceMapping">
-            <option :value="m" :key="m.name" v-for="m in mappings">{{m.name}}</option>
-          </select>
+          <Select v-model="sourceMapping" :items="mappings" itemKey="name" />
           <button @click="empty=!source" class="icon">{{source?"subject":"clear"}}</button>
           <button @click="$refs.file.click()" class="icon">publish</button>
           <button v-show="!sourceMapping.many21" @click="swap" class="icon">swap_horiz</button>
@@ -16,9 +14,7 @@
       </div>
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="resultMapping">
-            <option :value="m" :key="m.name" v-for="m in mappings">{{m.name}}</option>
-          </select>
+          <Select v-model="resultMapping" :items="mappings" itemKey="name" />
           <button
             @click="showMapping=!showMapping"
             class="icon"
@@ -42,6 +38,7 @@
 </template>
 
 <script>
+import Select from "@/components/Select";
 import ChipsSelect from "@/components/ChipsSelect";
 import MappingTable from "@/components/MappingTable";
 import ConverterText from "@/components/ConverterText";
@@ -49,6 +46,7 @@ import ConverterText from "@/components/ConverterText";
 export default {
   name: "Converter",
   components: {
+    Select,
     ChipsSelect,
     MappingTable,
     ConverterText,
@@ -99,8 +97,8 @@ export default {
       this.resultMapping = m[1];
     },
     defaultConversion(c) {
-      this.sourceMapping = this.mappings.find((m) => m.name == c[0]);
-      this.resultMapping = this.mappings.find((m) => m.name == c[1]);
+      this.sourceMapping = this.mappings[c[0]];
+      this.resultMapping = this.mappings[c[1]];
     },
     sample(s) {
       this.source = s;

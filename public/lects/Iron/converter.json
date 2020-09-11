@@ -1,8 +1,8 @@
 {
     "sample": "Цӕй ма, лӕппутӕ, бавналӕм,\nНӕ тыхтӕ иумӕ бавзарӕм!",
     "defaultConversion": [
-        "NSOR (2016)",
-        "Cyrillic"
+        2,
+        5
     ],
     "mappings": [
         {
