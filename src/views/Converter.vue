@@ -5,9 +5,10 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select v-model="sourceMapping" :items="mappings" itemKey="name" />
-          <button @click="empty=!source" class="icon">{{source?"subject":"clear"}}</button>
-          <button @click="$refs.file.click()" class="icon">publish</button>
-          <button v-show="!sourceMapping.many21" @click="swap" class="icon">swap_horiz</button>
+          <Button @click.native="empty=!empty" :icon="empty?'subject':'clear'" />
+          <!-- <button @click="empty=!source" class="icon">{{source?"subject":"clear"}}</button> -->
+          <Button @click.native="$refs.file.click()" icon="publish" />
+          <Button v-show="!resultMapping.many21" @click.native="swap" icon="swap_horiz" />
         </div>
         <ConverterText :source="source" :mapping="sourcePairs" @result="intermediate=$event" />
         <MappingTable v-if="showMapping" :mapping="sourcePairs" />
@@ -15,11 +16,11 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select v-model="resultMapping" :items="mappings" itemKey="name" />
-          <button
-            @click="showMapping=!showMapping"
-            class="icon"
-          >{{showMapping?'visibility_off':'visibility'}}</button>
-          <button @click="copy" class="icon">file_copy</button>
+          <Button
+            @click.native="showMapping=!showMapping"
+            :icon="showMapping?'visibility_off':'visibility'"
+          />
+          <Button @click.native="copy" icon="file_copy" />
         </div>
         <ConverterText
           ref="resultText"
@@ -39,6 +40,8 @@
 
 <script>
 import Select from "@/components/Select";
+import Button from "@/components/Button";
+
 import ChipsSelect from "@/components/ChipsSelect";
 import MappingTable from "@/components/MappingTable";
 import ConverterText from "@/components/ConverterText";
@@ -47,6 +50,7 @@ export default {
   name: "Converter",
   components: {
     Select,
+    Button,
     ChipsSelect,
     MappingTable,
     ConverterText,

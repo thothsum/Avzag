@@ -1,5 +1,5 @@
 <template>
-  <select @change="select($event.target.value)">
+  <select v-model="index">
     <option :value="i" :key="i" v-for="(k, i) in keys">{{k}}</option>
   </select>
 </template>
@@ -12,6 +12,11 @@ export default {
     prop: "value",
     event: "select",
   },
+  data() {
+    return {
+      index: 0,
+    };
+  },
   computed: {
     keys() {
       return this.itemKey
@@ -19,14 +24,19 @@ export default {
         : this.items;
     },
   },
-  mounted() {
-    let i = this.items.indexOf(this.value);
-    if (i < 0) i = 0;
-    this.$el.value = i;
-  },
-  methods: {
-    select(i) {
-      this.$emit("select", this.items[i]);
+  watch: {
+    value: {
+      handler(v) {
+        const i = this.items.indexOf(v);
+        this.index = i < 0 ? 0 : i;
+      },
+      immediate: true,
+    },
+    index: {
+      handler(i) {
+        this.$emit("select", this.items[i]);
+      },
+      immediate: true,
     },
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div id="root">
     <div class="section panel-horizontal">
-      <button @click="navigate('Home')" class="icon">arrow_back</button>
+      <Button @click.native="navigate('Home')" icon="arrow_back" />
       <button
         class="panel-horizontal"
         :class="{ highlight: $route.name === t }"
@@ -16,11 +16,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script>
+import Button from "./Button";
 
-export default Vue.extend({
+export default {
   name: "Header",
+  components: {
+    Button,
+  },
   data() {
     return {
       menus: [
@@ -31,7 +34,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    navigate(path: string): void {
+    navigate(path) {
       if (this.$route.name !== path)
         this.$router.push({
           name: path,
@@ -39,7 +42,7 @@ export default Vue.extend({
         });
     },
   },
-});
+};
 </script>
 
 <style lang="scss" scoped>
