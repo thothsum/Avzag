@@ -1,6 +1,6 @@
 <template>
   <div class="section panel">
-    <ChipsSelect v-model="selectedLect" :items="lects" itemKey="name" />
+    <ChipsSelect v-model="lect" :items="lects" itemKey="name" />
     <div class="split" v-if="converter">
       <div class="panel">
         <div class="panel-horizontal">
@@ -9,8 +9,8 @@
           <Button @click.native="$refs.file.click()" icon="publish" />
           <Button v-show="!resultMapping.many21" @click.native="swap" icon="swap_horiz" />
         </div>
-        <ConverterText :source="source" :mapping="sourcePairs" @result="intermediate=$event" />
-        <MappingTable v-if="showMapping" :mapping="sourcePairs" />
+        <ConverterText :source="source" :mapping="sourceMapping" @result="intermediate=$event" />
+        <MappingTable v-if="showMapping" :mapping="sourceMapping" />
       </div>
       <div class="panel">
         <div class="panel-horizontal">
@@ -22,10 +22,11 @@
           ref="resultText"
           :readonly="true"
           :source="intermediate"
-          :mapping="resultPairs"
+          :mapping="resultMapping"
+          :reverse="true"
           @result="result=$event"
         />
-        <MappingTable v-if="showMapping" :mapping="resultPairs" />
+        <MappingTable v-if="showMapping" :mapping="resultMapping" :reverse="true" />
       </div>
     </div>
     <h2 v-else>No data for this lect.</h2>
@@ -55,7 +56,7 @@ export default {
   },
   data() {
     return {
-      selectedLect: undefined,
+      lect: undefined,
       source: "",
       sourceMapping: undefined,
       result: "",
@@ -67,24 +68,13 @@ export default {
   },
   computed: {
     lects() {
-      const st = this.$store.state.lects;
-      return Object.keys(st).map((n) => {
-        let l = st[n];
-        l.name = n;
-        return l;
-      });
+      return this.$store.state.lects;
     },
     converter() {
-      return this.selectedLect?.converter;
+      return this.lect?.converter;
     },
     mappings() {
       return this.converter?.mappings;
-    },
-    sourcePairs() {
-      return this.sourceMapping.pairs;
-    },
-    resultPairs() {
-      return this.resultMapping.pairs.map((m) => [m[1], m[0]]) ?? [];
     },
     defaultConversion() {
       return this.converter?.default;

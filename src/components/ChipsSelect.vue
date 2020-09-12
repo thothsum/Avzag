@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense scroll">
+  <div class="panel-horizontal-dense scroll" v-if="many">
     <button
       class="small round"
       :class="{'highlight': value==items[i]}"
@@ -23,6 +23,9 @@ export default {
       return this.itemKey
         ? this.items.map((it) => it[this.itemKey])
         : this.items;
+    },
+    many() {
+      return this.items.length > 1;
     },
   },
   watch: {
