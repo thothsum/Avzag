@@ -92,9 +92,6 @@ export default {
       this.lectQuery = {};
       this.lectQuery[lect] = true;
     },
-    selected(val) {
-      this.$router.replace({ query: { p: val } });
-    },
   },
   methods: {
     getTags(p, t) {
