@@ -32,11 +32,8 @@ export default {
       },
       immediate: true,
     },
-    index: {
-      handler(i) {
-        this.$emit("select", this.items[i]);
-      },
-      immediate: true,
+    index(i) {
+      this.$emit("select", this.items[i]);
     },
   },
 };

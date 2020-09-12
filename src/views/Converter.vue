@@ -88,7 +88,7 @@ export default {
       return this.resultMapping.pairs.map((m) => [m[1], m[0]]) ?? [];
     },
     defaultConversion() {
-      return this.converter?.defaultConversion;
+      return this.converter?.default;
     },
     sample() {
       return this.converter?.sample ?? "";
