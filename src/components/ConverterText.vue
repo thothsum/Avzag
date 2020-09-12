@@ -97,6 +97,6 @@ export default {
 <style lang="scss" scoped>
 textarea {
   padding: map-get($margins, "normal");
-  height: 250px;
+  height: 256px;
 }
 </style>
