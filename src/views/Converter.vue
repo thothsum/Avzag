@@ -6,7 +6,6 @@
         <div class="panel-horizontal">
           <Select v-model="sourceMapping" :items="mappings" itemKey="name" />
           <Toggle v-model="empty" :icons="['subject','clear']" />
-          <!-- <button @click="empty=!source" class="icon">{{source?"subject":"clear"}}</button> -->
           <Button @click.native="$refs.file.click()" icon="publish" />
           <Button v-show="!resultMapping.many21" @click.native="swap" icon="swap_horiz" />
         </div>
@@ -29,7 +28,7 @@
         <MappingTable v-if="showMapping" :mapping="resultPairs" />
       </div>
     </div>
-    <h2 v-else>No data for this lect</h2>
+    <h2 v-else>No data for this lect.</h2>
     <input v-show="false" type="file" accept=".txt" ref="file" @change="upload" />
     <a v-show="false" ref="link"></a>
   </div>
