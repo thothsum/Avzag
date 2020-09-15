@@ -1,6 +1,6 @@
 {
-    "vowels": {
-        "a": {
+    "vowels": [
+        {
             "samples": [
                 {
                     "word": "абон",
@@ -12,9 +12,10 @@
                     "ipa": "bals",
                     "grapheme": "а"
                 }
-            ]
+            ],
+            "phoneme": "a"
         },
-        "ɐ": {
+        {
             "samples": [
                 {
                     "word": "ӕххуыс",
@@ -26,9 +27,10 @@
                     "ipa": "wəgɐrdɐn",
                     "grapheme": "ӕ"
                 }
-            ]
+            ],
+            "phoneme": "ɐ"
         },
-        "e": {
+        {
             "notes": [
                 "⟨э⟩ is used only in recent Russian loanwords."
             ],
@@ -43,9 +45,10 @@
                     "ipa": "dune",
                     "grapheme": "е"
                 }
-            ]
+            ],
+            "phoneme": "e"
         },
-        "i": {
+        {
             "samples": [
                 {
                     "word": "изӕр",
@@ -57,9 +60,10 @@
                     "ipa": "kʼaliw",
                     "grapheme": "и"
                 }
-            ]
+            ],
+            "phoneme": "i"
         },
-        "o": {
+        {
             "samples": [
                 {
                     "word": "обау",
@@ -71,9 +75,10 @@
                     "ipa": "rajʃom",
                     "grapheme": "о"
                 }
-            ]
+            ],
+            "phoneme": "o"
         },
-        "ə": {
+        {
             "samples": [
                 {
                     "word": "сыффытт",
@@ -85,9 +90,10 @@
                     "ipa": "raləʁd",
                     "grapheme": "ы"
                 }
-            ]
+            ],
+            "phoneme": "ə"
         },
-        "u": {
+        {
             "samples": [
                 {
                     "word": "усгур",
@@ -99,11 +105,12 @@
                     "ipa": "χudən",
                     "grapheme": "у"
                 }
-            ]
+            ],
+            "phoneme": "u"
         }
-    },
-    "consonants": {
-        "b": {
+    ],
+    "consonants": [
+        {
             "samples": [
                 {
                     "word": "байзӕддаг",
@@ -115,9 +122,10 @@
                     "ipa": "kʼɐbɐr",
                     "grapheme": "б"
                 }
-            ]
+            ],
+            "phoneme": "b"
         },
-        "pʰ": {
+        {
             "samples": [
                 {
                     "word": "пурти",
@@ -129,9 +137,10 @@
                     "ipa": "aipʰd͡ʒən",
                     "grapheme": "п"
                 }
-            ]
+            ],
+            "phoneme": "pʰ"
         },
-        "pː": {
+        {
             "notes": [
                 "Phonetic status in question."
             ],
@@ -141,9 +150,10 @@
                     "ipa": "ɐpːɐlən",
                     "grapheme": "пп"
                 }
-            ]
+            ],
+            "phoneme": "pː"
         },
-        "pʼ": {
+        {
             "samples": [
                 {
                     "word": "пъазбын",
@@ -155,9 +165,10 @@
                     "ipa": "pʼərəpʼəf",
                     "grapheme": "пъ"
                 }
-            ]
+            ],
+            "phoneme": "pʼ"
         },
-        "d": {
+        {
             "samples": [
                 {
                     "word": "дыргъ",
@@ -169,9 +180,10 @@
                     "ipa": "ʒɐd",
                     "grapheme": "д"
                 }
-            ]
+            ],
+            "phoneme": "d"
         },
-        "tʰ": {
+        {
             "samples": [
                 {
                     "word": "тӕрхондон",
@@ -183,9 +195,10 @@
                     "ipa": "farʃtʰ",
                     "grapheme": "т"
                 }
-            ]
+            ],
+            "phoneme": "tʰ"
         },
-        "tː": {
+        {
             "notes": [
                 "Phonetic status in question."
             ],
@@ -195,9 +208,10 @@
                     "ipa": "nətːonən",
                     "grapheme": "тт"
                 }
-            ]
+            ],
+            "phoneme": "tː"
         },
-        "tʼ": {
+        {
             "samples": [
                 {
                     "word": "тъӕпӕн",
@@ -209,9 +223,10 @@
                     "ipa": "d͡ʒitʼri",
                     "grapheme": "тъ"
                 }
-            ]
+            ],
+            "phoneme": "tʼ"
         },
-        "g": {
+        {
             "samples": [
                 {
                     "word": "гага",
@@ -223,9 +238,10 @@
                     "ipa": "dɐndag",
                     "grapheme": "г"
                 }
-            ]
+            ],
+            "phoneme": "g"
         },
-        "gʷ": {
+        {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -240,9 +256,10 @@
                     "ipa": "waʒɐgʷatʰə",
                     "grapheme": "гу"
                 }
-            ]
+            ],
+            "phoneme": "gʷ"
         },
-        "kʰ": {
+        {
             "samples": [
                 {
                     "word": "кард",
@@ -254,9 +271,10 @@
                     "ipa": "akʰastʰ",
                     "grapheme": "к"
                 }
-            ]
+            ],
+            "phoneme": "kʰ"
         },
-        "kː": {
+        {
             "notes": [
                 "Phonetic status in question."
             ],
@@ -266,9 +284,10 @@
                     "ipa": "nərtʰɐkːɐ",
                     "grapheme": "кк"
                 }
-            ]
+            ],
+            "phoneme": "kː"
         },
-        "kʷ": {
+        {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -283,9 +302,10 @@
                     "ipa": "nikʷə",
                     "grapheme": "ку"
                 }
-            ]
+            ],
+            "phoneme": "kʷ"
         },
-        "kʼ": {
+        {
             "samples": [
                 {
                     "word": "къӕсӕр",
@@ -297,9 +317,10 @@
                     "ipa": "χʷəʃkʼ",
                     "grapheme": "къ"
                 }
-            ]
+            ],
+            "phoneme": "kʼ"
         },
-        "kʼʷ": {
+        {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -314,9 +335,10 @@
                     "ipa": "aʃkʼʷənən",
                     "grapheme": "къу"
                 }
-            ]
+            ],
+            "phoneme": "kʼʷ"
         },
-        "q": {
+        {
             "samples": [
                 {
                     "word": "хъӕу",
@@ -328,9 +350,10 @@
                     "ipa": "ɐnɐqɐn",
                     "grapheme": "хъ"
                 }
-            ]
+            ],
+            "phoneme": "q"
         },
-        "qʷ": {
+        {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -345,9 +368,10 @@
                     "ipa": "baqʷad͡ʒə",
                     "grapheme": "хъу"
                 }
-            ]
+            ],
+            "phoneme": "qʷ"
         },
-        "m": {
+        {
             "samples": [
                 {
                     "word": "мыст",
@@ -359,9 +383,10 @@
                     "ipa": "nəmɐtʰ",
                     "grapheme": "м"
                 }
-            ]
+            ],
+            "phoneme": "m"
         },
-        "n": {
+        {
             "samples": [
                 {
                     "word": "ничи",
@@ -373,9 +398,10 @@
                     "ipa": "ragon",
                     "grapheme": "н"
                 }
-            ]
+            ],
+            "phoneme": "n"
         },
-        "r": {
+        {
             "samples": [
                 {
                     "word": "рахиз",
@@ -387,9 +413,10 @@
                     "ipa": "ʃɐjrag",
                     "grapheme": "р"
                 }
-            ]
+            ],
+            "phoneme": "r"
         },
-        "f": {
+        {
             "samples": [
                 {
                     "word": "фӕйнӕг",
@@ -401,9 +428,10 @@
                     "ipa": "arfɐ",
                     "grapheme": "ф"
                 }
-            ]
+            ],
+            "phoneme": "f"
         },
-        "v": {
+        {
             "samples": [
                 {
                     "word": "вӕзн",
@@ -415,9 +443,10 @@
                     "ipa": "ɐχʃɐv",
                     "grapheme": "в"
                 }
-            ]
+            ],
+            "phoneme": "v"
         },
-        "ʃ": {
+        {
             "notes": [
                 "Corresponds to /s/ in Chisan and Kudar speech.",
                 "⟨ш⟩ is used only in recent Russian loanwords."
@@ -433,9 +462,10 @@
                     "ipa": "ɐχʃitː",
                     "grapheme": "с"
                 }
-            ]
+            ],
+            "phoneme": "ʃ"
         },
-        "ʒ": {
+        {
             "notes": [
                 "Corresponds to /z/ in Chisan and Kudar speech.",
                 "⟨ж⟩ is used only in recent Russian loanwords."
@@ -451,9 +481,10 @@
                     "ipa": "laʁʒ",
                     "grapheme": "з"
                 }
-            ]
+            ],
+            "phoneme": "ʒ"
         },
-        "ʁ": {
+        {
             "samples": [
                 {
                     "word": "ӕгъдау",
@@ -465,9 +496,10 @@
                     "ipa": "warʁ",
                     "grapheme": "гъ"
                 }
-            ]
+            ],
+            "phoneme": "ʁ"
         },
-        "ʁʷ": {
+        {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -482,9 +514,10 @@
                     "ipa": "ɐvʁʷag",
                     "grapheme": "гъу"
                 }
-            ]
+            ],
+            "phoneme": "ʁʷ"
         },
-        "χ": {
+        {
             "samples": [
                 {
                     "word": "хӕрӕг",
@@ -496,9 +529,10 @@
                     "ipa": "kʼɐpχɐn",
                     "grapheme": "х"
                 }
-            ]
+            ],
+            "phoneme": "χ"
         },
-        "χʷ": {
+        {
             "notes": [
                 "Occurs only before vowels."
             ],
@@ -513,9 +547,10 @@
                     "ipa": "aχʷər",
                     "grapheme": "ху"
                 }
-            ]
+            ],
+            "phoneme": "χʷ"
         },
-        "z": {
+        {
             "notes": [
                 "Corresponds to /d͡z/ in Chisan speech, and to /ʒ/ in Kudar speech."
             ],
@@ -530,9 +565,10 @@
                     "ipa": "kʼɐzɐχ",
                     "grapheme": "дз"
                 }
-            ]
+            ],
+            "phoneme": "z"
         },
-        "d͡z": {
+        {
             "notes": [
                 "Occurs only when doubled, corresponds to (doubled) /d͡ʒ/ in Kudar speech."
             ],
@@ -542,9 +578,10 @@
                     "ipa": "wad͡zːɐn",
                     "grapheme": "дз"
                 }
-            ]
+            ],
+            "phoneme": "d͡z"
         },
-        "s": {
+        {
             "notes": [
                 "Corresponds to /t͡s/ in Chisan speech, and to /ʃ/ in Kudar speech."
             ],
@@ -559,9 +596,10 @@
                     "ipa": "ɐnson",
                     "grapheme": "ц"
                 }
-            ]
+            ],
+            "phoneme": "s"
         },
-        "t͡s": {
+        {
             "notes": [
                 "Occurs only when doubled, corresponds to (doubled) /t͡ʃ/ in Kudar speech."
             ],
@@ -571,9 +609,10 @@
                     "ipa": "nət͡sːɐvən",
                     "grapheme": "ц"
                 }
-            ]
+            ],
+            "phoneme": "t͡s"
         },
-        "t͡sʼ": {
+        {
             "samples": [
                 {
                     "word": "цъиу",
@@ -585,9 +624,10 @@
                     "ipa": "ʃawt͡sʼar",
                     "grapheme": "цъ"
                 }
-            ]
+            ],
+            "phoneme": "t͡sʼ"
         },
-        "d͡ʒ": {
+        {
             "samples": [
                 {
                     "word": "джелбетт",
@@ -599,9 +639,10 @@
                     "ipa": "iʃd͡ʒən",
                     "grapheme": "дж"
                 }
-            ]
+            ],
+            "phoneme": "d͡ʒ"
         },
-        "t͡ʃ": {
+        {
             "samples": [
                 {
                     "word": "чиныг",
@@ -613,9 +654,10 @@
                     "ipa": "rənt͡ʃən",
                     "grapheme": "ч"
                 }
-            ]
+            ],
+            "phoneme": "t͡ʃ"
         },
-        "t͡ʃʼ": {
+        {
             "samples": [
                 {
                     "word": "чъизи",
@@ -627,9 +669,10 @@
                     "ipa": "ʃant͡ʃʼeχ",
                     "grapheme": "чъ"
                 }
-            ]
+            ],
+            "phoneme": "t͡ʃʼ"
         },
-        "w": {
+        {
             "samples": [
                 {
                     "word": "уӕрыкк",
@@ -641,9 +684,10 @@
                     "ipa": "t͡sɐwinag",
                     "grapheme": "у"
                 }
-            ]
+            ],
+            "phoneme": "w"
         },
-        "j": {
+        {
             "samples": [
                 {
                     "word": "вӕййын",
@@ -655,9 +699,10 @@
                     "ipa": "iwmɐjag",
                     "grapheme": "й"
                 }
-            ]
+            ],
+            "phoneme": "j"
         },
-        "l": {
+        {
             "samples": [
                 {
                     "word": "лӕгъз",
@@ -669,9 +714,10 @@
                     "ipa": "ɐdələ",
                     "grapheme": "л"
                 }
-            ]
+            ],
+            "phoneme": "l"
         },
-        "h": {
+        {
             "notes": [
                 "Occurs only in interjections."
             ],
@@ -681,7 +727,8 @@
                     "ipa": "hopː",
                     "grapheme": "гъ"
                 }
-            ]
+            ],
+            "phoneme": "h"
         }
-    }
+    ]
 }

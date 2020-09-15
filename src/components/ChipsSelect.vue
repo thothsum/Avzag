@@ -25,7 +25,7 @@ export default {
         : this.items;
     },
     many() {
-      return this.items.length > 1;
+      return this.keys.length > 1;
     },
   },
   watch: {

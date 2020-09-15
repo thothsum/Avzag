@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="lects && database">
     <div class="panel scroll">
-      <ChipsQuery v-if="!singleLect" :items="lectNames" @query="lectQuery=$event" />
+      <ChipsQuery v-model="lectQuery" :items="lects" itemKey="name" />
       <div class="panel" :key="t" v-for="t in types">
         <h3>{{t}}</h3>
         <PhoneticTable
@@ -46,12 +46,6 @@ export default {
     },
     lects() {
       return this.$store.state.lects;
-    },
-    lectNames() {
-      return Object.keys(this.lects ?? {});
-    },
-    singleLect() {
-      return this.lectNames.length == 1 ? this.lectNames[0] : null;
     },
     phonemes() {
       if (!this.lects) return;

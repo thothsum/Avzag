@@ -1,50 +1,57 @@
 <template>
-  <div class="panel-horizontal-dense scroll">
+  <div class="panel-horizontal-dense scroll" v-if="many">
     <button @click="reset" class="small icon-small round">clear</button>
     <button
       class="small round"
-      :class="{'highlight-confirm': v>0, 'highlight-alert': v<0}"
-      @click="toggle(i)"
-      :key="i"
-      v-for="(v, i) in values"
-    >{{items[i]}}</button>
+      :class="{'highlight-confirm': v, 'highlight-alert': !v}"
+      @click="toggle(k)"
+      :key="k"
+      v-for="(k, v) of values"
+    >{{k}}</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "ChipsQuery",
-  props: ["items"],
-  data() {
-    return {
-      values: [],
-    };
+  props: ["query", "items", "itemKey"],
+  model: {
+    prop: "query",
+    event: "update",
+  },
+  computed: {
+    keys() {
+      return this.itemKey
+        ? this.items.map((it) => it[this.itemKey])
+        : this.items;
+    },
+    many() {
+      return this.keys.length > 1;
+    },
   },
   watch: {
-    values: {
-      handler(val) {
-        this.$emit(
-          "query",
-          val.reduce((q, v, i) => {
-            if (v) q[this.items[i]] = v > 0;
-            return q;
-          }, {})
-        );
-      },
+    items() {
+      this.reset();
     },
-    items: {
-      handler() {
-        this.reset();
-      },
-      immediate: true,
+    many(m) {
+      if (!m) {
+        let q = {};
+        q[this.keys[0]] = true;
+        this.$emit("update", q);
+      }
     },
   },
   methods: {
-    toggle(i) {
-      this.values.splice(i, 1, ((this.values[i] + 2) % 3) - 1);
+    toggle(k) {
+      let q = this.query;
+      if (k in q) {
+        if (q[k]) q[k] = false;
+        else delete q[k];
+      } else q[k] = true;
+      this.$emit("update", q);
     },
     reset() {
-      this.values = new Array(this.items.length).fill(0);
+      this.$emit("update", {});
     },
   },
 };
