@@ -6,7 +6,7 @@
       :class="{'highlight-confirm': v, 'highlight-alert': !v}"
       @click="toggle(k)"
       :key="k"
-      v-for="(k, v) of values"
+      v-for="(k, v) of query"
     >{{k}}</button>
   </div>
 </template>

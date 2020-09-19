@@ -1,17 +1,16 @@
 <template>
   <div class="panel">
     <div class="card panel">
-      <h2 class="text-ipa">{{phoneme}}</h2>
+      <h2 class="text-ipa">{{phoneme.ipa}}</h2>
       <p class="text-caption text-faded text-spaced">{{tags}}</p>
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
       @play="play"
       :key="l"
-      v-for="l in lects"
-      :phoneme="phoneme"
+      v-for="(u, l) of phoneme.lects"
       :lect="l"
-      :use="database.uses[l]"
+      :use="u"
     />
   </div>
 </template>
@@ -24,13 +23,10 @@ export default {
   components: {
     PhonemeUse,
   },
-  props: ["phoneme", "database"],
+  props: ["phoneme"],
   computed: {
-    lects() {
-      return Object.keys(this.database.uses);
-    },
     tags() {
-      return this.database.tags.reduce((a, t) => (a += " " + t), "");
+      return this.phoneme.tags.reduce((a, t) => (a += " " + t), "");
     },
   },
   methods: {

@@ -1,20 +1,20 @@
 <template>
-  <div class="section" v-if="lects && database">
+  <div class="section" v-if="lects && phonemes">
     <div class="panel scroll">
       <ChipsQuery v-model="lectQuery" :items="lects" itemKey="name" />
-      <div class="panel" :key="t" v-for="t in types">
-        <h3>{{t}}</h3>
+      <div class="panel" :key="t" v-for="[t, n] in categories">
+        <h3>{{n}}</h3>
         <PhoneticTable
-          v-model="selected"
+          v-model="phoneme"
+          :filter="t"
           :featureQuery="featureQuery"
           :lectQuery="lectQuery"
-          :phonemes="phonemes[t]"
-          :database="database"
+          :phonemes="phonemes"
         />
       </div>
       <InputQuery placeholder="e.g. voiced -velar" @query="featureQuery=$event" />
     </div>
-    <PhonemeDetails :phoneme="selected" :database="database[selected]" />
+    <PhonemeDetails :phoneme="phoneme" v-if="phoneme"/>
   </div>
 </template>
 
@@ -34,8 +34,11 @@ export default {
   },
   data() {
     return {
-      types: ["vowels", "consonants"],
-      selected: null,
+      categories: [
+        ["vowel", "Vowels"],
+        ["consonant", "Consonants"],
+      ],
+      phoneme: null,
       lectQuery: {},
       featureQuery: {},
     };
@@ -51,63 +54,37 @@ export default {
       if (!this.lects) return;
 
       let phonemes = {};
-      this.types.forEach((t) => {
-        phonemes[t] = [
-          ...new Set(
-            this.lectNames.flatMap((l) =>
-              Object.keys(this.lects[l].phonemes[t])
-            )
-          ),
-        ].sort(function (a, b) {
-          return a.localeCompare(b);
+      this.lects.forEach((l) => {
+        l.phonology.forEach((p) => {
+          const ph = p.phoneme;
+          if (!(ph in phonemes))
+            phonemes[ph] = { ipa: ph, tags: this.getTags(ph), lects: {} };
+          phonemes[ph]["lects"][l.name] = p;
         });
       });
-      return phonemes;
-    },
-    database() {
-      let data = {};
-      this.types.forEach((t) => {
-        this.phonemes[t].forEach((p) => {
-          data[p] = {
-            tags: this.getTags(p, t),
-            uses: this.getUses(p, t),
-          };
-        });
-      });
-      return data;
+      return Object.values(phonemes);
     },
   },
   watch: {
     phonemes() {
-      this.selected = this.phonemes[this.types[0]][0];
-    },
-    singleLect(lect) {
-      if (!lect) return;
-      this.lectQuery = {};
-      this.lectQuery[lect] = true;
+      this.phoneme = this.phonemes[0];
     },
   },
   methods: {
-    getTags(p, t) {
+    getTags(p) {
       let tags = [];
-      for (const i in this.ipa[t])
-        if (p.includes(i)) {
-          tags = tags.concat(this.ipa[t][i].split(" "));
-          break;
-        }
       for (const i in this.ipa.secondary)
         if (p.includes(i)) {
-          tags = tags.concat(this.ipa.secondary[i].split(" "));
+          tags.push(...this.ipa.secondary[i]);
         }
+      for (const c of this.categories.map((i) => i[0]))
+        for (const i in this.ipa[c])
+          if (p.includes(i)) {
+            tags.push(...this.ipa[c][i]);
+            tags.push(c);
+            return tags;
+          }
       return tags;
-    },
-    getUses(p, t) {
-      let uses = {};
-      this.lectNames.forEach((l) => {
-        const use = this.lects[l].phonemes[t][p];
-        if (use) uses[l] = use;
-      });
-      return uses;
     },
   },
 };

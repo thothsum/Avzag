@@ -1,18 +1,45 @@
 {
-    "vowels": {
-        "a": "vowel open central unrounded",
-        "ɑ": "open back unrounded"
+    "vowel": {
+        "a": [
+            "vowel",
+            "open",
+            "central",
+            "unrounded"
+        ],
+        "ɑ": [
+            "open",
+            "back",
+            "unrounded"
+        ]
     },
-    "consonants": {
-        "k": "voiceless velar stop"
+    "consonant": {
+        "k": [
+            "voiceless",
+            "velar",
+            "stop"
+        ]
     },
     "secondary": {
-        "ʷ": "labialized",
-        "ʲ": "palatalized",
-        "ʰ": "aspirated",
-        "ˠ": "velarized",
-        "ˤ": "pharyngealized",
-        "ʼ": "ejective",
-        "ː": "geminate"
+        "ʷ": [
+            "labialized"
+        ],
+        "ʲ": [
+            "palatalized"
+        ],
+        "ʰ": [
+            "aspirated"
+        ],
+        "ˠ": [
+            "velarized"
+        ],
+        "ˤ": [
+            "pharyngealized"
+        ],
+        "ʼ": [
+            "ejective"
+        ],
+        "ː": [
+            "geminate"
+        ]
     }
 }
