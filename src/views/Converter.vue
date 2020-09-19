@@ -75,11 +75,11 @@ export default {
     mappings() {
       return this.converter?.mappings;
     },
-    defaultConversion() {
-      return this.converter?.default;
-    },
     sample() {
       return this.converter?.sample ?? "";
+    },
+    defaultConversion() {
+      return this.converter?.default;
     },
   },
   watch: {
@@ -87,12 +87,12 @@ export default {
       this.sourceMapping = m[0];
       this.resultMapping = m[1];
     },
+    sample(s) {
+      this.source = s;
+    },
     defaultConversion(c) {
       this.sourceMapping = this.mappings[c[0]];
       this.resultMapping = this.mappings[c[1]];
-    },
-    sample(s) {
-      this.source = s;
     },
     empty(e) {
       this.source = e ? this.sample : "";

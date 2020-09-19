@@ -14,7 +14,7 @@
       </div>
       <InputQuery placeholder="e.g. voiced -velar" @query="featureQuery=$event" />
     </div>
-    <PhonemeDetails :phoneme="phoneme" v-if="phoneme" />
+    <PhonemeDetails :phoneme="phoneme" />
   </div>
 </template>
 
@@ -66,8 +66,11 @@ export default {
     },
   },
   watch: {
-    phonemes() {
-      this.phoneme = this.phonemes[0];
+    phonemes: {
+      handler() {
+        this.phoneme = this.phonemes[0];
+      },
+      immediate: true,
     },
   },
   methods: {
