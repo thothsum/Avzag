@@ -3,10 +3,10 @@
     <button @click="reset" class="small icon-small round">clear</button>
     <button
       class="small round"
-      :class="{'highlight-confirm': v, 'highlight-alert': !v}"
-      @click="toggle(k)"
+      :class="highlights[i]"
+      @click="toggle(i)"
       :key="k"
-      v-for="(k, v) of query"
+      v-for="(k, i) in keys"
     >{{k}}</button>
   </div>
 </template>
@@ -14,16 +14,22 @@
 <script>
 export default {
   name: "ChipsQuery",
-  props: ["query", "items", "itemKey"],
-  model: {
-    prop: "query",
-    event: "update",
+  props: ["items", "itemKey"],
+  data() {
+    return {
+      input: [],
+    };
   },
   computed: {
     keys() {
       return this.itemKey
         ? this.items.map((it) => it[this.itemKey])
         : this.items;
+    },
+    highlights() {
+      return this.input.map((i) =>
+        i ? (i > 0 ? "highlight-confirm" : "highlight-alert") : null
+      );
     },
     many() {
       return this.keys.length > 1;
@@ -33,25 +39,27 @@ export default {
     items() {
       this.reset();
     },
-    many(m) {
-      if (!m) {
-        let q = {};
-        q[this.keys[0]] = true;
-        this.$emit("update", q);
+    many() {
+      if (!this.many) {
+        this.$set(this.input, 0, 1);
       }
+    },
+    input(input) {
+      this.$emit(
+        "query",
+        input.reduce((q, inp, i) => {
+          if (inp) q[this.keys[i]] = inp > 0;
+          return q;
+        }, {})
+      );
     },
   },
   methods: {
-    toggle(k) {
-      let q = this.query;
-      if (k in q) {
-        if (q[k]) q[k] = false;
-        else delete q[k];
-      } else q[k] = true;
-      this.$emit("update", q);
+    toggle(i) {
+      this.$set(this.input, i, ((this.input[i] + 2) % 3) - 1);
     },
     reset() {
-      this.$emit("update", {});
+      this.input = new Array(this.keys.length).fill(0);
     },
   },
 };

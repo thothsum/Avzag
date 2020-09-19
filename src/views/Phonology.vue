@@ -1,7 +1,7 @@
 <template>
   <div class="section" v-if="lects && phonemes">
     <div class="panel scroll">
-      <ChipsQuery v-model="lectQuery" :items="lects" itemKey="name" />
+      <ChipsQuery @query="lectQuery=$event" :items="lects" itemKey="name" />
       <div class="panel" :key="t" v-for="[t, n] in categories">
         <h3>{{n}}</h3>
         <PhoneticTable

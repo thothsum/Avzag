@@ -57,7 +57,7 @@ export default {
     graphemes() {
       return this.singleLect
         ? this.filtered.map(
-            (p) => p.lects[this.singleLect].samples[0]?.grapheme
+            (p) => p.lects[this.singleLect]?.samples[0]?.grapheme
           )
         : [];
     },
