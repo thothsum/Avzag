@@ -65,6 +65,262 @@
             "voiceless",
             "velar",
             "stop"
+        ],
+        "ç": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "palatal"
+        ],
+        "d͡z": [
+            "consonant",
+            "voiced",
+            "dental",
+            "affricate"
+        ],
+        "d͡ʒ": [
+            "consonant",
+            "affricate",
+            "voiced",
+            "alveolar"
+        ],
+        "g": [
+            "consonant",
+            "stop",
+            "voiced",
+            "velar"
+        ],
+        "ɣ": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "velar"
+        ],
+        "h": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "laryngeal"
+        ],
+        "ħ": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "pharyngeal"
+        ],
+        "j": [
+            "consonant",
+            "voiced",
+            "palatal",
+            "approximant"
+        ],
+        "l": [
+            "consonant",
+            "voiced",
+            "lateral",
+            "dental",
+            "approximant"
+        ],
+        "m": [
+            "consonant",
+            "voiced",
+            "labial",
+            "nasal"
+        ],
+        "n": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "nasal"
+        ],
+        "p": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "labial"
+        ],
+        "q": [
+            "consonant",
+            "stop",
+            "voiced",
+            "uvular"
+        ],
+        "r": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "trill"
+        ],
+        "ʁ": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "uvular"
+        ],
+        "s": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "dental"
+        ],
+        "ʃ": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "alveolar"
+        ],
+        "t": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "dental"
+        ],
+        "t͡s": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "dental"
+        ],
+        "t͡ʃ": [
+            "consonant",
+            "affricate",
+            "voiceless",
+            "alveolar"
+        ],
+        "v": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "labiodental"
+        ],
+        "x": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "velar"
+        ],
+        "z": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "dental"
+        ],
+        "ʒ": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "alveolar"
+        ],
+        "ʔ": [
+            "consonant",
+            "stop",
+            "voiceless",
+            "glottal"
+        ],
+        "ʕ": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "pharyngeal"
+        ],
+        "χ": [
+            "consonant",
+            "fricative",
+            "voiceless",
+            "uvular"
+        ],
+        "β": [
+            "consonant",
+            "fricative",
+            "voiced",
+            "bilabial"
+        ],
+        "f": [
+            "consonant",
+            "voiceless",
+            "labiodental",
+            "fricative"
+        ],
+        "ɕ": [
+            "consonant",
+            "voiceless",
+            "alveolo-palatal",
+            "fricative"
+        ],
+        "ɮ": [
+            "consonant",
+            "voiced",
+            "alveolar",
+            "lateral",
+            "fricative"
+        ],
+        "ɬ": [
+            "consonant",
+            "voiceless",
+            "alveolar",
+            "lateral",
+            "fricative"
+        ],
+        "t͡ɬ": [
+            "consonant",
+            "voiceless",
+            "alveolar",
+            "lateral",
+            "affricate"
+        ],
+        "ʂ": [
+            "consonant",
+            "voiceless",
+            "retroflex",
+            "fricative"
+        ],
+        "ʐ": [
+            "consonant",
+            "voiced",
+            "retroflex",
+            "fricative"
+        ],
+        "ʑ": [
+            "consonant",
+            "voiced",
+            "alveolo-palatal",
+            "fricative"
+        ],
+        "ʈ͡ʂ": [
+            "consonant",
+            "voiceless",
+            "retroflex",
+            "affricate"
+        ],
+        "ɖ͡ʐ": [
+            "consonant",
+            "voiced",
+            "retroflex",
+            "affricate"
+        ],
+        "t͡ɕ": [
+            "consonant",
+            "voiceless",
+            "alveolo-palatal",
+            "affricate"
+        ],
+        "d͡ʑ": [
+            "consonant",
+            "voiced",
+            "alveolo-palatal",
+            "affricate"
+        ],
+        "ʡ": [
+            "consonant",
+            "voiceless",
+            "pharyngeal",
+            "stop"
+        ],
+        "w": [
+            "consonant",
+            "voiced",
+            "labio-velar",
+            "approximant"
         ]
     },
     "secondary": {
