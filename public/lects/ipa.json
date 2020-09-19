@@ -1,19 +1,67 @@
 {
-    "vowel": {
+    "primary": {
         "a": [
             "vowel",
             "open",
             "central",
             "unrounded"
         ],
+        "ɐ": [
+            "vowel",
+            "near-open",
+            "central",
+            "unrounded"
+        ],
         "ɑ": [
+            "vowel",
             "open",
             "back",
             "unrounded"
-        ]
-    },
-    "consonant": {
+        ],
+        "æ": [
+            "vowel",
+            "front",
+            "near-open",
+            "unrounded"
+        ],
+        "e": [
+            "vowel",
+            "front",
+            "close-mid",
+            "unrounded"
+        ],
+        "ə": [
+            "vowel",
+            "mid",
+            "central",
+            "unrounded"
+        ],
+        "i": [
+            "vowel",
+            "front",
+            "close",
+            "unrounded"
+        ],
+        "u": [
+            "vowel",
+            "back",
+            "close",
+            "rounded"
+        ],
+        "b": [
+            "consonant",
+            "voiced",
+            "bilabial",
+            "stop"
+        ],
+        "d": [
+            "consonant",
+            "voiced",
+            "dental",
+            "stop"
+        ],
         "k": [
+            "consonant",
             "voiceless",
             "velar",
             "stop"

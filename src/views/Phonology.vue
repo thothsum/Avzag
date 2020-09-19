@@ -14,7 +14,7 @@
       </div>
       <InputQuery placeholder="e.g. voiced -velar" @query="featureQuery=$event" />
     </div>
-    <PhonemeDetails :phoneme="phoneme" v-if="phoneme"/>
+    <PhonemeDetails :phoneme="phoneme" v-if="phoneme" />
   </div>
 </template>
 
@@ -73,17 +73,15 @@ export default {
   methods: {
     getTags(p) {
       let tags = [];
+      for (const i in this.ipa.primary)
+        if (p.includes(i)) {
+          tags.push(...this.ipa.primary[i]);
+          break;
+        }
       for (const i in this.ipa.secondary)
         if (p.includes(i)) {
           tags.push(...this.ipa.secondary[i]);
         }
-      for (const c of this.categories.map((i) => i[0]))
-        for (const i in this.ipa[c])
-          if (p.includes(i)) {
-            tags.push(...this.ipa[c][i]);
-            tags.push(c);
-            return tags;
-          }
       return tags;
     },
   },
