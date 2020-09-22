@@ -76,14 +76,14 @@ export default {
   methods: {
     getTags(p) {
       let tags = [];
-      for (const i in this.ipa.primary)
-        if (p.includes(i)) {
-          tags.push(...this.ipa.primary[i]);
+      for (const ph of this.ipa.primary)
+        if (p.includes(ph.ipa)) {
+          tags.push(...ph.tags);
           break;
         }
-      for (const i in this.ipa.secondary)
-        if (p.includes(i)) {
-          tags.push(...this.ipa.secondary[i]);
+      for (const ph of this.ipa.secondary)
+        if (p.includes(ph.ipa)) {
+          tags.push(...ph.tags);
         }
       return tags;
     },

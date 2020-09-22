@@ -1,60 +1,58 @@
 <template>
   <div class="section" v-if="file">
     <div class="panel scroll">
-      <div :key="t" v-for="t in types" class="panel">
-        <h3>{{t}}</h3>
+      <div class="panel">
+        <h3>Phonemes</h3>
         <div class="table panel-horizontal-dense wrap">
           <PhoneticItem
-            @click.native="selectPhoneme(t,p)"
-            :selected="selectedPhoneme==p"
-            :ipa="p"
-            :str="u.samples && u.samples[0] ? u.samples[0].grapheme : null"
-            :key="p"
-            v-for="(u,p) of file[t]"
+            @click.native="selectPhoneme(p)"
+            :selected="phoneme==p"
+            :ipa="p.ipa"
+            :str="graphemes[i]"
+            :key="i"
+            v-for="(p,i) in file"
           />
-          <button class="add icon phoneme" @click="addPhoneme(t)">add</button>
+          <Button @click.native="addPhoneme" icon="add" />
         </div>
       </div>
       <div class="panel">
         <h3>JSON</h3>
-
         <div class="panel-horizontal-dense">
-          <button class="small" @click="loadFromLect">import from lect</button>
-          <button class="small" @click="loadFromJson">import from JSON</button>
-          <button class="small" @click="loadToJson">export to JSON</button>
+          <Button @click.native="loadFromLect" text="import from lect" />
+          <Button @click.native="loadFromJson" text="import from JSON" />
+          <Button @click.native="loadToJson" text="export to JSON" />
         </div>
         <textarea v-model="jsonInput"></textarea>
       </div>
     </div>
-    <div class="panel" v-if="selectedCopy">
-      <div class="panel-horizontal-dense card">
+    <div class="panel-sparse" v-if="phoneme">
+      <div class="panel-horizontal-dense">
         <h3>Phoneme</h3>
-        <input type="text" v-model="selectedCopy.phoneme" placeholder="phoneme" />
-        <button @click="deletePhoneme" class="small">delete</button>
-        <button @click="submitPhoneme" class="small">submit</button>
+        <input type="text" v-model="phoneme.ipa" placeholder="phoneme" />
+        <Button @click.native="deletePhoneme" icon="delete" />
       </div>
-      <div class="panel card">
+      <div class="panel-dense">
         <div class="panel-horizontal-dense">
           <h3>Notes</h3>
-          <button @click="addItem('notes', '')" class="icon add small">add</button>
+          <Button @click.native="addItem('notes', '')" icon="add" />
         </div>
-        <div :key="i" v-for="(n,i) in selectedCopy.notes" class="edit">
-          <textarea v-model="selectedCopy.notes[i]" class="flex note" />
-          <button @click="deleteItem(i, 'notes')" class="icon delete small">delete</button>
+        <div :key="i" v-for="(n,i) in phoneme.notes" class="edit">
+          <textarea v-model="phoneme.notes[i]" class="flex note" />
+          <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
         </div>
       </div>
-      <div class="panel card">
+      <div class="panel-dense">
         <div class="panel-horizontal-dense">
           <h3>Samples</h3>
-          <button @click="addItem('samples', {})" class="icon add small">add</button>
+          <Button @click.native="addItem('samples', {})" icon="add" />
         </div>
-        <div :key="i" v-for="(s,i) in selectedCopy.samples" class="panel-dense edit">
+        <div :key="i" v-for="(s,i) in phoneme.samples" class="panel-dense edit">
           <div class="sample">
             <input type="text" v-model="s.grapheme" placeholder="grapheme" />
             <input type="text" v-model="s.word" placeholder="word" />
             <input type="text" v-model="s.ipa" placeholder="ipa" />
           </div>
-          <button @click="deleteItem(i, 'samples')" class="icon delete small">delete</button>
+          <Button @click.native="deleteItem(i, 'samples')" icon="delete" />
         </div>
       </div>
     </div>
@@ -62,20 +60,19 @@
 </template>
 
 <script>
+import Button from "@/components/Button";
 import PhoneticItem from "@/components/PhoneticItem";
 
 export default {
   name: "PhonologyEditor",
   components: {
+    Button,
     PhoneticItem,
   },
   data() {
     return {
-      types: ["vowels", "consonants"],
-      file: {},
-      selectedType: null,
-      selectedPhoneme: null,
-      selectedCopy: null,
+      file: [],
+      phoneme: null,
       jsonInput: null,
     };
   },
@@ -83,70 +80,35 @@ export default {
     text() {
       return JSON.stringify(this.file);
     },
-    phonemes() {
-      let phonemes = {};
-      for (const t of this.types) phonemes[t] = Object.keys(this.file[t]);
-      return phonemes;
-    },
     graphemes() {
-      let graphemes = {};
-      this.types.forEach(
-        (t) =>
-          (graphemes[t] = this.phonemes[t].map(
-            (p) => this.file[t][p]?.samples?.[0]?.grapheme
-          ))
-      );
-      return graphemes;
+      return this.file.map((p) => p?.samples?.[0]?.grapheme);
+    },
+    notes() {
+      return this.phoneme?.notes ?? [];
     },
   },
   methods: {
-    selectPhoneme(t, p) {
-      this.selectedType = t;
-      this.selectedPhoneme = p;
-
-      let copy = JSON.parse(JSON.stringify(this.file[t][p]));
-      copy.phoneme = p;
-      if (!copy.notes) copy.notes = [];
-      if (!copy.samples) copy.samples = [];
-      this.selectedCopy = copy;
-      this.$forceUpdate();
+    selectPhoneme(p) {
+      this.phoneme = p;
     },
-    addPhoneme(type) {
-      let cat = this.file[type];
-      if (!cat) cat = {};
-      const n = "n_" + type.charAt(0);
-      if (n in cat) return;
-      cat[n] = {};
-      this.file[type] = cat;
-      this.selectPhoneme(type, n);
+    addPhoneme() {
+      let p = { ipa: "new" };
+      this.file.push(p);
+      this.selectPhoneme(p);
     },
     deletePhoneme() {
-      delete this.file[this.selectedType][this.selectedPhoneme];
-      this.selectFirst();
-    },
-    submitPhoneme() {
-      if (!this.selectedCopy.phoneme) return;
-      const t = this.selectedType;
-      const p = this.selectedPhoneme;
-      const np = this.selectedCopy.phoneme;
-
-      delete this.file[t][p];
-      let copy = this.selectedCopy;
-      delete this.selectedCopy.phoneme;
-      ["samples", "notes"].forEach((p) => {
-        console.log(copy[p].length);
-        if (copy[p].length == 0) delete this.copy[p];
-      });
-
-      this.file[t][np] = JSON.parse(JSON.stringify(this.copy));
-      this.selectPhoneme(t, np);
+      let i = this.file.indexOf(this.phoneme);
+      this.file.splice(i, 1);
+      this.phoneme = this.file[this.file.length - 1];
     },
     addItem(key, value) {
-      this.selectedCopy[key].push(value);
+      if (!this.phoneme[key]) this.phoneme[key] = [];
+      this.phoneme[key].push(value);
       this.$forceUpdate();
     },
     deleteItem(i, key) {
-      this.selectedCopy[key].splice(i, 1);
+      this.phoneme[key].splice(i, 1);
+      if (this.phoneme[key].length == 0) delete this.phoneme[key];
       this.$forceUpdate();
     },
     loadFromLect() {
@@ -155,12 +117,10 @@ export default {
         .then((j) => {
           if (j) this.file = j;
         });
-      this.$forceUpdate();
     },
     loadFromJson() {
       const json = JSON.parse(this.jsonInput);
       if (json) this.file = json;
-      this.$forceUpdate();
     },
     loadToJson() {
       this.jsonInput = JSON.stringify(this.file);
@@ -174,26 +134,6 @@ export default {
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: map-get($margins, "double");
-}
-button.add {
-  color: var(--color-highlight);
-  &.phoneme {
-    place-content: center;
-    width: 46px;
-    height: 40px;
-  }
-}
-button.delete {
-  color: var(--color-alert);
-}
-.table button.add {
-  height: 40px;
-}
-textarea {
-  font-size: map-get($font-sizes, "small");
-}
-input[type="text"] {
-  height: map-get($button-height, "small");
 }
 .edit,
 .sample {
