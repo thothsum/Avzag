@@ -93,7 +93,16 @@ export default {
       this.resultMapping = this.mappings[c[1]];
     },
     empty(e) {
-      this.source = e ? this.sample : "";
+      if (e) {
+        this.source = "";
+        return;
+      }
+      const mp = this.sourceMapping;
+      this.sourceMapping = this.mappings[this.defaultConversion[0]];
+      this.source = this.sample;
+      this.$nextTick(() => {
+        this.sourceMapping = mp;
+      });
     },
   },
   methods: {
