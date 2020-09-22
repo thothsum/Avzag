@@ -7,7 +7,7 @@
           <PhoneticItem
             @click.native="selectPhoneme(p)"
             :selected="phoneme==p"
-            :ipa="p.ipa"
+            :ipa="p.phoneme"
             :str="graphemes[i]"
             :key="i"
             v-for="(p,i) in file"
@@ -28,7 +28,7 @@
     <div class="panel-sparse" v-if="phoneme">
       <div class="panel-horizontal-dense">
         <h3>Phoneme</h3>
-        <input type="text" v-model="phoneme.ipa" placeholder="phoneme" />
+        <input type="text" v-model="phoneme.phoneme" placeholder="phoneme" />
         <Button @click.native="deletePhoneme" icon="delete" />
       </div>
       <div class="panel-dense">
@@ -112,7 +112,7 @@ export default {
       this.$forceUpdate();
     },
     loadFromLect() {
-      fetch(this.$store.state.root + this.jsonInput + "/phonemes.json")
+      fetch(this.$store.state.root + this.jsonInput + "/phonology.json")
         .then((r) => r.json())
         .then((j) => {
           if (j) this.file = j;
