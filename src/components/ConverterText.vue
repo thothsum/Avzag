@@ -1,5 +1,10 @@
 <template>
-  <textarea ref="textarea" :readonly="readonly" v-model="text"></textarea>
+  <div class="panel">
+    <div class="panel-horizontal">
+      <slot></slot>
+    </div>
+    <textarea ref="textarea" :readonly="readonly" v-model="text"></textarea>
+  </div>
 </template>
 
 <script>

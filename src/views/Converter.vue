@@ -3,21 +3,15 @@
     <ChipsSelect v-model="lect" :items="lects" itemKey="name" />
     <div class="split" v-if="converter">
       <div class="panel">
-        <div class="panel-horizontal">
+        <ConverterText :source="source" :mapping="sourceMapping" @result="intermediate=$event">
           <Select v-model="sourceMapping" :items="mappings" itemKey="name" />
           <Toggle v-model="empty" :icons="['subject','clear']" />
           <Button @click.native="$refs.file.click()" icon="publish" />
           <Button v-show="!resultMapping.many21" @click.native="swap" icon="swap_horiz" />
-        </div>
-        <ConverterText :source="source" :mapping="sourceMapping" @result="intermediate=$event" />
+        </ConverterText>
         <MappingTable v-if="showMapping" :mapping="sourceMapping" />
       </div>
       <div class="panel">
-        <div class="panel-horizontal">
-          <Select v-model="resultMapping" :items="mappings" itemKey="name" />
-          <Toggle v-model="showMapping" :icons="['visibility','visibility_off']" />
-          <Button @click.native="copy" icon="file_copy" />
-        </div>
         <ConverterText
           ref="resultText"
           :readonly="true"
@@ -25,7 +19,11 @@
           :mapping="resultMapping"
           :reverse="true"
           @result="result=$event"
-        />
+        >
+          <Select v-model="resultMapping" :items="mappings" itemKey="name" />
+          <Toggle v-model="showMapping" :icons="['visibility','visibility_off']" />
+          <Button @click.native="copy" icon="file_copy" />
+        </ConverterText>
         <MappingTable v-if="showMapping" :mapping="resultMapping" :reverse="true" />
       </div>
     </div>
