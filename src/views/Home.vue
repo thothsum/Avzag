@@ -1,37 +1,30 @@
 <template>
-  <div v-if="catalogue">
-    <div id="header" class="section panel-horizontal wrap">
-      <h1>Ævzag</h1>
-      <div class="panel-horizontal">
-        <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
-        <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-        <span class="text-dot"></span>
-        <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
-      </div>
-    </div>
-    <button v-if="selected.length > 0" @click="load">LOAD</button>
-    <div id="languages" class="section panel-horizontal-sparse wrap">
-      <div class="panel" :key="c" v-for="(ls, c) of catalogue">
-        <div>
-          <h2>{{c}}</h2>
+  <div v-if="catalogue" class="table">
+    <div class="panel-sparse scroll">
+      <div id="header" class="panel-horizontal wrap">
+        <h1>Ævzag</h1>
+        <div class="panel-horizontal">
+          <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
+          <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
+          <span class="text-dot"></span>
+          <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
         </div>
-        <button
-          :key="l"
-          v-for="l in ls"
-          @click="toggleSelection(l)"
-          :class="{selected:selected.includes(l)}"
-        >
-          <span class="icon" hidden>check</span>
-          {{l}}
-        </button>
+      </div>
+      <!-- <button v-if="selected.length > 0" @click="load">LOAD</button> -->
+      <div id="languages" class="panel-sparse">
+        <LectFamily :key="i" v-for="(f, i) in catalogue" :family="f" />
       </div>
     </div>
+    <div id="map" class="card" style="background-color: bisque"></div>
   </div>
 </template>
 
 <script>
+import LectFamily from "@/components/LectFamily";
+
 export default {
   name: "Home",
+  components: { LectFamily },
   data() {
     return {
       selected: [],
@@ -57,6 +50,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.table {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: map-get($margins, "double");
+}
+#map {
+  position: sticky;
+  top: 0;
+}
 #languages {
   place-content: center;
   > * {

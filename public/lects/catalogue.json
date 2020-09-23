@@ -1,13 +1,105 @@
-{
-    "Ossetian": [
-        "Iron",
-        "Digor"
-    ],
-    "Dargin": [
-        "Kaitag",
-        "Aqusha"
-    ],
-    "Circassian": [
-        "Kabardian"
-    ]
-}
+[
+    {
+        "name": "East Caucasian",
+        "branches": [
+            {
+                "name": "Dargin",
+                "lects": [
+                    {
+                        "name": "Kaitag"
+                    },
+                    {
+                        "name": "Akusha"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "West Caucasian",
+        "branches": [
+            {
+                "name": "Circassian",
+                "lects": [
+                    {
+                        "name": "Shapsug",
+                        "group": "West Circassian",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Bzhedug",
+                        "group": "West Circassian",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Abzakh",
+                        "group": "West Circassian",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Temirgoy",
+                        "group": "West Circassian",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Baslaney",
+                        "group": "East Circassian",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Kabardian",
+                        "group": "East Circassian"
+                    }
+                ]
+            },
+            {
+                "name": "Abazgi",
+                "lects": [
+                    {
+                        "name": "Tapant",
+                        "group": "Abaza",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Ashkhar",
+                        "group": "Abaza",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Bzyb",
+                        "group": "Abkhaz",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Sadz",
+                        "group": "Abkhaz",
+                        "disabled": true
+                    },
+                    {
+                        "name": "Abzhywa",
+                        "group": "Abkhaz",
+                        "disabled": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Iranian",
+        "branches": [
+            {
+                "name": "Eastern Iranian",
+                "lects": [
+                    {
+                        "name": "Iron",
+                        "group": "Ossetian"
+                    },
+                    {
+                        "name": "Digor",
+                        "group": "Ossetian"
+                    }
+                ]
+            }
+        ]
+    }
+]
