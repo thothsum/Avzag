@@ -1,10 +1,5 @@
 <template>
-  <div class="panel">
-    <div class="panel-horizontal">
-      <slot></slot>
-    </div>
-    <textarea ref="textarea" :readonly="readonly" v-model="text"></textarea>
-  </div>
+  <textarea ref="textarea" :readonly="readonly" v-model="text"></textarea>
 </template>
 
 <script>

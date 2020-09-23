@@ -3,32 +3,55 @@
     <ChipsSelect v-model="lect" :items="lects" itemKey="name" />
     <div class="split" v-if="converter">
       <div class="panel">
-        <ConverterText :source="source" :mapping="sourceMapping" @result="intermediate=$event">
-          <Select v-model="sourceMapping" :items="mappings" itemKey="name" />
-          <Toggle v-model="empty" :icons="['subject','clear']" />
+        <div class="panel-horizontal">
+          <Select v-model="sourceMapping" :items="fullMappings" itemKey="name" />
+          <Toggle v-model="empty" :icons="['subject', 'clear']" />
           <Button @click.native="$refs.file.click()" icon="publish" />
-          <Button v-show="!resultMapping.many21" @click.native="swap" icon="swap_horiz" />
-        </ConverterText>
-        <MappingTable v-if="showMapping" :mapping="sourceMapping" />
+          <Button
+            v-show="!resultMapping.partial"
+            @click.native="swap"
+            icon="swap_horiz"
+          />
+        </div>
+        <ConverterText
+          :source="source"
+          :mapping="sourceMapping"
+          @result="intermediate = $event"
+        />
+        <MappingTable v-if="showMappings" :mapping="sourceMapping" />
       </div>
       <div class="panel">
+        <div class="panel-horizontal">
+          <Select v-model="resultMapping" :items="mappings" itemKey="name" />
+          <Toggle
+            v-model="showMappings"
+            :icons="['visibility', 'visibility_off']"
+          />
+          <Button @click.native="copy" icon="file_copy" />
+        </div>
         <ConverterText
           ref="resultText"
           :readonly="true"
           :source="intermediate"
           :mapping="resultMapping"
           :reverse="true"
-          @result="result=$event"
-        >
-          <Select v-model="resultMapping" :items="mappings" itemKey="name" />
-          <Toggle v-model="showMapping" :icons="['visibility','visibility_off']" />
-          <Button @click.native="copy" icon="file_copy" />
-        </ConverterText>
-        <MappingTable v-if="showMapping" :mapping="resultMapping" :reverse="true" />
+          @result="result = $event"
+        />
+        <MappingTable
+          v-if="showMappings"
+          :mapping="resultMapping"
+          :reverse="true"
+        />
       </div>
     </div>
     <h2 v-else>No data for this lect.</h2>
-    <input v-show="false" type="file" accept=".txt" ref="file" @change="upload" />
+    <input
+      v-show="false"
+      type="file"
+      accept=".txt"
+      ref="file"
+      @change="upload"
+    />
     <a v-show="false" ref="link"></a>
   </div>
 </template>
@@ -60,7 +83,7 @@ export default {
       resultMapping: undefined,
       empty: false,
       intermediate: "",
-      showMapping: false,
+      showMappings: false,
     };
   },
   computed: {
@@ -72,6 +95,9 @@ export default {
     },
     mappings() {
       return this.converter?.mappings;
+    },
+    fullMappings() {
+      return this.mappings.filter((m) => !m.partial);
     },
     sample() {
       return this.converter?.sample ?? "";

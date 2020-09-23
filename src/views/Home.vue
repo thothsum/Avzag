@@ -10,7 +10,7 @@
           <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
         </div>
       </div>
-      <!-- <button v-if="selected.length > 0" @click="load">LOAD</button> -->
+      <button @click="load">LOAD</button>
       <div id="languages" class="panel-sparse">
         <LectFamily :key="i" v-for="(f, i) in catalogue" :family="f" />
       </div>
@@ -42,7 +42,8 @@ export default {
       else this.selected.push(l);
     },
     load() {
-      this.$store.dispatch("loadLects", this.selected);
+      // this.$store.dispatch("loadLects", this.selected);
+      this.$store.dispatch("loadLects", ["Iron", "Kaitag"]);
       this.$router.push({ name: "Phonology" });
     },
   },
