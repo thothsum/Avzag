@@ -4,12 +4,12 @@
         "branches": [
             {
                 "name": "Dargin",
-                "lects": [
+                "groups": [
                     {
-                        "name": "Kaitag"
-                    },
-                    {
-                        "name": "Akusha"
+                        "lects": [
+                            "Kaitag",
+                            "Aqusha"
+                        ]
                     }
                 ]
             }
@@ -20,65 +20,46 @@
         "branches": [
             {
                 "name": "Circassian",
-                "lects": [
+                "groups": [
                     {
-                        "name": "Shapsug",
-                        "group": "West Circassian",
-                        "disabled": true
+                        "name": "West Circassian",
+                        "lects": [
+                            "Shapsug",
+                            "Bzhedug",
+                            "Abzakh",
+                            "Temirgoy",
+                            "Shapsug",
+                            "Bzhedug",
+                            "Abzakh",
+                            "Temirgoy"
+                        ]
                     },
                     {
-                        "name": "Bzhedug",
-                        "group": "West Circassian",
-                        "disabled": true
-                    },
-                    {
-                        "name": "Abzakh",
-                        "group": "West Circassian",
-                        "disabled": true
-                    },
-                    {
-                        "name": "Temirgoy",
-                        "group": "West Circassian",
-                        "disabled": true
-                    },
-                    {
-                        "name": "Baslaney",
-                        "group": "East Circassian",
-                        "disabled": true
-                    },
-                    {
-                        "name": "Kabardian",
-                        "group": "East Circassian"
+                        "name": "East Circassian",
+                        "lects": [
+                            "Baslaney",
+                            "Kabardian"
+                        ]
                     }
                 ]
             },
             {
                 "name": "Abazgi",
-                "lects": [
+                "groups": [
                     {
-                        "name": "Tapant",
-                        "group": "Abaza",
-                        "disabled": true
+                        "name": "Abaza",
+                        "lects": [
+                            "Tapant",
+                            "Ashkhar"
+                        ]
                     },
                     {
-                        "name": "Ashkhar",
-                        "group": "Abaza",
-                        "disabled": true
-                    },
-                    {
-                        "name": "Bzyb",
-                        "group": "Abkhaz",
-                        "disabled": true
-                    },
-                    {
-                        "name": "Sadz",
-                        "group": "Abkhaz",
-                        "disabled": true
-                    },
-                    {
-                        "name": "Abzhywa",
-                        "group": "Abkhaz",
-                        "disabled": true
+                        "name": "Abkhaz",
+                        "lects": [
+                            "Bzyb",
+                            "Sadz",
+                            "Abzhywa"
+                        ]
                     }
                 ]
             }
@@ -89,14 +70,13 @@
         "branches": [
             {
                 "name": "Eastern Iranian",
-                "lects": [
+                "groups": [
                     {
-                        "name": "Iron",
-                        "group": "Ossetian"
-                    },
-                    {
-                        "name": "Digor",
-                        "group": "Ossetian"
+                        "name": "Ossetian",
+                        "lects": [
+                            "Digor",
+                            "Iron"
+                        ]
                     }
                 ]
             }

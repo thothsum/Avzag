@@ -1,19 +1,30 @@
 <template>
   <div class="panel">
     <div class="panel-horizontal">
-      <h2>{{family.name}}</h2>
+      <h1>{{ family.name }}</h1>
       <Toggle v-model="expanded" :icons="['expand_more', 'expand_less']" />
     </div>
-    <div class="panel-horizontal-sparse wrap" v-show="expanded">
-      <div class="panel-dense branch" :key="i" v-for="(b, i) in family.branches">
-        <h3>{{b.name}}</h3>
-        <Button
-          :key="i"
-          v-for="(l, i) in b.lects"
-          :text="l.name"
-          :icon="selected.has(l.name)?'check':null"
-          @click.native="toggle(l.name)"
-        />
+    <div class="panel-horizontal-sparse family" v-show="expanded">
+      <div
+        class="panel-dense branch"
+        :key="b.name"
+        v-for="b in family.branches"
+      >
+        <h2>{{ b.name }}</h2>
+        <div class="panel-horizontal group-parent">
+          <div :key="i" v-for="(g, i) in b.groups">
+            <h3>{{ g.name }}</h3>
+            <div class="panel-dense wrap group">
+              <Button
+                :key="l"
+                v-for="l in g.lects"
+                :text="l"
+                :icon="selected.has(l) ? 'check' : null"
+                @click.native="toggle(l)"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -47,7 +58,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// .group {
+//   // displa
+//   max-height: 100px;
+//   * > {
+//     height: map-get($button-height, "normal");
+//   }
+// }
+.family {
+  max-height: 512px;
+}
+.group-parent,
+.family {
+  place-items: start;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+.group {
+  flex-direction: column;
+  max-height: 192px;
+  & > * {
+    width: 192px;
+  }
+}
+.group,
 .branch {
-  width: 256px;
+  border: 1px gray dashed;
 }
 </style>

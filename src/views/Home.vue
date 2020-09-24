@@ -61,21 +61,4 @@ export default {
   position: sticky;
   top: 0;
 }
-#languages {
-  place-content: center;
-  > * {
-    flex: 1;
-    min-width: 256px;
-    height: 192px;
-  }
-}
-button.selected {
-  &,
-  * {
-    color: var(--color-highlight);
-  }
-  .icon {
-    display: initial;
-  }
-}
 </style>
