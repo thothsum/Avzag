@@ -1,13 +1,13 @@
 <template>
-  <div id="root" :class="{narrow: phonemes.length <= 12}" class="panel-horizontal-dense wrap">
+  <div id="root" :class="{ narrow }" class="panel-horizontal-dense scroll wrap">
     <PhoneticItem
       @click.native="$emit('select', p)"
-      :selected="phoneme==p"
+      :selected="phoneme == p"
       :faded="!fitting[i]"
       :ipa="p.ipa"
       :str="graphemes[i]"
       :key="i"
-      v-for="(p,i) in filtered"
+      v-for="(p, i) in filtered"
     />
   </div>
 </template>
@@ -61,6 +61,9 @@ export default {
           )
         : [];
     },
+    narrow() {
+      return this.filtered.length <= 12;
+    },
   },
 };
 </script>
@@ -79,11 +82,10 @@ $item-height: 40px;
   #root {
     flex-direction: column;
     place-content: flex-start;
-    overflow-x: auto;
     max-height: 5 * $item-height;
 
     &.narrow {
-      max-height: $item-height;
+      max-height: 1.5 * $item-height;
     }
   }
 }

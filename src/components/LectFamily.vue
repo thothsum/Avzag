@@ -4,17 +4,13 @@
       <h1>{{ family.name }}</h1>
       <Toggle v-model="expanded" :icons="['expand_more', 'expand_less']" />
     </div>
-    <div class="panel-horizontal-sparse family" v-show="expanded">
-      <div
-        class="panel-dense branch"
-        :key="b.name"
-        v-for="b in family.branches"
-      >
+    <div class="panel-horizontal family scroll" v-show="expanded">
+      <div class="panel branch" :key="b.name" v-for="b in family.branches">
         <h2>{{ b.name }}</h2>
-        <div class="panel-horizontal group-parent">
-          <div :key="i" v-for="(g, i) in b.groups">
-            <h3>{{ g.name }}</h3>
-            <div class="panel-dense wrap group">
+        <div class="panel-horizontal groups">
+          <div :key="i" v-for="(g, i) in b.groups" class="panel group">
+            <h3 v-if="g.name">{{ g.name }}</h3>
+            <div class="panel-dense wrap lects">
               <Button
                 :key="l"
                 v-for="l in g.lects"
@@ -58,31 +54,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .group {
-//   // displa
-//   max-height: 100px;
-//   * > {
-//     height: map-get($button-height, "normal");
-//   }
-// }
 .family {
   max-height: 512px;
 }
-.group-parent,
+.groups,
 .family {
-  place-items: start;
-  overflow-x: auto;
-  overflow-y: visible;
+  align-items: flex-start;
 }
-.group {
-  flex-direction: column;
+.lects {
   max-height: 192px;
   & > * {
     width: 192px;
   }
 }
+.groups,
 .group,
-.branch {
+.branch,
+.lects {
   border: 1px gray dashed;
 }
 </style>
