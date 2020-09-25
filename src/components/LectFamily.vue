@@ -1,8 +1,8 @@
 <template>
   <div class="panel">
     <div class="panel-horizontal">
-      <h1>{{ family.name }}</h1>
       <Toggle v-model="expanded" :icons="['expand_more', 'expand_less']" />
+      <h1>{{ family.name }}</h1>
     </div>
     <div class="panel-horizontal-sparse family scroll" v-show="expanded">
       <div class="panel branch" :key="b.name" v-for="b in family.branches">
@@ -18,6 +18,7 @@
                 :key="l"
                 v-for="l in g.lects"
                 :text="l"
+                :class="{ highlight: selected.has(l) }"
                 :icon="selected.has(l) ? 'check' : null"
                 @click.native="toggle(l)"
               />
@@ -70,7 +71,7 @@ export default {
     width: 192px;
   }
 }
-.group {
+.groups {
   padding: 2px;
 }
 .lects {
