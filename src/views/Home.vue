@@ -1,19 +1,16 @@
 <template>
-  <div v-if="catalogue" class="table">
-    <div class="panel-sparse scroll">
-      <div id="header" class="panel-horizontal wrap">
-        <h1>Ævzag</h1>
-        <div class="panel-horizontal">
-          <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
-          <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-          <span class="text-dot"></span>
-          <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
-        </div>
+  <div class="panel-sparse scroll">
+    <div id="header" class="panel-horizontal wrap">
+      <h1>Ævzag</h1>
+      <div class="panel-horizontal">
+        <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
+        <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
+        <span class="text-dot"></span>
+        <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
       </div>
-      <button @click="load">LOAD</button>
-      <LectFamily :key="i" v-for="(f, i) in catalogue" :family="f" />
     </div>
-    <div id="map" class="card" style="background-color: bisque"></div>
+    <button @click="load">LOAD</button>
+    <LectFamily :key="i" v-for="(f, i) in catalogue" :family="f" />
   </div>
 </template>
 
@@ -47,16 +44,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.table {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: map-get($margins, "double");
-}
-#map {
-  position: sticky;
-  top: 0;
-}
-</style>
