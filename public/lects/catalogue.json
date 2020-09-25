@@ -6,14 +6,64 @@
                 "name": "Dargin",
                 "groups": [
                     {
-                        "name": "nuclear",
+                        "name": "Northern Dargwa",
+                        "flag": "Dagestan",
                         "lects": [
-                            "Kaitag",
-                            "Aqusha",
-                            "Shapsug",
-                            "Bzhedug",
-                            "Abzakh",
-                            "Temirgoy"
+                            "Akusha",
+                            "Kadar",
+                            "Megeb",
+                            "Gapshima",
+                            "Tsudakhar",
+                            "Muirin"
+                        ]
+                    },
+                    {
+                        "name": "Sourthern Dargwa",
+                        "flag": "Dagestan",
+                        "lects": [
+                            "Sirhin",
+                            "Amukh",
+                            "Itsari",
+                            "Amuzgi",
+                            "Kubachi"
+                        ]
+                    },
+                    {
+                        "lects": [
+                            "Chirag",
+                            "Kaitag"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Lezgic",
+                "groups": [
+                    {
+                        "lects": [
+                            "Archi",
+                            "Udi",
+                            "Kryts",
+                            "Budukh"
+                        ]
+                    },
+                    {
+                        "name": "Aghul",
+                        "flag": "Aghul",
+                        "lects": [
+                            "Gequn",
+                            "Keren",
+                            "Qushan",
+                            "Tpig"
+                        ]
+                    },
+                    {
+                        "name": "Lezgi",
+                        "flag": "Lezgi",
+                        "lects": [
+                            "Kuiri",
+                            "Quba",
+                            "Samur"
                         ]
                     }
                 ]
@@ -28,11 +78,8 @@
                 "groups": [
                     {
                         "name": "West Circassian",
+                        "flag": "Circassian",
                         "lects": [
-                            "Shapsug",
-                            "Bzhedug",
-                            "Abzakh",
-                            "Temirgoy",
                             "Shapsug",
                             "Bzhedug",
                             "Abzakh",
@@ -41,6 +88,7 @@
                     },
                     {
                         "name": "East Circassian",
+                        "flag": "Circassian",
                         "lects": [
                             "Baslaney",
                             "Kabardian"
@@ -57,7 +105,8 @@
                 "name": "Abazgi",
                 "groups": [
                     {
-                        "name": "",
+                        "name": "Abaza",
+                        "flag": "Abkhaz",
                         "lects": [
                             "Tapant",
                             "Ashkhar"
@@ -65,6 +114,7 @@
                     },
                     {
                         "name": "Abkhaz",
+                        "flag": "Abkhaz",
                         "lects": [
                             "Bzyb",
                             "Sadz",
@@ -83,6 +133,7 @@
                 "groups": [
                     {
                         "name": "Ossetian",
+                        "flag": "Ossetian",
                         "lects": [
                             "Digor",
                             "Iron"

@@ -4,13 +4,16 @@
       <h1>{{ family.name }}</h1>
       <Toggle v-model="expanded" :icons="['expand_more', 'expand_less']" />
     </div>
-    <div class="panel-horizontal family scroll" v-show="expanded">
+    <div class="panel-horizontal-sparse family scroll" v-show="expanded">
       <div class="panel branch" :key="b.name" v-for="b in family.branches">
         <h2>{{ b.name }}</h2>
-        <div class="panel-horizontal groups">
+        <div class="panel-horizontal-sparse groups">
           <div :key="i" v-for="(g, i) in b.groups" class="panel group">
             <h3 v-if="g.name">{{ g.name }}</h3>
-            <div class="lects">
+            <div class="lects card">
+              <div class="flag" v-if="g.flag">
+                <img :src="$store.state.root + '../flags/' + g.flag + '.png'" />
+              </div>
               <Button
                 :key="l"
                 v-for="l in g.lects"
@@ -54,12 +57,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.family {
-  max-height: 512px;
-}
 .groups,
 .family {
-  align-items: flex-start;
+  align-items: flex-end;
 }
 .lects {
   display: grid;
@@ -70,7 +70,38 @@ export default {
     width: 192px;
   }
 }
+.group {
+  padding: 2px;
+}
 .lects {
-  border: 1px gray dashed;
+  position: relative;
+  * {
+    z-index: 1;
+  }
+}
+h2,
+h3 {
+  border-bottom: 2px solid var(--color-text);
+}
+.flag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    opacity: 0.5;
+    transform: translate(30%, 25%) rotate(-45deg);
+    mask-image: linear-gradient(transparent, white);
+  }
 }
 </style>
