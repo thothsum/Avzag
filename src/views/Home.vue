@@ -53,6 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 #header {
+  z-index: 2;
   justify-content: space-between;
   background-color: var(--color-foreground);
   border-radius: 0;
