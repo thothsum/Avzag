@@ -6,9 +6,14 @@
                 "name": "Dargin",
                 "groups": [
                     {
+                        "name": "nuclear",
                         "lects": [
                             "Kaitag",
-                            "Aqusha"
+                            "Aqusha",
+                            "Shapsug",
+                            "Bzhedug",
+                            "Abzakh",
+                            "Temirgoy"
                         ]
                     }
                 ]
@@ -39,6 +44,11 @@
                         "lects": [
                             "Baslaney",
                             "Kabardian"
+                        ]
+                    },
+                    {
+                        "lects": [
+                            "Ubykh"
                         ]
                     }
                 ]

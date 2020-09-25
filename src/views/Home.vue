@@ -11,9 +11,7 @@
         </div>
       </div>
       <button @click="load">LOAD</button>
-      <div id="languages" class="panel-sparse">
-        <LectFamily :key="i" v-for="(f, i) in catalogue" :family="f" />
-      </div>
+      <LectFamily :key="i" v-for="(f, i) in catalogue" :family="f" />
     </div>
     <div id="map" class="card" style="background-color: bisque"></div>
   </div>

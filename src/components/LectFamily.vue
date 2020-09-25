@@ -10,7 +10,7 @@
         <div class="panel-horizontal groups">
           <div :key="i" v-for="(g, i) in b.groups" class="panel group">
             <h3 v-if="g.name">{{ g.name }}</h3>
-            <div class="panel-dense wrap lects">
+            <div class="lects">
               <Button
                 :key="l"
                 v-for="l in g.lects"
@@ -62,14 +62,14 @@ export default {
   align-items: flex-start;
 }
 .lects {
-  max-height: 192px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, 1fr);
+  gap: map-get($margins, "half");
   & > * {
     width: 192px;
   }
 }
-.groups,
-.group,
-.branch,
 .lects {
   border: 1px gray dashed;
 }
