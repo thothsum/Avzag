@@ -461,6 +461,9 @@
                 "word": "ӕхситт",
                 "ipa": "ɐχʃitː",
                 "grapheme": "с"
+            },
+            {
+                "grapheme": "ш"
             }
         ],
         "phoneme": "ʃ"
@@ -480,6 +483,9 @@
                 "word": "лагъз",
                 "ipa": "laʁʒ",
                 "grapheme": "з"
+            },
+            {
+                "grapheme": "ж"
             }
         ],
         "phoneme": "ʒ"
