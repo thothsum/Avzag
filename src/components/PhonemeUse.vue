@@ -1,12 +1,19 @@
 <template>
   <div class="panel card">
     <div class="title">
-      <h3>{{lect}}</h3>
+      <h3>{{ lect }}</h3>
       <p v-html="header"></p>
     </div>
     <div class="panel-solid">
-      <button class="small panel-horizontal" @click="play(i)" :key="i" v-for="(s,i) in use.samples">
-        <span class="icon-small">{{playable[i] ? 'play_arrow' : 'arrow_right'}}</span>
+      <button
+        class="small panel-horizontal"
+        @click="play(i)"
+        :key="i"
+        v-for="(s, i) in fullSamples"
+      >
+        <span class="icon-small">{{
+          playable[i] ? "play_arrow" : "arrow_right"
+        }}</span>
         <span class="text" v-html="highlight(s.word, s.grapheme)"></span>
         <span class="text-ipa" v-html="highlight(s.ipa, use.phoneme)"></span>
       </button>
@@ -39,6 +46,9 @@ export default {
       return [...new Set(this.use.samples.map((s) => s.grapheme))]
         .map((g) => `<b>${g}</b>`)
         .join("<span class='text-dot'></span>");
+    },
+    fullSamples() {
+      return this.use.samples.filter((s) => s.word || s.ipa);
     },
   },
   watch: {

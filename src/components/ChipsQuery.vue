@@ -50,7 +50,6 @@ export default {
       immediate: true,
     },
     input(input) {
-      console.log(input);
       this.$emit(
         "query",
         input.reduce((q, inp, i) => {
