@@ -73,6 +73,15 @@
             ]
         },
         {
+            "ipa": "o",
+            "tags": [
+                "vowel",
+                "back",
+                "close-mid",
+                "rounded"
+            ]
+        },
+        {
             "ipa": "b",
             "tags": [
                 "consonant",
