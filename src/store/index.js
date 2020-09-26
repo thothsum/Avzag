@@ -23,21 +23,23 @@ export default new Vuex.Store({
       }
     },
     async loadLects({ dispatch, commit, state }, lectNames) {
-      let lects = {};
+      let lects = [];
       for (const n of lectNames) {
         const r = state.root + n + "/";
-        lects[n] = {};
-        for (const f of ["phonemes", "phrasebook", "converter"])
-          lects[n][f] = await dispatch("loadJson", r + f + ".json");
+        let l = { name: n };
+        for (const f of ["phonology", "phrasebook", "converter"])
+          l[f] = await dispatch("loadJson", r + f + ".json");
+        lects.push(l);
       }
       commit("setState", ["lects", lects]);
     },
     async loadJson(_, file) {
       try { return await fetch(file).then(r => r.json()) }
-      catch  { return {} }
+      catch { return }
     },
     async loadText(_, file) {
-      return await fetch(file).then(r => r.text());
+      try { return await fetch(file).then(r => r.text()) }
+      catch { return }
     }
   }
 })

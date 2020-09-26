@@ -1,131 +1,142 @@
 <template>
-  <div class="section">
-    <ChipsSelect v-model="selectedLect" :items="lectNames" />
-    <!-- <div class="split">
+  <div class="section panel">
+    <ChipsSelect v-model="lect" :items="lects" itemKey="name" />
+    <div class="split" v-if="converter">
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="mappingFrom">
-            <option
-              :value="cn.i"
-              :key="cn.i"
-              v-for="cn in converters.filter(c => !c.many21)"
-            >{{cn.name}}</option>
-          </select>
-          <button @click="empty=!empty" class="icon">{{empty ? "subject":"clear"}}</button>
-          <button @click="$refs.file.click()" class="icon">publish</button>
-          <button v-show="!converters[this.mappingTo].many21" @click="swap" class="icon">swap_horiz</button>
+          <Select v-model="sourceMapping" :items="fullMappings" itemKey="name" />
+          <Toggle v-model="empty" :icons="['subject', 'clear']" />
+          <Button @click.native="$refs.file.click()" icon="publish" />
+          <Button
+            v-show="!resultMapping.partial"
+            @click.native="swap"
+            icon="swap_horiz"
+          />
         </div>
-        <ConverterText :source="source" :mapping="mappingSource" @result="intermediate=$event" />
-        <MappingTable v-if="showMapping" :mapping="mappingSource" />
+        <ConverterText
+          :source="source"
+          :mapping="sourceMapping"
+          @result="intermediate = $event"
+        />
+        <MappingTable v-if="showMappings" :mapping="sourceMapping" />
       </div>
       <div class="panel">
         <div class="panel-horizontal">
-          <select v-model="mappingTo">
-            <option :value="cn.i" :key="cn.i" v-for="cn in converters">{{cn.name}}</option>
-          </select>
-          <button
-            @click="showMapping=!showMapping"
-            class="icon"
-          >{{showMapping?'visibility_off':'visibility'}}</button>
-          <button @click="copy" class="icon">file_copy</button>
+          <Select v-model="resultMapping" :items="mappings" itemKey="name" />
+          <Toggle
+            v-model="showMappings"
+            :icons="['visibility', 'visibility_off']"
+          />
+          <Button @click.native="copy" icon="file_copy" />
         </div>
         <ConverterText
           ref="resultText"
           :readonly="true"
           :source="intermediate"
-          :mapping="mappingResult"
-          @result="result=$event"
+          :mapping="resultMapping"
+          :reverse="true"
+          @result="result = $event"
         />
-        <MappingTable v-if="showMapping" :mapping="mappingResult" />
+        <MappingTable
+          v-if="showMappings"
+          :mapping="resultMapping"
+          :reverse="true"
+        />
       </div>
     </div>
-    <input v-show="false" type="file" accept=".txt" ref="file" @change="upload" />
-    <a v-show="false" ref="link"></a>-->
+    <h2 v-else>No data for this lect.</h2>
+    <input
+      v-show="false"
+      type="file"
+      accept=".txt"
+      ref="file"
+      @change="upload"
+    />
+    <a v-show="false" ref="link"></a>
   </div>
 </template>
 
 <script>
+import Button from "@/components/Button";
+import Toggle from "@/components/Toggle";
+import Select from "@/components/Select";
 import ChipsSelect from "@/components/ChipsSelect";
-// import MappingTable from "@/components/MappingTable";
-// import ConverterText from "@/components/ConverterText";
+import MappingTable from "@/components/MappingTable";
+import ConverterText from "@/components/ConverterText";
 
 export default {
   name: "Converter",
   components: {
+    Button,
+    Toggle,
+    Select,
     ChipsSelect,
-    // MappingTable,
-    // ConverterText,
+    MappingTable,
+    ConverterText,
   },
   data() {
     return {
-      selectedLect: "",
-      mappingFrom: 0,
-      mappingTo: 1,
-      empty: false,
+      lect: undefined,
       source: "",
-      intermediate: "",
+      sourceMapping: undefined,
       result: "",
-      showMapping: false,
+      resultMapping: undefined,
+      empty: false,
+      intermediate: "",
+      showMappings: false,
     };
   },
   computed: {
     lects() {
       return this.$store.state.lects;
     },
-    lectNames() {
-      return Object.keys(this.lects ?? {});
+    converter() {
+      return this.lect?.converter;
+    },
+    mappings() {
+      return this.converter?.mappings;
+    },
+    fullMappings() {
+      return this.mappings.filter((m) => !m.partial);
     },
     sample() {
-      return this.$store.state.sample;
+      return this.converter?.sample ?? "";
     },
-    converter() {
-      return this.lects[this.selectedLect]?.converter;
-    },
-    mappingSource() {
-      return this.converter?.mappings[this.mappingFrom].pairs;
-    },
-    mappingResult() {
-      return this.converter?.mappings[this.mappingTo].pairs.map((m) => [
-        m[1],
-        m[0],
-      ]);
+    defaultConversion() {
+      return this.converter?.default;
     },
   },
   watch: {
-    sample(sample) {
-      if (!this.empty) this.source = sample;
+    mappings(m) {
+      this.sourceMapping = m[0];
+      this.resultMapping = m[1];
     },
-    empty(empty) {
-      this.source = empty ? "" : this.sample;
-      this.$router
-        .replace({ query: { ...this.$route.query, empty: empty } })
-        .catch(() => {});
+    sample(s) {
+      this.source = s;
     },
-    mappingFrom(from) {
-      this.$router
-        .replace({ query: { ...this.$route.query, from: from } })
-        .catch(() => {});
+    defaultConversion(c) {
+      this.sourceMapping = this.mappings[c[0]];
+      this.resultMapping = this.mappings[c[1]];
     },
-    mappingTo(to) {
-      this.$router
-        .replace({ query: { ...this.$route.query, to: to } })
-        .catch(() => {});
-    },
-    "$route.query": {
-      handler(query) {
-        this.empty = query.empty;
-        this.mappingFrom = query.from ?? 0;
-        this.mappingTo = query.to ?? 1;
-      },
-      immediate: true,
+    empty(e) {
+      if (e) {
+        this.source = "";
+        return;
+      }
+      const mp = this.sourceMapping;
+      this.sourceMapping = this.mappings[this.defaultConversion[0]];
+      this.source = this.sample;
+      this.$nextTick(() => {
+        this.sourceMapping = mp;
+      });
     },
   },
   methods: {
     swap() {
-      let source = this.result;
-      let from = this.mappingFrom;
-      this.mappingFrom = this.mappingTo;
-      this.mappingTo = from;
+      const source = this.result;
+      const mapping = this.sourceMapping;
+      this.sourceMapping = this.resultMapping;
+      this.resultMapping = mapping;
       this.source = source;
     },
     upload(event) {

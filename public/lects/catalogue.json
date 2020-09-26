@@ -1,13 +1,146 @@
-{
-    "Ossetian": [
-        "Iron",
-        "Digor"
-    ],
-    "Dargin": [
-        "Kaitag",
-        "Aqusha"
-    ],
-    "Circassian": [
-        "Kabardian"
-    ]
-}
+[
+    {
+        "name": "East Caucasian",
+        "branches": [
+            {
+                "name": "Dargic",
+                "groups": [
+                    {
+                        "name": "Northern Dargwa",
+                        "flag": "Dagestan",
+                        "lects": [
+                            "Akusha",
+                            "Kadar",
+                            "Megeb",
+                            "Gapshima",
+                            "Tsudakhar",
+                            "Muirin"
+                        ]
+                    },
+                    {
+                        "name": "Sourthern Dargwa",
+                        "flag": "Dagestan",
+                        "lects": [
+                            "Sirhin",
+                            "Amukh",
+                            "Itsari",
+                            "Amuzgi",
+                            "Kubachi"
+                        ]
+                    },
+                    {
+                        "lects": [
+                            "Chirag",
+                            "Kaitag"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Lezgic",
+                "groups": [
+                    {
+                        "lects": [
+                            "Archi",
+                            "Udi",
+                            "Kryts",
+                            "Budukh"
+                        ]
+                    },
+                    {
+                        "name": "Aghul",
+                        "flag": "Aghul",
+                        "lects": [
+                            "Gequn",
+                            "Keren",
+                            "Qushan",
+                            "Tpig"
+                        ]
+                    },
+                    {
+                        "name": "Lezgi",
+                        "flag": "Lezgi",
+                        "lects": [
+                            "Kuiri",
+                            "Quba",
+                            "Samur"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "West Caucasian",
+        "branches": [
+            {
+                "name": "Circassian",
+                "groups": [
+                    {
+                        "name": "West Circassian",
+                        "flag": "Circassian",
+                        "lects": [
+                            "Shapsug",
+                            "Bzhedug",
+                            "Abzakh",
+                            "Temirgoy"
+                        ]
+                    },
+                    {
+                        "name": "East Circassian",
+                        "flag": "Circassian",
+                        "lects": [
+                            "Baslaney",
+                            "Kabardian"
+                        ]
+                    },
+                    {
+                        "lects": [
+                            "Ubykh"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Abazgi",
+                "groups": [
+                    {
+                        "name": "Abaza",
+                        "flag": "Abkhaz",
+                        "lects": [
+                            "Tapant",
+                            "Ashkhar"
+                        ]
+                    },
+                    {
+                        "name": "Abkhaz",
+                        "flag": "Abkhaz",
+                        "lects": [
+                            "Bzyb",
+                            "Sadz",
+                            "Abzhywa"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Iranian",
+        "branches": [
+            {
+                "name": "Eastern Iranian",
+                "groups": [
+                    {
+                        "name": "Ossetian",
+                        "flag": "Ossetian",
+                        "lects": [
+                            "Digor",
+                            "Iron"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

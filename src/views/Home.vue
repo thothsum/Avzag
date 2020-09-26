@@ -1,7 +1,12 @@
 <template>
-  <div v-if="catalogue">
-    <div id="header" class="section panel-horizontal wrap">
-      <h1>Ævzag</h1>
+  <div class="panel-sparse" id="root">
+    <div id="header" class="panel-horizontal wrap">
+      <div class="panel-horizontal-sparse" id="title">
+        <h1>Ævzag</h1>
+        <button v-if="!empty" @click="load" class="highlight">
+          <h1 class="icon">arrow_forward</h1>
+        </button>
+      </div>
       <div class="panel-horizontal">
         <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
         <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
@@ -9,32 +14,27 @@
         <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
       </div>
     </div>
-    <button v-if="selected.length > 0" @click="load">LOAD</button>
-    <div id="languages" class="section panel-horizontal-sparse wrap">
-      <div class="panel" :key="c" v-for="(ls, c) of catalogue">
-        <div>
-          <h2>{{c}}</h2>
-        </div>
-        <button
-          :key="l"
-          v-for="l in ls"
-          @click="toggleSelection(l)"
-          :class="{selected:selected.includes(l)}"
-        >
-          <span class="icon" hidden>check</span>
-          {{l}}
-        </button>
-      </div>
-    </div>
+    <LectFamily
+      @select="select"
+      :key="i"
+      v-for="(f, i) in catalogue"
+      :family="f"
+    />
   </div>
 </template>
 
 <script>
+import LectFamily from "@/components/LectFamily";
+
 export default {
   name: "Home",
+  components: {
+    LectFamily,
+  },
   data() {
     return {
-      selected: [],
+      selected: new Set(),
+      empty: true,
     };
   },
   computed: {
@@ -43,10 +43,10 @@ export default {
     },
   },
   methods: {
-    toggleSelection(l) {
-      const i = this.selected.indexOf(l);
-      if (i >= 0) this.selected.splice(i, 1);
-      else this.selected.push(l);
+    select(lect, incl) {
+      if (incl) this.selected.add(lect);
+      else this.selected.delete(lect);
+      this.empty = !this.selected.size;
     },
     load() {
       this.$store.dispatch("loadLects", this.selected);
@@ -57,21 +57,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#languages {
-  place-content: center;
-  > * {
-    flex: 1;
-    min-width: 256px;
-    height: 192px;
+#header {
+  z-index: 2;
+  justify-content: space-between;
+  background-color: var(--color-foreground);
+  border-radius: 0;
+  box-shadow: map-get($shadows, "elevated");
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: -1 * map-get($margins, "normal");
+  padding: map-get($margins, "normal");
+  padding-top: map-get($margins, "double");
+}
+#title {
+  h1 {
+    flex: 0;
   }
 }
-button.selected {
-  &,
-  * {
-    color: var(--color-highlight);
+#root {
+  padding-top: 64px;
+}
+
+@media only screen and (max-width: $mobile-width) {
+  #header {
+    flex-direction: column;
+    justify-content: center;
   }
-  .icon {
-    display: initial;
+  #root {
+    padding-top: 98px;
   }
 }
 </style>

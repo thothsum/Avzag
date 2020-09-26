@@ -1,26 +1,27 @@
 <template>
   <div id="root">
-    <div class="section panel-horizontal">
-      <button @click="navigate('Home')" class="icon">arrow_back</button>
-      <button
-        class="panel-horizontal"
-        :class="{ highlight: $route.name === t }"
-        @click="navigate(t)"
+    <div class="section panel-horizontal scroll">
+      <Button @click.native="navigate('Home')" icon="arrow_back" />
+      <Button
+        @click.native="navigate(t)"
+        :class="{ 'highlight': $route.name === t }"
+        :icon="i"
+        :text="t"
         :key="i"
         v-for="[t, i] in menus"
-      >
-        <span class="icon">{{i}}</span>
-        <p v-if="t">{{t}}</p>
-      </button>
+      />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script>
+import Button from "./Button";
 
-export default Vue.extend({
+export default {
   name: "Header",
+  components: {
+    Button,
+  },
   data() {
     return {
       menus: [
@@ -31,7 +32,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    navigate(path: string): void {
+    navigate(path) {
       if (this.$route.name !== path)
         this.$router.push({
           name: path,
@@ -39,7 +40,7 @@ export default Vue.extend({
         });
     },
   },
-});
+};
 </script>
 
 <style lang="scss" scoped>
@@ -49,11 +50,9 @@ export default Vue.extend({
   margin-bottom: map-get($margins, "double");
   padding: map-get($margins, "normal");
   border-radius: 0;
-  overflow: hidden;
-  position: relative;
   box-shadow: map-get($shadows, "elevated");
 }
-button.panel-horizontal {
+Button {
   font-weight: bold;
 }
 </style>

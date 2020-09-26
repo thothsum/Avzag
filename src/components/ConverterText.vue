@@ -5,43 +5,50 @@
 <script>
 export default {
   name: "ConverterText",
-  props: ["source", "mapping", "readonly"],
+  props: ["source", "mapping", "readonly", "reverse"],
   data() {
     return {
       text: "",
-      result: ""
+      result: "",
     };
+  },
+  computed: {
+    pairs() {
+      return this.reverse
+        ? this.mapping.pairs.map((m) => [m[1], m[0]])
+        : this.mapping.pairs;
+    },
+    reversePairs() {
+      return this.pairs.map((m) => [m[1], m[0]]);
+    },
   },
   watch: {
     source: {
       handler() {
         this.text = this.readonly
-          ? this.convert(this.source, this.mapping)
+          ? this.convert(this.source, this.pairs)
           : this.source;
       },
-      immediate: true
+      immediate: true,
     },
     text: {
       handler() {
         this.result = this.readonly
           ? this.text
-          : this.convert(this.text, this.mapping);
+          : this.convert(this.text, this.pairs);
         this.$emit("result", this.result);
       },
-      immediate: true
+      immediate: true,
     },
-    mapping: {
-      handler(mapping) {
+    pairs: {
+      handler() {
         this.text = this.readonly
-          ? this.convert(this.source, mapping)
-          : this.convert(
-              this.result,
-              mapping.map(m => [m[1], m[0]])
-            );
+          ? this.convert(this.source, this.pairs)
+          : this.convert(this.result, this.reversePairs);
       },
       deep: true,
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
     capitalize(str) {
@@ -53,23 +60,23 @@ export default {
       }
       return base + str.charAt(i).toUpperCase() + str.slice(i + 1);
     },
-    convert(source, mapping) {
-      if (mapping.length === 0) return source;
+    convert(source, pairs) {
+      if (!pairs || pairs.length === 0) return source;
 
       source = " " + source.replace(/\n/g, "\n ").trim();
       let result = "";
 
       for (let i = 0; i < source.length; ) {
         let found = false;
-        for (const [from, to] of mapping) {
+        for (const [from, to] of pairs) {
           const l = from.length;
           const sub = source.substring(i, i + l);
           const pairs = [
             [from, to],
             [this.capitalize(from), this.capitalize(to)],
-            [from.toUpperCase(), to.toUpperCase()]
+            [from.toUpperCase(), to.toUpperCase()],
           ];
-          
+
           for (const [f, t] of pairs)
             if (sub === f) {
               found = true;
@@ -88,8 +95,8 @@ export default {
       }
 
       return result.replace(/\n /g, "\n").trim();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -97,6 +104,6 @@ export default {
 <style lang="scss" scoped>
 textarea {
   padding: map-get($margins, "normal");
-  height: 250px;
+  height: 256px;
 }
 </style>

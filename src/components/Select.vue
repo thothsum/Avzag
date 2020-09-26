@@ -1,22 +1,21 @@
 <template>
-  <div class="panel-horizontal-dense scroll" v-if="many">
-    <button
-      class="small round"
-      :class="{'highlight': value==items[i]}"
-      @click="select(i)"
-      :key="i"
-      v-for="(k, i) in keys"
-    >{{k}}</button>
-  </div>
+  <select v-model="index">
+    <option :value="i" :key="i" v-for="(k, i) in keys">{{k}}</option>
+  </select>
 </template>
 
 <script>
 export default {
-  name: "ChipsSelect",
+  name: "Select",
   props: ["value", "items", "itemKey"],
   model: {
     prop: "value",
     event: "select",
+  },
+  data() {
+    return {
+      index: 0,
+    };
   },
   computed: {
     keys() {
@@ -24,20 +23,16 @@ export default {
         ? this.items.map((it) => it[this.itemKey])
         : this.items;
     },
-    many() {
-      return this.keys.length > 1;
-    },
   },
   watch: {
     value: {
-      handler() {
-        if (!this.value) this.select(0);
+      handler(v) {
+        const i = this.items.indexOf(v);
+        this.index = i < 0 ? 0 : i;
       },
       immediate: true,
     },
-  },
-  methods: {
-    select(i) {
+    index(i) {
       this.$emit("select", this.items[i]);
     },
   },

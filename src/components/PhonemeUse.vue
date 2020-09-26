@@ -8,7 +8,7 @@
       <button class="small panel-horizontal" @click="play(i)" :key="i" v-for="(s,i) in use.samples">
         <span class="icon-small">{{playable[i] ? 'play_arrow' : 'arrow_right'}}</span>
         <span class="text" v-html="highlight(s.word, s.grapheme)"></span>
-        <span class="text-ipa" v-html="highlight(s.ipa, phoneme)"></span>
+        <span class="text-ipa" v-html="highlight(s.ipa, use.phoneme)"></span>
       </button>
     </div>
     <PhoneticNote :key="i" v-for="(n, i) in use.notes" :text="n" />
@@ -21,7 +21,7 @@ import PhoneticNote from "./PhoneticNote";
 export default {
   name: "PhonemeUse",
   components: { PhoneticNote },
-  props: ["phoneme", "lect", "use"],
+  props: ["lect", "use"],
   data() {
     return {
       urls: [],

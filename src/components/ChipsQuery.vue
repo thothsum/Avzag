@@ -1,50 +1,65 @@
 <template>
-  <div class="panel-horizontal-dense scroll">
+  <div class="panel-horizontal-dense scroll" v-if="many">
     <button @click="reset" class="small icon-small round">clear</button>
     <button
       class="small round"
-      :class="{'highlight-confirm': v>0, 'highlight-alert': v<0}"
+      :class="highlights[i]"
       @click="toggle(i)"
-      :key="i"
-      v-for="(v, i) in values"
-    >{{items[i]}}</button>
+      :key="k"
+      v-for="(k, i) in keys"
+    >{{k}}</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "ChipsQuery",
-  props: ["items"],
+  props: ["items", "itemKey"],
   data() {
     return {
-      values: [],
+      input: [],
     };
   },
-  watch: {
-    values: {
-      handler(val) {
-        this.$emit(
-          "query",
-          val.reduce((q, v, i) => {
-            if (v) q[this.items[i]] = v > 0;
-            return q;
-          }, {})
-        );
-      },
+  computed: {
+    keys() {
+      return this.itemKey
+        ? this.items.map((it) => it[this.itemKey])
+        : this.items;
     },
-    items: {
-      handler() {
-        this.reset();
-      },
-      immediate: true,
+    highlights() {
+      return this.input.map((i) =>
+        i ? (i > 0 ? "highlight-confirm" : "highlight-alert") : null
+      );
+    },
+    many() {
+      return this.keys.length > 1;
+    },
+  },
+  watch: {
+    items() {
+      this.reset();
+    },
+    many() {
+      if (!this.many) {
+        this.$set(this.input, 0, 1);
+      }
+    },
+    input(input) {
+      this.$emit(
+        "query",
+        input.reduce((q, inp, i) => {
+          if (inp) q[this.keys[i]] = inp > 0;
+          return q;
+        }, {})
+      );
     },
   },
   methods: {
     toggle(i) {
-      this.values.splice(i, 1, ((this.values[i] + 2) % 3) - 1);
+      this.$set(this.input, i, ((this.input[i] + 2) % 3) - 1);
     },
     reset() {
-      this.values = new Array(this.items.length).fill(0);
+      this.input = new Array(this.keys.length).fill(0);
     },
   },
 };
