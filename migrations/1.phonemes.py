@@ -1,20 +1,19 @@
 import json
 
-names = ["Aqusha", "Kaitag", "Kabardian", "Iron"]
+fileName = "Ossetian"
+lectName = "Digor"
 
-for name in names:
-    source = json.loads(open("public/lects/"+name+"/phonemes.json",
-                             "r", encoding="utf8").read())
+source = json.loads(open("public/languages/"+fileName+"/phonology.json",
+                         "r", encoding="utf8").read())
+result = []
+for old in source:
+    samples = []
+    for u in old["uses"][lectName]:
+        for s in u["samples"]:
+            samples.append(
+                {"grapheme": u["grapheme"], "word": s[0], "ipa": s[1]})
 
-    for type in ["vowels", "consonants"]:
-        phonemes = {}
-        for phoneme in source[type]:
-            ph = phoneme
-            key = ph["phoneme"]
-            del ph["phoneme"]
-            phonemes[key] = ph
-            
-        source[type] = phonemes
+    result.append({"phoneme": old["ipa", "samples": samples]})
 
-    open("public/lects/"+name+"/phonemes.json", "w",
-         encoding="utf8").write(json.dumps(source, ensure_ascii=False))
+open("public/lects/"+lectName+"/phonology.json", "w",
+     encoding="utf8").write(json.dumps(result, ensure_ascii=False, indent=4))

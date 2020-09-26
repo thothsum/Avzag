@@ -49,8 +49,10 @@ export default {
   },
   methods: {
     toggle(lect) {
-      if (this.selected.has(lect)) this.selected.delete(lect);
-      else this.selected.add(lect);
+      const incl = !this.selected.has(lect);
+      if (incl) this.selected.add(lect);
+      else this.selected.delete(lect);
+      this.$emit("select", lect, incl);
       this.$forceUpdate();
     },
   },

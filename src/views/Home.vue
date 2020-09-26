@@ -14,7 +14,12 @@
         <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
       </div>
     </div>
-    <LectFamily :key="i" v-for="(f, i) in catalogue" :family="f" />
+    <LectFamily
+      @select="select"
+      :key="i"
+      v-for="(f, i) in catalogue"
+      :family="f"
+    />
   </div>
 </template>
 
@@ -28,7 +33,7 @@ export default {
   },
   data() {
     return {
-      selected: [],
+      selected: new Set(),
     };
   },
   computed: {
@@ -37,14 +42,12 @@ export default {
     },
   },
   methods: {
-    toggleSelection(l) {
-      const i = this.selected.indexOf(l);
-      if (i >= 0) this.selected.splice(i, 1);
-      else this.selected.push(l);
+    select(lect, incl) {
+      if (incl) this.selected.add(lect);
+      else this.selected.delete(lect);
     },
     load() {
-      // this.$store.dispatch("loadLects", this.selected);
-      this.$store.dispatch("loadLects", ["Iron", "Kaitag"]);
+      this.$store.dispatch("loadLects", this.selected);
       this.$router.push({ name: "Phonology" });
     },
   },
