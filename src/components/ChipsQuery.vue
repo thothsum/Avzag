@@ -7,7 +7,9 @@
       @click="toggle(i)"
       :key="k"
       v-for="(k, i) in keys"
-    >{{k}}</button>
+    >
+      {{ k }}
+    </button>
   </div>
 </template>
 
@@ -39,12 +41,16 @@ export default {
     items() {
       this.reset();
     },
-    many() {
-      if (!this.many) {
-        this.$set(this.input, 0, 1);
-      }
+    many: {
+      handler() {
+        if (!this.many) {
+          this.$emit("query", { [this.keys[0]]: 1 });
+        }
+      },
+      immediate: true,
     },
     input(input) {
+      console.log(input);
       this.$emit(
         "query",
         input.reduce((q, inp, i) => {
