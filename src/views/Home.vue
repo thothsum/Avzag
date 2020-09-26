@@ -3,7 +3,7 @@
     <div id="header" class="panel-horizontal wrap">
       <div class="panel-horizontal-sparse" id="title">
         <h1>Ævzag</h1>
-        <button @click="load" class="highlight">
+        <button v-if="!empty" @click="load" class="highlight">
           <h1 class="icon">arrow_forward</h1>
         </button>
       </div>
@@ -34,6 +34,7 @@ export default {
   data() {
     return {
       selected: new Set(),
+      empty: true,
     };
   },
   computed: {
@@ -45,6 +46,7 @@ export default {
     select(lect, incl) {
       if (incl) this.selected.add(lect);
       else this.selected.delete(lect);
+      this.empty = !this.selected.size;
     },
     load() {
       this.$store.dispatch("loadLects", this.selected);

@@ -4,10 +4,10 @@
       <Toggle v-model="expanded" :icons="['expand_more', 'expand_less']" />
       <h1>{{ family.name }}</h1>
     </div>
-    <div class="panel" v-show="expanded">
+    <div class="panel-horizontal-sparse scroll" v-show="expanded">
       <div class="panel" :key="b.name" v-for="b in family.branches">
         <h2>{{ b.name }}</h2>
-        <div class="panel-horizontal-sparse scroll groups">
+        <div class="panel-horizontal-sparse groups">
           <div :key="i" v-for="(g, i) in b.groups" class="panel group">
             <h3 v-if="g.name">{{ g.name }}</h3>
             <div class="lects card">
@@ -60,10 +60,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.groups,
-.family {
-  align-items: flex-end;
-}
 .lects {
   display: grid;
   grid-auto-flow: column;
@@ -72,16 +68,16 @@ export default {
   & > * {
     width: 192px;
   }
-}
-.groups {
-  padding: 2px;
-}
-.lects {
   position: relative;
   * {
     z-index: 1;
   }
 }
+.groups {
+  padding: 2px;
+  align-items: flex-end;
+}
+h2,
 h3 {
   border-bottom: 2px solid var(--color-text);
 }
