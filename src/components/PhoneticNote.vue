@@ -11,7 +11,7 @@ export default {
       return this.text
         ? this.text
             .replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>")
-            .replace(/⟨(.+)⟩/g, "<b>$1</b>")
+            .replace(/<(.+)>/g, "<b>$1</b>")
         : "";
     },
   },

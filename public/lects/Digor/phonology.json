@@ -31,6 +31,9 @@
     },
     {
         "phoneme": "e",
+        "notes": [
+            "<э> is used only in recent Russian loanwords."
+        ],
         "samples": [
             {
                 "grapheme": "е",
@@ -41,6 +44,9 @@
                 "grapheme": "е",
                 "word": "аййев",
                 "ipa": "ajːef"
+            },
+            {
+                "grapheme": "э"
             }
         ]
     },
@@ -91,6 +97,9 @@
     },
     {
         "phoneme": "b",
+        "notes": [
+            "Only when <б> is in the last position."
+        ],
         "samples": [
             {
                 "grapheme": "б",
@@ -119,17 +128,20 @@
             },
             {
                 "grapheme": "б",
-                "word": "*наиб",
+                "word": "наиб",
                 "ipa": "naipʰ"
             }
         ]
     },
     {
         "phoneme": "pː",
+        "notes": [
+            "Phonetic status in question."
+        ],
         "samples": [
             {
                 "grapheme": "пп",
-                "word": "*ӕппӕлун",
+                "word": "ӕппӕлун",
                 "ipa": "ɐpːɐlun"
             }
         ]
@@ -166,6 +178,9 @@
     },
     {
         "phoneme": "tʰ",
+        "notes": [
+            "Only when <д> is in the last position."
+        ],
         "samples": [
             {
                 "grapheme": "т",
@@ -186,10 +201,13 @@
     },
     {
         "phoneme": "tː",
+        "notes": [
+            "Phonetic status in question."
+        ],
         "samples": [
             {
                 "grapheme": "тт",
-                "word": "*ниттонун",
+                "word": "ниттонун",
                 "ipa": "nitːonun"
             }
         ]
@@ -219,13 +237,16 @@
             },
             {
                 "grapheme": "г",
-                "word": "силгоймаг",
+                "word": "сил*г*оймаг",
                 "ipa": "silgojmakʰ"
             }
         ]
     },
     {
         "phoneme": "gʷ",
+        "notes": [
+            "Occurs only before vowels."
+        ],
         "samples": [
             {
                 "grapheme": "гу",
@@ -241,6 +262,9 @@
     },
     {
         "phoneme": "kʰ",
+        "notes": [
+            "Only when <г> is in the last position."
+        ],
         "samples": [
             {
                 "grapheme": "к",
@@ -261,6 +285,9 @@
     },
     {
         "phoneme": "kː",
+        "notes": [
+            "Phonetic status in question."
+        ],
         "samples": [
             {
                 "grapheme": "кк",
@@ -271,6 +298,9 @@
     },
     {
         "phoneme": "kʷ",
+        "notes": [
+            "Occurs only before vowels."
+        ],
         "samples": [
             {
                 "grapheme": "ку",
@@ -301,6 +331,9 @@
     },
     {
         "phoneme": "kʼʷ",
+        "notes": [
+            "Occurs only before vowels."
+        ],
         "samples": [
             {
                 "grapheme": "къу",
@@ -331,6 +364,9 @@
     },
     {
         "phoneme": "qʰʷ",
+        "notes": [
+            "Occurs only before vowels."
+        ],
         "samples": [
             {
                 "grapheme": "хъу",
@@ -391,6 +427,9 @@
     },
     {
         "phoneme": "f",
+        "notes": [
+            "Only when <в> is in the last position."
+        ],
         "samples": [
             {
                 "grapheme": "ф",
@@ -434,13 +473,16 @@
             },
             {
                 "grapheme": "гъ",
-                "word": "*игъосун",
+                "word": "игъосун",
                 "ipa": "iʁosun"
             }
         ]
     },
     {
         "phoneme": "ʁʷ",
+        "notes": [
+            "Occurs only before vowels."
+        ],
         "samples": [
             {
                 "grapheme": "гъу",
@@ -456,6 +498,9 @@
     },
     {
         "phoneme": "χ",
+        "notes": [
+            "Only when <гъ> is in the last position."
+        ],
         "samples": [
             {
                 "grapheme": "х",
@@ -476,6 +521,9 @@
     },
     {
         "phoneme": "χʷ",
+        "notes": [
+            "Occurs only before vowels."
+        ],
         "samples": [
             {
                 "grapheme": "ху",
@@ -491,6 +539,9 @@
     },
     {
         "phoneme": "z",
+        "notes": [
+            "Palatalized into /ʒ/ before /i/, /e/ in Chikola speech."
+        ],
         "samples": [
             {
                 "grapheme": "з",
@@ -506,6 +557,9 @@
     },
     {
         "phoneme": "d͡z",
+        "notes": [
+            "Palatalized into /d͡ʒ/ before /i/, /e/ in Chikola speech."
+        ],
         "samples": [
             {
                 "grapheme": "дз",
@@ -521,6 +575,10 @@
     },
     {
         "phoneme": "s",
+        "notes": [
+            "Palatalized into /ʃ/ before /i/, /e/ in Chikola speech.",
+            "Only when <з> is in the last position."
+        ],
         "samples": [
             {
                 "grapheme": "с",
@@ -541,6 +599,9 @@
     },
     {
         "phoneme": "t͡s",
+        "notes": [
+            "Palatalized into /t͡ʃ/ before /i/, /e/ in Chikola speech."
+        ],
         "samples": [
             {
                 "grapheme": "ц",
@@ -556,6 +617,9 @@
     },
     {
         "phoneme": "t͡sʼ",
+        "notes": [
+            "Palatalized into /t͡ʃʼ/ before /i/, /e/ in Chikola speech."
+        ],
         "samples": [
             {
                 "grapheme": "цъ",
@@ -616,10 +680,13 @@
     },
     {
         "phoneme": "h",
+        "notes": [
+            "Occurs only in interjections."
+        ],
         "samples": [
             {
                 "grapheme": "гъ",
-                "word": "*гъӕйтт",
+                "word": "гъӕйтт",
                 "ipa": "hɐjtː"
             }
         ]
