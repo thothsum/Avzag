@@ -6,17 +6,17 @@
         <div class="table panel-horizontal-dense wrap">
           <PhoneticItem
             @click.native="selectPhoneme(p)"
-            :selected="phoneme==p"
+            :selected="phoneme == p"
             :ipa="p.phoneme"
             :str="graphemes[i]"
             :key="i"
-            v-for="(p,i) in file"
+            v-for="(p, i) in file"
           />
           <Button @click.native="addPhoneme" icon="add" />
         </div>
       </div>
       <div class="panel">
-        <h3>JSON</h3>
+        <h3>Controls</h3>
         <div class="panel-horizontal-dense">
           <Button @click.native="loadFromLect" text="import from lect" />
           <Button @click.native="loadFromJson" text="import from JSON" />
@@ -36,7 +36,7 @@
           <h3>Notes</h3>
           <Button @click.native="addItem('notes', '')" icon="add" />
         </div>
-        <div :key="i" v-for="(n,i) in phoneme.notes" class="edit">
+        <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
           <textarea v-model="phoneme.notes[i]" class="flex note" />
           <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
         </div>
@@ -46,7 +46,11 @@
           <h3>Samples</h3>
           <Button @click.native="addItem('samples', {})" icon="add" />
         </div>
-        <div :key="i" v-for="(s,i) in phoneme.samples" class="panel-dense edit">
+        <div
+          :key="i"
+          v-for="(s, i) in phoneme.samples"
+          class="panel-dense edit"
+        >
           <div class="sample">
             <input type="text" v-model="s.grapheme" placeholder="grapheme" />
             <input type="text" v-model="s.word" placeholder="word" />
@@ -86,6 +90,15 @@ export default {
     notes() {
       return this.phoneme?.notes ?? [];
     },
+    jsonOutput() {
+      return JSON.stringify(this.file);
+    },
+  },
+  mounted() {
+    this.file = JSON.parse(localStorage.pEditor) ?? [];
+  },
+  beforeDestroy() {
+    localStorage.pEditor = JSON.stringify(this.file);
   },
   methods: {
     selectPhoneme(p) {
