@@ -2,6 +2,14 @@
   <div class="section" v-if="file">
     <div class="panel scroll">
       <div class="panel">
+        <div class="panel">
+          <div class="panel-horizontal-dense">
+            <Button @click.native="loadFromLect" text="import from lect" />
+            <Button @click.native="loadFromJson" text="import from JSON" />
+            <Button @click.native="loadToJson" text="export to JSON" />
+          </div>
+          <textarea v-model="jsonInput"></textarea>
+        </div>
         <h3>Phonemes</h3>
         <div class="table panel-horizontal-dense wrap">
           <PhoneticItem
@@ -15,23 +23,14 @@
           <Button @click.native="addPhoneme" icon="add" />
         </div>
       </div>
-      <div class="panel">
-        <h3>Controls</h3>
-        <div class="panel-horizontal-dense">
-          <Button @click.native="loadFromLect" text="import from lect" />
-          <Button @click.native="loadFromJson" text="import from JSON" />
-          <Button @click.native="loadToJson" text="export to JSON" />
-        </div>
-        <textarea v-model="jsonInput"></textarea>
-      </div>
     </div>
-    <div class="panel-sparse" v-if="phoneme">
-      <div class="panel-horizontal-dense">
+    <div class="panel" v-if="phoneme">
+      <div class="panel-horizontal-dense card">
         <h3>Phoneme</h3>
         <input type="text" v-model="phoneme.phoneme" placeholder="phoneme" />
         <Button @click.native="deletePhoneme" icon="delete" />
       </div>
-      <div class="panel-dense">
+      <div class="panel-dense card">
         <div class="panel-horizontal-dense">
           <h3>Notes</h3>
           <Button @click.native="addItem('notes', '')" icon="add" />
@@ -41,7 +40,7 @@
           <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
         </div>
       </div>
-      <div class="panel-dense">
+      <div class="panel-dense card">
         <div class="panel-horizontal-dense">
           <h3>Samples</h3>
           <Button @click.native="addItem('samples', {})" icon="add" />
@@ -97,8 +96,9 @@ export default {
   mounted() {
     this.file = JSON.parse(localStorage.pEditor) ?? [];
   },
-  beforeDestroy() {
+  updated(){
     localStorage.pEditor = JSON.stringify(this.file);
+
   },
   methods: {
     selectPhoneme(p) {
@@ -161,5 +161,12 @@ export default {
 }
 .edit {
   grid-template-columns: 1fr 36px;
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .section {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
 }
 </style>
