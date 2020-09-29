@@ -1,10 +1,13 @@
 <template>
-  <div class="section" v-if="lects && phonemes">
+  <div class="section" v-if="phonemes">
     <div class="panel scroll">
-      <ChipsQuery @query="lectQuery=$event" :items="lects" itemKey="name" />
-      <InputQuery placeholder="e.g. voiced -velar" @query="featureQuery=$event" />
+      <ChipsQuery @query="lectQuery = $event" :items="lects" itemKey="name" />
+      <InputQuery
+        placeholder="e.g. voiced -velar"
+        @query="featureQuery = $event"
+      />
       <div class="panel" :key="t" v-for="[t, n] in categories">
-        <h3>{{n}}</h3>
+        <h3>{{ n }}</h3>
         <PhoneticTable
           v-model="phoneme"
           :filter="t"
@@ -44,25 +47,11 @@ export default {
     };
   },
   computed: {
-    ipa() {
-      return this.$store.state.ipa;
-    },
     lects() {
       return this.$store.state.lects;
     },
     phonemes() {
-      if (!this.lects) return;
-
-      let phonemes = {};
-      this.lects.forEach((l) => {
-        l.phonology.forEach((p) => {
-          const ph = p.phoneme;
-          if (!(ph in phonemes))
-            phonemes[ph] = { ipa: ph, tags: this.getTags(ph), lects: {} };
-          phonemes[ph]["lects"][l.name] = p;
-        });
-      });
-      return Object.values(phonemes);
+      return this.$store.state.phonemes;
     },
   },
   watch: {
@@ -71,21 +60,6 @@ export default {
         this.phoneme = this.phonemes[0];
       },
       immediate: true,
-    },
-  },
-  methods: {
-    getTags(p) {
-      let tags = [];
-      for (const ph of this.ipa.primary)
-        if (p.includes(ph.ipa)) {
-          tags.push(...ph.tags);
-          break;
-        }
-      for (const ph of this.ipa.secondary)
-        if (p.includes(ph.ipa)) {
-          tags.push(...ph.tags);
-        }
-      return tags;
     },
   },
 };

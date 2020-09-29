@@ -38,8 +38,11 @@ export default {
     },
   },
   watch: {
-    items() {
-      this.reset();
+    items: {
+      handler() {
+        this.reset();
+      },
+      immediate: true,
     },
     many: {
       handler() {
