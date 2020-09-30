@@ -63,20 +63,15 @@ export default {
   background-color: var(--color-foreground);
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
-  position: fixed;
-  top: 0;
-  width: 100%;
+  // position: fixed;
+  width: calc(100% + map-get($margins, "normal"));
   margin: -1 * map-get($margins, "normal");
   padding: map-get($margins, "normal");
-  padding-top: map-get($margins, "double");
 }
 #title {
   h1 {
     flex: 0;
   }
-}
-#root {
-  padding-top: 64px;
 }
 
 @media only screen and (max-width: $mobile-width) {

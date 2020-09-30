@@ -29,6 +29,7 @@
                         ]
                     },
                     {
+                        "flag": "Dagestan",
                         "lects": [
                             "Chirag",
                             "Kaitag"
@@ -137,6 +138,25 @@
                         "lects": [
                             "Digor",
                             "Iron"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Uralic",
+        "branches": [
+            {
+                "name": "Permic",
+                "groups": [
+                    {
+                        "name": "Udmurt",
+                        "flag": "Udmurt",
+                        "lects": [
+                            "Northern Udmurt",
+                            "Southern Udmurt",
+                            "Besermyan"
                         ]
                     }
                 ]
