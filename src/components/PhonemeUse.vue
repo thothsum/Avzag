@@ -12,10 +12,14 @@
         v-for="(s, i) in fullSamples"
       >
         <span class="icon-small">{{
-          playable[i] ? "play_arrow" : "arrow_right"
+          canPlay[i] ? "play_arrow" : "arrow_right"
         }}</span>
         <span class="text" v-html="highlight(s.word, s.grapheme)"></span>
-        <span class="text-ipa" v-html="highlight(s.ipa, use.phoneme)"></span>
+        <span
+          class="text-ipa"
+          v-if="s.ipa"
+          v-html="highlight(s.ipa, use.phoneme)"
+        ></span>
       </button>
     </div>
     <PhoneticNote :key="i" v-for="(n, i) in use.notes" :text="n" />
@@ -31,16 +35,15 @@ export default {
   props: ["lect", "use"],
   data() {
     return {
-      urls: [],
-      audios: [],
+      canPlay: [],
     };
   },
   computed: {
     root() {
       return this.$store.state.root + this.lect + "/audio/";
     },
-    playable() {
-      return this.audios.map((a) => a.type.includes("audio"));
+    urls() {
+      return this.use.samples.map((s) => this.root + s.word + ".mp3");
     },
     header() {
       return [...new Set(this.use.samples.map((s) => s.grapheme))]
@@ -52,16 +55,11 @@ export default {
     },
   },
   watch: {
-    use: {
-      handler() {
-        this.urls = this.use.samples.map((s) => this.root + s.word + ".mp3");
-        this.audios = [];
-        this.urls
-          .map((f) => fetch(f).then((r) => r.blob()))
-          .map((r) => r.then((a) => this.audios.push(a)));
-      },
-      immediate: true,
-      deep: true,
+    urls() {
+      this.canPlay = [];
+      this.urls
+        .map((u) => fetch(u, { method: "HEAD" }))
+        .forEach((b) => b.then((r) => this.canPlay.push(r.ok)));
     },
   },
   methods: {
@@ -75,7 +73,7 @@ export default {
         : word.replace(new RegExp(grap, "g"), this.color(grap));
     },
     play(i) {
-      if (this.playable[i]) this.$emit("play", this.urls[i]);
+      if (this.canPlay[i]) this.$emit("play", this.urls[i]);
     },
   },
 };

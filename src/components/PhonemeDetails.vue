@@ -2,7 +2,7 @@
   <div class="panel">
     <div class="card panel">
       <h2 class="text-ipa">{{ phoneme.ipa }}</h2>
-      <p class="text-caption text-faded text-spaced" v-text="phoneme.tags" />
+      <p class="text-caption text-faded text-spaced">{{ phoneme.tags }}</p>
     </div>
     <audio ref="player"></audio>
     <PhonemeUse
