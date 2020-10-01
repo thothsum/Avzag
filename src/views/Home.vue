@@ -63,7 +63,6 @@ export default {
   background-color: var(--color-foreground);
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
-  // position: fixed;
   width: calc(100% + map-get($margins, "normal"));
   margin: -1 * map-get($margins, "normal");
   padding: map-get($margins, "normal");

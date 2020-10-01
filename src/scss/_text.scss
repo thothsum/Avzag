@@ -22,6 +22,9 @@
     color: var(--color-text-faded);
   }
 }
+.text-spaced {
+  word-spacing: map-get($margins, "normal");
+}
 
 .text-dot {
   @extend .text-faded;

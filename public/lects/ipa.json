@@ -2,537 +2,249 @@
     "primary": [
         {
             "ipa": "a",
-            "tags": [
-                "vowel",
-                "open",
-                "central",
-                "unrounded"
-            ]
+            "tags": "vowel open central unrounded"
         },
         {
             "ipa": "ɐ",
-            "tags": [
-                "vowel",
-                "near-open",
-                "central",
-                "unrounded"
-            ]
+            "tags": "vowel near-open central unrounded"
         },
         {
             "ipa": "ɑ",
-            "tags": [
-                "vowel",
-                "open",
-                "back",
-                "unrounded"
-            ]
+            "tags": "vowel open back unrounded"
         },
         {
             "ipa": "æ",
-            "tags": [
-                "vowel",
-                "front",
-                "near-open",
-                "unrounded"
-            ]
+            "tags": "vowel front near-open unrounded"
         },
         {
             "ipa": "e",
-            "tags": [
-                "vowel",
-                "front",
-                "close-mid",
-                "unrounded"
-            ]
+            "tags": "vowel front close-mid unrounded"
         },
         {
             "ipa": "ə",
-            "tags": [
-                "vowel",
-                "mid",
-                "central",
-                "unrounded"
-            ]
+            "tags": "vowel mid central unrounded"
         },
         {
             "ipa": "i",
-            "tags": [
-                "vowel",
-                "front",
-                "close",
-                "unrounded"
-            ]
+            "tags": "vowel front close unrounded"
         },
         {
             "ipa": "u",
-            "tags": [
-                "vowel",
-                "back",
-                "close",
-                "rounded"
-            ]
+            "tags": "vowel back close rounded"
         },
         {
             "ipa": "o",
-            "tags": [
-                "vowel",
-                "back",
-                "close-mid",
-                "rounded"
-            ]
+            "tags": "vowel back close-mid rounded"
         },
         {
             "ipa": "b",
-            "tags": [
-                "consonant",
-                "voiced",
-                "bilabial",
-                "stop"
-            ]
+            "tags": "consonant voiced bilabial stop"
         },
         {
             "ipa": "d",
-            "tags": [
-                "consonant",
-                "voiced",
-                "dental",
-                "stop"
-            ]
+            "tags": "consonant voiced dental stop"
         },
         {
             "ipa": "k",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "velar",
-                "stop"
-            ]
+            "tags": "consonant voiceless velar stop"
         },
         {
             "ipa": "ç",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiceless",
-                "palatal"
-            ]
+            "tags": "consonant fricative voiceless palatal"
         },
         {
             "ipa": "d͡z",
-            "tags": [
-                "consonant",
-                "voiced",
-                "dental",
-                "affricate"
-            ]
+            "tags": "consonant voiced dental affricate"
         },
         {
             "ipa": "d͡ʒ",
-            "tags": [
-                "consonant",
-                "affricate",
-                "voiced",
-                "alveolar"
-            ]
+            "tags": "consonant affricate voiced alveolar"
         },
         {
             "ipa": "g",
-            "tags": [
-                "consonant",
-                "stop",
-                "voiced",
-                "velar"
-            ]
+            "tags": "consonant stop voiced velar"
         },
         {
             "ipa": "ɣ",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiced",
-                "velar"
-            ]
+            "tags": "consonant fricative voiced velar"
         },
         {
             "ipa": "h",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiceless",
-                "laryngeal"
-            ]
+            "tags": "consonant fricative voiceless laryngeal"
         },
         {
             "ipa": "ħ",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiceless",
-                "pharyngeal"
-            ]
+            "tags": "consonant fricative voiceless pharyngeal"
         },
         {
             "ipa": "j",
-            "tags": [
-                "consonant",
-                "voiced",
-                "palatal",
-                "approximant"
-            ]
+            "tags": "consonant voiced palatal approximant"
         },
         {
             "ipa": "l",
-            "tags": [
-                "consonant",
-                "voiced",
-                "lateral",
-                "dental",
-                "approximant"
-            ]
+            "tags": "consonant voiced lateral dental approximant"
         },
         {
             "ipa": "m",
-            "tags": [
-                "consonant",
-                "voiced",
-                "labial",
-                "nasal"
-            ]
+            "tags": "consonant voiced labial nasal"
         },
         {
             "ipa": "n",
-            "tags": [
-                "consonant",
-                "voiced",
-                "alveolar",
-                "nasal"
-            ]
+            "tags": "consonant voiced alveolar nasal"
         },
         {
             "ipa": "p",
-            "tags": [
-                "consonant",
-                "stop",
-                "voiceless",
-                "labial"
-            ]
+            "tags": "consonant stop voiceless labial"
         },
         {
             "ipa": "q",
-            "tags": [
-                "consonant",
-                "stop",
-                "voiced",
-                "uvular"
-            ]
+            "tags": "consonant stop voiced uvular"
         },
         {
             "ipa": "r",
-            "tags": [
-                "consonant",
-                "voiced",
-                "alveolar",
-                "trill"
-            ]
+            "tags": "consonant voiced alveolar trill"
         },
         {
             "ipa": "ʁ",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiced",
-                "uvular"
-            ]
+            "tags": "consonant fricative voiced uvular"
         },
         {
             "ipa": "s",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiceless",
-                "dental"
-            ]
+            "tags": "consonant fricative voiceless dental"
         },
         {
             "ipa": "ʃ",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiceless",
-                "alveolar"
-            ]
+            "tags": "consonant fricative voiceless alveolar"
         },
         {
             "ipa": "t",
-            "tags": [
-                "consonant",
-                "stop",
-                "voiceless",
-                "dental"
-            ]
+            "tags": "consonant stop voiceless dental"
         },
         {
             "ipa": "t͡s",
-            "tags": [
-                "consonant",
-                "affricate",
-                "voiceless",
-                "dental"
-            ]
+            "tags": "consonant affricate voiceless dental"
         },
         {
             "ipa": "t͡ʃ",
-            "tags": [
-                "consonant",
-                "affricate",
-                "voiceless",
-                "alveolar"
-            ]
+            "tags": "consonant affricate voiceless alveolar"
         },
         {
             "ipa": "v",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiced",
-                "labiodental"
-            ]
+            "tags": "consonant fricative voiced labiodental"
         },
         {
             "ipa": "x",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiceless",
-                "velar"
-            ]
+            "tags": "consonant fricative voiceless velar"
         },
         {
             "ipa": "z",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiced",
-                "dental"
-            ]
+            "tags": "consonant fricative voiced dental"
         },
         {
             "ipa": "ʒ",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiced",
-                "alveolar"
-            ]
+            "tags": "consonant fricative voiced alveolar"
         },
         {
             "ipa": "ʔ",
-            "tags": [
-                "consonant",
-                "stop",
-                "voiceless",
-                "glottal"
-            ]
+            "tags": "consonant stop voiceless glottal"
         },
         {
             "ipa": "ʕ",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiced",
-                "pharyngeal"
-            ]
+            "tags": "consonant fricative voiced pharyngeal"
         },
         {
             "ipa": "χ",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiceless",
-                "uvular"
-            ]
+            "tags": "consonant fricative voiceless uvular"
         },
         {
             "ipa": "β",
-            "tags": [
-                "consonant",
-                "fricative",
-                "voiced",
-                "bilabial"
-            ]
+            "tags": "consonant fricative voiced bilabial"
         },
         {
             "ipa": "f",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "labiodental",
-                "fricative"
-            ]
+            "tags": "consonant voiceless labiodental fricative"
         },
         {
             "ipa": "ɕ",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "alveolo-palatal",
-                "fricative"
-            ]
+            "tags": "consonant voiceless alveolo-palatal fricative"
         },
         {
             "ipa": "ɮ",
-            "tags": [
-                "consonant",
-                "voiced",
-                "alveolar",
-                "lateral",
-                "fricative"
-            ]
+            "tags": "consonant voiced alveolar lateral fricative"
         },
         {
             "ipa": "ɬ",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "alveolar",
-                "lateral",
-                "fricative"
-            ]
+            "tags": "consonant voiceless alveolar lateral fricative"
         },
         {
             "ipa": "t͡ɬ",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "alveolar",
-                "lateral",
-                "affricate"
-            ]
+            "tags": "consonant voiceless alveolar lateral affricate"
         },
         {
             "ipa": "ʂ",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "retroflex",
-                "fricative"
-            ]
+            "tags": "consonant voiceless retroflex fricative"
         },
         {
             "ipa": "ʐ",
-            "tags": [
-                "consonant",
-                "voiced",
-                "retroflex",
-                "fricative"
-            ]
+            "tags": "consonant voiced retroflex fricative"
         },
         {
             "ipa": "ʑ",
-            "tags": [
-                "consonant",
-                "voiced",
-                "alveolo-palatal",
-                "fricative"
-            ]
+            "tags": "consonant voiced alveolo-palatal fricative"
         },
         {
             "ipa": "ʈ͡ʂ",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "retroflex",
-                "affricate"
-            ]
+            "tags": "consonant voiceless retroflex affricate"
         },
         {
             "ipa": "ɖ͡ʐ",
-            "tags": [
-                "consonant",
-                "voiced",
-                "retroflex",
-                "affricate"
-            ]
+            "tags": "consonant voiced retroflex affricate"
         },
         {
             "ipa": "t͡ɕ",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "alveolo-palatal",
-                "affricate"
-            ]
+            "tags": "consonant voiceless alveolo-palatal affricate"
         },
         {
             "ipa": "d͡ʑ",
-            "tags": [
-                "consonant",
-                "voiced",
-                "alveolo-palatal",
-                "affricate"
-            ]
+            "tags": "consonant voiced alveolo-palatal affricate"
         },
         {
             "ipa": "ʡ",
-            "tags": [
-                "consonant",
-                "voiceless",
-                "pharyngeal",
-                "stop"
-            ]
+            "tags": "consonant voiceless pharyngeal stop"
         },
         {
             "ipa": "w",
-            "tags": [
-                "consonant",
-                "voiced",
-                "labio-velar",
-                "approximant"
-            ]
+            "tags": "consonant voiced labio-velar approximant"
         }
     ],
     "secondary": [
         {
             "ipa": "ʷ",
-            "tags": [
-                "labialized"
-            ]
+            "tags": "labialized"
         },
         {
             "ipa": "ʲ",
-            "tags": [
-                "palatalized"
-            ]
+            "tags": "palatalized"
         },
         {
             "ipa": "ʰ",
-            "tags": [
-                "aspirated"
-            ]
+            "tags": "aspirated"
         },
         {
             "ipa": "ˠ",
-            "tags": [
-                "velarized"
-            ]
+            "tags": "velarized"
         },
         {
             "ipa": "ˤ",
-            "tags": [
-                "pharyngealized"
-            ]
+            "tags": "pharyngealized"
         },
         {
             "ipa": "ʼ",
-            "tags": [
-                "ejective"
-            ]
+            "tags": "ejective"
         },
         {
             "ipa": "ː",
-            "tags": [
-                "geminate"
-            ]
+            "tags": "geminate"
         }
     ]
 }

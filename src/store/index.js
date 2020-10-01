@@ -5,16 +5,18 @@ Vue.use(Vuex)
 
 
 const getTags = function (p, ipa) {
-  let tags = [];
+  let tags = '';
+
   for (const ph of ipa.primary)
     if (p.includes(ph.ipa)) {
-      tags.push(...ph.tags);
+      tags += ph.tags;
       break;
     }
+
   for (const ph of ipa.secondary)
-    if (p.includes(ph.ipa)) {
-      tags.push(...ph.tags);
-    }
+    if (p.includes(ph.ipa))
+      tags += ' ' + ph.tags;
+
   return tags;
 };
 
