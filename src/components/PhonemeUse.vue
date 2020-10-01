@@ -42,16 +42,16 @@ export default {
     root() {
       return this.$store.state.root + this.lect + "/audio/";
     },
+    fullSamples() {
+      return this.use.samples.filter((s) => s.word || s.ipa);
+    },
     urls() {
-      return this.use.samples.map((s) => this.root + s.word + ".mp3");
+      return this.fullSamples.map((s) => this.root + s.word + ".mp3");
     },
     header() {
       return [...new Set(this.use.samples.map((s) => s.grapheme))]
         .map((g) => `<b>${g}</b>`)
         .join("<span class='text-dot'></span>");
-    },
-    fullSamples() {
-      return this.use.samples.filter((s) => s.word || s.ipa);
     },
   },
   watch: {
