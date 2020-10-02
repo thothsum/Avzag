@@ -1,0 +1,116 @@
+[
+    {
+        "entities": [
+            "actor",
+            "place"
+        ],
+        "components": [
+            {
+                "variants": [
+                    {
+                        "text": "и",
+                        "entity": "actor",
+                        "tags": "sing"
+                    },
+                    {
+                        "text": "нишша",
+                        "entity": "actor",
+                        "tags": "plur"
+                    }
+                ]
+            },
+            {
+                "conditions": [
+                    {
+                        "entity": "actor",
+                        "tags": "sing"
+                    },
+                    {
+                        "entity": "place",
+                        "tags": "here"
+                    }
+                ],
+                "variants": [
+                    {
+                        "text": "ця",
+                        "entity": "actor",
+                        "tags": "masc"
+                    },
+                    {
+                        "text": "цяре",
+                        "entity": "actor",
+                        "tags": "femn"
+                    },
+                    {
+                        "text": "цябе",
+                        "entity": "actor",
+                        "tags": "neut"
+                    }
+                ]
+            },
+            {
+                "conditions": [
+                    {
+                        "entity": "actor",
+                        "tags": "sing"
+                    },
+                    {
+                        "entity": "place",
+                        "tags": "there"
+                    }
+                ],
+                "variants": [
+                    {
+                        "text": "вя",
+                        "entity": "you",
+                        "tags": "masc"
+                    },
+                    {
+                        "text": "ря",
+                        "entity": "you",
+                        "tags": "femn"
+                    },
+                    {
+                        "text": "бя",
+                        "entity": "you",
+                        "tags": "neut"
+                    }
+                ]
+            },
+            {
+                "conditions": [
+                    {
+                        "entity": "actor",
+                        "tags": "plur"
+                    },
+                    {
+                        "entity": "place",
+                        "tags": "here"
+                    }
+                ],
+                "variants": [
+                    {
+                        "text": "цядая"
+                    }
+                ]
+            },
+            {
+                "conditions": [
+                    {
+                        "entity": "actor",
+                        "tags": "plur"
+                    },
+                    {
+                        "entity": "place",
+                        "tags": "there"
+                    }
+                ],
+                "variants": [
+                    {
+                        "text": "дяная"
+                    }
+                ]
+            }
+        ]
+    }
+]

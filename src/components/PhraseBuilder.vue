@@ -34,13 +34,4 @@ select {
   padding: 0;
   color: var(--color-highlight);
 }
-span {
-  text-align-last: center;
-  &.left {
-    text-align-last: left;
-  }
-  &.right {
-    text-align-last: right;
-  }
-}
 </style>
