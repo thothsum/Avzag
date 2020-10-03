@@ -118,6 +118,20 @@
                             "text": "дяная"
                         }
                     ]
+                },
+                {
+                    "variants": [
+                        {
+                            "text": "гьежин",
+                            "entity": "place",
+                            "tags": "here"
+                        },
+                        {
+                            "text": "гетин",
+                            "entity": "place",
+                            "tags": "there"
+                        }
+                    ]
                 }
             ]
         }

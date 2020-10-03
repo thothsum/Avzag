@@ -1,9 +1,10 @@
 <template>
-  <div class="section" v-if="entites">
-    <div :key="i" v-for="(t, i) in translations">
-      <h3>{{ t.lect }}</h3>
+  <div class="section" v-if="entities">
+    <div class="panel-horizontal" :key="i" v-for="(t, i) in translations">
+      <b>{{ t.lect }}</b>
       <PhraseBlock
-        v-model="entites"
+        @update="updateEntity"
+        :entities="entities"
         :block="b"
         :key="j"
         v-for="(b, j) in t.blocks"
@@ -26,9 +27,16 @@ export default {
       translations: undefined,
     };
   },
-  mounted() {
-    console.log(process.env.BASE_URL);
-    const phrasebook = fetch(
+  watch: {
+    entities: {
+      handler() {
+        console.log("changed entities");
+      },
+      deep: true,
+    },
+  },
+  async mounted() {
+    const phrasebook = await fetch(
       process.env.BASE_URL + "lects/phrasebook.json"
     ).then((r) => r.json());
 
@@ -39,37 +47,27 @@ export default {
 
     this.translations = phrasebook.translations;
   },
+  methods: {
+    updateEntity(vNew, vOld) {
+      if (vOld) {
+        let tOld = new Set(this.entities[vOld.entity]);
+        vOld.tags.split(" ").forEach((t) => tOld.delete(t));
+        this.entities = Object.assign({}, this.entities, {
+          [vOld.entity]: tOld,
+        });
+      }
+
+      let tNew = this.entities[vNew.entity];
+      vNew.tags.split(" ").forEach((t) => tNew.add(t));
+      this.entities = Object.assign({}, this.entities, {
+        [vNew.entity]: tNew,
+      });
+
+      // this.$forceUpdate();
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-#header {
-  select {
-    font-weight: bold;
-  }
-  > *:nth-child(2) {
-    flex: 1;
-  }
-}
-.section {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: map-get($margins, "double");
-}
-.panel-solid {
-  h3 {
-    margin-bottom: map-get($margins, "normal");
-    &:not(:first-child) {
-      margin-top: map-get($margins, "normal");
-    }
-  }
-}
-@media only screen and (max-width: $mobile-width) {
-  .section {
-    grid-template-columns: 1fr;
-  }
-  .panel-solid {
-    max-height: 7 * map-get($button-height, "normal");
-  }
-}
 </style>

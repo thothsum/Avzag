@@ -1,5 +1,5 @@
 <template>
-  <div v-show="passed">
+  <div v-if="passed">
     <p v-if="variants.length == 1">{{ variant.text }}</p>
     <Select :items="variants" itemKey="text" v-model="variant" />
   </div>
@@ -13,15 +13,11 @@ export default {
   components: {
     Select,
   },
+  props: ["entities", "block"],
   data() {
     return {
       variant: undefined,
     };
-  },
-  props: ["entities", "block"],
-  model: {
-    prop: "entities",
-    event: "switch",
   },
   computed: {
     passed() {
@@ -35,29 +31,30 @@ export default {
     },
   },
   watch: {
+    entities() {
+      console.log("changed");
+    },
     block() {
       this.variant =
         this.variants.find((v) => this.hasTags(v.entity, v.tags)) ??
         this.variants[0];
     },
     variant(vNew, vOld) {
-      let ent = this.entities;
-      vOld?.tags.split(" ").forEach((t) => ent[vOld.entity].delete(t));
-      vNew.tags.split(" ").forEach((t) => ent[vNew.entity].add(t));
-      this.$emit("switch", ent);
+      this.$emit("update", vNew, vOld);
     },
   },
   methods: {
     hasTags(entity, tags) {
-      return tags.split(" ").every((t) => this.entities[entity].includes(t));
+      return tags.split(" ").every((t) => this.entities[entity].has(t));
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-div * {
+* {
   line-height: 175%;
+  text-align-last: center;
 }
 select {
   -moz-appearance: none;
@@ -65,7 +62,8 @@ select {
   user-select: text;
   min-height: min-content;
   min-width: min-content;
-  padding: 0;
+  padding-left: map-get($margins, "half");
+  padding-right: map-get($margins, "half");
   color: var(--color-highlight);
 }
 </style>
