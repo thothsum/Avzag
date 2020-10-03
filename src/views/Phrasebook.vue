@@ -1,103 +1,43 @@
 <template>
-  <div class="section" v-if="phrasebooks">
-    <div id="translations" class="panel">
-      <!-- <div id="header" class="panel-horizontal">
-        <button @click="searching=!searching" class="icon">{{searching?"sort":"search"}}</button>
-        <input v-if="searching" placeholder="search in translations" type="text" v-model="search" />
-        <select v-else v-model="category">
-          <option :value="i" :key="i" v-for="(ct, i) in categories">{{ct}}</option>
-        </select>
-      </div>
-      <div v-if="searchResults" class="panel-solid scroll">
-        <template v-for="(c, i) of searchResults">
-          <h3 :key="categories[i]">{{categories[i]}}</h3>
-          <button
-            :class="{highlight: i===category && j===phrase}"
-            @click="() => {category=i; phrase=j;}"
-            :key="'-'+i+j"
-            v-for="(p, j) in c"
-          >{{phrasebook[categories[i]][p].translation}}</button>
-        </template>
-      </div>
-      <p v-else-if="searching" class="text-caption">Nothing found...</p>
-      <div v-else class="panel-solid scroll">
-        <button
-          :class="{highlight: i===phrase}"
-          @click="phrase=i"
-          :key="i"
-          v-for="(tr, i) in translations"
-        >{{tr}}</button>
-      </div>-->
-    </div>
-    <div class="panel" v-if="phrasebooks">
-      <PhraseBuilder :source="text" :ids="ids" />
-      <PhrasebookEntry
-        class="card"
-        :key="i"
-        v-for="(l, i) in lectNames"
-        :lect="l"
-        :source="lang_sources[i]"
-        :ids="ids"
+  <div class="section" v-if="entites">
+    <div :key="i" v-for="(t, i) in translations">
+      <h3>{{ t.lect }}</h3>
+      <PhraseBlock
+        v-model="entites"
+        :block="b"
+        :key="j"
+        v-for="(b, j) in t.blocks"
       />
     </div>
   </div>
 </template>
 
 <script>
-import PhrasebookEntry from "@/components/PhrasebookEntry";
-import PhraseBuilder from "@/components/PhraseBuilder";
+import PhraseBlock from "@/components/PhraseBlock";
 
 export default {
   name: "Phrasebook",
   components: {
-    PhrasebookEntry,
-    PhraseBuilder,
+    PhraseBlock,
   },
   data() {
     return {
-      // category: 0,
-      phrase: 0,
-      searching: false,
-      search: "",
-      ids: {},
+      entities: undefined,
+      translations: undefined,
     };
   },
-  computed: {
-    lects() {
-      return this.$store.state.lects;
-    },
-    lectNames() {
-      return Object.keys(this.lects);
-    },
-    phrasebooks() {
-      return this.lectNames.map((l) => this.lects[l].phrasebook);
-    },
-    text() {
-      return this.phrasebooks[0]["Greeting"][0].text;
-    },
-    lang_sources() {
-      return this.phrasebooks.map((p) => p["Greeting"][0].source);
-    },
-    // phrases() {
-    //   return this.phrasebook
-    //     ? this.phrasebook[this.categories[this.category]]
-    //     : null;
-    // },
-  },
-  watch: {
-    text: {
-      handler(text) {
-        if (!text) return;
-        let ids = {};
-        text.forEach((s) => {
-          if (typeof s !== "string") {
-            ids[s.id] = 0;
-          }
-        });
-        this.ids = ids;
-      },
-      immediate: true,
-    },
+  mounted() {
+    console.log(process.env.BASE_URL);
+    const phrasebook = fetch(
+      process.env.BASE_URL + "lects/phrasebook.json"
+    ).then((r) => r.json());
+
+    this.entities = {};
+    phrasebook.entities.forEach(
+      (e) => (this.entities[e.id] = new Set(e.tags.split(" ")))
+    );
+
+    this.translations = phrasebook.translations;
   },
 };
 </script>
