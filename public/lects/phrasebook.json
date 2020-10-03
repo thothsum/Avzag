@@ -44,6 +44,7 @@
                             "tags": "here"
                         }
                     ],
+                    "locked": true,
                     "variants": [
                         {
                             "text": "ta3al",
@@ -74,6 +75,7 @@
                             "tags": "there"
                         }
                     ],
+                    "locked": true,
                     "variants": [
                         {
                             "text": "ithHab",
@@ -138,14 +140,11 @@
                 {
                     "conditions": [
                         {
-                            "entity": "actor",
-                            "tags": "sing"
-                        },
-                        {
                             "entity": "place",
                             "tags": "here"
                         }
                     ],
+                    "locked": true,
                     "variants": [
                         {
                             "text": "подойди",
@@ -166,6 +165,7 @@
                             "tags": "there"
                         }
                     ],
+                    "locked": true,
                     "variants": [
                         {
                             "text": "иди",
@@ -282,6 +282,7 @@
                             "tags": "plur"
                         }
                     ],
+                    "locked": true,
                     "variants": [
                         {
                             "text": "цядая",

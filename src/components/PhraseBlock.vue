@@ -1,6 +1,6 @@
 <template>
   <div v-show="passed">
-    <p v-if="staticText">{{ staticText }}</p>
+    <p v-if="locked">{{ variant.text }}</p>
     <Select v-else :items="variants" itemKey="text" v-model="variant" />
   </div>
 </template>
@@ -34,8 +34,8 @@ export default {
     variants() {
       return this.block.variants;
     },
-    staticText() {
-      return this.variants.length == 1 ? this.variant?.text : null;
+    locked() {
+      return this.block.locked || this.variants.length == 1;
     },
   },
   watch: {
