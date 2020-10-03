@@ -42,7 +42,7 @@ export default {
     passed() {
       if (this.passed) this.findVariant();
     },
-    variants: {
+    entities: {
       handler() {
         this.findVariant();
       },
