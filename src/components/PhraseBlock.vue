@@ -14,6 +14,10 @@ export default {
     Select,
   },
   props: ["entities", "block"],
+  model: {
+    prop: "entities",
+    event: "update",
+  },
   data() {
     return {
       variant: undefined,
@@ -40,7 +44,21 @@ export default {
         this.variants[0];
     },
     variant(vNew, vOld) {
-      this.$emit("update", vNew, vOld);
+      let entities = Object.assign({}, this.entities);
+
+      if (vOld) {
+        let eOld = vOld.entity;
+        let tOld = new Set(this.entities[eOld]);
+        vOld.tags.split(" ").forEach((t) => tOld.delete(t));
+        Object.assign(entities, { [eOld]: tOld });
+      }
+
+      let eNew = vNew.entity;
+      let tNew = this.entities[eNew];
+      vNew.tags.split(" ").forEach((t) => tNew.add(t));
+      Object.assign(entities, { [eNew]: tNew });
+
+      this.$emit("update", entities);
     },
   },
   methods: {

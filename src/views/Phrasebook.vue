@@ -1,10 +1,9 @@
 <template>
-  <div class="section" v-if="entities">
-    <div class="panel-horizontal" :key="i" v-for="(t, i) in translations">
+  <div class="section panel" v-if="entities">
+    <div class="panel-horizontal card" :key="i" v-for="(t, i) in translations">
       <b>{{ t.lect }}</b>
       <PhraseBlock
-        @update="updateEntity"
-        :entities="entities"
+        v-model="entities"
         :block="b"
         :key="j"
         v-for="(b, j) in t.blocks"
@@ -46,25 +45,6 @@ export default {
     );
 
     this.translations = phrasebook.translations;
-  },
-  methods: {
-    updateEntity(vNew, vOld) {
-      if (vOld) {
-        let tOld = new Set(this.entities[vOld.entity]);
-        vOld.tags.split(" ").forEach((t) => tOld.delete(t));
-        this.entities = Object.assign({}, this.entities, {
-          [vOld.entity]: tOld,
-        });
-      }
-
-      let tNew = this.entities[vNew.entity];
-      vNew.tags.split(" ").forEach((t) => tNew.add(t));
-      this.entities = Object.assign({}, this.entities, {
-        [vNew.entity]: tNew,
-      });
-
-      // this.$forceUpdate();
-    },
   },
 };
 </script>
