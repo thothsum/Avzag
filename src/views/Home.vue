@@ -78,8 +78,5 @@ export default {
     flex-direction: column;
     justify-content: center;
   }
-  #root {
-    padding-top: 98px;
-  }
 }
 </style>
