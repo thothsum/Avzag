@@ -6,7 +6,7 @@
         },
         {
             "id": "place",
-            "tags": "here"
+            "tags": "there"
         }
     ],
     "translations": [
@@ -70,17 +70,17 @@
                     "variants": [
                         {
                             "text": "вя",
-                            "entity": "you",
+                            "entity": "actor",
                             "tags": "masc"
                         },
                         {
                             "text": "ря",
-                            "entity": "you",
+                            "entity": "actor",
                             "tags": "femn"
                         },
                         {
                             "text": "бя",
-                            "entity": "you",
+                            "entity": "actor",
                             "tags": "neut"
                         }
                     ]
@@ -127,7 +127,7 @@
                             "tags": "here"
                         },
                         {
-                            "text": "гетин",
+                            "text": "гьетин",
                             "entity": "place",
                             "tags": "there"
                         }

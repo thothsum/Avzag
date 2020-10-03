@@ -1,7 +1,7 @@
 <template>
-  <div v-if="passed">
-    <p v-if="variants.length == 1">{{ variant.text }}</p>
-    <Select :items="variants" itemKey="text" v-model="variant" />
+  <div v-show="passed">
+    <p v-if="staticText">{{ staticText }}</p>
+    <Select v-else :items="variants" itemKey="text" v-model="variant" />
   </div>
 </template>
 
@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       variant: undefined,
+      lastVariant: undefined,
     };
   },
   computed: {
@@ -33,37 +34,35 @@ export default {
     variants() {
       return this.block.variants;
     },
+    staticText() {
+      return this.variants.length == 1 ? this.variant?.text : null;
+    },
   },
   watch: {
-    entities() {
-      console.log("changed");
+    passed() {
+      if (this.passed) this.findVariant();
     },
-    block() {
+    variants: {
+      handler() {
+        this.findVariant();
+      },
+      immediate: true,
+    },
+    variant(vNew, vOld) {
+      let ent = Object.assign({}, this.entities);
+      vOld?.tags?.split(" ").forEach((t) => ent[vOld.entity].delete(t));
+      vNew?.tags?.split(" ").forEach((t) => ent[vNew.entity].add(t));
+      this.$emit("update", ent);
+    },
+  },
+  methods: {
+    findVariant() {
       this.variant =
         this.variants.find((v) => this.hasTags(v.entity, v.tags)) ??
         this.variants[0];
     },
-    variant(vNew, vOld) {
-      let entities = Object.assign({}, this.entities);
-
-      if (vOld) {
-        let eOld = vOld.entity;
-        let tOld = new Set(this.entities[eOld]);
-        vOld.tags.split(" ").forEach((t) => tOld.delete(t));
-        Object.assign(entities, { [eOld]: tOld });
-      }
-
-      let eNew = vNew.entity;
-      let tNew = this.entities[eNew];
-      vNew.tags.split(" ").forEach((t) => tNew.add(t));
-      Object.assign(entities, { [eNew]: tNew });
-
-      this.$emit("update", entities);
-    },
-  },
-  methods: {
     hasTags(entity, tags) {
-      return tags.split(" ").every((t) => this.entities[entity].has(t));
+      return tags?.split(" ").every((t) => this.entities[entity].has(t));
     },
   },
 };

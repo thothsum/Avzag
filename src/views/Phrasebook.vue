@@ -26,14 +26,6 @@ export default {
       translations: undefined,
     };
   },
-  watch: {
-    entities: {
-      handler() {
-        console.log("changed entities");
-      },
-      deep: true,
-    },
-  },
   async mounted() {
     const phrasebook = await fetch(
       process.env.BASE_URL + "lects/phrasebook.json"
