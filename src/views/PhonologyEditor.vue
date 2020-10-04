@@ -7,7 +7,7 @@
             <Button @click.native="loadFromLect" text="import from lect" />
             <Button @click.native="loadFromJson" text="import from JSON" />
             <Button @click.native="loadToJson" text="export to JSON" />
-            <Button @click.native="reset" text="export to JSON" />
+            <Button @click.native="reset" text="reset" />
           </div>
           <textarea v-model="jsonInput"></textarea>
         </div>
