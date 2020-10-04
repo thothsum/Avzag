@@ -316,6 +316,86 @@
                     ]
                 }
             ]
+        },
+        {
+            "lect": "Kabardian",
+            "blocks": [
+                {
+                    "variants": [
+                        {
+                            "text": "уэ",
+                            "entity": "actor",
+                            "tags": "sing"
+                        },
+                        {
+                            "text": "фэ",
+                            "entity": "actor",
+                            "tags": "plur"
+                        }
+                    ]
+                },
+                {
+                    "variants": [
+                        {
+                            "text": "тыкуэным",
+                            "entity": "place",
+                            "tags": "shop there"
+                        },
+                        {
+                            "text": "мобыкӏэ",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "мыдэ",
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "sing"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "кӏуэ",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "къакӏуэ",
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "plur"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "фыкӏуэ",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "фыкъакӏуэ",
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
