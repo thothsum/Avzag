@@ -7,6 +7,7 @@
             <Button @click.native="loadFromLect" text="import from lect" />
             <Button @click.native="loadFromJson" text="import from JSON" />
             <Button @click.native="loadToJson" text="export to JSON" />
+            <Button @click.native="reset" text="export to JSON" />
           </div>
           <textarea v-model="jsonInput"></textarea>
         </div>
@@ -96,9 +97,8 @@ export default {
   mounted() {
     this.file = JSON.parse(localStorage.pEditor) ?? [];
   },
-  updated(){
+  updated() {
     localStorage.pEditor = JSON.stringify(this.file);
-
   },
   methods: {
     selectPhoneme(p) {
@@ -137,6 +137,9 @@ export default {
     },
     loadToJson() {
       this.jsonInput = JSON.stringify(this.file);
+    },
+    reset() {
+      this.file = JSON.parse("[]");
     },
   },
 };
