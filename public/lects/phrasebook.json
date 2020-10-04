@@ -18,22 +18,26 @@
                         {
                             "text": "anta",
                             "entity": "actor",
-                            "tags": "sing masc"
+                            "tags": "sing masc",
+                            "implicit": true
                         },
                         {
                             "text": "anti",
                             "entity": "actor",
-                            "tags": "sing femn"
+                            "tags": "sing femn",
+                            "implicit": true
                         },
                         {
                             "text": "antum",
                             "entity": "actor",
-                            "tags": "plur masc"
+                            "tags": "plur masc",
+                            "implicit": true
                         },
                         {
                             "text": "antuna",
                             "entity": "actor",
-                            "tags": "plur femn"
+                            "tags": "plur femn",
+                            "implicit": true
                         }
                     ]
                 },
@@ -114,7 +118,8 @@
                         {
                             "text": "huna",
                             "entity": "place",
-                            "tags": "here"
+                            "tags": "here",
+                            "implicit": true
                         }
                     ]
                 }
@@ -128,12 +133,14 @@
                         {
                             "text": "ты",
                             "entity": "actor",
-                            "tags": "sing"
+                            "tags": "sing",
+                            "implicit": true
                         },
                         {
                             "text": "вы",
                             "entity": "actor",
-                            "tags": "plur"
+                            "tags": "plur",
+                            "implicit": true
                         }
                     ]
                 },
@@ -154,7 +161,7 @@
                         {
                             "text": "подойдите",
                             "entity": "actor",
-                            "tags": "sing"
+                            "tags": "plur"
                         }
                     ]
                 },
@@ -194,7 +201,8 @@
                         {
                             "text": "сюда",
                             "entity": "place",
-                            "tags": "here"
+                            "tags": "here",
+                            "implicit": true
                         }
                     ]
                 }
@@ -208,12 +216,14 @@
                         {
                             "text": "и",
                             "entity": "actor",
-                            "tags": "sing"
+                            "tags": "sing",
+                            "implicit": true
                         },
                         {
                             "text": "нишша",
                             "entity": "actor",
-                            "tags": "plur"
+                            "tags": "plur",
+                            "implicit": true
                         }
                     ]
                 },
@@ -311,7 +321,8 @@
                         {
                             "text": "гьежин",
                             "entity": "place",
-                            "tags": "here"
+                            "tags": "here",
+                            "implicit": true
                         }
                     ]
                 }

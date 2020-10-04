@@ -1,5 +1,5 @@
 <template>
-  <div v-show="passed">
+  <div v-show="passed" :class="{ 'text-faded': variant.implicit }">
     <p v-if="locked">{{ variant.text }}</p>
     <Select v-else :items="variants" itemKey="text" v-model="variant" />
   </div>
@@ -81,6 +81,5 @@ select {
   min-width: min-content;
   padding-left: map-get($margins, "half");
   padding-right: map-get($margins, "half");
-  color: var(--color-highlight);
 }
 </style>
