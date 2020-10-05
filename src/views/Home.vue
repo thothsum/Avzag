@@ -2,9 +2,7 @@
   <div id="root">
     <div id="map"></div>
     <div id="ui">
-      <h2>UI layer</h2>
-      <button>Hello there</button>
-      <!-- <div id="header" class="panel-horizontal wrap">
+      <div id="header" class="panel-horizontal wrap card">
         <div class="panel-horizontal-sparse" id="title">
           <h1>Ævzag</h1>
           <button v-if="!empty" @click="load" class="highlight">
@@ -17,9 +15,9 @@
           <span class="text-dot"></span>
           <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
         </div>
-      </div> -->
+      </div>
     </div>
-    <!-- <LectFamily
+    <!-- <LectFamilyF
       @select="select"
       :key="i"
       v-for="(f, i) in catalogue"
@@ -98,12 +96,13 @@ export default {
 
 #ui {
   position: absolute;
-  z-index: 10;
-  width: 512px;
-  background-color: transparent;
+  z-index: 2;
   pointer-events: none;
   * {
     pointer-events: auto;
+  }
+  > div {
+    background-color: var(--color-background);
   }
 }
 
