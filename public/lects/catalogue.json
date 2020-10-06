@@ -1,166 +1,57 @@
 [
     {
-        "name": "East Caucasian",
-        "branches": [
-            {
-                "name": "Dargic",
-                "groups": [
-                    {
-                        "name": "Northern Dargwa",
-                        "flag": "Dagestan",
-                        "lects": [
-                            "Akusha",
-                            "Kadar",
-                            "Megeb",
-                            "Gapshima",
-                            "Tsudakhar",
-                            "Muirin"
-                        ]
-                    },
-                    {
-                        "name": "Sourthern Dargwa",
-                        "flag": "Dagestan",
-                        "lects": [
-                            "Sirhin",
-                            "Amukh",
-                            "Itsari",
-                            "Amuzgi",
-                            "Kubachi"
-                        ]
-                    },
-                    {
-                        "flag": "Dagestan",
-                        "lects": [
-                            "Chirag",
-                            "Kaitag"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Lezgic",
-                "groups": [
-                    {
-                        "lects": [
-                            "Archi",
-                            "Udi",
-                            "Kryts",
-                            "Budukh"
-                        ]
-                    },
-                    {
-                        "name": "Aghul",
-                        "flag": "Aghul",
-                        "lects": [
-                            "Gequn",
-                            "Keren",
-                            "Qushan",
-                            "Tpig"
-                        ]
-                    },
-                    {
-                        "name": "Lezgi",
-                        "flag": "Lezgi",
-                        "lects": [
-                            "Kuiri",
-                            "Quba",
-                            "Samur"
-                        ]
-                    }
-                ]
-            }
-        ]
+        "name": "Kaitag",
+        "flag": "Dagestan",
+        "family": [
+            "Northeast Caucasian",
+            "Dargic"
+        ],
+        "tags": "Dagestani Caucasian Caspian"
     },
     {
-        "name": "West Caucasian",
-        "branches": [
-            {
-                "name": "Circassian",
-                "groups": [
-                    {
-                        "name": "West Circassian",
-                        "flag": "Circassian",
-                        "lects": [
-                            "Shapsug",
-                            "Bzhedug",
-                            "Abzakh",
-                            "Temirgoy"
-                        ]
-                    },
-                    {
-                        "name": "East Circassian",
-                        "flag": "Circassian",
-                        "lects": [
-                            "Baslaney",
-                            "Kabardian"
-                        ]
-                    },
-                    {
-                        "lects": [
-                            "Ubykh"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Abazgi",
-                "groups": [
-                    {
-                        "name": "Abaza",
-                        "flag": "Abaza",
-                        "lects": [
-                            "Tapant",
-                            "Ashkhar"
-                        ]
-                    },
-                    {
-                        "name": "Abkhaz",
-                        "flag": "Abkhaz",
-                        "lects": [
-                            "Bzyb",
-                            "Sadz",
-                            "Abzhywa"
-                        ]
-                    }
-                ]
-            }
-        ]
+        "name": "Akusha",
+        "flag": "Dagestan",
+        "family": [
+            "Northeast Caucasian",
+            "Dargic"
+        ],
+        "tags": "Dagestani Caucasian Caspian"
     },
     {
-        "name": "Iranian",
-        "branches": [
-            {
-                "name": "Eastern Iranian",
-                "groups": [
-                    {
-                        "name": "Ossetian",
-                        "flag": "Ossetian",
-                        "lects": [
-                            "Digor",
-                            "Iron"
-                        ]
-                    }
-                ]
-            }
-        ]
+        "name": "Iron",
+        "flag": "Ossetian",
+        "family": [
+            "Iranian",
+            "Eastern Iranian",
+            "Ossetian"
+        ],
+        "tags": "Caucasian Alanian"
     },
     {
-        "name": "Uralic",
-        "branches": [
-            {
-                "name": "Permic",
-                "groups": [
-                    {
-                        "name": "Udmurt",
-                        "flag": "Udmurt",
-                        "lects": [
-                            "Northern Udmurt",
-                            "Southern Udmurt",
-                            "Besermyan"
-                        ]
-                    }
-                ]
-            }
-        ]
+        "name": "Digor",
+        "flag": "Ossetian",
+        "family": [
+            "Eastern Iranian",
+            "Ossetian"
+        ],
+        "tags": "Caucasian Alanian"
+    },
+    {
+        "name": "Kabardian",
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "East Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Temirgoy",
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "West Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
     }
 ]

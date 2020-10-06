@@ -1,7 +1,7 @@
 <template>
   <div id="root">
     <div id="map"></div>
-    <div id="ui">
+    <div id="ui" class="panel-sparse">
       <div id="header" class="panel-horizontal wrap card">
         <div class="panel-horizontal-sparse" id="title">
           <h1>Ævzag</h1>
@@ -15,6 +15,9 @@
           <span class="text-dot"></span>
           <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
         </div>
+      </div>
+      <div class="panel">
+        <LectCard :key="i" v-for="(l, i) in catalogue" :lect="l" />
       </div>
     </div>
     <!-- <LectFamilyF
@@ -30,12 +33,12 @@
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// import LectFamily from "@/components/LectFamily";
+import LectCard from "@/components/LectCard";
 
 export default {
   name: "Home",
   components: {
-    // LectFamily,
+    LectCard,
   },
   data() {
     return {
@@ -49,7 +52,7 @@ export default {
     },
   },
   mounted() {
-    var map = L.map("map").setView([51.505, -0.09], 13);
+    var map = L.map("map", { zoomControl: false }).setView([51.505, -0.09], 13);
 
     L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -93,17 +96,17 @@ export default {
   z-index: 1;
   position: absolute;
 }
-
 #ui {
+  width: 0.75 * $mobile-width;
   position: absolute;
   z-index: 2;
   pointer-events: none;
   * {
     pointer-events: auto;
   }
-  > div {
-    background-color: var(--color-background);
-  }
+}
+#header {
+  background-color: var(--color-background);
 }
 
 @media only screen and (max-width: $mobile-width) {
