@@ -11,7 +11,7 @@
           </div>
           <textarea v-model="jsonInput"></textarea>
         </div>
-        <h3>Phonemes</h3>
+        <h2>Phonemes</h2>
         <div class="table panel-horizontal-dense wrap">
           <PhoneticItem
             @click.native="selectPhoneme(p)"
@@ -27,13 +27,13 @@
     </div>
     <div class="panel" v-if="phoneme">
       <div class="panel-horizontal-dense card">
-        <h3>Phoneme</h3>
+        <h2>Phoneme</h2>
         <input type="text" v-model="phoneme.phoneme" placeholder="phoneme" />
         <Button @click.native="deletePhoneme" icon="delete" />
       </div>
       <div class="panel-dense card">
         <div class="panel-horizontal-dense">
-          <h3>Notes</h3>
+          <h2>Notes</h2>
           <Button @click.native="addItem('notes', '')" icon="add" />
         </div>
         <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
@@ -43,7 +43,7 @@
       </div>
       <div class="panel-dense card">
         <div class="panel-horizontal-dense">
-          <h3>Samples</h3>
+          <h2>Samples</h2>
           <Button @click.native="addItem('samples', {})" icon="add" />
         </div>
         <div

@@ -3,15 +3,22 @@
     <div id="map"></div>
     <div id="ui" class="panel-sparse scroll">
       <div id="header" class="panel-horizontal card">
-        <Button icon="info" v-model="showAbout" />
-        <input type="text" placeholder="search lects by name, family" />
+        <Button icon="info" v-model="about" />
+        <input
+          type="text"
+          v-model="search"
+          placeholder="Search languages ..."
+        />
         <Button icon="arrow_forward" @click.native="load" />
       </div>
-      <div v-show="showAbout" class="panel card" id="about">
+      <div v-show="about" id="about" class="panel card">
         <h1>Ævzag</h1>
         <div class="panel-horizontal">
+          <router-link to="/editor/phonology">Editors</router-link>
+          <span class="text-dot"></span>
           <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
           <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
+          <span class="text-dot"></span>
           <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
         </div>
       </div>
@@ -21,6 +28,7 @@
           v-for="(l, i) in catalogue"
           :lect="l"
           :selected="selected[i]"
+          :query="query"
           @click.native="toggleLect(l)"
         />
       </div>
@@ -43,9 +51,10 @@ export default {
   },
   data() {
     return {
-      showAbout: false,
+      about: false,
       map: undefined,
       markers: undefined,
+      search: "",
       lects: [],
     };
   },
@@ -55,6 +64,9 @@ export default {
     },
     canLoad() {
       return this.lects.length > 0;
+    },
+    query() {
+      return this.search ? this.search.toLowerCase().split(" ") : null;
     },
     selected() {
       return this.catalogue.map((l) => this.lects.includes(l));
@@ -71,7 +83,7 @@ export default {
           L.marker(l.coordinates, {
             icon: L.divIcon({
               className: "text-labels", // Set class for CSS styling
-              html: `<h3 class='highlight' style="width:0">${l.name}</h3>`,
+              html: `<h2 class='highlight' style="width:0">${l.name}</h2>`,
             }),
             zIndexOffset: 1000, // Make appear above other map features
           })
@@ -148,9 +160,14 @@ export default {
     flex: 1;
   }
 }
-#about * {
-  text-align: center;
-  justify-content: center;
+#about {
+  * {
+    text-align: center;
+    justify-content: center;
+  }
+  h1 {
+    font-size: 32px;
+  }
 }
 
 @media only screen and (max-width: $mobile-width) {

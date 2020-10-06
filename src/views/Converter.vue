@@ -45,7 +45,7 @@
         />
       </div>
     </div>
-    <h2 v-else>No data for this lect.</h2>
+    <h1 v-else>No data for this lect.</h1>
     <input
       v-show="false"
       type="file"

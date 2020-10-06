@@ -1,7 +1,7 @@
 <template>
   <div class="panel">
     <div class="card panel">
-      <h2 class="text-ipa">{{ phoneme.ipa }}</h2>
+      <h1 class="text-ipa">{{ phoneme.ipa }}</h1>
       <p class="text-caption text-faded text-spaced">{{ phoneme.tags }}</p>
     </div>
     <audio ref="player"></audio>

@@ -1,7 +1,7 @@
 <template>
   <div class="panel card">
     <div class="title">
-      <h3>{{ lect }}</h3>
+      <h1>{{ lect }}</h1>
       <p v-html="header"></p>
     </div>
     <div class="panel-solid">

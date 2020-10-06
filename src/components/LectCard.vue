@@ -1,9 +1,9 @@
 <template>
-  <div class="panel-horizontal card">
+  <div class="panel-horizontal card" v-if="fits">
     <div class="text">
-      <h2 class="panel-horizontal" :class="{ selected }">
+      <h1 class="panel-horizontal" :class="{ selected }">
         {{ lect.name }}
-      </h2>
+      </h1>
       <p class="text-caption">{{ family }}</p>
     </div>
     <img :src="flag" />
@@ -24,10 +24,12 @@ export default {
         : null;
     },
     tags() {
-      return `{this.lect.name} ${this.lect.tags} ${this.lect.family.join(" ")}`;
+      return [this.lect.name, this.lect.tags, this.lect.family.join(" ")]
+        .join(" ")
+        .toLowerCase();
     },
     fits() {
-      return this.query.every((t) => this.tags.includes(t));
+      return this.query?.every((t) => this.tags.includes(t));
     },
   },
 };
