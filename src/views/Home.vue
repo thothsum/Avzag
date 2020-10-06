@@ -52,7 +52,8 @@ export default {
     },
   },
   mounted() {
-    var map = L.map("map", { zoomControl: false }).setView([51.505, -0.09], 13);
+    var map = L.map("map", { zoomControl: false });
+    map.setView([43.711379, 41.406538], 7);
 
     L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
