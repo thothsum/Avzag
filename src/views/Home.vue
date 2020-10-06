@@ -21,7 +21,7 @@
           :key="i"
           v-for="(l, i) in catalogue"
           :lect="l"
-          :selected="lects.includes(l.name)"
+          :selected="selected[i]"
           @click.native="toggleLect(l.name)"
         />
       </div>
