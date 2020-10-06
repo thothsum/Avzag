@@ -5,7 +5,7 @@
       <div id="header" class="panel-horizontal wrap card">
         <div class="panel-horizontal-sparse" id="title">
           <h1>Ævzag</h1>
-          <button v-if="!empty" @click="load" class="highlight">
+          <button v-if="canLoad" @click="load" class="highlight">
             <h1 class="icon">arrow_forward</h1>
           </button>
         </div>
@@ -17,15 +17,15 @@
         </div>
       </div>
       <div class="panel">
-        <LectCard :key="i" v-for="(l, i) in catalogue" :lect="l" />
+        <LectCard
+          :key="i"
+          v-for="(l, i) in catalogue"
+          :lect="l"
+          :selected="lects.includes(l.name)"
+          @click.native="toggleLect(l.name)"
+        />
       </div>
     </div>
-    <!-- <LectFamilyF
-      @select="select"
-      :key="i"
-      v-for="(f, i) in catalogue"
-      :family="f"
-    /> -->
   </div>
 </template>
 
@@ -42,13 +42,18 @@ export default {
   },
   data() {
     return {
-      selected: new Set(),
-      empty: true,
+      lects: [],
     };
   },
   computed: {
     catalogue() {
       return this.$store.state.catalogue;
+    },
+    canLoad() {
+      return this.lects.length > 0;
+    },
+    selected() {
+      return this.catalogue.map((c) => this.lects.includes(c.name));
     },
   },
   mounted() {
@@ -69,13 +74,13 @@ export default {
     ).addTo(map);
   },
   methods: {
-    select(lect, incl) {
-      if (incl) this.selected.add(lect);
-      else this.selected.delete(lect);
-      this.empty = !this.selected.size;
+    toggleLect(lect) {
+      const i = this.lects.indexOf(lect);
+      if (i < 0) this.lects.push(lect);
+      else this.lects.splice(i, 1);
     },
     load() {
-      this.$store.dispatch("loadLects", this.selected);
+      this.$store.dispatch("loadLects", this.lects);
       this.$router.push({ name: "Phonology" });
     },
   },

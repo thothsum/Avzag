@@ -18,7 +18,7 @@
 <script>
 export default {
   name: "LectCard",
-  props: ["lect", "selected"],
+  props: ["lect", "selected", "query"],
   computed: {
     family() {
       return this.lect.family.join(" › ");
