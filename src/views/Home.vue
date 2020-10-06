@@ -22,7 +22,7 @@
           v-for="(l, i) in catalogue"
           :lect="l"
           :selected="selected[i]"
-          @click.native="toggleLect(l.name)"
+          @click.native="toggleLect(l)"
         />
       </div>
     </div>
@@ -42,6 +42,8 @@ export default {
   },
   data() {
     return {
+      map: undefined,
+      markers: undefined,
       lects: [],
     };
   },
@@ -53,12 +55,31 @@ export default {
       return this.lects.length > 0;
     },
     selected() {
-      return this.catalogue.map((c) => this.lects.includes(c.name));
+      return this.catalogue.map((l) => this.lects.includes(l));
+    },
+  },
+  watch: {
+    lects() {
+      console.log("adding markers");
+      this.markers.clearLayers();
+
+      this.lects
+        .filter((l) => l.coordinates)
+        .map((l) =>
+          L.marker(l.coordinates, {
+            icon: L.divIcon({
+              className: "text-labels", // Set class for CSS styling
+              html: `<h3 class='highlight' style="width:0">${l.name}</h3>`,
+            }),
+            zIndexOffset: 1000, // Make appear above other map features
+          })
+        )
+        .forEach((m) => m.addTo(this.markers));
     },
   },
   mounted() {
-    var map = L.map("map", { zoomControl: false });
-    map.setView([43.711379, 41.406538], 7);
+    this.map = L.map("map", { zoomControl: false });
+    this.map.setView([43.711379, 41.406538], 7);
 
     L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -71,7 +92,9 @@ export default {
         zoomOffset: -1,
         accessToken: process.env.VUE_APP_MAP_TOKEN,
       }
-    ).addTo(map);
+    ).addTo(this.map);
+
+    this.markers = L.layerGroup().addTo(this.map);
   },
   methods: {
     toggleLect(lect) {
@@ -80,7 +103,10 @@ export default {
       else this.lects.splice(i, 1);
     },
     load() {
-      this.$store.dispatch("loadLects", this.lects);
+      this.$store.dispatch(
+        "loadLects",
+        this.lects.map((l) => l.name)
+      );
       this.$router.push({ name: "Phonology" });
     },
   },

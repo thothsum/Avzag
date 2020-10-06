@@ -25,14 +25,6 @@ export default {
     prop: "phoneme",
     event: "select",
   },
-  methods: {
-    pass(tags, query) {
-      for (const [tag, mode] of Object.entries(query)) {
-        if (mode != tags.includes(tag)) return false;
-      }
-      return true;
-    },
-  },
   computed: {
     filtered() {
       return this.filter
@@ -63,6 +55,14 @@ export default {
     },
     narrow() {
       return this.filtered.length <= 12;
+    },
+  },
+  methods: {
+    pass(tags, query) {
+      for (const [tag, mode] of Object.entries(query)) {
+        if (mode != tags.includes(tag)) return false;
+      }
+      return true;
     },
   },
 };

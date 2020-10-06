@@ -1,9 +1,8 @@
 <template>
   <div class="panel-horizontal card">
     <div class="text">
-      <h2 class="panel-horizontal">
+      <h2 class="panel-horizontal" :class="{ selected }">
         {{ lect.name }}
-        <p v-if="selected" class="icon highlight">check</p>
       </h2>
       <p class="text-caption">{{ family }}</p>
     </div>
@@ -25,7 +24,10 @@ export default {
         : null;
     },
     tags() {
-      return this.lect.tags + " " + this.lect.family.join(" ");
+      return `{this.lect.name} ${this.lect.tags} ${this.lect.family.join(" ")}`;
+    },
+    fits() {
+      return this.query.every((t) => this.tags.includes(t));
     },
   },
 };
@@ -35,6 +37,9 @@ export default {
 * {
   text-align: left;
   user-select: none;
+}
+.selected {
+  color: var(--color-highlight);
 }
 .card {
   background-color: var(--color-background);

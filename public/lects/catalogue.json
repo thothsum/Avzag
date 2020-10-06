@@ -1,6 +1,10 @@
 [
     {
         "name": "Kaitag",
+        "coordinates": [
+            42.055591,
+            47.763514
+        ],
         "flag": "Dagestan",
         "family": [
             "Northeast Caucasian",
@@ -38,6 +42,10 @@
     },
     {
         "name": "Kabardian",
+        "coordinates": [
+            43.762647,
+            42.769419
+        ],
         "flag": "Circassian",
         "family": [
             "Northwest Caucasian",
