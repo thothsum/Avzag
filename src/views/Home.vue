@@ -1,7 +1,7 @@
 <template>
   <div id="root">
     <div id="map"></div>
-    <div id="ui" class="panel-sparse">
+    <div id="ui" class="panel-sparse scroll">
       <div id="header" class="panel-horizontal wrap card">
         <div class="panel-horizontal-sparse" id="title">
           <h1>Ævzag</h1>
@@ -118,17 +118,21 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  > div {
+    left: -1 * map-get($margins, "normal");
+    top: -1 * map-get($margins, "normal");
+  }
 }
 
 #map {
   height: 100vh;
   width: 100vw;
-  left: -1 * map-get($margins, "normal");
-  top: -1 * map-get($margins, "normal");
   z-index: 1;
   position: absolute;
 }
 #ui {
+  height: 100vh;
+  padding: map-get($margins, "normal");
   width: 0.75 * $mobile-width;
   position: absolute;
   z-index: 2;
