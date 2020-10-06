@@ -9,7 +9,12 @@
           v-model="search"
           placeholder="Search languages ..."
         />
-        <Button icon="arrow_forward" @click.native="load" />
+        <Button
+          icon="arrow_forward"
+          @click.native="load"
+          :disabled="!canLoad"
+          :class="{ highlight: canLoad }"
+        />
       </div>
       <div v-show="about" id="about" class="panel card">
         <h1>Ævzag</h1>

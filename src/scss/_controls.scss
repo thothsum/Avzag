@@ -7,6 +7,10 @@ a {
 
 button,
 select {
+  &:disabled {
+    @extend .text-faded;
+  }
+
   @extend .panel-horizontal-dense;
 
   background-color: var(--color-active);
@@ -16,10 +20,10 @@ select {
   &.small {
     min-height: map-get($button-height, "small");
   }
-  &:hover {
+  &:not(:disabled):hover {
     background-color: var(--color-hover);
   }
-  &:active {
+  &:not(:disabled):active {
     background-color: var(--color-press);
   }
 }
