@@ -2,17 +2,16 @@
   <div id="root">
     <div id="map"></div>
     <div id="ui" class="panel-sparse scroll">
-      <div id="header" class="panel-horizontal wrap card">
-        <div class="panel-horizontal-sparse" id="title">
-          <h1>Ævzag</h1>
-          <button v-if="canLoad" @click="load" class="highlight">
-            <h1 class="icon">arrow_forward</h1>
-          </button>
-        </div>
+      <div id="header" class="panel-horizontal card">
+        <Button icon="info" v-model="showAbout" />
+        <input type="text" placeholder="search lects by name, family" />
+        <Button icon="arrow_forward" @click.native="load" />
+      </div>
+      <div v-show="showAbout" class="panel card" id="about">
+        <h1>Ævzag</h1>
         <div class="panel-horizontal">
           <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
           <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-          <span class="text-dot"></span>
           <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
         </div>
       </div>
@@ -34,14 +33,17 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 import LectCard from "@/components/LectCard";
+import Button from "@/components/Button";
 
 export default {
   name: "Home",
   components: {
     LectCard,
+    Button,
   },
   data() {
     return {
+      showAbout: false,
       map: undefined,
       markers: undefined,
       lects: [],
@@ -123,7 +125,6 @@ export default {
     top: -1 * map-get($margins, "normal");
   }
 }
-
 #map {
   height: 100vh;
   width: 100vw;
@@ -143,6 +144,13 @@ export default {
 }
 #header {
   background-color: var(--color-background);
+  input {
+    flex: 1;
+  }
+}
+#about * {
+  text-align: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: $mobile-width) {

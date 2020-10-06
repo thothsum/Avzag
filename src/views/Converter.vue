@@ -4,8 +4,12 @@
     <div class="split" v-if="converter">
       <div class="panel">
         <div class="panel-horizontal">
-          <Select v-model="sourceMapping" :items="fullMappings" itemKey="name" />
-          <Toggle v-model="empty" :icons="['subject', 'clear']" />
+          <Select
+            v-model="sourceMapping"
+            :items="fullMappings"
+            itemKey="name"
+          />
+          <Button v-model="empty" icon="subject" />
           <Button @click.native="$refs.file.click()" icon="publish" />
           <Button
             v-show="!resultMapping.partial"
@@ -23,10 +27,7 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select v-model="resultMapping" :items="mappings" itemKey="name" />
-          <Toggle
-            v-model="showMappings"
-            :icons="['visibility', 'visibility_off']"
-          />
+          <Button v-model="showMappings" icon="visibility" />
           <Button @click.native="copy" icon="file_copy" />
         </div>
         <ConverterText
@@ -58,7 +59,6 @@
 
 <script>
 import Button from "@/components/Button";
-import Toggle from "@/components/Toggle";
 import Select from "@/components/Select";
 import ChipsSelect from "@/components/ChipsSelect";
 import MappingTable from "@/components/MappingTable";
@@ -68,7 +68,6 @@ export default {
   name: "Converter",
   components: {
     Button,
-    Toggle,
     Select,
     ChipsSelect,
     MappingTable,

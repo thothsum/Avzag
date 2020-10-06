@@ -1,8 +1,8 @@
 <template>
-  <div class="card panel-horizontal wrap" v-if="mapping.length > 0">
-    <p :key="i" v-for="(pair, i) in mapping">
-      <span class="text-faded">{{pair[left].replace(" ", "_")}}</span>
-      <span>{{pair[right].replace(" ", "_")}}</span>
+  <div class="card panel-horizontal wrap" v-if="pairs.length > 0">
+    <p :key="i" v-for="(p, i) in pairs">
+      <span class="text-faded">{{ p[left].replace(" ", "_") }}</span>
+      <span>{{ p[right].replace(" ", "_") }}</span>
     </p>
   </div>
 </template>
@@ -12,6 +12,9 @@ export default {
   name: "MappingTable",
   props: ["mapping", "reverse"],
   computed: {
+    pairs() {
+      return this.mapping.pairs;
+    },
     left() {
       return this.reverse ? 0 : 1;
     },
