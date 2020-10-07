@@ -1,7 +1,7 @@
 <template>
   <div class="panel card">
     <div class="title">
-      <h2>{{ lect }}</h2>
+      <h2 class="flex">{{ lect }}</h2>
       <b :key="g" v-for="g in graphemes" class="text-dot"> {{ g }}</b>
     </div>
     <div class="panel-solid">
