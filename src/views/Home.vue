@@ -2,18 +2,29 @@
   <div id="root">
     <div id="map"></div>
     <div id="ui" class="panel-sparse">
-      <div id="header" class="panel-horizontal card">
-        <Button icon="info" v-model="about" />
-        <input
-          type="text"
-          v-model="search"
-          placeholder="Search languages ..."
-        />
-        <Button
-          icon="arrow_forward"
-          @click.native="load"
-          :disabled="!canLoad"
-        />
+      <div id="header" class="panel card">
+        <div class="panel-horizontal">
+          <Button icon="info" v-model="about" />
+          <input
+            type="text"
+            v-model="search"
+            placeholder="Search languages ..."
+          />
+          <Button
+            icon="arrow_forward"
+            @click.native="load"
+            :disabled="!canLoad"
+          />
+        </div>
+        <div v-show="canLoad" class="panel-horizontal-dense scroll">
+          <Button
+            class="small round"
+            :key="i"
+            v-for="(l, i) in lects"
+            :text="l.name"
+            @click.native="toggleLect(l)"
+          />
+        </div>
       </div>
       <div v-show="about" id="about" class="panel card">
         <h1>Ævzag</h1>

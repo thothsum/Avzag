@@ -27,9 +27,7 @@ export default {
         .toLowerCase();
     },
     fits() {
-      return this.query
-        ? this.query.every((t) => this.tags.includes(t))
-        : this.selected;
+      return this.query?.every((t) => this.tags.includes(t));
     },
   },
 };
