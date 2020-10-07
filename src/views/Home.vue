@@ -1,6 +1,19 @@
 <template>
   <div id="root">
-    <div id="map"></div>
+    <div id="map">
+      <l-map ref="map" :center="mapData.center" :zoom="7" :maxZoom="11">
+        <l-tile-layer :url="mapData.layerUrl" :options="mapData.layerOptions" />
+        <template v-for="(l, i) in catalogue">
+          <l-marker v-if="l.coordinates" :lat-lng="l.coordinates" :key="i">
+            <l-icon class-name="marker">
+              <h2 :class="{ highlight: selected[i] }">
+                {{ l.name }}
+              </h2>
+            </l-icon>
+          </l-marker></template
+        >
+      </l-map>
+    </div>
     <div id="ui" class="panel-sparse">
       <div class="panel card">
         <div class="panel-horizontal">
@@ -53,9 +66,6 @@
 </template>
 
 <script>
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-
 import LectCard from "@/components/LectCard";
 import Button from "@/components/Button";
 
@@ -67,6 +77,21 @@ export default {
   },
   data() {
     return {
+      mapData: {
+        center: [43.711379, 41.406538],
+        options: { zoomControl: false },
+        layerUrl:
+          "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+        layerOptions: {
+          // attribution:
+          //   'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 12,
+          id: "mapbox/light-v10",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken: process.env.VUE_APP_MAP_TOKEN,
+        },
+      },
       about: false,
       map: undefined,
       markers: undefined,
@@ -87,42 +112,6 @@ export default {
     selected() {
       return this.catalogue.map((l) => this.lects.includes(l));
     },
-  },
-  watch: {
-    lects() {
-      this.markers.clearLayers();
-      this.lects
-        .filter((l) => l.coordinates)
-        .map((l) =>
-          L.marker(l.coordinates, {
-            icon: L.divIcon({
-              className: "text-labels", // Set class for CSS styling
-              html: `<h2 class='highlight' style="width:0">${l.name}</h2>`,
-            }),
-            zIndexOffset: 1000, // Make appear above other map features
-          })
-        )
-        .forEach((m) => m.addTo(this.markers));
-    },
-  },
-  mounted() {
-    this.map = L.map("map", { zoomControl: false });
-    this.map.setView([43.711379, 41.406538], 7);
-
-    L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-      {
-        // attribution:
-        //   'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 12,
-        id: "mapbox/light-v10",
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: process.env.VUE_APP_MAP_TOKEN,
-      }
-    ).addTo(this.map);
-
-    this.markers = L.layerGroup().addTo(this.map);
   },
   methods: {
     toggleLect(lect) {
@@ -181,7 +170,11 @@ $margin: -1 * map-get($margins, "normal");
     line-height: map-get($button-height, "small");
   }
 }
-
+.marker {
+  h2 {
+    text-shadow: map-get($shadows, "elevated");
+  }
+}
 @media only screen and (max-width: $mobile-width) {
   #ui {
     width: 100vw;
