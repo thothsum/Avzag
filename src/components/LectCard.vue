@@ -2,7 +2,9 @@
   <div class="panel-horizontal card" v-if="fits">
     <div class="panel-solid">
       <h1 :class="{ selected }">{{ lect.name }}</h1>
-      <p class="text-caption">{{ family }}</p>
+      <p class="text-caption">
+        <span split class="text-dot" :key="f" v-for="f in lect.family">{{ f }}</span>
+      </p>
     </div>
     <img :src="flag" />
   </div>

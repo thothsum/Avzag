@@ -30,7 +30,7 @@
   &::after {
     color: var(--color-text-faded);
     white-space: pre;
-    font-weight: bold;
+    font-weight: normal;
     content: " • ";
   }
   &:empty {
