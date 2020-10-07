@@ -2,7 +2,7 @@
   <div id="root">
     <div id="map"></div>
     <div id="ui" class="panel-sparse">
-      <div id="header" class="panel card">
+      <div class="panel card">
         <div class="panel-horizontal">
           <Button icon="info" v-model="about" />
           <input
@@ -16,7 +16,8 @@
             :disabled="!canLoad"
           />
         </div>
-        <div v-show="canLoad" class="panel-horizontal-dense scroll">
+        <div class="panel-horizontal-dense scroll">
+          <h2 v-show="!canLoad">Ævzag</h2>
           <Button
             class="small round"
             :key="i"
@@ -26,16 +27,13 @@
           />
         </div>
       </div>
-      <div v-show="about" id="about" class="panel card">
-        <h1>Ævzag</h1>
-        <div class="panel-horizontal">
-          <router-link to="/editor/phonology">Editors</router-link>
-          <span class="text-dot"></span>
-          <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
-          <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-          <span class="text-dot"></span>
-          <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
-        </div>
+      <div v-show="about" id="about" class="panel-horizontal card">
+        <router-link to="/editor/phonology">Editors</router-link>
+        <span class="text-dot"></span>
+        <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
+        <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
+        <span class="text-dot"></span>
+        <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
       </div>
       <div class="panel scroll">
         <LectCard
@@ -178,6 +176,10 @@ $margin: -1 * map-get($margins, "normal");
 }
 input {
   flex: 1;
+}
+h2 {
+  text-align: center;
+  line-height: map-get($button-height, "small");
 }
 #about > * {
   text-align: center;

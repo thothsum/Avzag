@@ -3,7 +3,9 @@
     <div class="panel-solid">
       <h1 :class="{ selected }">{{ lect.name }}</h1>
       <p class="text-caption">
-        <span split class="text-dot" :key="f" v-for="f in lect.family">{{ f }}</span>
+        <span split class="text-dot" :key="f" v-for="f in lect.family">{{
+          f
+        }}</span>
       </p>
     </div>
     <img :src="flag" />
@@ -50,10 +52,10 @@ export default {
   cursor: pointer;
   overflow: hidden;
   &:hover img {
-    transform: translate(25%, 30%) rotate(-45deg);
+    opacity: 1;
   }
   &:active img {
-    opacity: 1;
+    transform: translate(25%, 30%) rotate(-45deg);
   }
   img {
     pointer-events: none;

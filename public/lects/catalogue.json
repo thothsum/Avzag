@@ -62,5 +62,27 @@
             "Circassian"
         ],
         "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Kabardian",
+        "coordinates": [
+            43.762647,
+            42.769419
+        ],
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Temirgoy",
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
     }
 ]
