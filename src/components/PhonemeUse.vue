@@ -1,8 +1,8 @@
 <template>
   <div class="panel card">
     <div class="title">
-      <h1>{{ lect }}</h1>
-      <p v-html="header"></p>
+      <h2>{{ lect }}</h2>
+      <b :key="g" v-for="g in graphemes" class="text-dot"> {{ g }}</b>
     </div>
     <div class="panel-solid">
       <button
@@ -48,10 +48,8 @@ export default {
     urls() {
       return this.fullSamples.map((s) => this.root + s.word + ".mp3");
     },
-    header() {
-      return [...new Set(this.use.samples.map((s) => s.grapheme))]
-        .map((g) => `<b>${g}</b>`)
-        .join("<span class='text-dot'></span>");
+    graphemes() {
+      return new Set(this.use.samples.map((s) => s.grapheme));
     },
   },
   watch: {

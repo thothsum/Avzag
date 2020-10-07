@@ -27,10 +27,20 @@
 }
 
 .text-dot {
-  @extend .text-faded;
-  @extend .no-select;
-  &::before {
+  &::after {
+    color: var(--color-text-faded);
+    white-space: pre;
+    font-weight: bold;
     content: " • ";
+  }
+  &:empty {
+    @extend .text-dot;
+    &::after {
+      content: "•";
+    }
+  }
+  &:last-child::after {
+    display: none;
   }
 }
 

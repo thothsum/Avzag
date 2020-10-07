@@ -179,14 +179,9 @@ $margin: -1 * map-get($margins, "normal");
 input {
   flex: 1;
 }
-#about {
-  > * {
-    text-align: center;
-    justify-content: center;
-  }
-  h1 {
-    font-size: 32px;
-  }
+#about > * {
+  text-align: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: $mobile-width) {

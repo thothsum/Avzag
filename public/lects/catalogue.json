@@ -35,6 +35,7 @@
         "name": "Digor",
         "flag": "Ossetian",
         "family": [
+            "Iranian",
             "Eastern Iranian",
             "Ossetian"
         ],
@@ -55,42 +56,6 @@
     },
     {
         "name": "Temirgoy",
-        "flag": "Circassian",
-        "family": [
-            "Northwest Caucasian",
-            "Circassian"
-        ],
-        "tags": "Caucasian Pontic Adyghe"
-    },
-    {
-        "name": "Abzakh",
-        "flag": "Circassian",
-        "family": [
-            "Northwest Caucasian",
-            "Circassian"
-        ],
-        "tags": "Caucasian Pontic Adyghe"
-    },
-    {
-        "name": "Shapsug",
-        "flag": "Circassian",
-        "family": [
-            "Northwest Caucasian",
-            "Circassian"
-        ],
-        "tags": "Caucasian Pontic Adyghe"
-    },
-    {
-        "name": "Shapsug",
-        "flag": "Circassian",
-        "family": [
-            "Northwest Caucasian",
-            "Circassian"
-        ],
-        "tags": "Caucasian Pontic Adyghe"
-    },
-    {
-        "name": "Shapsug",
         "flag": "Circassian",
         "family": [
             "Northwest Caucasian",
