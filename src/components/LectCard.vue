@@ -46,16 +46,17 @@ export default {
   color: var(--color-highlight);
 }
 .card {
-  min-height: 60px;
+  min-height: 54px;
+  max-height: 54px;
   background-color: var(--color-foreground);
   position: relative;
   cursor: pointer;
   overflow: hidden;
   &:hover img {
-    opacity: 1;
+    transform: translate(25%, 30%) rotate(-45deg);
   }
   &:active img {
-    transform: translate(25%, 30%) rotate(-45deg);
+    opacity: 1;
   }
   img {
     pointer-events: none;

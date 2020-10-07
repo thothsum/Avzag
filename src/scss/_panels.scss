@@ -1,3 +1,11 @@
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex {
+  flex: 1;
+}
+
 %panel {
   display: flex;
 }
@@ -36,8 +44,4 @@
   @include density(".panel-horizontal");
   place-items: center;
   flex-direction: row;
-}
-
-.wrap {
-  flex-wrap: wrap;
 }

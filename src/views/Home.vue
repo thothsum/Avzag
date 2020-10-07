@@ -6,17 +6,18 @@
         <div class="panel-horizontal">
           <Button icon="info" v-model="about" />
           <input
+            class="flex"
             type="text"
             v-model="search"
             placeholder="Search languages ..."
           />
-          <Button
-            icon="arrow_forward"
-            @click.native="load"
-            :disabled="!canLoad"
-          />
+          <Button icon="arrow_forward" @click.native="load" :disabled="empty" />
         </div>
-        <div class="panel-horizontal-dense scroll">
+        <div
+          id="about"
+          class="panel-horizontal scroll-hidden"
+          v-if="empty || about"
+        >
           <template v-if="about">
             <router-link to="/editor/phonology">Editors</router-link>
             <span class="text-dot"></span>
@@ -25,19 +26,18 @@
             <span class="text-dot"></span>
             <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
           </template>
-          <h2 v-else-if="!canLoad">Ævzag</h2>
-          <template v-else>
-            <Button
-              class="small round"
-              :key="i"
-              v-for="(l, i) in lects"
-              :text="l.name"
-              @click.native="toggleLect(l)"
-            />
-          </template>
+          <h1 v-else>Ævzag</h1>
+        </div>
+        <div class="panel-horizontal-dense scroll-hidden" v-else>
+          <Button
+            class="small round"
+            :key="i"
+            v-for="(l, i) in lects"
+            :text="l.name"
+            @click.native="toggleLect(l)"
+          />
         </div>
       </div>
-      <div v-show="about" id="about" class="panel-horizontal card"></div>
       <div class="panel scroll">
         <LectCard
           :key="i"
@@ -78,8 +78,8 @@ export default {
     catalogue() {
       return this.$store.state.catalogue;
     },
-    canLoad() {
-      return this.lects.length > 0;
+    empty() {
+      return this.lects.length == 0;
     },
     query() {
       return this.search ? this.search.toLowerCase().split(" ") : null;
@@ -90,9 +90,7 @@ export default {
   },
   watch: {
     lects() {
-      console.log("adding markers");
       this.markers.clearLayers();
-
       this.lects
         .filter((l) => l.coordinates)
         .map((l) =>
@@ -177,16 +175,11 @@ $margin: -1 * map-get($margins, "normal");
     margin: $margin;
   }
 }
-input {
-  flex: 1;
-}
-h2 {
-  text-align: center;
-  line-height: map-get($button-height, "small");
-}
 #about {
-  text-align: center;
   justify-content: center;
+  h1 {
+    line-height: map-get($button-height, "small");
+  }
 }
 
 @media only screen and (max-width: $mobile-width) {

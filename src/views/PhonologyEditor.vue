@@ -28,12 +28,17 @@
     <div class="panel" v-if="phoneme">
       <div class="panel-horizontal-dense card">
         <h2>Phoneme</h2>
-        <input type="text" v-model="phoneme.phoneme" placeholder="phoneme" />
+        <input
+          class="flex"
+          type="text"
+          v-model="phoneme.phoneme"
+          placeholder="phoneme"
+        />
         <Button @click.native="deletePhoneme" icon="delete" />
       </div>
       <div class="panel-dense card">
         <div class="panel-horizontal-dense">
-          <h2>Notes</h2>
+          <h2 class="flex">Notes</h2>
           <Button @click.native="addItem('notes', '')" icon="add" />
         </div>
         <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
@@ -43,7 +48,7 @@
       </div>
       <div class="panel-dense card">
         <div class="panel-horizontal-dense">
-          <h2>Samples</h2>
+          <h2 class="flex">Samples</h2>
           <Button @click.native="addItem('samples', {})" icon="add" />
         </div>
         <div
@@ -156,7 +161,6 @@ export default {
   gap: map-get($margins, "half");
   display: grid;
   grid-template-columns: 64px 1fr 1fr;
-  flex: 1;
   * {
     width: 100%;
     height: 100%;

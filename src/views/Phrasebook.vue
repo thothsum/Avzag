@@ -1,7 +1,7 @@
 <template>
   <div class="section panel" v-if="entities">
     <div class="panel-horizontal card" :key="i" v-for="(t, i) in translations">
-      <b>{{ t.lect }}</b>
+      <h2>{{ t.lect }}</h2>
       <PhraseBlock
         v-model="entities"
         :block="b"
