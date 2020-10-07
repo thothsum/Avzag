@@ -29,9 +29,10 @@ select {
 }
 
 a {
-  padding: map-get($margins, "half") map-get($margins, "normal");
+  padding: 0 map-get($margins, "normal");
   position: relative;
   text-decoration: var(--color-highlight) underline;
+  line-height: map-get($button-height, "small");
   &:hover {
     background-color: var(--color-highlight-back);
   }

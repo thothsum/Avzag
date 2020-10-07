@@ -17,24 +17,27 @@
           />
         </div>
         <div class="panel-horizontal-dense scroll">
-          <h2 v-show="!canLoad">Ævzag</h2>
-          <Button
-            class="small round"
-            :key="i"
-            v-for="(l, i) in lects"
-            :text="l.name"
-            @click.native="toggleLect(l)"
-          />
+          <template v-if="about">
+            <router-link to="/editor/phonology">Editors</router-link>
+            <span class="text-dot"></span>
+            <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
+            <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
+            <span class="text-dot"></span>
+            <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
+          </template>
+          <h2 v-else-if="!canLoad">Ævzag</h2>
+          <template v-else>
+            <Button
+              class="small round"
+              :key="i"
+              v-for="(l, i) in lects"
+              :text="l.name"
+              @click.native="toggleLect(l)"
+            />
+          </template>
         </div>
       </div>
-      <div v-show="about" id="about" class="panel-horizontal card">
-        <router-link to="/editor/phonology">Editors</router-link>
-        <span class="text-dot"></span>
-        <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
-        <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-        <span class="text-dot"></span>
-        <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
-      </div>
+      <div v-show="about" id="about" class="panel-horizontal card"></div>
       <div class="panel scroll">
         <LectCard
           :key="i"
@@ -181,7 +184,7 @@ h2 {
   text-align: center;
   line-height: map-get($button-height, "small");
 }
-#about > * {
+#about {
   text-align: center;
   justify-content: center;
 }
