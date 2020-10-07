@@ -11,7 +11,7 @@
         :key="i"
         v-for="(s, i) in fullSamples"
       >
-        <span class="icon-small">{{
+        <span class="icon">{{
           canPlay[i] ? "play_arrow" : "arrow_right"
         }}</span>
         <span class="text" v-html="highlight(s.word, s.grapheme)"></span>

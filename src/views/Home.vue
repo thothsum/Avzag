@@ -1,7 +1,7 @@
 <template>
   <div id="root">
     <div id="map"></div>
-    <div id="ui" class="panel-sparse scroll">
+    <div id="ui" class="panel-sparse">
       <div id="header" class="panel-horizontal card">
         <Button icon="info" v-model="about" />
         <input
@@ -27,7 +27,7 @@
           <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
         </div>
       </div>
-      <div class="panel">
+      <div class="panel scroll">
         <LectCard
           :key="i"
           v-for="(l, i) in catalogue"
@@ -133,13 +133,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$margin: -1 * map-get($margins, "normal");
+
 #root {
   position: relative;
   width: 100%;
   height: 100%;
-  > div {
-    left: -1 * map-get($margins, "normal");
-    top: -1 * map-get($margins, "normal");
+  > * {
+    left: $margin;
+    top: $margin;
   }
 }
 #map {
@@ -149,24 +151,26 @@ export default {
   position: absolute;
 }
 #ui {
+  padding: -$margin;
   height: 100vh;
-  padding: map-get($margins, "normal");
   width: 0.75 * $mobile-width;
   position: absolute;
   z-index: 2;
   pointer-events: none;
-  * {
+  > * {
     pointer-events: auto;
   }
-}
-#header {
-  background-color: var(--color-background);
-  input {
-    flex: 1;
+  > .scroll {
+    max-height: 100%;
+    padding: -1 * $margin;
+    margin: $margin;
   }
 }
+input {
+  flex: 1;
+}
 #about {
-  * {
+  > * {
     text-align: center;
     justify-content: center;
   }
@@ -176,9 +180,8 @@ export default {
 }
 
 @media only screen and (max-width: $mobile-width) {
-  #header {
-    flex-direction: column;
-    justify-content: center;
+  #ui {
+    width: 100vw;
   }
 }
 </style>

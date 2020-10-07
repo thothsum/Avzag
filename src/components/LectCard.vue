@@ -1,9 +1,7 @@
 <template>
   <div class="panel-horizontal card" v-if="fits">
-    <div class="text">
-      <h1 class="panel-horizontal" :class="{ selected }">
-        {{ lect.name }}
-      </h1>
+    <div class="panel-solid">
+      <h1 :class="{ selected }">{{ lect.name }}</h1>
       <p class="text-caption">{{ family }}</p>
     </div>
     <img :src="flag" />
@@ -29,7 +27,9 @@ export default {
         .toLowerCase();
     },
     fits() {
-      return this.query?.every((t) => this.tags.includes(t));
+      return this.query
+        ? this.query.every((t) => this.tags.includes(t))
+        : this.selected;
     },
   },
 };
@@ -44,7 +44,8 @@ export default {
   color: var(--color-highlight);
 }
 .card {
-  background-color: var(--color-background);
+  min-height: 60px;
+  background-color: var(--color-foreground);
   position: relative;
   cursor: pointer;
   overflow: hidden;

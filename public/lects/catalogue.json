@@ -61,5 +61,41 @@
             "Circassian"
         ],
         "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Abzakh",
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Shapsug",
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Shapsug",
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Shapsug",
+        "flag": "Circassian",
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
     }
 ]

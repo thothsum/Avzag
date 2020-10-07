@@ -1,18 +1,22 @@
 <template>
   <div class="panel-horizontal-dense scroll" v-if="many">
-    <button
+    <Button
       class="small round"
-      :class="{'highlight': value==items[i]}"
-      @click="select(i)"
+      :class="{ highlight: value == items[i] }"
+      @click.native="select(i)"
+      :text="k"
       :key="i"
       v-for="(k, i) in keys"
-    >{{k}}</button>
+    />
   </div>
 </template>
 
 <script>
+import Button from "@/components/Button";
+
 export default {
   name: "ChipsSelect",
+  components: { Button },
   props: ["value", "items", "itemKey"],
   model: {
     prop: "value",

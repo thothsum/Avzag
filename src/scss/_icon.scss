@@ -3,7 +3,8 @@
     font-weight: normal;
     font-size: map-get($icon-sizes, "normal");
 
-    &-small {
+    .small &,
+    &.small {
         @extend .icon;
         font-size: map-get($icon-sizes, "small");
     }

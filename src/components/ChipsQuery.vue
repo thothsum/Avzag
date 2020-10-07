@@ -1,6 +1,6 @@
 <template>
   <div class="panel-horizontal-dense scroll" v-if="many">
-    <button @click="reset" class="small icon-small round">clear</button>
+    <button @click="reset" class="small icon round">clear</button>
     <button
       class="small round"
       :class="highlights[i]"
