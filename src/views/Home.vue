@@ -13,7 +13,6 @@
           icon="arrow_forward"
           @click.native="load"
           :disabled="!canLoad"
-          :class="{ highlight: canLoad }"
         />
       </div>
       <div v-show="about" id="about" class="panel card">
