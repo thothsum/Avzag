@@ -1,7 +1,11 @@
 <template>
   <div id="root">
     <div id="map">
-      <LectsMap :catalogue="catalogue" :selected="selected" />
+      <LectsMap
+        @toggle="toggleLect"
+        :catalogue="catalogue"
+        :selected="selected"
+      />
     </div>
     <div id="ui" class="panel-sparse">
       <div class="panel card">

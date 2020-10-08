@@ -2,7 +2,12 @@
   <l-map ref="map" :center="mapData.center" :zoom="7" :maxZoom="11">
     <l-tile-layer :url="mapData.layerUrl" :options="mapData.layerOptions" />
     <template v-for="(l, i) in catalogue">
-      <l-marker v-if="l.coordinates" :lat-lng="l.coordinates" :key="i">
+      <l-marker
+        @click="$emit('toggle', l)"
+        v-if="l.coordinates"
+        :lat-lng="l.coordinates"
+        :key="i"
+      >
         <l-icon class-name="marker">
           <h2 :class="{ selected: selected[i] }">
             {{ l.name }}
@@ -48,11 +53,15 @@ export default {
 </script>
 
 <style lang="scss">
-.leaflet-control-attribution * {
-  font-size: map-get($font-sizes, "small") !important;
-  height: min-content;
+.leaflet-control-attribution {
   margin: 0;
   padding: 0;
+  * {
+    margin: 0;
+    padding: 0;
+    font-size: map-get($font-sizes, "small") !important;
+    height: min-content;
+  }
 }
 </style>
 
@@ -61,9 +70,11 @@ export default {
   position: relative;
 }
 h2 {
+  $pd: map-get($margins, "normal");
   position: absolute;
   text-shadow: map-get($shadows, "elevated");
-  left: -100%;
+  left: calc(-100% - #{$pd});
+  padding: $pd;
 }
 .selected {
   color: var(--color-highlight);
