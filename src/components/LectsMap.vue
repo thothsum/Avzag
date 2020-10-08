@@ -4,7 +4,7 @@
     <template v-for="(l, i) in catalogue">
       <l-marker v-if="l.coordinates" :lat-lng="l.coordinates" :key="i">
         <l-icon class-name="marker">
-          <h2 :class="{ highlight: selected[i] }">
+          <h2 :class="{ selected: selected[i] }">
             {{ l.name }}
           </h2>
         </l-icon>
@@ -14,8 +14,16 @@
 </template>
 
 <script>
+import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
+
 export default {
   name: "LectsMap",
+  components: {
+    LMap,
+    LTileLayer,
+    LMarker,
+    LIcon,
+  },
   props: ["catalogue", "selected"],
   data() {
     return {
@@ -25,8 +33,8 @@ export default {
         layerUrl:
           "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
         layerOptions: {
-          // attribution:
-          //   'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
           maxZoom: 12,
           id: "mapbox/light-v10",
           tileSize: 512,
@@ -38,3 +46,26 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.leaflet-control-attribution * {
+  font-size: map-get($font-sizes, "small") !important;
+  height: min-content;
+  margin: 0;
+  padding: 0;
+}
+</style>
+
+<style lang="scss" scoped>
+.marker {
+  position: relative;
+}
+h2 {
+  position: absolute;
+  text-shadow: map-get($shadows, "elevated");
+  left: -100%;
+}
+.selected {
+  color: var(--color-highlight);
+}
+</style>

@@ -1,7 +1,8 @@
 <template>
   <div id="root">
     <div id="map">
-    <LectsMap :catalogue="catalogue" :selected="selected" /></div>
+      <LectsMap :catalogue="catalogue" :selected="selected" />
+    </div>
     <div id="ui" class="panel-sparse">
       <div class="panel card">
         <div class="panel-horizontal">
@@ -83,7 +84,7 @@ export default {
       return this.search ? this.search.toLowerCase().split(" ") : null;
     },
     selected() {
-      return this.catalogue.map((l) => this.lects.includes(l));
+      return this.catalogue?.map((l) => this.lects.includes(l));
     },
   },
   methods: {
