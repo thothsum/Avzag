@@ -47,11 +47,19 @@ export default {
     };
   },
   created() {
+    let url = (t) =>
+      (this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`);
+
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    )
+      url("dark");
+
     window
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (e) => {
-        const scheme = e.matches ? "dark" : "light";
-        this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${scheme}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`;
+        url(e.matches ? "dark" : "light");
       });
   },
 };
@@ -91,6 +99,7 @@ h2 {
   }
 }
 .selected {
-  border-bottom: $border-width solid var(--color-highlight);
+  color: var(--color-highlight);
+  //   border-bottom: $border-width solid var(--color-highlight);
 }
 </style>
