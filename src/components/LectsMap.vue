@@ -89,17 +89,19 @@ export default {
 h2 {
   position: absolute;
   width: min-content;
+
   $pd: map-get($margins, "half");
   padding: 0 $pd;
   left: calc(-100% - #{$pd});
-  text-shadow: 0 4px 16px var(--color-text);
-  border-bottom: $border-width dashed;
+
+  text-shadow: map-get($shadows, "elevated");
+  border-bottom: $border-width dashed transparent;
+  border-radius: 0;
   &:hover {
-    border-bottom: $border-width dashed var(--color-highlight);
+    border-color: var(--color-text);
   }
 }
 .selected {
   color: var(--color-highlight);
-  //   border-bottom: $border-width solid var(--color-highlight);
 }
 </style>
