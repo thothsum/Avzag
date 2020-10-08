@@ -1,6 +1,6 @@
 <template>
-  <l-map ref="map" :center="mapData.center" :zoom="7" :maxZoom="11">
-    <l-tile-layer :url="mapData.layerUrl" :options="mapData.layerOptions" />
+  <l-map ref="map" :center="center" :zoom="7" :maxZoom="11">
+    <l-tile-layer :url="layerUrl" :options="layerOptions" />
     <template v-for="(l, i) in catalogue">
       <l-marker
         @click="$emit('toggle', l)"
@@ -8,7 +8,7 @@
         :lat-lng="l.coordinates"
         :key="i"
       >
-        <l-icon class-name="marker">
+        <l-icon>
           <h2 :class="{ selected: selected[i] }">
             {{ l.name }}
           </h2>
@@ -32,22 +32,27 @@ export default {
   props: ["catalogue", "selected"],
   data() {
     return {
-      mapData: {
-        center: [43.711379, 41.406538],
-        options: { zoomControl: false },
-        layerUrl:
-          "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-        layerOptions: {
-          attribution:
-            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-          maxZoom: 12,
-          id: "mapbox/light-v10",
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken: process.env.VUE_APP_MAP_TOKEN,
-        },
+      center: [43.711379, 41.406538],
+      options: { zoomControl: false },
+      layerUrl:
+        "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
+      layerOptions: {
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 12,
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: process.env.VUE_APP_MAP_TOKEN,
       },
     };
+  },
+  created() {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const scheme = e.matches ? "dark" : "light";
+        this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${scheme}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`;
+      });
   },
 };
 </script>
@@ -63,20 +68,29 @@ export default {
     height: min-content;
   }
 }
+.leaflet-marker-icon {
+  position: relative;
+  z-index: 100 !important;
+  &:hover {
+    z-index: 101 !important;
+  }
+}
 </style>
 
 <style lang="scss" scoped>
-.marker {
-  position: relative;
-}
 h2 {
-  //   $pd: map-get($margins, "normal");
   position: absolute;
-  text-shadow: map-get($shadows, "elevated");
-  left: -100%;
-  //   padding: $pd;
+  width: min-content;
+  $pd: map-get($margins, "half");
+  padding: 0 $pd;
+  left: calc(-100% - #{$pd});
+  text-shadow: 0 4px 16px var(--color-text);
+  border-bottom: $border-width dashed;
+  &:hover {
+    border-bottom: $border-width dashed var(--color-highlight);
+  }
 }
 .selected {
-  color: var(--color-highlight);
+  border-bottom: $border-width solid var(--color-highlight);
 }
 </style>
