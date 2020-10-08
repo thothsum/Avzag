@@ -70,11 +70,11 @@ export default {
   position: relative;
 }
 h2 {
-  $pd: map-get($margins, "normal");
+  //   $pd: map-get($margins, "normal");
   position: absolute;
   text-shadow: map-get($shadows, "elevated");
-  left: calc(-100% - #{$pd});
-  padding: $pd;
+  left: -100%;
+  //   padding: $pd;
 }
 .selected {
   color: var(--color-highlight);

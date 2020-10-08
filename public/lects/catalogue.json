@@ -14,6 +14,10 @@
     },
     {
         "name": "Akusha",
+        "coordinates": [
+            42.280422,
+            47.333388
+        ],
         "flag": "Dagestan",
         "family": [
             "Northeast Caucasian",
@@ -23,6 +27,10 @@
     },
     {
         "name": "Iron",
+        "coordinates": [
+            42.865209,
+            44.245623
+        ],
         "flag": "Ossetian",
         "family": [
             "Iranian",
@@ -33,6 +41,10 @@
     },
     {
         "name": "Digor",
+        "coordinates": [
+            43.148,
+            44.15
+        ],
         "flag": "Ossetian",
         "family": [
             "Iranian",
@@ -56,6 +68,10 @@
     },
     {
         "name": "Temirgoy",
+        "coordinates": [
+            44.206139,
+            40.231612
+        ],
         "flag": "Circassian",
         "family": [
             "Northwest Caucasian",
