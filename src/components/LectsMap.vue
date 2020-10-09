@@ -9,7 +9,7 @@
         :key="i"
       >
         <l-icon>
-          <h2 :class="{ selected: selected[i] }">
+          <h2 :class="{ selected: selected[i], 'text-faded': faded[i] }">
             {{ l.name }}
           </h2>
         </l-icon>
@@ -29,7 +29,7 @@ export default {
     LMarker,
     LIcon,
   },
-  props: ["catalogue", "selected"],
+  props: ["catalogue", "selected", "visible"],
   data() {
     return {
       center: [43.711379, 41.406538],
@@ -45,6 +45,15 @@ export default {
         accessToken: process.env.VUE_APP_MAP_TOKEN,
       },
     };
+  },
+  computed: {
+    faded() {
+      return this.visible.length
+        ? this.catalogue.map(
+            (l, i) => !(this.selected[i] || this.visible.includes(l))
+          )
+        : [];
+    },
   },
   created() {
     let url = (t) =>

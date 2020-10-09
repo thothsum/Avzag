@@ -5,6 +5,7 @@
         @toggle="toggleLect"
         :catalogue="catalogue"
         :selected="selected"
+        :visible="visible"
       />
     </div>
     <div id="ui" class="panel-sparse">
@@ -52,6 +53,7 @@
           :selected="selected[i]"
           :query="query"
           @click.native="toggleLect(l)"
+          @visible="setVisibility(l, $event)"
         />
       </div>
     </div>
@@ -75,6 +77,7 @@ export default {
       about: false,
       search: "",
       lects: [],
+      visible: [],
     };
   },
   computed: {
@@ -96,6 +99,12 @@ export default {
       const i = this.lects.indexOf(lect);
       if (i < 0) this.lects.push(lect);
       else this.lects.splice(i, 1);
+    },
+    setVisibility(lect, value) {
+      const i = this.visible.indexOf(lect);
+      if (i < 0) {
+        if (value) this.visible.push(lect);
+      } else if (!value) this.visible.splice(i, 1);
     },
     load() {
       this.$store.dispatch(

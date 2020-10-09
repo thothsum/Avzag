@@ -1,11 +1,11 @@
 <template>
-  <div class="panel-horizontal card" v-if="fits">
+  <div class="panel-horizontal card" v-if="visible">
     <div class="panel-solid">
       <h1 :class="{ selected }">{{ lect.name }}</h1>
       <p class="text-caption">
-        <span split class="text-dot" :key="f" v-for="f in lect.family">{{
-          f
-        }}</span>
+        <span split class="text-dot" :key="f" v-for="f in lect.family">
+          {{ f }}
+        </span>
       </p>
     </div>
     <img :src="flag" />
@@ -30,9 +30,14 @@ export default {
         .join(" ")
         .toLowerCase();
     },
-    fits() {
+    visible() {
       return this.query?.every((t) => this.tags.includes(t));
     },
+  },
+  watch: {
+    visible() {
+      this.$emit("visible", this.visible);
+    }
   },
 };
 </script>
