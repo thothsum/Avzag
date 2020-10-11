@@ -21,9 +21,7 @@ export default {
       return this.lect.family.join(" › ");
     },
     flag() {
-      return this.lect.flag
-        ? this.$store.state.root + "../flags/" + this.lect.flag + ".png"
-        : null;
+      return this.$store.state.root + this.lect.name + "/flag.png";
     },
     tags() {
       return [this.lect.name, this.lect.tags, this.lect.family.join(" ")]
@@ -37,7 +35,7 @@ export default {
   watch: {
     visible() {
       this.$emit("visible", this.visible);
-    }
+    },
   },
 };
 </script>
@@ -69,7 +67,7 @@ export default {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 2.5 * 100%;
+    height: 2 * 100%;
     opacity: 0.5;
     transform: translate(30%, 30%) rotate(-45deg);
     mask-image: linear-gradient(transparent, white);
