@@ -94,11 +94,17 @@ export default {
       return this.catalogue?.map((l) => this.lects.includes(l));
     },
   },
-  created() {
-    this.lects =
-      JSON.parse(localStorage["lects"])
-        ?.map((n) => this.catalogue.findIndex((l) => l.name == n))
-        .map((i) => this.catalogue[i]) ?? [];
+  watch: {
+    catalogue: {
+      handler() {
+        if (this.catalogue)
+          this.lects =
+            JSON.parse(localStorage["lects"])
+              ?.map((n) => this.catalogue.findIndex((l) => l.name == n))
+              .map((i) => this.catalogue[i]) ?? [];
+      },
+      immediate: true,
+    },
   },
   destroyed() {
     localStorage["lects"] = JSON.stringify(this.lects.map((l) => l.name));
