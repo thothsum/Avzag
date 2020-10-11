@@ -1,5 +1,5 @@
 <template>
-  <div class="section panel">
+  <div class="section panel" v-if="lects">
     <ChipsSelect v-model="lect" :items="lects" itemKey="name" />
     <div class="split" v-if="converter">
       <div class="panel">

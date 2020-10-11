@@ -99,7 +99,7 @@ export default {
       handler() {
         if (this.catalogue)
           this.lects =
-            JSON.parse(localStorage["lects"])
+            JSON.parse(localStorage.lects)
               ?.map((n) => this.catalogue.findIndex((l) => l.name == n))
               .map((i) => this.catalogue[i]) ?? [];
       },
@@ -107,7 +107,7 @@ export default {
     },
   },
   destroyed() {
-    localStorage["lects"] = JSON.stringify(this.lects.map((l) => l.name));
+    localStorage.lects = JSON.stringify(this.lects.map((l) => l.name));
   },
   methods: {
     toggleLect(lect) {

@@ -21,8 +21,25 @@ export default Vue.extend({
       );
     },
   },
+  watch: {
+    "$route.path": {
+      handler(): void {
+        if (this.$route.name) localStorage.url = this.$route.path;
+      },
+    },
+  },
   created() {
     this.$store.dispatch("initialize");
+    if (!this.$route.name || this.$route.name == "Home")
+      this.$router.push(
+        localStorage.url && localStorage.url != this.$route.path
+          ? { path: localStorage.url }
+          : { name: "Home" }
+      );
+    if (this.$route.name != "Home") {
+      const lects = JSON.parse(localStorage.lects);
+      if (lects) this.$store.dispatch("loadLects", lects);
+    }
   },
 });
 </script>
