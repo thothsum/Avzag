@@ -57,10 +57,17 @@ export default {
   watch: {
     phonemes: {
       handler() {
-        this.phoneme = this.phonemes[0];
+        if (this.phonemes) {
+          const phoneme = localStorage.phoneme;
+          this.phoneme =
+            this.phonemes.find((p) => p.ipa == phoneme) ?? this.phonemes[0];
+        }
       },
       immediate: true,
     },
+  },
+  destroyed() {
+    localStorage.phoneme = this.phoneme.ipa;
   },
 };
 </script>

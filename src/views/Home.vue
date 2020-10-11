@@ -98,10 +98,9 @@ export default {
     catalogue: {
       handler() {
         if (this.catalogue)
-          this.lects =
-            JSON.parse(localStorage.lects)
-              ?.map((n) => this.catalogue.findIndex((l) => l.name == n))
-              .map((i) => this.catalogue[i]) ?? [];
+          this.lects = JSON.parse(localStorage.lects)?.map((n) =>
+            this.catalogue.find((l) => l.name == n)
+          );
       },
       immediate: true,
     },
