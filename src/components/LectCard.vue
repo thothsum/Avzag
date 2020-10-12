@@ -55,8 +55,11 @@ export default {
   position: relative;
   cursor: pointer;
   overflow: hidden;
+  * {
+    z-index: 1;
+  }
   &:hover img {
-    transform: translate(25%, 30%) rotate(-45deg);
+    transform: translate(27%) rotate(-45deg);
   }
   &:active img {
     opacity: 1;
@@ -65,11 +68,11 @@ export default {
     pointer-events: none;
     z-index: 0;
     position: absolute;
-    bottom: 0;
+    rotate: -45;
     right: 0;
     height: 2 * 100%;
+    transform: translate(32%) rotate(-45deg);
     opacity: 0.5;
-    transform: translate(30%, 30%) rotate(-45deg);
     mask-image: linear-gradient(transparent, white);
   }
 }
