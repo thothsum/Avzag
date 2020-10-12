@@ -15,7 +15,7 @@ module.exports = {
         manifestOptions: {
             dir: "ltr",
             lang: "English",
-            name: "Avzag - sounds & scripts",
+            name: "Avzag",
             scope: ".",
             display: "standalone",
             start_url: ".",
