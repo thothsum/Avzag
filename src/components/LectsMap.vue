@@ -61,7 +61,7 @@ export default {
     },
     scale() {
       return {
-        transform: `translate(-50%) scale(${this.zoom / 10})`,
+        transform: `translate(-50%) scale(${this.zoom / 9})`,
         "transform-origin": "top center",
       };
     },
