@@ -68,7 +68,6 @@ export default {
     pointer-events: none;
     z-index: 0;
     position: absolute;
-    rotate: -45;
     right: 0;
     height: 2 * 100%;
     transform: translate(32%) rotate(-45deg);
