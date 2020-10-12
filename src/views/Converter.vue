@@ -9,7 +9,8 @@
             :items="fullMappings"
             itemKey="name"
           />
-          <Button v-model="empty" icon="subject" />
+          <Button v-if="source" @click.native="source = ''" icon="clear" />
+          <Button v-else @click.native="displaySample" icon="subject" />
           <Button @click.native="$refs.file.click()" icon="publish" />
           <Button
             v-show="!resultMapping.partial"
@@ -45,7 +46,7 @@
         />
       </div>
     </div>
-    <h1 v-else>No data for this lect.</h1>
+    <h2 v-else>No data for this lect.</h2>
     <input
       v-show="false"
       type="file"
@@ -80,7 +81,6 @@ export default {
       sourceMapping: undefined,
       result: "",
       resultMapping: undefined,
-      empty: false,
       intermediate: "",
       showMappings: false,
     };
@@ -107,30 +107,30 @@ export default {
   },
   watch: {
     mappings(m) {
-      this.sourceMapping = m[0];
-      this.resultMapping = m[1];
+      if (m) {
+        this.sourceMapping = m[0];
+        this.resultMapping = m[1];
+      }
     },
     sample(s) {
       this.source = s;
     },
     defaultConversion(c) {
-      this.sourceMapping = this.mappings[c[0]];
-      this.resultMapping = this.mappings[c[1]];
-    },
-    empty(e) {
-      if (e) {
-        this.source = "";
-        return;
+      if (c) {
+        this.sourceMapping = this.mappings[c[0]];
+        this.resultMapping = this.mappings[c[1]];
       }
-      const mp = this.sourceMapping;
-      this.sourceMapping = this.mappings[this.defaultConversion[0]];
-      this.source = this.sample;
-      this.$nextTick(() => {
-        this.sourceMapping = mp;
-      });
     },
   },
   methods: {
+    displaySample() {
+      const mapping = this.sourceMapping;
+      this.sourceMapping = this.mappings[this.defaultConversion[0]];
+      this.source = this.sample;
+      this.$nextTick(() => {
+        this.sourceMapping = mapping;
+      });
+    },
     swap() {
       const source = this.result;
       const mapping = this.sourceMapping;
