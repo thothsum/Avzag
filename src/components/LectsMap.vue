@@ -1,5 +1,5 @@
 <template>
-  <l-map ref="map" :center="center" :zoom="7" :maxZoom="11">
+  <l-map ref="map" :center="center" :zoom.sync="zoom">
     <l-tile-layer :url="layerUrl" :options="layerOptions" />
     <template v-for="(l, i) in catalogue">
       <l-marker
@@ -9,9 +9,14 @@
         :key="i"
       >
         <l-icon :icon-anchor="[0, 0]">
-          <h2 :class="{ selected: selected[i], 'text-faded': faded[i] }">
-            {{ l.name }}
-          </h2>
+          <div class="marker" :style="scale">
+            <div class="marker-container panel-solid">
+              <div class="icon">expand_less</div>
+              <h2 :class="{ selected: selected[i], 'text-faded': faded[i] }">
+                {{ l.name }}
+              </h2>
+            </div>
+          </div>
         </l-icon>
       </l-marker>
     </template>
@@ -33,13 +38,13 @@ export default {
   data() {
     return {
       center: [43.711379, 41.406538],
+      zoom: 7,
       options: { zoomControl: false },
       layerUrl:
         "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
       layerOptions: {
         attribution:
           'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 12,
         tileSize: 512,
         zoomOffset: -1,
         accessToken: process.env.VUE_APP_MAP_TOKEN,
@@ -53,6 +58,12 @@ export default {
             (l, i) => !(this.selected[i] || this.visible.includes(l))
           )
         : [];
+    },
+    scale() {
+      return {
+        transform: `translate(-50%) scale(${this.zoom / 10})`,
+        "transform-origin": "top center",
+      };
     },
   },
   created() {
@@ -86,8 +97,8 @@ export default {
   }
 }
 .leaflet-marker-icon {
-  position: relative;
   z-index: 100 !important;
+  position: relative;
   &:hover {
     z-index: 101 !important;
   }
@@ -95,20 +106,25 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-h2 {
+.marker {
   position: absolute;
-  width: min-content;
-
-  $pd: map-get($margins, "half");
-  padding: 0 $pd;
-  left: calc(-100% - #{$pd});
-
+}
+.marker-container {
+  text-align: center;
+  line-height: 100%;
   text-shadow: map-get($shadows, "elevated");
-  border-bottom: $border-width dashed transparent;
-  border-radius: 0;
-  &:hover {
+  overflow: visible;
+  &:hover h2 {
     border-color: var(--color-text);
   }
+}
+.icon {
+  font-size: map-get($font-sizes, "large");
+}
+h2 {
+  border-bottom: $border-width dashed transparent;
+  border-radius: 0;
+  padding-bottom: 2px;
 }
 .selected {
   color: var(--color-highlight);
