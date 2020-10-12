@@ -1,6 +1,10 @@
 {
     "primary": [
         {
+            "ipa": "ɛ",
+            "tags": "vowel open-mid central unrounded"
+        },
+        {
             "ipa": "a",
             "tags": "vowel open central unrounded"
         },

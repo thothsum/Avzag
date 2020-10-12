@@ -110,7 +110,7 @@ export default {
       this.phoneme = p;
     },
     addPhoneme() {
-      let p = { ipa: "new" };
+      let p = { phoneme: "new" };
       this.file.push(p);
       this.selectPhoneme(p);
     },
