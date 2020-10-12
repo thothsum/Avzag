@@ -124,7 +124,7 @@ export default {
 h2 {
   border-bottom: $border-width dashed transparent;
   border-radius: 0;
-  padding-bottom: 2px;
+  padding-bottom: $border-width;
 }
 .selected {
   color: var(--color-highlight);
