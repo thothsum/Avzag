@@ -8,13 +8,13 @@
         :lat-lng="l.coordinates"
         :key="i"
       >
-        <l-icon>
+        <l-icon :icon-anchor="[0, 0]">
           <h2 :class="{ selected: selected[i], 'text-faded': faded[i] }">
             {{ l.name }}
           </h2>
         </l-icon>
-      </l-marker></template
-    >
+      </l-marker>
+    </template>
   </l-map>
 </template>
 

@@ -72,5 +72,18 @@
             "Circassian"
         ],
         "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Keren",
+        "coordinates": [
+            41.707224,
+            47.546501
+        ],
+        "family": [
+            "Northeast Caucasian",
+            "Lezgic",
+            "Aghul"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
     }
 ]

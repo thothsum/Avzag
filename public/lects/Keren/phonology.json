@@ -1,0 +1,214 @@
+[
+    {
+        "ipa": "new",
+        "phoneme": "a",
+        "samples": [
+            {
+                "grapheme": "a",
+                "word": "ахеф",
+                "ipa": "aχef"
+            }
+        ],
+        "notes": [
+            ""
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "y",
+        "samples": [
+            {
+                "grapheme": "уь",
+                "word": "уьлкве",
+                "ipa": "ylkʰʷe"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "e",
+        "samples": [
+            {
+                "grapheme": "е",
+                "word": "гьел",
+                "ipa": "hel"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "ɛ",
+        "samples": [
+            {
+                "grapheme": "э",
+                "word": "эйеси",
+                "ipa": "ɛjesi"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "u",
+        "samples": [
+            {
+                "grapheme": "у",
+                "word": "угас",
+                "ipa": "uɡas"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "i",
+        "samples": [
+            {
+                "grapheme": "и",
+                "word": "иркк",
+                "ipa": "irk"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "b",
+        "samples": [
+            {
+                "grapheme": "б",
+                "word": "бав",
+                "ipa": "baw"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "bˁ",
+        "samples": [
+            {
+                "grapheme": "бъ",
+                "word": "бъамбег",
+                "ipa": "bˁambeɡ"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "pʰ",
+        "samples": [
+            {
+                "grapheme": "п",
+                "word": "пас",
+                "ipa": "pʰas"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "p",
+        "samples": [
+            {
+                "grapheme": "пп",
+                "word": "ппек",
+                "ipa": "pekʰ"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "pʼ",
+        "samples": [
+            {
+                "grapheme": "пӀ",
+                "word": "пӀуз",
+                "ipa": "pʼuz"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "pʼˁ",
+        "samples": [
+            {
+                "grapheme": "пӀъ",
+                "word": "пӀъаш",
+                "ipa": "pʼˁaʃ"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "m",
+        "samples": [
+            {
+                "grapheme": "м",
+                "word": "муртт",
+                "ipa": "murt"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "mˁ",
+        "samples": [
+            {
+                "grapheme": "мъ",
+                "word": "мъарттеф",
+                "ipa": "mˁartef"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "d",
+        "samples": [
+            {
+                "grapheme": "д",
+                "word": "дад",
+                "ipa": "dad"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "tʰ",
+        "samples": [
+            {
+                "grapheme": "т",
+                "word": "туп",
+                "ipa": "tʰupʰ"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "t",
+        "samples": [
+            {
+                "grapheme": "тт",
+                "word": "ттур",
+                "ipa": "tur"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "tʼ",
+        "samples": [
+            {
+                "grapheme": "тӀ",
+                "word": "тӀуб",
+                "ipa": "tʼub"
+            }
+        ]
+    },
+    {
+        "ipa": "new",
+        "phoneme": "n",
+        "samples": [
+            {
+                "grapheme": "н",
+                "word": "найич",
+                "ipa": "najit͡ʃ"
+            }
+        ]
+    }
+]
