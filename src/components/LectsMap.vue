@@ -83,6 +83,9 @@ export default {
 </script>
 
 <style lang="scss">
+.leaflet-tile-container * {
+  border-radius: 0;
+}
 .leaflet-control-attribution {
   margin: 0;
   padding: 0;
