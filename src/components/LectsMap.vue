@@ -1,5 +1,10 @@
 <template>
-  <l-map ref="map" :center="center" :zoom.sync="zoom">
+  <l-map
+    ref="map"
+    :center="center"
+    :zoom.sync="zoom"
+    :options="{ zoomControl: false }"
+  >
     <l-tile-layer :url="layerUrl" :options="layerOptions" />
     <template v-for="(l, i) in catalogue">
       <l-marker
@@ -9,13 +14,13 @@
         :key="i"
       >
         <l-icon :icon-anchor="[0, 0]">
-          <div class="marker" :style="scale">
-            <div class="marker-container panel-solid">
-              <div class="icon">expand_less</div>
-              <h2 :class="{ selected: selected[i], 'text-faded': faded[i] }">
-                {{ l.name }}
-              </h2>
+          <div class="marker" :class="'zoom-' + zoom">
+            <div class="icon" :class="{ selected: selected[i] }">
+              expand_less
             </div>
+            <h2 :class="{ 'text-faded': faded[i] }">
+              {{ l.name }}
+            </h2>
           </div>
         </l-icon>
       </l-marker>
@@ -44,7 +49,7 @@ export default {
         "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
       layerOptions: {
         attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> | <a href="https://www.mapbox.com/">Mapbox</a>',
         tileSize: 512,
         zoomOffset: -1,
         accessToken: process.env.VUE_APP_MAP_TOKEN,
@@ -54,16 +59,8 @@ export default {
   computed: {
     faded() {
       return this.visible.length
-        ? this.catalogue.map(
-            (l, i) => !(this.selected[i] || this.visible.includes(l))
-          )
+        ? this.catalogue.map((l) => !this.visible.includes(l))
         : [];
-    },
-    scale() {
-      return {
-        transform: `translate(-50%) scale(${this.zoom / 9})`,
-        "transform-origin": "top center",
-      };
     },
   },
   created() {
@@ -89,16 +86,17 @@ export default {
 .leaflet-control-attribution {
   margin: 0;
   padding: 0;
+  height: min-content !important;
   * {
     margin: 0;
     padding: 0;
     font-size: map-get($font-sizes, "small") !important;
-    height: min-content;
+    height: min-content !important;
   }
 }
 .leaflet-marker-icon {
   z-index: 100 !important;
-  position: relative;
+  transition: initial;
   &:hover {
     z-index: 101 !important;
   }
@@ -106,14 +104,21 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-.marker {
-  position: absolute;
+.marker.zoom- {
+  @for $i from 1 through 13 {
+    &#{$i} {
+      transform: translate(-50%) scale(#{$i * $i / 64});
+    }
+  }
 }
-.marker-container {
+
+.marker {
+  transform-origin: top center;
+  width: fit-content;
+  height: fit-content;
   text-align: center;
   line-height: 100%;
   text-shadow: map-get($shadows, "elevated");
-  overflow: visible;
   &:hover h2 {
     border-color: var(--color-text);
   }
