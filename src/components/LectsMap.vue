@@ -110,7 +110,7 @@ export default {
 .marker.zoom- {
   @for $i from 1 through 13 {
     &#{$i} {
-      transform: translate(-50%) scale(#{$i * $i / 64});
+      transform: translate(-50%) scale(#{$i * $i / 72});
     }
   }
 }
