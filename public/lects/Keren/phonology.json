@@ -613,26 +613,6 @@
         ]
     },
     {
-        "phoneme": "ju",
-        "samples": [
-            {
-                "grapheme": "ю",
-                "word": "юкьӀ",
-                "ipa": "juqʼˤ"
-            }
-        ]
-    },
-    {
-        "phoneme": "ja",
-        "samples": [
-            {
-                "grapheme": "я",
-                "word": "якӀв",
-                "ipa": "jakʼʷ"
-            }
-        ]
-    },
-    {
         "phoneme": "f",
         "samples": [
             {
