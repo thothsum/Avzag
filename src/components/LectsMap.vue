@@ -86,16 +86,11 @@ export default {
 .leaflet-tile-container * {
   border-radius: 0;
 }
-.leaflet-control-attribution {
+.leaflet-control-attribution * {
   margin: 0;
   padding: 0;
-  height: min-content !important;
-  * {
-    margin: 0;
-    padding: 0;
-    font-size: map-get($font-sizes, "small") !important;
-    height: min-content !important;
-  }
+  font-size: map-get($font-sizes, "small") !important;
+  line-height: normal;
 }
 .leaflet-marker-icon {
   z-index: 100 !important;
@@ -107,14 +102,6 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-.marker.zoom- {
-  @for $i from 1 through 13 {
-    &#{$i} {
-      transform: translate(-50%) scale(#{$i * $i / 72});
-    }
-  }
-}
-
 .marker {
   transform-origin: top center;
   width: fit-content;
@@ -125,16 +112,21 @@ export default {
   &:hover h2 {
     border-color: var(--color-text);
   }
+  @for $i from 1 through 13 {
+    &.zoom-#{$i} {
+      transform: translate(-50%) scale(#{$i * $i / 72});
+    }
+  }
 }
 .icon {
   font-size: map-get($font-sizes, "large");
+  &.selected {
+    color: var(--color-highlight);
+  }
 }
 h2 {
+  padding-bottom: $border-width;
   border-bottom: $border-width dashed transparent;
   border-radius: 0;
-  padding-bottom: $border-width;
-}
-.selected {
-  color: var(--color-highlight);
 }
 </style>
