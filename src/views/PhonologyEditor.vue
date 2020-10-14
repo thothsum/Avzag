@@ -11,17 +11,19 @@
           </div>
           <textarea v-model="jsonInput"></textarea>
         </div>
-        <h2>Phonemes</h2>
+        <div class="panel-horizontal-dense">
+          <h2 class="flex">Notes</h2>
+          <Button @click.native="addPhoneme" icon="add" />
+        </div>
         <div class="table panel-horizontal-dense wrap">
           <PhoneticItem
-            @click.native="selectPhoneme(p)"
+            @click.native="phoneme = p"
             :selected="phoneme == p"
             :ipa="p.phoneme"
             :str="graphemes[i]"
             :key="i"
             v-for="(p, i) in file"
           />
-          <Button @click.native="addPhoneme" icon="add" />
         </div>
       </div>
     </div>
@@ -86,9 +88,6 @@ export default {
     };
   },
   computed: {
-    text() {
-      return JSON.stringify(this.file);
-    },
     graphemes() {
       return this.file.map((p) => p?.samples?.[0]?.grapheme);
     },
@@ -103,16 +102,13 @@ export default {
     this.file = JSON.parse(localStorage.pEditor) ?? [];
   },
   updated() {
-    localStorage.pEditor = JSON.stringify(this.file);
+    localStorage.pEditor = this.jsonOutput;
   },
   methods: {
-    selectPhoneme(p) {
-      this.phoneme = p;
-    },
     addPhoneme() {
       let p = { phoneme: "new" };
       this.file.push(p);
-      this.selectPhoneme(p);
+      this.phoneme = p;
     },
     deletePhoneme() {
       let i = this.file.indexOf(this.phoneme);
@@ -141,7 +137,7 @@ export default {
       if (json) this.file = json;
     },
     loadToJson() {
-      this.jsonInput = JSON.stringify(this.file);
+      this.jsonInput = this.jsonOutput;
     },
     reset() {
       this.file = JSON.parse("[]");
