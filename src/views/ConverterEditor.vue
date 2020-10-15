@@ -27,7 +27,26 @@
       </div>
     </div>
     <div>
-        
+      <div class="panel-horizontal-dense">
+        <h2 class="flex">Pairs</h2>
+        <Button @click.native="addPair(pairs.length)" icon="add" />
+      </div>
+      <div class="panel-solid">
+        <div
+          class="panel-horizontal-solid pair"
+          :key="i"
+          v-for="(p, i) in pairs"
+        >
+          <input class="flex" type="text" v-model="p[0]" placeholder="from" />
+          <input class="flex" type="text" v-model="p[1]" placeholder="to" />
+          <Button
+            class="small"
+            @click.native="addPair(i)"
+            icon="vertical_align_top"
+          />
+          <Button class="small" @click.native="deletePair(i)" icon="clear" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -43,16 +62,19 @@ export default {
   data() {
     return {
       file: [],
-      mapping: undefined,
       jsonInput: null,
+      mapping: undefined,
     };
   },
   computed: {
+    jsonOutput() {
+      return JSON.stringify(this.file);
+    },
     mappings() {
       return this.file?.mappings ?? [];
     },
-    jsonOutput() {
-      return JSON.stringify(this.file);
+    pairs() {
+      return this.mapping?.pairs ?? [];
     },
   },
   mounted() {
@@ -67,20 +89,11 @@ export default {
       this.mappings.push(m);
       this.mapping = m;
     },
-    deletePhoneme() {
-      let i = this.file.indexOf(this.phoneme);
-      this.file.splice(i, 1);
-      this.phoneme = this.file[this.file.length - 1];
+    addPair(i) {
+      this.mapping.pairs.splice(i, 0, ["", ""]);
     },
-    addItem(key, value) {
-      if (!this.phoneme[key]) this.phoneme[key] = [];
-      this.phoneme[key].push(value);
-      this.$forceUpdate();
-    },
-    deleteItem(i, key) {
-      this.phoneme[key].splice(i, 1);
-      if (this.phoneme[key].length == 0) delete this.phoneme[key];
-      this.$forceUpdate();
+    deletePair(i) {
+      this.mapping.pairs.splice(i, 1);
     },
     loadFromLect() {
       fetch(this.$store.state.root + this.jsonInput + "/converter.json")
@@ -97,7 +110,7 @@ export default {
       this.jsonInput = this.jsonOutput;
     },
     reset() {
-      this.file = JSON.parse("[]");
+      this.file = { defaults: [], mappings: [] };
     },
   },
 };
@@ -109,20 +122,12 @@ export default {
   grid-template-columns: 400px 1fr;
   gap: map-get($margins, "double");
 }
-.edit,
-.sample {
-  gap: map-get($margins, "half");
-  display: grid;
-  grid-template-columns: 64px 1fr 1fr;
-  * {
-    width: 100%;
-    height: 100%;
+.pair {
+  > input {
+    height: map-get($button-height, "small");
+    width: 64px;
   }
 }
-.edit {
-  grid-template-columns: 1fr 36px;
-}
-
 @media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;

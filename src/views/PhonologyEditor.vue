@@ -140,7 +140,7 @@ export default {
       this.jsonInput = this.jsonOutput;
     },
     reset() {
-      this.file = JSON.parse("[]");
+      this.file = [];
     },
   },
 };
