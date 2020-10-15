@@ -43,11 +43,11 @@
         "samples": [
             {
                 "word": "хъяр",
-                "ipa": "qʰær",
+                "ipa": "qʰɑˤr",
                 "grapheme": "я"
             }
         ],
-        "phoneme": "æ"
+        "phoneme": "ɑˤ"
     },
     {
         "samples": [
@@ -73,7 +73,7 @@
         "samples": [
             {
                 "word": "пӏялцӏикӏ",
-                "ipa": "pʼælt͡sʼikʼ",
+                "ipa": "pʼɑˤlt͡sʼikʼ",
                 "grapheme": "пӏ"
             }
         ],
@@ -306,7 +306,7 @@
         "samples": [
             {
                 "word": "хъяр",
-                "ipa": "qʰær",
+                "ipa": "qʰɑˤr",
                 "grapheme": "хъ"
             }
         ],
@@ -346,7 +346,7 @@
         "samples": [
             {
                 "word": "хӏяйван",
-                "ipa": "ħæjvɑn",
+                "ipa": "ħɑˤjvɑn",
                 "grapheme": "хӏ"
             }
         ],
