@@ -90,9 +90,13 @@ export default {
     notes() {
       return this.phoneme?.notes ?? [];
     },
+    jsonOutput() {
+      return JSON.stringify(this.file);
+    },
   },
   mounted() {
-    this.file = JSON.parse(localStorage.pEditor) ?? [];
+    this.file = JSON.parse(localStorage.pEditor);
+    if (!this.file) this.reset;
   },
   updated() {
     localStorage.pEditor = this.jsonOutput;
@@ -134,7 +138,7 @@ export default {
       if (file) this.file = file;
     },
     saveToJson() {
-      navigator.clipboard.readText().then((t) => console.log(t));
+      navigator.clipboard.writeText(this.jsonOutput);
     },
     reset() {
       this.file = [];
