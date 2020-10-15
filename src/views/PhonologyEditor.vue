@@ -2,14 +2,11 @@
   <div class="section" v-if="file">
     <div class="panel scroll">
       <div class="panel">
-        <div class="panel">
-          <div class="panel-horizontal-dense">
-            <Button @click.native="loadFromLect" text="import from lect" />
-            <Button @click.native="loadFromJson" text="import from JSON" />
-            <Button @click.native="loadToJson" text="export to JSON" />
-            <Button @click.native="reset" text="reset" />
-          </div>
-          <textarea v-model="jsonInput"></textarea>
+        <div class="panel-horizontal-dense">
+          <Button @click.native="loadFromLect" text="load from a lect" />
+          <Button @click.native="loadFromJson" text="load from JSON" />
+          <Button @click.native="saveToJson" text="save JSON to clipboard" />
+          <Button @click.native="reset" text="reset" />
         </div>
         <div class="panel-horizontal-dense">
           <h2 class="flex">Notes</h2>
@@ -84,7 +81,6 @@ export default {
     return {
       file: [],
       phoneme: null,
-      jsonInput: null,
     };
   },
   computed: {
@@ -93,9 +89,6 @@ export default {
     },
     notes() {
       return this.phoneme?.notes ?? [];
-    },
-    jsonOutput() {
-      return JSON.stringify(this.file);
     },
   },
   mounted() {
@@ -126,18 +119,22 @@ export default {
       this.$forceUpdate();
     },
     loadFromLect() {
-      fetch(this.$store.state.root + this.jsonInput + "/phonology.json")
+      fetch(
+        this.$store.state.root +
+          window.prompt("Enter lect name") +
+          "/phonology.json"
+      )
         .then((r) => r.json())
         .then((j) => {
           if (j) this.file = j;
         });
     },
     loadFromJson() {
-      const json = JSON.parse(this.jsonInput);
-      if (json) this.file = json;
+      const file = JSON.parse(window.prompt("Enter JSON"));
+      if (file) this.file = file;
     },
-    loadToJson() {
-      this.jsonInput = this.jsonOutput;
+    saveToJson() {
+      navigator.clipboard.readText().then((t) => console.log(t));
     },
     reset() {
       this.file = [];

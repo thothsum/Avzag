@@ -32,7 +32,6 @@
           <Button @click.native="copy" icon="file_copy" />
         </div>
         <ConverterText
-          ref="resultText"
           :readonly="true"
           :source="intermediate"
           :mapping="resultMapping"
@@ -154,8 +153,7 @@ export default {
       link.click();
     },
     copy() {
-      this.$refs.resultText.$refs.textarea.select();
-      document.execCommand("copy");
+      navigator.clipboard.writeText(this.result);
     },
   },
 };

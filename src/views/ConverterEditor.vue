@@ -4,8 +4,8 @@
       <div class="panel">
         <div class="panel-horizontal-dense">
           <Button @click.native="loadFromLect" text="import from lect" />
-          <Button @click.native="loadFromJson" text="import from JSON" />
-          <Button @click.native="loadToJson" text="export to JSON" />
+          <Button @click.native="loadFromJson" text="load from JSON" />
+          <Button @click.native="saveToJson" text="save to JSON" />
           <Button @click.native="reset" text="reset" />
         </div>
         <textarea v-model="jsonInput"></textarea>
@@ -106,7 +106,7 @@ export default {
       const json = JSON.parse(this.jsonInput);
       if (json) this.file = json;
     },
-    loadToJson() {
+    saveToJson() {
       this.jsonInput = this.jsonOutput;
     },
     reset() {
