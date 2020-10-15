@@ -98,7 +98,9 @@ export default {
       const file = JSON.parse(localStorage.pEditor);
       if (file) this.file = file;
       return;
-    } catch {}
+    } catch (error) {
+      console.log(error);
+    }
     this.reset();
   },
   updated() {

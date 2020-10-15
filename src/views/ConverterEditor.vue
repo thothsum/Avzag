@@ -12,17 +12,17 @@
           <h2>Sample text</h2>
           <textarea v-model="file.sample" />
           <h2>Default conversion</h2>
-          <div class="panel-horizontal-solid pair">
+          <div class="panel-horizontal-solid pair" v-if="defaultConversion">
             <input
               class="flex"
               type="text"
-              v-model="file.default[0]"
+              v-model="defaultConversion[0]"
               placeholder="from"
             />
             <input
               class="flex"
               type="text"
-              v-model="file.default[1]"
+              v-model="defaultConversion[1]"
               placeholder="to"
             />
           </div>
@@ -90,6 +90,9 @@ export default {
     mappings() {
       return this.file?.mappings ?? [];
     },
+    defaultConversion() {
+      return this.file.default;
+    },
     pairs() {
       return this.mapping?.pairs ?? [];
     },
@@ -99,7 +102,9 @@ export default {
       const file = JSON.parse(localStorage.cEditor);
       if (file) this.file = file;
       return;
-    } catch {}
+    } catch (error) {
+      console.log(error);
+    }
     this.reset();
   },
   updated() {
