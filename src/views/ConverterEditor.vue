@@ -83,7 +83,6 @@ export default {
   data() {
     return {
       file: [],
-      pair: undefined,
       mapping: undefined,
     };
   },
@@ -94,16 +93,14 @@ export default {
     pairs() {
       return this.mapping?.pairs ?? [];
     },
-    jsonOutput() {
-      return JSON.stringify(this.file);
-    },
   },
   mounted() {
-    this.file = JSON.parse(localStorage.cEditor);
-    if (!this.file) this.reset();
+    const file = JSON.parse(localStorage.cEditor);
+    if (file) this.file = file;
+    else this.reset();
   },
   updated() {
-    localStorage.cEditor = this.jsonOutput;
+    localStorage.cEditor = JSON.stringify(this.file);
   },
   methods: {
     addMapping() {
@@ -133,10 +130,11 @@ export default {
       if (file) this.file = file;
     },
     saveToJson() {
-      navigator.clipboard.writeText(this.jsonOutput);
+      navigator.clipboard.writeText(JSON.stringify(this.file));
     },
     reset() {
       this.file = { default: [0, 0], mappings: [] };
+      this.mapping = null;
     },
   },
 };

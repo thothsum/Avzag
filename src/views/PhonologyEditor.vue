@@ -1,5 +1,5 @@
 <template>
-  <div class="section" v-if="file">
+  <div class="section">
     <div class="panel scroll">
       <div class="panel">
         <div class="panel-horizontal-dense">
@@ -8,20 +8,22 @@
           <Button @click.native="saveToJson" text="save JSON to clipboard" />
           <Button @click.native="reset" text="reset" />
         </div>
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Notes</h2>
-          <Button @click.native="addPhoneme" icon="add" />
-        </div>
-        <div class="table panel-horizontal-dense wrap">
-          <PhoneticItem
-            @click.native="phoneme = p"
-            :selected="phoneme == p"
-            :ipa="p.phoneme"
-            :str="graphemes[i]"
-            :key="i"
-            v-for="(p, i) in file"
-          />
-        </div>
+        <template v-if="file">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Phonemes</h2>
+            <Button @click.native="addPhoneme" icon="add" />
+          </div>
+          <div class="table panel-horizontal-dense wrap">
+            <PhoneticItem
+              @click.native="phoneme = p"
+              :selected="phoneme == p"
+              :ipa="p.phoneme"
+              :str="graphemes[i]"
+              :key="i"
+              v-for="(p, i) in file"
+            />
+          </div>
+        </template>
       </div>
     </div>
     <div class="panel" v-if="phoneme">
@@ -90,16 +92,14 @@ export default {
     notes() {
       return this.phoneme?.notes ?? [];
     },
-    jsonOutput() {
-      return JSON.stringify(this.file);
-    },
   },
   mounted() {
-    this.file = JSON.parse(localStorage.pEditor);
-    if (!this.file) this.reset;
+    const file = JSON.parse(localStorage.pEditor);
+    if (file) this.file = file;
+    else this.reset();
   },
   updated() {
-    localStorage.pEditor = this.jsonOutput;
+    localStorage.pEditor = JSON.stringify(this.file);
   },
   methods: {
     addPhoneme() {
@@ -138,10 +138,11 @@ export default {
       if (file) this.file = file;
     },
     saveToJson() {
-      navigator.clipboard.writeText(this.jsonOutput);
+      navigator.clipboard.writeText(JSON.stringify(this.file));
     },
     reset() {
       this.file = [];
+      this.phoneme = null;
     },
   },
 };
