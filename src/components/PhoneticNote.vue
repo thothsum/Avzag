@@ -8,11 +8,10 @@ export default {
   props: ["text"],
   computed: {
     parsed() {
-      return this.text
-        ? this.text
-            .replace(/<(.+)>/g, "<b>$1</b>")
-            .replace(/\/([^/]+)\//g, "<span class='text-ipa'>$1</span>")
-        : "";
+      return this.text;
+      // return this.text
+      //       .replace(/\*(.+)\*/g, "<b>$1</b>")
+      //       .replace(/_([^/]+)_/g, "<span class='text-ipa'>$1</span>");
     },
   },
 };

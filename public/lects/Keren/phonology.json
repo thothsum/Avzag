@@ -29,17 +29,7 @@
             }
         ],
         "notes": [
-            "Если буква в слове встречается в начале слова или после гласной, то она читается как je"
-        ]
-    },
-    {
-        "phoneme": "ɛ",
-        "samples": [
-            {
-                "grapheme": "э",
-                "word": "эйеси",
-                "ipa": "ɛjesi"
-            }
+            "Word-initial or post-vowel <е> is pronounces as /je/."
         ]
     },
     {
@@ -543,22 +533,22 @@
         ]
     },
     {
-        "phoneme": "t̠ʃʼ",
+        "phoneme": "t͡ʃʼ",
         "samples": [
             {
                 "grapheme": "чӏ",
                 "word": "чӏал",
-                "ipa": "tsʼal"
+                "ipa": "t͡ʃʼal"
             }
         ]
     },
     {
-        "phoneme": "tsʼ",
+        "phoneme": "t͡sʼ",
         "samples": [
             {
                 "grapheme": "цӏ",
                 "word": "цӏай",
-                "ipa": "tsʼaj"
+                "ipa": "t͡sʼaj"
             }
         ]
     },
