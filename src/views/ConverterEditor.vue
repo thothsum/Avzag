@@ -95,9 +95,12 @@ export default {
     },
   },
   mounted() {
-    const file = JSON.parse(localStorage.cEditor);
-    if (file) this.file = file;
-    else this.reset();
+    try {
+      const file = JSON.parse(localStorage.cEditor);
+      if (file) this.file = file;
+      return;
+    } catch {}
+    this.reset();
   },
   updated() {
     localStorage.cEditor = JSON.stringify(this.file);
