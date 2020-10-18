@@ -10,8 +10,15 @@
       <div class="panel scroll">
         <template v-if="file">
           <h2>Sample text</h2>
+          <p class="text-caption text-faded">
+            Text that will be displayed to demonstrate the conversion.
+          </p>
           <textarea v-model="file.sample" />
           <h2>Default conversion</h2>
+          <p class="text-caption text-faded">
+            Numbers of two mappings that will be set by default. The left should
+            be set to the sample's writing system.
+          </p>
           <div class="panel-horizontal-solid pair" v-if="defaultConversion">
             <input
               class="flex"
@@ -36,7 +43,7 @@
             :key="i"
             v-for="(m, i) in mappings"
             @click.native="mapping = m"
-            :text="m.name"
+            :text="i + ' - ' + m.name"
             :class="{ highlight: m == mapping }"
           />
         </div>
@@ -46,12 +53,21 @@
       <template v-if="mapping">
         <h2>Mapping name</h2>
         <input type="text" v-model="mapping.name" />
+        <p class="text-caption text-faded">
+          Select 'partial' if there are two or more mapping pairs that share
+          either source or result text. I.e. th-ð & th-θ.
+        </p>
         <Button v-model="mapping.partial" icon="sync_disabled" text="Partial" />
         <div class="panel-horizontal-dense">
           <h2 class="flex">Pairs</h2>
           <Button @click.native="addPair(pairs.length)" icon="add" />
         </div>
         <div class="panel-solid">
+          <p class="text-caption text-faded">
+            During conversion system will consuquently go over these pairs,
+            replacing text from the left with the text from the right or vise
+            versa (right with left) if conversion is reversed.
+          </p>
           <div
             class="panel-horizontal-solid pair"
             :key="i"
