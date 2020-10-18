@@ -1,13 +1,16 @@
 <template>
-  <div class="section">
-    <div class="panel">
-      <div class="panel-horizontal-dense">
-        <Button @click.native="loadFromLect" text="import from lect" />
-        <Button @click.native="loadFromJson" text="load from JSON" />
-        <Button @click.native="saveToJson" text="save JSON to clipboard" />
-        <Button @click.native="reset" text="reset" />
-      </div>
-      <div class="panel scroll">
+  <div class="section panel-sparse scroll">
+    <div class="panel-horizontal-dense wrap">
+      <router-link to="/home">Home</router-link>
+      <router-link to="/editor/phonology">Phonology</router-link>
+      <router-link to="/editor/converter">Converter</router-link>
+      <Button @click.native="loadFromLect" text="load from lect" />
+      <Button @click.native="loadFromJson" text="load from JSON" />
+      <Button @click.native="saveToJson" text="save JSON to clipboard" />
+      <Button @click.native="reset" text="reset" />
+    </div>
+    <div class="grid">
+      <div class="panel" v-if="file">
         <template v-if="file">
           <h2>Sample text</h2>
           <p class="text-caption text-faded">
@@ -48,14 +51,12 @@
           />
         </div>
       </div>
-    </div>
-    <div class="panel">
-      <template v-if="mapping">
+      <div class="panel" v-if="mapping">
         <h2>Mapping name</h2>
         <input type="text" v-model="mapping.name" />
         <p class="text-caption text-faded">
-          Select 'partial' if there are two or more mapping pairs that share
-          either source or result text. I.e. th-ð & th-θ.
+          Select 'partial' if there are two or more mapping pairs that result in
+          the same text. I.e. th-ð & th-θ.
         </p>
         <Button v-model="mapping.partial" icon="sync_disabled" text="Partial" />
         <div class="panel-horizontal-dense">
@@ -83,7 +84,7 @@
             <Button class="small" @click.native="deletePair(i)" icon="clear" />
           </div>
         </div>
-      </template>
+      </div>
     </div>
   </div>
 </template>
@@ -165,7 +166,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section {
+.grid {
   display: grid;
   grid-template-columns: 400px 1fr;
   gap: map-get($margins, "double");
@@ -177,7 +178,7 @@ export default {
   }
 }
 @media only screen and (max-width: $mobile-width) {
-  .section {
+  .grid {
     grid-template-columns: 1fr;
     direction: ltr;
   }

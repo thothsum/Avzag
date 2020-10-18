@@ -1,68 +1,73 @@
 <template>
-  <div class="section">
-    <div class="panel scroll">
-      <div class="panel">
-        <div class="panel-horizontal-dense">
-          <Button @click.native="loadFromLect" text="load from a lect" />
-          <Button @click.native="loadFromJson" text="load from JSON" />
-          <Button @click.native="saveToJson" text="save JSON to clipboard" />
-          <Button @click.native="reset" text="reset" />
-        </div>
-        <template v-if="file">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Phonemes</h2>
-            <Button @click.native="addPhoneme" icon="add" />
-          </div>
-          <div class="table panel-horizontal-dense wrap">
-            <PhoneticItem
-              @click.native="phoneme = p"
-              :selected="phoneme == p"
-              :ipa="p.phoneme"
-              :str="graphemes[i]"
-              :key="i"
-              v-for="(p, i) in file"
-            />
-          </div>
-        </template>
-      </div>
+  <div class="section panel-sparse">
+    <div class="panel-horizontal-dense wrap">
+      <router-link to="/home">Home</router-link>
+      <router-link to="/editor/phonology">Phonology</router-link>
+      <router-link to="/editor/converter">Converter</router-link>
+      <Button @click.native="loadFromLect" text="load from a lect" />
+      <Button @click.native="loadFromJson" text="load from JSON" />
+      <Button @click.native="saveToJson" text="save JSON to clipboard" />
+      <Button @click.native="reset" text="reset" />
     </div>
-    <div class="panel" v-if="phoneme">
-      <div class="panel-horizontal-dense card">
-        <h2>Phoneme</h2>
-        <input
-          class="flex"
-          type="text"
-          v-model="phoneme.phoneme"
-          placeholder="phoneme"
-        />
-        <Button @click.native="deletePhoneme" icon="delete" />
+    <div class="grid">
+      <div class="panel scroll">
+        <div class="panel">
+          <template v-if="file">
+            <div class="panel-horizontal-dense">
+              <h2 class="flex">Phonemes</h2>
+              <Button @click.native="addPhoneme" icon="add" />
+            </div>
+            <div class="table panel-horizontal-dense wrap">
+              <PhoneticItem
+                @click.native="phoneme = p"
+                :selected="phoneme == p"
+                :ipa="p.phoneme"
+                :str="graphemes[i]"
+                :key="i"
+                v-for="(p, i) in file"
+              />
+            </div>
+          </template>
+        </div>
       </div>
-      <div class="panel-dense card">
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Notes</h2>
-          <Button @click.native="addItem('notes', '')" icon="add" />
+      <div class="panel" v-if="phoneme">
+        <div class="panel-horizontal-dense card">
+          <h2>Phoneme</h2>
+          <input
+            class="flex"
+            type="text"
+            v-model="phoneme.phoneme"
+            placeholder="phoneme"
+          />
+          <Button @click.native="deletePhoneme" icon="delete" />
         </div>
-        <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
-          <textarea v-model="phoneme.notes[i]" class="flex note" />
-          <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
-        </div>
-      </div>
-      <div class="panel-dense card">
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Samples</h2>
-          <Button @click.native="addItem('samples', {})" icon="add" />
-        </div>
-        <div
-          :key="i"
-          v-for="(s, i) in phoneme.samples"
-          class="panel-dense edit"
-        >
-          <div class="sample">
-            <input type="text" v-model="s.grapheme" placeholder="grapheme" />
-            <input type="text" v-model="s.word" placeholder="word" />
-            <input type="text" v-model="s.ipa" placeholder="ipa" />
+        <div class="panel-dense card">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Notes</h2>
+            <Button @click.native="addItem('notes', '')" icon="add" />
           </div>
-          <Button @click.native="deleteItem(i, 'samples')" icon="delete" />
+          <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
+            <textarea v-model="phoneme.notes[i]" class="flex note" />
+            <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
+          </div>
+        </div>
+        <div class="panel-dense card">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Samples</h2>
+            <Button @click.native="addItem('samples', {})" icon="add" />
+          </div>
+          <div
+            :key="i"
+            v-for="(s, i) in phoneme.samples"
+            class="panel-dense edit"
+          >
+            <div class="sample">
+              <input type="text" v-model="s.grapheme" placeholder="grapheme" />
+              <input type="text" v-model="s.word" placeholder="word" />
+              <input type="text" v-model="s.ipa" placeholder="ipa" />
+            </div>
+            <Button @click.native="deleteItem(i, 'samples')" icon="delete" />
+          </div>
         </div>
       </div>
     </div>
@@ -154,7 +159,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section {
+.grid {
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: map-get($margins, "double");
@@ -174,7 +179,7 @@ export default {
 }
 
 @media only screen and (max-width: $mobile-width) {
-  .section {
+  .grid {
     grid-template-columns: 1fr;
     direction: ltr;
   }
