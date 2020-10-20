@@ -83,9 +83,9 @@ export default {
 
 <style lang="scss" scoped>
 button {
+  line-height: 175%;
   user-select: none;
   min-height: min-content;
   min-width: min-content;
-  padding: 0;
 }
 </style>

@@ -3,7 +3,14 @@
         {
             "variants": [
                 {
-                    "text": "Цигле"
+                    "text": "Цигле",
+                    "entity": "tense",
+                    "tags": "present"
+                },
+                {
+                    "text": "Цикъкъел",
+                    "entity": "tense",
+                    "tags": "future"
                 }
             ]
         },
@@ -56,7 +63,7 @@
                 },
                 {
                     "text": "данилдай",
-                    "entity": "destination",
+                    "entity": "actor",
                     "tags": "plural"
                 }
             ]
@@ -64,9 +71,7 @@
         {
             "variants": [
                 {
-                    "text": "?",
-                    "entity": "destination",
-                    "tags": "there"
+                    "text": "?"
                 }
             ]
         }

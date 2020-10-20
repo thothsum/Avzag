@@ -1,15 +1,38 @@
 <template>
-  <div class="section panel" v-if="entities">
-    <div class="panel-horizontal card" :key="i" v-for="(t, i) in translations">
-      <h2>{{ t.lect }}</h2>
-      <p class="text-dot"></p>
-      <div class="panel-horizontal-dense wrap flex">
+  <div class="section panel" v-if="phrasebook">
+    <div class="panel-solid">
+      <Button
+        :key="i"
+        v-for="(p, i) in phrasebook"
+        :text="p.preview"
+        :class="{ highlight: selected == i }"
+        @click.native="selected = i"
+      />
+    </div>
+    <div class="panel">
+      <div class="panel-horizontal card">
         <PhraseBlock
           v-model="entities"
           :block="b"
-          :key="j"
-          v-for="(b, j) in t.blocks"
+          :key="i"
+          v-for="(b, i) in phrasebook[selected].blocks"
         />
+      </div>
+      <div
+        class="panel-horizontal card"
+        :key="i"
+        v-for="(t, i) in translations"
+      >
+        <h2>{{ lects[i].name }}</h2>
+        <p class="text-dot"></p>
+        <div class="panel-horizontal-dense wrap flex">
+          <PhraseBlock
+            v-model="entities"
+            :block="b"
+            :key="j"
+            v-for="(b, j) in t"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -17,35 +40,53 @@
 
 <script>
 import PhraseBlock from "@/components/PhraseBlock";
+import Button from "@/components/Button";
 
 export default {
   name: "Phrasebook",
   components: {
     PhraseBlock,
+    Button,
   },
   data() {
     return {
-      entities: undefined,
-      translations: undefined,
+      selected: 0,
+      entities: {},
     };
   },
-  async mounted() {
-    const phrasebook = await fetch(
-      process.env.BASE_URL + "lects/phrasebook.json"
-    ).then((r) => r.json());
-
-    this.entities = {};
-    phrasebook.entities.forEach(
-      (e) => (this.entities[e.id] = new Set(e.tags.split(" ")))
-    );
-
-    this.translations = phrasebook.translations;
+  computed: {
+    phrasebook() {
+      return this.$store.state.phrasebook_;
+    },
+    lects() {
+      return this.$store.state.lects;
+    },
+    translations() {
+      return this.lects.map((l) => l?.phrasebook[this.selected]);
+    },
+  },
+  watch: {
+    selected: {
+      handler() {
+        let e = {};
+        this.phrasebook[this.selected].state.forEach(
+          (s) => (e[s.entity] = new Set(s.tags.split(" ")))
+        );
+        this.entities = e;
+      },
+      immediate: true,
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.section {
+  display: grid;
+  grid-template-columns: 256px 1fr;
+}
 .card {
+  line-height: 175%;
   align-items: flex-start;
 }
 </style>
