@@ -16,10 +16,10 @@ export default {
       return this.mapping.pairs;
     },
     left() {
-      return this.reverse ? 0 : 1;
+      return this.reverse ? 1 : 0;
     },
     right() {
-      return this.reverse ? 1 : 0;
+      return this.reverse ? 0 : 1;
     },
   },
 };
