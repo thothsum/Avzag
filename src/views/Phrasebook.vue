@@ -2,12 +2,15 @@
   <div class="section panel" v-if="entities">
     <div class="panel-horizontal card" :key="i" v-for="(t, i) in translations">
       <h2>{{ t.lect }}</h2>
-      <PhraseBlock
-        v-model="entities"
-        :block="b"
-        :key="j"
-        v-for="(b, j) in t.blocks"
-      />
+      <p class="text-dot"></p>
+      <div class="panel-horizontal-dense wrap flex">
+        <PhraseBlock
+          v-model="entities"
+          :block="b"
+          :key="j"
+          v-for="(b, j) in t.blocks"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -42,4 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  align-items: flex-start;
+}
 </style>

@@ -1,5 +1,248 @@
 [
     {
-        "translation": "Asking to move"
+        "preview": "Asking direction",
+        "state": [
+            {
+                "entity": "tense",
+                "tags": "present"
+            },
+            {
+                "entity": "actor",
+                "tags": "singular"
+            },
+            {
+                "entity": "destination",
+                "tags": "there"
+            }
+        ],
+        "blocks": [
+            {
+                "variants": [
+                    {
+                        "text": "How can",
+                        "entity": "tense",
+                        "tags": "present"
+                    },
+                    {
+                        "text": "When will",
+                        "entity": "tense",
+                        "tags": "future"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "I",
+                        "entity": "actor",
+                        "tags": "singular"
+                    },
+                    {
+                        "text": "we",
+                        "entity": "actor",
+                        "tags": "plural"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "go"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "there",
+                        "entity": "destination",
+                        "tags": "there"
+                    },
+                    {
+                        "text": "home",
+                        "entity": "destination",
+                        "tags": "home"
+                    },
+                    {
+                        "text": "to the shop",
+                        "entity": "destination",
+                        "tags": "shop"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "preview": "Asking cost",
+        "state": [
+            {
+                "entity": "object",
+                "tags": "singular"
+            }
+        ],
+        "blocks": [
+            {
+                "variants": [
+                    {
+                        "text": "How much"
+                    }
+                ]
+            },
+            {
+                "locked": true,
+                "variants": [
+                    {
+                        "text": "does",
+                        "entity": "object",
+                        "tags": "singular"
+                    },
+                    {
+                        "text": "do",
+                        "entity": "object",
+                        "tags": "plural"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "it",
+                        "entity": "object",
+                        "tags": "singular"
+                    },
+                    {
+                        "text": "ticket",
+                        "entity": "object",
+                        "tags": "singular ticket"
+                    },
+                    {
+                        "text": "apples",
+                        "entity": "object",
+                        "tags": "plural apple"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "cost?"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "preview": "Asking name",
+        "state": [
+            {
+                "entity": "object",
+                "tags": "it"
+            }
+        ],
+        "blocks": [
+            {
+                "variants": [
+                    {
+                        "text": "What is"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "its",
+                        "entity": "object",
+                        "tags": "object"
+                    },
+                    {
+                        "text": "your",
+                        "entity": "object",
+                        "tags": "person"
+                    },
+                    {
+                        "text": "his",
+                        "entity": "object",
+                        "tags": "masculine person"
+                    },
+                    {
+                        "text": "her",
+                        "entity": "object",
+                        "tags": "feminine person"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "name?"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "preview": "Thanks",
+        "state": [
+            {
+                "entity": "subject",
+                "tags": "singular"
+            },
+            {
+                "entity": "object",
+                "tags": "singular"
+            }
+        ],
+        "blocks": [
+            {
+                "variants": [
+                    {
+                        "text": "Thanks,"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "you",
+                        "entity": "sibject"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "helped"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "me",
+                        "entity": "object",
+                        "tags": "singular"
+                    },
+                    {
+                        "text": "us",
+                        "entity": "object",
+                        "tags": "plural"
+                    }
+                ]
+            },
+            {
+                "variants": [
+                    {
+                        "text": "a lot."
+                    }
+                ]
+            }
+        ]
     }
 ]

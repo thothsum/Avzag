@@ -82,15 +82,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-* {
-  line-height: 175%;
-  text-align-last: center;
-}
 button {
   user-select: none;
   min-height: min-content;
   min-width: min-content;
-  padding-left: map-get($margins, "half");
-  padding-right: map-get($margins, "half");
+  padding: 0;
 }
 </style>

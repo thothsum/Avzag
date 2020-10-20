@@ -1,0 +1,74 @@
+[
+    [
+        {
+            "variants": [
+                {
+                    "text": "Цигле"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "ду",
+                    "entity": "actor",
+                    "tags": "singular",
+                    "implicit": true
+                },
+                {
+                    "text": "нисса",
+                    "entity": "actor",
+                    "tags": "plural",
+                    "implicit": true
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "гьетин",
+                    "entity": "destination",
+                    "tags": "there"
+                },
+                {
+                    "text": "хъили",
+                    "entity": "destination",
+                    "tags": "home"
+                },
+                {
+                    "text": "тукенцци",
+                    "entity": "destination",
+                    "tags": "shop"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "вянилдай",
+                    "entity": "actor",
+                    "tags": "singular masculine"
+                },
+                {
+                    "text": "рянилдай",
+                    "entity": "actor",
+                    "tags": "singular feminine"
+                },
+                {
+                    "text": "данилдай",
+                    "entity": "destination",
+                    "tags": "plural"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "?",
+                    "entity": "destination",
+                    "tags": "there"
+                }
+            ]
+        }
+    ]
+]
