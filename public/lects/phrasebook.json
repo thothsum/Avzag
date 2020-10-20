@@ -1,5 +1,412 @@
-[
-    {
-        "Asking to move":
-    }
-]
+{
+    "entities": [
+        {
+            "id": "actor",
+            "tags": "sing"
+        },
+        {
+            "id": "place",
+            "tags": "there"
+        }
+    ],
+    "translations": [
+        {
+            "lect": "Arabic",
+            "blocks": [
+                {
+                    "variants": [
+                        {
+                            "text": "anta",
+                            "entity": "actor",
+                            "tags": "sing masc",
+                            "implicit": true
+                        },
+                        {
+                            "text": "anti",
+                            "entity": "actor",
+                            "tags": "sing femn",
+                            "implicit": true
+                        },
+                        {
+                            "text": "antum",
+                            "entity": "actor",
+                            "tags": "plur masc",
+                            "implicit": true
+                        },
+                        {
+                            "text": "antuna",
+                            "entity": "actor",
+                            "tags": "plur femn",
+                            "implicit": true
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "ta3al",
+                            "entity": "actor",
+                            "tags": "sing masc"
+                        },
+                        {
+                            "text": "ta3ali",
+                            "entity": "actor",
+                            "tags": "sing femn"
+                        },
+                        {
+                            "text": "ta3alou",
+                            "entity": "actor",
+                            "tags": "plur masc"
+                        },
+                        {
+                            "text": "ta3aln",
+                            "entity": "actor",
+                            "tags": "plur femn"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "place",
+                            "tags": "there"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "ithHab",
+                            "entity": "actor",
+                            "tags": "sing masc"
+                        },
+                        {
+                            "text": "ithHabi",
+                            "entity": "actor",
+                            "tags": "sing femn"
+                        },
+                        {
+                            "text": "ithHabu",
+                            "entity": "actor",
+                            "tags": "plur masc"
+                        },
+                        {
+                            "text": "ithHabna",
+                            "entity": "actor",
+                            "tags": "plur femn"
+                        }
+                    ]
+                },
+                {
+                    "variants": [
+                        {
+                            "text": "ila alsuq",
+                            "entity": "place",
+                            "tags": "shop there"
+                        },
+                        {
+                            "text": "hunAk",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "huna",
+                            "entity": "place",
+                            "tags": "here",
+                            "implicit": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "lect": "Russian",
+            "blocks": [
+                {
+                    "variants": [
+                        {
+                            "text": "ты",
+                            "entity": "actor",
+                            "tags": "sing",
+                            "implicit": true
+                        },
+                        {
+                            "text": "вы",
+                            "entity": "actor",
+                            "tags": "plur",
+                            "implicit": true
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "подойди",
+                            "entity": "actor",
+                            "tags": "sing"
+                        },
+                        {
+                            "text": "подойдите",
+                            "entity": "actor",
+                            "tags": "plur"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "place",
+                            "tags": "there"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "иди",
+                            "entity": "actor",
+                            "tags": "sing"
+                        },
+                        {
+                            "text": "идите",
+                            "entity": "actor",
+                            "tags": "plur"
+                        }
+                    ]
+                },
+                {
+                    "variants": [
+                        {
+                            "text": "в магазин",
+                            "entity": "place",
+                            "tags": "shop there"
+                        },
+                        {
+                            "text": "туда",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "сюда",
+                            "entity": "place",
+                            "tags": "here",
+                            "implicit": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "lect": "Kaitag",
+            "blocks": [
+                {
+                    "variants": [
+                        {
+                            "text": "и",
+                            "entity": "actor",
+                            "tags": "sing",
+                            "implicit": true
+                        },
+                        {
+                            "text": "нишша",
+                            "entity": "actor",
+                            "tags": "plur",
+                            "implicit": true
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "sing"
+                        },
+                        {
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ],
+                    "variants": [
+                        {
+                            "text": "ця",
+                            "entity": "actor",
+                            "tags": "masc"
+                        },
+                        {
+                            "text": "цяре",
+                            "entity": "actor",
+                            "tags": "femn"
+                        },
+                        {
+                            "text": "цябе",
+                            "entity": "actor",
+                            "tags": "neut"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "sing"
+                        },
+                        {
+                            "entity": "place",
+                            "tags": "there"
+                        }
+                    ],
+                    "variants": [
+                        {
+                            "text": "вя",
+                            "entity": "actor",
+                            "tags": "masc"
+                        },
+                        {
+                            "text": "ря",
+                            "entity": "actor",
+                            "tags": "femn"
+                        },
+                        {
+                            "text": "бя",
+                            "entity": "actor",
+                            "tags": "neut"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "plur"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "цядая",
+                            "entity": "place",
+                            "tags": "here"
+                        },
+                        {
+                            "text": "дяная",
+                            "entity": "place",
+                            "tags": "there"
+                        }
+                    ]
+                },
+                {
+                    "variants": [
+                        {
+                            "text": "тукенцци",
+                            "entity": "place",
+                            "tags": "shop there"
+                        },
+                        {
+                            "text": "гьетин",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "гьежин",
+                            "entity": "place",
+                            "tags": "here",
+                            "implicit": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "lect": "Kabardian",
+            "blocks": [
+                {
+                    "variants": [
+                        {
+                            "text": "уэ",
+                            "entity": "actor",
+                            "tags": "sing"
+                        },
+                        {
+                            "text": "фэ",
+                            "entity": "actor",
+                            "tags": "plur"
+                        }
+                    ]
+                },
+                {
+                    "variants": [
+                        {
+                            "text": "тыкуэным",
+                            "entity": "place",
+                            "tags": "shop there"
+                        },
+                        {
+                            "text": "мобыкӏэ",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "мыдэ",
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "sing"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "кӏуэ",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "къакӏуэ",
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ]
+                },
+                {
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "plur"
+                        }
+                    ],
+                    "locked": true,
+                    "variants": [
+                        {
+                            "text": "фыкӏуэ",
+                            "entity": "place",
+                            "tags": "there"
+                        },
+                        {
+                            "text": "фыкъакӏуэ",
+                            "entity": "place",
+                            "tags": "here"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
