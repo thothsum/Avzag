@@ -17,29 +17,27 @@
         ],
         "blocks": [
             {
+                "entity": "tense",
                 "variants": [
                     {
                         "text": "How can",
-                        "entity": "tense",
                         "tags": "present"
                     },
                     {
                         "text": "When will",
-                        "entity": "tense",
                         "tags": "future"
                     }
                 ]
             },
             {
+                "entity": "actor",
                 "variants": [
                     {
                         "text": "I",
-                        "entity": "actor",
                         "tags": "singular"
                     },
                     {
                         "text": "we",
-                        "entity": "actor",
                         "tags": "plural"
                     }
                 ]
@@ -52,20 +50,18 @@
                 ]
             },
             {
+                "entity": "destination",
                 "variants": [
                     {
                         "text": "there",
-                        "entity": "destination",
                         "tags": "there"
                     },
                     {
                         "text": "home",
-                        "entity": "destination",
                         "tags": "home"
                     },
                     {
                         "text": "to the shop",
-                        "entity": "destination",
                         "tags": "shop"
                     }
                 ]
@@ -97,34 +93,31 @@
             },
             {
                 "locked": true,
+                "entity": "object",
                 "variants": [
                     {
                         "text": "does",
-                        "entity": "object",
                         "tags": "singular"
                     },
                     {
                         "text": "do",
-                        "entity": "object",
                         "tags": "plural"
                     }
                 ]
             },
             {
+                "entity": "object",
                 "variants": [
                     {
                         "text": "it",
-                        "entity": "object",
                         "tags": "singular"
                     },
                     {
                         "text": "ticket",
-                        "entity": "object",
                         "tags": "singular ticket"
                     },
                     {
                         "text": "apples",
-                        "entity": "object",
                         "tags": "plural apple"
                     }
                 ]
@@ -155,25 +148,22 @@
                 ]
             },
             {
+                "entity": "object",
                 "variants": [
                     {
                         "text": "its",
-                        "entity": "object",
                         "tags": "object"
                     },
                     {
                         "text": "your",
-                        "entity": "object",
                         "tags": "person"
                     },
                     {
                         "text": "his",
-                        "entity": "object",
                         "tags": "masculine person"
                     },
                     {
                         "text": "her",
-                        "entity": "object",
                         "tags": "feminine person"
                     }
                 ]
@@ -208,10 +198,10 @@
                 ]
             },
             {
+                "entity": "subject",
                 "variants": [
                     {
-                        "text": "you",
-                        "entity": "subject"
+                        "text": "you"
                     }
                 ]
             },
@@ -223,15 +213,14 @@
                 ]
             },
             {
+                "entity": "object",
                 "variants": [
                     {
                         "text": "me",
-                        "entity": "object",
                         "tags": "singular"
                     },
                     {
                         "text": "us",
-                        "entity": "object",
                         "tags": "plural"
                     }
                 ]

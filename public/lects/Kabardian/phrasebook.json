@@ -7,20 +7,18 @@
                     "tags": "present"
                 }
             ],
+            "entity": "destination",
             "variants": [
                 {
                     "text": "Абыкӏэ",
-                    "entity": "destination",
                     "tags": "there"
                 },
                 {
                     "text": "Тыкуэным",
-                    "entity": "destination",
                     "tags": "shop"
                 },
                 {
                     "text": "Унэм",
-                    "entity": "destination",
                     "tags": "home"
                 }
             ]
@@ -32,34 +30,31 @@
                     "tags": "future"
                 }
             ],
+            "entity": "destination",
             "variants": [
                 {
                     "text": "Абы",
-                    "entity": "destination",
                     "tags": "there"
                 },
                 {
                     "text": "Тыкуэным",
-                    "entity": "destination",
                     "tags": "shop"
                 },
                 {
                     "text": "Унэм",
-                    "entity": "destination",
                     "tags": "home"
                 }
             ]
         },
         {
+            "entity": "tense",
             "variants": [
                 {
                     "text": "дау",
-                    "entity": "tense",
                     "tags": "present"
                 },
                 {
                     "text": "дэпщэщ",
-                    "entity": "tense",
                     "tags": "future"
                 }
             ]
@@ -71,15 +66,14 @@
                     "tags": "present"
                 }
             ],
+            "entity": "actor",
             "variants": [
                 {
                     "text": "сызэрыкӏуэныр",
-                    "entity": "actor",
                     "tags": "singular"
                 },
                 {
                     "text": "дызэрыкӏуэныр",
-                    "entity": "actor",
                     "tags": "plural"
                 }
             ]
@@ -91,15 +85,14 @@
                     "tags": "future"
                 }
             ],
+            "entity": "actor",
             "variants": [
                 {
                     "text": "сыщыкӏуэныр",
-                    "entity": "actor",
                     "tags": "singular"
                 },
                 {
                     "text": "дыщыкӏуэныр",
-                    "entity": "actor",
                     "tags": "plural"
                 }
             ]

@@ -28,7 +28,7 @@ export default {
     passed() {
       return (
         !this.block.conditions ||
-        this.block.conditions.every((c) => this.hasTags(c))
+        this.block.conditions.every((c) => this.hasTags(c.tags, c.entity))
       );
     },
     variants() {
@@ -39,6 +39,9 @@ export default {
     },
     locked() {
       return this.block.locked || this.variants.length == 1;
+    },
+    entity() {
+      return this.block.entity;
     },
   },
   watch: {
@@ -52,12 +55,13 @@ export default {
       immediate: true,
     },
     variant(vNew, vOld) {
+      if (!this.entity) return;
       if (this.switched) this.switched = false;
       else return;
 
       let ent = Object.assign({}, this.entities);
-      vOld?.tags?.split(" ").forEach((t) => ent[vOld.entity].delete(t));
-      vNew?.tags?.split(" ").forEach((t) => ent[vNew.entity].add(t));
+      vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
+      vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
       this.$emit("update", ent);
     },
   },
@@ -67,15 +71,15 @@ export default {
       this.index = (this.index + 1) % this.variants.length;
     },
     findVariant() {
-      this.index = Math.max(
-        this.variants.findIndex((v) => this.hasTags(v)),
-        0
-      );
+      this.index = this.entity
+        ? Math.max(
+            this.variants.findIndex((v) => this.hasTags(v.tags, this.entity)),
+            0
+          )
+        : 0;
     },
-    hasTags(state) {
-      return state.tags
-        ?.split(" ")
-        .every((t) => this.entities[state.entity].has(t));
+    hasTags(tags, entity) {
+      return tags?.split(" ").every((t) => this.entities[entity].has(t));
     },
   },
 };
