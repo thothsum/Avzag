@@ -50,6 +50,12 @@
             ]
         },
         {
+            "conditions": [
+                {
+                    "entity": "actor",
+                    "tags": "singular"
+                }
+            ],
             "variants": [
                 {
                     "text": "вянилдай",
@@ -60,11 +66,19 @@
                     "text": "рянилдай",
                     "entity": "actor",
                     "tags": "singular feminine"
-                },
+                }
+            ]
+        },
+        {
+            "conditions": [
                 {
-                    "text": "данилдай",
                     "entity": "actor",
                     "tags": "plural"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "данилдай"
                 }
             ]
         },

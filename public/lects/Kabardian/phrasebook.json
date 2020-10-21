@@ -1,51 +1,9 @@
 [
-    {
-        "id": "going",
-        "blocks": [
-            {
-                "variants": [
-                    {
-                        "text": "How can",
-                        "entity": "tense",
-                        "tags": "present"
-                    },
-                    {
-                        "text": "When will",
-                        "entity": "tense",
-                        "tags": "future"
-                    }
-                ]
-            },
-            {
-                "variants": [
-                    {
-                        "text": "I",
-                        "entity": "actor",
-                        "tags": "singular"
-                    },
-                    {
-                        "text": "we",
-                        "entity": "actor",
-                        "tags": "plural"
-                    }
-                ]
-            },
-            {
-                "variants": [
-                    {
-                        "text": "go"
-                    }
-                ]
-            },
-            {
-                "variants": [
-                    {
-                        "text": "there",
-                        "entity": "destination",
-                        "tags": "far"
-                    }
-                ]
-            }
-        ]
-    }
+    [
+        {
+            "variants": [
+                {}
+            ]
+        }
+    ]
 ]
