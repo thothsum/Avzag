@@ -109,8 +109,8 @@ $colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
   line-height: 175%;
   align-items: flex-start;
 }
-.text-caption {
-  align-items: flex-start;
-  line-height: 100% !important;
+.text-caption * {
+  // align-items: flex-start;
+  line-height: 125%;
 }
 </style>
