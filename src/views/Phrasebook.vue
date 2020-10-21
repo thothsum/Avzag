@@ -9,21 +9,19 @@
         @click.native="selected = i"
       />
     </div>
-    <div class="panel">
-      <div class="panel-horizontal wrap">
-        <div class="panel card">
-          <div class="panel-horizontal-dense wrap">
-            <PhraseBlock
-              v-model="entities"
-              :block="b"
-              :key="i"
-              v-for="(b, i) in phrasebook[selected].blocks"
-            />
-          </div>
+    <div class="panel blocks">
+      <div class="panel wrap card">
+        <div class="panel-horizontal-dense wrap">
+          <PhraseBlock
+            v-model="entities"
+            :block="b"
+            :key="i"
+            v-for="(b, i) in phrasebook[selected].blocks"
+          />
         </div>
-        <div class="panel-horizontal wrap">
+        <div class="panel-horizontal-sparse wrap">
           <div
-            class="panel-horizontal-dense card"
+            class="panel-horizontal-dense text-caption text-faded"
             :key="e"
             v-for="(t, e, i) of entities"
           >
@@ -107,9 +105,12 @@ $colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
   display: grid;
   grid-template-columns: 256px 1fr;
 }
-.card,
-.card > * {
+.blocks * {
   line-height: 175%;
   align-items: flex-start;
+}
+.text-caption {
+  align-items: flex-start;
+  line-height: 100% !important;
 }
 </style>
