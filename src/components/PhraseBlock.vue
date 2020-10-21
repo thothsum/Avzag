@@ -1,5 +1,8 @@
 <template>
-  <div v-show="passed" :class="{ 'text-faded': variant.implicit }">
+  <div
+    v-show="passed"
+    :class="({ 'text-faded': variant.implicit }, 'color-' + entityIndex)"
+  >
     <p v-if="locked">{{ variant.text }}</p>
     <Button v-else :text="variant.text" @click.native="switchVariant" />
   </div>
@@ -42,6 +45,9 @@ export default {
     },
     entity() {
       return this.block.entity;
+    },
+    entityIndex() {
+      return Object.keys(this.entities).indexOf(this.entity) + 1;
     },
   },
   watch: {
@@ -86,9 +92,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
+
+@for $i from 1 through 5 {
+  .color-#{$i} > * {
+    border-bottom: 2 * $border-width solid nth($colors, $i);
+  }
+}
+
 button {
   line-height: 175%;
-  user-select: none;
   min-height: min-content;
   min-width: min-content;
 }

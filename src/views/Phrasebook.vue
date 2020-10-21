@@ -10,7 +10,7 @@
       />
     </div>
     <div class="panel">
-      <div class="panel-horizontal card">
+      <div class="panel-horizontal-dense wrap card">
         <PhraseBlock
           v-model="entities"
           :block="b"
@@ -85,7 +85,8 @@ export default {
   display: grid;
   grid-template-columns: 256px 1fr;
 }
-.card {
+.card,
+.card > * {
   line-height: 175%;
   align-items: flex-start;
 }
