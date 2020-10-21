@@ -36,7 +36,9 @@
       <div class="panel scroll">
         <div id="about" class="panel card center text-center" v-if="about">
           <h1>Ævzag</h1>
-          <p>Псэм ипэ напэ</p>
+          <div class="panel-horizontal center">
+            <Button :text="quote" @click.native="nextQuote" />
+          </div>
           <div class="panel-horizontal center scroll-hidden">
             <router-link to="/editor/phonology">Editors</router-link>
             <span class="text-dot"></span>
@@ -78,6 +80,7 @@ export default {
       search: "",
       lects: [],
       visible: [],
+      quote: "",
     };
   },
   computed: {
@@ -97,6 +100,8 @@ export default {
   watch: {
     catalogue: {
       handler() {
+        this.nextQuote();
+
         if (this.catalogue)
           this.lects = JSON.parse(localStorage.lects)?.map((n) =>
             this.catalogue.find((l) => l.name == n)
@@ -109,6 +114,12 @@ export default {
     localStorage.lects = JSON.stringify(this.lects.map((l) => l.name));
   },
   methods: {
+    nextQuote() {
+      let quotes = this.catalogue
+        .map((c) => c.quote)
+        .filter((q) => q && q != this.quote);
+      this.quote = quotes[Math.floor(Math.random() * quotes.length)];
+    },
     toggleLect(lect) {
       const i = this.lects.indexOf(lect);
       if (i < 0) this.lects.push(lect);
