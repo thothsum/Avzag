@@ -6,6 +6,10 @@
   flex: 1;
 }
 
+.center {
+  justify-content: center;
+}
+
 %panel {
   display: flex;
 }
@@ -44,4 +48,10 @@
   @include density(".panel-horizontal");
   place-items: center;
   flex-direction: row;
+}
+
+.card {
+  background-color: var(--color-foreground);
+  box-shadow: map-get($shadows, "normal");
+  padding: map-get($margins, "normal");
 }

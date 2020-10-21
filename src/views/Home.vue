@@ -8,7 +8,7 @@
         :visible="visible"
       />
     </div>
-    <div id="ui" class="panel-sparse">
+    <div id="ui" class="panel">
       <div class="panel card">
         <div class="panel-horizontal">
           <Button icon="info" v-model="about" />
@@ -20,22 +20,10 @@
           />
           <Button icon="arrow_forward" @click.native="load" :disabled="empty" />
         </div>
-        <div
-          id="about"
-          class="panel-horizontal scroll-hidden"
-          v-if="empty || about"
-        >
-          <template v-if="about">
-            <router-link to="/editor/phonology">Editors</router-link>
-            <span class="text-dot"></span>
-            <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
-            <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-            <span class="text-dot"></span>
-            <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
-          </template>
-          <h1 v-else>Ævzag</h1>
-        </div>
-        <div class="panel-horizontal-dense scroll-hidden" v-else>
+        <div class="panel-horizontal-dense scroll-hidden">
+          <p id="placeholder" class="text-faded" v-if="empty">
+            Selected languages will appear here.
+          </p>
           <Button
             class="small round"
             :key="i"
@@ -46,6 +34,18 @@
         </div>
       </div>
       <div class="panel scroll">
+        <div id="about" class="panel card center text-center" v-if="about">
+          <h1>Ævzag</h1>
+          <p>Псэм ипэ напэ</p>
+          <div class="panel-horizontal center scroll-hidden">
+            <router-link to="/editor/phonology">Editors</router-link>
+            <span class="text-dot"></span>
+            <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
+            <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
+            <span class="text-dot"></span>
+            <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
+          </div>
+        </div>
         <LectCard
           :key="i"
           v-for="(l, i) in catalogue"
@@ -165,11 +165,8 @@ $margin: -1 * map-get($margins, "normal");
     margin: $margin;
   }
 }
-#about {
-  justify-content: center;
-  h1 {
-    line-height: map-get($button-height, "small");
-  }
+#placeholder {
+  line-height: map-get($button-height, "small");
 }
 .marker {
   h2 {
