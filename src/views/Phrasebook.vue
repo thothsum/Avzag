@@ -10,13 +10,28 @@
       />
     </div>
     <div class="panel">
-      <div class="panel-horizontal-dense wrap card">
-        <PhraseBlock
-          v-model="entities"
-          :block="b"
-          :key="i"
-          v-for="(b, i) in phrasebook[selected].blocks"
-        />
+      <div class="panel-horizontal wrap">
+        <div class="panel card">
+          <div class="panel-horizontal-dense wrap">
+            <PhraseBlock
+              v-model="entities"
+              :block="b"
+              :key="i"
+              v-for="(b, i) in phrasebook[selected].blocks"
+            />
+          </div>
+        </div>
+        <div class="panel-horizontal wrap">
+          <div
+            class="panel-horizontal-dense card"
+            :key="e"
+            v-for="(t, e, i) of entities"
+          >
+            <h2 :class="'colored-' + i">{{ e }}</h2>
+            <p class="text-dot"></p>
+            <p :key="tg" v-for="tg in t">{{ tg }}</p>
+          </div>
+        </div>
       </div>
       <div
         class="panel-horizontal card"
@@ -79,7 +94,14 @@ export default {
   },
 };
 </script>
-
+<style lang="scss">
+$colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
+@for $i from 0 through 4 {
+  .colored-#{$i} {
+    border-bottom: $border-width solid nth($colors, $i + 1);
+  }
+}
+</style>
 <style lang="scss" scoped>
 .section {
   display: grid;
