@@ -10,6 +10,9 @@
       />
     </div>
     <div class="panel blocks">
+      <div class="panel-horizontal">
+        <Button v-model="showIpa" icon="music_note" text="IPA" />
+      </div>
       <div class="panel wrap card">
         <div class="panel-horizontal-dense wrap">
           <PhraseBlock
@@ -41,6 +44,7 @@
         <div class="panel-horizontal-dense wrap flex">
           <PhraseBlock
             v-model="entities"
+            :showIpa="showIpa"
             :block="b"
             :key="j"
             v-for="(b, j) in t"
@@ -65,6 +69,7 @@ export default {
     return {
       selected: 0,
       entities: {},
+      showIpa: false,
     };
   },
   computed: {
@@ -107,7 +112,7 @@ $colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
   display: grid;
   grid-template-columns: 256px 1fr;
 }
-.blocks * {
+.blocks .card * {
   line-height: 175%;
   align-items: flex-start;
 }

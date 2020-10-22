@@ -1,25 +1,21 @@
 <template>
-  <div v-show="passed" :class="{ 'text-faded': variant.implicit }">
-    <p v-if="locked">{{ variant.text }}</p>
-    <Button
-      v-else
-      :text="variant.text"
-      class="small"
-      :class="'colored-' + entityIndex"
-      @click.native="switchVariant"
-    />
-  </div>
+  <button
+    class="small"
+    :class="{
+      'text-faded': variant.implicit,
+      [colorClass]: dynamic,
+    }"
+    v-show="passed"
+    @click="switchVariant"
+  >
+    <p>{{ variant.text }}</p>
+  </button>
 </template>
 
 <script>
-import Button from "./Button";
-
 export default {
   name: "PhraseBlock",
-  components: {
-    Button,
-  },
-  props: ["entities", "block"],
+  props: ["entities", "block", "showIpa"],
   model: {
     prop: "entities",
     event: "update",
@@ -43,14 +39,14 @@ export default {
     variant() {
       return this.variants[this.index];
     },
-    locked() {
-      return this.block.locked || this.variants.length == 1;
+    dynamic() {
+      return !this.block.locked && this.variants.length > 1;
     },
     entity() {
       return this.block.entity;
     },
-    entityIndex() {
-      return Object.keys(this.entities).indexOf(this.entity);
+    colorClass() {
+      return "colored-" + Object.keys(this.entities).indexOf(this.entity);
     },
   },
   watch: {
@@ -76,6 +72,7 @@ export default {
   },
   methods: {
     switchVariant() {
+      if (!this.dynamic) return;
       this.switched = true;
       this.index = (this.index + 1) % this.variants.length;
     },
@@ -93,3 +90,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+button:not([class*="colored-"]) {
+  padding: 0;
+  background-color: transparent;
+  cursor: default;
+}
+</style>
