@@ -2,14 +2,14 @@
   <button
     class="small"
     :class="{
+      'text-ipa': showIpa && variant.ipa,
       'text-faded': variant.implicit,
       [colorClass]: dynamic,
     }"
     v-show="passed"
+    v-text="display"
     @click="switchVariant"
-  >
-    <p>{{ variant.text }}</p>
-  </button>
+  />
 </template>
 
 <script>
@@ -47,6 +47,11 @@ export default {
     },
     colorClass() {
       return "colored-" + Object.keys(this.entities).indexOf(this.entity);
+    },
+    display() {
+      return this.showIpa
+        ? this.variant.ipa ?? this.variant.text
+        : this.variant.text;
     },
   },
   watch: {

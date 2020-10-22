@@ -5,10 +5,12 @@
             "variants": [
                 {
                     "text": "Цигле",
+                    "ipa": "t͡sigle",
                     "tags": "present"
                 },
                 {
                     "text": "Цикъкъел",
+                    "ipa": "t͡siqːel",
                     "tags": "future"
                 }
             ]
@@ -18,11 +20,13 @@
             "variants": [
                 {
                     "text": "ду",
+                    "ipa": "du",
                     "tags": "singular",
                     "implicit": true
                 },
                 {
                     "text": "нисса",
+                    "ipa": "nissa",
                     "tags": "plural",
                     "implicit": true
                 }
