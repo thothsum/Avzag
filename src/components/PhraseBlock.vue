@@ -8,7 +8,10 @@
     <p :class="{ 'text-ipa': canShowIpa, 'text-faded': variant.implicit }">
       {{ canShowIpa ? variant.ipa : variant.text }}
     </p>
-    <div v-if="colorConditions" class="conditions panel-horizontal-dense">
+    <div
+      v-if="interactive && colorConditions"
+      class="conditions panel-horizontal-dense"
+    >
       <p :class="c" :key="i" v-for="(c, i) in colorConditions" />
     </div>
   </button>
@@ -17,7 +20,7 @@
 <script>
 export default {
   name: "PhraseBlock",
-  props: ["entities", "block", "showIpa"],
+  props: ["entities", "block", "interactive", "phonemic"],
   model: {
     prop: "entities",
     event: "update",
@@ -35,6 +38,9 @@ export default {
         this.block.conditions.every((c) => this.hasTags(c.tags, c.entity))
       );
     },
+    locked() {
+      return !(this.interactive && this.entity);
+    },
     variants() {
       return this.block.variants;
     },
@@ -42,13 +48,13 @@ export default {
       return this.block.entity;
     },
     colorEntity() {
-      return this.getEntityColor(this.entity);
+      return this.getEntityColor(this.locked ? "" : this.entity);
     },
     colorConditions() {
       return this.block.conditions?.map((c) => this.getEntityColor(c.entity));
     },
     canShowIpa() {
-      return this.showIpa && this.variant.ipa;
+      return this.phonemic && this.variant.ipa;
     },
   },
   watch: {
@@ -63,7 +69,7 @@ export default {
     },
     variant: {
       handler(vNew, vOld) {
-        if (!this.entity) return;
+        if (this.locked) return;
         if (vNew && !vOld && this.passed) {
           let ent = Object.assign({}, this.entities);
           vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
@@ -86,7 +92,7 @@ export default {
       return "colored-" + Object.keys(this.entities).indexOf(entity);
     },
     switchVariant() {
-      if (!this.entity) return;
+      if (this.locked) return;
       const i = this.variants.indexOf(this.variant);
       this.variant = this.variants[(i + 1) % this.variants.length];
       this.switched = true;
@@ -104,11 +110,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button:not([class*="colored-"]),
-button.colored--1 {
+.colored--1 {
   padding: 0;
   background-color: transparent;
   cursor: default;
+  &:hover,
+  &:active {
+    background-color: transparent;
+  }
 }
 button {
   position: relative;

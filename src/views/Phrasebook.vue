@@ -11,20 +11,22 @@
     </div>
     <div class="panel">
       <div class="panel-horizontal">
-        <Button v-model="showIpa" icon="music_note" text="IPA" />
+        <Button v-model="interactive" icon="tune" text="Interactive" />
+        <Button v-model="phonemic" icon="music_note" text="IPA" />
       </div>
       <div class="panel wrap card">
         <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
             v-model="entities"
+            :interactive="interactive"
             :block="b"
             :key="i"
             v-for="(b, i) in phrasebook[selected].blocks"
           />
         </div>
-        <div class="panel-horizontal-sparse wrap">
+        <div class="panel-horizontal-sparse wrap" v-show="interactive">
           <div
-            class="panel-horizontal-dense text-caption text-faded blocks"
+            class="panel-horizontal-dense text-caption text-faded entity"
             :key="e"
             v-for="(t, e, i) of entities"
           >
@@ -44,7 +46,8 @@
         <div class="panel-horizontal-dense wrap flex blocks">
           <PhraseBlock
             v-model="entities"
-            :showIpa="showIpa"
+            :interactive="interactive"
+            :phonemic="phonemic"
             :block="b"
             :key="j"
             v-for="(b, j) in t"
@@ -69,7 +72,8 @@ export default {
     return {
       selected: 0,
       entities: {},
-      showIpa: false,
+      interactive: false,
+      phonemic: false,
     };
   },
   computed: {
@@ -114,6 +118,9 @@ $colors: #aed581, #e57373, #64b5f6, #ffb74d #9575cd, #a1887f;
 .section {
   display: grid;
   grid-template-columns: 256px 1fr;
+}
+.entity {
+  align-items: flex-start;
 }
 .text-caption * {
   line-height: 125% !important;
