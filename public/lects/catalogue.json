@@ -85,5 +85,17 @@
             "Aghul"
         ],
         "tags": "Western Samur"
+    },
+    {
+        "name": "Udmurt",
+        "coordinates": [
+            57.142721,
+            52.786975
+        ],
+        "family": [
+            "Uralic",
+            "Permic"
+        ],
+        "tags": "Finno-Ugric"
     }
 ]
