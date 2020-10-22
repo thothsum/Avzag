@@ -1,6 +1,21 @@
 [
     [
         {
+            "entity": "actor",
+            "variants": [
+                {
+                    "text": "Сэ",
+                    "tags": "singular",
+                    "implicit": true
+                },
+                {
+                    "text": "Дэ",
+                    "tags": "plural",
+                    "implicit": true
+                }
+            ]
+        },
+        {
             "conditions": [
                 {
                     "entity": "tense",
@@ -10,15 +25,15 @@
             "entity": "destination",
             "variants": [
                 {
-                    "text": "Абыкӏэ",
+                    "text": "абыкӏэ",
                     "tags": "there"
                 },
                 {
-                    "text": "Тыкуэным",
+                    "text": "тыкуэным",
                     "tags": "shop"
                 },
                 {
-                    "text": "Унэм",
+                    "text": "унэм",
                     "tags": "home"
                 }
             ]
@@ -33,15 +48,15 @@
             "entity": "destination",
             "variants": [
                 {
-                    "text": "Абы",
+                    "text": "абы",
                     "tags": "there"
                 },
                 {
-                    "text": "Тыкуэным",
+                    "text": "тыкуэным",
                     "tags": "shop"
                 },
                 {
-                    "text": "Унэм",
+                    "text": "унэм",
                     "tags": "home"
                 }
             ]
@@ -67,6 +82,7 @@
                 }
             ],
             "entity": "actor",
+            "locked": true,
             "variants": [
                 {
                     "text": "сызэрыкӏуэныр",
@@ -85,6 +101,7 @@
                     "tags": "future"
                 }
             ],
+            "locked": true,
             "entity": "actor",
             "variants": [
                 {

@@ -1,10 +1,13 @@
 <template>
-  <div
-    v-show="passed"
-    :class="({ 'text-faded': variant.implicit }, 'colored-' + entityIndex)"
-  >
+  <div v-show="passed" :class="{ 'text-faded': variant.implicit }">
     <p v-if="locked">{{ variant.text }}</p>
-    <Button v-else :text="variant.text" @click.native="switchVariant" />
+    <Button
+      v-else
+      :text="variant.text"
+      class="small"
+      :class="'colored-' + entityIndex"
+      @click.native="switchVariant"
+    />
   </div>
 </template>
 
@@ -90,11 +93,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-button {
-  line-height: 175%;
-  min-height: min-content;
-  min-width: min-content;
-}
-</style>
