@@ -79,18 +79,32 @@
                 {
                     "entity": "tense",
                     "tags": "present"
-                }
-            ],
-            "entity": "actor",
-            "locked": true,
-            "variants": [
-                {
-                    "text": "сызэрыкӏуэныр",
-                    "tags": "singular"
                 },
                 {
-                    "text": "дызэрыкӏуэныр",
+                    "entity": "actor",
+                    "tags": "singular"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "сызэрыкӏуэныр"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "present"
+                },
+                {
+                    "entity": "actor",
                     "tags": "plural"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "дызэрыкӏуэныр"
                 }
             ]
         },
@@ -99,18 +113,32 @@
                 {
                     "entity": "tense",
                     "tags": "future"
-                }
-            ],
-            "locked": true,
-            "entity": "actor",
-            "variants": [
-                {
-                    "text": "сыщыкӏуэныр",
-                    "tags": "singular"
                 },
                 {
-                    "text": "дыщыкӏуэныр",
+                    "entity": "actor",
+                    "tags": "singular"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "сыщыкӏуэныр"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "future"
+                },
+                {
+                    "entity": "actor",
                     "tags": "plural"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "дыщыкӏуэныр"
                 }
             ]
         },
