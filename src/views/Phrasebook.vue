@@ -1,5 +1,5 @@
 <template>
-  <div class="section panel" v-if="phrasebook">
+  <div class="section panel">
     <div class="panel-solid">
       <Button
         :key="i"
@@ -9,7 +9,7 @@
         @click.native="selected = i"
       />
     </div>
-    <div class="panel">
+    <div class="panel" v-if="phrase">
       <div class="panel-horizontal">
         <Button v-model="interactive" icon="tune" text="Interactive" />
         <Button v-model="phonemic" icon="music_note" text="IPA" />
@@ -21,7 +21,7 @@
             :interactive="interactive"
             :block="b"
             :key="i"
-            v-for="(b, i) in phrasebook[selected].blocks"
+            v-for="(b, i) in phrase.blocks"
           />
         </div>
         <div class="panel-horizontal-sparse wrap" v-show="interactive">
@@ -77,27 +77,39 @@ export default {
     };
   },
   computed: {
+    lects() {
+      return this.$store.state.lects;
+    },
     phrasebook() {
       return this.$store.state.phrasebook;
     },
-    lects() {
-      return this.$store.state.lects;
+    phrase() {
+      return this.phrasebook ? this.phrasebook[this.selected] : undefined;
     },
     translations() {
       return this.lects.map((l) => l?.phrasebook[this.selected]);
     },
   },
   watch: {
-    selected: {
+    phrasebook: {
       handler() {
-        let e = {};
-        this.phrasebook[this.selected].state.forEach(
-          (s) => (e[s.entity] = new Set(s.tags.split(" ")))
-        );
-        this.entities = e;
+        if (this.phrasebook) this.selected = localStorage.phrase;
       },
       immediate: true,
     },
+    phrase: {
+      handler() {
+        this.entities =
+          this.phrase?.state.reduce((acc, s) => {
+            acc[s.entity] = new Set(s.tags.split(" "));
+            return acc;
+          }, {}) ?? {};
+      },
+      immediate: true,
+    },
+  },
+  destroyed() {
+    localStorage.phrase = this.selected;
   },
 };
 </script>
