@@ -35,7 +35,7 @@ export default new Vuex.Store({
   },
   actions: {
     async initialize({ dispatch, commit, state }) {
-      for (const k of ["ipa", "catalogue", "phrasebook_"]) {
+      for (const k of ["ipa", "catalogue", "phrasebook"]) {
         const v = await dispatch("loadJson", state.root + k + ".json")
         commit("setState", [k, v]);
       }

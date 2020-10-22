@@ -69,7 +69,7 @@ export default {
   },
   computed: {
     phrasebook() {
-      return this.$store.state.phrasebook_;
+      return this.$store.state.phrasebook;
     },
     lects() {
       return this.$store.state.lects;
