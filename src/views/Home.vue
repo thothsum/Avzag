@@ -9,7 +9,7 @@
       />
     </div>
     <div id="ui" class="panel">
-      <div class="panel card">
+      <div id="top" class="panel card">
         <div class="panel-horizontal">
           <Button icon="info" v-model="about" />
           <input
@@ -36,9 +36,7 @@
       <div class="panel scroll">
         <div id="about" class="panel card center text-center" v-if="about">
           <h1>Ævzag</h1>
-          <div class="panel-horizontal center">
-            <Button :text="quote" @click.native="nextQuote" />
-          </div>
+          <p v-show="quote">{{ quote }}</p>
           <div class="panel-horizontal center scroll-hidden">
             <router-link to="/editor/phonology">Editors</router-link>
             <span class="text-dot"></span>
@@ -80,7 +78,6 @@ export default {
       search: "",
       lects: [],
       visible: [],
-      quote: "",
     };
   },
   computed: {
@@ -96,12 +93,13 @@ export default {
     selected() {
       return this.catalogue?.map((l) => this.lects.includes(l));
     },
+    quote() {
+      return this.lects[this.lects.length - 1]?.quote;
+    },
   },
   watch: {
     catalogue: {
       handler() {
-        this.nextQuote();
-
         if (this.catalogue)
           this.lects = JSON.parse(localStorage.lects)?.map((n) =>
             this.catalogue.find((l) => l.name == n)
@@ -114,12 +112,6 @@ export default {
     localStorage.lects = JSON.stringify(this.lects.map((l) => l.name));
   },
   methods: {
-    nextQuote() {
-      let quotes = this.catalogue
-        .map((c) => c.quote)
-        .filter((q) => q && q != this.quote);
-      this.quote = quotes[Math.floor(Math.random() * quotes.length)];
-    },
     toggleLect(lect) {
       const i = this.lects.indexOf(lect);
       if (i < 0) this.lects.push(lect);
