@@ -1,13 +1,16 @@
 <template>
   <button
     class="small"
-    :class="{ [colorClass]: this.entity }"
+    :class="colorEntity"
     v-show="passed"
     @click="switchVariant"
   >
     <p :class="{ 'text-ipa': canShowIpa, 'text-faded': variant.implicit }">
       {{ canShowIpa ? variant.ipa : variant.text }}
     </p>
+    <div v-if="colorConditions" class="conditions panel-horizontal-dense">
+      <p :class="c" :key="i" v-for="(c, i) in colorConditions" />
+    </div>
   </button>
 </template>
 
@@ -38,8 +41,11 @@ export default {
     entity() {
       return this.block.entity;
     },
-    colorClass() {
-      return "colored-" + Object.keys(this.entities).indexOf(this.entity);
+    colorEntity() {
+      return this.getEntityColor(this.entity);
+    },
+    colorConditions() {
+      return this.block.conditions?.map((c) => this.getEntityColor(c.entity));
     },
     canShowIpa() {
       return this.showIpa && this.variant.ipa;
@@ -67,9 +73,6 @@ export default {
         if (this.switched) this.switched = false;
         else return;
 
-        if (vOld.text == "вянилдай") console.log("old " + vOld.tags);
-        if (vNew.text == "вянилдай") console.log("new " + vNew.tags);
-
         let ent = Object.assign({}, this.entities);
         vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
         vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
@@ -79,6 +82,9 @@ export default {
     },
   },
   methods: {
+    getEntityColor(entity) {
+      return "colored-" + Object.keys(this.entities).indexOf(entity);
+    },
     switchVariant() {
       if (!this.entity) return;
       const i = this.variants.indexOf(this.variant);
@@ -98,10 +104,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button:not([class*="colored-"]) {
+button:not([class*="colored-"]),
+button.colored--1 {
   padding: 0;
   background-color: transparent;
-  justify-items: center;
   cursor: default;
+}
+button {
+  position: relative;
+}
+.conditions {
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  * {
+    width: 4 * $border-radius;
+  }
 }
 </style>

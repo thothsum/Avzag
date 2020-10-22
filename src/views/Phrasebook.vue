@@ -9,12 +9,12 @@
         @click.native="selected = i"
       />
     </div>
-    <div class="panel blocks">
+    <div class="panel">
       <div class="panel-horizontal">
         <Button v-model="showIpa" icon="music_note" text="IPA" />
       </div>
       <div class="panel wrap card">
-        <div class="panel-horizontal-dense wrap">
+        <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
             v-model="entities"
             :block="b"
@@ -24,7 +24,7 @@
         </div>
         <div class="panel-horizontal-sparse wrap">
           <div
-            class="panel-horizontal-dense text-caption text-faded"
+            class="panel-horizontal-dense text-caption text-faded blocks"
             :key="e"
             v-for="(t, e, i) of entities"
           >
@@ -41,7 +41,7 @@
       >
         <h2>{{ lects[i].name }}</h2>
         <p class="text-dot"></p>
-        <div class="panel-horizontal-dense wrap flex">
+        <div class="panel-horizontal-dense wrap flex blocks">
           <PhraseBlock
             v-model="entities"
             :showIpa="showIpa"
@@ -99,7 +99,10 @@ export default {
 </script>
 
 <style lang="scss">
-$colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
+$colors: #aed581, #e57373, #64b5f6, #ffb74d #9575cd, #a1887f;
+.colored--1 {
+  border-bottom: $border-width solid transparent;
+}
 @for $i from 0 through 4 {
   .colored-#{$i} {
     border-bottom: $border-width solid nth($colors, $i + 1);
@@ -112,11 +115,7 @@ $colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
   display: grid;
   grid-template-columns: 256px 1fr;
 }
-.blocks .card * {
-  line-height: 175%;
-  align-items: flex-start;
-}
 .text-caption * {
-  line-height: 175%;
+  line-height: 125% !important;
 }
 </style>

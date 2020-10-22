@@ -30,16 +30,28 @@
                 ]
             },
             {
-
-                "entity": "tense",
+                "conditions": [
+                    {
+                        "entity": "tense",
+                        "tags": "present"
+                    }
+                ],
                 "variants": [
                     {
-                        "text": "can",
-                        "tags": "present"
-                    },
+                        "text": "can"
+                    }
+                ]
+            },
+            {
+                "conditions": [
                     {
-                        "text": "will",
+                        "entity": "tense",
                         "tags": "future"
+                    }
+                ],
+                "variants": [
+                    {
+                        "text": "will"
                     }
                 ]
             },
@@ -106,16 +118,28 @@
                 ]
             },
             {
-                "locked": true,
-                "entity": "object",
+                "conditions": [
+                    {
+                        "entity": "object",
+                        "tags": "singular"
+                    }
+                ],
                 "variants": [
                     {
-                        "text": "does",
-                        "tags": "singular"
-                    },
+                        "text": "does"
+                    }
+                ]
+            },
+            {
+                "conditions": [
                     {
-                        "text": "do",
+                        "entity": "object",
                         "tags": "plural"
+                    }
+                ],
+                "variants": [
+                    {
+                        "text": "do"
                     }
                 ]
             },
