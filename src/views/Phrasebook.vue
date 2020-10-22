@@ -92,6 +92,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 $colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
 @for $i from 0 through 4 {
@@ -100,6 +101,7 @@ $colors: #ffb74d, #e57373, #64b5f6, #aed581, #9575cd, #a1887f;
   }
 }
 </style>
+
 <style lang="scss" scoped>
 .section {
   display: grid;
