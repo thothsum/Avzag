@@ -22,8 +22,8 @@ export default {
   },
   data() {
     return {
-      index: 0,
       switched: false,
+      variant: undefined,
     };
   },
   computed: {
@@ -35,9 +35,6 @@ export default {
     },
     variants() {
       return this.block.variants;
-    },
-    variant() {
-      return this.variants[this.index];
     },
     dynamic() {
       return !this.block.locked && this.variants.length > 1;
@@ -64,30 +61,40 @@ export default {
       },
       immediate: true,
     },
-    variant(vNew, vOld) {
-      if (!this.entity) return;
-      if (this.switched) this.switched = false;
-      else return;
+    variant: {
+      handler(vNew, vOld) {
+        if (vNew && !vOld && this.passed) {
+          let ent = Object.assign({}, this.entities);
+          vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
+          this.$emit("update", ent);
+          return;
+        }
+        if (!this.entity) return;
+        if (this.switched) this.switched = false;
+        else return;
 
-      let ent = Object.assign({}, this.entities);
-      vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
-      vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
-      this.$emit("update", ent);
+        if (vOld.text == "вянилдай") console.log("old " + vOld.tags);
+        if (vNew.text == "вянилдай") console.log("new " + vNew.tags);
+
+        let ent = Object.assign({}, this.entities);
+        vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
+        vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
+        this.$emit("update", ent);
+      },
+      immediate: true,
     },
   },
   methods: {
     switchVariant() {
       if (!this.dynamic) return;
+      const i = this.variants.indexOf(this.variant);
+      this.variant = this.variants[(i + 1) % this.variants.length];
       this.switched = true;
-      this.index = (this.index + 1) % this.variants.length;
     },
     findVariant() {
-      this.index = this.entity
-        ? Math.max(
-            this.variants.findIndex((v) => this.hasTags(v.tags, this.entity)),
-            0
-          )
-        : 0;
+      this.variant =
+        this.variants.find((v) => this.hasTags(v.tags, this.entity)) ??
+        this.variants[0];
     },
     hasTags(tags, entity) {
       return tags?.split(" ").every((t) => this.entities[entity].has(t));
