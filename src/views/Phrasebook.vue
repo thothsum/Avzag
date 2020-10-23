@@ -106,18 +106,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-$colors: #aed581, #e57373, #64b5f6, #ffb74d #9575cd, #a1887f;
-.colored--1 {
-  border-bottom: $border-width solid transparent;
-}
-@for $i from 0 through 4 {
-  .colored-#{$i} {
-    border-bottom: $border-width solid nth($colors, $i + 1);
-  }
-}
-</style>
-
 <style lang="scss" scoped>
 .section {
   display: grid;

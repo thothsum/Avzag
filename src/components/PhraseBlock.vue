@@ -1,25 +1,28 @@
 <template>
   <button
     class="small"
-    :class="colorEntity"
+    :disabled="locked"
     v-show="passed"
     @click="switchVariant"
   >
+    <template v-if="interactive">
+      <IndexedColor :indexes="indexEntity" />
+      <IndexedColor :indexes="indexConditions" />
+    </template>
     <p :class="{ 'text-ipa': canShowIpa, 'text-faded': variant.implicit }">
       {{ display }}
     </p>
-    <div
-      v-if="interactive && colorConditions"
-      class="conditions panel-horizontal-dense"
-    >
-      <p :class="c" :key="i" v-for="(c, i) in colorConditions" />
-    </div>
   </button>
 </template>
 
 <script>
+import IndexedColor from "./IndexedColor";
+
 export default {
   name: "PhraseBlock",
+  components: {
+    IndexedColor,
+  },
   props: ["entities", "block", "interactive", "phonemic"],
   data() {
     return {
@@ -43,11 +46,11 @@ export default {
     entity() {
       return this.block.entity;
     },
-    colorEntity() {
-      return this.getEntityColor(this.locked ? "" : this.entity);
+    indexEntity() {
+      return this.getEntityIndex(this.locked ? "" : this.entity);
     },
-    colorConditions() {
-      return this.block.conditions?.map((c) => this.getEntityColor(c.entity));
+    indexConditions() {
+      return this.block.conditions?.map((c) => this.getEntityIndex(c.entity));
     },
     canShowIpa() {
       return this.phonemic && this.variant.ipa;
@@ -87,11 +90,11 @@ export default {
     },
   },
   methods: {
-    getEntityColor(entity) {
-      return "colored-" + Object.keys(this.entities).indexOf(entity);
+    getEntityIndex(entity) {
+      const i = Object.keys(this.entities).indexOf(entity);
+      return i >= 0 ? i : null;
     },
     switchVariant() {
-      if (this.locked) return;
       const i = this.variants.indexOf(this.variant);
       this.variant = this.variants[(i + 1) % this.variants.length];
       this.switched = true;
@@ -120,26 +123,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.colored--1 {
-  padding: 0;
-  background-color: transparent;
-  cursor: default;
-  &:hover,
-  &:active {
-    background-color: transparent;
-  }
-}
 button {
   position: relative;
 }
-.conditions {
-  width: 100%;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  * {
-    width: 4 * $border-radius;
+:disabled {
+  padding: 0;
+  background-color: transparent;
+  cursor: default;
+  p:not(.text-faded) {
+    color: var(--color-text);
+  }
+  &:hover,
+  &:active {
+    background-color: transparent;
   }
 }
 </style>
