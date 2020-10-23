@@ -17,7 +17,8 @@ select {
   min-height: map-get($button-height, "normal");
   padding: 0 map-get($margins, "normal");
 
-  &.small {
+  &.small,
+  .small & {
     min-height: map-get($button-height, "small");
   }
   &:not(:disabled):hover {

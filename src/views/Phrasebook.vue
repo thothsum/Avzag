@@ -1,14 +1,11 @@
 <template>
   <div class="section panel">
-    <div class="panel-solid">
-      <Button
-        :key="i"
-        v-for="(p, i) in phrasebook"
-        :text="p.preview"
-        :class="{ highlight: selected == i }"
-        @click.native="selected = i"
-      />
-    </div>
+    <List
+      :value.sync="selected"
+      :items="phrasebook"
+      indexed="true"
+      display="preview"
+    />
     <div class="panel" v-if="phrase">
       <div class="panel-horizontal">
         <Button v-model="interactive" icon="tune" text="Interactive" />
@@ -51,15 +48,17 @@
 
 <script>
 import Button from "@/components/Button";
+import List from "@/components/List";
 import PhraseBlock from "@/components/PhraseBlock";
 import PhraseItem from "@/components/PhraseItem";
 
 export default {
   name: "Phrasebook",
   components: {
+    Button,
+    List,
     PhraseBlock,
     PhraseItem,
-    Button,
   },
   data() {
     return {
