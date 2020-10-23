@@ -175,5 +175,84 @@
                 }
             ]
         }
+    ],
+    [
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "Сыт"
+                }
+            ]
+        },
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "Мыбы",
+                    "tags": "object"
+                },
+                {
+                    "text": "уи",
+                    "tags": "person second"
+                },
+                {
+                    "text": "абы",
+                    "tags": "person third"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person third"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "и"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "цӏэр",
+                    "ipa": "t͡sar"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "object"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "дау зэреджэр"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "?"
+                }
+            ]
+        }
     ]
 ]

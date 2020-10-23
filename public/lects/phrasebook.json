@@ -174,7 +174,7 @@
         "state": [
             {
                 "entity": "object",
-                "tags": "it"
+                "tags": "object"
             }
         ],
         "blocks": [
@@ -194,15 +194,15 @@
                     },
                     {
                         "text": "your",
-                        "tags": "person"
+                        "tags": "second person"
                     },
                     {
                         "text": "his",
-                        "tags": "masculine person"
+                        "tags": "masculine third person"
                     },
                     {
                         "text": "her",
-                        "tags": "feminine person"
+                        "tags": "feminine third person"
                     }
                 ]
             },
