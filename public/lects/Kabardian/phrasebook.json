@@ -149,5 +149,38 @@
                 }
             ]
         }
+    ],
+    [
+        {
+            "variants": [
+                {
+                    "text": "Дапщэ"
+                }
+            ]
+        },
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "Мыбы",
+                    "tags": "it"
+                },
+                {
+                    "text": "Билетым",
+                    "tags": "singular ticket"
+                },
+                {
+                    "text": "Мыӏэрысэхэм",
+                    "tags": "plural apple"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "дапщэ и уэсэр?"
+                }
+            ]
+        }
     ]
 ]

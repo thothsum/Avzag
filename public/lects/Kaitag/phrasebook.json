@@ -88,5 +88,38 @@
                 }
             ]
         }
+    ],
+    [
+        {
+            "variants": [
+                {
+                    "text": "Гьуналжия"
+                }
+            ]
+        },
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "гьеж",
+                    "tags": "it"
+                },
+                {
+                    "text": "къагъар",
+                    "tags": "singular ticket"
+                },
+                {
+                    "text": "гьинцбе",
+                    "tags": "plural apple"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "."
+                }
+            ]
+        }
     ]
 ]
