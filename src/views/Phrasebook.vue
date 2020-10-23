@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       selected: 0,
-      entities: {},
+      entities: undefined,
       interactive: false,
       phonemic: false,
     };

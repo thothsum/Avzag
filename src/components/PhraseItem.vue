@@ -30,7 +30,9 @@ export default {
   },
   props: ["lect", "entities", "blocks", "interactive", "phonemic"],
   data() {
-    return { entities_: undefined };
+    return {
+      entities_: undefined,
+    };
   },
   computed: {
     text() {
@@ -41,11 +43,8 @@ export default {
     },
   },
   watch: {
-    entities: {
-      handler() {
-        this.entities_ = this.entities;
-      },
-      immediate: true,
+    entities() {
+      this.entities_ = this.entities;
     },
     entities_() {
       this.$emit("update:entities", this.entities_);

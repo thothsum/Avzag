@@ -9,7 +9,7 @@
       <IndexedColor :indexes="indexEntity" />
       <IndexedColor :indexes="indexConditions" />
     </template>
-    <p :class="{ 'text-ipa': canShowIpa, 'text-faded': variant.implicit }">
+    <p :class="{ 'text-ipa': canShowIpa, 'text-faded': implicit }">
       {{ display }}
     </p>
   </button>
@@ -41,10 +41,13 @@ export default {
       return !(this.interactive && this.entity);
     },
     variants() {
-      return this.block.variants;
+      return this.block?.variants;
     },
     entity() {
-      return this.block.entity;
+      return this.block?.entity;
+    },
+    implicit() {
+      return this.block?.implicit;
     },
     indexEntity() {
       return this.getEntityIndex(this.locked ? "" : this.entity);
@@ -53,40 +56,33 @@ export default {
       return this.block.conditions?.map((c) => this.getEntityIndex(c.entity));
     },
     canShowIpa() {
-      return this.phonemic && this.variant.ipa;
+      return this.phonemic && this.variant?.ipa;
     },
     display() {
-      return this.canShowIpa ? this.variant.ipa : this.variant.text;
+      return this.canShowIpa ? this.variant?.ipa : this.variant?.text;
     },
   },
   watch: {
     passed() {
       if (this.passed) this.findVariant();
     },
-    entities: {
-      handler() {
-        this.findVariant();
-      },
-      immediate: true,
+    entities() {
+      this.findVariant();
     },
-    variant: {
-      handler(vNew, vOld) {
-        if (this.locked) return;
-        if (vNew && !vOld && this.passed) {
-          let ent = Object.assign({}, this.entities);
-          vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
-          this.$emit("update:entities", ent);
-          return;
-        }
-        if (this.switched) this.switched = false;
-        else return;
-
+    variant(vNew, vOld) {
+      if (vNew && !vOld && this.passed) {
         let ent = Object.assign({}, this.entities);
-        vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
         vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
         this.$emit("update:entities", ent);
-      },
-      immediate: true,
+        return;
+      }
+      if (this.switched) this.switched = false;
+      else return;
+
+      let ent = Object.assign({}, this.entities);
+      vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
+      vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
+      this.$emit("update:entities", ent);
     },
   },
   methods: {
@@ -100,6 +96,7 @@ export default {
       this.switched = true;
     },
     findVariant() {
+      if (!this.variants) return;
       let bestV = this.variants[0];
       let bestL = 0;
       this.variants.forEach((v) => {
@@ -112,7 +109,7 @@ export default {
       this.variant = bestV;
     },
     hasTags(tags, entity) {
-      if (!tags) return [false, 0];
+      if (!(tags && this.entities)) return [false, 0];
       tags = tags.split(" ");
       const len = tags.length;
       const fit = tags.filter((t) => this.entities[entity].has(t)).length;
