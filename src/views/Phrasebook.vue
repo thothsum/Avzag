@@ -17,7 +17,7 @@
       <div class="panel wrap card">
         <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
-            v-model="entities"
+            :entities.sync="entities"
             :interactive="interactive"
             :block="b"
             :key="i"
@@ -36,36 +36,29 @@
           </div>
         </div>
       </div>
-      <div
-        class="panel-horizontal card"
-        :key="i"
+      <PhraseItem
+        :entities.sync="entities"
+        :lect="lects[i].name"
+        :blocks="t"
+        :interactive="interactive"
+        :phonemic="phonemic"
+        :key="lects[i].name"
         v-for="(t, i) in translations"
-      >
-        <h2>{{ lects[i].name }}</h2>
-        <p class="text-dot"></p>
-        <div class="panel-horizontal-dense wrap flex blocks">
-          <PhraseBlock
-            v-model="entities"
-            :interactive="interactive"
-            :phonemic="phonemic"
-            :block="b"
-            :key="j"
-            v-for="(b, j) in t"
-          />
-        </div>
-      </div>
+      />
     </div>
   </div>
 </template>
 
 <script>
-import PhraseBlock from "@/components/PhraseBlock";
 import Button from "@/components/Button";
+import PhraseBlock from "@/components/PhraseBlock";
+import PhraseItem from "@/components/PhraseItem";
 
 export default {
   name: "Phrasebook",
   components: {
     PhraseBlock,
+    PhraseItem,
     Button,
   },
   data() {

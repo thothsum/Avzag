@@ -6,7 +6,7 @@
     @click="switchVariant"
   >
     <p :class="{ 'text-ipa': canShowIpa, 'text-faded': variant.implicit }">
-      {{ canShowIpa ? variant.ipa : variant.text }}
+      {{ display }}
     </p>
     <div
       v-if="interactive && colorConditions"
@@ -21,10 +21,6 @@
 export default {
   name: "PhraseBlock",
   props: ["entities", "block", "interactive", "phonemic"],
-  model: {
-    prop: "entities",
-    event: "update",
-  },
   data() {
     return {
       switched: false,
@@ -56,6 +52,9 @@ export default {
     canShowIpa() {
       return this.phonemic && this.variant.ipa;
     },
+    display() {
+      return this.canShowIpa ? this.variant.ipa : this.variant.text;
+    },
   },
   watch: {
     passed() {
@@ -73,7 +72,7 @@ export default {
         if (vNew && !vOld && this.passed) {
           let ent = Object.assign({}, this.entities);
           vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
-          this.$emit("update", ent);
+          this.$emit("update:entities", ent);
           return;
         }
         if (this.switched) this.switched = false;
@@ -82,7 +81,7 @@ export default {
         let ent = Object.assign({}, this.entities);
         vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
         vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
-        this.$emit("update", ent);
+        this.$emit("update:entities", ent);
       },
       immediate: true,
     },
