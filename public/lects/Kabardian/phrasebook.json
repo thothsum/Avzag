@@ -152,18 +152,11 @@
     ],
     [
         {
-            "variants": [
-                {
-                    "text": "Дапщэ"
-                }
-            ]
-        },
-        {
             "entity": "object",
             "variants": [
                 {
                     "text": "Мыбы",
-                    "tags": "it"
+                    "tags": "singular"
                 },
                 {
                     "text": "Билетым",

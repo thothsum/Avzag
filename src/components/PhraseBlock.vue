@@ -35,7 +35,7 @@ export default {
     passed() {
       return (
         !this.block.conditions ||
-        this.block.conditions.every((c) => this.hasTags(c.tags, c.entity))
+        this.block.conditions.every((c) => this.hasTags(c.tags, c.entity)[0])
       );
     },
     locked() {
@@ -98,12 +98,23 @@ export default {
       this.switched = true;
     },
     findVariant() {
-      this.variant =
-        this.variants.find((v) => this.hasTags(v.tags, this.entity)) ??
-        this.variants[0];
+      let bestV = this.variants[0];
+      let bestL = 0;
+      this.variants.forEach((v) => {
+        const [p, l] = this.hasTags(v.tags, this.entity);
+        if (p && l > bestL) {
+          bestV = v;
+          bestL = l;
+        }
+      });
+      this.variant = bestV;
     },
     hasTags(tags, entity) {
-      return tags?.split(" ").every((t) => this.entities[entity].has(t));
+      if (!tags) return [false, 0];
+      tags = tags.split(" ");
+      const len = tags.length;
+      const fit = tags.filter((t) => this.entities[entity].has(t)).length;
+      return [fit / len == 1, len];
     },
   },
 };

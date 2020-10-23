@@ -26,7 +26,7 @@
                 },
                 {
                     "text": "нисса",
-                    "ipa": "nissa",
+                    "ipa": "nissɑ",
                     "tags": "plural",
                     "implicit": true
                 }
@@ -93,7 +93,8 @@
         {
             "variants": [
                 {
-                    "text": "Гьуналжия"
+                    "text": "Гьуналжия",
+                    "ipa": "hunɑlʒijɑ"
                 }
             ]
         },
@@ -102,14 +103,17 @@
             "variants": [
                 {
                     "text": "гьеж",
-                    "tags": "it"
+                    "ipa": "heʒ",
+                    "tags": "singular"
                 },
                 {
                     "text": "къагъар",
+                    "ipa": "qɑʁɑr",
                     "tags": "singular ticket"
                 },
                 {
                     "text": "гьинцбе",
+                    "ipa": "hint͡sbe",
                     "tags": "plural apple"
                 }
             ]
