@@ -1,9 +1,12 @@
 <template>
-  <div class="panel-horizontal card">
-    <Button class="small" @click.native="copy" icon="copy" />
-    <h2>{{ lect }}</h2>
-    <p class="text-dot"></p>
-    <div class="panel-horizontal-dense wrap flex blocks">
+  <div class="panel-horizontal-solid card">
+    <div class="panel-horizontal">
+      <Button class="small" @click.native="copy" icon="copy" />
+      <h2>{{ lect }}</h2>
+      <p class="text-dot"></p>
+      <p class="text-dot"></p>
+    </div>
+    <div class="panel-horizontal-dense wrap flex">
       <PhraseBlock
         ref="blocks"
         :entities.sync="entities_"
@@ -57,3 +60,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.card {
+  align-items: flex-start;
+}
+</style>
