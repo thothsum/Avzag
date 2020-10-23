@@ -1,12 +1,12 @@
 <template>
-  <div class="section panel">
+  <div class="section panel" v-if="phrasebook">
     <List
       :value.sync="selected"
       :items="phrasebook"
       indexed="true"
       display="preview"
     />
-    <div class="panel" v-if="phrase">
+    <div class="panel">
       <div class="panel-horizontal">
         <Button v-model="interactive" icon="tune" text="Interactive" />
         <Button v-model="phonemic" icon="music_note" text="IPA" />
@@ -21,14 +21,13 @@
             v-for="(b, i) in phrase.blocks"
           />
         </div>
-        <div class="panel-horizontal-sparse wrap" v-show="interactive">
+        <div class="panel-horizontal-dense wrap" v-show="interactive">
           <div
-            class="panel-horizontal-dense text-caption text-faded entity"
+            class="panel-horizontal-dense text-caption text-faded entities wrap text-dot"
             :key="e"
             v-for="(t, e, i) of entities"
           >
-            <h2 :class="'colored-' + i">{{ e }}</h2>
-            <p class="text-dot"></p>
+            <h2>{{ e }}<IndexedColor :indexes="i" /></h2>
             <p :key="tg" v-for="tg in t">{{ tg }}</p>
           </div>
         </div>
@@ -49,6 +48,7 @@
 <script>
 import Button from "@/components/Button";
 import List from "@/components/List";
+import IndexedColor from "@/components/IndexedColor";
 import PhraseBlock from "@/components/PhraseBlock";
 import PhraseItem from "@/components/PhraseItem";
 
@@ -57,6 +57,7 @@ export default {
   components: {
     Button,
     List,
+    IndexedColor,
     PhraseBlock,
     PhraseItem,
   },
@@ -111,10 +112,8 @@ export default {
   display: grid;
   grid-template-columns: 256px 1fr;
 }
-.entity {
-  align-items: flex-start;
-}
-.text-caption * {
-  line-height: 125% !important;
+.entities > * {
+  position: relative;
+  line-height: 150%;
 }
 </style>
