@@ -5,7 +5,7 @@
       v-for="(v, i) in values"
       :text="text[i]"
       :class="{ highlight: value == v }"
-      @click.native="$emit('update:value', v)"
+      @click.native="select(v)"
     />
   </div>
 </template>
@@ -25,6 +25,19 @@ export default {
     },
     values() {
       return this.indexed ? this.items.map((_, i) => i) : this.items;
+    },
+  },
+  watch: {
+    items: {
+      handler() {
+        if (this.items) this.select(this.values[0]);
+      },
+      immediate: true,
+    },
+  },
+  methods: {
+    select(v) {
+      this.$emit("update:value", v);
     },
   },
 };

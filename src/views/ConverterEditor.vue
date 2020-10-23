@@ -41,15 +41,7 @@
           <h2 class="flex">Mappings</h2>
           <Button @click.native="addMapping" icon="add" />
         </div>
-        <div class="panel-solid">
-          <Button
-            :key="i"
-            v-for="(m, i) in mappings"
-            @click.native="mapping = m"
-            :text="i + ' - ' + m.name"
-            :class="{ highlight: m == mapping }"
-          />
-        </div>
+        <List :value.sync="mapping" :items="mappings" display="name" />
       </div>
       <div class="panel" v-if="mapping">
         <h2>Mapping name</h2>
@@ -91,11 +83,13 @@
 
 <script>
 import Button from "@/components/Button";
+import List from "@/components/List";
 
 export default {
   name: "ConverterEditor",
   components: {
     Button,
+    List,
   },
   data() {
     return {
