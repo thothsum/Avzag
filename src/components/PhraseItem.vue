@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense card">
+  <div class="panel-horizontal-dense card" v-if="blocks">
     <div class="panel-horizontal-dense text-dot">
       <Button class="small" @click.native="copy" icon="copy" />
       <h2>{{ lect }}</h2>

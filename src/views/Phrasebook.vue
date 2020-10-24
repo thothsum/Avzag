@@ -38,7 +38,7 @@
         :blocks="t"
         :interactive="interactive"
         :phonemic="phonemic"
-        :key="lects[i].name"
+        :key="i"
         v-for="(t, i) in translations"
       />
     </div>
@@ -80,7 +80,9 @@ export default {
       return this.phrasebook ? this.phrasebook[this.selected] : undefined;
     },
     translations() {
-      return this.lects.map((l) => l?.phrasebook[this.selected]);
+      return this.lects.map((l) =>
+        l.phrasebook ? l.phrasebook[this.selected] : undefined
+      );
     },
   },
   watch: {
