@@ -69,12 +69,14 @@ export default {
       if (this.passed) this.findVariant();
     },
     entities() {
+      if (!this.entities) return;
+      this.switched = true;
       this.findVariant();
     },
     variant(vNew, vOld) {
       if (vNew && !vOld && this.passed) {
         let ent = Object.assign({}, this.entities);
-        vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
+        vNew?.tags?.split(" ").forEach((t) => ent[this.entity]?.add(t));
         this.$emit("update:entities", ent);
         return;
       }
@@ -82,8 +84,8 @@ export default {
       else return;
 
       let ent = Object.assign({}, this.entities);
-      vOld?.tags?.split(" ").forEach((t) => ent[this.entity].delete(t));
-      vNew?.tags?.split(" ").forEach((t) => ent[this.entity].add(t));
+      vOld?.tags?.split(" ").forEach((t) => ent[this.entity]?.delete(t));
+      vNew?.tags?.split(" ").forEach((t) => ent[this.entity]?.add(t));
       this.$emit("update:entities", ent);
     },
   },
