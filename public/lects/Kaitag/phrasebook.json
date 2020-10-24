@@ -112,8 +112,8 @@
                     "tags": "singular ticket"
                 },
                 {
-                    "text": "гьинцбе",
-                    "ipa": "hint͡sbe",
+                    "text": "гьинце",
+                    "ipa": "hint͡se",
                     "tags": "plural apple"
                 }
             ]
@@ -122,6 +122,58 @@
             "variants": [
                 {
                     "text": "."
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "Гьежей",
+                    "tags": "object"
+                },
+                {
+                    "text": "Этти",
+                    "tags": "second person"
+                },
+                {
+                    "text": "Гьетей",
+                    "tags": "third person"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "object"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "ци"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "ча"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "бикӏварай?"
                 }
             ]
         }
