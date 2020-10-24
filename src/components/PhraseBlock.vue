@@ -1,85 +1,153 @@
 <template>
-  <div v-show="passed" :class="{ 'text-faded': variant.implicit }">
-    <p v-if="locked">{{ variant.text }}</p>
-    <Select v-else :items="variants" itemKey="text" v-model="variant" />
-  </div>
+  <button
+    class="small"
+    :disabled="locked"
+    v-show="passed"
+    @click="switchVariant"
+  >
+    <template v-if="interactive">
+      <IndexedColor :indexes="indexEntity" />
+      <IndexedColor :indexes="indexConditions" />
+    </template>
+    <p :class="{ 'text-ipa': canShowIpa, 'text-faded': implicit }">
+      {{ display }}
+    </p>
+  </button>
 </template>
 
 <script>
-import Select from "./Select";
+import IndexedColor from "./IndexedColor";
 
 export default {
   name: "PhraseBlock",
   components: {
-    Select,
+    IndexedColor,
   },
-  props: ["entities", "block"],
-  model: {
-    prop: "entities",
-    event: "update",
-  },
+  props: ["entities", "block", "interactive", "phonemic"],
   data() {
     return {
+      switched: false,
       variant: undefined,
-      lastVariant: undefined,
     };
   },
   computed: {
     passed() {
       return (
         !this.block.conditions ||
-        this.block.conditions.every((c) => this.hasTags(c.entity, c.tags))
+        this.block.conditions.every(
+          (c) => this.hasTags(c.tags, c.entity)[0] == 1
+        )
       );
     },
-    variants() {
-      return this.block.variants;
-    },
     locked() {
-      return this.block.locked || this.variants.length == 1;
+      return !(this.interactive && this.entity);
+    },
+    variants() {
+      return this.block?.variants;
+    },
+    entity() {
+      return this.block?.entity;
+    },
+    implicit() {
+      return this.block?.implicit;
+    },
+    indexEntity() {
+      return this.getEntityIndex(this.locked ? "" : this.entity);
+    },
+    indexConditions() {
+      return this.block.conditions?.map((c) => this.getEntityIndex(c.entity));
+    },
+    canShowIpa() {
+      return this.phonemic && this.variant?.ipa;
+    },
+    display() {
+      return this.canShowIpa ? this.variant?.ipa : this.variant?.text;
     },
   },
   watch: {
     passed() {
       if (this.passed) this.findVariant();
     },
-    entities: {
-      handler() {
-        this.findVariant();
-      },
-      immediate: true,
+    entities() {
+      if (!this.entities) return;
+      this.switched = true;
+      this.findVariant();
     },
     variant(vNew, vOld) {
+      if (vNew && !vOld && this.passed) {
+        let ent = Object.assign({}, this.entities);
+        vNew?.tags?.split(" ").forEach((t) => ent[this.entity]?.add(t));
+        this.$emit("update:entities", ent);
+        return;
+      }
+      if (this.switched) this.switched = false;
+      else return;
+
       let ent = Object.assign({}, this.entities);
-      vOld?.tags?.split(" ").forEach((t) => ent[vOld.entity].delete(t));
-      vNew?.tags?.split(" ").forEach((t) => ent[vNew.entity].add(t));
-      this.$emit("update", ent);
+      vOld?.tags?.split(" ").forEach((t) => ent[this.entity]?.delete(t));
+      vNew?.tags?.split(" ").forEach((t) => ent[this.entity]?.add(t));
+      this.$emit("update:entities", ent);
     },
   },
   methods: {
-    findVariant() {
-      this.variant =
-        this.variants.find((v) => this.hasTags(v.entity, v.tags)) ??
-        this.variants[0];
+    getEntityIndex(entity) {
+      const i = Object.keys(this.entities).indexOf(entity);
+      return i >= 0 ? i : null;
     },
-    hasTags(entity, tags) {
-      return tags?.split(" ").every((t) => this.entities[entity].has(t));
+    switchVariant() {
+      const i = this.variants.indexOf(this.variant);
+      this.variant = this.variants[(i + 1) % this.variants.length];
+      this.switched = true;
+    },
+    findVariant() {
+      if (!this.variants) return;
+      let bestV = this.variants[0];
+      let bestS = 0;
+      let bestL = 0;
+
+      this.variants.forEach((v) => {
+        const [s, l] = this.hasTags(v.tags, this.entity);
+        if (s == 1) {
+          if (s > bestS || l > bestL) {
+            bestV = v;
+            bestS = s;
+            bestL = l;
+          }
+        } else if (bestS != 1) {
+          if (s > bestS) {
+            bestV = v;
+            bestS = s;
+            bestL = l;
+          }
+        }
+      });
+      this.variant = bestV;
+    },
+    hasTags(tags, entity) {
+      if (!(tags && this.entities)) return [false, 0];
+      tags = tags.split(" ");
+      const len = tags.length;
+      const fit = tags.filter((t) => this.entities[entity].has(t)).length;
+      return [fit / len, len];
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-* {
-  line-height: 175%;
-  text-align-last: center;
+button {
+  position: relative;
 }
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  user-select: text;
-  min-height: min-content;
-  min-width: min-content;
-  padding-left: map-get($margins, "half");
-  padding-right: map-get($margins, "half");
+:disabled {
+  padding: 0;
+  background-color: transparent;
+  cursor: default;
+  p:not(.text-faded) {
+    color: var(--color-text);
+  }
+  &:hover,
+  &:active {
+    background-color: transparent;
+  }
 }
 </style>

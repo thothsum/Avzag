@@ -1,30 +1,258 @@
-{
-    "Greeting": [
+[
+    [
         {
-            "translation": "Hello.",
-            "text": [
-                "Hello [",
+            "entity": "actor",
+            "variants": [
                 {
-                    "id": "plur",
-                    "values": [
-                        "singular",
-                        "plural"
-                    ]
+                    "text": "Сэ",
+                    "tags": "singular",
+                    "implicit": true
                 },
-                "]."
+                {
+                    "text": "Дэ",
+                    "tags": "plural",
+                    "implicit": true
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "present"
+                }
             ],
-            "source": [
-                "Дауэ ",
+            "entity": "destination",
+            "variants": [
                 {
-                    "id": "plur",
-                    "align": "right",
-                    "values": [
-                        "ущыт",
-                        "фыщыт"
-                    ]
+                    "text": "абыкӏэ",
+                    "tags": "there"
                 },
-                "."
+                {
+                    "text": "тыкуэным",
+                    "tags": "shop"
+                },
+                {
+                    "text": "унэм",
+                    "tags": "home"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "future"
+                }
+            ],
+            "entity": "destination",
+            "variants": [
+                {
+                    "text": "абы",
+                    "tags": "there"
+                },
+                {
+                    "text": "тыкуэным",
+                    "tags": "shop"
+                },
+                {
+                    "text": "унэм",
+                    "tags": "home"
+                }
+            ]
+        },
+        {
+            "entity": "tense",
+            "variants": [
+                {
+                    "text": "дау",
+                    "tags": "present"
+                },
+                {
+                    "text": "дэпщэщ",
+                    "tags": "future"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "present"
+                },
+                {
+                    "entity": "actor",
+                    "tags": "singular"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "сызэрыкӏуэныр"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "present"
+                },
+                {
+                    "entity": "actor",
+                    "tags": "plural"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "дызэрыкӏуэныр"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "future"
+                },
+                {
+                    "entity": "actor",
+                    "tags": "singular"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "сыщыкӏуэныр"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "tense",
+                    "tags": "future"
+                },
+                {
+                    "entity": "actor",
+                    "tags": "plural"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "дыщыкӏуэныр"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "?"
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "Мыбы",
+                    "tags": "singular"
+                },
+                {
+                    "text": "Билетым",
+                    "tags": "singular ticket"
+                },
+                {
+                    "text": "Мыӏэрысэхэм",
+                    "tags": "plural apple"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "дапщэ и уэсэр?"
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "Сыт"
+                }
+            ]
+        },
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "Мыбы",
+                    "tags": "object"
+                },
+                {
+                    "text": "уи",
+                    "tags": "person second"
+                },
+                {
+                    "text": "абы",
+                    "tags": "person third"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person third"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "и"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "цӏэр",
+                    "ipa": "t͡sar"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "object"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "дау зэреджэр"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "?"
+                }
             ]
         }
     ]
-}
+]

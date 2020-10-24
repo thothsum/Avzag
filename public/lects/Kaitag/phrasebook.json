@@ -1,0 +1,181 @@
+[
+    [
+        {
+            "entity": "tense",
+            "variants": [
+                {
+                    "text": "Цигле",
+                    "ipa": "t͡sigle",
+                    "tags": "present"
+                },
+                {
+                    "text": "Цикъкъел",
+                    "ipa": "t͡siqːel",
+                    "tags": "future"
+                }
+            ]
+        },
+        {
+            "entity": "actor",
+            "variants": [
+                {
+                    "text": "ду",
+                    "ipa": "du",
+                    "tags": "singular",
+                    "implicit": true
+                },
+                {
+                    "text": "нисса",
+                    "ipa": "nissɑ",
+                    "tags": "plural",
+                    "implicit": true
+                }
+            ]
+        },
+        {
+            "entity": "destination",
+            "variants": [
+                {
+                    "text": "гьетин",
+                    "tags": "there"
+                },
+                {
+                    "text": "хъили",
+                    "tags": "home"
+                },
+                {
+                    "text": "тукенцци",
+                    "tags": "shop"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "actor",
+                    "tags": "singular"
+                }
+            ],
+            "entity": "actor",
+            "variants": [
+                {
+                    "text": "вянилдай",
+                    "tags": "singular masculine"
+                },
+                {
+                    "text": "рянилдай",
+                    "tags": "singular feminine"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "actor",
+                    "tags": "plural"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "данилдай"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "?"
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "variants": [
+                {
+                    "text": "Гьуналжия",
+                    "ipa": "hunɑlʒijɑ"
+                }
+            ]
+        },
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "гьеж",
+                    "ipa": "heʒ",
+                    "tags": "singular"
+                },
+                {
+                    "text": "къагъар",
+                    "ipa": "qɑʁɑr",
+                    "tags": "singular ticket"
+                },
+                {
+                    "text": "гьинце",
+                    "ipa": "hint͡se",
+                    "tags": "plural apple"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "."
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "Гьежей",
+                    "tags": "object"
+                },
+                {
+                    "text": "Этти",
+                    "tags": "second person"
+                },
+                {
+                    "text": "Гьетей",
+                    "tags": "third person"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "object"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "ци"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
+                    "tags": "person"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "ча"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "бикӏварай?"
+                }
+            ]
+        }
+    ]
+]
