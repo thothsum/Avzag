@@ -2,6 +2,7 @@
   <div class="section panel-sparse scroll">
     <div class="panel-horizontal-dense wrap">
       <router-link to="/home">Home</router-link>
+      <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
       <router-link to="/editor/converter">Converter</router-link>
       <Button @click.native="loadFromLect" text="load from lect" />
