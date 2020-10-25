@@ -96,7 +96,7 @@ export default {
       handler() {
         this.entities =
           this.phrase?.state.reduce((acc, s) => {
-            acc[s.entity] = new Set(s.tags.split(" "));
+            acc[s.entity] = new Set();
             return acc;
           }, {}) ?? {};
       },
