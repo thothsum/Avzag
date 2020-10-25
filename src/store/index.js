@@ -67,6 +67,9 @@ export default new Vuex.Store({
           phonemes[ph]["lects"][l.name] = p;
         });
       });
+
+      phonemes = Object.values(phonemes)
+      phonemes.sort((a, b) => (a.ipa > b.ipa) ? 1 : ((b.ipa > a.ipa) ? -1 : 0));
       commit("setState", ["phonemes", Object.values(phonemes)]);
     },
     async loadJson(_, file) {
