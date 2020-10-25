@@ -177,11 +177,13 @@
             "variants": [
                 {
                     "text": "ил",
-                    "tags": "singular"
+                    "tags": "singular",
+                    "implicit": true
                 },
                 {
                     "text": "нишшали",
-                    "tags": "plural"
+                    "tags": "plural",
+                    "implicit": true
                 }
             ]
         },

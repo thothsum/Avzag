@@ -2,7 +2,7 @@
   <button
     class="small"
     :disabled="locked"
-    v-show="passed"
+    v-show="visible"
     @click="switchVariant"
   >
     <template v-if="interactive">
@@ -31,6 +31,9 @@ export default {
     };
   },
   computed: {
+    visible() {
+      return this.passed && (this.interactive || !this.implicit);
+    },
     passed() {
       return (
         !this.block.conditions ||
@@ -49,7 +52,7 @@ export default {
       return this.block?.entity;
     },
     implicit() {
-      return this.block?.implicit;
+      return this.variant?.implicit;
     },
     indexEntity() {
       return this.getEntityIndex(this.locked ? "" : this.entity);
