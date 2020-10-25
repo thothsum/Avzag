@@ -59,11 +59,11 @@
             "entity": "actor",
             "variants": [
                 {
-                    "text": "вянилдай",
+                    "text": "вянилдай?",
                     "tags": "singular masculine"
                 },
                 {
-                    "text": "рянилдай",
+                    "text": "рянилдай?",
                     "tags": "singular feminine"
                 }
             ]
@@ -77,14 +77,7 @@
             ],
             "variants": [
                 {
-                    "text": "данилдай"
-                }
-            ]
-        },
-        {
-            "variants": [
-                {
-                    "text": "?"
+                    "text": "данилдай?"
                 }
             ]
         }
@@ -102,26 +95,19 @@
             "entity": "object",
             "variants": [
                 {
-                    "text": "гьеж",
+                    "text": "гьеж?",
                     "ipa": "heʒ",
                     "tags": "singular"
                 },
                 {
-                    "text": "къагъар",
+                    "text": "къагъар?",
                     "ipa": "qɑʁɑr",
                     "tags": "singular ticket"
                 },
                 {
-                    "text": "гьинце",
+                    "text": "гьинце?",
                     "ipa": "hint͡se",
                     "tags": "plural apple"
-                }
-            ]
-        },
-        {
-            "variants": [
-                {
-                    "text": "."
                 }
             ]
         }
@@ -228,7 +214,7 @@
             ],
             "variants": [
                 {
-                    "text": "икьалабаривде"
+                    "text": "икьалабаривде."
                 }
             ]
         },
@@ -241,14 +227,7 @@
             ],
             "variants": [
                 {
-                    "text": "икьаладаривдe"
-                }
-            ]
-        },
-        {
-            "variants": [
-                {
-                    "text": "."
+                    "text": "икьаладаривдe."
                 }
             ]
         }

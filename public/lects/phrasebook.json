@@ -4,15 +4,15 @@
         "state": [
             {
                 "entity": "tense",
-                "tags": "present"
+                "tags": "present future"
             },
             {
                 "entity": "actor",
-                "tags": "singular"
+                "tags": "singular plural"
             },
             {
                 "entity": "destination",
-                "tags": "there"
+                "tags": "there home shop"
             }
         ],
         "blocks": [
@@ -79,23 +79,16 @@
                 "entity": "destination",
                 "variants": [
                     {
-                        "text": "there",
+                        "text": "there?",
                         "tags": "there"
                     },
                     {
-                        "text": "home",
+                        "text": "home?",
                         "tags": "home"
                     },
                     {
-                        "text": "to the shop",
+                        "text": "to the shop?",
                         "tags": "shop"
-                    }
-                ]
-            },
-            {
-                "variants": [
-                    {
-                        "text": "?"
                     }
                 ]
             }
@@ -106,7 +99,7 @@
         "state": [
             {
                 "entity": "object",
-                "tags": "singular"
+                "tags": "singular plural ticket apple"
             }
         ],
         "blocks": [
@@ -174,7 +167,7 @@
         "state": [
             {
                 "entity": "object",
-                "tags": "object"
+                "tags": "object person first second third masculine feminine"
             }
         ],
         "blocks": [
@@ -216,15 +209,15 @@
         ]
     },
     {
-        "preview": "Thanks",
+        "preview": "Giving thanks",
         "state": [
             {
                 "entity": "subject",
-                "tags": "singular"
+                "tags": "singular plural"
             },
             {
                 "entity": "object",
-                "tags": "singular"
+                "tags": "singular plural"
             }
         ],
         "blocks": [
