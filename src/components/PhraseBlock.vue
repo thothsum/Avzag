@@ -74,14 +74,8 @@ export default {
       this.findVariant();
     },
     variant(vNew, vOld) {
-      if (vNew && !vOld && this.passed) {
-        let ent = Object.assign({}, this.entities);
-        vNew?.tags?.split(" ").forEach((t) => ent[this.entity]?.add(t));
-        this.$emit("update:entities", ent);
-        return;
-      }
       if (this.switched) this.switched = false;
-      else return;
+      else if (!vNew || vOld || !this.passed) return;
 
       let ent = Object.assign({}, this.entities);
       vOld?.tags?.split(" ").forEach((t) => ent[this.entity]?.delete(t));
@@ -107,27 +101,19 @@ export default {
 
       this.variants.forEach((v) => {
         const [s, l] = this.hasTags(v.tags, this.entity);
-        if (s == 1) {
-          if (s > bestS || l > bestL) {
-            bestV = v;
-            bestS = s;
-            bestL = l;
-          }
-        } else if (bestS != 1) {
-          if (s > bestS) {
-            bestV = v;
-            bestS = s;
-            bestL = l;
-          }
+        if (bestS == 1 ? s == 1 && l > bestL : s > bestS) {
+          bestV = v;
+          bestS = s;
+          bestL = l;
         }
       });
       this.variant = bestV;
     },
     hasTags(tags, entity) {
-      if (!(tags && this.entities)) return [false, 0];
+      if (!(tags && this.entities)) return [0, 0];
       tags = tags.split(" ");
-      const len = tags.length;
       const fit = tags.filter((t) => this.entities[entity].has(t)).length;
+      const len = tags.length;
       return [fit / len, len];
     },
   },
