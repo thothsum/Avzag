@@ -177,5 +177,80 @@
                 }
             ]
         }
+    ],
+    [
+        {
+            "variants": [
+                {
+                    "text": "Баракала,"
+                }
+            ]
+        },
+        {
+            "entity": "subject",
+            "variants": [
+                {
+                    "text": "ил",
+                    "tags": "singular"
+                },
+                {
+                    "text": "нишшали",
+                    "tags": "plural"
+                }
+            ]
+        },
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "дами",
+                    "tags": "singular"
+                },
+                {
+                    "text": "ниссай",
+                    "tags": "plural"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "цӏакьле"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "subject",
+                    "tags": "singular"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "икьалабаривде"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "subject",
+                    "tags": "plural"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "икьаладаривдe"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "."
+                }
+            ]
+        }
     ]
 ]

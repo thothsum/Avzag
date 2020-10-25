@@ -110,7 +110,9 @@ export default {
       this.variant = bestV;
     },
     hasTags(tags, entity) {
-      if (!(tags && this.entities)) return [0, 0];
+      if (!this.entities) return [0, 0];
+      if (!tags) return [1, 0];
+
       tags = tags.split(" ");
       const fit = tags.filter((t) => this.entities[entity].has(t)).length;
       const len = tags.length;

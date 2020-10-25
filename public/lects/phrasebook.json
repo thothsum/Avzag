@@ -236,7 +236,11 @@
                 ]
             },
             {
-                "entity": "subject",
+                "conditions": [
+                    {
+                        "entity": "subject"
+                    }
+                ],
                 "variants": [
                     {
                         "text": "you"
