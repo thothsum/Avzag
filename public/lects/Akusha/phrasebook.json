@@ -1,34 +1,30 @@
 [
     [
         {
-            "entity": "tense",
-            "variants": [
-                {
-                    "text": "Цигле",
-                    "ipa": "t͡sigle",
-                    "tags": "present"
-                },
-                {
-                    "text": "Цикъкъел",
-                    "ipa": "t͡siqːel",
-                    "tags": "future"
-                }
-            ]
-        },
-        {
             "entity": "actor",
             "variants": [
                 {
-                    "text": "ду",
-                    "ipa": "du",
+                    "text": "Ну",
                     "tags": "singular",
                     "implicit": true
                 },
                 {
-                    "text": "нисса",
-                    "ipa": "nissɑ",
+                    "text": "Нуша",
                     "tags": "plural",
                     "implicit": true
+                }
+            ]
+        },
+        {
+            "entity": "tense",
+            "variants": [
+                {
+                    "text": "секьяйда",
+                    "tags": "present"
+                },
+                {
+                    "text": "мурт",
+                    "tags": "future"
                 }
             ]
         },
@@ -36,78 +32,75 @@
             "entity": "destination",
             "variants": [
                 {
-                    "text": "гьетин",
+                    "text": "ита",
                     "tags": "there"
                 },
                 {
-                    "text": "хъили",
+                    "text": "хъули",
                     "tags": "home"
                 },
                 {
-                    "text": "тукенцци",
+                    "text": "тукейзи",
                     "tags": "shop"
                 }
             ]
         },
         {
-            "conditions": [
-                {
-                    "entity": "actor",
-                    "tags": "singular"
-                }
-            ],
-            "entity": "actor",
             "variants": [
                 {
-                    "text": "вянилдай?",
-                    "tags": "singular masculine"
+                    "text": "аркьусира?"
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "entity": "object",
+            "variants": [
+                {
+                    "text": "Иш",
+                    "tags": "singular"
                 },
                 {
-                    "text": "рянилдай?",
-                    "tags": "singular feminine"
+                    "text": "Билет",
+                    "tags": "singular ticket"
+                },
+                {
+                    "text": "Гӏинцби",
+                    "tags": "plural apple"
+                }
+            ]
+        },
+        {
+            "variants": [
+                {
+                    "text": "сецадлис"
                 }
             ]
         },
         {
             "conditions": [
                 {
-                    "entity": "actor",
+                    "entity": "object",
+                    "tags": "singular"
+                }
+            ],
+            "variants": [
+                {
+                    "text": "саби?"
+                }
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "entity": "object",
                     "tags": "plural"
                 }
             ],
             "variants": [
                 {
-                    "text": "данилдай?"
-                }
-            ]
-        }
-    ],
-    [
-        {
-            "variants": [
-                {
-                    "text": "Гьуналжия",
-                    "ipa": "hunɑlʒijɑ"
-                }
-            ]
-        },
-        {
-            "entity": "object",
-            "variants": [
-                {
-                    "text": "гьеж?",
-                    "ipa": "heʒ",
-                    "tags": "singular"
-                },
-                {
-                    "text": "къагъар?",
-                    "ipa": "qɑʁɑr",
-                    "tags": "singular ticket"
-                },
-                {
-                    "text": "гьинце?",
-                    "ipa": "hint͡se",
-                    "tags": "plural apple"
+                    "text": "сари?"
                 }
             ]
         }
@@ -117,15 +110,15 @@
             "entity": "object",
             "variants": [
                 {
-                    "text": "Гьежей",
+                    "text": "Илис",
                     "tags": "object"
                 },
                 {
-                    "text": "Этти",
+                    "text": "Хӏед",
                     "tags": "second person"
                 },
                 {
-                    "text": "Гьетей",
+                    "text": "Итис",
                     "tags": "third person"
                 }
             ]
@@ -139,7 +132,7 @@
             ],
             "variants": [
                 {
-                    "text": "ци"
+                    "text": "се"
                 }
             ]
         },
@@ -152,14 +145,14 @@
             ],
             "variants": [
                 {
-                    "text": "ча"
+                    "text": "чи"
                 }
             ]
         },
         {
             "variants": [
                 {
-                    "text": "бикӏварай?"
+                    "text": "бикӏара?"
                 }
             ]
         }
@@ -168,7 +161,7 @@
         {
             "variants": [
                 {
-                    "text": "БаркаллАа,"
+                    "text": "Баркалла,"
                 }
             ]
         },
@@ -176,12 +169,12 @@
             "entity": "subject",
             "variants": [
                 {
-                    "text": "ил",
+                    "text": "хӏуни",
                     "tags": "singular",
                     "implicit": true
                 },
                 {
-                    "text": "нишшали",
+                    "text": "хӏушани",
                     "tags": "plural",
                     "implicit": true
                 }
@@ -191,11 +184,11 @@
             "entity": "object",
             "variants": [
                 {
-                    "text": "дами",
+                    "text": "наб",
                     "tags": "singular"
                 },
                 {
-                    "text": "ниссай",
+                    "text": "нушаб",
                     "tags": "plural"
                 }
             ]
@@ -203,7 +196,7 @@
         {
             "variants": [
                 {
-                    "text": "цӏакьле"
+                    "text": "халаси"
                 }
             ]
         },
@@ -216,7 +209,7 @@
             ],
             "variants": [
                 {
-                    "text": "икьалабаривде."
+                    "text": "кумекбарри."
                 }
             ]
         },
@@ -229,7 +222,7 @@
             ],
             "variants": [
                 {
-                    "text": "икьалабаривда."
+                    "text": "кумекбаррая."
                 }
             ]
         }
