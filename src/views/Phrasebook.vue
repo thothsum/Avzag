@@ -118,4 +118,11 @@ export default {
   position: relative;
   line-height: 150%;
 }
+
+@media only screen and (max-width: $mobile-width) {
+  .section {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+}
 </style>

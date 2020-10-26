@@ -1,6 +1,6 @@
 <template>
-  <div class="panel-horizontal-dense card" v-if="blocks">
-    <div class="panel-horizontal-dense text-dot">
+  <div class="panel-horizontal card" v-if="blocks">
+    <div class="panel-horizontal-dense">
       <Button class="small" @click.native="copy" icon="copy" />
       <h2>{{ lect }}</h2>
     </div>
@@ -61,5 +61,10 @@ export default {
 <style lang="scss" scoped>
 .card {
   align-items: flex-start;
+}
+@media only screen and (max-width: $mobile-width) {
+  .card {
+    flex-direction: column;
+  }
 }
 </style>
