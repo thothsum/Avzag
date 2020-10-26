@@ -5,13 +5,11 @@
             "variants": [
                 {
                     "text": "Ну",
-                    "tags": "singular",
-                    "implicit": true
+                    "tags": "singular"
                 },
                 {
                     "text": "Нуша",
-                    "tags": "plural",
-                    "implicit": true
+                    "tags": "plural"
                 }
             ]
         },
@@ -170,13 +168,11 @@
             "variants": [
                 {
                     "text": "хӏуни",
-                    "tags": "singular",
-                    "implicit": true
+                    "tags": "singular"
                 },
                 {
                     "text": "хӏушани",
-                    "tags": "plural",
-                    "implicit": true
+                    "tags": "plural"
                 }
             ]
         },
