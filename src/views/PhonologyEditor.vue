@@ -2,7 +2,7 @@
   <div class="section panel-sparse">
     <div class="panel-horizontal-dense wrap">
       <router-link to="/home">Home</router-link>
-      <p class="text-dot"/>
+      <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
       <router-link to="/editor/converter">Converter</router-link>
       <Button @click.native="loadFromLect" text="load from a lect" />
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="panel" v-if="phoneme">
-        <div class="panel-horizontal-dense card">
+        <div class="panel-horizontal-dense">
           <h2>Phoneme</h2>
           <input
             class="flex"
@@ -42,21 +42,28 @@
           />
           <Button @click.native="deletePhoneme" icon="delete" />
         </div>
-        <div class="panel-dense card">
+        <div class="panel-dense">
           <div class="panel-horizontal-dense">
             <h2 class="flex">Notes</h2>
             <Button @click.native="addItem('notes', '')" icon="add" />
           </div>
+          <p class="text-caption text-faded">
+            You can add notes to clarify some use cases or give additional info.
+          </p>
           <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
             <textarea v-model="phoneme.notes[i]" class="flex note" />
             <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
           </div>
         </div>
-        <div class="panel-dense card">
+        <div class="panel-dense">
           <div class="panel-horizontal-dense">
             <h2 class="flex">Samples</h2>
             <Button @click.native="addItem('samples', {})" icon="add" />
           </div>
+          <p class="text-caption text-faded">
+            Use cases of the phoneme within the language, defined by a letter,
+            a word, and the word's ipa.
+          </p>
           <div
             :key="i"
             v-for="(s, i) in phoneme.samples"
