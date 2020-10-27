@@ -48,7 +48,7 @@
             <Button @click.native="addItem('notes', '')" icon="add" />
           </div>
           <p class="text-caption text-faded">
-            You can add notes to clarify some use cases or give additional info.
+            You can add notes to clarify certain use cases or to give some additional info.
           </p>
           <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
             <textarea v-model="phoneme.notes[i]" class="flex note" />
