@@ -16,7 +16,8 @@
           <PhraseBlock
             :entities.sync="entities"
             :interactive="interactive"
-            :block="b"
+            :requirements="b.requirements"
+            :states="b.states"
             :key="i"
             v-for="(b, i) in phrase.blocks"
           />
