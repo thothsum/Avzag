@@ -1,7 +1,7 @@
 [
     {
         "preview": "Asking direction",
-        "state": [
+        "environment": [
             {
                 "entity": "tense",
                 "tags": "present future"
@@ -17,78 +17,110 @@
         ],
         "blocks": [
             {
-                "entity": "tense",
-                "variants": [
+                "states": [
                     {
                         "text": "How",
-                        "tags": "present"
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "present"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "When",
-                        "tags": "future"
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "future"
+                            }
+                        ],
+                        "transition": "next"
                     }
                 ]
             },
             {
-                "conditions": [
+                "states": [
                     {
-                        "entity": "tense",
-                        "tags": "present"
-                    }
-                ],
-                "variants": [
+                        "text": "can",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "present"
+                            }
+                        ]
+                    },
                     {
-                        "text": "can"
-                    }
-                ]
-            },
-            {
-                "conditions": [
-                    {
-                        "entity": "tense",
-                        "tags": "future"
-                    }
-                ],
-                "variants": [
-                    {
-                        "text": "will"
+                        "text": "will",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "future"
+                            }
+                        ]
                     }
                 ]
             },
             {
-                "entity": "actor",
-                "variants": [
+                "states": [
                     {
                         "text": "I",
-                        "tags": "singular"
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "we",
-                        "tags": "plural"
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "next"
                     }
                 ]
             },
             {
-                "variants": [
+                "states": [
                     {
                         "text": "go"
                     }
                 ]
             },
             {
-                "entity": "destination",
-                "variants": [
+                "states": [
                     {
                         "text": "there?",
-                        "tags": "there"
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "there"
+                            }
+                        ]
                     },
                     {
                         "text": "home?",
-                        "tags": "home"
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "home"
+                            }
+                        ]
                     },
                     {
                         "text": "to the shop?",
-                        "tags": "shop"
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "shop"
+                            }
+                        ]
                     }
                 ]
             }
@@ -96,7 +128,7 @@
     },
     {
         "preview": "Asking cost",
-        "state": [
+        "environment": [
             {
                 "entity": "object",
                 "tags": "singular plural ticket apple"
@@ -104,57 +136,70 @@
         ],
         "blocks": [
             {
-                "variants": [
+                "states": [
                     {
                         "text": "How much"
                     }
                 ]
             },
             {
-                "conditions": [
+                "states": [
                     {
-                        "entity": "object",
-                        "tags": "singular"
-                    }
-                ],
-                "variants": [
+                        "text": "does",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ]
+                    },
                     {
-                        "text": "does"
-                    }
-                ]
-            },
-            {
-                "conditions": [
-                    {
-                        "entity": "object",
-                        "tags": "plural"
-                    }
-                ],
-                "variants": [
-                    {
-                        "text": "do"
+                        "text": "do",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "plural"
+                            }
+                        ]
                     }
                 ]
             },
             {
-                "entity": "object",
-                "variants": [
+                "states": [
                     {
                         "text": "it",
-                        "tags": "singular"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "ticket",
-                        "tags": "singular ticket"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular ticket"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "apples",
-                        "tags": "plural apple"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "plural apple"
+                            }
+                        ],
+                        "transition": "next"
                     }
                 ]
             },
             {
-                "variants": [
+                "states": [
                     {
                         "text": "cost?"
                     }
@@ -164,7 +209,7 @@
     },
     {
         "preview": "Asking name",
-        "state": [
+        "environment": [
             {
                 "entity": "object",
                 "tags": "object person first second third masculine feminine"
@@ -172,35 +217,58 @@
         ],
         "blocks": [
             {
-                "variants": [
+                "states": [
                     {
                         "text": "What is"
                     }
                 ]
             },
             {
-                "entity": "object",
-                "variants": [
+                "states": [
                     {
                         "text": "its",
-                        "tags": "object"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "object"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "your",
-                        "tags": "second person"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "second person"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "his",
-                        "tags": "masculine third person"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "masculine third person"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "her",
-                        "tags": "feminine third person"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "feminine third person"
+                            }
+                        ],
+                        "transition": "next"
                     }
                 ]
             },
             {
-                "variants": [
+                "states": [
                     {
                         "text": "name?"
                     }
@@ -210,53 +278,64 @@
     },
     {
         "preview": "Giving thanks",
-        "state": [
+        "environment": [
             {
                 "entity": "subject",
                 "tags": "singular plural"
             },
             {
                 "entity": "object",
-                "tags": "singular plural"
+                "tags": "singular pluralz"
             }
         ],
         "blocks": [
             {
-                "variants": [
+                "states": [
                     {
                         "text": "Thanks,"
                     }
                 ]
             },
             {
-                "conditions": [
+                "requires": [
                     {
                         "entity": "subject"
                     }
                 ],
-                "variants": [
+                "states": [
                     {
                         "text": "you"
                     }
                 ]
             },
             {
-                "variants": [
+                "states": [
                     {
                         "text": "helped"
                     }
                 ]
             },
             {
-                "entity": "object",
-                "variants": [
+                "states": [
                     {
                         "text": "me",
-                        "tags": "singular"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "us",
-                        "tags": "plural"
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "next"
                     }
                 ]
             },
