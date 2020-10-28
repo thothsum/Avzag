@@ -1,6 +1,6 @@
 <template>
   <button class="small" :disabled="disabled" v-show="visible" @click="move">
-    <template v-if="false">
+    <template v-if="interactive">
       <IndexedColor :passive="true" :indexes="passiveColors" />
       <IndexedColor :indexes="activeColors" />
     </template>
@@ -27,13 +27,16 @@ export default {
   },
   computed: {
     transition() {
-      return this.state.transition;
-    },
-    disabled() {
-      return !(this.interactive && this.transition);
+      return this.state?.transition;
     },
     implicit() {
       return this.state?.implicit;
+    },
+    conditions() {
+      return this.state?.conditions;
+    },
+    disabled() {
+      return !(this.interactive && this.transition);
     },
     visible() {
       return this.valid && (this.interactive || !this.implicit);
@@ -51,18 +54,20 @@ export default {
       let entities = [];
 
       entities.concat(this.requirements);
-      entities.concat(
-        this.transition
-          ? this.conditions.filter((c) => c.passive)
-          : this.conditions
-      );
+      if (this.conditions)
+        entities.concat(
+          this.transition
+            ? this.conditions.filter((c) => c.passive)
+            : this.conditions
+        );
 
-      entities = entities.map((e) => e.entity);
-      return new Set(entities).map((e) => this.getEntityIndex(e));
+      return this.getEntityIndex(entities.map((e) => e.entity));
     },
     activeColors() {
-      return this.transition
-        ? this.conditions.filter((c) => !c.passive).map()
+      return this.transition && this.conditions
+        ? this.getEntityIndex(
+            this.conditions.filter((c) => !c.passive).map((e) => e.entity)
+          )
         : [];
     },
   },
@@ -89,7 +94,7 @@ export default {
   },
   methods: {
     getEntityIndex(entities) {
-      return entities.map((e) => this.entityKeys.indexOf(e));
+      return [...new Set(entities)].map((e) => this.entityKeys.indexOf(e));
     },
     checkTags({ entity, tags }) {
       if (!this.entities) return [0, 0];
