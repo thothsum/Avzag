@@ -51,23 +51,21 @@ export default {
       return Object.keys(this.entities);
     },
     passiveColors() {
-      let entities = [];
+      let conditions = [];
 
-      entities.concat(this.requirements);
+      if (this.requirements) conditions = conditions.concat(this.requirements);
       if (this.conditions)
-        entities.concat(
+        conditions = conditions.concat(
           this.transition
             ? this.conditions.filter((c) => c.passive)
             : this.conditions
         );
 
-      return this.getEntityIndex(entities.map((e) => e.entity));
+      return this.getConditionColors(conditions);
     },
     activeColors() {
       return this.transition && this.conditions
-        ? this.getEntityIndex(
-            this.conditions.filter((c) => !c.passive).map((e) => e.entity)
-          )
+        ? this.getConditionColors(this.conditions.filter((c) => !c.passive))
         : [];
     },
   },
@@ -93,8 +91,9 @@ export default {
     },
   },
   methods: {
-    getEntityIndex(entities) {
-      return [...new Set(entities)].map((e) => this.entityKeys.indexOf(e));
+    getConditionColors(conditions) {
+      const entities = new Set(conditions.map((c) => c.entity));
+      return [...entities].map((e) => this.entityKeys.indexOf(e));
     },
     checkTags({ entity, tags }) {
       if (!this.entities) return [0, 0];
