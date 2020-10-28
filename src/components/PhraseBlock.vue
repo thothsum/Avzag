@@ -59,7 +59,7 @@ export default {
       handler() {
         const valid =
           !this.requirements ||
-          this.requirements.every((r) => this.checkTags(r)[0] == 1);
+          this.normalizeConditions(this.requirements)[0] == 1;
 
         if (valid) {
           const state = this.findBestState();
@@ -90,6 +90,16 @@ export default {
 
       return [fit / len, len];
     },
+    normalizeConditions(conditions) {
+      let f = 0;
+      let l = 0;
+      conditions.forEach((c) => {
+        const [_f, _l] = this.checkTags(c);
+        f += _f;
+        l += _l;
+      });
+      return [f / conditions.length, l];
+    },
     findBestState(indexes) {
       let state = null;
       let fit = 0;
@@ -99,7 +109,8 @@ export default {
       states
         .filter((s) => s.conditions)
         .forEach((s) => {
-          const [f, l] = this.checkTags(s.conditions);
+          const [f, l] = this.normalizeConditions(s.conditions);
+
           if (fit == 1 ? f == 1 && l > len : f > fit) {
             state = s;
             fit = f;
