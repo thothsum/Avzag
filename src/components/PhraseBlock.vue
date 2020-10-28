@@ -42,7 +42,7 @@ export default {
       return this.valid && (this.interactive || !this.implicit);
     },
     canShowIpa() {
-      return this.phonemic && this.variant?.ipa;
+      return this.phonemic && this.state?.ipa;
     },
     displayedText() {
       return this.canShowIpa ? this.state?.ipa : this.state?.text;

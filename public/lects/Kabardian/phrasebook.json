@@ -4,6 +4,7 @@
             "states": [
                 {
                     "text": "Сэ",
+                    "ipa": "sa",
                     "conditions": [
                         {
                             "entity": "actor",

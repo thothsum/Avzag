@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$colors: #81c784, #e57373, #64b5f6, #ffb74d #9575cd, #a1887f;
+$colors: #81c784, #e57373, #64b5f6, #ffb74d, #9575cd, #dce775, #a1887f;
 @for $i from 0 through 4 {
   .colored-#{$i} {
     background-color: nth($colors, $i + 1);
