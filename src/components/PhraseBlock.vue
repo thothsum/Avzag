@@ -21,7 +21,6 @@ export default {
   props: ["entities", "requirements", "states", "interactive", "phonemic"],
   data() {
     return {
-      // switched: false,
       state: undefined,
     };
   },
@@ -50,30 +49,23 @@ export default {
     displayedText() {
       return this.canShowIpa ? this.state?.ipa : this.state?.text;
     },
-    indexEntity() {
-      return this.getEntityIndex(this.locked ? "" : this.entity);
-    },
-    indexConditions() {
-      return this.block.conditions?.map((c) => this.getEntityIndex(c.entity));
-    },
+    // passiveColors() {
+    //   return this.transition?[]:;
+    // },
+    // indexEntity() {
+    //   return this.getEntityIndex(this.locked ? "" : this.entity);
+    // },
+    // indexConditions() {
+    //   return this.block.conditions?.map((c) => this.getEntityIndex(c.entity));
+    // },
   },
   watch: {
-    // passed() {
-    //   if (this.passed) this.findVariant();
-    // },
-    // entities() {
-    //   if (!this.entities) return;
-    //   this.switched = true;
-    //   this.findVariant();
-    // },
-    // variant(vNew, vOld) {
-    //   if (this.switched) this.switched = false;
-    //   else if (!vNew || vOld || !this.passed) return;
-    //   let ent = Object.assign({}, this.entities);
-    //   vOld?.tags?.split(" ").forEach((t) => ent[this.entity]?.delete(t));
-    //   vNew?.tags?.split(" ").forEach((t) => ent[this.entity]?.add(t));
-    //   this.$emit("update:entities", ent);
-    // },
+    valid(to, from) {
+      if (to && !from) this.applyState(this.findBestState());
+    },
+    entities() {
+      if (this.valid) this.state = this.findBestState();
+    },
   },
   methods: {
     getEntityIndex(entity) {
@@ -104,16 +96,34 @@ export default {
         }
       });
 
+      return state;
+    },
+    applyConditions(entities, conditions, positive) {
+      conditions?.forEach(({ entity, tags }) =>
+        tags.split(" ").forEach((t) => {
+          if (positive) entities[entity]?.add(t);
+          else entities[entity]?.delete(t);
+        })
+      );
+    },
+    applyState(state) {
+      let entities = Object.assign({}, this.entities);
+
+      this.applyConditions(entities, this.state?.conditions, false);
+      this.applyConditions(entities, state?.conditions, true);
+
       this.state = state;
+      this.$emit("update:entities", entities);
     },
     move() {
       if (typeof this.transition == "string") {
         if (this.transition == "next") {
           const i = this.states.indexOf(this.state);
-          this.state = this.states[(i + 1) % this.states.length];
+          const state = this.states[(i + 1) % this.states.length];
+          this.applyState(state);
         } else {
           const i = this.transition.split(" ").map((i) => Number(i));
-          this.findBestState(i);
+          this.applyState(this.findBestState(i));
         }
       } else if (this.transition) {
         // directly modify global environment
