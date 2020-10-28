@@ -1,8 +1,8 @@
 <template>
   <button class="small" :disabled="disabled" v-show="visible" @click="move">
     <template v-if="false">
-      <IndexedColor :indexes="indexEntity" />
-      <IndexedColor :indexes="indexConditions" />
+      <IndexedColor :passive="true" :indexes="passiveColors" />
+      <IndexedColor :indexes="activeColors" />
     </template>
     <p :class="{ 'text-ipa': canShowIpa, 'text-faded': implicit }">
       {{ displayedText }}
@@ -44,15 +44,27 @@ export default {
     displayedText() {
       return this.canShowIpa ? this.state?.ipa : this.state?.text;
     },
-    // passiveColors() {
-    //   return this.transition?[]:;
-    // },
-    // indexEntity() {
-    //   return this.getEntityIndex(this.locked ? "" : this.entity);
-    // },
-    // indexConditions() {
-    //   return this.block.conditions?.map((c) => this.getEntityIndex(c.entity));
-    // },
+    entityKeys() {
+      return Object.keys(this.entities);
+    },
+    passiveColors() {
+      let entities = [];
+
+      entities.concat(this.requirements);
+      entities.concat(
+        this.transition
+          ? this.conditions.filter((c) => c.passive)
+          : this.conditions
+      );
+
+      entities = entities.map((e) => e.entity);
+      return new Set(entities).map((e) => this.getEntityIndex(e));
+    },
+    activeColors() {
+      return this.transition
+        ? this.conditions.filter((c) => !c.passive).map()
+        : [];
+    },
   },
   watch: {
     entities: {
@@ -76,9 +88,8 @@ export default {
     },
   },
   methods: {
-    getEntityIndex(entity) {
-      const i = Object.keys(this.entities).indexOf(entity);
-      return i >= 0 ? i : null;
+    getEntityIndex(entities) {
+      return entities.map((e) => this.entityKeys.indexOf(e));
     },
     checkTags({ entity, tags }) {
       if (!this.entities) return [0, 0];
@@ -121,12 +132,14 @@ export default {
       return state ?? states[0];
     },
     applyConditions(entities, conditions, positive) {
-      conditions?.forEach(({ entity, tags }) =>
-        tags.split(" ").forEach((t) => {
-          if (positive) entities[entity]?.add(t);
-          else entities[entity]?.delete(t);
-        })
-      );
+      conditions
+        ?.filter((c) => !c.passive)
+        .forEach(({ entity, tags }) =>
+          tags.split(" ").forEach((t) => {
+            if (positive) entities[entity]?.add(t);
+            else entities[entity]?.delete(t);
+          })
+        );
     },
     applyState(state) {
       let entities = Object.assign({}, this.entities);

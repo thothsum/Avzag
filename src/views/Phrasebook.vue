@@ -28,7 +28,7 @@
             :key="e"
             v-for="(t, e, i) of entities"
           >
-            <h2>{{ e }}<IndexedColor :indexes="i" /></h2>
+            <h2>{{ e }}<IndexedColor :indexes="[i]" /></h2>
             <p :key="tg" v-for="tg in t">{{ tg }}</p>
           </div>
         </div>

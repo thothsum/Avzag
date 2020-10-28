@@ -37,7 +37,8 @@
                         },
                         {
                             "entity": "tense",
-                            "tags": "present"
+                            "tags": "present",
+                            "passive": true
                         }
                     ],
                     "transition": "2"
@@ -51,7 +52,8 @@
                         },
                         {
                             "entity": "tense",
-                            "tags": "future"
+                            "tags": "future",
+                            "passive": true
                         }
                     ],
                     "transition": "2"
