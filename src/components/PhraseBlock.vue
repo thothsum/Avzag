@@ -18,7 +18,14 @@ export default {
   components: {
     IndexedColor,
   },
-  props: ["entities", "requirements", "states", "interactive", "phonemic"],
+  props: [
+    "id",
+    "entities",
+    "requirements",
+    "states",
+    "interactive",
+    "phonemic",
+  ],
   data() {
     return {
       state: undefined,
@@ -70,16 +77,23 @@ export default {
     },
   },
   watch: {
+    id: {
+      handler() {
+        this.valid = false;
+      },
+      immediate: true,
+    },
     entities: {
       handler() {
         const valid =
-          !this.requirements ||
-          this.normalizeConditions(this.requirements)[0] == 1;
+          this.entities &&
+          (!this.requirements ||
+            this.normalizeConditions(this.requirements)[0] == 1);
 
         if (valid) {
           const state = this.findBestState();
-          if (!this.valid) this.applyState(state);
-          else this.state = state;
+          if (this.valid) this.state = state;
+          else this.applyState(state);
         } else if (this.state) {
           this.applyState(null);
           this.state = null;

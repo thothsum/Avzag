@@ -14,6 +14,7 @@
       <div class="panel wrap card">
         <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
+            :id="selected"
             :entities.sync="entities"
             :interactive="interactive"
             :requirements="b.requirements"
@@ -34,6 +35,7 @@
         </div>
       </div>
       <PhraseItem
+        :id="selected"
         :entities.sync="entities"
         :lect="lects[i].name"
         :blocks="t"

@@ -7,6 +7,7 @@
     <div class="panel-horizontal-dense wrap flex">
       <PhraseBlock
         ref="blocks"
+        :id="id"
         :entities.sync="entities_"
         :interactive="interactive"
         :phonemic="phonemic"
@@ -29,7 +30,7 @@ export default {
     PhraseBlock,
     Button,
   },
-  props: ["lect", "entities", "blocks", "interactive", "phonemic"],
+  props: ["id", "lect", "entities", "blocks", "interactive", "phonemic"],
   data() {
     return {
       entities_: undefined,
