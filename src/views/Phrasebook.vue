@@ -95,7 +95,7 @@ export default {
     },
     phrase() {
       this.entities =
-        this.phrase?.environment.reduce((acc, s) => {
+        this.phrase?.environment?.reduce((acc, s) => {
           acc[s.entity] = new Set();
           return acc;
         }, {}) ?? {};
