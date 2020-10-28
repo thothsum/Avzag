@@ -6,7 +6,7 @@
       indexed="true"
       display="preview"
     />
-    <div class="panel">
+    <div class="panel" v-if="entities">
       <div class="panel-horizontal">
         <Button v-model="interactive" icon="tune" text="Interactive" />
         <Button v-model="phonemic" icon="music_note" text="IPA" />
@@ -33,7 +33,7 @@
           </div>
         </div>
       </div>
-      <PhraseItem
+      <!-- <PhraseItem
         :entities.sync="entities"
         :lect="lects[i].name"
         :blocks="t"
@@ -41,7 +41,7 @@
         :phonemic="phonemic"
         :key="i"
         v-for="(t, i) in translations"
-      />
+      /> -->
     </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ import Button from "@/components/Button";
 import List from "@/components/List";
 import IndexedColor from "@/components/IndexedColor";
 import PhraseBlock from "@/components/PhraseBlock";
-import PhraseItem from "@/components/PhraseItem";
+// import PhraseItem from "@/components/PhraseItem";
 
 export default {
   name: "Phrasebook",
@@ -60,11 +60,11 @@ export default {
     List,
     IndexedColor,
     PhraseBlock,
-    PhraseItem,
+    // PhraseItem,
   },
   data() {
     return {
-      selected: 0,
+      selected: undefined,
       entities: undefined,
       interactive: false,
       phonemic: false,
@@ -93,15 +93,12 @@ export default {
       },
       immediate: true,
     },
-    phrase: {
-      handler() {
-        this.entities =
-          this.phrase?.state.reduce((acc, s) => {
-            acc[s.entity] = new Set();
-            return acc;
-          }, {}) ?? {};
-      },
-      immediate: true,
+    phrase() {
+      this.entities =
+        this.phrase?.environment.reduce((acc, s) => {
+          acc[s.entity] = new Set();
+          return acc;
+        }, {}) ?? {};
     },
   },
   destroyed() {

@@ -102,7 +102,8 @@
                                 "entity": "destination",
                                 "tags": "there"
                             }
-                        ]
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "home?",
@@ -111,7 +112,8 @@
                                 "entity": "destination",
                                 "tags": "home"
                             }
-                        ]
+                        ],
+                        "transition": "next"
                     },
                     {
                         "text": "to the shop?",
@@ -120,7 +122,8 @@
                                 "entity": "destination",
                                 "tags": "shop"
                             }
-                        ]
+                        ],
+                        "transition": "next"
                     }
                 ]
             }

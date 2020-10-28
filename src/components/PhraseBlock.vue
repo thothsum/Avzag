@@ -1,6 +1,6 @@
 <template>
   <button class="small" :disabled="disabled" v-show="visible" @click="move">
-    <template v-if="interactive">
+    <template v-if="false">
       <IndexedColor :indexes="indexEntity" />
       <IndexedColor :indexes="indexConditions" />
     </template>
@@ -22,15 +22,10 @@ export default {
   data() {
     return {
       state: undefined,
+      valid: false,
     };
   },
   computed: {
-    valid() {
-      return (
-        !this.requirements ||
-        this.requirements.every((r) => this.checkTags(r)[0] == 1)
-      );
-    },
     transition() {
       return this.state.transition;
     },
@@ -38,7 +33,7 @@ export default {
       return !(this.interactive && this.transition);
     },
     implicit() {
-      return this.state.implicit;
+      return this.state?.implicit;
     },
     visible() {
       return this.valid && (this.interactive || !this.implicit);
@@ -60,11 +55,24 @@ export default {
     // },
   },
   watch: {
-    valid(to, from) {
-      if (to && !from) this.applyState(this.findBestState());
-    },
-    entities() {
-      if (this.valid) this.state = this.findBestState();
+    entities: {
+      handler() {
+        const valid =
+          !this.requirements ||
+          this.requirements.every((r) => this.checkTags(r)[0] == 1);
+
+        if (valid) {
+          const state = this.findBestState();
+          if (!this.valid) this.applyState(state);
+          else this.state = state;
+        } else if (this.state) {
+          this.applyState(null);
+          this.state = null;
+        }
+
+        this.valid = valid;
+      },
+      immediate: true,
     },
   },
   methods: {
@@ -83,20 +91,23 @@ export default {
       return [fit / len, len];
     },
     findBestState(indexes) {
-      let state = 0;
+      let state = null;
       let fit = 0;
       let len = false;
 
-      (this.indexes?.map((i) => this.states[i]) ?? this.states).forEach((s) => {
-        const [f, l] = this.checkTags(s.conditions);
-        if (fit == 1 ? f == 1 && l > len : f > fit) {
-          state = s;
-          fit = f;
-          len = l;
-        }
-      });
+      const states = indexes?.map((i) => this.states[i]) ?? this.states;
+      states
+        .filter((s) => s.conditions)
+        .forEach((s) => {
+          const [f, l] = this.checkTags(s.conditions);
+          if (fit == 1 ? f == 1 && l > len : f > fit) {
+            state = s;
+            fit = f;
+            len = l;
+          }
+        });
 
-      return state;
+      return state ?? states[0];
     },
     applyConditions(entities, conditions, positive) {
       conditions?.forEach(({ entity, tags }) =>
@@ -112,7 +123,6 @@ export default {
       this.applyConditions(entities, this.state?.conditions, false);
       this.applyConditions(entities, state?.conditions, true);
 
-      this.state = state;
       this.$emit("update:entities", entities);
     },
     move() {
