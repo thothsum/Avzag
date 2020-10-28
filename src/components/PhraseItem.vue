@@ -38,7 +38,7 @@ export default {
   computed: {
     text() {
       return this.$refs.blocks
-        ?.filter((b) => b.passed)
+        ?.filter((b) => b.visible)
         .map((b) => b.displayedText)
         .join(" ");
     },
