@@ -95,7 +95,12 @@
                     "conditions": [
                         {
                             "entity": "actor",
-                            "tags": "singular masculine"
+                            "tags": "singular",
+                            "passive": true
+                        },
+                        {
+                            "entity": "actor",
+                            "tags": "masculine"
                         }
                     ],
                     "transition": "1"
@@ -105,13 +110,18 @@
                     "conditions": [
                         {
                             "entity": "actor",
-                            "tags": "singular feminine"
+                            "tags": "singular",
+                            "passive": true
+                        },
+                        {
+                            "entity": "actor",
+                            "tags": "feminine"
                         }
                     ],
                     "transition": "0"
                 },
                 {
-                    "text": "данилдай?",
+                    "text": "дянилдай?",
                     "conditions": [
                         {
                             "entity": "actor",
