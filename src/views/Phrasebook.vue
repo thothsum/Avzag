@@ -33,7 +33,7 @@
           </div>
         </div>
       </div>
-      <!-- <PhraseItem
+      <PhraseItem
         :entities.sync="entities"
         :lect="lects[i].name"
         :blocks="t"
@@ -41,7 +41,7 @@
         :phonemic="phonemic"
         :key="i"
         v-for="(t, i) in translations"
-      /> -->
+      />
     </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ import Button from "@/components/Button";
 import List from "@/components/List";
 import IndexedColor from "@/components/IndexedColor";
 import PhraseBlock from "@/components/PhraseBlock";
-// import PhraseItem from "@/components/PhraseItem";
+import PhraseItem from "@/components/PhraseItem";
 
 export default {
   name: "Phrasebook",
@@ -60,7 +60,7 @@ export default {
     List,
     IndexedColor,
     PhraseBlock,
-    // PhraseItem,
+    PhraseItem,
   },
   data() {
     return {
