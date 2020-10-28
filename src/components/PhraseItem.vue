@@ -10,7 +10,8 @@
         :entities.sync="entities_"
         :interactive="interactive"
         :phonemic="phonemic"
-        :block="b"
+        :requirements="b.requirements"
+        :states="b.states"
         :key="j"
         v-for="(b, j) in blocks"
       />
@@ -37,8 +38,8 @@ export default {
   computed: {
     text() {
       return this.$refs.blocks
-        ?.filter((b) => b.passed)
-        .map((b) => b.display)
+        ?.filter((b) => b.visible)
+        .map((b) => b.displayedText)
         .join(" ");
     },
   },

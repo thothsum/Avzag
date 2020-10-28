@@ -1,28 +1,23 @@
 <template>
-  <div v-if="classes" class="panel-horizontal-dense line" :class="{ single }">
-    <div class="dash" :class="[c, single]" :key="i" v-for="(c, i) in classes" />
+  <div v-if="classes" class="panel-horizontal-dense line" :class="{ passive }">
+    <div class="dash" :class="c" :key="i" v-for="(c, i) in classes" />
   </div>
 </template>
 
 <script>
 export default {
   name: "IndexedColor",
-  props: ["indexes"],
+  props: ["indexes", "passive"],
   computed: {
-    single() {
-      return typeof this.indexes == "number";
-    },
     classes() {
-      return (this.single ? [this.indexes] : this.indexes)?.map(
-        (i) => "colored-" + i
-      );
+      return this.indexes.map((i) => "colored-" + i);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-$colors: #81c784, #e57373, #64b5f6, #ffb74d #9575cd, #a1887f;
+$colors: #81c784, #e57373, #64b5f6, #ffb74d, #9575cd, #dce775, #a1887f;
 @for $i from 0 through 4 {
   .colored-#{$i} {
     background-color: nth($colors, $i + 1);
@@ -40,14 +35,14 @@ $colors: #81c784, #e57373, #64b5f6, #ffb74d #9575cd, #a1887f;
     height: 100%;
     width: 4 * $border-radius;
   }
-  &.single {
+  &.passive {
+    top: 0;
+  }
+  &:not(.passive) {
     bottom: 0;
     .dash {
-      width: 100%;
+      flex: 1;
     }
-  }
-  &:not(.single) {
-    top: 0;
   }
 }
 </style>

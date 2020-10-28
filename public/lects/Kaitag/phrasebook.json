@@ -1,90 +1,140 @@
 [
     [
         {
-            "entity": "tense",
-            "variants": [
+            "states": [
                 {
                     "text": "Цигле",
                     "ipa": "t͡sigle",
-                    "tags": "present"
+                    "conditions": [
+                        {
+                            "entity": "tense",
+                            "tags": "present"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "Цикъкъел",
                     "ipa": "t͡siqːel",
-                    "tags": "future"
+                    "conditions": [
+                        {
+                            "entity": "tense",
+                            "tags": "future"
+                        }
+                    ],
+                    "transition": "next"
                 }
             ]
         },
         {
-            "entity": "actor",
-            "variants": [
+            "states": [
                 {
                     "text": "ду",
                     "ipa": "du",
-                    "tags": "singular",
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "singular"
+                        }
+                    ],
+                    "transition": "next",
                     "implicit": true
                 },
                 {
                     "text": "нисса",
                     "ipa": "nissɑ",
-                    "tags": "plural",
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "plural"
+                        }
+                    ],
+                    "transition": "next",
                     "implicit": true
                 }
             ]
         },
         {
-            "entity": "destination",
-            "variants": [
+            "states": [
                 {
                     "text": "гьетин",
-                    "tags": "there"
+                    "conditions": [
+                        {
+                            "entity": "destination",
+                            "tags": "there"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "хъили",
-                    "tags": "home"
+                    "conditions": [
+                        {
+                            "entity": "destination",
+                            "tags": "home"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "тукенцци",
-                    "tags": "shop"
+                    "conditions": [
+                        {
+                            "entity": "destination",
+                            "tags": "shop"
+                        }
+                    ],
+                    "transition": "next"
                 }
             ]
         },
         {
-            "conditions": [
-                {
-                    "entity": "actor",
-                    "tags": "singular"
-                }
-            ],
-            "entity": "actor",
-            "variants": [
+            "states": [
                 {
                     "text": "вянилдай?",
-                    "tags": "singular masculine"
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "singular",
+                            "passive": true
+                        },
+                        {
+                            "entity": "actor",
+                            "tags": "masculine"
+                        }
+                    ],
+                    "transition": "1"
                 },
                 {
                     "text": "рянилдай?",
-                    "tags": "singular feminine"
-                }
-            ]
-        },
-        {
-            "conditions": [
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "singular",
+                            "passive": true
+                        },
+                        {
+                            "entity": "actor",
+                            "tags": "feminine"
+                        }
+                    ],
+                    "transition": "0"
+                },
                 {
-                    "entity": "actor",
-                    "tags": "plural"
-                }
-            ],
-            "variants": [
-                {
-                    "text": "данилдай?"
+                    "text": "дянилдай?",
+                    "conditions": [
+                        {
+                            "entity": "actor",
+                            "tags": "plural"
+                        }
+                    ]
                 }
             ]
         }
     ],
     [
         {
-            "variants": [
+            "states": [
                 {
                     "text": "Гьуналжия",
                     "ipa": "hunɑlʒijɑ"
@@ -92,72 +142,102 @@
             ]
         },
         {
-            "entity": "object",
-            "variants": [
+            "states": [
                 {
                     "text": "гьеж?",
                     "ipa": "heʒ",
-                    "tags": "singular"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "singular"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "къагъар?",
                     "ipa": "qɑʁɑr",
-                    "tags": "singular ticket"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "singular ticket"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "гьинце?",
                     "ipa": "hint͡se",
-                    "tags": "plural apple"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "plural apple"
+                        }
+                    ],
+                    "transition": "next"
                 }
             ]
         }
     ],
     [
         {
-            "entity": "object",
-            "variants": [
+            "states": [
                 {
                     "text": "Гьежей",
-                    "tags": "object"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "object"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "Этти",
-                    "tags": "second person"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "second person"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "Гьетей",
-                    "tags": "third person"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "third person"
+                        }
+                    ],
+                    "transition": "next"
                 }
             ]
         },
         {
-            "conditions": [
+            "states": [
                 {
-                    "entity": "object",
-                    "tags": "object"
-                }
-            ],
-            "variants": [
+                    "text": "ци",
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "object"
+                        }
+                    ]
+                },
                 {
-                    "text": "ци"
-                }
-            ]
-        },
-        {
-            "conditions": [
-                {
-                    "entity": "object",
-                    "tags": "person"
-                }
-            ],
-            "variants": [
-                {
-                    "text": "ча"
+                    "text": "ча",
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "person"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "variants": [
+            "states": [
                 {
                     "text": "бикӏварай?"
                 }
@@ -166,70 +246,88 @@
     ],
     [
         {
-            "variants": [
+            "states": [
                 {
-                    "text": "БаркаллАа,"
+                    "text": "Баркалла,"
                 }
             ]
         },
         {
-            "entity": "subject",
-            "variants": [
+            "states": [
                 {
                     "text": "ил",
-                    "tags": "singular",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "singular"
+                        }
+                    ],
+                    "transition": "next",
                     "implicit": true
                 },
                 {
                     "text": "нишшали",
-                    "tags": "plural",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "plural"
+                        }
+                    ],
+                    "transition": "next",
                     "implicit": true
                 }
             ]
         },
         {
-            "entity": "object",
-            "variants": [
+            "states": [
                 {
                     "text": "дами",
-                    "tags": "singular"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "singular"
+                        }
+                    ],
+                    "transition": "next"
                 },
                 {
                     "text": "ниссай",
-                    "tags": "plural"
+                    "conditions": [
+                        {
+                            "entity": "object",
+                            "tags": "plural"
+                        }
+                    ],
+                    "transition": "next"
                 }
             ]
         },
         {
-            "variants": [
+            "states": [
                 {
                     "text": "цӏакьле"
                 }
             ]
         },
         {
-            "conditions": [
+            "states": [
                 {
-                    "entity": "subject",
-                    "tags": "singular"
-                }
-            ],
-            "variants": [
+                    "text": "икьалабаривде.",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "singular"
+                        }
+                    ]
+                },
                 {
-                    "text": "икьалабаривде."
-                }
-            ]
-        },
-        {
-            "conditions": [
-                {
-                    "entity": "subject",
-                    "tags": "plural"
-                }
-            ],
-            "variants": [
-                {
-                    "text": "икьалабаривда."
+                    "text": "икьалабаривда.",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "plural"
+                        }
+                    ]
                 }
             ]
         }
