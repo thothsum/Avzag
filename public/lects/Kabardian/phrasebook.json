@@ -289,5 +289,102 @@
                 }
             ]
         }
+    ],
+    [
+        {
+            "states": [
+                {
+                    "text": "Упсэу,",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "singular"
+                        }
+                    ],
+                    "transition": "next"
+                },
+                {
+                    "text": "Фыпсэу,",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "plural"
+                        }
+                    ],
+                    "transition": "next"
+                }
+            ]
+        },
+        {
+            "states": [
+                {
+                    "text": "ӏейуэ"
+                }
+            ]
+        },
+        {
+            "states": [
+                {
+                    "text": "уыкъыздэӏэпыкъуащ.",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "singular",
+                            "passive": true
+                        },
+                        {
+                            "entity": "object",
+                            "tags": "singular"
+                        }
+                    ],
+                    "transition": "1"
+                },
+                {
+                    "text": "уыкъыддэӏэпыкъуащ.",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "singular",
+                            "passive": true
+                        },
+                        {
+                            "entity": "object",
+                            "tags": "plural"
+                        }
+                    ],
+                    "transition": "0"
+                },
+                {
+                    "text": "фыкъыздэӏэпыкъуащ.",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "plural",
+                            "passive": true
+                        },
+                        {
+                            "entity": "object",
+                            "tags": "singular"
+                        }
+                    ],
+                    "transition": "3"
+                },
+                {
+                    "text": "фыкъыддэӏэпыкъуащ.",
+                    "conditions": [
+                        {
+                            "entity": "subject",
+                            "tags": "plural",
+                            "passive": true
+                        },
+                        {
+                            "entity": "object",
+                            "tags": "plural"
+                        }
+                    ],
+                    "transition": "2"
+                }
+            ]
+        }
     ]
 ]
