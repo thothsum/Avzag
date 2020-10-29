@@ -1,6 +1,6 @@
 <template>
-  <div class="section panel-sparse scroll small">
-    <div class="panel-horizontal-dense wrap">
+  <div class="section panel-sparse small">
+    <div class="panel-horizontal-dense wrap card">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
@@ -23,17 +23,14 @@
             Two mappings that will be set by default. The left should be set to
             the sample's original writing system.
           </p>
-          <div class="panel-horizontal" v-if="defaultConversion">
+          <div class="panel-dense" v-if="defaultConversion">
             <Select
-              class="flex"
               :value.sync="defaultConversion[0]"
               :items="mappings"
               display="name"
               indexed="true"
             />
-            <p class="icon">arrow_forward</p>
             <Select
-              class="flex"
               :value.sync="defaultConversion[1]"
               :items="mappings"
               display="name"
@@ -164,9 +161,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  margin-top: -1 * map-get($margins, "double");
+  padding-top: 2 * map-get($margins, "normal");
+}
 .grid {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {

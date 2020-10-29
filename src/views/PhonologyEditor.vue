@@ -1,6 +1,6 @@
 <template>
   <div class="section panel-sparse">
-    <div class="panel-horizontal-dense wrap small">
+    <div class="panel-horizontal-dense wrap small card">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
@@ -75,8 +75,13 @@
             class="panel-horizontal-solid sample"
           >
             <input type="text" v-model="s.grapheme" placeholder="grapheme" />
-            <input type="text" v-model="s.word" placeholder="word" />
-            <input type="text" v-model="s.ipa" placeholder="ipa" />
+            <input
+              class="flex"
+              type="text"
+              v-model="s.word"
+              placeholder="word"
+            />
+            <input class="flex" type="text" v-model="s.ipa" placeholder="ipa" />
             <Button @click.native="deleteItem(i, 'samples')" icon="delete" />
           </div>
         </div>
@@ -170,12 +175,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+  margin-top: -1 * map-get($margins, "double");
+  padding-top: 2 * map-get($margins, "normal");
+}
 .grid {
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: map-get($margins, "double");
 }
-.sample > *:first-child {
+.sample input {
   width: 64px;
 }
 
