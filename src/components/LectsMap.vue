@@ -18,7 +18,12 @@
             <div class="icon" :class="{ selected: selected[i] }">
               expand_less
             </div>
-            <h2 :class="{ 'text-faded': faded[i] }">
+            <h2
+              :class="{
+                'text-faded': faded[i],
+                selected: !faded[i] && selected[i],
+              }"
+            >
               {{ l.name }}
             </h2>
           </div>
@@ -120,9 +125,9 @@ export default {
 }
 .icon {
   font-size: map-get($font-sizes, "large");
-  &.selected {
-    color: var(--color-highlight);
-  }
+}
+.selected {
+  color: var(--color-highlight);
 }
 h2 {
   padding-bottom: $border-width;
