@@ -10,7 +10,7 @@
       <Button @click.native="saveToJson" text="save JSON to clipboard" />
       <Button @click.native="reset" text="reset" />
     </div>
-    <div class="grid">
+    <div class="grid small">
       <div class="panel" v-if="file">
         <template v-if="file">
           <h2>Sample text</h2>
@@ -20,21 +20,24 @@
           <textarea v-model="file.sample" />
           <h2>Default conversion</h2>
           <p class="text-caption text-faded">
-            Numbers of two mappings that will be set by default. The left should
-            be set to the sample's writing system.
+            Two mappings that will be set by default. The left should be set to
+            the sample's original writing system.
           </p>
-          <div class="panel-horizontal-solid pair" v-if="defaultConversion">
-            <input
+          <div class="panel-horizontal" v-if="defaultConversion">
+            <Select
               class="flex"
-              type="text"
-              v-model="defaultConversion[0]"
-              placeholder="from"
+              :value.sync="defaultConversion[0]"
+              :items="mappings"
+              display="name"
+              indexed="true"
             />
-            <input
+            <p class="icon">arrow_forward</p>
+            <Select
               class="flex"
-              type="text"
-              v-model="defaultConversion[1]"
-              placeholder="to"
+              :value.sync="defaultConversion[1]"
+              :items="mappings"
+              display="name"
+              indexed="true"
             />
           </div>
         </template>
@@ -46,12 +49,18 @@
       </div>
       <div class="panel" v-if="mapping">
         <h2>Mapping name</h2>
-        <input type="text" v-model="mapping.name" />
         <p class="text-caption text-faded">
           Select 'partial' if there are two or more mapping pairs that result in
           the same text. I.e. th-ð & th-θ.
         </p>
-        <Button v-model="mapping.partial" icon="sync_disabled" text="Partial" />
+        <div class="panel-horizontal">
+          <input class="flex" type="text" v-model="mapping.name" />
+          <Button
+            v-model="mapping.partial"
+            icon="sync_disabled"
+            text="Partial"
+          />
+        </div>
         <div class="panel-horizontal-dense">
           <h2 class="flex">Pairs</h2>
           <Button @click.native="addPair(pairs.length)" icon="add" />
@@ -62,19 +71,11 @@
             replacing text from the left with the text from the right or vise
             versa (right with left) if conversion is reversed.
           </p>
-          <div
-            class="panel-horizontal-solid pair"
-            :key="i"
-            v-for="(p, i) in pairs"
-          >
+          <div class="panel-horizontal-solid" :key="i" v-for="(p, i) in pairs">
             <input class="flex" type="text" v-model="p[0]" placeholder="from" />
             <input class="flex" type="text" v-model="p[1]" placeholder="to" />
-            <Button
-              class="small"
-              @click.native="addPair(i)"
-              icon="vertical_align_top"
-            />
-            <Button class="small" @click.native="deletePair(i)" icon="clear" />
+            <Button @click.native="addPair(i)" icon="vertical_align_top" />
+            <Button @click.native="deletePair(i)" icon="clear" />
           </div>
         </div>
       </div>
@@ -84,12 +85,14 @@
 
 <script>
 import Button from "@/components/Button";
+import Select from "@/components/Select";
 import List from "@/components/List";
 
 export default {
   name: "ConverterEditor",
   components: {
     Button,
+    Select,
     List,
   },
   data() {
@@ -165,12 +168,6 @@ export default {
   display: grid;
   grid-template-columns: 400px 1fr;
   gap: map-get($margins, "double");
-}
-.pair {
-  > input {
-    height: map-get($button-height, "small");
-    width: 64px;
-  }
 }
 @media only screen and (max-width: $mobile-width) {
   .grid {

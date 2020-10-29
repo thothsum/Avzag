@@ -5,9 +5,9 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select
-            v-model="sourceMapping"
+            :value.sync="sourceMapping"
             :items="fullMappings"
-            itemKey="name"
+            display="name"
           />
           <Button v-if="source" @click.native="source = ''" icon="clear" />
           <Button v-else @click.native="displaySample" icon="subject" />
@@ -27,7 +27,11 @@
       </div>
       <div class="panel">
         <div class="panel-horizontal">
-          <Select v-model="resultMapping" :items="mappings" itemKey="name" />
+          <Select
+            :value.sync="resultMapping"
+            :items="mappings"
+            display="name"
+          />
           <Button v-model="showMappings" icon="visibility" />
           <Button @click.native="copy" icon="file_copy" />
         </div>

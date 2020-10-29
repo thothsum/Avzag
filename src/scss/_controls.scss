@@ -14,18 +14,43 @@ select {
   @extend .panel-horizontal-dense;
 
   background-color: var(--color-active);
-  min-height: map-get($button-height, "normal");
+  height: map-get($button-height, "normal");
   padding: 0 map-get($margins, "normal");
 
   &.small,
   .small & {
-    min-height: map-get($button-height, "small");
+    height: map-get($button-height, "small");
   }
   &:not(:disabled):hover {
     background-color: var(--color-hover);
   }
   &:not(:disabled):active {
     background-color: var(--color-press);
+  }
+}
+
+textarea,
+input[type="text"] {
+  text-align: left;
+  box-shadow: map-get($shadows, "normal") inset;
+  &:read-write {
+    background-color: var(--color-foreground);
+    border: 0 solid var(--color-active);
+    border-bottom-width: $border-width;
+    &:hover,
+    &:focus {
+      border-color: var(--color-highlight);
+    }
+  }
+}
+
+input[type="text"] {
+  height: map-get($button-height, "normal");
+  padding: 0 map-get($margins, "normal");
+
+  &.small,
+  .small & {
+    height: map-get($button-height, "small");
   }
 }
 

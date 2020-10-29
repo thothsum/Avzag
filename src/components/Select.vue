@@ -1,39 +1,36 @@
 <template>
   <select v-model="index">
-    <option :value="i" :key="i" v-for="(k, i) in keys">{{k}}</option>
+    <option :value="i" :key="i" v-for="(t, i) in text">{{ t }}</option>
   </select>
 </template>
 
 <script>
 export default {
   name: "Select",
-  props: ["value", "items", "itemKey"],
-  model: {
-    prop: "value",
-    event: "select",
-  },
+  props: ["value", "items", "display", "indexed"],
   data() {
     return {
       index: 0,
     };
   },
   computed: {
-    keys() {
-      return this.itemKey
-        ? this.items.map((it) => it[this.itemKey])
-        : this.items;
+    text() {
+      return this.display ? this.items.map((i) => i[this.display]) : this.items;
+    },
+    values() {
+      return this.indexed ? this.items.map((_, i) => i) : this.items;
     },
   },
   watch: {
     value: {
       handler(v) {
-        const i = this.items.indexOf(v);
+        const i = this.values.indexOf(v);
         this.index = i < 0 ? 0 : i;
       },
       immediate: true,
     },
     index(i) {
-      this.$emit("select", this.items[i]);
+      this.$emit("update:value", this.values[i]);
     },
   },
 };
