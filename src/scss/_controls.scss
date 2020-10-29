@@ -31,6 +31,7 @@ select {
 
 textarea,
 input[type="text"] {
+  min-width: 0;
   text-align: left;
   box-shadow: map-get($shadows, "normal") inset;
   &:read-write {

@@ -1,6 +1,6 @@
 <template>
   <div class="section panel-sparse">
-    <div class="panel-horizontal-dense wrap">
+    <div class="panel-horizontal-dense wrap small">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
@@ -14,7 +14,7 @@
       <div class="panel scroll">
         <div class="panel">
           <template v-if="file">
-            <div class="panel-horizontal-dense">
+            <div class="panel-horizontal-dense small">
               <h2 class="flex">Phonemes</h2>
               <Button @click.native="addPhoneme" icon="add" />
             </div>
@@ -31,7 +31,7 @@
           </template>
         </div>
       </div>
-      <div class="panel" v-if="phoneme">
+      <div class="panel small" v-if="phoneme">
         <div class="panel-horizontal-dense">
           <h2>Phoneme</h2>
           <input
@@ -48,9 +48,14 @@
             <Button @click.native="addItem('notes', '')" icon="add" />
           </div>
           <p class="text-caption text-faded">
-            You can add notes to clarify certain use cases or to give some additional info.
+            You can add notes to clarify certain use cases or to give some
+            additional info.
           </p>
-          <div :key="i" v-for="(n, i) in phoneme.notes" class="edit">
+          <div
+            class="panel-horizontal-dense"
+            :key="i"
+            v-for="(n, i) in phoneme.notes"
+          >
             <textarea v-model="phoneme.notes[i]" class="flex note" />
             <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
           </div>
@@ -61,19 +66,17 @@
             <Button @click.native="addItem('samples', {})" icon="add" />
           </div>
           <p class="text-caption text-faded">
-            Use cases of the phoneme within the language, defined by a letter,
-            a word, and the word's ipa.
+            Use cases of the phoneme within the language, defined by a letter, a
+            word, and the word's ipa.
           </p>
           <div
             :key="i"
             v-for="(s, i) in phoneme.samples"
-            class="panel-dense edit"
+            class="panel-horizontal-solid sample"
           >
-            <div class="sample">
-              <input type="text" v-model="s.grapheme" placeholder="grapheme" />
-              <input type="text" v-model="s.word" placeholder="word" />
-              <input type="text" v-model="s.ipa" placeholder="ipa" />
-            </div>
+            <input type="text" v-model="s.grapheme" placeholder="grapheme" />
+            <input type="text" v-model="s.word" placeholder="word" />
+            <input type="text" v-model="s.ipa" placeholder="ipa" />
             <Button @click.native="deleteItem(i, 'samples')" icon="delete" />
           </div>
         </div>
@@ -172,18 +175,8 @@ export default {
   grid-template-columns: 1fr 400px;
   gap: map-get($margins, "double");
 }
-.edit,
-.sample {
-  gap: map-get($margins, "half");
-  display: grid;
-  grid-template-columns: 64px 1fr 1fr;
-  * {
-    width: 100%;
-    height: 100%;
-  }
-}
-.edit {
-  grid-template-columns: 1fr 36px;
+.sample > *:first-child {
+  width: 64px;
 }
 
 @media only screen and (max-width: $mobile-width) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="section panel-sparse scroll">
+  <div class="section panel-sparse scroll small">
     <div class="panel-horizontal-dense wrap">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
