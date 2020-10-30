@@ -46,7 +46,9 @@ export default {
       return this.use.samples.filter((s) => s.word || s.ipa);
     },
     urls() {
-      return this.fullSamples.map((s) => this.root + s.word + ".mp3");
+      return this.fullSamples
+        .map((s) => s.word?.replace(/\*/g, "") ?? s.ipa)
+        .map((w) => this.root + w + ".mp3");
     },
     graphemes() {
       return new Set(this.use.samples.map((s) => s.grapheme));
