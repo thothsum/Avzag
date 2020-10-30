@@ -72,7 +72,7 @@
           <div
             :key="i"
             v-for="(s, i) in phoneme.samples"
-            class="panel-horizontal-solid sample"
+            class="panel-horizontal-dense sample"
           >
             <input type="text" v-model="s.grapheme" placeholder="grapheme" />
             <input

@@ -45,7 +45,10 @@
         <List :value.sync="mapping" :items="mappings" display="name" />
       </div>
       <div class="panel" v-if="mapping">
-        <h2>Mapping name</h2>
+        <div class="panel-horizontal-dense">
+          <h2 class="flex">Name</h2>
+          <Button @click.native="deleteMapping" icon="delete" />
+        </div>
         <p class="text-caption text-faded">
           Select 'partial' if there are two or more mapping pairs that result in
           the same text. I.e. th-ð & th-θ.
@@ -62,16 +65,16 @@
           <h2 class="flex">Pairs</h2>
           <Button @click.native="addPair(pairs.length)" icon="add" />
         </div>
-        <div class="panel-solid">
+        <div class="panel-dense">
           <p class="text-caption text-faded">
             During conversion system will consuquently go over these pairs,
             replacing text from the left with the text from the right or vise
             versa (right with left) if conversion is reversed.
           </p>
-          <div class="panel-horizontal-solid" :key="i" v-for="(p, i) in pairs">
+          <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
+            <Button @click.native="addPair(i)" icon="vertical_align_top" />
             <input class="flex" type="text" v-model="p[0]" placeholder="from" />
             <input class="flex" type="text" v-model="p[1]" placeholder="to" />
-            <Button @click.native="addPair(i)" icon="vertical_align_top" />
             <Button @click.native="deletePair(i)" icon="clear" />
           </div>
         </div>
@@ -124,9 +127,12 @@ export default {
   },
   methods: {
     addMapping() {
-      let m = { name: "newMapping", pairs: [] };
-      this.mappings.push(m);
-      this.mapping = m;
+      this.mapping = { name: "newMapping", pairs: [] };
+      this.mappings.push(this.mapping);
+    },
+    deleteMapping() {
+      this.mappings.splice(this.mappings.indexOf(this.mapping), 1);
+      this.mapping = this.mappings[this.mappings.length - 1];
     },
     addPair(i) {
       this.mapping.pairs.splice(i, 0, ["", ""]);
@@ -154,7 +160,6 @@ export default {
     },
     reset() {
       this.file = { default: [0, 0], mappings: [] };
-      this.mapping = null;
     },
   },
 };
@@ -167,7 +172,7 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 352px 1fr;
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {

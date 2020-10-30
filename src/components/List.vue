@@ -30,7 +30,7 @@ export default {
   watch: {
     items: {
       handler() {
-        if (this.items) this.select(this.values[0]);
+        if (this.items && !this.value) this.select(this.values[0]);
       },
       immediate: true,
     },
