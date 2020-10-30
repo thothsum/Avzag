@@ -53,11 +53,16 @@ export default {
     },
   },
   watch: {
-    urls() {
-      this.canPlay = [];
-      this.urls
-        .map((u) => fetch(u, { method: "HEAD" }))
-        .forEach((b) => b.then((r) => this.canPlay.push(r.ok)));
+    urls: {
+      handler() {
+        this.canPlay = new Array(this.urls);
+        this.urls.forEach((u, i) => {
+          fetch(u, { method: "HEAD" }).then((r) => {
+            this.$set(this.canPlay, i, r.ok);
+          });
+        });
+      },
+      immediate: true,
     },
   },
   methods: {
