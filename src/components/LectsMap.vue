@@ -1,7 +1,7 @@
 <template>
   <l-map
     ref="map"
-    :center="center"
+    :center.sync="center"
     :zoom.sync="zoom"
     :options="{ zoomControl: false }"
   >
@@ -47,8 +47,8 @@ export default {
   props: ["catalogue", "selected", "visible"],
   data() {
     return {
-      center: [43.711379, 41.406538],
-      zoom: 7,
+      center: null,
+      zoom: null,
       options: { zoomControl: false },
       layerUrl:
         "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -69,20 +69,32 @@ export default {
     },
   },
   created() {
-    let url = (t) =>
-      (this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`);
+    this.center = JSON.parse(localStorage.mapCenter) ?? [43.711379, 41.406538];
+    this.zoom = JSON.parse(localStorage.mapZoom) ?? 7;
 
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    )
-      url("dark");
+    this.setupTheming();
+  },
+  destroyed() {
+    localStorage.mapCenter = JSON.stringify(this.center);
+    localStorage.mapZoom = JSON.stringify(this.zoom);
+  },
+  methods: {
+    setupTheming() {
+      let url = (t) =>
+        (this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`);
 
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        url(e.matches ? "dark" : "light");
-      });
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      )
+        url("dark");
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          url(e.matches ? "dark" : "light");
+        });
+    },
   },
 };
 </script>
