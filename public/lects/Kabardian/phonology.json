@@ -15,10 +15,6 @@
         "phoneme": "aː"
     },
     {
-        "samples": [],
-        "phoneme": "jaː"
-    },
-    {
         "samples": [
             {
                 "word": "мащӏэ",
@@ -32,66 +28,6 @@
             }
         ],
         "phoneme": "a"
-    },
-    {
-        "samples": [
-            {
-                "word": "и",
-                "ipa": "",
-                "grapheme": "и"
-            },
-            {
-                "word": "иджы",
-                "ipa": "",
-                "grapheme": "и"
-            },
-            {
-                "word": "бэли",
-                "ipa": "",
-                "grapheme": "и"
-            }
-        ],
-        "phoneme": "i"
-    },
-    {
-        "samples": [
-            {
-                "word": "о",
-                "ipa": "",
-                "grapheme": "о"
-            },
-            {
-                "word": "ӏоху",
-                "ipa": "",
-                "grapheme": "о"
-            },
-            {
-                "word": "мобде",
-                "ipa": "",
-                "grapheme": "о"
-            }
-        ],
-        "phoneme": "o"
-    },
-    {
-        "samples": [
-            {
-                "word": "у",
-                "ipa": "",
-                "grapheme": "у"
-            },
-            {
-                "word": "тӏу",
-                "ipa": "",
-                "grapheme": "у"
-            },
-            {
-                "word": "гу",
-                "ipa": "",
-                "grapheme": "у"
-            }
-        ],
-        "phoneme": "u"
     },
     {
         "samples": [
@@ -209,11 +145,22 @@
         "phoneme": "z"
     },
     {
-        "samples": [],
+        "samples": [
+            {
+                "grapheme": "й",
+                "word": "уей",
+                "ipa": "wjaj"
+            }
+        ],
         "phoneme": "j"
     },
     {
-        "samples": [],
+        "samples": [
+            {
+                "grapheme": "к",
+                "word": "Налшык"
+            }
+        ],
         "phoneme": "k"
     },
     {
@@ -249,11 +196,6 @@
     {
         "samples": [
             {
-                "word": "кхъ",
-                "ipa": "",
-                "grapheme": "кхъ"
-            },
-            {
                 "word": "кхъэ",
                 "ipa": "",
                 "grapheme": "кхъ"
@@ -264,17 +206,7 @@
     {
         "samples": [
             {
-                "word": "кхъу",
-                "ipa": "",
-                "grapheme": "кхъу"
-            },
-            {
                 "word": "кхъужь",
-                "ipa": "",
-                "grapheme": "кхъу"
-            },
-            {
-                "word": "щӏакхъуэ",
                 "ipa": "",
                 "grapheme": "кхъу"
             }
@@ -282,7 +214,12 @@
         "phoneme": "q͡χʷ"
     },
     {
-        "samples": [],
+        "samples": [
+            {
+                "grapheme": "кӏ",
+                "word": "кӏапсэ"
+            }
+        ],
         "phoneme": "t͡ʃʼ"
     },
     {
@@ -548,17 +485,7 @@
     {
         "samples": [
             {
-                "word": "ы",
-                "ipa": "",
-                "grapheme": "ы"
-            },
-            {
                 "word": "мыӏэрысэ",
-                "ipa": "",
-                "grapheme": "ы"
-            },
-            {
-                "word": "шыпс",
                 "ipa": "",
                 "grapheme": "ы"
             }
