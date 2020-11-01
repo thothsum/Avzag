@@ -1,10 +1,8 @@
 <template>
   <div class="panel card" v-if="translation">
-    <div class="panel-horizontal">
-      <div class="panel-horizontal-dense">
-        <Button class="small" @click.native="copy" icon="content_copy" />
-        <Button class="small" v-model="contextual" icon="info" />
-      </div>
+    <div class="panel-horizontal-dense small">
+      <Button @click.native="copy" icon="content_copy" />
+      <Button v-model="contextual" v-show="interactive" icon="info" />
       <h2>{{ lect }}</h2>
     </div>
     <div class="panel-horizontal-dense wrap flex">

@@ -7,11 +7,21 @@
       display="preview"
     />
     <div class="panel scroll" v-if="context">
-      <div class="panel-horizontal scroll">
-        <Button v-model="noted" icon="sticky_note_2" text="Notes" />
-        <Button v-model="contextual" icon="info" text="Context" />
-        <Button v-model="interactive" icon="tune" text="Interactive" />
-        <Button v-model="glossed" icon="layers" text="Glossed" />
+      <div class="panel-horizontal-dense scroll small">
+        <Button
+          class="round"
+          v-model="noted"
+          icon="sticky_note_2"
+          text="Notes"
+        />
+        <Button class="round" v-model="contextual" icon="info" text="Context" />
+        <Button
+          class="round"
+          v-model="interactive"
+          icon="tune"
+          text="Interactive"
+        />
+        <Button class="round" v-model="glossed" icon="layers" text="Glossed" />
       </div>
       <div class="panel wrap card" v-show="contextual">
         <div class="panel-horizontal-dense wrap blocks">
