@@ -6,7 +6,7 @@
       indexed="true"
       display="preview"
     />
-    <div class="panel scroll" v-if="context">
+    <div class="panel" v-if="context">
       <div class="panel-horizontal-dense scroll small">
         <Button
           class="round"
@@ -35,16 +35,7 @@
             v-for="(b, i) in phrase.blocks"
           />
         </div>
-        <div class="panel-horizontal-dense wrap" v-show="interactive">
-          <div
-            class="panel-horizontal-dense text-caption text-faded context wrap text-dot"
-            :key="e"
-            v-for="(t, e, i) of context"
-          >
-            <h2>{{ e }}<IndexedColor :indexes="[i]" /></h2>
-            <p :key="tg" v-for="tg in t">{{ tg }}</p>
-          </div>
-        </div>
+        <PhraseContext :context="context" />
       </div>
       <PhraseTranslation
         :id="selected"
@@ -64,7 +55,7 @@
 <script>
 import Button from "@/components/Button";
 import List from "@/components/List";
-import IndexedColor from "@/components/IndexedColor";
+import PhraseContext from "@/components/PhraseContext";
 import PhraseBlock from "@/components/PhraseBlock";
 import PhraseTranslation from "@/components/PhraseTranslation";
 
@@ -73,7 +64,7 @@ export default {
   components: {
     Button,
     List,
-    IndexedColor,
+    PhraseContext,
     PhraseBlock,
     PhraseTranslation,
   },
@@ -128,10 +119,6 @@ export default {
 .section {
   display: grid;
   grid-template-columns: 256px 1fr;
-}
-.context > * {
-  position: relative;
-  line-height: 150%;
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
