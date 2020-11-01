@@ -10,7 +10,7 @@
       <IndexedColor :passive="true" :indexes="passiveColors" />
       <IndexedColor :indexes="activeColors" />
     </template>
-    <div v-if="glosses">
+    <div v-if="glosses" class="glosses">
       <p class="text-ipa">{{ glosses[0] }}</p>
       <p>{{ glosses[1] }}</p>
     </div>
@@ -191,6 +191,12 @@ button {
   position: relative;
   &.glossed {
     height: map-get($button-height, "normal") + 8px;
+  }
+}
+.glosses {
+  text-align: left;
+  > :nth-child(2) {
+    font-variant-caps: unicase;
   }
 }
 :disabled {
