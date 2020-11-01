@@ -69,8 +69,10 @@ export default {
     },
   },
   created() {
-    this.center = JSON.parse(localStorage.mapCenter) ?? [43.711379, 41.406538];
-    this.zoom = JSON.parse(localStorage.mapZoom) ?? 7;
+    this.center = JSON.parse(
+      localStorage.mapCenter ?? "[43.711379, 41.406538]"
+    );
+    this.zoom = JSON.parse(localStorage.mapZoom ?? "7");
 
     this.setupTheming();
   },
