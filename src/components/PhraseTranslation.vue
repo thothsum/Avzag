@@ -1,7 +1,10 @@
 <template>
   <div class="panel card" v-if="translation">
     <div class="panel-horizontal">
-      <Button class="small" @click.native="copy" icon="content_copy" />
+      <div class="panel-horizontal-dense">
+        <Button class="small" @click.native="copy" icon="content_copy" />
+        <Button class="small" v-model="contextual" icon="info" />
+      </div>
       <h2>{{ lect }}</h2>
     </div>
     <div class="panel-horizontal-dense wrap flex">
@@ -47,6 +50,7 @@ export default {
   data() {
     return {
       context_: undefined,
+      contextual: false,
     };
   },
   computed: {

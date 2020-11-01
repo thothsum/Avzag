@@ -6,7 +6,7 @@
       indexed="true"
       display="preview"
     />
-    <div class="panel" v-if="context">
+    <div class="panel scroll" v-if="context">
       <div class="panel-horizontal scroll">
         <Button v-model="noted" icon="sticky_note_2" text="Notes" />
         <Button v-model="contextual" icon="info" text="Context" />
