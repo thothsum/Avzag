@@ -1,6 +1,6 @@
 <template>
-  <div class="panel-horizontal card" v-if="blocks">
-    <div class="panel-horizontal-dense">
+  <div class="panel card" v-if="blocks">
+    <div class="panel-horizontal">
       <Button class="small" @click.native="copy" icon="copy" />
       <h2>{{ lect }}</h2>
     </div>
@@ -10,7 +10,7 @@
         :id="id"
         :entities.sync="entities_"
         :interactive="interactive"
-        :phonemic="phonemic"
+        :glossed="glossed"
         :requirements="b.requirements"
         :states="b.states"
         :key="j"
@@ -30,7 +30,7 @@ export default {
     PhraseBlock,
     Button,
   },
-  props: ["id", "lect", "entities", "blocks", "interactive", "phonemic"],
+  props: ["id", "lect", "entities", "blocks", "interactive", "glossed"],
   data() {
     return {
       entities_: undefined,
@@ -39,8 +39,8 @@ export default {
   computed: {
     text() {
       return this.$refs.blocks
-        ?.filter((b) => b.visible)
-        .map((b) => b.displayedText)
+        ?.filter((b) => b.valid)
+        .map((b) => b.display)
         .join(" ");
     },
   },

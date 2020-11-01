@@ -4,7 +4,6 @@
             "states": [
                 {
                     "text": "Сэ",
-                    "ipa": "sa",
                     "conditions": [
                         {
                             "entity": "actor",
@@ -270,7 +269,6 @@
             "states": [
                 {
                     "text": "цӏэр?",
-                    "ipa": "t͡sar",
                     "conditions": [
                         {
                             "entity": "object",

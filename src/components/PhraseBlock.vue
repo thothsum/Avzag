@@ -1,12 +1,20 @@
 <template>
-  <button class="small" :disabled="disabled" v-show="visible" @click="move">
+  <button
+    class="small"
+    :class="{ 'text-faded': implicit, glossed }"
+    :disabled="disabled"
+    v-show="valid"
+    @click="move"
+  >
     <template v-if="interactive">
       <IndexedColor :passive="true" :indexes="passiveColors" />
       <IndexedColor :indexes="activeColors" />
     </template>
-    <p :class="{ 'text-ipa': canShowIpa, 'text-faded': implicit }">
-      {{ displayedText }}
-    </p>
+    <div v-if="glosses" class="text-caption glosses">
+      <p class="text-ipa">{{ glosses[0] }}</p>
+      <p>{{ glosses[1] }}</p>
+    </div>
+    <p v-else>{{ text }}</p>
   </button>
 </template>
 
@@ -18,14 +26,7 @@ export default {
   components: {
     IndexedColor,
   },
-  props: [
-    "id",
-    "entities",
-    "requirements",
-    "states",
-    "interactive",
-    "phonemic",
-  ],
+  props: ["id", "entities", "requirements", "states", "interactive", "glossed"],
   data() {
     return {
       state: undefined,
@@ -39,20 +40,20 @@ export default {
     implicit() {
       return this.state?.implicit;
     },
+    text() {
+      return this.state?.text;
+    },
+    glosses() {
+      return this.glossed ? this.state?.glosses : null;
+    },
     conditions() {
       return this.state?.conditions;
     },
     disabled() {
       return !(this.interactive && this.transition);
     },
-    visible() {
-      return this.valid && (this.interactive || !this.implicit);
-    },
-    canShowIpa() {
-      return this.phonemic && this.state?.ipa;
-    },
-    displayedText() {
-      return this.canShowIpa ? this.state?.ipa : this.state?.text;
+    display() {
+      return this.glosses?.join("\n") ?? this.text;
     },
     entityKeys() {
       return Object.keys(this.entities);
@@ -188,6 +189,12 @@ export default {
 <style lang="scss" scoped>
 button {
   position: relative;
+  &.glossed {
+    height: map-get($button-height, "normal") + 8px;
+  }
+}
+.glosses {
+  text-align: left;
 }
 :disabled {
   padding: 0;

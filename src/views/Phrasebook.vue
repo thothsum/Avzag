@@ -9,7 +9,7 @@
     <div class="panel" v-if="entities">
       <div class="panel-horizontal">
         <Button v-model="interactive" icon="tune" text="Interactive" />
-        <Button v-model="phonemic" icon="music_note" text="IPA" />
+        <Button v-model="glossed" icon="layers" text="Glossing" />
       </div>
       <div class="panel wrap card">
         <div class="panel-horizontal-dense wrap blocks">
@@ -40,7 +40,7 @@
         :lect="lects[i].name"
         :blocks="t"
         :interactive="interactive"
-        :phonemic="phonemic"
+        :glossed="glossed"
         :key="i"
         v-for="(t, i) in translations"
       />
@@ -69,7 +69,7 @@ export default {
       selected: undefined,
       entities: undefined,
       interactive: false,
-      phonemic: false,
+      glossed: false,
     };
   },
   computed: {

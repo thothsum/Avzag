@@ -4,7 +4,10 @@
             "states": [
                 {
                     "text": "Цигле",
-                    "ipa": "t͡sigle",
+                    "glosses": [
+                        "t͡sigle",
+                        "how"
+                    ],
                     "conditions": [
                         {
                             "entity": "tense",
@@ -15,7 +18,10 @@
                 },
                 {
                     "text": "Цикъкъел",
-                    "ipa": "t͡siqːel",
+                    "glosses": [
+                        "t͡siqːel",
+                        "when"
+                    ],
                     "conditions": [
                         {
                             "entity": "tense",
@@ -30,7 +36,6 @@
             "states": [
                 {
                     "text": "ду",
-                    "ipa": "du",
                     "conditions": [
                         {
                             "entity": "actor",
@@ -42,7 +47,6 @@
                 },
                 {
                     "text": "нисса",
-                    "ipa": "nissɑ",
                     "conditions": [
                         {
                             "entity": "actor",
@@ -136,8 +140,7 @@
         {
             "states": [
                 {
-                    "text": "Гьуналжия",
-                    "ipa": "hunɑlʒijɑ"
+                    "text": "Гьуналжия"
                 }
             ]
         },
@@ -145,7 +148,6 @@
             "states": [
                 {
                     "text": "гьеж?",
-                    "ipa": "heʒ",
                     "conditions": [
                         {
                             "entity": "object",
@@ -156,7 +158,6 @@
                 },
                 {
                     "text": "къагъар?",
-                    "ipa": "qɑʁɑr",
                     "conditions": [
                         {
                             "entity": "object",
@@ -167,7 +168,6 @@
                 },
                 {
                     "text": "гьинце?",
-                    "ipa": "hint͡se",
                     "conditions": [
                         {
                             "entity": "object",
