@@ -23,7 +23,7 @@
         />
         <Button class="round" v-model="glossed" icon="layers" text="Glossed" />
       </div>
-      <div class="panel wrap card" v-show="contextual">
+      <div class="panel wrap card" v-if="contextual">
         <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
             :id="selected"
@@ -35,7 +35,7 @@
             v-for="(b, i) in phrase.blocks"
           />
         </div>
-        <PhraseContext :context="context" />
+        <PhraseContext v-if="interactive" :context="context" />
       </div>
       <PhraseTranslation
         :id="selected"

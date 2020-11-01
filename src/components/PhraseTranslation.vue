@@ -2,7 +2,7 @@
   <div class="panel card" v-if="translation">
     <div class="panel-horizontal-dense small">
       <Button @click.native="copy" icon="content_copy" />
-      <Button v-model="contextual" v-show="interactive" icon="info" />
+      <Button v-model="contextual" v-if="interactive" icon="info" />
       <h2>{{ lect }}</h2>
     </div>
     <div class="panel-horizontal-dense wrap flex">
@@ -19,9 +19,9 @@
       />
     </div>
     <PhraseContext
-      v-show="contextual && interactive"
+      v-if="contextual && interactive && translation.context"
       :context="context"
-      :traslation="translation.context"
+      :translation="translation.context"
     />
     <template v-if="noted">
       <PhoneticNote :key="i" v-for="(n, i) in translation.notes" :text="n" />

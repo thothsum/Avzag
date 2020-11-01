@@ -25,7 +25,7 @@ export default {
       return (
         this.translation?.reduce((d, p) => {
           d[p[0]] = p[1];
-          return;
+          return d;
         }, {}) ?? {}
       );
     },

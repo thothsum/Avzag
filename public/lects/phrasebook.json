@@ -8,7 +8,7 @@
             },
             {
                 "entity": "actor",
-                "tags": "singular plural"
+                "tags": "singular feminine masculine plural"
             },
             {
                 "entity": "destination",

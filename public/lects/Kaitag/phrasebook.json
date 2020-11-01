@@ -3,6 +3,56 @@
         "notes": [
             "In most cases, append <-цци> to form directive case."
         ],
+        "context": [
+            [
+                "tense",
+                "замана"
+            ],
+            [
+                "present",
+                "гьана"
+            ],
+            [
+                "future",
+                "цӏил"
+            ],
+            [
+                "actor",
+                "мейдам"
+            ],
+            [
+                "singular",
+                "цагина"
+            ],
+            [
+                "masculine",
+                "мургул"
+            ],
+            [
+                "feminine",
+                "хьулум"
+            ],
+            [
+                "plural",
+                "чумилра"
+            ],
+            [
+                "destination",
+                "мусса"
+            ],
+            [
+                "there",
+                "гьетин"
+            ],
+            [
+                "home",
+                "хъале"
+            ],
+            [
+                "shop",
+                "тукен"
+            ]
+        ],
         "blocks": [
             {
                 "states": [
