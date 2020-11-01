@@ -1,5 +1,5 @@
 <template>
-  <div class="panel card" v-if="blocks">
+  <div class="panel card" v-if="translation">
     <div class="panel-horizontal">
       <Button class="small" @click.native="copy" icon="copy" />
       <h2>{{ lect }}</h2>
@@ -8,32 +8,45 @@
       <PhraseBlock
         ref="blocks"
         :id="id"
-        :entities.sync="entities_"
+        :context.sync="context_"
         :interactive="interactive"
         :glossed="glossed"
         :requirements="b.requirements"
         :states="b.states"
         :key="j"
-        v-for="(b, j) in blocks"
+        v-for="(b, j) in translation.blocks"
       />
     </div>
+    <template v-if="noted">
+      <PhoneticNote :key="i" v-for="(n, i) in translation.notes" :text="n" />
+    </template>
   </div>
 </template>
 
 <script>
 import Button from "./Button";
 import PhraseBlock from "./PhraseBlock";
+import PhoneticNote from "./PhoneticNote";
 
 export default {
-  name: "PhraseItem",
+  name: "PhraseTranslation",
   components: {
-    PhraseBlock,
     Button,
+    PhraseBlock,
+    PhoneticNote,
   },
-  props: ["id", "lect", "entities", "blocks", "interactive", "glossed"],
+  props: [
+    "id",
+    "lect",
+    "context",
+    "translation",
+    "interactive",
+    "glossed",
+    "noted",
+  ],
   data() {
     return {
-      entities_: undefined,
+      context_: undefined,
     };
   },
   computed: {
@@ -41,15 +54,15 @@ export default {
       return this.$refs.blocks
         ?.filter((b) => b.valid)
         .map((b) => b.display)
-        .join(" ");
+        .join("");
     },
   },
   watch: {
-    entities() {
-      this.entities_ = this.entities;
+    context() {
+      this.context_ = this.context;
     },
-    entities_() {
-      this.$emit("update:entities", this.entities_);
+    context_() {
+      this.$emit("update:context", this.context_);
     },
   },
   methods: {
@@ -63,10 +76,5 @@ export default {
 <style lang="scss" scoped>
 .card {
   align-items: flex-start;
-}
-@media only screen and (max-width: $mobile-width) {
-  .card {
-    flex-direction: column;
-  }
 }
 </style>

@@ -1,388 +1,396 @@
 [
-    [
-        {
-            "states": [
-                {
-                    "text": "Сэ",
-                    "conditions": [
-                        {
-                            "entity": "actor",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "next",
-                    "implicit": true
-                },
-                {
-                    "text": "Дэ",
-                    "conditions": [
-                        {
-                            "entity": "actor",
-                            "tags": "plural"
-                        }
-                    ],
-                    "transition": "next",
-                    "implicit": true
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "абыкӏэ",
-                    "conditions": [
-                        {
-                            "entity": "destination",
-                            "tags": "there"
-                        },
-                        {
-                            "entity": "tense",
-                            "tags": "present",
-                            "passive": true
-                        }
-                    ],
-                    "transition": "2"
-                },
-                {
-                    "text": "абы",
-                    "conditions": [
-                        {
-                            "entity": "destination",
-                            "tags": "there"
-                        },
-                        {
-                            "entity": "tense",
-                            "tags": "future",
-                            "passive": true
-                        }
-                    ],
-                    "transition": "2"
-                },
-                {
-                    "text": "тыкуэным",
-                    "conditions": [
-                        {
-                            "entity": "destination",
-                            "tags": "shop"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "унэм",
-                    "conditions": [
-                        {
-                            "entity": "destination",
-                            "tags": "home"
-                        }
-                    ],
-                    "transition": "0 1"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "дау",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "present"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "дэпщэщ",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "future"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "сызэрыкӏуэныр?",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "present"
-                        },
-                        {
-                            "entity": "actor",
-                            "tags": "singular"
-                        }
-                    ]
-                },
-                {
-                    "text": "дызэрыкӏуэныр?",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "present"
-                        },
-                        {
-                            "entity": "actor",
-                            "tags": "plural"
-                        }
-                    ]
-                },
-                {
-                    "text": "сыщыкӏуэныр?",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "future"
-                        },
-                        {
-                            "entity": "actor",
-                            "tags": "singular"
-                        }
-                    ]
-                },
-                {
-                    "text": "дыщыкӏуэныр?",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "future"
-                        },
-                        {
-                            "entity": "actor",
-                            "tags": "plural"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    [
-        {
-            "states": [
-                {
-                    "text": "Мыбы",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Билетым",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "singular ticket"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Мыӏэрысэхэм",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "plural apple"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "дапщэ и уэсэр?"
-                }
-            ]
-        }
-    ],
-    [
-        {
-            "requirements": [
-                {
-                    "entity": "object",
-                    "tags": "person"
-                }
-            ],
-            "states": [
-                {
-                    "text": "Сыт"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "Мыбы",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "object"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "уи",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "person second"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "абы",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "person third"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "requirements": [
-                {
-                    "entity": "object",
-                    "tags": "person third"
-                }
-            ],
-            "states": [
-                {
-                    "text": "и"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "цӏэр?",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "person"
-                        }
-                    ]
-                },
-                {
-                    "text": "дау зэреджэр?",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "object"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    [
-        {
-            "states": [
-                {
-                    "text": "Упсэу,",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Фыпсэу,",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "plural"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "ӏейуэ"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "уыкъыздэӏэпыкъуащ.",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "singular",
-                            "passive": true
-                        },
-                        {
-                            "entity": "object",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "1"
-                },
-                {
-                    "text": "уыкъыддэӏэпыкъуащ.",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "singular",
-                            "passive": true
-                        },
-                        {
-                            "entity": "object",
-                            "tags": "plural"
-                        }
-                    ],
-                    "transition": "0"
-                },
-                {
-                    "text": "фыкъыздэӏэпыкъуащ.",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "plural",
-                            "passive": true
-                        },
-                        {
-                            "entity": "object",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "3"
-                },
-                {
-                    "text": "фыкъыддэӏэпыкъуащ.",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "plural",
-                            "passive": true
-                        },
-                        {
-                            "entity": "object",
-                            "tags": "plural"
-                        }
-                    ],
-                    "transition": "2"
-                }
-            ]
-        }
-    ]
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Сэ",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true
+                    },
+                    {
+                        "text": "Дэ",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "абыкӏэ",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "there"
+                            },
+                            {
+                                "entity": "tense",
+                                "tags": "present",
+                                "passive": true
+                            }
+                        ],
+                        "transition": "2"
+                    },
+                    {
+                        "text": "абы",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "there"
+                            },
+                            {
+                                "entity": "tense",
+                                "tags": "future",
+                                "passive": true
+                            }
+                        ],
+                        "transition": "2"
+                    },
+                    {
+                        "text": "тыкуэным",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "shop"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "унэм",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "home"
+                            }
+                        ],
+                        "transition": "0 1"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "дау",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "present"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "дэпщэщ",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "future"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "сызэрыкӏуэныр?",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "present"
+                            },
+                            {
+                                "entity": "actor",
+                                "tags": "singular"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "дызэрыкӏуэныр?",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "present"
+                            },
+                            {
+                                "entity": "actor",
+                                "tags": "plural"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "сыщыкӏуэныр?",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "future"
+                            },
+                            {
+                                "entity": "actor",
+                                "tags": "singular"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "дыщыкӏуэныр?",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "future"
+                            },
+                            {
+                                "entity": "actor",
+                                "tags": "plural"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Мыбы",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Билетым",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular ticket"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Мыӏэрысэхэм",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "plural apple"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "дапщэ и уэсэр?"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "blocks": [
+            {
+                "requirements": [
+                    {
+                        "entity": "object",
+                        "tags": "person"
+                    }
+                ],
+                "states": [
+                    {
+                        "text": "Сыт"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "Мыбы",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "object"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "уи",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "person second"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "абы",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "person third"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "requirements": [
+                    {
+                        "entity": "object",
+                        "tags": "person third"
+                    }
+                ],
+                "states": [
+                    {
+                        "text": "и"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "цӏэр?",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "person"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "дау зэреджэр?",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "object"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Упсэу,",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Фыпсэу,",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "ӏейуэ"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "уыкъыздэӏэпыкъуащ.",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "singular",
+                                "passive": true
+                            },
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "1"
+                    },
+                    {
+                        "text": "уыкъыддэӏэпыкъуащ.",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "singular",
+                                "passive": true
+                            },
+                            {
+                                "entity": "object",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "0"
+                    },
+                    {
+                        "text": "фыкъыздэӏэпыкъуащ.",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "plural",
+                                "passive": true
+                            },
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "3"
+                    },
+                    {
+                        "text": "фыкъыддэӏэпыкъуащ.",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "plural",
+                                "passive": true
+                            },
+                            {
+                                "entity": "object",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "2"
+                    }
+                ]
+            }
+        ]
+    }
 ]

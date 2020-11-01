@@ -27,7 +27,7 @@ export default {
       menus: [
         ["Phonology", "audiotrack"],
         ["Converter", "sync_alt"],
-        ["Phrasebook", "chat"],
+        ["Phrasebook", "book"],
       ],
     };
   },

@@ -6,16 +6,17 @@
       indexed="true"
       display="preview"
     />
-    <div class="panel" v-if="entities">
+    <div class="panel" v-if="context">
       <div class="panel-horizontal">
         <Button v-model="interactive" icon="tune" text="Interactive" />
         <Button v-model="glossed" icon="layers" text="Glossing" />
+        <Button v-model="noted" icon="sticky_note_2" text="Notes" />
       </div>
       <div class="panel wrap card">
         <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
             :id="selected"
-            :entities.sync="entities"
+            :context.sync="context"
             :interactive="interactive"
             :requirements="b.requirements"
             :states="b.states"
@@ -25,22 +26,23 @@
         </div>
         <div class="panel-horizontal-dense wrap" v-show="interactive">
           <div
-            class="panel-horizontal-dense text-caption text-faded entities wrap text-dot"
+            class="panel-horizontal-dense text-caption text-faded context wrap text-dot"
             :key="e"
-            v-for="(t, e, i) of entities"
+            v-for="(t, e, i) of context"
           >
             <h2>{{ e }}<IndexedColor :indexes="[i]" /></h2>
             <p :key="tg" v-for="tg in t">{{ tg }}</p>
           </div>
         </div>
       </div>
-      <PhraseItem
+      <PhraseTranslation
         :id="selected"
-        :entities.sync="entities"
+        :context.sync="context"
         :lect="lects[i].name"
-        :blocks="t"
+        :translation="t"
         :interactive="interactive"
         :glossed="glossed"
+        :noted="noted"
         :key="i"
         v-for="(t, i) in translations"
       />
@@ -53,7 +55,7 @@ import Button from "@/components/Button";
 import List from "@/components/List";
 import IndexedColor from "@/components/IndexedColor";
 import PhraseBlock from "@/components/PhraseBlock";
-import PhraseItem from "@/components/PhraseItem";
+import PhraseTranslation from "@/components/PhraseTranslation";
 
 export default {
   name: "Phrasebook",
@@ -62,14 +64,15 @@ export default {
     List,
     IndexedColor,
     PhraseBlock,
-    PhraseItem,
+    PhraseTranslation,
   },
   data() {
     return {
       selected: undefined,
-      entities: undefined,
+      context: undefined,
       interactive: false,
       glossed: false,
+      noted: false,
     };
   },
   computed: {
@@ -96,8 +99,8 @@ export default {
       immediate: true,
     },
     phrase() {
-      this.entities =
-        this.phrase?.environment?.reduce((acc, s) => {
+      this.context =
+        this.phrase?.context?.reduce((acc, s) => {
           acc[s.entity] = new Set();
           return acc;
         }, {}) ?? {};
@@ -114,11 +117,10 @@ export default {
   display: grid;
   grid-template-columns: 256px 1fr;
 }
-.entities > * {
+.context > * {
   position: relative;
   line-height: 150%;
 }
-
 @media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 1fr;

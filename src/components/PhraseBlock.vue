@@ -10,7 +10,7 @@
       <IndexedColor :passive="true" :indexes="passiveColors" />
       <IndexedColor :indexes="activeColors" />
     </template>
-    <div v-if="glosses" class="text-caption glosses">
+    <div v-if="glosses">
       <p class="text-ipa">{{ glosses[0] }}</p>
       <p>{{ glosses[1] }}</p>
     </div>
@@ -26,7 +26,7 @@ export default {
   components: {
     IndexedColor,
   },
-  props: ["id", "entities", "requirements", "states", "interactive", "glossed"],
+  props: ["id", "context", "requirements", "states", "interactive", "glossed"],
   data() {
     return {
       state: undefined,
@@ -53,10 +53,10 @@ export default {
       return !(this.interactive && this.transition);
     },
     display() {
-      return this.glosses?.join("\n") ?? this.text;
+      return this.glosses ? this.glosses.join("\n") + "\n" : this.text + " ";
     },
-    entityKeys() {
-      return Object.keys(this.entities);
+    entities() {
+      return Object.keys(this.context);
     },
     passiveColors() {
       let conditions = [];
@@ -84,10 +84,10 @@ export default {
       },
       immediate: true,
     },
-    entities: {
+    context: {
       handler() {
         const valid =
-          this.entities &&
+          this.context &&
           (!this.requirements ||
             this.normalizeConditions(this.requirements)[0] == 1);
 
@@ -108,14 +108,14 @@ export default {
   methods: {
     getConditionColors(conditions) {
       const entities = new Set(conditions.map((c) => c.entity));
-      return [...entities].map((e) => this.entityKeys.indexOf(e));
+      return [...entities].map((e) => this.entities.indexOf(e));
     },
     checkTags({ entity, tags }) {
-      if (!this.entities) return [0, 0];
+      if (!this.context) return [0, 0];
       if (!tags) return [1, 0];
 
       tags = tags.split(" ");
-      const fit = tags.filter((t) => this.entities[entity].has(t)).length;
+      const fit = tags.filter((t) => this.context[entity].has(t)).length;
       const len = tags.length;
 
       return [fit / len, len];
@@ -150,23 +150,23 @@ export default {
 
       return state ?? states[0];
     },
-    applyConditions(entities, conditions, positive) {
+    applyConditions(context, conditions, positive) {
       conditions
         ?.filter((c) => !c.passive)
         .forEach(({ entity, tags }) =>
           tags.split(" ").forEach((t) => {
-            if (positive) entities[entity]?.add(t);
-            else entities[entity]?.delete(t);
+            if (positive) context[entity]?.add(t);
+            else context[entity]?.delete(t);
           })
         );
     },
     applyState(state) {
-      let entities = Object.assign({}, this.entities);
+      let context = Object.assign({}, this.context);
 
-      this.applyConditions(entities, this.state?.conditions, false);
-      this.applyConditions(entities, state?.conditions, true);
+      this.applyConditions(context, this.state?.conditions, false);
+      this.applyConditions(context, state?.conditions, true);
 
-      this.$emit("update:entities", entities);
+      this.$emit("update:context", context);
     },
     move() {
       if (typeof this.transition == "string") {
@@ -192,9 +192,6 @@ button {
   &.glossed {
     height: map-get($button-height, "normal") + 8px;
   }
-}
-.glosses {
-  text-align: left;
 }
 :disabled {
   padding: 0;

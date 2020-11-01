@@ -1,309 +1,317 @@
 [
-    [
-        {
-            "states": [
-                {
-                    "text": "Ну",
-                    "conditions": [
-                        {
-                            "entity": "actor",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Нуша",
-                    "conditions": [
-                        {
-                            "entity": "actor",
-                            "tags": "plural"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "секьяйда",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "present"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "мурт",
-                    "conditions": [
-                        {
-                            "entity": "tense",
-                            "tags": "future"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "ита",
-                    "conditions": [
-                        {
-                            "entity": "destination",
-                            "tags": "there"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "хъули",
-                    "conditions": [
-                        {
-                            "entity": "destination",
-                            "tags": "home"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "тукейзи",
-                    "conditions": [
-                        {
-                            "entity": "destination",
-                            "tags": "shop"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "аркьусира?"
-                }
-            ]
-        }
-    ],
-    [
-        {
-            "states": [
-                {
-                    "text": "Иш",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Билет",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "singular ticket"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Гӏинцби",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "plural apple"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "сецадлис"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "саби?",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "singular"
-                        }
-                    ]
-                },
-                {
-                    "text": "сари?",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "plural"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    [
-        {
-            "states": [
-                {
-                    "text": "Илис",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "object"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Итис",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "second person"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "Хӏед",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "third person"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "се",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "object"
-                        }
-                    ]
-                },
-                {
-                    "text": "чи",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "person"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "бикӏара?"
-                }
-            ]
-        }
-    ],
-    [
-        {
-            "states": [
-                {
-                    "text": "Баркалла,"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "хӏуни",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "хӏушани",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "plural"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "нушаб",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "singular"
-                        }
-                    ],
-                    "transition": "next"
-                },
-                {
-                    "text": "наб",
-                    "conditions": [
-                        {
-                            "entity": "object",
-                            "tags": "plural"
-                        }
-                    ],
-                    "transition": "next"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "халаси"
-                }
-            ]
-        },
-        {
-            "states": [
-                {
-                    "text": "кумекбарри.",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "singular"
-                        }
-                    ]
-                },
-                {
-                    "text": "кумекбаррая.",
-                    "conditions": [
-                        {
-                            "entity": "subject",
-                            "tags": "plural"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Ну",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Нуша",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "секьяйда",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "present"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "мурт",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tags": "future"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "ита",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "there"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "хъули",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "home"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "тукейзи",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tags": "shop"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "аркьусира?"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Иш",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Билет",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular ticket"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Гӏинцби",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "plural apple"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "сецадлис"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "саби?",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "сари?",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "plural"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Илис",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "object"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Итис",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "second person"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Хӏед",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "third person"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "се",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "object"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "чи",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "person"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "бикӏара?"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Баркалла,"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "хӏуни",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "хӏушани",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "нушаб",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "singular"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "наб",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tags": "plural"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "халаси"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "кумекбарри.",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "singular"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "кумекбаррая.",
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tags": "plural"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 ]
