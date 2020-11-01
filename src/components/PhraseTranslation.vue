@@ -18,6 +18,11 @@
         v-for="(b, j) in translation.blocks"
       />
     </div>
+    <PhraseContext
+      v-show="contextual && interactive"
+      :context="context"
+      :traslation="translation.context"
+    />
     <template v-if="noted">
       <PhoneticNote :key="i" v-for="(n, i) in translation.notes" :text="n" />
     </template>
@@ -26,6 +31,7 @@
 
 <script>
 import Button from "./Button";
+import PhraseContext from "@/components/PhraseContext";
 import PhraseBlock from "./PhraseBlock";
 import PhoneticNote from "./PhoneticNote";
 
@@ -33,6 +39,7 @@ export default {
   name: "PhraseTranslation",
   components: {
     Button,
+    PhraseContext,
     PhraseBlock,
     PhoneticNote,
   },
