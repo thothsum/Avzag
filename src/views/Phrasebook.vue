@@ -7,12 +7,13 @@
       display="preview"
     />
     <div class="panel" v-if="context">
-      <div class="panel-horizontal">
-        <Button v-model="interactive" icon="tune" text="Interactive" />
-        <Button v-model="glossed" icon="layers" text="Glossing" />
+      <div class="panel-horizontal scroll">
         <Button v-model="noted" icon="sticky_note_2" text="Notes" />
+        <Button v-model="contextual" icon="info" text="Context" />
+        <Button v-model="interactive" icon="tune" text="Interactive" />
+        <Button v-model="glossed" icon="layers" text="Glossed" />
       </div>
-      <div class="panel wrap card">
+      <div class="panel wrap card" v-show="contextual">
         <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
             :id="selected"
@@ -73,6 +74,7 @@ export default {
       interactive: false,
       glossed: false,
       noted: false,
+      contextual: true,
     };
   },
   computed: {
