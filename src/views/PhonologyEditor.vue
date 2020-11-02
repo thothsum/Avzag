@@ -32,7 +32,7 @@
           </template>
         </div>
       </div>
-      <div class="panel small" v-if="phoneme">
+      <div class="panel-sparse small" v-if="phoneme">
         <div class="panel-horizontal-dense">
           <h2>Phoneme</h2>
           <input

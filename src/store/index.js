@@ -25,6 +25,7 @@ export default new Vuex.Store({
     root: process.env.BASE_URL + "lects/",
     ipa: undefined,
     catalogue: undefined,
+    phrasebook: undefined,
     lects: undefined,
     phonemes: undefined
   },

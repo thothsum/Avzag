@@ -89,7 +89,7 @@ export default {
       return this.phrasebook ? this.phrasebook[this.selected] : undefined;
     },
     translations() {
-      return this.lects.map((l) =>
+      return this.lects?.map((l) =>
         l.phrasebook ? l.phrasebook[this.selected] : undefined
       );
     },

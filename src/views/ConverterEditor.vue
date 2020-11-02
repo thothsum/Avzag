@@ -12,61 +12,69 @@
       <Button @click.native="reset" text="reset" />
     </div>
     <div class="grid small">
-      <div class="panel" v-if="file">
+      <div class="panel-sparse" v-if="file">
+        <div class="panel-dense">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Mappings</h2>
+            <Button @click.native="addMapping" icon="add" />
+          </div>
+          <List :value.sync="mapping" :items="mappings" display="name" />
+        </div>
         <template v-if="file">
-          <h2>Sample text</h2>
-          <p class="text-caption text-faded">
-            Text that will be displayed to demonstrate the conversion.
-          </p>
-          <textarea v-model="file.sample" />
-          <h2>Default conversion</h2>
-          <p class="text-caption text-faded">
-            Two mappings that will be set by default. The left should be set to
-            the sample's original writing system.
-          </p>
-          <div class="panel-dense" v-if="defaultConversion">
-            <Select
-              :value.sync="defaultConversion[0]"
-              :items="mappings"
-              display="name"
-              indexed="true"
-            />
-            <Select
-              :value.sync="defaultConversion[1]"
-              :items="mappings"
-              display="name"
-              indexed="true"
-            />
+          <div class="panel-dense">
+            <h2>Sample text</h2>
+            <p class="text-caption text-faded">
+              Text that will be displayed to demonstrate the conversion.
+            </p>
+            <textarea v-model="file.sample" />
+          </div>
+          <div class="panel-dense">
+            <h2>Default conversion</h2>
+            <p class="text-caption text-faded">
+              Two mappings that will be set by default. The left should be set
+              to the sample's original writing system.
+            </p>
+            <div class="panel-dense" v-if="defaultConversion">
+              <Select
+                :value.sync="defaultConversion[0]"
+                :items="mappings"
+                display="name"
+                indexed="true"
+              />
+              <Select
+                :value.sync="defaultConversion[1]"
+                :items="mappings"
+                display="name"
+                indexed="true"
+              />
+            </div>
           </div>
         </template>
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Mappings</h2>
-          <Button @click.native="addMapping" icon="add" />
-        </div>
-        <List :value.sync="mapping" :items="mappings" display="name" />
       </div>
-      <div class="panel" v-if="mapping">
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Name</h2>
-          <Button @click.native="deleteMapping" icon="delete" />
-        </div>
-        <p class="text-caption text-faded">
-          Select 'partial' if there are two or more mapping pairs that result in
-          the same text. I.e. th-ð & th-θ.
-        </p>
-        <div class="panel-horizontal">
-          <input class="flex" type="text" v-model="mapping.name" />
-          <Button
-            v-model="mapping.partial"
-            icon="sync_disabled"
-            text="Partial"
-          />
-        </div>
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Pairs</h2>
-          <Button @click.native="addPair(pairs.length)" icon="add" />
+      <div class="panel-sparse" v-if="mapping">
+        <div class="panel-dense">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Name</h2>
+            <Button @click.native="deleteMapping" icon="delete" />
+          </div>
+          <p class="text-caption text-faded">
+            Select 'partial' if there are two or more mapping pairs that result
+            in the same text. I.e. th-ð & th-θ.
+          </p>
+          <div class="panel-horizontal">
+            <input class="flex" type="text" v-model="mapping.name" />
+            <Button
+              v-model="mapping.partial"
+              icon="sync_disabled"
+              text="Partial"
+            />
+          </div>
         </div>
         <div class="panel-dense">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Pairs</h2>
+            <Button @click.native="addPair(pairs.length)" icon="add" />
+          </div>
           <p class="text-caption text-faded">
             During conversion system will consuquently go over these pairs,
             replacing text from the left with the text from the right or vise
