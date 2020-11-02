@@ -1,12 +1,12 @@
 <template>
-  <div class="section panel" v-if="phrasebook">
+  <div class="section panel" v-if="lects && phrasebook">
     <List
       :value.sync="selected"
       :items="phrasebook"
       indexed="true"
       display="preview"
     />
-    <div class="panel" v-if="context">
+    <div class="panel" v-if="phrase">
       <div class="panel-horizontal-dense scroll small">
         <Button
           class="round"
@@ -23,7 +23,7 @@
         />
         <Button class="round" v-model="glossed" icon="layers" text="Glossed" />
       </div>
-      <div class="panel wrap card" v-if="contextual">
+      <div class="panel wrap card" v-show="contextual">
         <div class="panel-horizontal-dense wrap blocks">
           <PhraseBlock
             :id="selected"
@@ -89,7 +89,7 @@ export default {
       return this.phrasebook ? this.phrasebook[this.selected] : undefined;
     },
     translations() {
-      return this.lects?.map((l) =>
+      return this.lects.map((l) =>
         l.phrasebook ? l.phrasebook[this.selected] : undefined
       );
     },
@@ -101,12 +101,15 @@ export default {
       },
       immediate: true,
     },
-    phrase() {
-      this.context =
-        this.phrase?.context?.reduce((acc, s) => {
-          acc[s.entity] = new Set();
-          return acc;
-        }, {}) ?? {};
+    phrase: {
+      handler() {
+        this.context =
+          this.phrase?.context?.reduce((acc, s) => {
+            acc[s.entity] = new Set();
+            return acc;
+          }, {}) ?? {};
+      },
+      immediate: true,
     },
   },
   destroyed() {

@@ -30,18 +30,13 @@ export default {
   watch: {
     items: {
       handler() {
-        this.default();
+        if (this.items && !this.value) this.select(this.values[0]);
       },
       immediate: true,
     },
   },
-  created() {
-    this.default;
-  },
+
   methods: {
-    default() {
-      if (this.items && !this.value) this.select(this.values[0]);
-    },
     select(v) {
       this.$emit("update:value", v);
     },
