@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import PhonologyEditor from '../views/PhonologyEditor.vue'
 import ConverterEditor from '../views/ConverterEditor.vue'
+import PhrasebookEditor from '../views/PhrasebookEditor.vue'
 
 import Phonology from '../views/Phonology.vue'
 import Converter from '../views/Converter.vue'
@@ -26,6 +27,10 @@ const routes = [
     path: '/editor/converter/',
     name: 'ConverterEditor',
     component: ConverterEditor
+  }, {
+    path: '/editor/phrasebook/',
+    name: 'PhrasebookEditor',
+    component: PhrasebookEditor
   },
   {
     path: '/phonology/',
