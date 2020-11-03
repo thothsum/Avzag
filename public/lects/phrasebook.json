@@ -4,15 +4,15 @@
         "context": [
             {
                 "entity": "tense",
-                "tags": "present future"
+                "tag": "present future"
             },
             {
                 "entity": "actor",
-                "tags": "singular feminine masculine plural"
+                "tag": "singular feminine masculine plural"
             },
             {
                 "entity": "destination",
-                "tags": "there home shop"
+                "tag": "there home shop"
             }
         ],
         "blocks": [
@@ -23,7 +23,7 @@
                         "conditions": [
                             {
                                 "entity": "tense",
-                                "tags": "present"
+                                "tag": "present"
                             }
                         ],
                         "transition": "next"
@@ -33,7 +33,7 @@
                         "conditions": [
                             {
                                 "entity": "tense",
-                                "tags": "future"
+                                "tag": "future"
                             }
                         ],
                         "transition": "next"
@@ -47,7 +47,7 @@
                         "conditions": [
                             {
                                 "entity": "tense",
-                                "tags": "present"
+                                "tag": "present"
                             }
                         ]
                     },
@@ -56,7 +56,7 @@
                         "conditions": [
                             {
                                 "entity": "tense",
-                                "tags": "future"
+                                "tag": "future"
                             }
                         ]
                     }
@@ -69,7 +69,7 @@
                         "conditions": [
                             {
                                 "entity": "actor",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -79,7 +79,7 @@
                         "conditions": [
                             {
                                 "entity": "actor",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ],
                         "transition": "next"
@@ -100,7 +100,7 @@
                         "conditions": [
                             {
                                 "entity": "destination",
-                                "tags": "there"
+                                "tag": "there"
                             }
                         ],
                         "transition": "next"
@@ -110,7 +110,7 @@
                         "conditions": [
                             {
                                 "entity": "destination",
-                                "tags": "home"
+                                "tag": "home"
                             }
                         ],
                         "transition": "next"
@@ -120,7 +120,7 @@
                         "conditions": [
                             {
                                 "entity": "destination",
-                                "tags": "shop"
+                                "tag": "shop"
                             }
                         ],
                         "transition": "next"
@@ -134,7 +134,7 @@
         "context": [
             {
                 "entity": "object",
-                "tags": "singular plural ticket apple"
+                "tag": "singular plural ticket apple"
             }
         ],
         "blocks": [
@@ -152,7 +152,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ]
                     },
@@ -161,7 +161,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ]
                     }
@@ -174,7 +174,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -184,7 +184,11 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular ticket"
+                                "tag": "ticket"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -194,7 +198,11 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "plural apple"
+                                "tag": "apple"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "plural"
                             }
                         ],
                         "transition": "next"
@@ -215,7 +223,7 @@
         "context": [
             {
                 "entity": "object",
-                "tags": "object person first second third masculine feminine"
+                "tag": "object person first second third masculine feminine"
             }
         ],
         "blocks": [
@@ -233,7 +241,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "object"
+                                "tag": "object"
                             }
                         ],
                         "transition": "next"
@@ -243,7 +251,11 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "second person"
+                                "tag": "person"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "second"
                             }
                         ],
                         "transition": "next"
@@ -253,7 +265,15 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "masculine third person"
+                                "tag": "person"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "third"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "masculine"
                             }
                         ],
                         "transition": "next"
@@ -263,7 +283,15 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "feminine third person"
+                                "tag": "person"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "third"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "feminine"
                             }
                         ],
                         "transition": "next"
@@ -284,11 +312,11 @@
         "context": [
             {
                 "entity": "subject",
-                "tags": "singular plural"
+                "tag": "singular plural"
             },
             {
                 "entity": "object",
-                "tags": "singular pluralz"
+                "tag": "singular pluralz"
             }
         ],
         "blocks": [
@@ -325,7 +353,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -335,7 +363,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ],
                         "transition": "next"

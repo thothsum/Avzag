@@ -110,21 +110,16 @@ export default {
       const entities = new Set(conditions.map((c) => c.entity));
       return [...entities].map((e) => this.entities.indexOf(e));
     },
-    checkTags({ entity, tags }) {
+    checkTag({ entity, tag }) {
       if (!this.context) return [0, 0];
-      if (!tags) return [1, 0];
-
-      tags = tags.split(" ");
-      const fit = tags.filter((t) => this.context[entity].has(t)).length;
-      const len = tags.length;
-
-      return [fit / len, len];
+      if (!tag) return [1, 0];
+      return [this.context[entity].has(tag), 1];
     },
     normalizeConditions(conditions) {
       let f = 0;
       let l = 0;
       conditions.forEach((c) => {
-        const [_f, _l] = this.checkTags(c);
+        const [_f, _l] = this.checkTag(c);
         f += _f;
         l += _l;
       });
@@ -152,13 +147,11 @@ export default {
     },
     applyConditions(context, conditions, positive) {
       conditions
-        ?.filter((c) => !c.passive)
-        .forEach(({ entity, tags }) =>
-          tags.split(" ").forEach((t) => {
-            if (positive) context[entity]?.add(t);
-            else context[entity]?.delete(t);
-          })
-        );
+        ?.filter((c) => !c.passive && c.tag)
+        .forEach(({ entity, tag }) => {
+          if (positive) context[entity]?.add(tag);
+          else context[entity]?.delete(tag);
+        });
     },
     applyState(state) {
       let context = Object.assign({}, this.context);

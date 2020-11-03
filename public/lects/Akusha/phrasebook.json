@@ -8,7 +8,7 @@
                         "conditions": [
                             {
                                 "entity": "actor",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -18,7 +18,7 @@
                         "conditions": [
                             {
                                 "entity": "actor",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ],
                         "transition": "next"
@@ -32,7 +32,7 @@
                         "conditions": [
                             {
                                 "entity": "tense",
-                                "tags": "present"
+                                "tag": "present"
                             }
                         ],
                         "transition": "next"
@@ -42,7 +42,7 @@
                         "conditions": [
                             {
                                 "entity": "tense",
-                                "tags": "future"
+                                "tag": "future"
                             }
                         ],
                         "transition": "next"
@@ -56,7 +56,7 @@
                         "conditions": [
                             {
                                 "entity": "destination",
-                                "tags": "there"
+                                "tag": "there"
                             }
                         ],
                         "transition": "next"
@@ -66,7 +66,7 @@
                         "conditions": [
                             {
                                 "entity": "destination",
-                                "tags": "home"
+                                "tag": "home"
                             }
                         ],
                         "transition": "next"
@@ -76,7 +76,7 @@
                         "conditions": [
                             {
                                 "entity": "destination",
-                                "tags": "shop"
+                                "tag": "shop"
                             }
                         ],
                         "transition": "next"
@@ -101,7 +101,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -111,7 +111,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular ticket"
+                                "tag": "ticket"
                             }
                         ],
                         "transition": "next"
@@ -121,7 +121,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "plural apple"
+                                "tag": "plural apple"
                             }
                         ],
                         "transition": "next"
@@ -142,7 +142,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ]
                     },
@@ -151,7 +151,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ]
                     }
@@ -168,7 +168,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "object"
+                                "tag": "object"
                             }
                         ],
                         "transition": "next"
@@ -178,7 +178,11 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "second person"
+                                "tag": "person"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "second"
                             }
                         ],
                         "transition": "next"
@@ -188,7 +192,11 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "third person"
+                                "tag": "person"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "third"
                             }
                         ],
                         "transition": "next"
@@ -202,7 +210,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "object"
+                                "tag": "object"
                             }
                         ]
                     },
@@ -211,7 +219,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "person"
+                                "tag": "person"
                             }
                         ]
                     }
@@ -242,7 +250,7 @@
                         "conditions": [
                             {
                                 "entity": "subject",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -252,7 +260,7 @@
                         "conditions": [
                             {
                                 "entity": "subject",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ],
                         "transition": "next"
@@ -266,7 +274,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ],
                         "transition": "next"
@@ -276,7 +284,7 @@
                         "conditions": [
                             {
                                 "entity": "object",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ],
                         "transition": "next"
@@ -297,7 +305,7 @@
                         "conditions": [
                             {
                                 "entity": "subject",
-                                "tags": "singular"
+                                "tag": "singular"
                             }
                         ]
                     },
@@ -306,7 +314,7 @@
                         "conditions": [
                             {
                                 "entity": "subject",
-                                "tags": "plural"
+                                "tag": "plural"
                             }
                         ]
                     }
