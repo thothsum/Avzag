@@ -34,6 +34,23 @@
             display="text"
           />
         </div>
+        <div class="panel-dense">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Notes</h2>
+            <Button @click.native="addNote" icon="add" />
+          </div>
+          <p class="text-caption text-faded">
+            You can add notes, for example, to explain grammar.
+          </p>
+          <div
+            class="panel-horizontal-dense"
+            :key="i"
+            v-for="(_, i) in translation.notes"
+          >
+            <textarea v-model="translation.notes[i]" class="flex note" />
+            <Button @click.native="deleteNote(i)" icon="delete" />
+          </div>
+        </div>
       </div>
       <div class="panel-sparse" v-if="block">
         <div class="panel-dense">
@@ -54,12 +71,11 @@
         <div class="panel-dense wrap" :key="i" v-for="(s, i) in block.states">
           <div class="panel-horizontal-dense">
             <Button @click.native="addState(i)" icon="vertical_align_top" />
-            <p class="flex">State {{ i }}</p>
+            <input type="text" v-model="s.text" />
             <Button @click.native="deleteState(i)" icon="clear" />
           </div>
-          <p class="text-caption text-faded">Display: text, ipa & glossing.</p>
+          <p class="text-caption text-faded">IPA & glossing.</p>
           <div class="panel-horizontal-dense flex-content">
-            <input type="text" v-model="s.text" />
             <input type="text" v-model="s.ipa" />
             <input type="text" v-model="s.glossing" />
           </div>
@@ -156,6 +172,15 @@ export default {
       },
       immediate: true,
     },
+    selected: {
+      handler() {
+        if (!this.file[this.selected]) {
+          while ((this, this.file.length < this.selected)) this.file.push({});
+          this.$set(this.file, this.selected, {});
+        }
+      },
+      immediate: true,
+    },
   },
   methods: {
     loadFromLect() {
@@ -177,10 +202,6 @@ export default {
       navigator.clipboard.writeText(JSON.stringify(this.file));
     },
     addBlock() {
-      if (!this.translation) {
-        while ((this, this.file.length < this.selected)) this.file.push({});
-        this.$set(this.file, this.selected, {});
-      }
       if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
       this.$set(this.translation.blocks, this.translation.blocks.length, {
         text: "block " + this.translation.blocks.length,
@@ -215,6 +236,13 @@ export default {
     },
     deleteCondition(i) {
       this.conditions.splice(i, 1);
+    },
+    addNote() {
+      if (!this.translation.notes) this.$set(this.translation, "notes", []);
+      this.$set(this.translation.notes, this.translation.notes.length, "");
+    },
+    deleteNote(i) {
+      this.translation.notes.splice(i, 0);
     },
   },
 };
