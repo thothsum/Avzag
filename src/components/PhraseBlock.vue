@@ -44,7 +44,9 @@ export default {
       return this.state?.text;
     },
     glosses() {
-      return this.glossed ? this.state?.glosses : null;
+      return this.glossed && this.state?.ipa && this.state?.glossing
+        ? [this.state?.ipa, this.state?.glossing]
+        : null;
     },
     conditions() {
       return this.state?.conditions;
@@ -183,7 +185,7 @@ export default {
 button {
   position: relative;
   &.glossed {
-    height: map-get($button-height, "normal") + 8px;
+    height: map-get($button-height, "normal") + map-get($margins, "normal");
   }
 }
 .glosses {

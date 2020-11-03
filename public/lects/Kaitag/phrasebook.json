@@ -58,10 +58,8 @@
                 "states": [
                     {
                         "text": "Цигле",
-                        "glosses": [
-                            "t͡sigle",
-                            "how"
-                        ],
+                        "ipa": "t͡sigle",
+                        "glossing": "how",
                         "conditions": [
                             {
                                 "entity": "tense",
@@ -72,10 +70,8 @@
                     },
                     {
                         "text": "Цикъкъел",
-                        "glosses": [
-                            "t͡siqːel",
-                            "when"
-                        ],
+                        "ipa": "t͡siqːel",
+                        "glossing": "when",
                         "conditions": [
                             {
                                 "entity": "tense",
@@ -90,10 +86,8 @@
                 "states": [
                     {
                         "text": "ду",
-                        "glosses": [
-                            "du",
-                            "1SG"
-                        ],
+                        "ipa": "du",
+                        "glossing": "1SG",
                         "conditions": [
                             {
                                 "entity": "actor",
@@ -105,10 +99,8 @@
                     },
                     {
                         "text": "нисса",
-                        "glosses": [
-                            "nisːɑ",
-                            "1PL.EXCL"
-                        ],
+                        "ipa": "nisːɑ",
+                        "glossing": "1PL.EXCL",
                         "conditions": [
                             {
                                 "entity": "actor",
@@ -124,10 +116,8 @@
                 "states": [
                     {
                         "text": "гьетин",
-                        "glosses": [
-                            "het-in",
-                            "that-LOC"
-                        ],
+                        "ipa": "het-in",
+                        "glossing": "that-LOC",
                         "conditions": [
                             {
                                 "entity": "destination",
@@ -162,10 +152,8 @@
                 "states": [
                     {
                         "text": "вянилдай?",
-                        "glosses": [
-                            "β-ɑˤ-nil-dɑ-j",
-                            "M-go-ADJ-1-Q"
-                        ],
+                        "ipa": "β-ɑˤ-nil-dɑ-j",
+                        "glossing": "M-go-ADJ-1-Q",
                         "conditions": [
                             {
                                 "entity": "actor",
