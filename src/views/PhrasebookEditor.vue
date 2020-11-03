@@ -78,7 +78,7 @@
               <input type="text" v-model="s.glossing" />
             </div>
             <p class="text-caption text-faded">
-              Transition: "next", "0 1 ..." (best of).
+              Transition: "next" or best of "0 1 ...".
             </p>
             <input type="text" v-model="s.transition" />
             <div class="panel-horizontal-dense flex-content">
