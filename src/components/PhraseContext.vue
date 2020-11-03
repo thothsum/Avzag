@@ -22,12 +22,10 @@ export default {
   props: ["context", "translation"],
   computed: {
     dictionary() {
-      return (
-        this.translation?.reduce((d, p) => {
-          d[p[0]] = p[1];
-          return d;
-        }, {}) ?? {}
-      );
+      return this.translation?.reduce((d, p) => {
+        d[p[0]] = p[1];
+        return d;
+      }, {});
     },
     entities() {
       return this.translate(Object.keys(this.context));
@@ -38,7 +36,11 @@ export default {
   },
   methods: {
     translate(values) {
-      return values.map((v) => this.dictionary[v] ?? v);
+      return this.dictionary
+        ? values
+            .filter((v) => v in this.dictionary)
+            .map((v) => this.dictionary[v])
+        : values;
     },
   },
 };

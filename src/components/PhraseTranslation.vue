@@ -2,7 +2,11 @@
   <div class="panel card" v-if="translation">
     <div class="panel-horizontal-dense small">
       <Button @click.native="copy" icon="content_copy" />
-      <Button v-model="contextual" v-if="interactive" icon="widgets" />
+      <Button
+        v-model="contextual"
+        v-if="interactive && translation.context"
+        icon="widgets"
+      />
       <h2>{{ lect }}</h2>
     </div>
     <div class="panel-horizontal-dense wrap flex">
@@ -19,7 +23,7 @@
       />
     </div>
     <PhraseContext
-      v-if="contextual && interactive && translation.context"
+      v-if="contextual && interactive"
       :context="context"
       :translation="translation.context"
     />
