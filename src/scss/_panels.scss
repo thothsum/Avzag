@@ -2,7 +2,8 @@
   flex-wrap: wrap;
 }
 
-.flex {
+.flex,
+.flex-content > * {
   flex: 1;
 }
 

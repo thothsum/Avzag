@@ -12,67 +12,75 @@
       <Button @click.native="reset" text="reset" />
     </div>
     <div class="grid small" v-if="phrasebook">
-      <div class="panel-dense">
-        <div class="panel-horizontal-dense">
+      <div class="panel-sparse">
+        <div class="panel-dense">
           <h2 class="flex">Phrases</h2>
-          <Button @click.native="addMapping" icon="add" />
+          <List
+            :value.sync="selected"
+            :items="phrasebook"
+            indexed="true"
+            display="preview"
+          />
         </div>
-        <List
-          :value.sync="selected"
-          :items="phrasebook"
-          indexed="true"
-          display="preview"
-        />
+        <div class="panel-dense">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Blocks</h2>
+            <Button @click.native="addBlock" icon="add" />
+          </div>
+          <List
+            v-if="translation"
+            :value.sync="block"
+            :items="translation.blocks"
+            display="text"
+          />
+        </div>
       </div>
-      <div v-if="phrase">
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Blocks</h2>
-          <Button @click.native="addBlock" icon="add" />
-        </div>
-        <template v-if="translation">
-          <div class="panel wrap" :key="i" v-for="(b, i) in translation.blocks">
-            <div class="panel-horizontal-dense">
-              <h2 class="flex">Block {{ i }}</h2>
-              <Button @click.native="addState(i)" icon="add" />
-            </div>
+      <div class="panel-sparse" v-if="block">
+        <div class="panel-dense">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">States</h2>
+            <Button @click.native="addState(null)" icon="add" />
+          </div>
+          <div class="panel-horizontal-dense flex-content">
             <Button
-              @click.native="editBlockRequirements(i)"
-              :class="{ highlight: conditions == b.requirements }"
+              @click.native="editBlockRequirements"
+              :class="{ highlight: conditions == block.requirements }"
               icon="lock"
               text="requirements"
             />
-            <div class="panel-dense wrap" :key="j" v-for="(s, j) in b.states">
-              <p>State {{ j }}</p>
-              <p class="text-caption text-faded">
-                Display: text, ipa & glossing.
-              </p>
-              <div class="panel-horizontal-dense">
-                <input class="flex" type="text" v-model="s.text" />
-                <input class="flex" type="text" v-model="s.ipa" />
-                <input class="flex" type="text" v-model="s.glossing" />
-              </div>
-              <p class="text-caption text-faded">
-                Transition: "next", "0 1 ..." (best of).
-              </p>
-              <input type="text" v-model="s.transition" />
-              <div class="panel-horizontal-dense">
-                <Button
-                  class="flex"
-                  v-model="s.implicit"
-                  text="implicit"
-                  icon="visibility_off"
-                />
-                <Button
-                  class="flex"
-                  @click.native="editStateConditions(i, j)"
-                  :class="{ highlight: conditions == s.conditions }"
-                  icon="widgets"
-                  text="conditions"
-                />
-              </div>
-            </div>
+            <Button icon="widgets" text="context" />
           </div>
-        </template>
+        </div>
+        <div class="panel-dense wrap" :key="i" v-for="(s, i) in block.states">
+          <div class="panel-horizontal-dense">
+            <Button @click.native="addState(i)" icon="vertical_align_top" />
+            <p class="flex">State {{ i }}</p>
+            <Button @click.native="deleteState(i)" icon="clear" />
+          </div>
+          <p class="text-caption text-faded">Display: text, ipa & glossing.</p>
+          <div class="panel-horizontal-dense flex-content">
+            <input type="text" v-model="s.text" />
+            <input type="text" v-model="s.ipa" />
+            <input type="text" v-model="s.glossing" />
+          </div>
+          <p class="text-caption text-faded">
+            Transition: "next", "0 1 ..." (best of).
+          </p>
+          <input type="text" v-model="s.transition" />
+          <div class="panel-horizontal-dense flex-content">
+            <Button
+              v-model="s.implicit"
+              text="implicit"
+              icon="visibility_off"
+            />
+            <Button
+              @click.native="editStateConditions(i)"
+              :class="{ highlight: conditions == s.conditions }"
+              icon="format_list_bulleted"
+              text="conditions"
+            />
+          </div>
+        </div>
       </div>
       <div class="panel-dense" v-if="conditions">
         <div class="panel-horizontal-dense">
@@ -118,8 +126,9 @@ export default {
       file: [],
       selected: 0,
       context: {},
+      block: null,
       conditionsProperty: "",
-      conditions: {},
+      conditions: null,
     };
   },
   computed: {
@@ -127,13 +136,10 @@ export default {
       return this.$store.state.phrasebook;
     },
     phrase() {
-      return this.phrasebook[this.selected];
+      return this.phrasebook ? this.phrasebook[this.selected] : null;
     },
     translation() {
       return this.file[this.selected];
-    },
-    blocks() {
-      return this.translation.blocks;
     },
     entities() {
       return Object.keys(this.context);
@@ -175,28 +181,32 @@ export default {
         while ((this, this.file.length < this.selected)) this.file.push({});
         this.$set(this.file, this.selected, {});
       }
-      if (!this.blocks) this.$set(this.translation, "blocks", []);
-      this.$set(this.blocks, this.blocks.length, { states: [] });
-      this.$forceUpdate();
-    },
-    addState(i) {
-      if (!this.blocks[i].states) this.$set(this.blocks[i], "states", []);
-      this.$set(this.blocks[i].states, this.blocks[i].states.length, {
-        transition: "next",
+      if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
+      this.$set(this.translation.blocks, this.translation.blocks.length, {
+        text: "block " + this.translation.blocks.length,
       });
       this.$forceUpdate();
     },
-    editStateConditions(i, j) {
-      this.conditionsProperty = "conditions";
-      if (!this.blocks[i].states[j].conditions)
-        this.blocks[i].states[j].conditions = [];
-      this.conditions = this.blocks[i].states[j].conditions;
+    addState(i) {
+      if (!this.block.states) this.$set(this.block, "states", []);
+      if (i == null) i = this.block.states.length;
+      this.block.states.splice(i, 0, { transition: "next" });
       this.$forceUpdate();
     },
-    editBlockRequirements(i) {
+    deleteState(i) {
+      this.block.states.splice(i, 1);
+    },
+    editStateConditions(i) {
+      this.conditionsProperty = "conditions";
+      if (!this.block.states[i].conditions)
+        this.block.states[i].conditions = [];
+      this.conditions = this.block.states[i].conditions;
+      this.$forceUpdate();
+    },
+    editBlockRequirements() {
       this.conditionsProperty = "requirements";
-      if (!this.blocks[i].requirements) this.blocks[i].requirements = [];
-      this.conditions = this.blocks[i].requirements;
+      if (!this.block.requirements) this.block.requirements = [];
+      this.conditions = this.block.requirements;
       this.$forceUpdate();
     },
     addCondition(i) {
