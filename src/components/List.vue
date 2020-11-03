@@ -21,7 +21,11 @@ export default {
   props: ["value", "items", "indexed", "display"],
   computed: {
     text() {
-      return this.display ? this.items.map((i) => i[this.display]) : this.items;
+      return this.display
+        ? typeof this.display == "object"
+          ? this.display
+          : this.items.map((i) => i[this.display])
+        : this.items;
     },
     values() {
       return this.indexed ? this.items.map((_, i) => i) : this.items;

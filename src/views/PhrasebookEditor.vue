@@ -31,7 +31,7 @@
             v-if="translation"
             :value.sync="block"
             :items="translation.blocks"
-            display="text"
+            :display="blocksText"
           />
         </div>
         <div class="panel-dense">
@@ -50,6 +50,10 @@
             <textarea v-model="translation.notes[i]" class="flex note" />
             <Button @click.native="deleteNote(i)" icon="delete" />
           </div>
+        </div>
+        <div class="panel-horizontal-dense">
+          <h2 class="flex">Localized context</h2>
+          <Button @click.native="editLocalizedContext" icon="edit" />
         </div>
       </div>
       <div class="panel-sparse">
@@ -120,29 +124,50 @@
         <div class="panel-dense" v-if="conditionsProperty && conditions">
           <div class="panel-horizontal-dense">
             <h2 class="flex">{{ conditionsProperty }}</h2>
-            <Button @click.native="addCondition()" icon="add" />
+            <Button @click.native="addCondition" icon="add" />
           </div>
-          <div
-            class="panel-horizontal-dense"
-            :key="i"
-            v-for="(c, i) in conditions"
-          >
-            <Button @click.native="addCondition(i)" icon="vertical_align_top" />
-            <Button
-              v-model="c.passive"
-              v-if="conditionsProperty == 'conditions'"
-              icon="link_off"
-            />
-            <Select class="flex" :value.sync="c.entity" :items="entities" />
-            <p class="icon">west</p>
-            <Select
-              v-if="fullContext[c.entity]"
-              class="flex"
-              :value.sync="c.tag"
-              :items="fullContext[c.entity]"
-            />
-            <Button @click.native="deleteCondition(i)" icon="clear" />
-          </div>
+          <template v-if="conditionsProperty == 'Localized context'">
+            <div
+              class="panel-horizontal-dense"
+              :key="i"
+              v-for="(c, i) in conditions"
+            >
+              <Select
+                class="flex"
+                :value.sync="c[0]"
+                :items="fullContextKeys"
+              />
+              <p class="icon">east</p>
+              <input class="flex" type="text" v-model="c[1]" />
+              <Button @click.native="deleteCondition(i)" icon="clear" />
+            </div>
+          </template>
+          <template v-else>
+            <div
+              class="panel-horizontal-dense"
+              :key="i"
+              v-for="(c, i) in conditions"
+            >
+              <Button
+                @click.native="addCondition(i)"
+                icon="vertical_align_top"
+              />
+              <Button
+                v-model="c.passive"
+                v-if="conditionsProperty == 'conditions'"
+                icon="link_off"
+              />
+              <Select class="flex" :value.sync="c.entity" :items="entities" />
+              <p class="icon">west</p>
+              <Select
+                v-if="fullContext[c.entity]"
+                class="flex"
+                :value.sync="c.tag"
+                :items="fullContext[c.entity]"
+              />
+              <Button @click.native="deleteCondition(i)" icon="clear" />
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -188,6 +213,11 @@ export default {
     entities() {
       return Object.keys(this.fullContext);
     },
+    blocksText() {
+      return this.translation.blocks?.map((b) =>
+        b.states ? b.states[0]?.text : null
+      );
+    },
     fullContext() {
       return (
         this.phrase?.context?.reduce((acc, s) => {
@@ -195,6 +225,9 @@ export default {
           return acc;
         }, {}) ?? {}
       );
+    },
+    fullContextKeys() {
+      return this.entities.concat(Object.values(this.fullContext).flat());
     },
   },
   watch: {
@@ -239,9 +272,7 @@ export default {
     },
     addBlock() {
       if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
-      this.$set(this.translation.blocks, this.translation.blocks.length, {
-        text: "block " + this.translation.blocks.length,
-      });
+      this.$set(this.translation.blocks, this.translation.blocks.length, {});
       this.$forceUpdate();
     },
     addState(i) {
@@ -266,9 +297,18 @@ export default {
       this.conditions = this.block.requirements;
       this.$forceUpdate();
     },
+    editLocalizedContext() {
+      if (!this.translation.context) this.translation.context = [];
+      this.conditionsProperty = "Localized context";
+      this.conditions = this.translation.context;
+    },
     addCondition(i) {
       if (i == null) i = this.conditions.length;
-      this.conditions.splice(i, 0, {});
+      this.conditions.splice(
+        i,
+        0,
+        this.conditionsProperty == "Localized context" ? [] : {}
+      );
     },
     deleteCondition(i) {
       this.conditions.splice(i, 1);
