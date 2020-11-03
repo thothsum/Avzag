@@ -182,7 +182,7 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: 1fr 400px;
+  grid-template-columns: minmax(0, 1fr) 352px;
   gap: map-get($margins, "double");
 }
 .sample input {

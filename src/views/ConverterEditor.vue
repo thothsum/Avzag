@@ -184,7 +184,7 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: 352px 1fr;
+  grid-template-columns: 352px minmax(0, 1fr);
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {
