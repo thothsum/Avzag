@@ -126,11 +126,12 @@ export default {
 <style lang="scss" scoped>
 .section {
   display: grid;
-  grid-template-columns: 256px 1fr;
+  grid-template-columns: 256px minmax(0, 1fr);
+  gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     direction: ltr;
   }
 }

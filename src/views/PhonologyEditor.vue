@@ -191,7 +191,7 @@ export default {
 
 @media only screen and (max-width: $mobile-width) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     direction: ltr;
   }
 }

@@ -5,6 +5,7 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select
+            class="flex"
             :value.sync="sourceMapping"
             :items="fullMappings"
             display="name"
@@ -28,6 +29,7 @@
       <div class="panel">
         <div class="panel-horizontal">
           <Select
+            class="flex"
             :value.sync="resultMapping"
             :items="mappings"
             display="name"
@@ -171,10 +173,7 @@ export default {
 }
 @media only screen and (max-width: $mobile-width) {
   .split {
-    grid-template-columns: 1fr;
-  }
-  select {
-    flex: 1;
+    grid-template-columns: 100%;
   }
 }
 </style>
