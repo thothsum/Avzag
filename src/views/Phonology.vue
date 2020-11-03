@@ -6,11 +6,11 @@
         placeholder="Query phonemes, e.g. voiced -velar ..."
         @query="featureQuery = $event"
       />
-      <div class="panel" :key="t" v-for="[t, n] in categories">
-        <h2>{{ n }}</h2>
+      <div class="panel" :key="c" v-for="c in categories">
+        <h2>{{ c + "s" }}</h2>
         <PhoneticTable
           v-model="phoneme"
-          :filter="t"
+          :filter="c"
           :featureQuery="featureQuery"
           :lectQuery="lectQuery"
           :phonemes="phonemes"
@@ -37,10 +37,7 @@ export default {
   },
   data() {
     return {
-      categories: [
-        ["vowel", "Vowels"],
-        ["consonant", "Consonants"],
-      ],
+      categories: ["vowel", "consonant"],
       phoneme: null,
       lectQuery: {},
       featureQuery: {},

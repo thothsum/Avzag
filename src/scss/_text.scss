@@ -65,6 +65,7 @@ h1 {
   }
 }
 h2 {
+  text-transform: capitalize;
   &,
   * {
     font-size: map-get($font-sizes, "normal");

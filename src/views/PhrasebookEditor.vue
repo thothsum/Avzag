@@ -53,52 +53,51 @@
         </div>
       </div>
       <div class="panel-sparse" v-if="block">
-        <div class="panel-dense">
+        <div class="panel-horizontal-dense">
+          <h2 class="flex">Requirements</h2>
+          <Button
+            @click.native="editBlockRequirements"
+            :class="{ highlight: conditions == block.requirements }"
+            icon="edit"
+          />
+        </div>
+        <div class="panel-sparse">
           <div class="panel-horizontal-dense">
             <h2 class="flex">States</h2>
             <Button @click.native="addState(null)" icon="add" />
           </div>
-          <div class="panel-horizontal-dense flex-content">
-            <Button
-              @click.native="editBlockRequirements"
-              :class="{ highlight: conditions == block.requirements }"
-              icon="lock"
-              text="requirements"
-            />
-            <Button icon="widgets" text="context" />
-          </div>
-        </div>
-        <div class="panel-dense wrap" :key="i" v-for="(s, i) in block.states">
-          <div class="panel-horizontal-dense">
-            <Button @click.native="addState(i)" icon="vertical_align_top" />
-            <input type="text" v-model="s.text" />
-            <Button @click.native="deleteState(i)" icon="clear" />
-          </div>
-          <p class="text-caption text-faded">IPA & glossing.</p>
-          <div class="panel-horizontal-dense flex-content">
-            <input type="text" v-model="s.ipa" />
-            <input type="text" v-model="s.glossing" />
-          </div>
-          <p class="text-caption text-faded">
-            Transition: "next", "0 1 ..." (best of).
-          </p>
-          <input type="text" v-model="s.transition" />
-          <div class="panel-horizontal-dense flex-content">
-            <Button
-              v-model="s.implicit"
-              text="implicit"
-              icon="visibility_off"
-            />
-            <Button
-              @click.native="editStateConditions(i)"
-              :class="{ highlight: conditions == s.conditions }"
-              icon="format_list_bulleted"
-              text="conditions"
-            />
+          <div class="panel-dense wrap" :key="i" v-for="(s, i) in block.states">
+            <div class="panel-horizontal-dense">
+              <Button @click.native="addState(i)" icon="vertical_align_top" />
+              <input type="text" v-model="s.text" />
+              <Button @click.native="deleteState(i)" icon="clear" />
+            </div>
+            <p class="text-caption text-faded">IPA & glossing.</p>
+            <div class="panel-horizontal-dense flex-content">
+              <input type="text" v-model="s.ipa" />
+              <input type="text" v-model="s.glossing" />
+            </div>
+            <p class="text-caption text-faded">
+              Transition: "next", "0 1 ..." (best of).
+            </p>
+            <input type="text" v-model="s.transition" />
+            <div class="panel-horizontal-dense flex-content">
+              <Button
+                v-model="s.implicit"
+                text="implicit"
+                icon="visibility_off"
+              />
+              <Button
+                @click.native="editStateConditions(i)"
+                :class="{ highlight: conditions == s.conditions }"
+                icon="format_list_bulleted"
+                text="conditions"
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div class="panel-dense" v-if="conditions">
+      <div class="panel-dense" v-if="conditionsProperty && conditions">
         <div class="panel-horizontal-dense">
           <h2 class="flex">{{ conditionsProperty }}</h2>
           <Button @click.native="addCondition()" icon="add" />
@@ -144,7 +143,7 @@ export default {
       context: {},
       block: null,
       conditionsProperty: "",
-      conditions: null,
+      conditions: {},
     };
   },
   computed: {
