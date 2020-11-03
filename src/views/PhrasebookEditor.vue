@@ -25,15 +25,37 @@
         />
       </div>
       <div v-if="phrase">
-        <Button v-if="!translation" text="create translation" icon="add" />
-        <div v-else>
+        <div class="panel-horizontal-dense">
           <h2 class="flex">Blocks</h2>
+          <Button @click.native="addBlock" icon="add" />
+        </div>
+        <template v-if="translation">
           <div
-            class="panel-horizontal-dense"
+            class="panel-dense wrap"
             :key="i"
             v-for="(b, i) in translation.blocks"
-          ></div>
-        </div>
+          >
+            <div class="panel-horizontal-dense">
+              <h2 class="flex">Block 1</h2>
+              <Button @click.native="addState(i)" icon="add" />
+            </div>
+            <div class="panel-dense wrap" :key="j" v-for="(s, j) in b.states">
+              <p>State {{ j }}</p>
+              <div class="panel-horizontal-dense">
+                <input class="flex" type="text" v-model="b.text" />
+                <input class="flex" type="text" v-model="b.ipa" />
+                <input class="flex" type="text" v-model="b.glossing" />
+              </div>
+              <input class="flex" type="text" v-model="b.transition" />
+              <Button v-model="b.implicit" text="implicit" />
+              <ConditionsEditor
+                header="Conditions"
+                :conditions.sync="b.conditions"
+                :context="context"
+                :enablePassive="true"
+              />
+            </div></div
+        ></template>
       </div>
     </div>
   </div>
@@ -43,6 +65,8 @@
 import Button from "@/components/Button";
 // import Select from "@/components/Select";
 import List from "@/components/List";
+// import PhraseBlock from "@/components/PhraseBlock";
+import ConditionsEditor from "@/components/ConditionsEditor";
 
 export default {
   name: "PhrasebookEditor",
@@ -50,12 +74,14 @@ export default {
     Button,
     // Select,
     List,
+    // PhraseBlock,
+    ConditionsEditor,
   },
   data() {
     return {
       file: [],
       selected: 0,
-      context: [],
+      context: {},
     };
   },
   computed: {
@@ -67,6 +93,22 @@ export default {
     },
     translation() {
       return this.file[this.selected];
+    },
+    blocks() {
+      return this.translation.blocks;
+    },
+  },
+  watch: {
+    phrase: {
+      handler() {
+        console.log(this.phrase?.context);
+        this.context =
+          this.phrase?.context?.reduce((acc, s) => {
+            acc[s.entity] = new Set(s.tags.split(" "));
+            return acc;
+          }, {}) ?? {};
+      },
+      immediate: true,
     },
   },
   methods: {
@@ -88,9 +130,21 @@ export default {
     saveToJson() {
       navigator.clipboard.writeText(JSON.stringify(this.file));
     },
-    addTranslation() {
-      while ((this, this.file.length < this.selected)) this.file.push({});
-      this.file[this.selected] = { blocks: {} };
+    addBlock() {
+      if (!this.translation) {
+        while ((this, this.file.length < this.selected)) this.file.push({});
+        this.$set(this.file, this.selected, {});
+      }
+      if (!this.blocks) this.$set(this.translation, "blocks", []);
+      this.$set(this.blocks, this.blocks.length, { states: [] });
+      this.$forceUpdate();
+    },
+    addState(i) {
+      if (!this.blocks[i].states) this.$set(this.blocks[i], "states", []);
+      this.$set(this.blocks[i].states, this.blocks[i].states.length, {
+        transition: "next",
+      });
+      this.$forceUpdate();
     },
   },
 };

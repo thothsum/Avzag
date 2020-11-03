@@ -24,7 +24,7 @@
         <Button class="round" v-model="glossed" icon="layers" text="Glossed" />
       </div>
       <div class="panel wrap card" v-show="contextual">
-        <div class="panel-horizontal-dense wrap blocks">
+        <div class="panel-horizontal-dense wrap">
           <PhraseBlock
             :id="selected"
             :context.sync="context"

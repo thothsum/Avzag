@@ -61,7 +61,7 @@
             Select 'partial' if there are two or more mapping pairs that result
             in the same text. I.e. th-ð & th-θ.
           </p>
-          <div class="panel-horizontal">
+          <div class="panel-horizontal-dense">
             <input class="flex" type="text" v-model="mapping.name" />
             <Button
               v-model="mapping.partial"
