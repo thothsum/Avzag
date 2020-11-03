@@ -1,11 +1,11 @@
 <template>
   <div class="panel-horizontal-dense wrap">
     <div
-      class="panel-horizontal-dense text-caption text-faded text-dot context wrap"
+      class="panel-horizontal-dense text-caption text-faded context wrap"
       :key="e"
       v-for="(e, i) of entities"
     >
-      <h2>{{ e }}<IndexedColor :indexes="[i]" /></h2>
+      <h2>{{ e }}:<IndexedColor :indexes="[i]" /></h2>
       <p :key="t" v-for="t in tags[i]">{{ t }}</p>
     </div>
   </div>
@@ -50,5 +50,11 @@ export default {
 .context > * {
   position: relative;
   line-height: 150%;
+}
+p:not(:last-child)::after {
+  content: ",";
+}
+p:last-child::after {
+  content: ".";
 }
 </style>
