@@ -84,14 +84,14 @@
             <div class="panel-horizontal-dense flex-content">
               <Button
                 v-model="s.implicit"
-                text="implicit"
                 icon="visibility_off"
+                text="Implicit"
               />
               <Button
                 @click.native="editStateConditions(i)"
                 :class="{ highlight: conditions == s.conditions }"
                 icon="format_list_bulleted"
-                text="conditions"
+                text="Conditions"
               />
             </div>
           </div>
@@ -113,8 +113,14 @@
             v-if="conditionsProperty == 'conditions'"
             icon="link_off"
           />
-          <Select :value.sync="c.entity" :items="entities" />
-          <input class="flex" type="text" v-model="c.tags" />
+          <Select class="flex" :value.sync="c.entity" :items="entities" />
+          <p class="icon">west</p>
+          <Select
+            v-if="context[c.entity]"
+            class="flex"
+            :value.sync="c.tag"
+            :items="context[c.entity]"
+          />
           <Button @click.native="deleteCondition(i)" icon="clear" />
         </div>
       </div>
@@ -165,7 +171,7 @@ export default {
       handler() {
         this.context =
           this.phrase?.context?.reduce((acc, s) => {
-            acc[s.entity] = new Set(s.tags.split(" "));
+            acc[s.entity] = s.tags.split(" ");
             return acc;
           }, {}) ?? {};
       },

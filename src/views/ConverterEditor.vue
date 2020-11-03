@@ -34,19 +34,22 @@
               Two mappings that will be set by default. The left should be set
               to the sample's original writing system.
             </p>
-            <div class="panel-dense" v-if="defaultConversion">
-              <Select
-                :value.sync="defaultConversion[0]"
-                :items="mappings"
-                display="name"
-                indexed="true"
-              />
-              <Select
-                :value.sync="defaultConversion[1]"
-                :items="mappings"
-                display="name"
-                indexed="true"
-              />
+            <div class="panel-horizontal-dense" v-if="defaultConversion">
+              <p class="icon">south</p>
+              <div class="panel-dense flex">
+                <Select
+                  :value.sync="defaultConversion[0]"
+                  :items="mappings"
+                  display="name"
+                  indexed="true"
+                />
+                <Select
+                  :value.sync="defaultConversion[1]"
+                  :items="mappings"
+                  display="name"
+                  indexed="true"
+                />
+              </div>
             </div>
           </div>
         </template>

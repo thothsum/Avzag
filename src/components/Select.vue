@@ -24,7 +24,7 @@ export default {
   watch: {
     value: {
       handler(v) {
-        const i = this.values.indexOf(v);
+        const i = this.values?.indexOf(v) ?? 0;
         this.index = i < 0 ? 0 : i;
       },
       immediate: true,
