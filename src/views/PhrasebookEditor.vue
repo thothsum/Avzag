@@ -11,7 +11,7 @@
       <Button @click.native="saveToJson" text="save JSON to clipboard" />
       <Button @click.native="reset" text="reset" />
     </div>
-    <div class="grid small">
+    <div class="grid small" v-if="phrasebook">
       <div class="panel-dense">
         <div class="panel-horizontal-dense">
           <h2 class="flex">Phrases</h2>
@@ -30,32 +30,52 @@
           <Button @click.native="addBlock" icon="add" />
         </div>
         <template v-if="translation">
-          <div
-            class="panel-dense wrap"
-            :key="i"
-            v-for="(b, i) in translation.blocks"
-          >
+          <div class="panel wrap" :key="i" v-for="(b, i) in translation.blocks">
             <div class="panel-horizontal-dense">
-              <h2 class="flex">Block 1</h2>
+              <h2 class="flex">Block {{ i }}</h2>
               <Button @click.native="addState(i)" icon="add" />
             </div>
             <div class="panel-dense wrap" :key="j" v-for="(s, j) in b.states">
               <p>State {{ j }}</p>
               <div class="panel-horizontal-dense">
-                <input class="flex" type="text" v-model="b.text" />
-                <input class="flex" type="text" v-model="b.ipa" />
-                <input class="flex" type="text" v-model="b.glossing" />
+                <input class="flex" type="text" v-model="s.text" />
+                <input class="flex" type="text" v-model="s.ipa" />
+                <input class="flex" type="text" v-model="s.glossing" />
               </div>
-              <input class="flex" type="text" v-model="b.transition" />
-              <Button v-model="b.implicit" text="implicit" />
-              <ConditionsEditor
-                header="Conditions"
-                :conditions.sync="b.conditions"
-                :context="context"
-                :enablePassive="true"
-              />
-            </div></div
-        ></template>
+              <input class="flex" type="text" v-model="s.transition" />
+              <div class="panel-horizontal-dense">
+                <Button v-model="s.implicit" text="implicit" />
+                <Button
+                  @click.native="editStateConditions(i, j)"
+                  :class="{ highlight: conditions == s.conditions }"
+                  text="conditions"
+                />
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div class="panel-dense" v-if="conditions">
+        <div class="panel-horizontal-dense">
+          <h2 class="flex">{{ conditionsProperty }}</h2>
+          <Button @click.native="addCondition" icon="add" />
+        </div>
+        <div
+          class="panel-horizontal-dense"
+          :key="i"
+          v-for="(c, i) in conditions"
+        >
+          <Button @click.native="addCondition(i)" icon="vertical_align_top" />
+          <Select :value.sync="c.entity" :items="entities" />
+          <input class="flex" type="text" v-model="c.tags" />
+          <Button
+            v-model="c.passive"
+            v-if="conditionsProperty == 'conditions'"
+            icon="link_off"
+            text="passive"
+          />
+          <Button @click.native="deleteCondition(i)" icon="clear" />
+        </div>
       </div>
     </div>
   </div>
@@ -63,25 +83,25 @@
 
 <script>
 import Button from "@/components/Button";
-// import Select from "@/components/Select";
+import Select from "@/components/Select";
 import List from "@/components/List";
 // import PhraseBlock from "@/components/PhraseBlock";
-import ConditionsEditor from "@/components/ConditionsEditor";
 
 export default {
   name: "PhrasebookEditor",
   components: {
     Button,
-    // Select,
+    Select,
     List,
     // PhraseBlock,
-    ConditionsEditor,
   },
   data() {
     return {
       file: [],
       selected: 0,
       context: {},
+      conditionsProperty: "",
+      conditions: {},
     };
   },
   computed: {
@@ -97,11 +117,13 @@ export default {
     blocks() {
       return this.translation.blocks;
     },
+    entities() {
+      return Object.keys(this.context);
+    },
   },
   watch: {
     phrase: {
       handler() {
-        console.log(this.phrase?.context);
         this.context =
           this.phrase?.context?.reduce((acc, s) => {
             acc[s.entity] = new Set(s.tags.split(" "));
@@ -146,6 +168,20 @@ export default {
       });
       this.$forceUpdate();
     },
+    editStateConditions(i, j) {
+      this.conditionsProperty = "conditions";
+      if (!this.blocks[i].states[j].conditions)
+        this.blocks[i].states[j].conditions = [];
+      this.conditions = this.blocks[i].states[j].conditions;
+      this.$forceUpdate();
+    },
+    addCondition(i) {
+      if (i == null) i = this.conditions.length;
+      this.conditions.splice(i, 0, {});
+    },
+    deleteCondition(i) {
+      this.conditions.splice(i, 1);
+    },
   },
 };
 </script>
@@ -157,7 +193,7 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: 352px 1fr;
+  grid-template-columns: 256px 256px 1fr;
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {
