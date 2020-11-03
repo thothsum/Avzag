@@ -14,7 +14,12 @@
           icon="sticky_note_2"
           text="Notes"
         />
-        <Button class="round" v-model="contextual" icon="info" text="Context" />
+        <Button
+          class="round"
+          v-model="contextual"
+          icon="widgets"
+          text="Context"
+        />
         <Button
           class="round"
           v-model="interactive"

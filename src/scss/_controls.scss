@@ -47,7 +47,7 @@ input[type="text"] {
 
 input[type="text"] {
   min-width: 0;
-  width: 32px;
+  width: 100%;
 
   height: map-get($button-height, "normal");
   padding: 0 map-get($margins, "normal");

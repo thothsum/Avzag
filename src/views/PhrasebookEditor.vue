@@ -35,19 +35,38 @@
               <h2 class="flex">Block {{ i }}</h2>
               <Button @click.native="addState(i)" icon="add" />
             </div>
+            <Button
+              @click.native="editBlockRequirements(i)"
+              :class="{ highlight: conditions == b.requirements }"
+              icon="lock"
+              text="requirements"
+            />
             <div class="panel-dense wrap" :key="j" v-for="(s, j) in b.states">
               <p>State {{ j }}</p>
+              <p class="text-caption text-faded">
+                Display: text, ipa & glossing.
+              </p>
               <div class="panel-horizontal-dense">
                 <input class="flex" type="text" v-model="s.text" />
                 <input class="flex" type="text" v-model="s.ipa" />
                 <input class="flex" type="text" v-model="s.glossing" />
               </div>
-              <input class="flex" type="text" v-model="s.transition" />
+              <p class="text-caption text-faded">
+                Transition: "next", "0 1 ..." (best of).
+              </p>
+              <input type="text" v-model="s.transition" />
               <div class="panel-horizontal-dense">
-                <Button v-model="s.implicit" text="implicit" />
                 <Button
+                  class="flex"
+                  v-model="s.implicit"
+                  text="implicit"
+                  icon="visibility_off"
+                />
+                <Button
+                  class="flex"
                   @click.native="editStateConditions(i, j)"
                   :class="{ highlight: conditions == s.conditions }"
+                  icon="widgets"
                   text="conditions"
                 />
               </div>
@@ -58,7 +77,7 @@
       <div class="panel-dense" v-if="conditions">
         <div class="panel-horizontal-dense">
           <h2 class="flex">{{ conditionsProperty }}</h2>
-          <Button @click.native="addCondition" icon="add" />
+          <Button @click.native="addCondition()" icon="add" />
         </div>
         <div
           class="panel-horizontal-dense"
@@ -66,14 +85,13 @@
           v-for="(c, i) in conditions"
         >
           <Button @click.native="addCondition(i)" icon="vertical_align_top" />
-          <Select :value.sync="c.entity" :items="entities" />
-          <input class="flex" type="text" v-model="c.tags" />
           <Button
             v-model="c.passive"
             v-if="conditionsProperty == 'conditions'"
             icon="link_off"
-            text="passive"
           />
+          <Select :value.sync="c.entity" :items="entities" />
+          <input class="flex" type="text" v-model="c.tags" />
           <Button @click.native="deleteCondition(i)" icon="clear" />
         </div>
       </div>
@@ -173,6 +191,12 @@ export default {
       if (!this.blocks[i].states[j].conditions)
         this.blocks[i].states[j].conditions = [];
       this.conditions = this.blocks[i].states[j].conditions;
+      this.$forceUpdate();
+    },
+    editBlockRequirements(i) {
+      this.conditionsProperty = "requirements";
+      if (!this.blocks[i].requirements) this.blocks[i].requirements = [];
+      this.conditions = this.blocks[i].requirements;
       this.$forceUpdate();
     },
     addCondition(i) {

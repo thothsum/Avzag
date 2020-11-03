@@ -29,8 +29,11 @@ export default {
       },
       immediate: true,
     },
-    index(i) {
-      this.$emit("update:value", this.values[i]);
+    index: {
+      handler(i) {
+        this.$emit("update:value", this.values[i]);
+      },
+      immediate: true,
     },
   },
 };
