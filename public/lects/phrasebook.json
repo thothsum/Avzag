@@ -4,15 +4,15 @@
         "context": [
             {
                 "entity": "tense",
-                "tag": "present future"
+                "tags": "present future"
             },
             {
                 "entity": "actor",
-                "tag": "singular feminine masculine plural"
+                "tags": "singular feminine masculine plural"
             },
             {
                 "entity": "destination",
-                "tag": "there home shop"
+                "tags": "there home shop"
             }
         ],
         "blocks": [
@@ -134,7 +134,7 @@
         "context": [
             {
                 "entity": "object",
-                "tag": "singular plural ticket apple"
+                "tags": "singular plural ticket apple"
             }
         ],
         "blocks": [
@@ -223,7 +223,7 @@
         "context": [
             {
                 "entity": "object",
-                "tag": "object person first second third masculine feminine"
+                "tags": "object person first second third masculine feminine"
             }
         ],
         "blocks": [
@@ -312,11 +312,11 @@
         "context": [
             {
                 "entity": "subject",
-                "tag": "singular plural"
+                "tags": "singular plural"
             },
             {
                 "entity": "object",
-                "tag": "singular pluralz"
+                "tags": "singular pluralz"
             }
         ],
         "blocks": [
