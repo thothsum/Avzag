@@ -121,6 +121,24 @@
           </div>
           <PhraseContext :context="context" />
         </div>
+        <div class="panel wrap card" v-if="translation.blocks">
+          <div class="panel-horizontal-dense wrap">
+            <PhraseBlock
+              :id="selected"
+              :context.sync="context"
+              :interactive="true"
+              :requirements="b.requirements"
+              :states="b.states"
+              :key="i"
+              v-for="(b, i) in translation.blocks"
+            />
+          </div>
+          <PhraseContext
+            v-if="translation.context"
+            :context="context"
+            :translation="translation.context"
+          />
+        </div>
         <div class="panel-dense" v-if="conditionsProperty && conditions">
           <div class="panel-horizontal-dense">
             <h2 class="flex">{{ conditionsProperty }}</h2>

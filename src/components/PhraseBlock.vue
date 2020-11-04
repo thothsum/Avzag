@@ -128,7 +128,7 @@ export default {
 
       const states = indexes?.map((i) => this.states[i]) ?? this.states;
       states
-        .filter((s) => s.conditions)
+        ?.filter((s) => s.conditions)
         .forEach((s) => {
           const [f, l] = this.checkConditions(s.conditions);
 
