@@ -37,12 +37,10 @@
         <div id="about" class="panel card center text-center" v-if="about">
           <h1>Ævzag</h1>
           <p v-show="quote">{{ quote }}</p>
-          <div class="panel-horizontal center scroll-hidden">
-            <router-link to="/editor/phonology">Editors</router-link>
-            <span class="text-dot"></span>
+          <div class="panel-horizontal center wrap">
+            <router-link to="/editor/phonology">Editor tools</router-link>
             <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
             <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-            <span class="text-dot"></span>
             <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
           </div>
         </div>

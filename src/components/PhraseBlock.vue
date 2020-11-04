@@ -91,7 +91,7 @@ export default {
         const valid =
           this.context &&
           (!this.requirements ||
-            this.normalizeConditions(this.requirements)[0] == 1);
+            this.checkConditions(this.requirements)[0] == 1);
 
         if (valid) {
           const state = this.findBestState();
@@ -112,18 +112,12 @@ export default {
       const entities = new Set(conditions.map((c) => c.entity));
       return [...entities].map((e) => this.entities.indexOf(e));
     },
-    checkTag({ entity, tag }) {
-      if (!this.context) return [0, 0];
-      if (!tag) return [1, 0];
-      return [this.context[entity].has(tag), 1];
-    },
-    normalizeConditions(conditions) {
+    checkConditions(conditions) {
       let f = 0;
       let l = 0;
-      conditions.forEach((c) => {
-        const [_f, _l] = this.checkTag(c);
-        f += _f;
-        l += _l;
+      conditions.forEach(({ entity, tag }) => {
+        f += this.context[entity].has(tag);
+        l += !!tag;
       });
       return [f / conditions.length, l];
     },
@@ -136,7 +130,7 @@ export default {
       states
         .filter((s) => s.conditions)
         .forEach((s) => {
-          const [f, l] = this.normalizeConditions(s.conditions);
+          const [f, l] = this.checkConditions(s.conditions);
 
           if (fit == 1 ? f == 1 && l > len : f > fit) {
             state = s;
