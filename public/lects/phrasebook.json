@@ -230,14 +230,29 @@
             {
                 "states": [
                     {
-                        "text": "What is"
+                        "text": "What is",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "person"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "How",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "object"
+                            }
+                        ]
                     }
                 ]
             },
             {
                 "states": [
                     {
-                        "text": "its",
+                        "text": "it",
                         "conditions": [
                             {
                                 "entity": "object",
@@ -299,9 +314,37 @@
                 ]
             },
             {
+                "requirements": [
+                    {
+                        "entity": "object",
+                        "tag": "object"
+                    }
+                ],
                 "states": [
                     {
-                        "text": "name?"
+                        "text": "is"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "name?",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "person"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "called?",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "object"
+                            }
+                        ]
                     }
                 ]
             }
