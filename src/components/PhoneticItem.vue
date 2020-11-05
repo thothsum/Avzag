@@ -1,7 +1,10 @@
 <template>
-  <button :class="{ 'text-faded': faded, highlight: selected }" class="panel-solid">
-    <b>{{str}}</b>
-    <span class="text-ipa">{{ ipa }}</span>
+  <button
+    :class="{ 'text-faded': faded, highlight: selected }"
+    class="panel-solid"
+  >
+    <b>{{ str }}</b>
+    <span class="text-ipa" :class="{ 'text-faded': str }">{{ ipa }}</span>
   </button>
 </template>
 
@@ -17,16 +20,11 @@ button {
   place-content: center;
   width: 46px;
   height: 40px;
-}
-.text-faded {
-  background-color: transparent !important;
-  &:not(.highlight) {
-    &:hover * {
-      color: var(--color-text);
-    }
-    &:active {
-      background-color: var(--color-active);
-    }
+  &:hover * {
+    color: var(--color-text) !important;
+  }
+  &.text-faded {
+    background-color: transparent !important;
   }
 }
 </style>
