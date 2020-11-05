@@ -16,7 +16,7 @@
             class="flex"
             type="text"
             v-model="search"
-            placeholder="Search languages ..."
+            placeholder="Search languages..."
           />
           <Button icon="arrow_forward" @click.native="load" :disabled="empty" />
         </div>

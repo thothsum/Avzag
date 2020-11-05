@@ -288,6 +288,10 @@ export default {
     saveToJson() {
       navigator.clipboard.writeText(JSON.stringify(this.file));
     },
+    reset() {
+      this.file = [];
+      this.$forceUpdate();
+    },
     addBlock() {
       if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
       this.$set(this.translation.blocks, this.translation.blocks.length, {});

@@ -1,7 +1,7 @@
 <template>
   <button
     class="small"
-    :class="{ 'text-faded': implicit, glossed }"
+    :class="{ 'text-faded': implicit, glossed: glosses }"
     :disabled="disabled"
     v-show="valid"
     @click="move"
@@ -126,7 +126,7 @@ export default {
       let fit = 0;
       let len = false;
 
-      const states = indexes?.map((i) => this.states[i]) ?? this.states;
+      const states = indexes?.map((i) => this.states[i]) ?? this.states ?? [];
       states
         ?.filter((s) => s.conditions)
         .forEach((s) => {

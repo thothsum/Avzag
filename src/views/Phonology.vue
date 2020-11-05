@@ -3,7 +3,7 @@
     <div class="panel scroll">
       <ChipsQuery @query="lectQuery = $event" :items="lects" itemKey="name" />
       <InputQuery
-        placeholder="Query phonemes, e.g. voiced -velar ..."
+        placeholder="Query phonemes, e.g. voiced -velar..."
         @query="featureQuery = $event"
       />
       <div class="panel" :key="c" v-for="c in categories">
