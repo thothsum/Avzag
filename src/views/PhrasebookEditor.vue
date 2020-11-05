@@ -14,27 +14,6 @@
     <div class="grid small" v-if="phrasebook">
       <div class="panel-sparse">
         <div class="panel-dense">
-          <h2 class="flex">Phrases</h2>
-          <List
-            :value.sync="selected"
-            :items="phrasebook"
-            indexed="true"
-            display="preview"
-          />
-        </div>
-        <div class="panel-dense">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Blocks</h2>
-            <Button @click.native="addBlock" icon="add" />
-          </div>
-          <List
-            v-if="translation"
-            :value.sync="block"
-            :items="translation.blocks"
-            :display="blocksText"
-          />
-        </div>
-        <div class="panel-dense">
           <div class="panel-horizontal-dense">
             <h2 class="flex">Notes</h2>
             <Button @click.native="addNote" icon="add" />
@@ -50,10 +29,6 @@
             <textarea v-model="translation.notes[i]" class="flex note" />
             <Button @click.native="deleteNote(i)" icon="delete" />
           </div>
-        </div>
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Localized context</h2>
-          <Button @click.native="editLocalizedContext" icon="edit" />
         </div>
       </div>
       <div class="panel-sparse">
@@ -108,6 +83,16 @@
       </div>
       <div class="panel-sparse">
         <div class="panel wrap card">
+          <div class="panel-horizontal">
+            <h2>Source</h2>
+            <Select
+              class="flex"
+              :value.sync="selected"
+              :items="phrasebook"
+              display="preview"
+              :indexed="true"
+            />
+          </div>
           <div class="panel-horizontal-dense wrap">
             <PhraseBlock
               :id="selected"
@@ -121,17 +106,32 @@
           </div>
           <PhraseContext :context="context" />
         </div>
-        <div class="panel wrap card" v-if="translation.blocks">
-          <div class="panel-horizontal-dense wrap">
-            <PhraseBlock
-              :id="selected"
-              :context.sync="context"
-              :interactive="true"
-              :requirements="b.requirements"
-              :states="b.states"
+        <div class="panel wrap card">
+          <div class="panel-horizontal-dense">
+            <h2 class="flex">Translation</h2>
+            <Button
+              @click.native="editLocalizedContext"
+              icon="edit"
+              text="Localized context"
+            />
+          </div>
+          <div class="panel-horizontal wrap">
+            <div
+              class="panel-horizontal-solid"
               :key="i"
               v-for="(b, i) in translation.blocks"
-            />
+            >
+              <Button @click.native="block = b" class="small" icon="edit" />
+              <PhraseBlock
+                :id="selected"
+                :context.sync="context"
+                :interactive="true"
+                :requirements="b.requirements"
+                :states="b.states"
+              />
+              <Button class="small" icon="delete" />
+            </div>
+            <Button class="small" @click.native="addBlock" icon="add" />
           </div>
           <PhraseContext
             v-if="translation.context"
@@ -142,7 +142,7 @@
         <div class="panel-dense" v-if="conditionsProperty && conditions">
           <div class="panel-horizontal-dense">
             <h2 class="flex">{{ conditionsProperty }}</h2>
-            <Button @click.native="addCondition" icon="add" />
+            <Button @click.native="addCondition(null)" icon="add" />
           </div>
           <template v-if="conditionsProperty == 'Localized context'">
             <div
@@ -195,7 +195,6 @@
 <script>
 import Button from "@/components/Button";
 import Select from "@/components/Select";
-import List from "@/components/List";
 import PhraseBlock from "@/components/PhraseBlock";
 import PhraseContext from "@/components/PhraseContext";
 
@@ -204,7 +203,6 @@ export default {
   components: {
     Button,
     Select,
-    List,
     PhraseBlock,
     PhraseContext,
   },
@@ -340,7 +338,7 @@ export default {
       this.$set(this.translation.notes, this.translation.notes.length, "");
     },
     deleteNote(i) {
-      this.translation.notes.splice(i, 0);
+      this.$delete(this.translation.notes, i);
     },
   },
 };
