@@ -57,7 +57,7 @@
             <div
               class="panel-horizontal-solid"
               :key="i"
-              v-for="(b, i) in translation.blocks"
+              v-for="(b, i) in blocks"
             >
               <PhraseBlock
                 :id="selected"
@@ -139,7 +139,7 @@
           </template>
         </div>
       </div>
-      <div class="panel-sparse" v-if="block">
+      <div class="panel-sparse" v-if="blocks && block">
         <div class="panel-horizontal-dense">
           <h2 class="flex">Block</h2>
           <Button @click.native="addState(null)" icon="add" text="State" />
@@ -220,13 +220,11 @@ export default {
     translation() {
       return this.file[this.selected];
     },
+    blocks() {
+      return this.translation?.blocks;
+    },
     entities() {
       return Object.keys(this.fullContext);
-    },
-    blocksText() {
-      return this.translation.blocks?.map((b) =>
-        b.states ? b.states[0]?.text : null
-      );
     },
     fullContext() {
       return (
@@ -282,18 +280,16 @@ export default {
     },
     reset() {
       this.file = [];
-      this.$forceUpdate();
+      this.selected = 0;
     },
     addBlock() {
-      if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
-      this.$set(this.translation.blocks, this.translation.blocks.length, {
-        states: [],
-      });
+      if (!this.blocks) this.$set(this.translation, "blocks", []);
+      this.$set(this.blocks, this.blocks.length, { states: [] });
     },
     deleteBlock() {
-      const i = this.translation.blocks.indexOf(this.block);
+      const i = this.blocks.indexOf(this.block);
       if (i < 0) return;
-      this.$delete(this.translation.blocks, i);
+      this.$delete(this.blocks, i);
     },
     addState(i) {
       if (i == null) i = this.block.states.length;
