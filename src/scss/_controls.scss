@@ -30,6 +30,10 @@ select {
   }
 }
 
+select option {
+  background-color: var(--color-background);
+}
+
 textarea,
 input[type="text"] {
   text-align: left;
