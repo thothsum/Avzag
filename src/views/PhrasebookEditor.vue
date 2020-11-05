@@ -13,75 +13,6 @@
     </div>
     <div class="grid small" v-if="phrasebook">
       <div class="panel-sparse">
-        <div class="panel-dense">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Notes</h2>
-            <Button @click.native="addNote" icon="add" />
-          </div>
-          <p class="text-caption text-faded">
-            You can add notes, for example, to explain grammar.
-          </p>
-          <div
-            class="panel-horizontal-dense"
-            :key="i"
-            v-for="(_, i) in translation.notes"
-          >
-            <textarea v-model="translation.notes[i]" class="flex note" />
-            <Button @click.native="deleteNote(i)" icon="delete" />
-          </div>
-        </div>
-      </div>
-      <div class="panel-sparse">
-        <template v-if="block">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Requirements</h2>
-            <Button
-              @click.native="editBlockRequirements"
-              :class="{ highlight: conditions == block.requirements }"
-              icon="edit"
-            />
-          </div>
-          <div class="panel-sparse">
-            <div class="panel-horizontal-dense">
-              <h2 class="flex">States</h2>
-              <Button @click.native="addState(null)" icon="add" />
-            </div>
-            <div
-              class="panel-dense wrap"
-              :key="i"
-              v-for="(s, i) in block.states"
-            >
-              <div class="panel-horizontal-dense">
-                <Button @click.native="addState(i)" icon="vertical_align_top" />
-                <input type="text" v-model="s.text" />
-                <Button @click.native="deleteState(i)" icon="clear" />
-              </div>
-              <p class="text-caption text-faded">IPA & glossing.</p>
-              <div class="panel-horizontal-dense flex-content">
-                <input type="text" v-model="s.ipa" />
-                <input type="text" v-model="s.glossing" />
-              </div>
-              <p class="text-caption text-faded">
-                Transition: "next" or best of "0 1 ...".
-              </p>
-              <input type="text" v-model="s.transition" />
-              <div class="panel-horizontal-dense flex-content">
-                <Button
-                  v-model="s.implicit"
-                  icon="visibility_off"
-                  text="Implicit"
-                />
-                <Button
-                  @click.native="editStateConditions(i)"
-                  :class="{ highlight: conditions == s.conditions }"
-                  icon="format_list_bulleted"
-                  text="Conditions"
-                />
-              </div>
-            </div></div
-        ></template>
-      </div>
-      <div class="panel-sparse">
         <div class="panel wrap card">
           <div class="panel-horizontal">
             <h2>Source</h2>
@@ -110,9 +41,16 @@
           <div class="panel-horizontal-dense">
             <h2 class="flex">Translation</h2>
             <Button
+              @click.native="editNotes"
+              :class="{ highlight: conditionsProperty == 'Notes' }"
+              icon="sticky_note_2"
+              text="Notes"
+            />
+            <Button
               @click.native="editLocalizedContext"
-              icon="edit"
-              text="Localized context"
+              :class="{ highlight: conditionsProperty == 'Localized context' }"
+              icon="format_list_bulleted"
+              text="Context"
             />
           </div>
           <div class="panel-horizontal wrap">
@@ -121,7 +59,6 @@
               :key="i"
               v-for="(b, i) in translation.blocks"
             >
-              <Button @click.native="block = b" class="small" icon="edit" />
               <PhraseBlock
                 :id="selected"
                 :context.sync="context"
@@ -129,9 +66,13 @@
                 :requirements="b.requirements"
                 :states="b.states"
               />
-              <Button class="small" icon="delete" />
+              <Button
+                @click.native="block = b"
+                icon="edit"
+                :class="{ highlight: block == b }"
+              />
             </div>
-            <Button class="small" @click.native="addBlock" icon="add" />
+            <Button @click.native="addBlock" icon="add" />
           </div>
           <PhraseContext
             v-if="translation.context"
@@ -144,7 +85,17 @@
             <h2 class="flex">{{ conditionsProperty }}</h2>
             <Button @click.native="addCondition(null)" icon="add" />
           </div>
-          <template v-if="conditionsProperty == 'Localized context'">
+          <template v-if="conditionsProperty == 'Notes'">
+            <div
+              class="panel-horizontal-dense"
+              :key="i"
+              v-for="(_, i) in translation.notes"
+            >
+              <input type="text" v-model="translation.notes[i]" class="flex" />
+              <Button @click.native="deleteCondition(i)" icon="delete" />
+            </div>
+          </template>
+          <template v-else-if="conditionsProperty == 'Localized context'">
             <div
               class="panel-horizontal-dense"
               :key="i"
@@ -187,6 +138,56 @@
             </div>
           </template>
         </div>
+      </div>
+      <div class="panel-sparse">
+        <template v-if="block">
+          <Button icon="delete" text="Delete block" />
+          <Button
+            @click.native="editBlockRequirements"
+            :class="{ highlight: conditions == block.requirements }"
+            icon="edit"
+            text="Requirements"
+          />
+          <div class="panel-sparse">
+            <div class="panel-horizontal-dense">
+              <h2 class="flex">States</h2>
+              <Button @click.native="addState(null)" icon="add" />
+            </div>
+            <div
+              class="panel-dense wrap"
+              :key="i"
+              v-for="(s, i) in block.states"
+            >
+              <div class="panel-horizontal-dense">
+                <Button @click.native="addState(i)" icon="vertical_align_top" />
+                <input type="text" v-model="s.text" />
+                <Button @click.native="deleteState(i)" icon="clear" />
+              </div>
+              <p class="text-caption text-faded">IPA & glossing.</p>
+              <div class="panel-horizontal-dense flex-content">
+                <input type="text" v-model="s.ipa" />
+                <input type="text" v-model="s.glossing" />
+              </div>
+              <p class="text-caption text-faded">
+                Transition: "next" or best of "0 1 ...".
+              </p>
+              <input type="text" v-model="s.transition" />
+              <div class="panel-horizontal-dense flex-content">
+                <Button
+                  v-model="s.implicit"
+                  icon="visibility_off"
+                  text="Implicit"
+                />
+                <Button
+                  @click.native="editStateConditions(i)"
+                  :class="{ highlight: conditions == s.conditions }"
+                  icon="widgets"
+                  text="Conditions"
+                />
+              </div>
+            </div>
+          </div>
+        </template>
       </div>
     </div>
   </div>
@@ -322,23 +323,21 @@ export default {
       this.conditionsProperty = "Localized context";
       this.conditions = this.translation.context;
     },
+    editNotes() {
+      if (!this.translation.notes) this.translation.notes = [];
+      this.conditionsProperty = "Notes";
+      this.conditions = this.translation.notes;
+    },
     addCondition(i) {
       if (i == null) i = this.conditions.length;
       this.conditions.splice(
         i,
         0,
-        this.conditionsProperty == "Localized context" ? [] : {}
+        this.conditionsProperty == "Conditions" ? {} : []
       );
     },
     deleteCondition(i) {
       this.conditions.splice(i, 1);
-    },
-    addNote() {
-      if (!this.translation.notes) this.$set(this.translation, "notes", []);
-      this.$set(this.translation.notes, this.translation.notes.length, "");
-    },
-    deleteNote(i) {
-      this.$delete(this.translation.notes, i);
     },
   },
 };
@@ -351,7 +350,7 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: 256px 256px minmax(0, 1fr);
+  grid-template-columns: 352px minmax(0, 1fr);
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {

@@ -57,7 +57,7 @@
             :key="i"
             v-for="(n, i) in phoneme.notes"
           >
-            <textarea v-model="phoneme.notes[i]" class="flex note" />
+            <input type="text" v-model="phoneme.notes[i]" class="flex" />
             <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
           </div>
         </div>
@@ -188,7 +188,6 @@ export default {
 .sample input {
   width: 64px;
 }
-
 @media only screen and (max-width: $mobile-width) {
   .grid {
     grid-template-columns: 100%;
