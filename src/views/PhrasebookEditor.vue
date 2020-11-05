@@ -240,14 +240,6 @@ export default {
     },
   },
   watch: {
-    block: {
-      handler() {
-        this.$forceUpdate();
-        console.log("block deep update");
-      },
-      immediate: true,
-      deep: true,
-    },
     phrase: {
       handler() {
         this.context =
@@ -293,7 +285,9 @@ export default {
     },
     addBlock() {
       if (!this.blocks) this.$set(this.translation, "blocks", []);
-      this.$set(this.blocks, this.blocks.length, { states: [] });
+      this.$set(this.blocks, this.blocks.length, {
+        states: [{ text: "new state", transition: "next" }],
+      });
     },
     deleteBlock() {
       const i = this.blocks.indexOf(this.block);
@@ -302,7 +296,7 @@ export default {
     },
     addState(i) {
       if (i == null) i = this.states.length;
-      this.states.splice(i, 0, { transition: "next" });
+      this.states.splice(i, 0, { text: "new state", transition: "next" });
     },
     deleteState(i) {
       this.$delete(this.states, i);
