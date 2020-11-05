@@ -101,7 +101,9 @@ export default {
       return this.converter?.mappings;
     },
     fullMappings() {
-      return this.mappings.filter((m) => !m.partial);
+      return this.mappings.filter((m) =>
+        m.pairs.every((a) => a == m.pairs.find((b) => b[0] == a[0]))
+      );
     },
     sample() {
       return this.converter?.sample ?? "";
