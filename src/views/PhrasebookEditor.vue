@@ -151,7 +151,7 @@
           />
           <Button @click.native="deleteBlock" icon="delete" />
         </div>
-        <div class="panel-dense wrap" :key="i" v-for="(s, i) in block.states">
+        <div class="panel-dense wrap" :key="i" v-for="(s, i) in states">
           <div class="panel-horizontal-dense">
             <Button @click.native="addState(i)" icon="vertical_align_top" />
             <h2 class="flex">#_{{ i }}</h2>
@@ -223,6 +223,9 @@ export default {
     blocks() {
       return this.translation?.blocks;
     },
+    states() {
+      return this.block?.states;
+    },
     entities() {
       return Object.keys(this.fullContext);
     },
@@ -239,6 +242,14 @@ export default {
     },
   },
   watch: {
+    block: {
+      handler() {
+        this.$forceUpdate();
+        console.log("block deep update");
+      },
+      immediate: true,
+      deep: true,
+    },
     phrase: {
       handler() {
         this.context =
@@ -292,17 +303,16 @@ export default {
       this.$delete(this.blocks, i);
     },
     addState(i) {
-      if (i == null) i = this.block.states.length;
-      this.$set(this.block.states, i, { transition: "next" });
+      if (i == null) i = this.states.length;
+      this.$set(this.states, i, { transition: "next" });
     },
     deleteState(i) {
-      this.block.states.splice(i, 1);
+      this.$delete(this.states, i);
     },
     editStateConditions(i) {
       this.conditionsProperty = "conditions";
-      if (!this.block.states[i].conditions)
-        this.block.states[i].conditions = [];
-      this.conditions = this.block.states[i].conditions;
+      if (!this.states[i].conditions) this.states[i].conditions = [];
+      this.conditions = this.states[i].conditions;
       this.$forceUpdate();
     },
     editBlockRequirements() {
