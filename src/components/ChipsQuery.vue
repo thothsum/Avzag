@@ -44,22 +44,19 @@ export default {
       },
       immediate: true,
     },
-    many: {
+    input: {
       handler() {
-        if (!this.many) {
-          this.$emit("query", { [this.keys[0]]: 1 });
-        }
+        this.$emit(
+          "query",
+          this.many
+            ? this.input.reduce((q, inp, i) => {
+                if (inp) q[this.keys[i]] = inp > 0;
+                return q;
+              }, {})
+            : { [this.keys[0]]: 1 }
+        );
       },
       immediate: true,
-    },
-    input(input) {
-      this.$emit(
-        "query",
-        input.reduce((q, inp, i) => {
-          if (inp) q[this.keys[i]] = inp > 0;
-          return q;
-        }, {})
-      );
     },
   },
   methods: {
