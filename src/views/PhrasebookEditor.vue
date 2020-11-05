@@ -325,11 +325,14 @@ export default {
     },
     addCondition(i) {
       if (i == null) i = this.conditions.length;
-      this.conditions.splice(
-        i,
-        0,
-        this.conditionsProperty == "Conditions" ? {} : []
-      );
+      let val = "";
+      if (this.conditionsPropert == "Localized context") {
+        val = ["", ""];
+      }
+      if (this.conditionsPropert != "Notes") {
+        val = {};
+      }
+      this.conditions.splice(i, 0, val);
     },
     deleteCondition(i) {
       this.conditions.splice(i, 1);

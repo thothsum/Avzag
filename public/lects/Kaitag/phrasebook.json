@@ -156,13 +156,13 @@
                         "glossing": "M-go-ADJ-1-Q",
                         "conditions": [
                             {
-                                "entity": "actor",
-                                "tag": "singular",
+                                "entity": "action",
+                                "tag": "give",
                                 "passive": true
                             },
                             {
-                                "entity": "actor",
-                                "tag": "masculine"
+                                "entity": "action",
+                                "tag": "give"
                             }
                         ],
                         "transition": "1"
@@ -191,6 +191,9 @@
                             }
                         ]
                     }
+                ],
+                "requirements": [
+                    []
                 ]
             }
         ]
@@ -411,6 +414,83 @@
                     }
                 ]
             }
+        ]
+    },
+    {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Гьакка",
+                        "transition": "next",
+                        "conditions": [
+                            []
+                        ]
+                    },
+                    {
+                        "text": "Гьасса",
+                        "transition": "next",
+                        "conditions": [
+                            []
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "дами",
+                        "transition": ""
+                    }
+                ],
+                "requirements": [
+                    []
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "гьеж.",
+                        "transition": "next",
+                        "conditions": [
+                            []
+                        ]
+                    },
+                    {
+                        "text": "кӏацӏул.",
+                        "transition": "next",
+                        "conditions": [
+                            []
+                        ]
+                    },
+                    {
+                        "text": "кьалам.",
+                        "transition": "next",
+                        "conditions": [
+                            []
+                        ]
+                    }
+                ]
+            }
+        ],
+        "notes": [],
+        "context": [
+            [
+                "action",
+                "биран"
+            ],
+            [
+                "object",
+                "цикӏал"
+            ],
+            [
+                "object",
+                "цикӏал"
+            ],
+            [
+                "spoon",
+                "кӏацӏул"
+            ]
         ]
     }
 ]
