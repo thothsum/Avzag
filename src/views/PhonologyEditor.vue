@@ -58,7 +58,7 @@
             v-for="(n, i) in phoneme.notes"
           >
             <input type="text" v-model="phoneme.notes[i]" class="flex" />
-            <Button @click.native="deleteItem(i, 'notes')" icon="delete" />
+            <Button @click.native="deleteItem(i, 'notes')" icon="clear" />
           </div>
         </div>
         <div class="panel-dense">
@@ -83,7 +83,7 @@
               placeholder="word"
             />
             <input class="flex" type="text" v-model="s.ipa" placeholder="ipa" />
-            <Button @click.native="deleteItem(i, 'samples')" icon="delete" />
+            <Button @click.native="deleteItem(i, 'samples')" icon="clear" />
           </div>
         </div>
       </div>

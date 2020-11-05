@@ -394,7 +394,6 @@
         },
         {
             "name": "Transcription (Eng)",
-            "partial": true,
             "pairs": [
                 [
                     "a",
@@ -444,7 +443,6 @@
         },
         {
             "name": "Transcription (IPA)",
-            "partial": true,
             "pairs": [
                 [
                     "gʷ",

@@ -55,23 +55,10 @@
         </template>
       </div>
       <div class="panel-sparse" v-if="mapping">
-        <div class="panel-dense">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Name</h2>
-            <Button @click.native="deleteMapping" icon="delete" />
-          </div>
-          <p class="text-caption text-faded">
-            Select 'partial' if there are two or more mapping pairs that result
-            in the same text. I.e. th-ð & th-θ.
-          </p>
-          <div class="panel-horizontal-dense">
-            <input class="flex" type="text" v-model="mapping.name" />
-            <Button
-              v-model="mapping.partial"
-              icon="sync_disabled"
-              text="Partial"
-            />
-          </div>
+        <div class="panel-horizontal-dense">
+          <h2>Name</h2>
+          <input type="text" v-model="mapping.name" />
+          <Button @click.native="deleteMapping" icon="delete" />
         </div>
         <div class="panel-dense">
           <div class="panel-horizontal-dense">
