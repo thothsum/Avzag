@@ -314,19 +314,6 @@
                 ]
             },
             {
-                "requirements": [
-                    {
-                        "entity": "object",
-                        "tag": "object"
-                    }
-                ],
-                "states": [
-                    {
-                        "text": "is"
-                    }
-                ]
-            },
-            {
                 "states": [
                     {
                         "text": "name?",
@@ -338,7 +325,7 @@
                         ]
                     },
                     {
-                        "text": "called?",
+                        "text": "is called?",
                         "conditions": [
                             {
                                 "entity": "object",
@@ -417,6 +404,92 @@
                 "states": [
                     {
                         "text": "a lot."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "preview": "Transfering objects",
+        "context": [
+            {
+                "entity": "action",
+                "tags": "give take"
+            },
+            {
+                "entity": "object",
+                "tags": "object spoon pen"
+            }
+        ],
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "text": "Give",
+                        "conditions": [
+                            {
+                                "entity": "action",
+                                "tag": "give"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "Take",
+                        "conditions": [
+                            {
+                                "entity": "action",
+                                "tag": "take"
+                            }
+                        ],
+                        "transition": "next"
+                    }
+                ]
+            },
+            {
+                "requirements": [
+                    {
+                        "entity": "action",
+                        "tag": "give"
+                    }
+                ],
+                "states": [
+                    {
+                        "text": "me"
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "text": "this.",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "object"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "the spoon.",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "spoon"
+                            }
+                        ],
+                        "transition": "next"
+                    },
+                    {
+                        "text": "the pen.",
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "pen"
+                            }
+                        ],
+                        "transition": "next"
                     }
                 ]
             }
