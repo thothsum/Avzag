@@ -89,9 +89,7 @@ export default {
     context: {
       handler() {
         const valid =
-          this.context &&
-          (!this.requirements ||
-            this.checkConditions(this.requirements)[0] == 1);
+          this.context && this.checkConditions(this.requirements)[0] == 1;
 
         if (valid) {
           const state = this.findBestState();
@@ -113,6 +111,7 @@ export default {
       return [...entities].map((e) => this.entities.indexOf(e));
     },
     checkConditions(conditions) {
+      if (!conditions?.length) return [1, 0];
       let f = 0;
       let l = 0;
       conditions.forEach(({ entity, tag }) => {
