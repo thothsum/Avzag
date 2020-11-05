@@ -34,8 +34,7 @@
             :id="selected"
             :context.sync="context"
             :interactive="interactive"
-            :requirements="b.requirements"
-            :states="b.states"
+            :block="b"
             :key="i"
             v-for="(b, i) in phrase.blocks"
           />

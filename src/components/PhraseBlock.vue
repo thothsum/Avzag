@@ -26,7 +26,7 @@ export default {
   components: {
     IndexedColor,
   },
-  props: ["id", "context", "requirements", "states", "interactive", "glossed"],
+  props: ["id", "context", "block", "interactive", "glossed"],
   data() {
     return {
       state: undefined,
@@ -34,6 +34,12 @@ export default {
     };
   },
   computed: {
+    requirements() {
+      return this.block.requirements;
+    },
+    states() {
+      return this.block.states;
+    },
     transition() {
       return this.state?.transition;
     },

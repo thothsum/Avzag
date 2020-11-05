@@ -16,8 +16,7 @@
         :context.sync="context_"
         :interactive="interactive"
         :glossed="glossed"
-        :requirements="b.requirements"
-        :states="b.states"
+        :block="b"
         :key="j"
         v-for="(b, j) in translation.blocks"
       />

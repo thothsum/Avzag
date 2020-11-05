@@ -29,8 +29,7 @@
               :id="selected"
               :context.sync="context"
               :interactive="true"
-              :requirements="b.requirements"
-              :states="b.states"
+              :block="b"
               :key="i"
               v-for="(b, i) in phrase.blocks"
             />
@@ -63,8 +62,7 @@
                 :id="selected"
                 :context.sync="context"
                 :interactive="true"
-                :requirements="b.requirements"
-                :states="b.states"
+                :block="b"
               />
               <Button
                 @click.native="block = b"
