@@ -304,7 +304,7 @@ export default {
     },
     addState(i) {
       if (i == null) i = this.states.length;
-      this.$set(this.states, i, { transition: "next" });
+      this.states.splice(i, 0, { transition: "next" });
     },
     deleteState(i) {
       this.$delete(this.states, i);

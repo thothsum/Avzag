@@ -37,9 +37,7 @@ export default {
   methods: {
     translate(values) {
       return this.dictionary
-        ? values
-            .filter((v) => v in this.dictionary)
-            .map((v) => this.dictionary[v])
+        ? values.map((v) => this.dictionary[v] ?? "")
         : values;
     },
   },
