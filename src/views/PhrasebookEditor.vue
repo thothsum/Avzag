@@ -325,12 +325,12 @@ export default {
     },
     addCondition(i) {
       if (i == null) i = this.conditions.length;
-      let val = "";
+      let val = {};
       if (this.conditionsPropert == "Localized context") {
         val = ["", ""];
       }
-      if (this.conditionsPropert != "Notes") {
-        val = {};
+      if (this.conditionsPropert == "Notes") {
+        val = "";
       }
       this.conditions.splice(i, 0, val);
     },
