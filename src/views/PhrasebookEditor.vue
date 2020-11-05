@@ -139,55 +139,48 @@
           </template>
         </div>
       </div>
-      <div class="panel-sparse">
-        <template v-if="block">
-          <Button icon="delete" text="Delete block" />
+      <div class="panel-sparse" v-if="block">
+        <div class="panel-horizontal-dense">
+          <h2 class="flex">Block</h2>
+          <Button @click.native="addState(null)" icon="add" text="State" />
           <Button
             @click.native="editBlockRequirements"
             :class="{ highlight: conditions == block.requirements }"
-            icon="edit"
+            icon="lock"
             text="Requirements"
           />
-          <div class="panel-sparse">
-            <div class="panel-horizontal-dense">
-              <h2 class="flex">States</h2>
-              <Button @click.native="addState(null)" icon="add" />
-            </div>
-            <div
-              class="panel-dense wrap"
-              :key="i"
-              v-for="(s, i) in block.states"
-            >
-              <div class="panel-horizontal-dense">
-                <Button @click.native="addState(i)" icon="vertical_align_top" />
-                <input type="text" v-model="s.text" />
-                <Button @click.native="deleteState(i)" icon="clear" />
-              </div>
-              <p class="text-caption text-faded">IPA & glossing.</p>
-              <div class="panel-horizontal-dense flex-content">
-                <input type="text" v-model="s.ipa" />
-                <input type="text" v-model="s.glossing" />
-              </div>
-              <p class="text-caption text-faded">
-                Transition: "next" or best of "0 1 ...".
-              </p>
-              <input type="text" v-model="s.transition" />
-              <div class="panel-horizontal-dense flex-content">
-                <Button
-                  v-model="s.implicit"
-                  icon="visibility_off"
-                  text="Implicit"
-                />
-                <Button
-                  @click.native="editStateConditions(i)"
-                  :class="{ highlight: conditions == s.conditions }"
-                  icon="widgets"
-                  text="Conditions"
-                />
-              </div>
-            </div>
+          <Button @click.native="deleteBlock" icon="delete" />
+        </div>
+        <div class="panel-dense wrap" :key="i" v-for="(s, i) in block.states">
+          <div class="panel-horizontal-dense">
+            <Button @click.native="addState(i)" icon="vertical_align_top" />
+            <h2 class="flex">#_{{ i }}</h2>
+            <input type="text" v-model="s.text" />
+            <Button @click.native="deleteState(i)" icon="clear" />
           </div>
-        </template>
+          <p class="text-caption text-faded">Advanced data: IPA & glossing.</p>
+          <div class="panel-horizontal-dense flex-content">
+            <input type="text" v-model="s.ipa" />
+            <input type="text" v-model="s.glossing" />
+          </div>
+          <p class="text-caption text-faded">
+            Transition: "next" or best of "0 1 ...".
+          </p>
+          <input type="text" v-model="s.transition" />
+          <div class="panel-horizontal-dense flex-content">
+            <Button
+              v-model="s.implicit"
+              icon="visibility_off"
+              text="Implicit"
+            />
+            <Button
+              @click.native="editStateConditions(i)"
+              :class="{ highlight: conditions == s.conditions }"
+              icon="widgets"
+              text="Conditions"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -293,14 +286,18 @@ export default {
     },
     addBlock() {
       if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
-      this.$set(this.translation.blocks, this.translation.blocks.length, {});
-      this.$forceUpdate();
+      this.$set(this.translation.blocks, this.translation.blocks.length, {
+        states: [],
+      });
+    },
+    deleteBlock() {
+      const i = this.translation.blocks.indexOf(this.block);
+      if (i < 0) return;
+      this.$delete(this.translation.blocks, i);
     },
     addState(i) {
-      if (!this.block.states) this.$set(this.block, "states", []);
       if (i == null) i = this.block.states.length;
-      this.block.states.splice(i, 0, { transition: "next" });
-      this.$forceUpdate();
+      this.$set(this.block.states, i, { transition: "next" });
     },
     deleteState(i) {
       this.block.states.splice(i, 1);
@@ -350,13 +347,12 @@ export default {
 }
 .grid {
   display: grid;
-  grid-template-columns: 352px minmax(0, 1fr);
+  grid-template-columns: 416px minmax(0, 1fr);
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {
   .grid {
     grid-template-columns: 100%;
-    direction: ltr;
   }
 }
 </style>

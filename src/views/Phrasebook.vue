@@ -132,7 +132,6 @@ export default {
 @media only screen and (max-width: $mobile-width) {
   .section {
     grid-template-columns: 100%;
-    direction: ltr;
   }
 }
 </style>
