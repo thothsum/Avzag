@@ -63,7 +63,7 @@ export default {
   },
   computed: {
     faded() {
-      return this.visible.length
+      return this.visible?.length
         ? this.catalogue.map((l) => !this.visible.includes(l))
         : [];
     },

@@ -83,7 +83,7 @@ export default {
       return this.$store.state.catalogue;
     },
     empty() {
-      return this.lects.length == 0;
+      return !this.lects?.length;
     },
     query() {
       return this.search ? this.search.toLowerCase().split(" ") : null;

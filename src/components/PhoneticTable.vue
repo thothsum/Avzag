@@ -59,6 +59,7 @@ export default {
   },
   methods: {
     pass(tags, query) {
+      if (!query) return true;
       for (const [tag, mode] of Object.entries(query)) {
         if (mode != tags.includes(tag)) return false;
       }

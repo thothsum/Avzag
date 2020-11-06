@@ -19,7 +19,7 @@ export default {
   props: ["items", "itemKey"],
   data() {
     return {
-      input: [],
+      input: undefined,
     };
   },
   computed: {
