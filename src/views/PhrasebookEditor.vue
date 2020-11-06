@@ -120,7 +120,7 @@
                 icon="vertical_align_top"
               />
               <Button
-                v-model="c.passive"
+                :value.sync="c.passive"
                 v-if="conditionsProperty == 'conditions'"
                 icon="link_off"
               />
@@ -167,7 +167,7 @@
           <input type="text" v-model="s.transition" />
           <div class="panel-horizontal-dense flex-content">
             <Button
-              v-model="s.implicit"
+              :value.sync="s.implicit"
               icon="visibility_off"
               text="Implicit"
             />

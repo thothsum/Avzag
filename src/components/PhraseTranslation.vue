@@ -3,7 +3,7 @@
     <div class="panel-horizontal-dense small">
       <Button @click.native="copy" icon="content_copy" />
       <Button
-        v-model="contextual"
+        :value.sync="contextual"
         v-if="interactive && translation.context"
         icon="widgets"
       />

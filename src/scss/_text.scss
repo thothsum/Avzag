@@ -54,21 +54,21 @@
   user-select: none;
 }
 
-h1,
-h2 {
-  @extend .no-select;
-}
 h1 {
+  @extend .no-select;
   &,
   * {
+    font-weight: bold;
     font-size: map-get($font-sizes, "large");
   }
 }
 h2 {
-  text-transform: capitalize;
+  @extend .no-select;
   &,
   * {
+    font-weight: bold;
     font-size: map-get($font-sizes, "normal");
+    text-transform: capitalize;
   }
 }
 

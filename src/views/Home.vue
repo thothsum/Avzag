@@ -11,7 +11,7 @@
     <div id="ui" class="panel">
       <div id="top" class="panel card">
         <div class="panel-horizontal">
-          <Button icon="info" v-model="about" />
+          <Button :value.sync="about" icon="info" />
           <input
             class="flex"
             type="text"

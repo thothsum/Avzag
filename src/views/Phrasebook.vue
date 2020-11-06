@@ -1,32 +1,68 @@
 <template>
   <div class="section panel" v-if="lects && phrasebook">
-    <List
-      :value.sync="selected"
-      :items="phrasebook"
-      indexed="true"
-      display="preview"
-    />
+    <div class="panel">
+      <div class="panel-horizontal">
+        <Button :value.sync="searching" icon="search" />
+        <input
+          v-if="searching"
+          v-model="query"
+          class="flex"
+          type="text"
+          placeholder="Search all phrases..."
+        />
+        <h2 v-else class="panel flex">
+          <Select :value.sync="category" :items="categories" />
+        </h2>
+      </div>
+      <div v-if="searching" class="panel scroll">
+        <div class="panel-dense" :key="c" v-for="(ph, c) of phrases">
+          <h2>{{ c }}</h2>
+          <div class="panel-solid">
+            <Button
+              :class="{ highlight: category == c && selected == i }"
+              @click.native="select(c, i)"
+              :key="i"
+              v-for="(p, i) in ph"
+              :text="p.preview"
+            />
+          </div>
+        </div>
+      </div>
+      <List
+        class="scroll"
+        v-else
+        :value.sync="selected"
+        :items="phrases"
+        indexed="true"
+        display="preview"
+      />
+    </div>
     <div class="panel" v-if="phrase">
       <div class="panel-horizontal-dense scroll small">
         <Button
           class="round"
-          v-model="noted"
+          :value.sync="noted"
           icon="sticky_note_2"
           text="Notes"
         />
         <Button
           class="round"
-          v-model="contextual"
+          :value.sync="contextual"
           icon="widgets"
           text="Context"
         />
         <Button
           class="round"
-          v-model="interactive"
+          :value.sync="interactive"
           icon="tune"
           text="Interactive"
         />
-        <Button class="round" v-model="glossed" icon="layers" text="Glossed" />
+        <Button
+          class="round"
+          :value.sync="glossed"
+          icon="layers"
+          text="Glossed"
+        />
       </div>
       <div class="panel wrap card" v-show="contextual">
         <div class="panel-horizontal-dense wrap">
@@ -58,6 +94,7 @@
 
 <script>
 import Button from "@/components/Button";
+import Select from "@/components/Select";
 import List from "@/components/List";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseBlock from "@/components/PhraseBlock";
@@ -67,6 +104,7 @@ export default {
   name: "Phrasebook",
   components: {
     Button,
+    Select,
     List,
     PhraseContext,
     PhraseBlock,
@@ -80,6 +118,9 @@ export default {
       glossed: false,
       noted: false,
       contextual: true,
+      searching: false,
+      category: "",
+      query: "",
     };
   },
   computed: {
@@ -88,6 +129,18 @@ export default {
     },
     phrasebook() {
       return this.$store.state.phrasebook;
+    },
+    categories() {
+      return Object.keys(this.phrasebook);
+    },
+    phrases() {
+      return this.searching
+        ? Object.entries(this.phrasebook).reduce((acc, [c, ps]) => {
+            let p = ps.filter((p) => p.preview.includes(this.query));
+            if (p.length > 0) acc[c] = p;
+            return acc;
+          }, {})
+        : this.phrasebook[this.category] ?? [];
     },
     phrase() {
       return this.phrasebook ? this.phrasebook[this.selected] : undefined;
@@ -119,17 +172,29 @@ export default {
   destroyed() {
     localStorage.phrase = this.selected;
   },
+  methods: {
+    select(c, i) {
+      this.category = c;
+      this.selected = i;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .section {
   display: grid;
-  grid-template-columns: 256px minmax(0, 1fr);
+  grid-template-columns: 288px minmax(0, 1fr);
   gap: map-get($margins, "double");
+  > :first-child {
+    max-height: 640px;
+  }
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
+    > :first-child {
+      max-height: 320px;
+    }
     grid-template-columns: 100%;
   }
 }
