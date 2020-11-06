@@ -73,13 +73,11 @@
             :translation="translation.context"
           />
         </div>
-        <div class="panel-dense">
-          <NotesEditor :notes.sync="translation.notes" />
-          <PhraseContextTranslations
-            :translations.sync="translation.context"
-            :context="fullContext"
-          />
-        </div>
+        <NotesEditor :notes.sync="translation.notes" />
+        <PhraseContextTranslations
+          :translations.sync="translation.context"
+          :context="fullContext"
+        />
       </div>
       <PhraseBlockEditor
         v-if="block"

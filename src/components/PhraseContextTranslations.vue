@@ -1,6 +1,9 @@
 <template>
   <div class="panel-dense">
-    <h2>Context Translations</h2>
+    <h2 class="panel-horizontal-dense">
+      <p class="icon">format_list_bulleted</p>
+      Context Translations
+    </h2>
     <div class="panel-horizontal-dense" :key="i" v-for="(t, i) in translations">
       <Select class="flex" :value.sync="t[0]" :items="keys" />
       <p class="icon">east</p>

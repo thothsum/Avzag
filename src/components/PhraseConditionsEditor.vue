@@ -1,18 +1,25 @@
 <template>
-  <div class="conditions scroll panel-dense">
-    <div class="panel-horizontal-dense" :key="i" v-for="(c, i) in conditions">
-      <Button :value.sync="c.passive" v-if="allowPassive" icon="call_missed" />
-      <Select class="flex" :value.sync="c.entity" :items="entities" />
-      <p class="icon">west</p>
-      <Select
-        v-if="context[c.entity]"
-        class="flex"
-        :value.sync="c.tag"
-        :items="context[c.entity]"
-      />
-      <Button @click.native="deleteCondition(i)" icon="clear" />
+  <div class="conditions panel-dense">
+    <slot />
+    <div class="scroll panel-dense">
+      <div class="panel-horizontal-dense" :key="i" v-for="(c, i) in conditions">
+        <Button
+          :value.sync="c.passive"
+          v-if="allowPassive"
+          icon="call_missed"
+        />
+        <Select class="flex" :value.sync="c.entity" :items="entities" />
+        <p class="icon">west</p>
+        <Select
+          v-if="context[c.entity]"
+          class="flex"
+          :value.sync="c.tag"
+          :items="context[c.entity]"
+        />
+        <Button @click.native="deleteCondition(i)" icon="clear" />
+      </div>
+      <Button class="center" @click.native="addCondition" icon="add" />
     </div>
-    <Button class="center" @click.native="addCondition" icon="add" />
   </div>
 </template>
 

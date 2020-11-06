@@ -4,19 +4,19 @@
       <div class="panel-horizontal-dense card">
         <h2 class="flex">Block</h2>
         <Button @click.native="add" icon="add" text="State" />
-        <Button
-          :value.sync="editingRequirements"
-          icon="lock"
-          text="Requirements"
-        />
         <p class="text-dot" />
         <ButtonAlert @confirm="$emit('remove')" />
       </div>
       <PhraseConditionsEditor
-        v-if="editingRequirements"
         :conditions.sync="block.requirements"
         :context="context"
-      />
+        header="Requirements"
+      >
+        <h2 class="panel-horizontal-dense">
+          <p class="icon">lock</p>
+          Requirements
+        </h2>
+      </PhraseConditionsEditor>
     </div>
     <div class="panel-dense" :key="i" v-for="(s, i) in states">
       <div class="panel-dense card">
@@ -36,7 +36,12 @@
         :conditions.sync="s.conditions"
         :context="context"
         :allowPassive="true"
-      />
+      >
+        <h2 class="panel-horizontal-dense">
+          <p class="icon">widgets</p>
+          Conditions
+        </h2>
+      </PhraseConditionsEditor>
       <template v-else>
         <p class="text-caption text-faded">Advanced data: IPA & glossing.</p>
         <div class="panel-horizontal-dense flex-content">
@@ -67,7 +72,6 @@ export default {
   props: ["block", "context"],
   data() {
     return {
-      editingRequirements: false,
       editingConditions: [],
     };
   },

@@ -75,7 +75,8 @@ h2 {
 .icon {
   @extend .no-select;
 
-  font-family: "Material Icons Outlined";
+  text-transform: none !important;
+  font-family: "Material Icons Outlined" !important;
   font-weight: normal;
   font-size: map-get($icon-sizes, "normal");
 
