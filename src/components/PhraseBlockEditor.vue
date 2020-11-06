@@ -6,7 +6,7 @@
         <Button @click.native="add" icon="add" text="State" />
         <Button
           :value.sync="editingRequirements"
-          icon="visibility"
+          icon="lock"
           text="Requirements"
         />
         <p class="text-dot" />
@@ -22,10 +22,9 @@
       <div class="panel-dense card">
         <div class="panel-horizontal-dense">
           <h2 class="flex">State #{{ i }}</h2>
-          <Button icon="alt_route" />
+          <Button icon="visibility" />
           <Button :value.sync="editingConditions[i]" icon="widgets" />
-          <Button icon="layers" />
-          <p class="text-dot" />
+          <Button icon="alt_route" />
           <Button :value.sync="s.implicit" icon="format_color_reset" />
           <p class="text-dot" />
           <Button @click.native="remove(i)" icon="delete" />
