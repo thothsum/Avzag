@@ -60,7 +60,7 @@ export default {
 h2:after {
   content: ":";
 }
-p ::after {
+p::after {
   content: ",";
 }
 p:last-child::after {
