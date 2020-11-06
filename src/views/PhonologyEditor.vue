@@ -15,10 +15,7 @@
       <div class="panel scroll">
         <div class="panel">
           <template v-if="file">
-            <div class="panel-horizontal-dense small">
-              <h2 class="flex">Phonemes</h2>
-              <Button @click.native="addPhoneme" icon="add" />
-            </div>
+            <h2>Phonemes</h2>
             <div class="table panel-horizontal-dense wrap">
               <PhoneticItem
                 @click.native="phoneme = p"
@@ -28,6 +25,7 @@
                 :key="i"
                 v-for="(p, i) in file"
               />
+              <Button @click.native="addPhoneme" icon="add" />
             </div>
           </template>
         </div>
@@ -95,7 +93,7 @@ export default {
   data() {
     return {
       file: [],
-      phoneme: null,
+      phoneme: {},
     };
   },
   computed: {
@@ -131,8 +129,8 @@ export default {
       this.phoneme = this.file[this.file.length - 1];
     },
     addSample() {
-      if (!this.phoneme.samples) this.phoneme.samples = [];
-      this.phoneme.samples.push({});
+      if (this.phoneme.samples) this.phoneme.samples.push({});
+      else this.$set(this.phoneme, "samples", [{}]);
     },
     removeSample(i) {
       this.$delete(this.phoneme.samples, i);
