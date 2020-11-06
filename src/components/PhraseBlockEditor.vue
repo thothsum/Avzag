@@ -1,13 +1,31 @@
 <template>
-  <div class="panel-sparse">
-    <div class="panel-dense card" :key="i" v-for="(s, i) in states">
-      <div class="panel-horizontal-dense">
+  <div class="block panel-sparse">
+    <div class="panel-dense">
+      <div class="panel-horizontal-dense card">
+        <h2 class="flex">Block</h2>
+        <Button @click.native="addState(null)" icon="add" text="State" />
+        <Button
+          :value.sync="editingRequirements"
+          icon="visibility"
+          text="Requirements"
+        />
+        <p class="text-dot" />
+        <Button @click.native="deleteBlock" icon="delete" />
+      </div>
+      <PhraseConditionsEditor
+        v-if="editingRequirements"
+        :conditions.sync="block.requirements"
+        :context="context"
+      />
+    </div>
+    <div class="panel-dense" :key="i" v-for="(s, i) in states">
+      <div class="panel-horizontal-dense card">
         <Button icon="arrow_upward" />
         <Button icon="arrow_downward" />
         <p class="text-dot" />
         <h2 class="flex">State #{{ i }}</h2>
         <Button :value.sync="editingConditions[i]" icon="widgets" />
-        <Button :value.sync="s.implicit" icon="visibility_off" />
+        <Button :value.sync="s.implicit" icon="format_color_reset" />
         <p class="text-dot" />
         <Button @click.native="deleteState(i)" icon="delete" />
       </div>
@@ -46,6 +64,7 @@ export default {
   props: ["block", "context"],
   data() {
     return {
+      editingRequirements: false,
       editingConditions: null,
     };
   },
@@ -55,7 +74,7 @@ export default {
     },
   },
   watch: {
-    states: {
+    block: {
       handler() {
         this.editingConditions = new Array(this.states.length).fill(false);
       },

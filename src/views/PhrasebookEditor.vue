@@ -141,20 +141,11 @@
           </template>
         </div>
       </div>
-      <div class="panel-sparse" v-if="translation.blocks && block">
-        <div class="panel-horizontal-dense">
-          <h2 class="flex">Block</h2>
-          <Button @click.native="addState(null)" icon="add" text="State" />
-          <Button
-            @click.native="editBlockRequirements"
-            :class="{ highlight: conditions == block.requirements }"
-            icon="lock"
-            text="Requirements"
-          />
-          <Button @click.native="deleteBlock" icon="delete" />
-        </div>
-        <PhraseBlockEditor :block.sync="block" :context="fullContext" />
-      </div>
+      <PhraseBlockEditor
+        v-if="translation.blocks && block"
+        :block="block"
+        :context="fullContext"
+      />
     </div>
   </div>
 </template>
@@ -288,13 +279,6 @@ export default {
       const i = phrase.blocks.indexOf(this.block);
       if (i < 0) return;
       this.$delete(phrase.blocks, i);
-    },
-    addState(i) {
-      if (i == null) i = this.states.length;
-      this.states.splice(i, 0, { text: "new state", transition: "next" });
-    },
-    deleteState(i) {
-      this.$delete(this.states, i);
     },
     editStateConditions(i) {
       this.conditionsProperty = "conditions";

@@ -1,7 +1,7 @@
 <template>
   <div class="conditions scroll panel-dense">
     <div class="panel-horizontal-dense" :key="i" v-for="(c, i) in conditions">
-      <Button :value.sync="c.passive" v-if="allowPassive" icon="link_off" />
+      <Button :value.sync="c.passive" v-if="allowPassive" icon="call_missed" />
       <Select class="flex" :value.sync="c.entity" :items="entities" />
       <p class="icon">west</p>
       <Select
@@ -34,14 +34,12 @@ export default {
   },
   methods: {
     addCondition() {
-      let conditions = this.conditions ?? [];
-      conditions.splice(conditions.length, 0, {});
-      this.$emit("update:conditions", conditions);
+      let c = this.conditions;
+      if (!c) this.$emit("update:conditions", (c = []));
+      c.splice(c.length, 0, {});
     },
     deleteCondition(i) {
-      let conditions = this.conditions;
-      conditions.splice(i, 1);
-      this.$emit("update:conditions", conditions);
+      this.conditions.splice(i, 1);
     },
   },
 };
