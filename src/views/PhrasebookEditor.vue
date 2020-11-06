@@ -6,10 +6,15 @@
       <router-link to="/editor/phonology">Phonology</router-link>
       <router-link to="/editor/converter">Converter</router-link>
       <router-link to="/editor/phrasebook">Phrasebook</router-link>
-      <Button @click.native="loadFromLect" text="load from lect" />
-      <Button @click.native="loadFromJson" text="load from JSON" />
-      <Button @click.native="saveToJson" text="save JSON to clipboard" />
-      <Button @click.native="reset" text="reset" />
+      <Button @click.native="loadFromLect" icon="language" text="Load lect" />
+      <Button @click.native="loadFromJson" icon="code" text="Load JSON" />
+      <Button
+        @click.native="saveToJson"
+        icon="content_paste"
+        text="Save to clipboard"
+      />
+      <p class="text-dot" />
+      <Button @click.native="reset" icon="delete_forever" text="Reset" />
     </div>
     <div class="grid small" v-if="phrasebook">
       <div class="panel-sparse">
@@ -154,6 +159,9 @@ export default {
           }, {}) ?? {};
       },
       immediate: true,
+    },
+    blocks() {
+      this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null;
     },
     file() {
       this.fillMissing();
