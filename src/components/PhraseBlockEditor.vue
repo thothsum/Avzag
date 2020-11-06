@@ -10,7 +10,7 @@
           text="Requirements"
         />
         <p class="text-dot" />
-        <Button @click.native="$emit('remove')" icon="delete" />
+        <ButtonAlert @confirm="$emit('remove')" />
       </div>
       <PhraseConditionsEditor
         v-if="editingRequirements"
@@ -27,7 +27,7 @@
           <Button icon="alt_route" />
           <Button :value.sync="s.implicit" icon="format_color_reset" />
           <p class="text-dot" />
-          <Button @click.native="remove(i)" icon="delete" />
+          <ButtonAlert @confirm="remove(i)" />
         </div>
         <input type="text" v-model="s.text" placeholder="text" />
       </div>
@@ -54,12 +54,14 @@
 
 <script>
 import Button from "@/components/Button";
+import ButtonAlert from "@/components/ButtonAlert";
 import PhraseConditionsEditor from "./PhraseConditionsEditor";
 
 export default {
   name: "PhraseBlockEditor",
   components: {
     Button,
+    ButtonAlert,
     PhraseConditionsEditor,
   },
   props: ["block", "context"],

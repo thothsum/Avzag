@@ -14,7 +14,7 @@
         text="Save to clipboard"
       />
       <p class="text-dot" />
-      <Button @click.native="reset" icon="delete_forever" text="Reset" />
+      <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid small" v-if="phrasebook">
       <div class="panel-sparse">
@@ -93,6 +93,7 @@
 
 <script>
 import Button from "@/components/Button";
+import ButtonAlert from "@/components/ButtonAlert";
 import Select from "@/components/Select";
 import PhraseBlock from "@/components/PhraseBlock";
 import PhraseContext from "@/components/PhraseContext";
@@ -104,6 +105,7 @@ export default {
   name: "PhrasebookEditor",
   components: {
     Button,
+    ButtonAlert,
     Select,
     PhraseBlock,
     PhraseContext,

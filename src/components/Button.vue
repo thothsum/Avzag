@@ -1,6 +1,6 @@
 <template>
   <button @click="toggle" :class="{ highlight: value }">
-    <p class="icon" v-if="icon">{{ icon }}</p>
+    <p v-if="icon" class="icon">{{ icon }}</p>
     <p v-if="text">{{ text }}</p>
   </button>
 </template>
