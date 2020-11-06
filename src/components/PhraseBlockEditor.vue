@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       editingRequirements: false,
-      editingConditions: null,
+      editingConditions: [],
     };
   },
   computed: {
@@ -80,12 +80,7 @@ export default {
           this.$set(this.block, "states", []);
           this.addState();
         }
-      },
-      immediate: true,
-    },
-    states: {
-      handler() {
-        this.editingConditions = new Array(this.states.length);
+        this.editingConditions = [];
       },
       immediate: true,
     },

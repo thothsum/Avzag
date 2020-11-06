@@ -43,24 +43,11 @@
           />
           <Button @click.native="deletePhoneme" icon="delete" />
         </div>
-        <div class="panel-dense">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Notes</h2>
-            <Button @click.native="addItem('notes', '')" icon="add" />
-          </div>
-          <p class="text-caption text-faded">
-            You can add notes to clarify certain use cases or to give some
-            additional info.
-          </p>
-          <div
-            class="panel-horizontal-dense"
-            :key="i"
-            v-for="(n, i) in phoneme.notes"
-          >
-            <input type="text" v-model="phoneme.notes[i]" class="flex" />
-            <Button @click.native="deleteItem(i, 'notes')" icon="clear" />
-          </div>
-        </div>
+        <NotesEditor
+          :notes.sync="phoneme.notes"
+          caption="You can add notes to clarify certain use cases or to give some
+            additional info."
+        />
         <div class="panel-dense">
           <div class="panel-horizontal-dense">
             <h2 class="flex">Samples</h2>
@@ -94,12 +81,14 @@
 <script>
 import Button from "@/components/Button";
 import PhoneticItem from "@/components/PhoneticItem";
+import NotesEditor from "@/components/NotesEditor";
 
 export default {
   name: "PhonologyEditor",
   components: {
     Button,
     PhoneticItem,
+    NotesEditor,
   },
   data() {
     return {
