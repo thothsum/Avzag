@@ -47,32 +47,39 @@
           </div>
         </ActionHeader>
         <ActionHeader @action="addMapping" icon="call_merge" header="Mappings">
-          <List :value.sync="mapping" :items="mappings" display="name" />
-        </ActionHeader>
-      </div>
-      <div class="panel-sparse" v-if="mapping">
-        <ActionHeader button="" icon="label" header="Name">
-          <template #header> <ButtonAlert @confirm="deleteMapping" /></template>
-          <input type="text" v-model="mapping.name" />
-        </ActionHeader>
-        <ActionHeader
-          @action="addPair(pairs.length)"
-          icon="compare_arrows"
-          header="Pairs"
-        >
-          <template #caption>
-            During conversion system will consuquently go over these pairs,
-            replacing text from the left with the text from the right or vise
-            versa (right with left) if conversion is reversed.</template
+          <div
+            class="panel-horizontal-dense"
+            :key="i"
+            v-for="(m, i) in mappings"
           >
-          <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
-            <Button @click.native="addPair(i)" icon="add" />
-            <input class="flex" type="text" v-model="p[0]" placeholder="from" />
-            <input class="flex" type="text" v-model="p[1]" placeholder="to" />
-            <Button @click.native="deletePair(i)" icon="clear" />
+            <Button
+              @click.native="mapping = m"
+              :class="{ highlight: mapping == m }"
+              icon="compare_arrows"
+            />
+            <input class="flex" type="text" v-model="m.name" />
+            <ButtonAlert @confirm="deleteMapping" />
           </div>
         </ActionHeader>
       </div>
+      <ActionHeader
+        v-if="mapping"
+        @action="addPair(pairs.length)"
+        icon="compare_arrows"
+        header="Pairs"
+      >
+        <template #caption>
+          During conversion system will consuquently go over these pairs,
+          replacing text from the left with the text from the right or vise
+          versa (right with left) if conversion is reversed.</template
+        >
+        <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
+          <Button @click.native="addPair(i)" icon="add" />
+          <input class="flex" type="text" v-model="p[0]" placeholder="from" />
+          <input class="flex" type="text" v-model="p[1]" placeholder="to" />
+          <Button @click.native="deletePair(i)" icon="clear" />
+        </div>
+      </ActionHeader>
     </div>
   </div>
 </template>
@@ -82,7 +89,6 @@ import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
 import Select from "@/components/Select";
-import List from "@/components/List";
 
 export default {
   name: "ConverterEditor",
@@ -91,7 +97,6 @@ export default {
     ButtonAlert,
     ActionHeader,
     Select,
-    List,
   },
   data() {
     return {

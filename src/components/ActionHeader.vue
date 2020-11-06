@@ -6,7 +6,7 @@
       <h2 class="flex" v-if="header">{{ header }}</h2>
       <slot name="header" />
     </div>
-    <p class="text-caption text-faded">
+    <p v-if="$slots.caption" class="text-caption text-faded">
       <slot name="caption" />
     </p>
     <slot />
