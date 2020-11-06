@@ -73,11 +73,11 @@
             :translation="translation.context"
           />
         </div>
-        <NotesEditor :notes.sync="translation.notes" />
-        <PhraseContextTranslations
-          :translations.sync="translation.context"
-          :context="fullContext"
-        />
+          <NotesEditor :notes.sync="translation.notes" />
+          <PhraseContextTranslations
+            :translations.sync="translation.context"
+            :context="fullContext"
+          />
       </div>
       <PhraseBlockEditor
         v-if="block"
