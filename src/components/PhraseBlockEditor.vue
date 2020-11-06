@@ -3,7 +3,7 @@
     <div class="panel-dense">
       <div class="panel-horizontal-dense card">
         <h2 class="flex">Block</h2>
-        <Button @click.native="addState(null)" icon="add" text="State" />
+        <Button @click.native="addState" icon="add" text="State" />
         <Button
           :value.sync="editingRequirements"
           icon="visibility"

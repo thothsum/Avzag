@@ -36,10 +36,10 @@ export default {
     addCondition() {
       let c = this.conditions;
       if (!c) this.$emit("update:conditions", (c = []));
-      c.splice(c.length, 0, {});
+      c.push({});
     },
     deleteCondition(i) {
-      this.conditions.splice(i, 1);
+      this.$delete(this.conditions, i);
     },
   },
 };

@@ -41,21 +41,7 @@
           <PhraseContext :context="context" />
         </div>
         <div class="panel wrap card" v-if="translation">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Translation</h2>
-            <Button
-              @click.native="editNotes"
-              :class="{ highlight: conditionsProperty == 'Notes' }"
-              icon="sticky_note_2"
-              text="Notes"
-            />
-            <Button
-              @click.native="editLocalizedContext"
-              :class="{ highlight: conditionsProperty == 'Localized context' }"
-              icon="format_list_bulleted"
-              text="Context"
-            />
-          </div>
+          <h2>Translation</h2>
           <div class="panel-horizontal wrap">
             <div
               class="panel-horizontal-solid"
@@ -82,22 +68,9 @@
             :translation="translation.context"
           />
         </div>
-        <div class="panel-dense" v-if="conditionsProperty && conditions">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">{{ conditionsProperty }}</h2>
-            <Button @click.native="addCondition(null)" icon="add" />
-          </div>
-          <template v-if="conditionsProperty == 'Notes'">
-            <div
-              class="panel-horizontal-dense"
-              :key="i"
-              v-for="(_, i) in translation.notes"
-            >
-              <input type="text" v-model="translation.notes[i]" class="flex" />
-              <Button @click.native="deleteCondition(i)" icon="delete" />
-            </div>
-          </template>
-          <template v-else-if="conditionsProperty == 'Localized context'">
+        <div class="panel-dense">
+          <NotesEditor :notes.sync="translation.notes" />
+          <!-- <template v-if="conditionsProperty == 'Localized context'">
             <div
               class="panel-horizontal-dense"
               :key="i"
@@ -112,33 +85,7 @@
               <input class="flex" type="text" v-model="c[1]" />
               <Button @click.native="deleteCondition(i)" icon="clear" />
             </div>
-          </template>
-          <template v-else>
-            <div
-              class="panel-horizontal-dense"
-              :key="i"
-              v-for="(c, i) in conditions"
-            >
-              <Button
-                @click.native="addCondition(i)"
-                icon="vertical_align_top"
-              />
-              <Button
-                :value.sync="c.passive"
-                v-if="conditionsProperty == 'conditions'"
-                icon="link_off"
-              />
-              <Select class="flex" :value.sync="c.entity" :items="entities" />
-              <p class="icon">west</p>
-              <Select
-                v-if="fullContext[c.entity]"
-                class="flex"
-                :value.sync="c.tag"
-                :items="fullContext[c.entity]"
-              />
-              <Button @click.native="deleteCondition(i)" icon="clear" />
-            </div>
-          </template>
+          </template> -->
         </div>
       </div>
       <PhraseBlockEditor
@@ -156,6 +103,7 @@ import Select from "@/components/Select";
 import PhraseBlock from "@/components/PhraseBlock";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseBlockEditor from "@/components/PhraseBlockEditor";
+import NotesEditor from "@/components/NotesEditor";
 
 export default {
   name: "PhrasebookEditor",
@@ -165,6 +113,7 @@ export default {
     PhraseBlock,
     PhraseContext,
     PhraseBlockEditor,
+    NotesEditor,
   },
   data() {
     return {
@@ -172,9 +121,8 @@ export default {
       category: "",
       selected: 0,
       context: {},
+      translation: null,
       block: null,
-      conditionsProperty: "",
-      conditions: {},
     };
   },
   computed: {
@@ -190,9 +138,6 @@ export default {
     phrase() {
       return this.phrases ? this.phrases[this.selected] : null;
     },
-    translation() {
-      return this.file[this.category][this.selected];
-    },
     states() {
       return this.block?.states;
     },
@@ -207,9 +152,9 @@ export default {
         }, {}) ?? {}
       );
     },
-    fullContextKeys() {
-      return this.entities.concat(Object.values(this.fullContext).flat());
-    },
+    // fullContextKeys() {
+    //   return this.entities.concat(Object.values(this.fullContext).flat());
+    // },
   },
   watch: {
     phrase: {
@@ -244,6 +189,8 @@ export default {
         while (cat.length < this.selected) cat.push({});
         this.$set(cat, this.selected, {});
       }
+
+      this.translation = this.file[this.category][this.selected];
     },
     loadFromLect() {
       fetch(
@@ -269,50 +216,15 @@ export default {
     },
     addBlock() {
       if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
-      this.$set(this.translation.blocks, this.translation.blocks.length, {
-        states: [{ text: "new state", transition: "next" }],
-      });
-      this.$forceUpdate();
+      const b = { states: [{ text: "new state", transition: "next" }] };
+      this.$set(this.translation.blocks, this.translation.blocks.length, b);
+      this.block = b;
     },
     deleteBlock() {
       let phrase = this.file[this.category][this.selected];
       const i = phrase.blocks.indexOf(this.block);
       if (i < 0) return;
       this.$delete(phrase.blocks, i);
-    },
-    editStateConditions(i) {
-      this.conditionsProperty = "conditions";
-      if (!this.states[i].conditions) this.states[i].conditions = [];
-      this.conditions = this.states[i].conditions;
-    },
-    editBlockRequirements() {
-      this.conditionsProperty = "requirements";
-      if (!this.block.requirements) this.block.requirements = [];
-      this.conditions = this.block.requirements;
-    },
-    editLocalizedContext() {
-      if (!this.translation.context) this.translation.context = [];
-      this.conditionsProperty = "Localized context";
-      this.conditions = this.translation.context;
-    },
-    editNotes() {
-      if (!this.translation.notes) this.translation.notes = [];
-      this.conditionsProperty = "Notes";
-      this.conditions = this.translation.notes;
-    },
-    addCondition(i) {
-      if (i == null) i = this.conditions.length;
-      let val = {};
-      if (this.conditionsPropert == "Localized context") {
-        val = ["", ""];
-      }
-      if (this.conditionsPropert == "Notes") {
-        val = "";
-      }
-      this.conditions.splice(i, 0, val);
-    },
-    deleteCondition(i) {
-      this.conditions.splice(i, 1);
     },
   },
 };

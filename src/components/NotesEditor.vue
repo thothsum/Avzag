@@ -13,11 +13,32 @@
 </template>
 
 <script>
+import Button from "./Button";
+
 export default {
   name: "NotesEditor",
+  components: {
+    Button,
+  },
   props: ["notes", "caption"],
+  watch: {
+    notes: {
+      handler() {
+        this.$forceUpdate();
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
   methods: {
-    addNote() {},
+    addNote() {
+      let n = this.notes;
+      if (!n) this.$emit("update:notes", (n = []));
+      n.push("");
+    },
+    deleteNote(i) {
+      this.$delete(this.notes, i);
+    },
   },
 };
 </script>
