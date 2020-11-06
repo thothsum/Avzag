@@ -1,15 +1,15 @@
 <template>
   <div class="panel-dense">
-    <h2 class="panel-horizontal-dense">
+    <div class="panel-horizontal-dense">
+      <Button @click.native="add" icon="add" />
       <p class="icon">sticky_note_2</p>
-      Notes
-    </h2>
+      <h2>Notes</h2>
+    </div>
     <p v-if="caption" class="text-caption text-faded">{{ caption }}</p>
     <div class="panel-horizontal-dense" :key="i" v-for="(n, i) in notes">
       <input type="text" v-model="notes[i]" class="flex" />
       <Button @click.native="remove(i)" icon="clear" />
     </div>
-    <Button class="center" @click.native="add" icon="add" />
   </div>
 </template>
 

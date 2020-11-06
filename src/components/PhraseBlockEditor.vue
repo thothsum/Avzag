@@ -2,9 +2,8 @@
   <div class="block panel-sparse">
     <div class="panel-dense">
       <div class="panel-horizontal-dense card">
-        <h2 class="flex">Block</h2>
         <Button @click.native="add" icon="add" text="State" />
-        <p class="text-dot" />
+        <h2 class="flex">Block</h2>
         <ButtonAlert @confirm="$emit('remove')" />
       </div>
       <PhraseConditionsEditor
@@ -12,10 +11,8 @@
         :context="context"
         header="Requirements"
       >
-        <h2 class="panel-horizontal-dense">
-          <p class="icon">lock</p>
-          Requirements
-        </h2>
+        <p class="icon">lock</p>
+        <h2>Requirements</h2>
       </PhraseConditionsEditor>
     </div>
     <div class="panel-dense" :key="i" v-for="(s, i) in states">
@@ -37,10 +34,8 @@
         :context="context"
         :allowPassive="true"
       >
-        <h2 class="panel-horizontal-dense">
-          <p class="icon">widgets</p>
-          Conditions
-        </h2>
+        <p class="icon">widgets</p>
+        <h2>Conditions</h2>
       </PhraseConditionsEditor>
       <template v-else>
         <p class="text-caption text-faded">Advanced data: IPA & glossing.</p>

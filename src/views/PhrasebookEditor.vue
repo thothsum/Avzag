@@ -46,7 +46,11 @@
           <PhraseContext :context="context" />
         </div>
         <div class="panel wrap card" v-if="translation">
-          <h2>Translation</h2>
+          <div class="panel-horizontal-dense">
+            <Button @click.native="addBlock" icon="add" />
+            <p class="icon">account_tree</p>
+            <h2>Translation</h2>
+          </div>
           <div class="panel-horizontal wrap">
             <div
               class="panel-horizontal-dense"
@@ -65,7 +69,6 @@
                 :class="{ highlight: block == b }"
               />
             </div>
-            <Button @click.native="addBlock" icon="add" />
           </div>
           <PhraseContext
             v-if="translation.context"
@@ -73,11 +76,11 @@
             :translation="translation.context"
           />
         </div>
-          <NotesEditor :notes.sync="translation.notes" />
-          <PhraseContextTranslations
-            :translations.sync="translation.context"
-            :context="fullContext"
-          />
+        <NotesEditor :notes.sync="translation.notes" />
+        <PhraseContextTranslations
+          :translations.sync="translation.context"
+          :context="fullContext"
+        />
       </div>
       <PhraseBlockEditor
         v-if="block"

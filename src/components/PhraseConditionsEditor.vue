@@ -1,6 +1,9 @@
 <template>
   <div class="conditions panel-dense">
-    <slot />
+    <div class="panel-horizontal-dense">
+      <Button @click.native="addCondition" icon="add" />
+      <slot />
+    </div>
     <div class="scroll panel-dense">
       <div class="panel-horizontal-dense" :key="i" v-for="(c, i) in conditions">
         <Button
@@ -18,7 +21,6 @@
         />
         <Button @click.native="deleteCondition(i)" icon="clear" />
       </div>
-      <Button class="center" @click.native="addCondition" icon="add" />
     </div>
   </div>
 </template>
