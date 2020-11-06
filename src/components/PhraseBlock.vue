@@ -121,7 +121,7 @@ export default {
       let f = 0;
       let l = 0;
       conditions.forEach(({ entity, tag }) => {
-        f += this.context[entity].has(tag);
+        f += this.context[entity]?.has(tag);
         l += !!tag;
       });
       return [f / conditions.length, l];
