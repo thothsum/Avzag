@@ -9,7 +9,7 @@
       <Button @click.native="loadFromLect" text="load from lect" />
       <Button @click.native="loadFromJson" text="load from JSON" />
       <Button @click.native="saveToJson" text="save JSON to clipboard" />
-      <Button @click.native="reset" text="reset" />
+      <ButtonAlert @confirm="reset" text="reset" />
     </div>
     <div class="grid">
       <div class="panel scroll">
@@ -31,27 +31,19 @@
         </div>
       </div>
       <div class="panel-sparse small" v-if="phoneme">
-        <div class="panel-horizontal-dense">
-          <h2>Phoneme</h2>
-          <input
-            class="flex"
-            type="text"
-            v-model="phoneme.phoneme"
-            placeholder="phoneme"
-          />
-          <Button @click.native="removePhoneme" icon="delete" />
-        </div>
-        <NotesEditor
-          :notes.sync="phoneme.notes"
-          caption="You can add notes to clarify certain use cases or to give some
-            additional info."
-        />
-        <div class="panel-dense">
-          <h2>Samples</h2>
-          <p class="text-caption text-faded">
+        <ActionHeader button="" icon="label" header="Phoneme">
+          <template #header><ButtonAlert @confirm="removePhoneme" /></template>
+          <input type="text" v-model="phoneme.phoneme" placeholder="phoneme" />
+        </ActionHeader>
+        <NotesEditor :notes.sync="phoneme.notes">
+          You can add notes to clarify certain use cases or to give some
+          additional info.
+        </NotesEditor>
+        <ActionHeader @action="addSample" header="Samples" icon="playlist_play">
+          <template #caption>
             Use cases of the phoneme within the language, defined by a letter, a
             word, and the word's ipa.
-          </p>
+          </template>
           <div
             :key="i"
             v-for="(s, i) in phoneme.samples"
@@ -67,12 +59,7 @@
             <input class="flex" type="text" v-model="s.ipa" placeholder="ipa" />
             <Button @click.native="removeSample(i)" icon="clear" />
           </div>
-          <Button
-            class="center"
-            @click.native="addSample('samples')"
-            icon="add"
-          />
-        </div>
+        </ActionHeader>
       </div>
     </div>
   </div>
@@ -80,6 +67,8 @@
 
 <script>
 import Button from "@/components/Button";
+import ButtonAlert from "@/components/ButtonAlert";
+import ActionHeader from "@/components/ActionHeader";
 import PhoneticItem from "@/components/PhoneticItem";
 import NotesEditor from "@/components/NotesEditor";
 
@@ -87,6 +76,8 @@ export default {
   name: "PhonologyEditor",
   components: {
     Button,
+    ButtonAlert,
+    ActionHeader,
     PhoneticItem,
     NotesEditor,
   },

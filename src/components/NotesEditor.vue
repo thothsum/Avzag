@@ -1,27 +1,24 @@
 <template>
-  <div class="panel-dense">
-    <div class="panel-horizontal-dense">
-      <Button @click.native="add" icon="add" />
-      <p class="icon">sticky_note_2</p>
-      <h2>Notes</h2>
-    </div>
-    <p v-if="caption" class="text-caption text-faded">{{ caption }}</p>
+  <ActionHeader @action="add" icon="sticky_note_2" header="Notes">
+    <template #caption><slot /></template>
     <div class="panel-horizontal-dense" :key="i" v-for="(n, i) in notes">
       <input type="text" v-model="notes[i]" class="flex" />
       <Button @click.native="remove(i)" icon="clear" />
     </div>
-  </div>
+  </ActionHeader>
 </template>
 
 <script>
 import Button from "./Button";
+import ActionHeader from "@/components/ActionHeader";
 
 export default {
   name: "NotesEditor",
   components: {
     Button,
+    ActionHeader,
   },
-  props: ["notes", "caption"],
+  props: ["notes"],
   watch: {
     notes: {
       handler() {
