@@ -19,12 +19,18 @@
       />
     </div>
     <div class="panel-dense" :key="i" v-for="(s, i) in states">
-      <div class="panel-horizontal-dense card">
-        <h2>#{{ i }}</h2>
-        <Button :value.sync="editingConditions[i]" icon="widgets" />
-        <Button :value.sync="s.implicit" icon="format_color_reset" />
-        <input class="flex" type="text" v-model="s.text" placeholder="text" />
-        <Button @click.native="remove(i)" icon="delete" />
+      <div class="panel-dense card">
+        <div class="panel-horizontal-dense">
+          <h2 class="flex">State #{{ i }}</h2>
+          <Button icon="alt_route" />
+          <Button :value.sync="editingConditions[i]" icon="widgets" />
+          <Button icon="layers" />
+          <p class="text-dot" />
+          <Button :value.sync="s.implicit" icon="format_color_reset" />
+          <p class="text-dot" />
+          <Button @click.native="remove(i)" icon="delete" />
+        </div>
+        <input type="text" v-model="s.text" placeholder="text" />
       </div>
       <PhraseConditionsEditor
         v-if="editingConditions[i]"

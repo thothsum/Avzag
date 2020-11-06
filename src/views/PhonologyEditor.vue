@@ -41,7 +41,7 @@
             v-model="phoneme.phoneme"
             placeholder="phoneme"
           />
-          <Button @click.native="deletePhoneme" icon="delete" />
+          <Button @click.native="removePhoneme" icon="delete" />
         </div>
         <NotesEditor
           :notes.sync="phoneme.notes"
@@ -49,10 +49,7 @@
             additional info."
         />
         <div class="panel-dense">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Samples</h2>
-            <Button @click.native="addItem('samples', {})" icon="add" />
-          </div>
+          <h2>Samples</h2>
           <p class="text-caption text-faded">
             Use cases of the phoneme within the language, defined by a letter, a
             word, and the word's ipa.
@@ -70,8 +67,13 @@
               placeholder="word"
             />
             <input class="flex" type="text" v-model="s.ipa" placeholder="ipa" />
-            <Button @click.native="deleteItem(i, 'samples')" icon="clear" />
+            <Button @click.native="removeSample(i)" icon="clear" />
           </div>
+          <Button
+            class="center"
+            @click.native="addSample('samples')"
+            icon="add"
+          />
         </div>
       </div>
     </div>
@@ -123,20 +125,17 @@ export default {
       this.file.push(p);
       this.phoneme = p;
     },
-    deletePhoneme() {
+    removePhoneme() {
       let i = this.file.indexOf(this.phoneme);
       this.file.splice(i, 1);
       this.phoneme = this.file[this.file.length - 1];
     },
-    addItem(key, value) {
-      if (!this.phoneme[key]) this.phoneme[key] = [];
-      this.phoneme[key].push(value);
-      this.$forceUpdate();
+    addSample() {
+      if (!this.phoneme.samples) this.phoneme.samples = [];
+      this.phoneme.samples.push({});
     },
-    deleteItem(i, key) {
-      this.phoneme[key].splice(i, 1);
-      if (this.phoneme[key].length == 0) delete this.phoneme[key];
-      this.$forceUpdate();
+    removeSample(i) {
+      this.$delete(this.phoneme.samples, i);
     },
     loadFromLect() {
       fetch(

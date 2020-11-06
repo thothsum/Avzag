@@ -137,7 +137,7 @@ export default {
       this.mapping.pairs.splice(i, 0, ["", ""]);
     },
     deletePair(i) {
-      this.mapping.pairs.splice(i, 1);
+      this.$delete(this.mapping.pairs, i);
     },
     loadFromLect() {
       fetch(
