@@ -9,74 +9,69 @@
       <Button @click.native="loadFromLect" text="load from lect" />
       <Button @click.native="loadFromJson" text="load from JSON" />
       <Button @click.native="saveToJson" text="save JSON to clipboard" />
-      <Button @click.native="reset" text="reset" />
+      <ButtonAlert @confirm="reset" text="reset" />
     </div>
     <div class="grid small">
-      <div class="panel-sparse" v-if="file">
-        <div class="panel-dense">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Mappings</h2>
-            <Button @click.native="addMapping" icon="add" />
-          </div>
-          <List :value.sync="mapping" :items="mappings" display="name" />
-        </div>
-        <template v-if="file">
-          <div class="panel-dense">
-            <h2>Sample text</h2>
-            <p class="text-caption text-faded">
-              Text that will be displayed to demonstrate the conversion.
-            </p>
-            <textarea v-model="file.sample" />
-          </div>
-          <div class="panel-dense">
-            <h2>Default conversion</h2>
-            <p class="text-caption text-faded">
-              Two mappings that will be set by default. The left should be set
-              to the sample's original writing system.
-            </p>
-            <div class="panel-horizontal-dense" v-if="defaultConversion">
-              <p class="icon">south</p>
-              <div class="panel-dense flex">
-                <Select
-                  :value.sync="defaultConversion[0]"
-                  :items="mappings"
-                  display="name"
-                  indexed="true"
-                />
-                <Select
-                  :value.sync="defaultConversion[1]"
-                  :items="mappings"
-                  display="name"
-                  indexed="true"
-                />
-              </div>
+      <div class="panel-sparse">
+        <ActionHeader button="" icon="subject" header="Sample Text">
+          <template #caption>
+            Text that will be displayed to demonstrate the converter.
+          </template>
+          <textarea v-model="file.sample" />
+        </ActionHeader>
+        <ActionHeader
+          button=""
+          icon="compare_arrows"
+          header="Default Conversion"
+        >
+          <template #caption>
+            Two mappings that will be set by default. The left should be set to
+            the sample's original writing system.
+          </template>
+          <div class="panel-horizontal-dense" v-if="defaultConversion">
+            <p class="icon">south</p>
+            <div class="panel-dense flex">
+              <Select
+                :value.sync="defaultConversion[0]"
+                :items="mappings"
+                display="name"
+                indexed="true"
+              />
+              <Select
+                :value.sync="defaultConversion[1]"
+                :items="mappings"
+                display="name"
+                indexed="true"
+              />
             </div>
           </div>
-        </template>
+        </ActionHeader>
+        <ActionHeader @action="addMapping" icon="call_merge" header="Mappings">
+          <List :value.sync="mapping" :items="mappings" display="name" />
+        </ActionHeader>
       </div>
       <div class="panel-sparse" v-if="mapping">
-        <div class="panel-horizontal-dense">
-          <h2>Name</h2>
+        <ActionHeader button="" icon="label" header="Name">
+          <template #header> <ButtonAlert @confirm="deleteMapping" /></template>
           <input type="text" v-model="mapping.name" />
-          <Button @click.native="deleteMapping" icon="delete" />
-        </div>
-        <div class="panel-dense">
-          <div class="panel-horizontal-dense">
-            <h2 class="flex">Pairs</h2>
-            <Button @click.native="addPair(pairs.length)" icon="add" />
-          </div>
-          <p class="text-caption text-faded">
+        </ActionHeader>
+        <ActionHeader
+          @action="addPair(pairs.length)"
+          icon="compare_arrows"
+          header="Pairs"
+        >
+          <template #caption>
             During conversion system will consuquently go over these pairs,
             replacing text from the left with the text from the right or vise
-            versa (right with left) if conversion is reversed.
-          </p>
+            versa (right with left) if conversion is reversed.</template
+          >
           <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
-            <Button @click.native="addPair(i)" icon="vertical_align_top" />
+            <Button @click.native="addPair(i)" icon="add" />
             <input class="flex" type="text" v-model="p[0]" placeholder="from" />
             <input class="flex" type="text" v-model="p[1]" placeholder="to" />
             <Button @click.native="deletePair(i)" icon="clear" />
           </div>
-        </div>
+        </ActionHeader>
       </div>
     </div>
   </div>
@@ -84,6 +79,8 @@
 
 <script>
 import Button from "@/components/Button";
+import ButtonAlert from "@/components/ButtonAlert";
+import ActionHeader from "@/components/ActionHeader";
 import Select from "@/components/Select";
 import List from "@/components/List";
 
@@ -91,13 +88,15 @@ export default {
   name: "ConverterEditor",
   components: {
     Button,
+    ButtonAlert,
+    ActionHeader,
     Select,
     List,
   },
   data() {
     return {
       file: [],
-      mapping: undefined,
+      mapping: {},
     };
   },
   computed: {
