@@ -9,27 +9,21 @@
       <Button @click.native="loadFromLect" text="load from lect" />
       <Button @click.native="loadFromJson" text="load from JSON" />
       <Button @click.native="saveToJson" text="save JSON to clipboard" />
-      <ButtonAlert @confirm="reset" text="reset" />
+      <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid">
-      <div class="panel scroll">
-        <div class="panel">
-          <template v-if="file">
-            <h2>Phonemes</h2>
-            <div class="table panel-horizontal-dense wrap">
-              <PhoneticItem
-                @click.native="phoneme = p"
-                :selected="phoneme == p"
-                :ipa="p.phoneme"
-                :str="graphemes[i]"
-                :key="i"
-                v-for="(p, i) in file"
-              />
-              <Button @click.native="addPhoneme" icon="add" />
-            </div>
-          </template>
+      <ActionHeader @action="addPhoneme" icon="view_comfy" header="Phonemes">
+        <div class="panel-horizontal-dense wrap">
+          <PhoneticItem
+            @click.native="phoneme = p"
+            :selected="phoneme == p"
+            :ipa="p.phoneme"
+            :str="graphemes[i]"
+            :key="i"
+            v-for="(p, i) in file"
+          />
         </div>
-      </div>
+      </ActionHeader>
       <div class="panel-sparse small" v-if="phoneme">
         <ActionHeader button="" icon="label" header="Phoneme">
           <template #header><ButtonAlert @confirm="removePhoneme" /></template>

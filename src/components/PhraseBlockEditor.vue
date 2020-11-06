@@ -9,10 +9,11 @@
       <PhraseConditionsEditor
         :conditions.sync="block.requirements"
         :context="context"
+        icon="lock"
         header="Requirements"
       >
-        <p class="icon">lock</p>
-        <h2>Requirements</h2>
+        If at least one of these conditions fails, the block will be completely
+        hidden.
       </PhraseConditionsEditor>
     </div>
     <div class="panel-dense" :key="i" v-for="(s, i) in states">
@@ -33,10 +34,9 @@
         :conditions.sync="s.conditions"
         :context="context"
         :allowPassive="true"
-      >
-        <p class="icon">widgets</p>
-        <h2>Conditions</h2>
-      </PhraseConditionsEditor>
+        icon="widgets"
+        header="conditions"
+      />
       <template v-else>
         <p class="text-caption text-faded">Advanced data: IPA & glossing.</p>
         <div class="panel-horizontal-dense flex-content">

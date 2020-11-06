@@ -9,7 +9,7 @@
       <Button @click.native="loadFromLect" text="load from lect" />
       <Button @click.native="loadFromJson" text="load from JSON" />
       <Button @click.native="saveToJson" text="save JSON to clipboard" />
-      <ButtonAlert @confirm="reset" text="reset" />
+      <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid small">
       <div class="panel-sparse">
@@ -55,7 +55,7 @@
             <Button
               @click.native="mapping = m"
               :class="{ highlight: mapping == m }"
-              icon="compare_arrows"
+              icon="format_list_numbered"
             />
             <input class="flex" type="text" v-model="m.name" />
             <ButtonAlert @confirm="deleteMapping" />
@@ -65,7 +65,7 @@
       <ActionHeader
         v-if="mapping"
         @action="addPair(pairs.length)"
-        icon="compare_arrows"
+        icon="format_list_numbered"
         header="Pairs"
       >
         <template #caption>

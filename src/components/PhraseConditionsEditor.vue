@@ -1,9 +1,6 @@
 <template>
-  <div class="conditions panel-dense">
-    <div class="panel-horizontal-dense">
-      <Button @click.native="addCondition" icon="add" />
-      <slot />
-    </div>
+  <ActionHeader @action="add" :icon="icon" :header="header">
+    <template #caption><slot /></template>
     <div class="scroll panel-dense">
       <div class="panel-horizontal-dense" :key="i" v-for="(c, i) in conditions">
         <Button
@@ -19,35 +16,37 @@
           :value.sync="c.tag"
           :items="context[c.entity]"
         />
-        <Button @click.native="deleteCondition(i)" icon="clear" />
+        <Button @click.native="remove(i)" icon="clear" />
       </div>
     </div>
-  </div>
+  </ActionHeader>
 </template>
 
 <script>
 import Button from "@/components/Button";
+import ActionHeader from "@/components/ActionHeader";
 import Select from "@/components/Select";
 
 export default {
   name: "PhraseConditionsEditor",
   components: {
     Button,
+    ActionHeader,
     Select,
   },
-  props: ["conditions", "context", "allowPassive"],
+  props: ["conditions", "context", "allowPassive", "header", "icon"],
   computed: {
     entities() {
       return Object.keys(this.context);
     },
   },
   methods: {
-    addCondition() {
+    add() {
       let c = this.conditions;
       if (!c) this.$emit("update:conditions", (c = []));
       c.push({});
     },
-    deleteCondition(i) {
+    remove(i) {
       this.$delete(this.conditions, i);
     },
   },

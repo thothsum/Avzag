@@ -76,11 +76,16 @@
             :translation="translation.context"
           />
         </div>
-        <NotesEditor :notes.sync="translation.notes" />
+        <NotesEditor :notes.sync="translation.notes">
+          You can add notes, for example, to explain certain grammatical rules.
+        </NotesEditor>
         <PhraseContextTranslations
           :translations.sync="translation.context"
           :context="fullContext"
-        />
+        >
+          Translate the context keys (entites & tags) to provide full phrase
+          localization.
+        </PhraseContextTranslations>
       </div>
       <PhraseBlockEditor
         v-if="block"
