@@ -65,6 +65,7 @@
         />
       </div>
       <div class="panel wrap card" v-show="contextual">
+        <PhraseContext v-if="interactive" :context="context" />
         <div class="panel-horizontal-dense wrap">
           <PhraseBlock
             :id="selected"
@@ -75,7 +76,6 @@
             v-for="(b, i) in phrase.blocks"
           />
         </div>
-        <PhraseContext v-if="interactive" :context="context" />
       </div>
       <PhraseTranslation
         :id="selected"

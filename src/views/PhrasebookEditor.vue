@@ -33,6 +33,7 @@
               :indexed="true"
             />
           </div>
+          <PhraseContext :context="context" />
           <div class="panel-horizontal-dense wrap" v-if="phrase">
             <PhraseBlock
               :id="selected"
@@ -43,39 +44,43 @@
               v-for="(b, i) in phrase.blocks"
             />
           </div>
-          <PhraseContext :context="context" />
         </div>
-        <div class="panel wrap card" v-if="translation">
-          <div class="panel-horizontal-dense">
-            <Button @click.native="addBlock" icon="add" />
-            <p class="icon">account_tree</p>
-            <h2>Translation</h2>
-          </div>
-          <div class="panel-horizontal wrap">
-            <div
-              class="panel-horizontal-dense"
-              :key="i"
-              v-for="(b, i) in blocks"
-            >
-              <PhraseBlock
-                :id="selected"
-                :context.sync="context"
-                :interactive="true"
-                :block="b"
-              />
-              <Button
-                @click.native="block = b"
-                icon="edit"
-                :class="{ highlight: block == b }"
-              />
+        <ActionHeader
+          v-if="translation"
+          @action="addBlock"
+          icon="account_tree"
+          header="Blocks"
+        >
+          <template #header v-if="block">
+            <ButtonAlert @confirm="removeBlock" />
+          </template>
+          <div class="panel-dense wrap" v-if="block">
+            <PhraseContext
+              v-if="translation.context"
+              :context="context"
+              :translation="translation.context"
+            />
+            <div class="panel-horizontal wrap">
+              <div
+                class="panel-horizontal-dense"
+                :key="i"
+                v-for="(b, i) in blocks"
+              >
+                <PhraseBlock
+                  :id="selected"
+                  :context.sync="context"
+                  :interactive="true"
+                  :block="b"
+                />
+                <Button
+                  @click.native="block = b"
+                  icon="edit"
+                  :class="{ highlight: block == b }"
+                />
+              </div>
             </div>
           </div>
-          <PhraseContext
-            v-if="translation.context"
-            :context="context"
-            :translation="translation.context"
-          />
-        </div>
+        </ActionHeader>
         <NotesEditor :notes.sync="translation.notes">
           You can add notes, for example, to explain certain grammatical rules.
         </NotesEditor>
@@ -99,6 +104,7 @@
 
 <script>
 import Button from "@/components/Button";
+import ActionHeader from "@/components/ActionHeader";
 import ButtonAlert from "@/components/ButtonAlert";
 import Select from "@/components/Select";
 import PhraseBlock from "@/components/PhraseBlock";
@@ -111,6 +117,7 @@ export default {
   name: "PhrasebookEditor",
   components: {
     Button,
+    ActionHeader,
     ButtonAlert,
     Select,
     PhraseBlock,

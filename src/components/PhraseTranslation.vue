@@ -9,6 +9,11 @@
       />
       <h2>{{ lect }}</h2>
     </div>
+    <PhraseContext
+      v-if="contextual && interactive"
+      :context="context"
+      :translation="translation.context"
+    />
     <div class="panel-horizontal-dense wrap flex">
       <PhraseBlock
         ref="blocks"
@@ -21,11 +26,6 @@
         v-for="(b, j) in translation.blocks"
       />
     </div>
-    <PhraseContext
-      v-if="contextual && interactive"
-      :context="context"
-      :translation="translation.context"
-    />
     <template v-if="noted">
       <PhoneticNote :key="i" v-for="(n, i) in translation.notes" :text="n" />
     </template>

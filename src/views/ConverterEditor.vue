@@ -47,6 +47,9 @@
           </div>
         </ActionHeader>
         <ActionHeader @action="addMapping" icon="call_merge" header="Mappings">
+          <template v-if="mapping" #header>
+            <ButtonAlert @confirm="deleteMapping" />
+          </template>
           <div
             class="panel-horizontal-dense"
             :key="i"
@@ -58,7 +61,6 @@
               icon="format_list_numbered"
             />
             <input class="flex" type="text" v-model="m.name" />
-            <ButtonAlert @confirm="deleteMapping" />
           </div>
         </ActionHeader>
       </div>
