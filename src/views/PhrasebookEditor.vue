@@ -215,10 +215,9 @@ export default {
       this.selected = 0;
     },
     addBlock() {
-      if (!this.translation.blocks) this.$set(this.translation, "blocks", []);
-      const b = { states: [{ text: "new state", transition: "next" }] };
-      this.$set(this.translation.blocks, this.translation.blocks.length, b);
-      this.block = b;
+      if (this.translation.blocks) this.translation.blocks.push({});
+      else this.$set(this.translation, "blocks", [{}]);
+      this.block = this.translation.blocks[this.translation.blocks.length - 1];
     },
     deleteBlock() {
       let phrase = this.file[this.category][this.selected];

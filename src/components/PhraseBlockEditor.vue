@@ -76,18 +76,29 @@ export default {
   watch: {
     block: {
       handler() {
-        this.editingConditions = new Array(this.states.length).fill(false);
+        if (!this.states?.length) {
+          this.$set(this.block, "states", []);
+          this.addState();
+        }
+      },
+      immediate: true,
+    },
+    states: {
+      handler() {
+        this.editingConditions = new Array(this.states.length);
       },
       immediate: true,
     },
   },
   methods: {
-    addState(i) {
-      if (i == null) i = this.states.length;
-      this.states.splice(i, 0, { text: "new state", transition: "next" });
+    addState() {
+      this.states.push({
+        text: "new state",
+        transition: "next",
+      });
     },
     deleteState(i) {
-      this.$delete(this.states, i);
+      if (this.states.length > 1) this.$delete(this.states, i);
     },
   },
 };

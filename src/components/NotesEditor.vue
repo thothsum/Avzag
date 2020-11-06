@@ -32,9 +32,8 @@ export default {
   },
   methods: {
     addNote() {
-      let n = this.notes;
-      if (!n) this.$emit("update:notes", (n = []));
-      n.push("");
+      if (this.notes) this.notes.push("");
+      else this.$emit("update:notes", [""]);
     },
     deleteNote(i) {
       this.$delete(this.notes, i);
