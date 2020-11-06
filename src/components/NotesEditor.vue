@@ -1,14 +1,12 @@
 <template>
   <div class="panel-dense">
-    <div class="panel-horizontal-dense">
-      <h2 class="flex">Notes</h2>
-      <Button @click.native="addNote" icon="add" />
-    </div>
+    <h2>Notes</h2>
     <p v-if="caption" class="text-caption text-faded">{{ caption }}</p>
     <div class="panel-horizontal-dense" :key="i" v-for="(n, i) in notes">
       <input type="text" v-model="notes[i]" class="flex" />
-      <Button @click.native="deleteNote(i)" icon="clear" />
+      <Button @click.native="remove(i)" icon="clear" />
     </div>
+    <Button class="center" @click.native="add" icon="add" />
   </div>
 </template>
 
@@ -31,11 +29,11 @@ export default {
     },
   },
   methods: {
-    addNote() {
+    add() {
       if (this.notes) this.notes.push("");
       else this.$emit("update:notes", [""]);
     },
-    deleteNote(i) {
+    delete(i) {
       this.$delete(this.notes, i);
     },
   },

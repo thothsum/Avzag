@@ -2,11 +2,11 @@
   <div class="panel-horizontal-dense wrap">
     <div
       class="panel-horizontal-dense text-caption text-faded context wrap"
-      :key="e"
+      :key="i"
       v-for="(e, i) of entities"
     >
-      <h2>{{ e }}:<IndexedColor :indexes="[i]" /></h2>
-      <p :key="t" v-for="t in tags[i]">{{ t }}</p>
+      <h2>{{ e }}<IndexedColor :indexes="[i]" /></h2>
+      <p :key="j" v-for="(t, j) in tags[i]">{{ t }}</p>
     </div>
   </div>
 </template>
@@ -33,6 +33,12 @@ export default {
     tags() {
       return Object.values(this.context).map((t) => this.translate([...t]));
     },
+    any() {
+      return (
+        this.entities?.some((e) => e) ||
+        this.tags?.some((t) => t.some((t) => t))
+      );
+    },
   },
   methods: {
     translate(values) {
@@ -49,10 +55,15 @@ export default {
   position: relative;
   line-height: 150%;
 }
-p:not(:last-child)::after {
-  content: ",";
+h2:after {
+  content: ":";
 }
-p:last-child::after {
-  content: ".";
+p {
+  &::after {
+    content: ",";
+  }
+  &:last-child::after {
+    content: ".";
+  }
 }
 </style>

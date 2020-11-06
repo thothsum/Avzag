@@ -3,14 +3,14 @@
     <div class="panel-dense">
       <div class="panel-horizontal-dense card">
         <h2 class="flex">Block</h2>
-        <Button @click.native="addState" icon="add" text="State" />
+        <Button @click.native="add" icon="add" text="State" />
         <Button
           :value.sync="editingRequirements"
           icon="visibility"
           text="Requirements"
         />
         <p class="text-dot" />
-        <Button @click.native="deleteBlock" icon="delete" />
+        <Button @click.native="$emit('remove')" icon="delete" />
       </div>
       <PhraseConditionsEditor
         v-if="editingRequirements"
@@ -27,7 +27,7 @@
         <Button :value.sync="editingConditions[i]" icon="widgets" />
         <Button :value.sync="s.implicit" icon="format_color_reset" />
         <p class="text-dot" />
-        <Button @click.native="deleteState(i)" icon="delete" />
+        <Button @click.native="remove(i)" icon="delete" />
       </div>
       <PhraseConditionsEditor
         v-if="editingConditions[i]"
@@ -78,7 +78,7 @@ export default {
       handler() {
         if (!this.states?.length) {
           this.$set(this.block, "states", []);
-          this.addState();
+          this.add();
         }
         this.editingConditions = [];
       },
@@ -86,13 +86,13 @@ export default {
     },
   },
   methods: {
-    addState() {
+    add() {
       this.states.push({
         text: "new state",
         transition: "next",
       });
     },
-    deleteState(i) {
+    remove(i) {
       if (this.states.length > 1) this.$delete(this.states, i);
     },
   },

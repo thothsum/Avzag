@@ -70,29 +70,13 @@
         </div>
         <div class="panel-dense">
           <NotesEditor :notes.sync="translation.notes" />
-          <!-- <template v-if="conditionsProperty == 'Localized context'">
-            <div
-              class="panel-horizontal-dense"
-              :key="i"
-              v-for="(c, i) in conditions"
-            >
-              <Select
-                class="flex"
-                :value.sync="c[0]"
-                :items="fullContextKeys"
-              />
-              <p class="icon">east</p>
-              <input class="flex" type="text" v-model="c[1]" />
-              <Button @click.native="deleteCondition(i)" icon="clear" />
-            </div>
-          </template> -->
+          <PhraseContextTranslations
+            :translations.sync="translation.context"
+            :context="fullContext"
+          />
         </div>
       </div>
-      <PhraseBlockEditor
-        v-if="translation.blocks && block"
-        :block="block"
-        :context="fullContext"
-      />
+      <PhraseBlockEditor v-if="block" :block="block" :context="fullContext" />
     </div>
   </div>
 </template>
@@ -104,6 +88,7 @@ import PhraseBlock from "@/components/PhraseBlock";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseBlockEditor from "@/components/PhraseBlockEditor";
 import NotesEditor from "@/components/NotesEditor";
+import PhraseContextTranslations from "@/components/PhraseContextTranslations";
 
 export default {
   name: "PhrasebookEditor",
@@ -114,6 +99,7 @@ export default {
     PhraseContext,
     PhraseBlockEditor,
     NotesEditor,
+    PhraseContextTranslations,
   },
   data() {
     return {
@@ -141,9 +127,6 @@ export default {
     states() {
       return this.block?.states;
     },
-    entities() {
-      return Object.keys(this.fullContext);
-    },
     fullContext() {
       return (
         this.phrase?.context?.reduce((acc, s) => {
@@ -152,9 +135,6 @@ export default {
         }, {}) ?? {}
       );
     },
-    // fullContextKeys() {
-    //   return this.entities.concat(Object.values(this.fullContext).flat());
-    // },
   },
   watch: {
     phrase: {
@@ -220,10 +200,10 @@ export default {
       this.block = this.translation.blocks[this.translation.blocks.length - 1];
     },
     deleteBlock() {
-      let phrase = this.file[this.category][this.selected];
-      const i = phrase.blocks.indexOf(this.block);
-      if (i < 0) return;
-      this.$delete(phrase.blocks, i);
+      this.$delete(
+        this.translation.blocks,
+        this.translation.blocks.indexOf(this.block)
+      );
     },
   },
 };
