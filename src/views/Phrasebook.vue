@@ -11,16 +11,16 @@
           placeholder="Search all phrases..."
         />
         <h2 v-else class="panel flex">
-          <Select :value.sync="category" :items="categories" />
+          <Select :value.sync="section" :items="categories" />
         </h2>
       </div>
       <div v-if="searching" class="panel scroll">
-        <div class="panel-dense" :key="c" v-for="(ph, c) of phrases">
-          <h2>{{ c }}</h2>
+        <div class="panel-dense" :key="s" v-for="(ph, s) of phrases">
+          <h2>{{ s }}</h2>
           <div class="panel-solid">
             <Button
-              :class="{ highlight: category == c && selected == i }"
-              @click.native="select(c, i)"
+              :class="{ highlight: section == s && selected == i }"
+              @click.native="select(s, i)"
               :key="i"
               v-for="(p, i) in ph"
               :text="p.preview"
@@ -119,7 +119,7 @@ export default {
       noted: false,
       contextual: true,
       searching: false,
-      category: "",
+      section: "",
       query: "",
     };
   },
@@ -135,12 +135,12 @@ export default {
     },
     phrases() {
       return this.searching
-        ? Object.entries(this.phrasebook).reduce((acc, [c, p]) => {
-            acc[c] = p.filter((p) => p.preview.includes(this.query));
-            if (!acc[c].length) delete acc[c];
+        ? Object.entries(this.phrasebook).reduce((acc, [s, p]) => {
+            acc[s] = p.filter((p) => p.preview.includes(this.query));
+            if (!acc[s].length) delete acc[s];
             return acc;
           }, {})
-        : this.phrasebook[this.category] ?? [];
+        : this.phrasebook[this.section] ?? [];
     },
     phrase() {
       return this.getPhrase(this.phrasebook);
@@ -159,8 +159,8 @@ export default {
     phrase: {
       handler() {
         this.context =
-          this.phrase?.context?.reduce((acc, s) => {
-            acc[s.entity] = new Set();
+          this.phrase?.context?.reduce((acc, c) => {
+            acc[c.entity] = new Set();
             return acc;
           }, {}) ?? {};
       },
@@ -171,12 +171,12 @@ export default {
     localStorage.phrase = this.selected;
   },
   methods: {
-    select(c, i) {
-      this.category = c;
+    select(s, i) {
+      this.section = s;
       this.selected = i;
     },
     getPhrase(s) {
-      if (s && s[this.category]) return s[this.category][this.selected];
+      if (s && s[this.section]) return s[this.section][this.selected];
     },
   },
 };

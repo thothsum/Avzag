@@ -15,10 +15,10 @@
       <div class="panel-sparse">
         <div class="panel wrap card">
           <div class="panel-horizontal">
-            <h2>Category</h2>
-            <Select class="flex" :value.sync="category" :items="categories" />
+            <h2>section</h2>
+            <Select class="flex" :value.sync="section" :items="categories" />
           </div>
-          <div class="panel-horizontal" v-if="category">
+          <div class="panel-horizontal" v-if="section">
             <h2>Phrase</h2>
             <Select
               class="flex"
@@ -109,7 +109,7 @@ export default {
   data() {
     return {
       file: [],
-      category: "",
+      section: "",
       selected: 0,
       context: {},
       translation: {},
@@ -124,7 +124,7 @@ export default {
       return Object.keys(this.phrasebook);
     },
     phrases() {
-      return this.phrasebook ? this.phrasebook[this.category] : null;
+      return this.phrasebook ? this.phrasebook[this.section] : null;
     },
     phrase() {
       return this.phrases ? this.phrases[this.selected] : null;
@@ -158,7 +158,7 @@ export default {
     file() {
       this.fillMissing();
     },
-    category: {
+    section: {
       handler() {
         this.selected = 0;
         this.fillMissing();
@@ -174,14 +174,13 @@ export default {
   },
   methods: {
     fillMissing() {
-      if (!this.file[this.category]) this.file[this.category] = [];
-      let cat = this.file[this.category];
+      if (!this.file[this.section]) this.file[this.section] = [];
+      let cat = this.file[this.section];
       if (!cat[this.selected]) {
         while (cat.length < this.selected) cat.push({});
         this.$set(cat, this.selected, {});
       }
-      this.translation = this.file[this.category][this.selected];
-      this.$forceUpdate();
+      this.translation = this.file[this.section][this.selected];
     },
     loadFromLect() {
       fetch(
