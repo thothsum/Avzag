@@ -135,9 +135,9 @@ export default {
     },
     phrases() {
       return this.searching
-        ? Object.entries(this.phrasebook).reduce((acc, [c, ps]) => {
-            let p = ps.filter((p) => p.preview.includes(this.query));
-            if (p.length > 0) acc[c] = p;
+        ? Object.entries(this.phrasebook).reduce((acc, [c, p]) => {
+            acc[c] = p.filter((p) => p.preview.includes(this.query));
+            if (!acc[c].length) delete acc[c];
             return acc;
           }, {})
         : this.phrasebook[this.category] ?? [];
