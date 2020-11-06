@@ -44,9 +44,9 @@
           <h2>Translation</h2>
           <div class="panel-horizontal wrap">
             <div
-              class="panel-horizontal-solid"
+              class="panel-horizontal-dense"
               :key="i"
-              v-for="(b, i) in translation.blocks"
+              v-for="(b, i) in blocks"
             >
               <PhraseBlock
                 :id="selected"
@@ -76,7 +76,12 @@
           />
         </div>
       </div>
-      <PhraseBlockEditor v-if="block" :block="block" :context="fullContext" />
+      <PhraseBlockEditor
+        v-if="block"
+        @remove="removeBlock"
+        :block="block"
+        :context="fullContext"
+      />
     </div>
   </div>
 </template>
@@ -107,8 +112,8 @@ export default {
       category: "",
       selected: 0,
       context: {},
-      translation: null,
-      block: null,
+      translation: {},
+      block: {},
     };
   },
   computed: {
@@ -123,6 +128,9 @@ export default {
     },
     phrase() {
       return this.phrases ? this.phrases[this.selected] : null;
+    },
+    blocks() {
+      return this.translation.blocks;
     },
     states() {
       return this.block?.states;
@@ -147,6 +155,9 @@ export default {
       },
       immediate: true,
     },
+    file() {
+      this.fillMissing();
+    },
     category: {
       handler() {
         this.selected = 0;
@@ -169,8 +180,8 @@ export default {
         while (cat.length < this.selected) cat.push({});
         this.$set(cat, this.selected, {});
       }
-
       this.translation = this.file[this.category][this.selected];
+      this.$forceUpdate();
     },
     loadFromLect() {
       fetch(
@@ -192,18 +203,15 @@ export default {
     },
     reset() {
       this.file = [];
-      this.selected = 0;
     },
     addBlock() {
-      if (this.translation.blocks) this.translation.blocks.push({});
+      if (this.blocks) this.blocks.push({});
       else this.$set(this.translation, "blocks", [{}]);
-      this.block = this.translation.blocks[this.translation.blocks.length - 1];
+      this.block = this.blocks[this.blocks.length - 1];
     },
-    deleteBlock() {
-      this.$delete(
-        this.translation.blocks,
-        this.translation.blocks.indexOf(this.block)
-      );
+    removeBlock() {
+      this.$delete(this.blocks, this.blocks.indexOf(this.block));
+      this.block = this.blocks[this.blocks.length - 1];
     },
   },
 };

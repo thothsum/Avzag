@@ -143,12 +143,10 @@ export default {
         : this.phrasebook[this.category] ?? [];
     },
     phrase() {
-      return this.phrasebook ? this.phrasebook[this.selected] : undefined;
+      return this.getPhrase(this.phrasebook);
     },
     translations() {
-      return this.lects.map((l) =>
-        l.phrasebook ? l.phrasebook[this.selected] : undefined
-      );
+      return this.lects.map((l) => this.getPhrase(l.phrasebook));
     },
   },
   watch: {
@@ -176,6 +174,9 @@ export default {
     select(c, i) {
       this.category = c;
       this.selected = i;
+    },
+    getPhrase(s) {
+      if (s && s[this.category]) return s[this.category][this.selected];
     },
   },
 };

@@ -157,13 +157,13 @@
                             "glossing": "M-go-ADJ-1-Q",
                             "conditions": [
                                 {
-                                    "entity": "action",
-                                    "tag": "give",
+                                    "entity": "actor",
+                                    "tag": "singular",
                                     "passive": true
                                 },
                                 {
-                                    "entity": "action",
-                                    "tag": "give"
+                                    "entity": "actor",
+                                    "tag": "masculine"
                                 }
                             ],
                             "transition": "1"
@@ -191,62 +191,6 @@
                                     "tag": "plural"
                                 }
                             ]
-                        }
-                    ],
-                    "requirements": [
-                        []
-                    ]
-                }
-            ]
-        },
-        {
-            "blocks": [
-                {
-                    "states": [
-                        {
-                            "text": "Гьуналжия"
-                        }
-                    ]
-                },
-                {
-                    "states": [
-                        {
-                            "text": "гьеж?",
-                            "conditions": [
-                                {
-                                    "entity": "object",
-                                    "tag": "singular"
-                                }
-                            ],
-                            "transition": "next"
-                        },
-                        {
-                            "text": "къагъар?",
-                            "conditions": [
-                                {
-                                    "entity": "object",
-                                    "tag": "ticket"
-                                },
-                                {
-                                    "entity": "object",
-                                    "tag": "sigular"
-                                }
-                            ],
-                            "transition": "next"
-                        },
-                        {
-                            "text": "гьинце?",
-                            "conditions": [
-                                {
-                                    "entity": "object",
-                                    "tag": "apple"
-                                },
-                                {
-                                    "entity": "object",
-                                    "tag": "plural"
-                                }
-                            ],
-                            "transition": "next"
                         }
                     ]
                 }
@@ -412,6 +356,61 @@
                                     "tag": "plural"
                                 }
                             ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "in shop": [
+        {
+            "blocks": [
+                {
+                    "states": [
+                        {
+                            "text": "Гьуналжия"
+                        }
+                    ]
+                },
+                {
+                    "states": [
+                        {
+                            "text": "гьеж?",
+                            "conditions": [
+                                {
+                                    "entity": "object",
+                                    "tag": "singular"
+                                }
+                            ],
+                            "transition": "next"
+                        },
+                        {
+                            "text": "къагъар?",
+                            "conditions": [
+                                {
+                                    "entity": "object",
+                                    "tag": "ticket"
+                                },
+                                {
+                                    "entity": "object",
+                                    "tag": "sigular"
+                                }
+                            ],
+                            "transition": "next"
+                        },
+                        {
+                            "text": "гьинце?",
+                            "conditions": [
+                                {
+                                    "entity": "object",
+                                    "tag": "apple"
+                                },
+                                {
+                                    "entity": "object",
+                                    "tag": "plural"
+                                }
+                            ],
+                            "transition": "next"
                         }
                     ]
                 }

@@ -1,12 +1,14 @@
 <template>
-  <div class="panel-horizontal-dense wrap">
+  <div class="panel-horizontal-dense wrap" v-if="any">
     <div
       class="panel-horizontal-dense text-caption text-faded context wrap"
       :key="i"
       v-for="(e, i) of entities"
     >
-      <h2>{{ e }}<IndexedColor :indexes="[i]" /></h2>
-      <p :key="j" v-for="(t, j) in tags[i]">{{ t }}</p>
+      <h2 v-if="e">{{ e }}<IndexedColor :indexes="[i]" /></h2>
+      <template v-for="(t, j) in tags[i]">
+        <p v-if="t" :key="j">{{ t }}</p>
+      </template>
     </div>
   </div>
 </template>
@@ -58,12 +60,10 @@ export default {
 h2:after {
   content: ":";
 }
-p {
-  &::after {
-    content: ",";
-  }
-  &:last-child::after {
-    content: ".";
-  }
+p ::after {
+  content: ",";
+}
+p:last-child::after {
+  content: ".";
 }
 </style>

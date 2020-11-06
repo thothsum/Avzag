@@ -33,7 +33,7 @@ export default {
       if (this.notes) this.notes.push("");
       else this.$emit("update:notes", [""]);
     },
-    delete(i) {
+    remove(i) {
       this.$delete(this.notes, i);
     },
   },
