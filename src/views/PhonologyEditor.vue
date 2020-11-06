@@ -38,21 +38,28 @@
             Use cases of the phoneme within the language, defined by a letter, a
             word, and the word's ipa.
           </template>
-          <div
-            :key="i"
-            v-for="(s, i) in phoneme.samples"
-            class="panel-horizontal-dense sample"
-          >
-            <input type="text" v-model="s.grapheme" placeholder="grapheme" />
-            <input
-              class="flex"
-              type="text"
-              v-model="s.word"
-              placeholder="word"
-            />
-            <input class="flex" type="text" v-model="s.ipa" placeholder="ipa" />
-            <Button @click.native="removeSample(i)" icon="clear" />
-          </div>
+          <template #default>
+            <div
+              :key="i"
+              v-for="(s, i) in phoneme.samples"
+              class="panel-horizontal-dense sample"
+            >
+              <input type="text" v-model="s.grapheme" placeholder="grapheme" />
+              <input
+                class="flex"
+                type="text"
+                v-model="s.word"
+                placeholder="word"
+              />
+              <input
+                class="flex"
+                type="text"
+                v-model="s.ipa"
+                placeholder="ipa"
+              />
+              <Button @click.native="removeSample(i)" icon="clear" />
+            </div>
+          </template>
         </ActionHeader>
       </div>
     </div>
