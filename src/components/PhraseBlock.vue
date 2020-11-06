@@ -29,7 +29,7 @@ export default {
   props: ["id", "context", "block", "interactive", "glossed"],
   data() {
     return {
-      state: {},
+      state: undefined,
       valid: false,
     };
   },

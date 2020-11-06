@@ -74,8 +74,8 @@ export default {
     return {
       about: false,
       search: "",
-      lects: [],
-      visible: [],
+      lects: undefined,
+      visible: undefined,
     };
   },
   computed: {

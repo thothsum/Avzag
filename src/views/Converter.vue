@@ -11,7 +11,7 @@
             display="name"
           />
           <Button v-if="source" @click.native="source = ''" icon="clear" />
-          <Button v-else @click.native="displaySample" icon="subject" />
+          <Button v-else @click.native="displaySample" icon="text_snippet" />
           <Button @click.native="$refs.file.click()" icon="publish" />
           <Button
             v-show="!resultMapping.partial"

@@ -2,7 +2,7 @@
   <div class="panel card">
     <div class="title">
       <h2 class="flex">{{ lect }}</h2>
-      <b :key="g" v-for="g in graphemes" class="text-dot"> {{ g }}</b>
+      <p :key="g" v-for="g in graphemes" class="text-dot">{{ g }}</p>
     </div>
     <div class="panel-solid">
       <button

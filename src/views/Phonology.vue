@@ -38,9 +38,9 @@ export default {
   data() {
     return {
       categories: ["vowel", "consonant"],
-      phoneme: null,
-      lectQuery: {},
-      featureQuery: {},
+      phoneme: undefined,
+      lectQuery: undefined,
+      featureQuery: undefined,
     };
   },
   computed: {

@@ -84,8 +84,8 @@ export default {
   },
   data() {
     return {
-      file: [],
-      phoneme: {},
+      file: undefined,
+      phoneme: undefined,
     };
   },
   computed: {

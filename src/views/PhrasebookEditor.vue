@@ -16,7 +16,7 @@
       <p class="text-dot" />
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
-    <div class="grid small" v-if="phrasebook">
+    <div class="grid small" v-if="phrasebook && file">
       <div class="panel-sparse">
         <div class="panel wrap card">
           <div class="panel-horizontal">
@@ -121,12 +121,12 @@ export default {
   },
   data() {
     return {
-      file: [],
+      file: undefined,
       section: "",
       selected: 0,
-      context: {},
-      translation: {},
-      block: {},
+      context: undefined,
+      translation: undefined,
+      block: undefined,
     };
   },
   computed: {
@@ -143,7 +143,7 @@ export default {
       return this.phrases ? this.phrases[this.selected] : null;
     },
     blocks() {
-      return this.translation.blocks;
+      return this.translation?.blocks;
     },
     states() {
       return this.block?.states;
@@ -188,8 +188,22 @@ export default {
       immediate: true,
     },
   },
+  mounted() {
+    try {
+      const file = JSON.parse(localStorage.phEditor);
+      if (file) this.file = file;
+      return;
+    } catch (error) {
+      console.log(error);
+    }
+    this.reset();
+  },
+  updated() {
+    localStorage.phEditor = JSON.stringify(this.file);
+  },
   methods: {
     fillMissing() {
+      if (!this.file) return;
       if (!this.file[this.section]) this.file[this.section] = [];
       let cat = this.file[this.section];
       if (!cat[this.selected]) {

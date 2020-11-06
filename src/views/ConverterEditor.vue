@@ -11,9 +11,9 @@
       <Button @click.native="saveToJson" text="save JSON to clipboard" />
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
-    <div class="grid small">
+    <div class="grid small" v-if="file">
       <div class="panel-sparse">
-        <ActionHeader button="" icon="subject" header="Sample Text">
+        <ActionHeader button="" icon="text_snippet" header="Sample Text">
           <template #caption>
             Text that will be displayed to demonstrate the converter.
           </template>
@@ -100,8 +100,8 @@ export default {
   },
   data() {
     return {
-      file: [],
-      mapping: {},
+      file: undefined,
+      mapping: undefined,
     };
   },
   computed: {
