@@ -5,7 +5,7 @@
       :key="i"
       v-for="(e, i) of entities"
     >
-      <h2 v-if="e">{{ e }}<IndexedColor :indexes="[i]" /></h2>
+      <p v-if="e" :class="'colored-dot-' + i">{{ e }}</p>
       <template v-for="(t, j) in tags[i]">
         <p v-if="t" :key="j">{{ t }}</p>
       </template>
@@ -14,13 +14,8 @@
 </template>
 
 <script>
-import IndexedColor from "./IndexedColor";
-
 export default {
   name: "PhraseContext",
-  components: {
-    IndexedColor,
-  },
   props: ["context", "translation"],
   computed: {
     dictionary() {
@@ -53,12 +48,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.context > * {
-  position: relative;
-  line-height: 150%;
-}
-h2:after {
-  content: ":";
+[class^="colored-dot-"] {
+  font-weight: bold;
+  &::after {
+    content: ":";
+  }
 }
 p::after {
   content: ",";

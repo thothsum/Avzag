@@ -7,18 +7,11 @@
   >
     <template #caption><slot /></template>
     <template v-if="!empty" #header><ButtonAlert @confirm="remove" /></template>
-    <div class="panel-horizontal-dense" :key="i" v-for="(t, i) of translations">
-      <div class="key flex panel-horizontal">
-        <p class="color">
-          {{ t[0] }}
-          <IndexedColor
-            v-if="entities.includes(t[0])"
-            :indexes="[entities.indexOf(t[0])]"
-          />
-        </p>
+    <div class="panel-horizontal wrap">
+      <div class="panel-dense" :key="i" v-for="(t, i) of translations">
+        <p class="text-caption" :class="colors[i]">{{ t[0] }}</p>
+        <input :size="sizes[i]" type="text" v-model="t[1]" />
       </div>
-      <p class="icon">east</p>
-      <input class="flex" type="text" v-model="t[1]" />
     </div>
   </ActionHeader>
 </template>
@@ -26,19 +19,20 @@
 <script>
 import ButtonAlert from "./ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
-import IndexedColor from "@/components/IndexedColor";
 
 export default {
   name: "PhraseContextTranslations",
   components: {
     ButtonAlert,
     ActionHeader,
-    IndexedColor,
   },
   props: ["translations", "context"],
   computed: {
     entities() {
       return Object.keys(this.context);
+    },
+    sizes() {
+      return this.translations.map((t) => Math.max(t[1]?.length, 1));
     },
     tags() {
       return Object.values(this.context);
@@ -49,12 +43,15 @@ export default {
     empty() {
       return !this.translations?.length;
     },
+    colors() {
+      return this.keys.map((k) => "colored-dot-" + this.entities.indexOf(k));
+    },
   },
   methods: {
     add() {
       this.$emit(
         "update:translations",
-        this.keys.map((k) => [k])
+        this.keys.map((k) => [k, ""])
       );
     },
     remove() {
@@ -65,10 +62,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.key {
-  justify-content: flex-end;
-}
-.color {
-  position: relative;
+p:not(.colored-dot--1) {
+  font-weight: bold;
 }
 </style>

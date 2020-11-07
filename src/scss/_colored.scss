@@ -1,0 +1,15 @@
+$colors: #81c784, #e57373, #64b5f6, #ffb74d, #9575cd, #dce775, #a1887f;
+
+@for $i from 1 through length($colors) {
+    .colored-#{($i - 1)} {
+        color: nth($colors, $i);
+    }
+    .colored-back-#{($i - 1)} {
+        background-color: nth($colors, $i);
+    }
+    .colored-dot-#{($i - 1)}::before {
+        content: "@ ";
+        font-weight: bold;
+        color: nth($colors, $i);
+    }
+}

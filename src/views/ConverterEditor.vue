@@ -60,7 +60,7 @@
               :class="{ highlight: mapping == m }"
               icon="format_list_numbered"
             />
-            <input class="flex" type="text" v-model="m.name" />
+            <input type="text" v-model="m.name" />
           </div>
         </ActionHeader>
       </div>
@@ -77,8 +77,8 @@
         >
         <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
           <Button @click.native="addPair(i)" icon="add" />
-          <input class="flex" type="text" v-model="p[0]" placeholder="from" />
-          <input class="flex" type="text" v-model="p[1]" placeholder="to" />
+          <input type="text" v-model="p[0]" placeholder="from" />
+          <input type="text" v-model="p[1]" placeholder="to" />
           <Button @click.native="deletePair(i)" icon="clear" />
         </div>
       </ActionHeader>

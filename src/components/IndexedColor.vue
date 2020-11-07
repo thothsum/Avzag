@@ -10,19 +10,13 @@ export default {
   props: ["indexes", "passive"],
   computed: {
     classes() {
-      return this.indexes.map((i) => "colored-" + i);
+      return this.indexes.map((i) => "colored-back-" + i);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-$colors: #81c784, #e57373, #64b5f6, #ffb74d, #9575cd, #dce775, #a1887f;
-@for $i from 0 through 4 {
-  .colored-#{$i} {
-    background-color: nth($colors, $i + 1);
-  }
-}
 .line {
   overflow: hidden;
   border-radius: 0 0 $border-radius $border-radius;

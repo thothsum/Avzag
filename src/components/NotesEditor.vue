@@ -2,7 +2,7 @@
   <ActionHeader @action="add" icon="sticky_note_2" header="Notes">
     <template #caption><slot /></template>
     <div class="panel-horizontal-dense" :key="i" v-for="(n, i) in notes">
-      <input type="text" v-model="notes[i]" class="flex" />
+      <input type="text" v-model="notes[i]"/>
       <Button @click.native="remove(i)" icon="clear" />
     </div>
   </ActionHeader>
