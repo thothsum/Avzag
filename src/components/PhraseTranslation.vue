@@ -2,15 +2,10 @@
   <div class="panel card" v-if="translation">
     <div class="panel-horizontal-dense small">
       <Button @click.native="copy" icon="content_copy" />
-      <Button
-        :value.sync="contextual"
-        v-if="interactive && translation.context"
-        icon="widgets"
-      />
       <h2>{{ lect }}</h2>
     </div>
     <PhraseContext
-      v-if="contextual && interactive"
+      v-if="interactive"
       :context="context"
       :translation="translation.context"
     />
@@ -58,7 +53,6 @@ export default {
   data() {
     return {
       context_: undefined,
-      contextual: false,
     };
   },
   computed: {
