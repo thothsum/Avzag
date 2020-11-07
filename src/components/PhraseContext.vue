@@ -1,11 +1,11 @@
 <template>
-  <div class="panel-horizontal-dense wrap" v-if="any">
+  <div class="panel-horizontal-dense text-caption text-faded wrap" v-if="any">
     <div
-      class="panel-horizontal-dense text-caption text-faded context wrap"
+      class="panel-horizontal-dense wrap"
       :key="i"
       v-for="(e, i) of entities"
     >
-      <p v-if="e" :class="'colored-dot-' + i">{{ e }}</p>
+      <h2 v-if="e" :class="'colored-dot-' + i">{{ e }}</h2>
       <template v-for="(t, j) in tags[i]">
         <p v-if="t" :key="j">{{ t }}</p>
       </template>
@@ -48,11 +48,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-[class^="colored-dot-"] {
-  font-weight: bold;
-  &::after {
-    content: ":";
-  }
+h2::after {
+  content: ":";
 }
 p::after {
   content: ",";

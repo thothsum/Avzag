@@ -8,8 +8,12 @@
     <template #caption><slot /></template>
     <template v-if="!empty" #header><ButtonAlert @confirm="remove" /></template>
     <div class="panel-horizontal wrap">
-      <div class="panel-dense" :key="i" v-for="(t, i) of translations">
-        <p class="text-caption" :class="colors[i]">{{ t[0] }}</p>
+      <div
+        class="text-caption panel-dense"
+        :key="i"
+        v-for="(t, i) of translations"
+      >
+        <p class="" :class="colors[i]">{{ t[0] }}</p>
         <input :size="sizes[i]" type="text" v-model="t[1]" />
       </div>
     </div>
