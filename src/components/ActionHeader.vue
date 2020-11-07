@@ -2,7 +2,11 @@
   <div class="panel-dense">
     <div class="panel-horizontal-dense">
       <slot v-if="$slots.action" name="action" />
-      <Button v-else :icon="button" @click.native="$emit('action')" />
+      <Button
+        v-else-if="button"
+        :icon="button"
+        @click.native="$emit('action')"
+      />
       <p v-if="icon" class="icon">{{ icon }}</p>
       <h2 class="flex" v-if="header">{{ header }}</h2>
       <slot name="header" />
