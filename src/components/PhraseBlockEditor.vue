@@ -9,7 +9,8 @@
       If at least one of these conditions fails, the block will be completely
       hidden.
     </PhraseConditionsEditor>
-    <ActionHeader @action="add" header="States">
+    <ActionHeader @action="add" icon="tune" header="States">
+      <template #header> <ButtonAlert /></template>
       <div class="panel-dense" :key="i" v-for="(s, i) in states">
         <div class="panel-dense card">
           <div class="panel-horizontal-dense">

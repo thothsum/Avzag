@@ -74,7 +74,7 @@
                 />
                 <Button
                   @click.native="block = b"
-                  icon="edit"
+                  icon="build"
                   :class="{ highlight: block == b }"
                 />
               </div>
