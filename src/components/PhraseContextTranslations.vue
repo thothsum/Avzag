@@ -5,33 +5,56 @@
     header="Context Translations"
   >
     <template #caption><slot /></template>
-    <div class="panel-horizontal-dense" :key="i" v-for="(t, i) in translations">
-      <Select class="flex" :value.sync="t[0]" :items="keys" />
+    <!-- <template #header></template> -->
+    <div class="panel-horizontal-dense" :key="k" v-for="(k, i) of keys">
+      <div class="key flex panel-horizontal">
+        <p class="color">
+          {{ k }}
+          <IndexedColor
+            v-if="entities.includes(k)"
+            :indexes="[entities.indexOf(k)]"
+          />
+        </p>
+      </div>
       <p class="icon">east</p>
-      <input class="flex" type="text" v-model="t[1]" />
-      <Button @click.native="remove(i)" icon="clear" />
+      <input class="flex" type="text" v-model="translations[i][1]" />
     </div>
   </ActionHeader>
 </template>
 
 <script>
-import Button from "./Button";
+// import Button from "./Button";
 import ActionHeader from "@/components/ActionHeader";
-import Select from "./Select";
+import IndexedColor from "@/components/IndexedColor";
 
 export default {
   name: "PhraseContextTranslations",
   components: {
-    Button,
+    // Button,
     ActionHeader,
-    Select,
+    IndexedColor,
   },
   props: ["translations", "context"],
   computed: {
+    entities() {
+      return Object.keys(this.context);
+    },
+    tags() {
+      return Object.values(this.context);
+    },
     keys() {
-      return Object.keys(this.context).concat(
-        Object.values(this.context).flat()
-      );
+      return this.entities.map((e, i) => [e].concat(this.tags[i])).flat(1);
+    },
+  },
+  watch: {
+    keys: {
+      handler() {
+        this.$emit(
+          "update:translations",
+          this.keys.map((k) => [k])
+        );
+      },
+      immediate: true,
     },
   },
   methods: {
@@ -45,3 +68,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.key {
+  justify-content: flex-end;
+}
+.color {
+  position: relative;
+}
+</style>
