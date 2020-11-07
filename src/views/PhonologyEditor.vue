@@ -1,5 +1,5 @@
 <template>
-  <div class="section panel-sparse">
+  <div class="section panel-sparse small">
     <div class="panel-horizontal-dense wrap small card">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />

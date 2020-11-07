@@ -1,40 +1,53 @@
 <template>
-  <ActionHeader
-    @action="add"
-    icon="format_list_bulleted"
-    header="Context Translations"
-  >
+  <ActionHeader icon="format_list_bulleted" header="Context Translations">
+    <template #action>
+      <Button v-if="empty" @click.native="add" icon="add" />
+      <Button v-else :value.sync="visible" icon="visibility" />
+    </template>
     <template #caption><slot /></template>
-    <!-- <template #header></template> -->
-    <div class="panel-horizontal-dense" :key="k" v-for="(k, i) of keys">
-      <div class="key flex panel-horizontal">
-        <p class="color">
-          {{ k }}
-          <IndexedColor
-            v-if="entities.includes(k)"
-            :indexes="[entities.indexOf(k)]"
-          />
-        </p>
+    <template v-if="!empty" #header><ButtonAlert @confirm="remove" /></template>
+    <template v-if="visible">
+      <div
+        class="panel-horizontal-dense"
+        :key="i"
+        v-for="(t, i) of translations"
+      >
+        <div class="key flex panel-horizontal">
+          <p class="color">
+            {{ t[0] }}
+            <IndexedColor
+              v-if="entities.includes(t[0])"
+              :indexes="[entities.indexOf(t[0])]"
+            />
+          </p>
+        </div>
+        <p class="icon">east</p>
+        <input class="flex" type="text" v-model="t[1]" />
       </div>
-      <p class="icon">east</p>
-      <input class="flex" type="text" v-model="translations[i][1]" />
-    </div>
+    </template>
   </ActionHeader>
 </template>
 
 <script>
-// import Button from "./Button";
+import Button from "./Button";
+import ButtonAlert from "./ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
 import IndexedColor from "@/components/IndexedColor";
 
 export default {
   name: "PhraseContextTranslations",
   components: {
-    // Button,
+    Button,
+    ButtonAlert,
     ActionHeader,
     IndexedColor,
   },
   props: ["translations", "context"],
+  data() {
+    return {
+      visible: false,
+    };
+  },
   computed: {
     entities() {
       return Object.keys(this.context);
@@ -45,25 +58,20 @@ export default {
     keys() {
       return this.entities.map((e, i) => [e].concat(this.tags[i])).flat(1);
     },
-  },
-  watch: {
-    keys: {
-      handler() {
-        this.$emit(
-          "update:translations",
-          this.keys.map((k) => [k])
-        );
-      },
-      immediate: true,
+    empty() {
+      return !this.translations?.length;
     },
   },
   methods: {
     add() {
-      if (this.translations) this.translations.push([]);
-      else this.$emit("update:translations", [[]]);
+      this.$emit(
+        "update:translations",
+        this.keys.map((k) => [k])
+      );
+      this.visible = true;
     },
-    remove(i) {
-      this.$delete(this.translations, i);
+    remove() {
+      this.$emit("update:translations", []);
     },
   },
 };
