@@ -54,30 +54,28 @@
           <template #header v-if="block">
             <ButtonAlert @confirm="removeBlock" />
           </template>
-          <div class="panel-dense wrap" v-if="block">
-            <PhraseContext
-              v-if="translation.context"
-              :context="context"
-              :translation="translation.context"
-            />
-            <div class="panel-horizontal wrap">
-              <div
-                class="panel-horizontal-dense"
-                :key="i"
-                v-for="(b, i) in blocks"
-              >
-                <PhraseBlock
-                  :id="selected"
-                  :context.sync="context"
-                  :interactive="true"
-                  :block="b"
-                />
-                <Button
-                  @click.native="block = b"
-                  icon="build"
-                  :class="{ highlight: block == b }"
-                />
-              </div>
+          <PhraseContext
+            v-if="translation.context"
+            :context="context"
+            :translation="translation.context"
+          />
+          <div class="panel-horizontal wrap" v-if="block">
+            <div
+              class="panel-horizontal-dense"
+              :key="i"
+              v-for="(b, i) in blocks"
+            >
+              <PhraseBlock
+                :id="selected"
+                :context.sync="context"
+                :interactive="true"
+                :block="b"
+              />
+              <Button
+                @click.native="block = b"
+                icon="build"
+                :class="{ highlight: block == b }"
+              />
             </div>
           </div>
         </ActionHeader>
