@@ -14,16 +14,13 @@
       <div class="panel-dense" :key="i" v-for="(s, i) in states">
         <div class="panel-dense card">
           <div class="panel-horizontal-dense">
-            <h2 class="flex">State #{{ i }}</h2>
+            <p class="flex">{{ s.text[0][0] }}</p>
             <ToggleGroup
               :icons="['visibility', 'widgets', 'alt_route']"
               :value.sync="editingMode[i]"
             />
             <Button :value.sync="s.implicit" icon="format_color_reset" />
-            <p class="text-dot" />
-            <ButtonAlert @confirm="remove(i)" />
           </div>
-          <input type="text" v-model="s.text" placeholder="text" />
         </div>
         <PhraseConditionsEditor
           v-if="editingMode[i] == 1"
@@ -38,15 +35,26 @@
           :transition.sync="s.transition"
         />
         <template v-else>
-          <p class="text-caption text-faded">Advanced data: IPA & glossing.</p>
-          <div class="panel-horizontal-dense flex-content">
-            <input type="text" v-model="s.ipa" placeholder="ipa" />
-            <input type="text" v-model="s.glossing" placeholder="glossing" />
-          </div>
-          <p class="text-caption text-faded">
-            Transition: "next" or best of "0 1 ...".
-          </p>
-          <input type="text" v-model="s.transition" placeholder="transition" />
+          <PhraseBlockDisplayEditor
+            icon="short_text"
+            header="Text"
+            :display.sync="s.text"
+            :context="context"
+          />
+          <PhraseBlockDisplayEditor
+            icon="hearing"
+            header="IPA"
+            :allowEmpty="true"
+            :display.sync="s.ipa"
+            :context="context"
+          />
+          <PhraseBlockDisplayEditor
+            icon="science"
+            header="Glossing"
+            :allowEmpty="true"
+            :display.sync="s.glossing"
+            :context="context"
+          />
         </template>
       </div>
     </ActionHeader>
@@ -60,6 +68,7 @@ import ToggleGroup from "./ToggleGroup";
 import ActionHeader from "./ActionHeader";
 import PhraseConditionsEditor from "./PhraseConditionsEditor";
 import PhraseBlockTransitionEditor from "./PhraseBlockTransitionEditor";
+import PhraseBlockDisplayEditor from "./PhraseBlockDisplayEditor";
 
 export default {
   name: "PhraseBlockEditor",
@@ -70,6 +79,7 @@ export default {
     ActionHeader,
     PhraseConditionsEditor,
     PhraseBlockTransitionEditor,
+    PhraseBlockDisplayEditor,
   },
   props: ["block", "context"],
   data() {
@@ -97,7 +107,7 @@ export default {
   methods: {
     add() {
       this.states.push({
-        text: "new state",
+        text: [["new state", ""]],
         transition: "next",
       });
     },
