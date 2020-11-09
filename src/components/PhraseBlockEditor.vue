@@ -15,9 +15,10 @@
         <div class="panel-dense card">
           <div class="panel-horizontal-dense">
             <h2 class="flex">State #{{ i }}</h2>
-            <Button icon="visibility" />
-            <Button :value.sync="editingConditions[i]" icon="widgets" />
-            <Button icon="alt_route" />
+            <ToggleGroup
+              :icons="['visibility', 'widgets', 'alt_route']"
+              :value.sync="editingMode[i]"
+            />
             <Button :value.sync="s.implicit" icon="format_color_reset" />
             <p class="text-dot" />
             <ButtonAlert @confirm="remove(i)" />
@@ -25,12 +26,16 @@
           <input type="text" v-model="s.text" placeholder="text" />
         </div>
         <PhraseConditionsEditor
-          v-if="editingConditions[i]"
+          v-if="editingMode[i] == 1"
           :conditions.sync="s.conditions"
           :context="context"
           :allowPassive="true"
           icon="widgets"
           header="conditions"
+        />
+        <PhraseBlockTransitionEditor
+          v-else-if="editingMode[i] == 2"
+          :transition.sync="s.transition"
         />
         <template v-else>
           <p class="text-caption text-faded">Advanced data: IPA & glossing.</p>
@@ -49,23 +54,27 @@
 </template>
 
 <script>
-import Button from "@/components/Button";
-import ActionHeader from "@/components/ActionHeader";
-import ButtonAlert from "@/components/ButtonAlert";
+import Button from "./Button";
+import ButtonAlert from "./ButtonAlert";
+import ToggleGroup from "./ToggleGroup";
+import ActionHeader from "./ActionHeader";
 import PhraseConditionsEditor from "./PhraseConditionsEditor";
+import PhraseBlockTransitionEditor from "./PhraseBlockTransitionEditor";
 
 export default {
   name: "PhraseBlockEditor",
   components: {
     Button,
-    ActionHeader,
     ButtonAlert,
+    ToggleGroup,
+    ActionHeader,
     PhraseConditionsEditor,
+    PhraseBlockTransitionEditor,
   },
   props: ["block", "context"],
   data() {
     return {
-      editingConditions: [],
+      editingMode: [],
     };
   },
   computed: {
@@ -80,7 +89,7 @@ export default {
           this.$set(this.block, "states", []);
           this.add();
         }
-        this.editingConditions = [];
+        this.editingMode = new Array(this.states?.length).fill(0);
       },
       immediate: true,
     },
