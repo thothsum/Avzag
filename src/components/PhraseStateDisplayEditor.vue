@@ -1,5 +1,8 @@
 <template>
   <ActionHeader @action="add" icon="visibility" header="display">
+    <template #header>
+      <Button :value.sync="state.implicit" icon="opacity" />
+    </template>
     <div v-if="display" class="panel-dense">
       <div class="panel-horizontal-dense" :key="i" v-for="(d, i) in display">
         <Button @click.native="toggle(i)" icon="palette" />
@@ -37,13 +40,16 @@ export default {
     Button,
     ActionHeader,
   },
-  props: ["display", "context", "allowEmpty"],
+  props: ["state", "context", "allowEmpty"],
   computed: {
+    display() {
+      return this.state.display;
+    },
     entities() {
       return [undefined].concat(Object.keys(this.context));
     },
     colors() {
-      return this.display?.map(
+      return this.state.display?.map(
         (d) => "colored-" + (this.entities.indexOf(d.entity) - 1)
       );
     },
@@ -51,7 +57,7 @@ export default {
   methods: {
     add() {
       if (this.display) this.display.push({});
-      else this.$emit("update:display", [{}]);
+      else this.$set(this.state, "display", [{}]);
     },
     toggle(j) {
       let i = this.entities.indexOf(this.display[j].entity);

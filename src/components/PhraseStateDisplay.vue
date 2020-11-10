@@ -1,5 +1,9 @@
 <template>
-  <p class="panel-horizontal-solid" v-if="display">
+  <p
+    :class="{ implicit, 'text-ipa': type == 'ipa' }"
+    class="panel-horizontal-solid"
+    v-if="state"
+  >
     <span :class="colors[i]" :key="i" v-for="(s, i) in segments">
       {{ s }}
     </span>
@@ -10,23 +14,27 @@
 export default {
   name: "PhraseStateDisplay",
   props: {
-    display: { type: Array },
+    state: { type: Object },
     type: { type: String, default: "text" },
     context: { type: Object },
     colored: { type: Boolean, default: true },
-    glossing: { type: Boolean },
   },
   computed: {
+    implicit() {
+      return this.type == "text" && this.state.implicit;
+    },
     entities() {
       return Object.keys(this.context);
     },
     colors() {
       return this.colored
         ? []
-        : this.display.map((d) => "colored-" + this.entities.indexOf(d.entity));
+        : this.state.display.map(
+            (d) => "colored-" + this.entities.indexOf(d.entity)
+          );
     },
     segments() {
-      return this.display.map((d) => d[this.type]);
+      return this.state.display.map((d) => d[this.type]);
     },
     text() {
       return this.segments.join(" ");
@@ -34,3 +42,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.implicit {
+  opacity: 65%;
+}
+</style>

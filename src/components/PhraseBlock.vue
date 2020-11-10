@@ -11,23 +11,12 @@
       <IndexedColor :indexes="activeColors" />
     </template>
     <template v-if="glosses" class="glosses">
-      <PhraseStateDisplay
-        :display="state.display"
-        :context="context"
-        :colored="this.interactive"
-        type="ipa"
-        class="text-ipa"
-      />
-      <PhraseStateDisplay
-        :display="state.display"
-        :context="context"
-        :colored="this.interactive"
-        type="glossing"
-      />
+      <PhraseStateDisplay :state="state" :context="context" type="ipa" />
+      <PhraseStateDisplay :state="state" :context="context" type="glossing" />
     </template>
     <PhraseStateDisplay
       :colored="this.interactive"
-      :display="state.display"
+      :state="state"
       :context="context"
       v-else
     />
@@ -210,9 +199,6 @@ button {
   > :nth-child(2) {
     font-variant-caps: unicase;
   }
-}
-.implicit p {
-  opacity: 65%;
 }
 .disabled {
   padding: 0;

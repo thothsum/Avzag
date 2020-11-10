@@ -11,8 +11,6 @@
     </PhraseConditionsEditor>
     <ActionHeader @action="add" icon="tune" header="States">
       <template #header v-if="state">
-        <Button :value.sync="state.implicit" icon="opacity" />
-        <p class="text-dot" />
         <ToggleGroup
           :icons="['visibility', 'widgets', 'alt_route']"
           :value.sync="editingMode"
@@ -27,7 +25,7 @@
             icon="edit"
             :class="{ highlight: state == s }"
           />
-          <PhraseStateDisplay :display="s.display" :context="context" />
+          <PhraseStateDisplay :state="s" :context="context" />
         </div>
       </div>
     </ActionHeader>
@@ -44,11 +42,7 @@
         v-else-if="editingMode == 2"
         :transition.sync="state.transition"
       />
-      <PhraseStateDisplayEditor
-        :display.sync="state.display"
-        :context="context"
-        v-else
-      />
+      <PhraseStateDisplayEditor :state="state" :context="context" v-else />
     </template>
   </div>
 </template>
