@@ -5,12 +5,6 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "Сэ",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "actor",
@@ -18,15 +12,14 @@
                                 }
                             ],
                             "transition": "next",
-                            "implicit": true
+                            "implicit": true,
+                            "display": [
+                                {
+                                    "text": "Сэ"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "Дэ",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "actor",
@@ -34,19 +27,18 @@
                                 }
                             ],
                             "transition": "next",
-                            "implicit": true
+                            "implicit": true,
+                            "display": [
+                                {
+                                    "text": "Дэ"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "абыкӏэ",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -58,15 +50,14 @@
                                     "passive": true
                                 }
                             ],
-                            "transition": "2"
+                            "transition": "2",
+                            "display": [
+                                {
+                                    "text": "абыкӏэ"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "абы",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -78,83 +69,78 @@
                                     "passive": true
                                 }
                             ],
-                            "transition": "2"
+                            "transition": "2",
+                            "display": [
+                                {
+                                    "text": "абы"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "тыкуэным",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
                                     "tag": "shop"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "тыкуэным"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "унэм",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
                                     "tag": "home"
                                 }
                             ],
-                            "transition": "0 1"
+                            "transition": "0 1",
+                            "display": [
+                                {
+                                    "text": "унэм"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "дау",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
                                     "tag": "present"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "дау"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "дэпщэщ",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
                                     "tag": "future"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "дэпщэщ"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "сызэрыкӏуэныр?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -164,15 +150,14 @@
                                     "entity": "actor",
                                     "tag": "singular"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "сызэрыкӏуэныр?"
+                                }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "дызэрыкӏуэныр?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -182,15 +167,14 @@
                                     "entity": "actor",
                                     "tag": "plural"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "дызэрыкӏуэныр?"
+                                }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "сыщыкӏуэныр?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -200,15 +184,14 @@
                                     "entity": "actor",
                                     "tag": "singular"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "сыщыкӏуэныр?"
+                                }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "дыщыкӏуэныр?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -217,6 +200,11 @@
                                 {
                                     "entity": "actor",
                                     "tag": "plural"
+                                }
+                            ],
+                            "display": [
+                                {
+                                    "text": "дыщыкӏуэныр?"
                                 }
                             ]
                         }
@@ -229,27 +217,20 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "Мыбы",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Мыбы"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "Билетым",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -260,15 +241,14 @@
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Билетым"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "Мыӏэрысэхэм",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -279,18 +259,22 @@
                                     "tag": "plural"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Мыӏэрысэхэм"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "дапщэ и уэсэр?",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "дапщэ и уэсэр?"
+                                }
                             ]
                         }
                     ]
@@ -308,11 +292,10 @@
                     ],
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "Сыт",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "Сыт"
+                                }
                             ]
                         }
                     ]
@@ -320,27 +303,20 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "Мыбы",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "object"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Мыбы"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "уи",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -351,15 +327,14 @@
                                     "tag": "second"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "уи"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "абы",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -370,7 +345,12 @@
                                     "tag": "third"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "абы"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -387,11 +367,10 @@
                     ],
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "и",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "и"
+                                }
                             ]
                         }
                     ]
@@ -399,30 +378,28 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "цӏэр?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "person"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "цӏэр?"
+                                }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "дау зэреджэр?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "object"
+                                }
+                            ],
+                            "display": [
+                                {
+                                    "text": "дау зэреджэр?"
                                 }
                             ]
                         }
@@ -435,45 +412,31 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "Упсэу,",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Упсэу,"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "Фыпсэу,",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
                                     "tag": "plural"
                                 }
                             ],
-                            "transition": "next"
-                        }
-                    ]
-                },
-                {
-                    "states": [
-                        {
-                            "text": [
-                                [
-                                    "ӏейуэ",
-                                    ""
-                                ]
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Фыпсэу,"
+                                }
                             ]
                         }
                     ]
@@ -481,12 +444,17 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "уыкъыздэӏэпыкъуащ.",
-                                    ""
-                                ]
-                            ],
+                            "display": [
+                                {
+                                    "text": "ӏейуэ"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "states": [
+                        {
                             "conditions": [
                                 {
                                     "entity": "subject",
@@ -498,15 +466,14 @@
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "1"
+                            "transition": "1",
+                            "display": [
+                                {
+                                    "text": "уыкъыздэӏэпыкъуащ."
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "уыкъыддэӏэпыкъуащ.",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
@@ -518,15 +485,14 @@
                                     "tag": "plural"
                                 }
                             ],
-                            "transition": "0"
+                            "transition": "0",
+                            "display": [
+                                {
+                                    "text": "уыкъыддэӏэпыкъуащ."
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "фыкъыздэӏэпыкъуащ.",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
@@ -538,15 +504,14 @@
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "3"
+                            "transition": "3",
+                            "display": [
+                                {
+                                    "text": "фыкъыздэӏэпыкъуащ."
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "фыкъыддэӏэпыкъуащ.",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
@@ -558,7 +523,12 @@
                                     "tag": "plural"
                                 }
                             ],
-                            "transition": "2"
+                            "transition": "2",
+                            "display": [
+                                {
+                                    "text": "фыкъыддэӏэпыкъуащ."
+                                }
+                            ]
                         }
                     ]
                 }

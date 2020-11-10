@@ -20,64 +20,30 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "How",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
                                     "tag": "present"
                                 }
                             ],
-                            "transition": "next"
-                        },
-                        {
-                            "text": [
-                                [
-                                    "When",
-                                    ""
-                                ]
-                            ],
-                            "conditions": [
+                            "transition": "next",
+                            "display": [
                                 {
-                                    "entity": "tense",
-                                    "tag": "future"
-                                }
-                            ],
-                            "transition": "next"
-                        }
-                    ]
-                },
-                {
-                    "states": [
-                        {
-                            "text": [
-                                [
-                                    "can",
-                                    ""
-                                ]
-                            ],
-                            "conditions": [
-                                {
-                                    "entity": "tense",
-                                    "tag": "present"
+                                    "text": "How"
                                 }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "will",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
                                     "tag": "future"
+                                }
+                            ],
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "When"
                                 }
                             ]
                         }
@@ -86,45 +52,61 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "I",
-                                    ""
-                                ]
+                            "conditions": [
+                                {
+                                    "entity": "tense",
+                                    "tag": "present"
+                                }
                             ],
+                            "display": [
+                                {
+                                    "text": "can"
+                                }
+                            ]
+                        },
+                        {
+                            "conditions": [
+                                {
+                                    "entity": "tense",
+                                    "tag": "future"
+                                }
+                            ],
+                            "display": [
+                                {
+                                    "text": "will"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "states": [
+                        {
                             "conditions": [
                                 {
                                     "entity": "actor",
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "I"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "we",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "actor",
                                     "tag": "plural"
                                 }
                             ],
-                            "transition": "next"
-                        }
-                    ]
-                },
-                {
-                    "states": [
-                        {
-                            "text": [
-                                [
-                                    "go",
-                                    ""
-                                ]
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "we"
+                                }
                             ]
                         }
                     ]
@@ -132,49 +114,57 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "there?",
-                                    ""
-                                ]
-                            ],
+                            "display": [
+                                {
+                                    "text": "go"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "states": [
+                        {
                             "conditions": [
                                 {
                                     "entity": "destination",
                                     "tag": "there"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "there?"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "home?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
                                     "tag": "home"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "home?"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "to the shop?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
                                     "tag": "shop"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "to the shop?"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -192,30 +182,28 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "What is",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "person"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "What is"
+                                }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "How",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "object"
+                                }
+                            ],
+                            "display": [
+                                {
+                                    "text": "How"
                                 }
                             ]
                         }
@@ -224,27 +212,20 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "it",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "object"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "it"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "your",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -255,15 +236,14 @@
                                     "tag": "second"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "your"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "his",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -278,15 +258,14 @@
                                     "tag": "masculine"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "his"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "her",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -301,37 +280,40 @@
                                     "tag": "feminine"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "her"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "name?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "person"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "name?"
+                                }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "is called?",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "object"
+                                }
+                            ],
+                            "display": [
+                                {
+                                    "text": "is called?"
                                 }
                             ]
                         }
@@ -355,11 +337,10 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "Thanks,",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "Thanks,"
+                                }
                             ]
                         }
                     ]
@@ -372,11 +353,10 @@
                     ],
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "you",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "you"
+                                }
                             ]
                         }
                     ]
@@ -384,11 +364,10 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "helped",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "helped"
+                                }
                             ]
                         }
                     ]
@@ -396,45 +375,42 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "me",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "me"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "us",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "plural"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "us"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "a lot.",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "a lot."
+                                }
                             ]
                         }
                     ]
@@ -457,34 +433,32 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "Give",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "action",
                                     "tag": "give"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Give"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "Take",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "action",
                                     "tag": "take"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "Take"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -497,11 +471,10 @@
                     ],
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "me",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "me"
+                                }
                             ]
                         }
                     ]
@@ -509,49 +482,46 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "this.",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "object"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "this."
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "the spoon.",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "spoon"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "the spoon."
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "the pen.",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "pen"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "the pen."
+                                }
+                            ]
                         }
                     ]
                 }
@@ -571,11 +541,10 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "How much",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "How much"
+                                }
                             ]
                         }
                     ]
@@ -583,31 +552,29 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "does",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "singular"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "does"
+                                }
                             ]
                         },
                         {
-                            "text": [
-                                [
-                                    "do",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "plural"
                                 }
+                            ],
+                            "display": [
+                                {
+                                    "text": "do"
+                                }
                             ]
                         }
                     ]
@@ -615,27 +582,20 @@
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "it",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "it"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "ticket",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -646,15 +606,14 @@
                                     "tag": "singular"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "ticket"
+                                }
+                            ]
                         },
                         {
-                            "text": [
-                                [
-                                    "apples",
-                                    ""
-                                ]
-                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -665,18 +624,22 @@
                                     "tag": "plural"
                                 }
                             ],
-                            "transition": "next"
+                            "transition": "next",
+                            "display": [
+                                {
+                                    "text": "apples"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": [
-                                [
-                                    "cost?",
-                                    ""
-                                ]
+                            "display": [
+                                {
+                                    "text": "cost?"
+                                }
                             ]
                         }
                     ]

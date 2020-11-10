@@ -27,7 +27,7 @@
             icon="edit"
             :class="{ highlight: state == s }"
           />
-          <PhraseStateDisplay :display="s.text" :context="context" />
+          <PhraseStateDisplay :display="s.display" :context="context" />
         </div>
       </div>
     </ActionHeader>
@@ -44,28 +44,11 @@
         v-else-if="editingMode == 2"
         :transition.sync="state.transition"
       />
-      <div class="display-editors" v-else>
-        <PhraseStateDisplayEditor
-          icon="short_text"
-          header="Text"
-          :display.sync="state.text"
-          :context="context"
-        />
-        <PhraseStateDisplayEditor
-          icon="hearing"
-          header="IPA"
-          :allowEmpty="true"
-          :display.sync="state.ipa"
-          :context="context"
-        />
-        <PhraseStateDisplayEditor
-          icon="science"
-          header="Glossing"
-          :allowEmpty="true"
-          :display.sync="state.glossing"
-          :context="context"
-        />
-      </div>
+      <PhraseStateDisplayEditor
+        :display.sync="state.display"
+        :context="context"
+        v-else
+      />
     </template>
   </div>
 </template>
@@ -118,7 +101,7 @@ export default {
   methods: {
     add() {
       this.states.push({
-        text: [["new state", ""]],
+        display: [{ text: "new state" }],
         transition: "next",
       });
     },
@@ -129,16 +112,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.display-editors {
-  display: grid;
-  gap: map-get($margins, "normal");
-  grid-template-columns: repeat(3, 1fr);
-}
-@media only screen and (max-width: 384px) {
-  .display-editors {
-    grid-template-columns: 100%;
-  }
-}
-</style>

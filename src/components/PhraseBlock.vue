@@ -12,13 +12,25 @@
     </template>
     <template v-if="glosses" class="glosses">
       <PhraseStateDisplay
-        :display="state.ipa"
+        :display="state.display"
         :context="context"
+        :colored="this.interactive"
+        type="ipa"
         class="text-ipa"
       />
-      <PhraseStateDisplay :display="state.glossing" :context="context" />
+      <PhraseStateDisplay
+        :display="state.display"
+        :context="context"
+        :colored="this.interactive"
+        type="glossing"
+      />
     </template>
-    <PhraseStateDisplay :display="state.text" :context="context" v-else />
+    <PhraseStateDisplay
+      :colored="this.interactive"
+      :display="state.display"
+      :context="context"
+      v-else
+    />
   </button>
 </template>
 
