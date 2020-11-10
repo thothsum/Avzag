@@ -1,8 +1,7 @@
 <template>
   <button
     class="small"
-    :class="{ implicit, glossed: glosses }"
-    :disabled="disabled"
+    :class="{ implicit, disabled, glossed: glosses }"
     v-show="valid"
     @click="move"
     v-if="state"
@@ -51,7 +50,7 @@ export default {
       return this.state?.transition;
     },
     implicit() {
-      return this.state?.implicit;
+      return !this.glossed && this.state?.implicit;
     },
     text() {
       return this.state?.text;
@@ -200,16 +199,16 @@ button {
     font-variant-caps: unicase;
   }
 }
-:disabled {
+.implicit p {
+  opacity: 65%;
+}
+.disabled {
   padding: 0;
   background-color: transparent;
-  cursor: default;
-  p:not(.text-faded) {
-    color: var(--color-text);
-  }
   &:hover,
   &:active {
     background-color: transparent;
   }
+  cursor: default;
 }
 </style>
