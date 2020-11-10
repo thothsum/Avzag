@@ -1,13 +1,15 @@
 <template>
-  <p
-    :class="{ implicit, 'text-ipa': type == 'ipa' }"
-    class="panel-horizontal-solid"
-    v-if="state"
-  >
-    <span :class="colors[i]" :key="i" v-for="(s, i) in segments">
-      {{ s }}
-    </span>
-  </p>
+  <div>
+    <p
+      :class="{ faded: faded[i], 'text-ipa': t == 'ipa', t }"
+      :key="i"
+      v-for="(t, i) in types"
+    >
+      <span :class="colors[j]" :key="j" v-for="(s, j) in segments[i]">
+        {{ s }}
+      </span>
+    </p>
+  </div>
 </template>
 
 <script>
@@ -15,36 +17,52 @@ export default {
   name: "PhraseStateDisplay",
   props: {
     state: { type: Object },
-    type: { type: String, default: "text" },
+    types: {
+      type: Array,
+      default() {
+        return ["text"];
+      },
+    },
     context: { type: Object },
     colored: { type: Boolean, default: true },
   },
   computed: {
-    implicit() {
-      return this.type == "text" && this.state.implicit;
+    faded() {
+      return this.types.map((t) => t == "text" && this.state.implicit);
     },
     entities() {
       return Object.keys(this.context);
     },
     colors() {
       return this.colored
-        ? []
-        : this.state.display.map(
+        ? this.state.display.map(
             (d) => "colored-" + this.entities.indexOf(d.entity)
-          );
+          )
+        : [];
     },
     segments() {
-      return this.state.display.map((d) => d[this.type]);
+      return this.types.map((t) => this.state.display.map((d) => d[t]));
     },
     text() {
-      return this.segments.join(" ");
+      let texts = this.segments.map((s) => s.join(""));
+      return texts.length == 1 ? texts[0] : texts.join("\n");
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.implicit {
+p {
+  display: flex;
+  gap: 0;
+}
+p.faded {
   opacity: 65%;
+}
+p:not(.text) {
+  text-align: left;
+}
+p.glossing {
+  font-variant-caps: unicase;
 }
 </style>

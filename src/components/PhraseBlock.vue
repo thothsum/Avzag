@@ -1,7 +1,7 @@
 <template>
   <button
     class="small"
-    :class="{ implicit, disabled, glossed: glosses }"
+    :class="{ disabled, glossed }"
     v-show="valid"
     @click="move"
     v-if="state"
@@ -10,15 +10,12 @@
       <IndexedColor :passive="true" :indexes="passiveColors" />
       <IndexedColor :indexes="activeColors" />
     </template>
-    <template v-if="glosses" class="glosses">
-      <PhraseStateDisplay :state="state" :context="context" type="ipa" />
-      <PhraseStateDisplay :state="state" :context="context" type="glossing" />
-    </template>
     <PhraseStateDisplay
+      ref="display"
+      :types="displayTypes"
       :colored="this.interactive"
       :state="state"
       :context="context"
-      v-else
     />
   </button>
 </template>
@@ -44,31 +41,20 @@ export default {
     requirements() {
       return this.block.requirements;
     },
+    displayTypes() {
+      return this.glossed ? ["ipa", "glossing"] : ["text"];
+    },
     states() {
       return this.block.states;
     },
     transition() {
       return this.state?.transition;
     },
-    implicit() {
-      return !this.glossed && this.state?.implicit;
-    },
-    text() {
-      return this.state?.text;
-    },
-    glosses() {
-      return this.glossed && this.state?.ipa && this.state?.glossing
-        ? [this.state?.ipa, this.state?.glossing]
-        : null;
-    },
     conditions() {
       return this.state?.conditions;
     },
     disabled() {
       return !(this.interactive && this.transition);
-    },
-    display() {
-      return this.glosses ? this.glosses.join("\n") + "\n" : this.text + " ";
     },
     entities() {
       return Object.keys(this.context);
@@ -170,6 +156,7 @@ export default {
       this.$emit("update:context", context);
     },
     move() {
+      if (this.disabled) return;
       if (typeof this.transition == "string") {
         if (this.transition == "next") {
           const i = this.states.indexOf(this.state);
@@ -192,12 +179,6 @@ button {
   position: relative;
   &.glossed {
     height: map-get($button-height, "normal") + map-get($margins, "normal");
-  }
-}
-.glosses {
-  text-align: left;
-  > :nth-child(2) {
-    font-variant-caps: unicase;
   }
 }
 .disabled {

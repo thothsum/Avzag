@@ -194,9 +194,26 @@
                             "transition": "1",
                             "display": [
                                 {
-                                    "text": "вянилдай?",
-                                    "ipa": "β-ɑˤ-nil-dɑ-j",
-                                    "glossing": "M-go-ADJ-1-Q"
+                                    "text": "в",
+                                    "ipa": "β-",
+                                    "glossing": "M-",
+                                    "entity": "actor"
+                                },
+                                {
+                                    "text": "янил",
+                                    "ipa": "ɑˤ-nil",
+                                    "glossing": "go-ADJ"
+                                },
+                                {
+                                    "text": "да",
+                                    "ipa": "-dɑ",
+                                    "glossing": "-1",
+                                    "entity": "actor"
+                                },
+                                {
+                                    "text": "й?",
+                                    "ipa": "-j",
+                                    "glossing": "-Q"
                                 }
                             ]
                         },

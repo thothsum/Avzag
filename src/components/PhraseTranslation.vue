@@ -59,8 +59,8 @@ export default {
     text() {
       return this.$refs.blocks
         ?.filter((b) => b.valid)
-        .map((b) => b.display)
-        .join("");
+        .map((b) => b.$refs.display.text)
+        .join(" ");
     },
   },
   watch: {
