@@ -93,17 +93,19 @@ export default {
         if (!this.states?.length) {
           this.$set(this.block, "states", []);
           this.add();
-        }
+        } else this.state = this.states[this.states.length - 1];
       },
       immediate: true,
     },
   },
   methods: {
     add() {
-      this.states.push({
+      const state = {
         display: [{ text: "new state" }],
         transition: "next",
-      });
+      };
+      this.states.push(state);
+      this.state = state;
     },
     remove() {
       if (this.states.length > 1)

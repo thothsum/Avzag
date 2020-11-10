@@ -3,11 +3,24 @@
     <div v-if="display" class="panel-dense">
       <div class="panel-horizontal-dense" :key="i" v-for="(d, i) in display">
         <Button @click.native="toggle(i)" icon="palette" />
-        <div class="panel-horizontal-dense" :class="colors[i]">
-          <input type="text" v-model="d.default" placeholder="text"/>
-          <input type="text" v-model="d.ipa"  placeholder="ipa"/>
-          <input type="text" v-model="d.glossing" placeholder="gossing" />
-        </div>
+        <input
+          :class="colors[i]"
+          type="text"
+          v-model="d.text"
+          placeholder="text"
+        />
+        <input
+          :class="colors[i]"
+          type="text"
+          v-model="d.ipa"
+          placeholder="ipa"
+        />
+        <input
+          :class="colors[i]"
+          type="text"
+          v-model="d.glossing"
+          placeholder="gossing"
+        />
         <Button @click.native="remove(i)" icon="clear" />
       </div>
     </div>
@@ -27,7 +40,7 @@ export default {
   props: ["display", "context", "allowEmpty"],
   computed: {
     entities() {
-      return [""].concat(Object.keys(this.context));
+      return [undefined].concat(Object.keys(this.context));
     },
     colors() {
       return this.display?.map(
