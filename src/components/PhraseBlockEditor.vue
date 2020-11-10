@@ -10,54 +10,67 @@
       hidden.
     </PhraseConditionsEditor>
     <ActionHeader @action="add" icon="tune" header="States">
-      <template #header> <ButtonAlert /></template>
-      <div class="panel-dense" :key="i" v-for="(s, i) in states">
-        <div class="panel-dense card">
-          <div class="panel-horizontal-dense">
-            <p class="flex">{{ s.text[0][0] }}</p>
-            <ToggleGroup
-              :icons="['visibility', 'widgets', 'alt_route']"
-              :value.sync="editingMode[i]"
-            />
-            <Button :value.sync="s.implicit" icon="format_color_reset" />
-          </div>
+      <template #header v-if="state">
+        <Button :value.sync="state.implicit" icon="opacity" />
+        <p class="text-dot" />
+        <ToggleGroup
+          :icons="['visibility', 'widgets', 'alt_route']"
+          :value.sync="editingMode"
+        />
+        <p class="text-dot" />
+        <ButtonAlert @confirm="remove" />
+      </template>
+      <div class="panel-horizontal wrap">
+        <div class="panel-horizontal-dense" :key="i" v-for="(s, i) in states">
+          <Button
+            @click.native="state = s"
+            icon="edit"
+            :class="{ highlight: state == s }"
+          />
+          <PhraseStateDisplay
+            :colored="true"
+            :display="s.text"
+            :context="context"
+          />
         </div>
-        <PhraseConditionsEditor
-          v-if="editingMode[i] == 1"
-          :conditions.sync="s.conditions"
-          :context="context"
-          :allowPassive="true"
-          icon="widgets"
-          header="conditions"
-        />
-        <PhraseBlockTransitionEditor
-          v-else-if="editingMode[i] == 2"
-          :transition.sync="s.transition"
-        />
-        <template v-else>
-          <PhraseBlockDisplayEditor
-            icon="short_text"
-            header="Text"
-            :display.sync="s.text"
-            :context="context"
-          />
-          <PhraseBlockDisplayEditor
-            icon="hearing"
-            header="IPA"
-            :allowEmpty="true"
-            :display.sync="s.ipa"
-            :context="context"
-          />
-          <PhraseBlockDisplayEditor
-            icon="science"
-            header="Glossing"
-            :allowEmpty="true"
-            :display.sync="s.glossing"
-            :context="context"
-          />
-        </template>
       </div>
     </ActionHeader>
+    <template v-if="state">
+      <PhraseConditionsEditor
+        v-if="editingMode == 1"
+        :conditions.sync="state.conditions"
+        :context="context"
+        :allowPassive="true"
+        icon="widgets"
+        header="conditions"
+      />
+      <PhraseStateTransitionEditor
+        v-else-if="editingMode == 2"
+        :transition.sync="state.transition"
+      />
+      <div class="display-editors" v-else>
+        <PhraseStateDisplayEditor
+          icon="short_text"
+          header="Text"
+          :display.sync="state.text"
+          :context="context"
+        />
+        <PhraseStateDisplayEditor
+          icon="hearing"
+          header="IPA"
+          :allowEmpty="true"
+          :display.sync="state.ipa"
+          :context="context"
+        />
+        <PhraseStateDisplayEditor
+          icon="science"
+          header="Glossing"
+          :allowEmpty="true"
+          :display.sync="state.glossing"
+          :context="context"
+        />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -67,8 +80,9 @@ import ButtonAlert from "./ButtonAlert";
 import ToggleGroup from "./ToggleGroup";
 import ActionHeader from "./ActionHeader";
 import PhraseConditionsEditor from "./PhraseConditionsEditor";
-import PhraseBlockTransitionEditor from "./PhraseBlockTransitionEditor";
-import PhraseBlockDisplayEditor from "./PhraseBlockDisplayEditor";
+import PhraseStateTransitionEditor from "./PhraseStateTransitionEditor";
+import PhraseStateDisplayEditor from "./PhraseStateDisplayEditor";
+import PhraseStateDisplay from "./PhraseStateDisplay";
 
 export default {
   name: "PhraseBlockEditor",
@@ -78,13 +92,15 @@ export default {
     ToggleGroup,
     ActionHeader,
     PhraseConditionsEditor,
-    PhraseBlockTransitionEditor,
-    PhraseBlockDisplayEditor,
+    PhraseStateTransitionEditor,
+    PhraseStateDisplayEditor,
+    PhraseStateDisplay,
   },
   props: ["block", "context"],
   data() {
     return {
-      editingMode: [],
+      state: undefined,
+      editingMode: 0,
     };
   },
   computed: {
@@ -99,7 +115,6 @@ export default {
           this.$set(this.block, "states", []);
           this.add();
         }
-        this.editingMode = new Array(this.states?.length).fill(0);
       },
       immediate: true,
     },
@@ -111,9 +126,23 @@ export default {
         transition: "next",
       });
     },
-    remove(i) {
-      if (this.states.length > 1) this.$delete(this.states, i);
+    remove() {
+      if (this.states.length > 1)
+        this.$delete(this.states, this.states.indexOf(this.state));
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.display-editors {
+  display: grid;
+  gap: map-get($margins, "normal");
+  grid-template-columns: repeat(3, 1fr);
+}
+@media only screen and (max-width: 384px) {
+  .display-editors {
+    grid-template-columns: 100%;
+  }
+}
+</style>

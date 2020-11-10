@@ -65,16 +65,16 @@
               :key="i"
               v-for="(b, i) in blocks"
             >
+              <Button
+                @click.native="block = b"
+                icon="edit"
+                :class="{ highlight: block == b }"
+              />
               <PhraseBlock
                 :id="selected"
                 :context.sync="context"
                 :interactive="true"
                 :block="b"
-              />
-              <Button
-                @click.native="block = b"
-                icon="build"
-                :class="{ highlight: block == b }"
               />
             </div>
           </div>

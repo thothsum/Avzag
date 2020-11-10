@@ -14,7 +14,7 @@ import ToggleGroup from "./ToggleGroup";
 import ActionHeader from "./ActionHeader";
 
 export default {
-  name: "PhraseBlockTransitionEditor",
+  name: "PhraseStateTransitionEditor",
   components: { ToggleGroup, ActionHeader },
   props: ["transition", "states"],
   data() {

@@ -1,17 +1,9 @@
 <template>
   <ActionHeader @action="add" :icon="icon" :header="header">
-    <div v-if="display" class="panel-horizontal wrap">
-      <div class="panel-dense" :key="i" v-for="(d, i) in display">
-        <div class="panel-horizontal-dense">
-          <Button @click.native="toggle(i)" icon="palette" />
-          <ButtonAlert @confirm="remove(i)" />
-        </div>
-        <input
-          :class="colors[i]"
-          :size="lengths[i]"
-          type="text"
-          v-model="d[0]"
-        />
+    <div v-if="display" class="panel-dense">
+      <div class="panel-horizontal-dense" :key="i" v-for="(d, i) in display">
+        <Button @click.native="toggle(i)" icon="palette" />
+        <input class="flex" :class="colors[i]" type="text" v-model="d[0]" />
       </div>
     </div>
   </ActionHeader>
@@ -19,14 +11,12 @@
 
 <script>
 import Button from "./Button";
-import ButtonAlert from "./ButtonAlert";
 import ActionHeader from "./ActionHeader";
 
 export default {
-  name: "PhraseBlockDisplayEditor",
+  name: "PhraseStateDisplayEditor",
   components: {
     Button,
-    ButtonAlert,
     ActionHeader,
   },
   props: ["icon", "header", "display", "context", "allowEmpty"],
@@ -38,9 +28,6 @@ export default {
       return this.display?.map(
         (d) => "colored-" + (this.entities.indexOf(d[1]) - 1)
       );
-    },
-    lengths() {
-      return this.display?.map((d) => Math.max(d[0].length, 1));
     },
   },
   methods: {
