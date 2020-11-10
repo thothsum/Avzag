@@ -27,11 +27,7 @@
             icon="edit"
             :class="{ highlight: state == s }"
           />
-          <PhraseStateDisplay
-            :colored="true"
-            :display="s.text"
-            :context="context"
-          />
+          <PhraseStateDisplay :display="s.text" :context="context" />
         </div>
       </div>
     </ActionHeader>

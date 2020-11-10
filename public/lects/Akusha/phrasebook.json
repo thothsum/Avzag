@@ -5,7 +5,12 @@
                 {
                     "states": [
                         {
-                            "text": "Ну",
+                            "text": [
+                                [
+                                    "Ну",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "actor",
@@ -15,7 +20,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "Нуша",
+                            "text": [
+                                [
+                                    "Нуша",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "actor",
@@ -29,7 +39,12 @@
                 {
                     "states": [
                         {
-                            "text": "секьяйда",
+                            "text": [
+                                [
+                                    "секьяйда",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -39,7 +54,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "мурт",
+                            "text": [
+                                [
+                                    "мурт",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -53,7 +73,12 @@
                 {
                     "states": [
                         {
-                            "text": "ита",
+                            "text": [
+                                [
+                                    "ита",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -63,7 +88,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "хъули",
+                            "text": [
+                                [
+                                    "хъули",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -73,7 +103,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "тукейзи",
+                            "text": [
+                                [
+                                    "тукейзи",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -87,7 +122,12 @@
                 {
                     "states": [
                         {
-                            "text": "аркьусира?"
+                            "text": [
+                                [
+                                    "аркьусира?",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 }
@@ -98,7 +138,12 @@
                 {
                     "states": [
                         {
-                            "text": "Иш",
+                            "text": [
+                                [
+                                    "Иш",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -108,7 +153,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "Билет",
+                            "text": [
+                                [
+                                    "Билет",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -118,7 +168,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "Гӏинцби",
+                            "text": [
+                                [
+                                    "Гӏинцби",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -132,14 +187,24 @@
                 {
                     "states": [
                         {
-                            "text": "сецадлис"
+                            "text": [
+                                [
+                                    "сецадлис",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "саби?",
+                            "text": [
+                                [
+                                    "саби?",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -148,7 +213,12 @@
                             ]
                         },
                         {
-                            "text": "сари?",
+                            "text": [
+                                [
+                                    "сари?",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -165,7 +235,12 @@
                 {
                     "states": [
                         {
-                            "text": "Илис",
+                            "text": [
+                                [
+                                    "Илис",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -175,7 +250,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "Итис",
+                            "text": [
+                                [
+                                    "Итис",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -189,7 +269,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "Хӏед",
+                            "text": [
+                                [
+                                    "Хӏед",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -207,7 +292,12 @@
                 {
                     "states": [
                         {
-                            "text": "се",
+                            "text": [
+                                [
+                                    "се",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -216,7 +306,12 @@
                             ]
                         },
                         {
-                            "text": "чи",
+                            "text": [
+                                [
+                                    "чи",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -229,7 +324,12 @@
                 {
                     "states": [
                         {
-                            "text": "бикӏара?"
+                            "text": [
+                                [
+                                    "бикӏара?",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 }
@@ -240,14 +340,24 @@
                 {
                     "states": [
                         {
-                            "text": "Баркалла,"
+                            "text": [
+                                [
+                                    "Баркалла,",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "хӏуни",
+                            "text": [
+                                [
+                                    "хӏуни",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
@@ -257,7 +367,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "хӏушани",
+                            "text": [
+                                [
+                                    "хӏушани",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
@@ -271,7 +386,12 @@
                 {
                     "states": [
                         {
-                            "text": "нушаб",
+                            "text": [
+                                [
+                                    "нушаб",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -281,7 +401,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "наб",
+                            "text": [
+                                [
+                                    "наб",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -295,14 +420,24 @@
                 {
                     "states": [
                         {
-                            "text": "халаси"
+                            "text": [
+                                [
+                                    "халаси",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "кумекбарри.",
+                            "text": [
+                                [
+                                    "кумекбарри.",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",
@@ -311,7 +446,12 @@
                             ]
                         },
                         {
-                            "text": "кумекбаррая.",
+                            "text": [
+                                [
+                                    "кумекбаррая.",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "subject",

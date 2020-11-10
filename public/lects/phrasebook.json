@@ -20,7 +20,12 @@
                 {
                     "states": [
                         {
-                            "text": "How",
+                            "text": [
+                                [
+                                    "How",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -30,7 +35,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "When",
+                            "text": [
+                                [
+                                    "When",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -44,7 +54,12 @@
                 {
                     "states": [
                         {
-                            "text": "can",
+                            "text": [
+                                [
+                                    "can",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -53,7 +68,12 @@
                             ]
                         },
                         {
-                            "text": "will",
+                            "text": [
+                                [
+                                    "will",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "tense",
@@ -66,7 +86,12 @@
                 {
                     "states": [
                         {
-                            "text": "I",
+                            "text": [
+                                [
+                                    "I",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "actor",
@@ -76,7 +101,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "we",
+                            "text": [
+                                [
+                                    "we",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "actor",
@@ -90,14 +120,24 @@
                 {
                     "states": [
                         {
-                            "text": "go"
+                            "text": [
+                                [
+                                    "go",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "there?",
+                            "text": [
+                                [
+                                    "there?",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -107,7 +147,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "home?",
+                            "text": [
+                                [
+                                    "home?",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -117,7 +162,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "to the shop?",
+                            "text": [
+                                [
+                                    "to the shop?",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "destination",
@@ -142,7 +192,12 @@
                 {
                     "states": [
                         {
-                            "text": "What is",
+                            "text": [
+                                [
+                                    "What is",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -151,7 +206,12 @@
                             ]
                         },
                         {
-                            "text": "How",
+                            "text": [
+                                [
+                                    "How",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -164,7 +224,12 @@
                 {
                     "states": [
                         {
-                            "text": "it",
+                            "text": [
+                                [
+                                    "it",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -174,7 +239,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "your",
+                            "text": [
+                                [
+                                    "your",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -188,7 +258,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "his",
+                            "text": [
+                                [
+                                    "his",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -206,7 +281,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "her",
+                            "text": [
+                                [
+                                    "her",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -228,7 +308,12 @@
                 {
                     "states": [
                         {
-                            "text": "name?",
+                            "text": [
+                                [
+                                    "name?",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -237,7 +322,12 @@
                             ]
                         },
                         {
-                            "text": "is called?",
+                            "text": [
+                                [
+                                    "is called?",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -265,7 +355,12 @@
                 {
                     "states": [
                         {
-                            "text": "Thanks,"
+                            "text": [
+                                [
+                                    "Thanks,",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
@@ -277,21 +372,36 @@
                     ],
                     "states": [
                         {
-                            "text": "you"
+                            "text": [
+                                [
+                                    "you",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "helped"
+                            "text": [
+                                [
+                                    "helped",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "me",
+                            "text": [
+                                [
+                                    "me",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -301,7 +411,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "us",
+                            "text": [
+                                [
+                                    "us",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -315,7 +430,12 @@
                 {
                     "states": [
                         {
-                            "text": "a lot."
+                            "text": [
+                                [
+                                    "a lot.",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 }
@@ -337,7 +457,12 @@
                 {
                     "states": [
                         {
-                            "text": "Give",
+                            "text": [
+                                [
+                                    "Give",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "action",
@@ -347,7 +472,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "Take",
+                            "text": [
+                                [
+                                    "Take",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "action",
@@ -367,14 +497,24 @@
                     ],
                     "states": [
                         {
-                            "text": "me"
+                            "text": [
+                                [
+                                    "me",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "this.",
+                            "text": [
+                                [
+                                    "this.",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -384,7 +524,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "the spoon.",
+                            "text": [
+                                [
+                                    "the spoon.",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -394,7 +539,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "the pen.",
+                            "text": [
+                                [
+                                    "the pen.",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -421,14 +571,24 @@
                 {
                     "states": [
                         {
-                            "text": "How much"
+                            "text": [
+                                [
+                                    "How much",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 },
                 {
                     "states": [
                         {
-                            "text": "does",
+                            "text": [
+                                [
+                                    "does",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -437,7 +597,12 @@
                             ]
                         },
                         {
-                            "text": "do",
+                            "text": [
+                                [
+                                    "do",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -450,7 +615,12 @@
                 {
                     "states": [
                         {
-                            "text": "it",
+                            "text": [
+                                [
+                                    "it",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -460,7 +630,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "ticket",
+                            "text": [
+                                [
+                                    "ticket",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -474,7 +649,12 @@
                             "transition": "next"
                         },
                         {
-                            "text": "apples",
+                            "text": [
+                                [
+                                    "apples",
+                                    ""
+                                ]
+                            ],
                             "conditions": [
                                 {
                                     "entity": "object",
@@ -492,7 +672,12 @@
                 {
                     "states": [
                         {
-                            "text": "cost?"
+                            "text": [
+                                [
+                                    "cost?",
+                                    ""
+                                ]
+                            ]
                         }
                     ]
                 }

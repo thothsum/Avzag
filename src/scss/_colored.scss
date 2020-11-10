@@ -1,4 +1,4 @@
-$colors: #81c784, #e57373, #64b5f6, #ffb74d, #9575cd, #dce775, #a1887f;
+$colors: #43a047, #e53935, #1e88e5, #ffb300, #8e24aa, #c0ca33, #6d4c41;
 
 @for $i from 1 through length($colors) {
     .colored-#{($i - 1)} {

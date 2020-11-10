@@ -1,30 +1,37 @@
 <template>
   <button
     class="small"
-    :class="{ 'text-faded': implicit, glossed: glosses }"
+    :class="{ implicit, glossed: glosses }"
     :disabled="disabled"
     v-show="valid"
     @click="move"
+    v-if="state"
   >
     <template v-if="interactive">
       <IndexedColor :passive="true" :indexes="passiveColors" />
       <IndexedColor :indexes="activeColors" />
     </template>
-    <div v-if="glosses" class="glosses">
-      <p class="text-ipa">{{ glosses[0] }}</p>
-      <p>{{ glosses[1] }}</p>
-    </div>
-    <p v-else>{{ text }}</p>
+    <template v-if="glosses" class="glosses">
+      <PhraseStateDisplay
+        :display="state.ipa"
+        :context="context"
+        class="text-ipa"
+      />
+      <PhraseStateDisplay :display="state.glossing" :context="context" />
+    </template>
+    <PhraseStateDisplay :display="state.text" :context="context" v-else />
   </button>
 </template>
 
 <script>
 import IndexedColor from "./IndexedColor";
+import PhraseStateDisplay from "./PhraseStateDisplay";
 
 export default {
   name: "PhraseBlock",
   components: {
     IndexedColor,
+    PhraseStateDisplay,
   },
   props: ["id", "context", "block", "interactive", "glossed"],
   data() {
