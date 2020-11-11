@@ -13,6 +13,7 @@
           placeholder="text"
         />
         <input
+          class="text-ipa"
           :class="colors[i]"
           type="text"
           v-model="d.ipa"
@@ -22,7 +23,7 @@
           :class="colors[i]"
           type="text"
           v-model="d.glossing"
-          placeholder="gossing"
+          placeholder="glossing"
         />
         <Button @click.native="remove(i)" icon="clear" />
       </div>
