@@ -27,7 +27,7 @@
         </div>
         <div class="panel-horizontal-dense scroll-hidden">
           <p id="placeholder" v-if="empty">
-            Click on the map or use input above.
+            Click on the map or use the input field above.
           </p>
           <Button
             class="small round"
