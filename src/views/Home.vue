@@ -26,8 +26,8 @@
           />
         </div>
         <div class="panel-horizontal-dense scroll-hidden">
-          <p id="placeholder" class="text-faded" v-if="empty">
-            Select languages by clicking on the map or use the search.
+          <p id="placeholder" v-if="empty">
+            Click on the map or use input above.
           </p>
           <Button
             class="small round"
