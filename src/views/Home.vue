@@ -18,7 +18,12 @@
             v-model="search"
             placeholder="Search languages..."
           />
-          <Button icon="arrow_forward" @click.native="load" :disabled="empty" />
+          <Button
+            icon="arrow_forward"
+            @click.native="load"
+            :class="{ highlight: !empty }"
+            :disabled="empty"
+          />
         </div>
         <div class="panel-horizontal-dense scroll-hidden">
           <p id="placeholder" class="text-faded" v-if="empty">
