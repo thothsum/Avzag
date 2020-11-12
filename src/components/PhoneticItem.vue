@@ -20,7 +20,7 @@ button {
   place-content: center;
   width: 46px;
   height: 40px;
-  &:hover * {
+  &:not(.highlight):hover * {
     color: var(--color-text) !important;
   }
   &.text-faded {
