@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense text-caption text-faded wrap" v-if="any">
+  <div class="panel-horizontal-dense text-caption wrap" v-if="any">
     <div
       class="panel-horizontal-dense wrap"
       :key="i"

@@ -7,8 +7,7 @@ $colors: #43a047, #e53935, #1e88e5, #ffb300, #8e24aa, #c0ca33, #6d4c41;
     .colored-back-#{($i - 1)} {
         background-color: nth($colors, $i);
     }
-    .colored-dot-#{($i - 1)}::before {
-        content: "@ ";
+    .colored-dot-#{($i - 1)}::first-letter {
         font-weight: bold;
         color: nth($colors, $i);
     }
