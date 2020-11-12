@@ -11,7 +11,7 @@
         <Button
           @click.native="toggle(i)"
           icon="check"
-          :class="{ highlight: bestOf[i] }"
+          :class="{ highlight: present[i] }"
         />
         <PhraseStateDisplay :state="s" :context="context" />
       </div>
@@ -33,46 +33,41 @@ export default {
     ActionHeader,
     PhraseStateDisplay,
   },
-  props: ["transition", "states", "context"],
+  props: ["state", "states", "context"],
   data() {
     return {
       mode: 0,
-      bestOf: undefined,
     };
   },
-  watch: {
-    mode() {
-      if (this.mode == 1) this.$emit("update:transition", "next");
-      else if (this.mode == 2) this.calculateBestOf();
-      else this.$emit("update:transition", null);
+  computed: {
+    ints() {
+      return this.state.transition?.split(" ").map((t) => Number(t)) ?? [];
     },
-    bestOf() {
-      if (this.mode == 2) this.calculateBestOf();
+    present() {
+      return this.states.map((s, i) => this.ints.includes(i));
     },
   },
-  mounted() {
-    console.log("updtas");
-    if (!this.transition) this.mode = 0;
-    else if (this.transition == "next") this.mode = 1;
-    else {
-      this.mode = 2;
-      this.bestOf = [];
-    }
+  watch: {
+    state: {
+      handler() {
+        if (this.state.transition == "next") this.mode = 1;
+        else if (this.state.transition) this.mode = 2;
+        else this.mode = 0;
+      },
+      immediate: true,
+    },
+    mode() {
+      if (this.mode == 1) this.$set(this.state, "transition", "next");
+      else if (!this.mode) this.$set(this.state, "transition");
+    },
   },
   methods: {
-    calculateBestOf() {
-      if (!this.bestOf) this.bestOf = [];
-      this.$emit(
-        "update:transition",
-        this.bestOf
-          .map((b, i) => [b, i])
-          .filter((p) => p[0])
-          .map((p) => p[1])
-          .join(" ")
-      );
-    },
     toggle(i) {
-      this.$set(this.bestOf, i, !this.bestOf[i]);
+      let ints = this.ints;
+      if (ints.includes(i)) ints.splice(ints.indexOf(i), 1);
+      else ints.push(i);
+
+      if (this.mode == 2) this.$set(this.state, "transition", ints.join(" "));
     },
   },
 };

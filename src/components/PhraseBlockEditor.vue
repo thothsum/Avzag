@@ -40,7 +40,7 @@
       />
       <PhraseStateTransitionEditor
         v-else-if="editingMode == 2"
-        :transition.sync="state.transition"
+        :state="state"
         :context="context"
         :states="states"
       />

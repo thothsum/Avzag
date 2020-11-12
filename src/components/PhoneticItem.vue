@@ -21,7 +21,7 @@ button {
   width: 46px;
   height: 40px;
   &:not(.highlight):hover * {
-    color: var(--color-text) !important;
+    color: var(--color-text);
   }
   &.text-faded {
     background-color: transparent !important;
