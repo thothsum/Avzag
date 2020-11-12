@@ -3,6 +3,9 @@ select,
 a {
   user-select: none;
   cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 button,
