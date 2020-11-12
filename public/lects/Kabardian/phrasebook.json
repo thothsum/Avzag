@@ -53,7 +53,11 @@
                             "transition": "2",
                             "display": [
                                 {
-                                    "text": "абыкӏэ"
+                                    "text": "абы"
+                                },
+                                {
+                                    "text": "кӏэ",
+                                    "entity": "tense"
                                 }
                             ]
                         },
@@ -153,7 +157,15 @@
                             ],
                             "display": [
                                 {
-                                    "text": "сызэрыкӏуэныр?"
+                                    "text": "сы",
+                                    "entity": "actor"
+                                },
+                                {
+                                    "text": "зэ",
+                                    "entity": "tense"
+                                },
+                                {
+                                    "text": "рыкӏуэныр?"
                                 }
                             ]
                         },
@@ -170,7 +182,15 @@
                             ],
                             "display": [
                                 {
-                                    "text": "дызэрыкӏуэныр?"
+                                    "text": "ды",
+                                    "entity": "actor"
+                                },
+                                {
+                                    "entity": "tense",
+                                    "text": "зэ"
+                                },
+                                {
+                                    "text": "рыкӏуэныр?"
                                 }
                             ]
                         },
@@ -187,7 +207,15 @@
                             ],
                             "display": [
                                 {
-                                    "text": "сыщыкӏуэныр?"
+                                    "text": "сы",
+                                    "entity": "actor"
+                                },
+                                {
+                                    "text": "щы",
+                                    "entity": "tense"
+                                },
+                                {
+                                    "text": "кӏуэныр?"
                                 }
                             ]
                         },
@@ -204,7 +232,15 @@
                             ],
                             "display": [
                                 {
-                                    "text": "дыщыкӏуэныр?"
+                                    "text": "ды",
+                                    "entity": "actor"
+                                },
+                                {
+                                    "text": "щы",
+                                    "entity": "tense"
+                                },
+                                {
+                                    "text": "кӏуэныр?"
                                 }
                             ]
                         }

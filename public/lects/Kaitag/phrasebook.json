@@ -200,20 +200,9 @@
                                     "entity": "actor"
                                 },
                                 {
-                                    "text": "янил",
-                                    "ipa": "ɑˤ-nil",
-                                    "glossing": "go-ADJ"
-                                },
-                                {
-                                    "text": "да",
-                                    "ipa": "-dɑ",
-                                    "glossing": "-1",
-                                    "entity": "actor"
-                                },
-                                {
-                                    "text": "й?",
-                                    "ipa": "-j",
-                                    "glossing": "-Q"
+                                    "text": "янилдай?",
+                                    "ipa": "ɑˤ-nil-dɑ-j",
+                                    "glossing": "go-ADJ-1-Q"
                                 }
                             ]
                         },
@@ -232,7 +221,15 @@
                             "transition": "0",
                             "display": [
                                 {
-                                    "text": "рянилдай?"
+                                    "text": "р",
+                                    "glossing": "F-",
+                                    "ipa": "r-",
+                                    "entity": "actor"
+                                },
+                                {
+                                    "text": "янилдай?",
+                                    "ipa": "ɑˤ-nil-dɑ-j",
+                                    "glossing": "go-ADJ-1-Q"
                                 }
                             ]
                         },
@@ -245,7 +242,15 @@
                             ],
                             "display": [
                                 {
-                                    "text": "дянилдай?"
+                                    "text": "д",
+                                    "glossing": "PL-",
+                                    "entity": "actor",
+                                    "ipa": "d-"
+                                },
+                                {
+                                    "text": "янилдай?",
+                                    "ipa": "ɑˤ-nil-dɑ-j",
+                                    "glossing": "go-ADJ-1-Q"
                                 }
                             ]
                         }
