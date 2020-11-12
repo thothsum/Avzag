@@ -20,6 +20,7 @@
           placeholder="ipa"
         />
         <input
+          class="glossing"
           :class="colors[i]"
           type="text"
           v-model="d.glossing"

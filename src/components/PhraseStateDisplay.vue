@@ -62,7 +62,4 @@ p.faded {
 p:not(.text) {
   text-align: left;
 }
-p.glossing {
-  font-variant-caps: unicase;
-}
 </style>
