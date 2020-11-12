@@ -41,6 +41,8 @@
       <PhraseStateTransitionEditor
         v-else-if="editingMode == 2"
         :transition.sync="state.transition"
+        :context="context"
+        :states="states"
       />
       <PhraseStateDisplayEditor :state="state" :context="context" v-else />
     </template>
