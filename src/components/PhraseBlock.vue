@@ -2,13 +2,13 @@
   <button
     class="small"
     :class="{ disabled, glossed }"
-    v-show="valid"
+    v-show="visible"
     @click="move"
     v-if="state"
   >
     <template v-if="interactive">
-      <IndexedColor :passive="true" :indexes="passiveColors" />
-      <IndexedColor :indexes="activeColors" />
+      <IndexedColor :passive="true" :indexes="passiveIndexes" />
+      <IndexedColor :indexes="activeIndexes" />
     </template>
     <PhraseStateDisplay
       ref="display"
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       state: undefined,
-      valid: false,
+      visible: false,
     };
   },
   computed: {
@@ -59,7 +59,7 @@ export default {
     entities() {
       return Object.keys(this.context);
     },
-    passiveColors() {
+    passiveIndexes() {
       let conditions = [];
 
       if (this.requirements) conditions = conditions.concat(this.requirements);
@@ -70,42 +70,42 @@ export default {
             : this.conditions
         );
 
-      return this.getConditionColors(conditions);
+      return this.getConditionIndexes(conditions);
     },
-    activeColors() {
+    activeIndexes() {
       return this.transition && this.conditions
-        ? this.getConditionColors(this.conditions.filter((c) => !c.passive))
+        ? this.getConditionIndexes(this.conditions.filter((c) => !c.passive))
         : [];
     },
   },
   watch: {
     id: {
       handler() {
-        this.valid = false;
+        this.visible = false;
       },
       immediate: true,
     },
     context: {
       handler() {
-        const valid =
+        const visible =
           this.context && this.checkConditions(this.requirements)[0] == 1;
 
-        if (valid) {
+        if (visible) {
           const state = this.findBestState();
-          if (this.valid) this.state = state;
+          if (this.visible) this.state = state;
           else this.applyState(state);
         } else if (this.state) {
           this.applyState(null);
           this.state = null;
         }
 
-        this.valid = valid;
+        this.visible = visible;
       },
       immediate: true,
     },
   },
   methods: {
-    getConditionColors(conditions) {
+    getConditionIndexes(conditions) {
       const entities = new Set(conditions.map((c) => c.entity));
       return [...entities].map((e) => this.entities.indexOf(e));
     },
@@ -162,7 +162,7 @@ export default {
           const i = this.states.indexOf(this.state);
           const state = this.states[(i + 1) % this.states.length];
           this.applyState(state);
-        } else {
+        } else if (this.transition) {
           const i = this.transition.split(" ").map((i) => Number(i));
           this.applyState(this.findBestState(i));
         }

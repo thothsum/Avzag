@@ -8,6 +8,7 @@
       v-if="interactive"
       :context="context"
       :translation="translation.context"
+      :blocks="$refs.blocks"
     />
     <div class="panel-horizontal-dense wrap flex">
       <PhraseBlock
@@ -17,8 +18,8 @@
         :interactive="interactive"
         :glossed="glossed"
         :block="b"
-        :key="j"
-        v-for="(b, j) in translation.blocks"
+        :key="i"
+        v-for="(b, i) in translation.blocks"
       />
     </div>
     <template v-if="noted">
@@ -58,7 +59,7 @@ export default {
   computed: {
     text() {
       return this.$refs.blocks
-        ?.filter((b) => b.valid)
+        ?.filter((b) => b.visible)
         .map((b) => b.$refs.display.text)
         .join(" ");
     },
