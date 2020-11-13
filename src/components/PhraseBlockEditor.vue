@@ -18,7 +18,7 @@
         <p class="text-dot" />
         <ButtonAlert @confirm="remove" />
       </template>
-      <div class="panel-horizontal wrap">
+      <div class="panel-horizontal wrap block-editor">
         <div class="panel-horizontal-dense" :key="i" v-for="(s, i) in states">
           <Button
             @click.native="state = s"

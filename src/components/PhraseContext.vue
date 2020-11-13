@@ -15,10 +15,18 @@ export default {
   props: ["context", "translation", "blocks"],
   computed: {
     dictionary() {
-      return this.translation?.reduce((d, [e, t]) => {
-        d[e] = t;
-        return d;
-      }, {});
+      let translation = { entities: {}, tags: [] };
+      this.translation?.reduce((c, { entity, tags }) => {
+        c.entities[entity[0]] = entity[1];
+        c.tags.push(
+          tags.reduce((d, t) => {
+            d[t[0]] = t[1];
+            return d;
+          }, {})
+        );
+        return c;
+      }, translation);
+      return translation;
     },
     explicitContext() {
       return (
@@ -35,24 +43,24 @@ export default {
       );
     },
     entities() {
-      return this.translate(Object.keys(this.context));
+      return Object.keys(this.context).map(
+        (e) => this.dictionary.entities[e] ?? e
+      );
     },
     tags() {
       return Object.entries(this.context)
         .map(([e, ts]) =>
           [...ts].filter((t) => !this.explicitContext[e]?.has(t))
         )
-        .map((t) => this.translate(t));
+        .map((ts, i) =>
+          ts.map((t) => {
+            const d = this.dictionary.tags[i];
+            return d ? d[t] ?? t : t;
+          })
+        );
     },
     any() {
       return this.tags.some((t) => t.length);
-    },
-  },
-  methods: {
-    translate(values) {
-      return this.dictionary
-        ? values.map((v) => this.dictionary[v] ?? "").filter((v) => v)
-        : values;
     },
   },
 };

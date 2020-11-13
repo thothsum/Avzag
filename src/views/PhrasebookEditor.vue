@@ -61,7 +61,7 @@
             :context="context"
             :translation="translation.context"
           />
-          <div class="panel-horizontal wrap" v-if="block">
+          <div class="panel-horizontal wrap block-editor" v-if="block">
             <div
               class="panel-horizontal-dense"
               :key="i"
@@ -267,5 +267,12 @@ export default {
   .grid {
     grid-template-columns: 100%;
   }
+}
+</style>
+
+
+<style lang="scss">
+.block-editor {
+  gap: 4px 8px;
 }
 </style>

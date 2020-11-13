@@ -6,7 +6,7 @@
         :value.sync="mode"
       />
     </template>
-    <div class="panel-horizontal wrap" v-if="mode == 2">
+    <div class="panel-horizontal wrap block-editor" v-if="mode == 2">
       <div class="panel-horizontal-dense" :key="i" v-for="(s, i) in states">
         <Button
           @click.native="toggle(i)"
