@@ -21,7 +21,9 @@
         <div class="panel wrap card">
           <div class="panel-horizontal">
             <p class="icon">topic</p>
-            <Select class="flex" :value.sync="section" :items="categories" />
+            <h2 class="panel flex">
+              <Select :value.sync="section" :items="categories" />
+            </h2>
           </div>
           <div class="panel-horizontal" v-if="section">
             <p class="icon">short_text</p>
@@ -82,13 +84,13 @@
         <NotesEditor :notes.sync="translation.notes">
           You can add notes, for example, to explain certain grammatical rules.
         </NotesEditor>
-        <PhraseContextTranslations
-          :translations.sync="translation.context"
+        <PhraseContextTranslation
+          :translation.sync="translation.context"
           :context="fullContext"
         >
           Translate the context keys (entites & tags) to provide full phrase
           localization.
-        </PhraseContextTranslations>
+        </PhraseContextTranslation>
       </div>
       <PhraseBlockEditor
         v-if="block"
@@ -109,7 +111,7 @@ import PhraseBlock from "@/components/PhraseBlock";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseBlockEditor from "@/components/PhraseBlockEditor";
 import NotesEditor from "@/components/NotesEditor";
-import PhraseContextTranslations from "@/components/PhraseContextTranslations";
+import PhraseContextTranslation from "@/components/PhraseContextTranslation";
 
 export default {
   name: "PhrasebookEditor",
@@ -122,7 +124,7 @@ export default {
     PhraseContext,
     PhraseBlockEditor,
     NotesEditor,
-    PhraseContextTranslations,
+    PhraseContextTranslation,
   },
   data() {
     return {
