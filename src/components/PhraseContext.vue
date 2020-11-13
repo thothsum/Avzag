@@ -43,8 +43,8 @@ export default {
       );
     },
     entities() {
-      return Object.keys(this.context).map(
-        (e) => this.dictionary.entities[e] ?? e
+      return Object.keys(this.context).map((e) =>
+        this.translate(this.dictionary.entities, e)
       );
     },
     tags() {
@@ -53,14 +53,20 @@ export default {
           [...ts].filter((t) => !this.explicitContext[e]?.has(t))
         )
         .map((ts, i) =>
-          ts.map((t) => {
-            const d = this.dictionary.tags[i];
-            return d ? d[t] ?? t : t;
-          })
+          ts.map((t) => this.translate(this.dictionary.tags[i], t))
         );
     },
     any() {
       return this.tags.some((t) => t.length);
+    },
+  },
+  methods: {
+    translate(d, k) {
+      if (d) {
+        const t = d[k];
+        if (t) return t;
+      }
+      return k;
     },
   },
 };
