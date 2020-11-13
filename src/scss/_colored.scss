@@ -1,14 +1,14 @@
-$colors: #43a047, #e53935, #1e88e5, #ffb300, #8e24aa, #c0ca33, #6d4c41;
+@for $i from 0 through 6 {
+    $color: var(--colored-#{$i});
 
-@for $i from 1 through length($colors) {
-    .colored-#{($i - 1)} {
-        color: nth($colors, $i);
+    .colored-#{$i} {
+        color: $color;
     }
-    .colored-back-#{($i - 1)} {
-        background-color: nth($colors, $i);
+    .colored-back-#{$i} {
+        background-color: $color;
     }
-    .colored-dot-#{($i - 1)}::first-letter {
+    .colored-dot-#{$i}::first-letter {
         font-weight: bold;
-        color: nth($colors, $i);
+        color: $color;
     }
 }
