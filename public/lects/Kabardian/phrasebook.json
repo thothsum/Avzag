@@ -246,6 +246,68 @@
                         }
                     ]
                 }
+            ],
+            "context": [
+                {
+                    "entity": [
+                        "tense",
+                        "зэман"
+                    ],
+                    "tags": [
+                        [
+                            "present",
+                            "иджы"
+                        ],
+                        [
+                            "future",
+                            "итІанэ"
+                        ]
+                    ]
+                },
+                {
+                    "entity": [
+                        "actor",
+                        "цIыху"
+                    ],
+                    "tags": [
+                        [
+                            "singular",
+                            "закъуэ"
+                        ],
+                        [
+                            "feminine",
+                            "цIыхубз"
+                        ],
+                        [
+                            "masculine",
+                            "цIыхухъу"
+                        ],
+                        [
+                            "plural",
+                            "зыбжанэ"
+                        ]
+                    ]
+                },
+                {
+                    "entity": [
+                        "destination",
+                        "щIыпIэ"
+                    ],
+                    "tags": [
+                        [
+                            "there",
+                            "абы"
+                        ],
+                        [
+                            "home",
+                            "унэ"
+                        ],
+                        [
+                            "shop",
+                            "тыкуэн"
+                        ]
+                    ]
+                }
             ]
         },
         {
