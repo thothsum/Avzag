@@ -52,6 +52,10 @@ input[type="text"] {
   }
 }
 
+textarea {
+  padding: map-get($margins, "normal");
+}
+
 input[type="text"] {
   min-width: 0;
   width: 100%;
