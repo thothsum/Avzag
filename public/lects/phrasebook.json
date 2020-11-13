@@ -175,7 +175,7 @@
             "context": [
                 {
                     "entity": "object",
-                    "tags": "object person first second third masculine feminine"
+                    "tags": "object person second third masculine feminine"
                 }
             ],
             "blocks": [
@@ -330,7 +330,7 @@
                 },
                 {
                     "entity": "object",
-                    "tags": "singular pluralz"
+                    "tags": "singular plural"
                 }
             ],
             "blocks": [

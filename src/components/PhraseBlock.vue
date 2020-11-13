@@ -107,14 +107,14 @@ export default {
       return [...entities].map((e) => this.entities.indexOf(e));
     },
     checkConditions(conditions) {
-      if (!conditions?.length) return [1, 0];
-      let f = 0;
-      let l = 0;
-      conditions.forEach(({ entity, tag }) => {
-        f += this.context[entity]?.has(tag);
-        l += !!tag;
-      });
-      return [f / conditions.length, l];
+      return conditions?.length
+        ? [
+            conditions.reduce((f, { entity, tag }) => {
+              return f + (tag ? this.context[entity]?.has(tag) : 1);
+            }, 0) / conditions.length,
+            conditions.length,
+          ]
+        : [1, 0];
     },
     findBestState(indexes) {
       let state = null;
@@ -138,7 +138,7 @@ export default {
     },
     applyConditions(context, conditions, positive) {
       conditions
-        ?.filter((c) => !c.passive && c.tag)
+        ?.filter(({ passive, tag }) => !passive && tag)
         .forEach(({ entity, tag }) => {
           if (positive) context[entity]?.add(tag);
           else context[entity]?.delete(tag);
