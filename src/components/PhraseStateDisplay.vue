@@ -57,7 +57,7 @@ p {
   gap: 0;
 }
 p.faded {
-  opacity: 0.65;
+  opacity: 0.5;
 }
 p:not(.text) {
   text-align: left;
