@@ -22,7 +22,7 @@
         v-for="(b, i) in translation.blocks"
       />
     </div>
-    <template v-if="noted">
+    <template v-if="showNotes">
       <PhoneticNote :key="i" v-for="(n, i) in translation.notes" :text="n" />
     </template>
   </div>
@@ -49,7 +49,7 @@ export default {
     "translation",
     "interactive",
     "glossed",
-    "noted",
+    "showNotes",
   ],
   data() {
     return {

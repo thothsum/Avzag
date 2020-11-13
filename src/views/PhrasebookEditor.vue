@@ -20,11 +20,11 @@
       <div class="panel-sparse">
         <div class="panel wrap card">
           <div class="panel-horizontal">
-            <h2>section</h2>
+            <p class="icon">topic</p>
             <Select class="flex" :value.sync="section" :items="categories" />
           </div>
           <div class="panel-horizontal" v-if="section">
-            <h2>Phrase</h2>
+            <p class="icon">short_text</p>
             <Select
               class="flex"
               :value.sync="selected"

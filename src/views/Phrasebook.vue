@@ -41,15 +41,15 @@
       <div class="panel-horizontal-dense scroll small">
         <Button
           class="round"
-          :value.sync="noted"
+          :value.sync="showNotes"
           icon="sticky_note_2"
           text="Notes"
         />
         <Button
           class="round"
-          :value.sync="contextual"
-          icon="widgets"
-          text="Context"
+          :value.sync="showSource"
+          icon="short_text"
+          text="Source"
         />
         <Button
           class="round"
@@ -64,7 +64,7 @@
           text="Glossed"
         />
       </div>
-      <div class="panel wrap card" v-show="contextual">
+      <div class="panel wrap card" v-show="showSource">
         <PhraseContext v-if="interactive" :context="context" />
         <div class="panel-horizontal-dense wrap">
           <PhraseBlock
@@ -84,7 +84,7 @@
         :translation="t"
         :interactive="interactive"
         :glossed="glossed"
-        :noted="noted"
+        :showNotes="showNotes"
         :key="i"
         v-for="(t, i) in translations"
       />
@@ -116,8 +116,8 @@ export default {
       context: undefined,
       interactive: false,
       glossed: false,
-      noted: false,
-      contextual: true,
+      showNotes: false,
+      showSource: true,
       searching: false,
       section: "",
       query: "",

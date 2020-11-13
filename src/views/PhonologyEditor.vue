@@ -25,7 +25,7 @@
         </div>
       </ActionHeader>
       <div class="panel-sparse small" v-if="phoneme">
-        <ActionHeader button="" icon="label" header="Phoneme">
+        <ActionHeader button="" icon="hearing" header="Phoneme">
           <template #header><ButtonAlert @confirm="removePhoneme" /></template>
           <input type="text" v-model="phoneme.phoneme" placeholder="phoneme" />
         </ActionHeader>
