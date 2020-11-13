@@ -45,5 +45,14 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "scss/style.scss";
+@import url("https://fonts.googleapis.com/css?family=Material+Icons+Outlined");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap");
+
+@import "scss/panels";
+@import "scss/scroll";
+@import "scss/text";
+@import "scss/controls";
+@import "scss/body";
+@import "scss/highlight";
+@import "scss/colored";
 </style>

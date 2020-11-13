@@ -1,7 +1,7 @@
 <template>
   <div>
     <p
-      :class="{ faded: faded[i], 'text-ipa': t == 'ipa', t }"
+      :class="{ 'text-faded': faded[i], 'text-ipa': t == 'ipa', t }"
       :key="i"
       v-for="(t, i) in types"
     >
@@ -55,11 +55,5 @@ export default {
 p {
   display: flex;
   gap: 0;
-}
-p.faded {
-  opacity: 0.5;
-}
-p:not(.text) {
-  text-align: left;
 }
 </style>

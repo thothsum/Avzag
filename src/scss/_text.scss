@@ -8,9 +8,8 @@
 .text-caption * {
   font-size: map-get($font-sizes, "small");
 }
-.text-faded,
-.text-faded * {
-  color: var(--color-text-faded);
+.text-faded {
+  opacity: map-get($opacity, "text");
 }
 
 .text-center,
@@ -25,7 +24,7 @@
   &::before,
   &::after {
     content: "/";
-    color: var(--color-text-faded);
+    opacity: map-get($opacity, "text");
   }
 }
 .text-spaced {
@@ -34,7 +33,7 @@
 
 .text-dot {
   &::after {
-    color: var(--color-text-faded);
+    opacity: map-get($opacity, "text");
     white-space: pre;
     font-weight: normal;
     content: " • ";

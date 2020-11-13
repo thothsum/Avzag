@@ -20,8 +20,12 @@ button {
   place-content: center;
   width: 46px;
   height: 40px;
-  &:not(.highlight):hover * {
-    color: var(--color-text);
+  &.highlight,
+  &:not(.highlight):hover {
+    &,
+    * {
+      opacity: 1 !important;
+    }
   }
   &.text-faded {
     background-color: transparent !important;
