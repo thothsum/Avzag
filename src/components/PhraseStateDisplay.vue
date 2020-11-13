@@ -17,12 +17,7 @@ export default {
   name: "PhraseStateDisplay",
   props: {
     state: { type: Object },
-    types: {
-      type: Array,
-      default() {
-        return ["text"];
-      },
-    },
+    glossed: { type: Boolean, default: false },
     context: { type: Object },
     colored: { type: Boolean, default: true },
   },
@@ -32,6 +27,9 @@ export default {
     },
     entities() {
       return Object.keys(this.context);
+    },
+    types() {
+      return this.glossed ? ["ipa", "glossing"] : ["text"];
     },
     colors() {
       return this.colored

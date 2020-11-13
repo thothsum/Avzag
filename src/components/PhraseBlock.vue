@@ -12,7 +12,7 @@
     </template>
     <PhraseStateDisplay
       ref="display"
-      :types="displayTypes"
+      :glossed="glossed"
       :colored="this.interactive"
       :state="state"
       :context="context"
@@ -40,9 +40,6 @@ export default {
   computed: {
     requirements() {
       return this.block.requirements;
-    },
-    displayTypes() {
-      return this.glossed ? ["ipa", "glossing"] : ["text"];
     },
     states() {
       return this.block.states;
