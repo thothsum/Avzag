@@ -17,11 +17,11 @@
       >
         <div class="panel-horizontal-dense wrap block-editor">
           <div class="panel-dense">
-            <h2 :class="colors[i]">{{ e[0] }}</h2>
+            <h2 class="text-caption" :class="colors[i]">{{ e[0] }}</h2>
             <input :size="sizes[i].entity" type="text" v-model="e[1]" />
           </div>
           <div class="panel-dense" :key="t[0]" v-for="(t, j) in tags[i]">
-            <p>{{ t[0] }}</p>
+            <p class="text-caption">{{ t[0] }}</p>
             <input :size="sizes[i].tags[j]" type="text" v-model="t[1]" />
           </div>
         </div>

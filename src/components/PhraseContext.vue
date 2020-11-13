@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense text-caption wrap" v-if="any">
+  <div class="panel-horizontal-dense text-caption text-faded wrap" v-if="any">
     <template v-for="(ts, i) of tags">
       <div class="panel-horizontal-dense wrap" :key="i" v-if="ts.length">
         <h2 :class="'colored-dot-' + i">{{ entities[i] }}</h2>
