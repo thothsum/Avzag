@@ -61,11 +61,11 @@
             :context="context"
             :translation="translation.context"
           />
-          <div class="panel-horizontal wrap block-editor" v-if="block">
+          <div class="panel-horizontal wrap block-editor">
             <div
               class="panel-horizontal-dense"
-              :key="i"
-              v-for="(b, i) in blocks"
+              :key="b.states[0].display[0].text"
+              v-for="b in blocks"
             >
               <Button
                 @click.native="block = b"
@@ -151,9 +151,6 @@ export default {
     },
     blocks() {
       return this.translation?.blocks;
-    },
-    states() {
-      return this.block?.states;
     },
     fullContext() {
       return (
