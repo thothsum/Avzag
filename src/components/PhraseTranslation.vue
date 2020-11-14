@@ -14,7 +14,8 @@
       <PhraseBlock
         ref="blocks"
         :id="id"
-        :context.sync="context_"
+        :context="context"
+        @update:context="$emit('update:context', $event)"
         :interactive="interactive"
         :glossed="glossed"
         :block="b"
@@ -51,25 +52,12 @@ export default {
     "glossed",
     "showNotes",
   ],
-  data() {
-    return {
-      context_: undefined,
-    };
-  },
   computed: {
     text() {
       return this.$refs.blocks
         ?.filter((b) => b.visible)
         .map((b) => b.$refs.display.text)
         .join(" ");
-    },
-  },
-  watch: {
-    context() {
-      this.context_ = this.context;
-    },
-    context_() {
-      this.$emit("update:context", this.context_);
     },
   },
   methods: {
