@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="root" v-if="catalogue">
     <div id="map">
       <LectsMap
         @toggle="toggleLect"
@@ -99,9 +99,13 @@ export default {
     catalogue: {
       handler() {
         if (this.catalogue)
-          this.lects = JSON.parse(localStorage.lects)?.map((n) =>
-            this.catalogue.find((l) => l.name == n)
-          );
+          try {
+            this.lects = JSON.parse(localStorage.lects)?.map((n) =>
+              this.catalogue.find((l) => l.name == n)
+            );
+          } catch (_) {
+            this.lects = [];
+          }
       },
       immediate: true,
     },
