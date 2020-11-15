@@ -1,83 +1,104 @@
 <template>
-  <div class="grid small" v-if="file">
-    <div class="panel-sparse">
-      <ActionHeader @action="addSection" icon="topic" header="sections">
-        <template #header v-if="section">
-          <ButtonAlert @confirm="removeSection" />
-        </template>
-        <div class="panel-dense scroll">
-          <div class="panel-horizontal-dense" :key="s.id" v-for="s in file">
-            <Button
-              icon="edit"
-              @click.native="section = s"
-              :class="{ highlight: section == s }"
-            />
-            <input class="flex" type="text" v-model="s.name" />
-          </div>
-        </div>
-      </ActionHeader>
-      <ActionHeader
-        @action="addPhrase"
-        icon="short_text"
-        header="phrases"
-        v-if="section"
-      >
-        <template #header v-if="phrase">
-          <ButtonAlert @confirm="removePhrase" />
-        </template>
-        <div class="panel-dense scroll">
-          <div
-            class="panel-horizontal-dense"
-            :key="p.id"
-            v-for="p in section.phrases"
-          >
-            <Button
-              icon="edit"
-              @click.native="phrase = p"
-              :class="{ highlight: phrase == p }"
-            />
-            <input class="flex" type="text" v-model="p.preview" />
-          </div>
-        </div>
-      </ActionHeader>
-      <ActionHeader
-        v-if="phrase"
-        @action="addBlock"
-        icon="account_tree"
-        header="Blocks"
-      >
-        <template #header v-if="block">
-          <ButtonAlert @confirm="removeBlock" />
-        </template>
-        <PhraseContext :context="context" />
-        <div class="panel-horizontal wrap block-editor">
-          <div
-            class="panel-horizontal-dense"
-            :key="phrase.id + i"
-            v-for="(b, i) in blocks"
-          >
-            <Button
-              @click.native="block = b"
-              icon="edit"
-              :class="{ highlight: block == b }"
-            />
-            <PhraseBlock
-              :id="phrase.id"
-              :context.sync="context"
-              :interactive="true"
-              :block="b"
-            />
-          </div>
-        </div>
-      </ActionHeader>
-      <PhraseContextEditor :context="contextSource" v-if="phrase" />
+  <div class="section panel-sparse small">
+    <div id="header" class="panel-horizontal-dense wrap card">
+      <router-link to="/home">Home</router-link>
+      <p class="text-dot" />
+      <router-link to="/editor/phonology">Phonology</router-link>
+      <router-link to="/editor/converter">Converter</router-link>
+      <router-link to="/editor/phrasebook">Phrasebook</router-link>
+      <router-link to="/editor/phrasebook/corpus">
+        Phrasebook Corpus
+      </router-link>
+      <Button @click.native="loadFromLect" icon="language" text="Load lect" />
+      <Button @click.native="loadFromJson" icon="code" text="Load JSON" />
+      <Button
+        @click.native="saveToJson"
+        icon="content_paste"
+        text="Save to clipboard"
+      />
+      <p class="text-dot" />
+      <ButtonAlert @confirm="reset" text="Reset" />
     </div>
-    <PhraseBlockEditor
-      v-if="phrase && block"
-      @remove="removeBlock"
-      :block="block"
-      :context="fullContext"
-    />
+    <div class="grid small" v-if="file">
+      <div class="panel-sparse">
+        <ActionHeader @action="addSection" icon="topic" header="sections">
+          <template #header v-if="section">
+            <ButtonAlert @confirm="removeSection" />
+          </template>
+          <div class="panel-dense scroll">
+            <div class="panel-horizontal-dense" :key="s.id" v-for="s in file">
+              <Button
+                icon="edit"
+                @click.native="section = s"
+                :class="{ highlight: section == s }"
+              />
+              <input class="flex" type="text" v-model="s.name" />
+            </div>
+          </div>
+        </ActionHeader>
+        <ActionHeader
+          @action="addPhrase"
+          icon="short_text"
+          header="phrases"
+          v-if="section"
+        >
+          <template #header v-if="phrase">
+            <ButtonAlert @confirm="removePhrase" />
+          </template>
+          <div class="panel-dense scroll">
+            <div
+              class="panel-horizontal-dense"
+              :key="p.id"
+              v-for="p in section.phrases"
+            >
+              <Button
+                icon="edit"
+                @click.native="phrase = p"
+                :class="{ highlight: phrase == p }"
+              />
+              <input class="flex" type="text" v-model="p.preview" />
+            </div>
+          </div>
+        </ActionHeader>
+        <ActionHeader
+          v-if="phrase"
+          @action="addBlock"
+          icon="account_tree"
+          header="Blocks"
+        >
+          <template #header v-if="block">
+            <ButtonAlert @confirm="removeBlock" />
+          </template>
+          <PhraseContext :context="context" />
+          <div class="panel-horizontal wrap block-editor">
+            <div
+              class="panel-horizontal-dense"
+              :key="phrase.id + i"
+              v-for="(b, i) in blocks"
+            >
+              <Button
+                @click.native="block = b"
+                icon="edit"
+                :class="{ highlight: block == b }"
+              />
+              <PhraseBlock
+                :id="phrase.id"
+                :context.sync="context"
+                :interactive="true"
+                :block="b"
+              />
+            </div>
+          </div>
+        </ActionHeader>
+        <PhraseContextEditor :context="contextSource" v-if="phrase" />
+      </div>
+      <PhraseBlockEditor
+        v-if="phrase && block"
+        @remove="removeBlock"
+        :block="block"
+        :context="fullContext"
+      />
+    </div>
   </div>
 </template>
 
@@ -137,6 +158,19 @@ export default {
       immediate: true,
     },
   },
+  mounted() {
+    try {
+      const file = JSON.parse(localStorage.pbcEditor);
+      if (file) this.file = file;
+      return;
+    } catch (error) {
+      console.log(error);
+    }
+    this.reset();
+  },
+  updated() {
+    localStorage.pbcEditor = JSON.stringify(this.file);
+  },
   methods: {
     addSection() {
       const s = {
@@ -174,6 +208,23 @@ export default {
     removeBlock() {
       this.$delete(this.blocks, this.blocks.indexOf(this.block));
       this.block = this.blocks[this.blocks.length - 1];
+    },
+    loadFromLect() {
+      fetch(this.$store.state.root + "/phrasebook.json")
+        .then((r) => r.json())
+        .then((j) => {
+          if (j) this.file = j;
+        });
+    },
+    loadFromJson() {
+      const file = JSON.parse(window.prompt("Enter JSON"));
+      if (file) this.file = file;
+    },
+    saveToJson() {
+      navigator.clipboard.writeText(JSON.stringify(this.file));
+    },
+    reset() {
+      this.file = [];
     },
   },
 };

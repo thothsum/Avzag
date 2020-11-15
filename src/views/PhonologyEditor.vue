@@ -6,6 +6,9 @@
       <router-link to="/editor/phonology">Phonology</router-link>
       <router-link to="/editor/converter">Converter</router-link>
       <router-link to="/editor/phrasebook">Phrasebook</router-link>
+      <router-link to="/editor/phrasebook/corpus">
+        Phrasebook Corpus
+      </router-link>
       <Button @click.native="loadFromLect" text="load from lect" />
       <Button @click.native="loadFromJson" text="load from JSON" />
       <Button @click.native="saveToJson" text="save JSON to clipboard" />

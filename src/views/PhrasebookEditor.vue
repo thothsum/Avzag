@@ -6,6 +6,9 @@
       <router-link to="/editor/phonology">Phonology</router-link>
       <router-link to="/editor/converter">Converter</router-link>
       <router-link to="/editor/phrasebook">Phrasebook</router-link>
+      <router-link to="/editor/phrasebook/corpus">
+        Phrasebook Corpus
+      </router-link>
       <Button @click.native="loadFromLect" icon="language" text="Load lect" />
       <Button @click.native="loadFromJson" icon="code" text="Load JSON" />
       <Button
@@ -194,7 +197,7 @@ export default {
   },
   mounted() {
     try {
-      const file = JSON.parse(localStorage.phEditor);
+      const file = JSON.parse(localStorage.pbEditor);
       if (file) this.file = file;
       return;
     } catch (error) {
@@ -203,7 +206,7 @@ export default {
     this.reset();
   },
   updated() {
-    localStorage.phEditor = JSON.stringify(this.file);
+    localStorage.pbEditor = JSON.stringify(this.file);
   },
   methods: {
     fillMissing() {
