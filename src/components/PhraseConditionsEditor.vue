@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.conditions {
-  max-height: 256px;
+.scroll {
+  max-height: 128px;
 }
 </style>

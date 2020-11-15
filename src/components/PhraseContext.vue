@@ -49,6 +49,7 @@ export default {
     },
     tags() {
       return Object.entries(this.context)
+        .filter((c) => c[1]?.length)
         .map(([e, ts]) =>
           [...ts].filter((t) => !this.explicitContext[e]?.has(t))
         )
@@ -57,7 +58,7 @@ export default {
         );
     },
     any() {
-      return this.tags.some((t) => t.length);
+      return this.tags.some((t) => t?.length);
     },
   },
   methods: {

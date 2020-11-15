@@ -58,7 +58,7 @@
             <Button
               @click.native="mapping = m"
               :class="{ highlight: mapping == m }"
-              icon="format_list_numbered"
+              icon="edit"
             />
             <input type="text" v-model="m.name" />
           </div>
@@ -75,12 +75,14 @@
           replacing text from the left with the text from the right or vise
           versa (right with left) if conversion is reversed.</template
         >
-        <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
-          <Button @click.native="addPair(i)" icon="add" />
-          <input type="text" v-model="p[0]" placeholder="from" />
-          <input type="text" v-model="p[1]" placeholder="to" />
-          <Button @click.native="deletePair(i)" icon="clear" />
-        </div>
+        <template #default>
+          <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
+            <Button @click.native="addPair(i)" icon="add" />
+            <input type="text" v-model="p[0]" placeholder="from" />
+            <input type="text" v-model="p[1]" placeholder="to" />
+            <Button @click.native="deletePair(i)" icon="clear" />
+          </div>
+        </template>
       </ActionHeader>
     </div>
   </div>

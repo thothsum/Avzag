@@ -36,7 +36,7 @@ const routes = [
     component: PhrasebookEditor
   },
   {
-    path: '/editor/phrasebook-corpus/',
+    path: '/editor/phrasebook/corpus/',
     name: 'PhrasebookCorpusEditor',
     component: PhrasebookCorpusEditor
   },
