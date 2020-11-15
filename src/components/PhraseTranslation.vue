@@ -1,6 +1,6 @@
 <template>
   <div class="panel card" v-if="translation">
-    <div class="panel-horizontal-dense small">
+    <div class="panel-horizontal small">
       <Button @click.native="copy" icon="content_copy" />
       <h2>{{ lect }}</h2>
     </div>

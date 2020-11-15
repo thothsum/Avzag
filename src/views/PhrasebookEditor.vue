@@ -64,8 +64,8 @@
           <div class="panel-horizontal wrap block-editor">
             <div
               class="panel-horizontal-dense"
-              :key="b.states[0].display[0].text"
-              v-for="b in blocks"
+              :key="section + i"
+              v-for="(b, i) in blocks"
             >
               <Button
                 @click.native="block = b"

@@ -27,7 +27,12 @@
       <div class="panel-sparse small" v-if="phoneme">
         <ActionHeader button="" icon="hearing" header="Phoneme">
           <template #header><ButtonAlert @confirm="removePhoneme" /></template>
-          <input type="text" v-model="phoneme.phoneme" placeholder="phoneme" />
+          <input
+            type="text"
+            class="text-ipa"
+            v-model="phoneme.phoneme"
+            placeholder="phoneme"
+          />
         </ActionHeader>
         <NotesEditor :notes.sync="phoneme.notes">
           You can add notes to clarify certain use cases or to give some
@@ -52,7 +57,7 @@
                 placeholder="word"
               />
               <input
-                class="flex"
+                class="flex text-ipa"
                 type="text"
                 v-model="s.ipa"
                 placeholder="ipa"
