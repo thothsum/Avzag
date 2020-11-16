@@ -16,16 +16,15 @@ export default {
   computed: {
     dictionary() {
       let translation = { entities: {}, tags: [] };
-      this.translation?.reduce((c, { entity, tags }) => {
-        c.entities[entity[0]] = entity[1];
-        c.tags.push(
-          tags.reduce((d, t) => {
+      this.translation?.forEach(({ entity, tags }) => {
+        translation.entities[entity[0]] = entity[1];
+        translation.tags.push(
+          tags?.reduce((d, t) => {
             d[t[0]] = t[1];
             return d;
-          }, {})
+          }, {}) ?? {}
         );
-        return c;
-      }, translation);
+      });
       return translation;
     },
     explicitContext() {
@@ -49,7 +48,7 @@ export default {
     },
     tags() {
       return Object.entries(this.context)
-        .filter((c) => c[1]?.length)
+        .filter((c) => c[1]?.size)
         .map(([e, ts]) =>
           [...ts].filter((t) => !this.explicitContext[e]?.has(t))
         )

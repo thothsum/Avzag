@@ -2,7 +2,7 @@
   <div class="section panel" v-if="lects && phrasebook">
     <div class="panel">
       <div class="panel-horizontal">
-        <Button :value.sync="searching" icon="search" />
+        <!-- <Button :value.sync="searching" icon="search" /> -->
         <input
           v-if="searching"
           v-model="query"
@@ -11,31 +11,32 @@
           placeholder="Search all phrases..."
         />
         <h2 v-else class="panel flex">
-          <Select :value.sync="section" :items="categories" />
+          <Select :value.sync="section" :items="phrasebook" display="name" />
         </h2>
       </div>
-      <div v-if="searching" class="panel scroll">
-        <div class="panel-dense" :key="s" v-for="(ph, s) of phrases">
-          <h2>{{ s }}</h2>
-          <div class="panel-solid">
-            <Button
-              :class="{ highlight: section == s && selected == i }"
-              @click.native="select(s, i)"
-              :key="i"
-              v-for="(p, i) in ph"
-              :text="p.preview"
-            />
+      <template v-if="phrases">
+        <div v-if="searching" class="panel scroll">
+          <div class="panel-dense" :key="s" v-for="(ph, s) of phrases">
+            <h2>{{ s }}</h2>
+            <div class="panel-solid">
+              <Button
+                :class="{ highlight: section == s && selected == i }"
+                @click.native="select(s, i)"
+                :key="i"
+                v-for="(p, i) in ph"
+                :text="p.preview"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <List
-        class="scroll"
-        v-else
-        :value.sync="selected"
-        :items="phrases"
-        indexed="true"
-        display="preview"
-      />
+        <List
+          class="scroll"
+          v-else
+          :value.sync="phrase"
+          :items="phrases"
+          display="preview"
+        />
+      </template>
     </div>
     <div class="panel" v-if="phrase">
       <div class="panel-horizontal-dense scroll small">
@@ -112,14 +113,14 @@ export default {
   },
   data() {
     return {
-      selected: undefined,
+      section: undefined,
+      phrase: undefined,
       context: undefined,
       interactive: false,
       glossed: false,
       showNotes: false,
       showSource: true,
       searching: false,
-      section: "",
       query: "",
     };
   },
@@ -130,9 +131,6 @@ export default {
     phrasebook() {
       return this.$store.state.phrasebook;
     },
-    categories() {
-      return Object.keys(this.phrasebook);
-    },
     phrases() {
       return this.searching
         ? Object.entries(this.phrasebook).reduce((acc, [s, p]) => {
@@ -140,10 +138,7 @@ export default {
             if (!acc[s].length) delete acc[s];
             return acc;
           }, {})
-        : this.phrasebook[this.section] ?? [];
-    },
-    phrase() {
-      return this.getPhrase(this.phrasebook);
+        : this.section?.phrases;
     },
     translations() {
       return this.lects.map((l) => this.getPhrase(l.phrasebook));
@@ -159,9 +154,9 @@ export default {
     phrase: {
       handler() {
         this.context =
-          this.phrase?.context?.reduce((acc, c) => {
-            acc[c.entity] = new Set();
-            return acc;
+          this.phrase?.context?.reduce((c, { entity }) => {
+            c[entity] = new Set();
+            return c;
           }, {}) ?? {};
       },
       immediate: true,
@@ -176,7 +171,7 @@ export default {
       this.selected = i;
     },
     getPhrase(s) {
-      if (s && s[this.section]) return s[this.section][this.selected];
+      if (s && s[this.section.id]) return s[this.section.id][this.phrase.id];
     },
   },
 };
