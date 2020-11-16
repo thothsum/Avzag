@@ -19,7 +19,7 @@
       <p class="text-dot" />
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
-    <div class="grid small" v-if="phrasebook && file">
+    <div class="grid small" v-if="phrasebook && phrasebook.length && file">
       <div class="panel-sparse">
         <div class="panel wrap card">
           <div class="panel-horizontal">
@@ -162,16 +162,16 @@ export default {
   },
   watch: {
     phrasebook() {
-      if (this.file && this.phrasebook) {
+      if (this.file && this.phrasebook?.length) {
         this.section = this.phrasebook[0];
-        this.phrase = this.section.phrases[0];
+        this.phrase = this.section?.phrases[0];
         this.fillMissing();
       }
     },
     file() {
-      if (this.file && this.phrasebook) {
+      if (this.file && this.phrasebook?.length) {
         this.section = this.phrasebook[0];
-        this.phrase = this.section.phrases[0];
+        this.phrase = this.section?.phrases[0];
         this.fillMissing();
       }
     },
@@ -205,19 +205,21 @@ export default {
       this.file = JSON.parse(localStorage.pbEditor) ?? {};
     } catch {
       console.log("phrasebook did not load");
+      this.file = {};
     }
 
     try {
-      this.phrasebook = JSON.parse(localStorage.pbcEditor) ?? [];
+      this.phrasebook = JSON.parse(localStorage.pbcEditor);
     } catch {
+      this.phrasebook = {};
+    }
+    if (!Object.keys(this.phrasebook ?? {})?.length) {
       fetch(this.$store.state.root + "/phrasebook.json")
         .then((r) => r.json())
         .then((j) => {
           if (j) this.phrasebook = j;
         });
     }
-
-    this.reset();
   },
   updated() {
     localStorage.pbEditor = JSON.stringify(this.file);
