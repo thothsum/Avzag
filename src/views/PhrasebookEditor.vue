@@ -49,12 +49,13 @@
                 :context.sync="context"
                 :interactive="true"
                 :block="b"
-                :key="i"
+                :key="phrase.id + i"
                 v-for="(b, i) in phrase.blocks"
-              /></div
-          ></template>
+              />
+            </div>
+          </template>
         </div>
-        <template v-if="translation">
+        <template v-if="phrase && translation">
           <ActionHeader @action="addBlock" icon="account_tree" header="Blocks">
             <template #header v-if="block">
               <ButtonAlert @confirm="removeBlock" />
@@ -67,7 +68,7 @@
             <div class="panel-horizontal wrap block-editor">
               <div
                 class="panel-horizontal-dense"
-                :key="section + i"
+                :key="b.states[0].display[0].text"
                 v-for="(b, i) in blocks"
               >
                 <Button
@@ -155,7 +156,11 @@ export default {
   },
   watch: {
     file() {
-      if (this.file) this.section = this.file[0];
+      if (this.file && this.phrasebook) {
+        this.section = this.phrasebook[0];
+        this.phrase = this.section.phrases[0];
+        this.fillMissing();
+      }
     },
     section: {
       handler() {
@@ -197,7 +202,7 @@ export default {
   },
   methods: {
     fillMissing() {
-      if (!this.file) return;
+      if (!(this.file && this.section && this.phrase)) return;
       if (!this.file[this.section.id]) this.file[this.section.id] = {};
 
       let section = this.file[this.section.id];
