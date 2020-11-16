@@ -43,7 +43,10 @@
           </div>
           <template v-if="phrase">
             <PhraseContext :context="context" />
-            <div class="panel-horizontal-dense wrap">
+            <div
+              class="panel-horizontal-dense wrap"
+              v-if="phrase.blocks && phrase.blocks.length"
+            >
               <PhraseBlock
                 :id="phrase.id"
                 :context.sync="context"
@@ -68,7 +71,7 @@
             <div class="panel-horizontal wrap block-editor">
               <div
                 class="panel-horizontal-dense"
-                :key="b.states[0].display[0].text"
+                :key="lect + i + phrase.id"
                 v-for="(b, i) in blocks"
               >
                 <Button
@@ -134,6 +137,7 @@ export default {
   },
   data() {
     return {
+      lect: undefined,
       file: undefined,
       section: undefined,
       phrase: undefined,
@@ -141,12 +145,10 @@ export default {
       fullContext: undefined,
       translation: undefined,
       block: undefined,
+      phrasebook: undefined,
     };
   },
   computed: {
-    phrasebook() {
-      return this.$store.state.phrasebook;
-    },
     phrases() {
       return this.section?.phrases ?? [];
     },
@@ -155,6 +157,13 @@ export default {
     },
   },
   watch: {
+    phrasebook() {
+      if (this.file && this.phrasebook) {
+        this.section = this.phrasebook[0];
+        this.phrase = this.section.phrases[0];
+        this.fillMissing();
+      }
+    },
     file() {
       if (this.file && this.phrasebook) {
         this.section = this.phrasebook[0];
@@ -189,12 +198,17 @@ export default {
   },
   mounted() {
     try {
-      const file = JSON.parse(localStorage.pbEditor);
-      if (file) this.file = file;
-      return;
-    } catch (error) {
-      console.log(error);
+      this.file = JSON.parse(localStorage.pbEditor) ?? {};
+    } catch {
+      console.log("phrasebook did not load");
     }
+
+    try {
+      this.phrasebook = JSON.parse(localStorage.pbcEditor) ?? [];
+    } catch {
+      console.log("phrasebook corpus did not load");
+    }
+
     this.reset();
   },
   updated() {
@@ -213,7 +227,7 @@ export default {
     loadFromLect() {
       fetch(
         this.$store.state.root +
-          window.prompt("Enter lect name") +
+          (this.lect = window.prompt("Enter lect name")) +
           "/phrasebook.json"
       )
         .then((r) => r.json())
@@ -229,12 +243,12 @@ export default {
       navigator.clipboard.writeText(JSON.stringify(this.file));
     },
     reset() {
-      this.file = [];
+      this.file = {};
     },
     addBlock() {
-      if (this.blocks) this.blocks.push({});
-      else this.$set(this.translation, "blocks", [{}]);
-      this.block = this.blocks[this.blocks.length - 1];
+      this.block = {};
+      if (this.blocks) this.blocks.push(this.block);
+      else this.$set(this.translation, "blocks", [this.block]);
     },
     removeBlock() {
       this.$delete(this.blocks, this.blocks.indexOf(this.block));
