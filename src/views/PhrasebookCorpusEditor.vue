@@ -129,17 +129,12 @@ export default {
       phrase: undefined,
       block: undefined,
       context: undefined,
+      fullContext: undefined,
     };
   },
   computed: {
     contextSource() {
       return this.phrase?.context;
-    },
-    fullContext() {
-      return this.contextSource?.reduce((c, { entity, tags }) => {
-        c[entity] = tags.split(" ");
-        return c;
-      }, {});
     },
     blocks() {
       return this.phrase?.blocks;
@@ -148,11 +143,12 @@ export default {
   watch: {
     phrase: {
       handler() {
-        this.context =
-          this.contextSource?.reduce((c, { entity }) => {
-            c[entity] = this.context[entity] ?? new Set();
-            return c;
-          }, {}) ?? {};
+        this.context = {};
+        this.fullContext = {};
+        this.contextSource?.forEach(({ entity, tags }) => {
+          this.context[entity] = new Set();
+          this.fullContext[entity] = tags.split(" ");
+        });
       },
       deep: true,
       immediate: true,

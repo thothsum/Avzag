@@ -25,75 +25,77 @@
           <div class="panel-horizontal">
             <p class="icon">topic</p>
             <h2 class="panel flex">
-              <Select :value.sync="section" :items="categories" />
+              <Select
+                :value.sync="section"
+                :items="phrasebook"
+                display="name"
+              />
             </h2>
           </div>
           <div class="panel-horizontal" v-if="section">
             <p class="icon">short_text</p>
             <Select
               class="flex"
-              :value.sync="selected"
-              :items="phrases"
+              :value.sync="phrase"
+              :items="section.phrases"
               display="preview"
-              :indexed="true"
             />
           </div>
-          <PhraseContext :context="context" />
-          <div class="panel-horizontal-dense wrap" v-if="phrase">
-            <PhraseBlock
-              :id="selected"
-              :context.sync="context"
-              :interactive="true"
-              :block="b"
-              :key="i"
-              v-for="(b, i) in phrase.blocks"
-            />
-          </div>
-        </div>
-        <ActionHeader
-          v-if="translation"
-          @action="addBlock"
-          icon="account_tree"
-          header="Blocks"
-        >
-          <template #header v-if="block">
-            <ButtonAlert @confirm="removeBlock" />
-          </template>
-          <PhraseContext
-            v-if="translation.context"
-            :context="context"
-            :translation="translation.context"
-          />
-          <div class="panel-horizontal wrap block-editor">
-            <div
-              class="panel-horizontal-dense"
-              :key="section + i"
-              v-for="(b, i) in blocks"
-            >
-              <Button
-                @click.native="block = b"
-                icon="edit"
-                :class="{ highlight: block == b }"
-              />
+          <template v-if="phrase">
+            <PhraseContext :context="context" />
+            <div class="panel-horizontal-dense wrap">
               <PhraseBlock
-                :id="selected"
+                :id="phrase.id"
                 :context.sync="context"
                 :interactive="true"
                 :block="b"
-              />
+                :key="i"
+                v-for="(b, i) in phrase.blocks"
+              /></div
+          ></template>
+        </div>
+        <template v-if="translation">
+          <ActionHeader @action="addBlock" icon="account_tree" header="Blocks">
+            <template #header v-if="block">
+              <ButtonAlert @confirm="removeBlock" />
+            </template>
+            <PhraseContext
+              v-if="translation.context"
+              :context="context"
+              :translation="translation.context"
+            />
+            <div class="panel-horizontal wrap block-editor">
+              <div
+                class="panel-horizontal-dense"
+                :key="section + i"
+                v-for="(b, i) in blocks"
+              >
+                <Button
+                  @click.native="block = b"
+                  icon="edit"
+                  :class="{ highlight: block == b }"
+                />
+                <PhraseBlock
+                  :id="phrase.id"
+                  :context.sync="context"
+                  :interactive="true"
+                  :block="b"
+                />
+              </div>
             </div>
-          </div>
-        </ActionHeader>
-        <NotesEditor :notes.sync="translation.notes">
-          You can add notes, for example, to explain certain grammatical rules.
-        </NotesEditor>
-        <PhraseContextTranslation
-          :translation.sync="translation.context"
-          :context="fullContext"
-        >
-          Translate the context keys (entites & tags) to provide full phrase
-          localization.
-        </PhraseContextTranslation>
+          </ActionHeader>
+          <NotesEditor :notes.sync="translation.notes">
+            You can add notes, for example, to explain certain grammatical
+            rules.
+          </NotesEditor>
+          <PhraseContextTranslation
+            :translation.sync="translation.context"
+            :context="fullContext"
+          >
+            Translate the context keys (entites & tags) to provide full phrase
+            localization.
+          </PhraseContextTranslation>
+        </template>
       </div>
       <PhraseBlockEditor
         v-if="block"
@@ -132,9 +134,10 @@ export default {
   data() {
     return {
       file: undefined,
-      section: "",
-      selected: 0,
+      section: undefined,
+      phrase: undefined,
       context: undefined,
+      fullContext: undefined,
       translation: undefined,
       block: undefined,
     };
@@ -143,54 +146,32 @@ export default {
     phrasebook() {
       return this.$store.state.phrasebook;
     },
-    categories() {
-      return Object.keys(this.phrasebook);
-    },
-    phrases() {
-      return this.phrasebook ? this.phrasebook[this.section] : null;
-    },
-    phrase() {
-      return this.phrases ? this.phrases[this.selected] : null;
-    },
     blocks() {
       return this.translation?.blocks;
-    },
-    fullContext() {
-      return (
-        this.phrase?.context?.reduce((acc, s) => {
-          acc[s.entity] = s.tags.split(" ");
-          return acc;
-        }, {}) ?? {}
-      );
     },
   },
   watch: {
     phrase: {
       handler() {
-        this.context =
-          this.phrase?.context?.reduce((acc, s) => {
-            acc[s.entity] = new Set();
-            return acc;
-          }, {}) ?? {};
+        if (!this.phrase) return;
+
+        this.context = {};
+        this.fullContext = {};
+        this.phrase.context.forEach(({ entity, tags }) => {
+          this.context[entity] = new Set();
+          this.fullContext[entity] = tags.split(" ");
+        });
+
+        this.fillMissing();
       },
       immediate: true,
     },
     blocks() {
       this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null;
     },
-    file() {
-      this.fillMissing();
-    },
     section: {
       handler() {
-        this.selected = 0;
-        this.fillMissing();
-      },
-      immediate: true,
-    },
-    selected: {
-      handler() {
-        this.fillMissing();
+        this.phrase = this.section?.phrases[0];
       },
       immediate: true,
     },
@@ -211,13 +192,12 @@ export default {
   methods: {
     fillMissing() {
       if (!this.file) return;
-      if (!this.file[this.section]) this.file[this.section] = [];
-      let cat = this.file[this.section];
-      if (!cat[this.selected]) {
-        while (cat.length < this.selected) cat.push({});
-        this.$set(cat, this.selected, {});
-      }
-      this.translation = this.file[this.section][this.selected];
+      if (!this.file[this.section.id]) this.file[this.section.id] = {};
+
+      let section = this.file[this.section.id];
+      if (!section[this.phrase.id]) this.$set(section, this.phrase.id, {});
+
+      this.translation = section[this.phrase.id];
     },
     loadFromLect() {
       fetch(
