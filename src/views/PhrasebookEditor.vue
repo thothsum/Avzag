@@ -32,12 +32,12 @@
               />
             </h2>
           </div>
-          <div class="panel-horizontal" v-if="section">
+          <div class="panel-horizontal" v-if="phrases">
             <p class="icon">short_text</p>
             <Select
               class="flex"
               :value.sync="phrase"
-              :items="section.phrases"
+              :items="phrases"
               display="preview"
             />
           </div>
@@ -146,11 +146,23 @@ export default {
     phrasebook() {
       return this.$store.state.phrasebook;
     },
+    phrases() {
+      return this.section?.phrases ?? [];
+    },
     blocks() {
       return this.translation?.blocks;
     },
   },
   watch: {
+    file() {
+      if (this.file) this.section = this.file[0];
+    },
+    section: {
+      handler() {
+        this.phrase = this.phrases[0];
+      },
+      immediate: true,
+    },
     phrase: {
       handler() {
         if (!this.phrase) return;
@@ -168,12 +180,6 @@ export default {
     },
     blocks() {
       this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null;
-    },
-    section: {
-      handler() {
-        this.phrase = this.section?.phrases[0];
-      },
-      immediate: true,
     },
   },
   mounted() {
