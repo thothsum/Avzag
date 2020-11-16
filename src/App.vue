@@ -37,7 +37,7 @@ export default Vue.extend({
           : { name: "Home" }
       );
     if (this.$route.name != "Home") {
-      const lects = JSON.parse(localStorage.lects);
+      const lects = JSON.parse(localStorage.lects ?? "[]");
       if (lects) this.$store.dispatch("loadLects", lects);
     }
   },

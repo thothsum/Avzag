@@ -41,6 +41,10 @@
               display="preview"
             />
           </div>
+          <p class="text-faded text-caption">
+            The source corpus is loading from what is saved on Phrasebook
+            Corppus editor page.
+          </p>
           <template v-if="phrase">
             <PhraseContext :context="context" />
             <div
@@ -206,7 +210,11 @@ export default {
     try {
       this.phrasebook = JSON.parse(localStorage.pbcEditor) ?? [];
     } catch {
-      console.log("phrasebook corpus did not load");
+      fetch(this.$store.state.root + "/phrasebook.json")
+        .then((r) => r.json())
+        .then((j) => {
+          if (j) this.phrasebook = j;
+        });
     }
 
     this.reset();
