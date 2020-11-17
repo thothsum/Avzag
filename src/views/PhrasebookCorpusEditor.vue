@@ -103,6 +103,8 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from "uuid";
+
 import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
@@ -141,6 +143,9 @@ export default {
     },
   },
   watch: {
+    section() {
+      this.phrase = this.section?.phrases[0];
+    },
     phrase: {
       handler() {
         this.context = {};
@@ -170,7 +175,7 @@ export default {
   methods: {
     addSection() {
       const s = {
-        id: String(Math.random()),
+        id: uuidv4(),
         name: "New section",
         phrases: [],
       };
@@ -182,7 +187,7 @@ export default {
     },
     addPhrase() {
       const p = {
-        id: String(Math.random()),
+        id: uuidv4(),
         preview: "New phrase",
         context: [],
         blocks: [],
