@@ -248,6 +248,9 @@ export default {
 .block-editor {
   gap: 4px 8px;
 }
+</style>
+
+<style lang="scss" scoped>
 .scroll {
   max-height: 128px;
 }

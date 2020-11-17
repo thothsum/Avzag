@@ -2,7 +2,7 @@
   <div class="section panel" v-if="lects && phrasebook">
     <div class="panel">
       <div class="panel-horizontal">
-        <!-- <Button :value.sync="searching" icon="search" /> -->
+        <Button :value.sync="searching" icon="search" />
         <input
           v-if="searching"
           v-model="query"
@@ -16,15 +16,17 @@
       </div>
       <template v-if="phrases">
         <div v-if="searching" class="panel scroll">
-          <div class="panel-dense" :key="s" v-for="(ph, s) of phrases">
-            <h2>{{ s }}</h2>
+          <div class="panel-dense" :key="s" v-for="(ps, s) of phrases">
+            <h2>{{ phrasebook[s].name }}</h2>
             <div class="panel-solid">
               <Button
-                :class="{ highlight: section == s && selected == i }"
-                @click.native="select(s, i)"
-                :key="i"
-                v-for="(p, i) in ph"
-                :text="p.preview"
+                :class="{
+                  highlight: phrase == phrasebook[s].phrases[p],
+                }"
+                @click.native="select(s, p)"
+                :key="p"
+                v-for="p in ps"
+                :text="phrasebook[s].phrases[p].preview"
               />
             </div>
           </div>
@@ -133,10 +135,13 @@ export default {
     },
     phrases() {
       return this.searching
-        ? Object.entries(this.phrasebook).reduce((acc, [s, p]) => {
-            acc[s] = p.filter((p) => p.preview.includes(this.query));
-            if (!acc[s].length) delete acc[s];
-            return acc;
+        ? this.phrasebook.reduce((f, s, i) => {
+            f[i] = s.phrases
+              .map((p, i) => [p, i])
+              .filter((p) => p[0].preview.includes(this.query))
+              .map((p) => p[1]);
+            if (!f[i].length) delete f[i];
+            return f;
           }, {})
         : this.section?.phrases;
     },
@@ -166,9 +171,9 @@ export default {
     localStorage.phrase = this.selected;
   },
   methods: {
-    select(s, i) {
-      this.section = s;
-      this.selected = i;
+    select(s, p) {
+      this.section = this.phrasebook[s];
+      this.phrase = this.section.phrases[p];
     },
     getPhrase(s) {
       if (s && s[this.section.id]) return s[this.section.id][this.phrase.id];
