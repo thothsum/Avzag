@@ -89,11 +89,9 @@ export default {
 
         if (visible) {
           const state = this.findBestState();
-          if (this.visible) this.state = state;
-          else this.applyState(state);
+          if (state != this.state) this.switchState(state);
         } else if (this.state) {
-          this.applyState(null);
-          this.state = null;
+          this.switchState(null);
         }
 
         this.visible = visible;
@@ -144,25 +142,34 @@ export default {
           else context[entity]?.delete(tag);
         });
     },
-    applyState(state) {
+    switchState(state) {
       let context = Object.assign({}, this.context);
+      if (this.states.length == 3) {
+        console.log(
+          this.state?.conditions?.length,
+          this.state?.display[0].text
+        );
+        console.log(state?.conditions?.length, state?.display[0].text);
+      }
 
       this.applyConditions(context, this.state?.conditions, false);
       this.applyConditions(context, state?.conditions, true);
 
+      this.state = state;
       this.$emit("update:context", context);
     },
     move() {
       if (this.disabled) return;
       if (typeof this.transition == "string") {
+        let state;
         if (this.transition == "next") {
           const i = this.states.indexOf(this.state);
-          const state = this.states[(i + 1) % this.states.length];
-          this.applyState(state);
+          state = this.states[(i + 1) % this.states.length];
         } else if (this.transition) {
           const i = this.transition.split(" ").map((i) => Number(i));
-          this.applyState(this.findBestState(i));
+          state = this.findBestState(i);
         }
+        this.switchState(state);
       } else if (this.transition) {
         // directly modify global environment
       }
