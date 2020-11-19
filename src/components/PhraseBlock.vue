@@ -144,13 +144,6 @@ export default {
     },
     switchState(state) {
       let context = Object.assign({}, this.context);
-      if (this.states.length == 3) {
-        console.log(
-          this.state?.conditions?.length,
-          this.state?.display[0].text
-        );
-        console.log(state?.conditions?.length, state?.display[0].text);
-      }
 
       this.applyConditions(context, this.state?.conditions, false);
       this.applyConditions(context, state?.conditions, true);
