@@ -195,7 +195,8 @@
                             "conditions": [
                                 {
                                     "entity": "actor",
-                                    "tag": "singular"
+                                    "tag": "singular",
+                                    "passive": true
                                 },
                                 {
                                     "entity": "actor",
@@ -221,7 +222,8 @@
                             "conditions": [
                                 {
                                     "entity": "actor",
-                                    "tag": "singular"
+                                    "tag": "singular",
+                                    "passive": true
                                 },
                                 {
                                     "entity": "actor",
