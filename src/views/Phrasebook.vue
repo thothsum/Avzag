@@ -1,7 +1,7 @@
 <template>
   <div class="section col-1" v-if="lects && phrasebook">
     <div class="col-1">
-      <div class="row-1">
+      <div class="row">
         <Button :value.sync="searching" icon="search" />
         <input
           v-if="searching"
