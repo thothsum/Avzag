@@ -75,7 +75,7 @@ export default {
       about: false,
       search: "",
       lects: undefined,
-      visible: undefined,
+      visible: [],
     };
   },
   computed: {

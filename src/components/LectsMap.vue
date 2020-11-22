@@ -100,6 +100,9 @@ export default {
 </script>
 
 <style lang="scss">
+.vue2leaflet-map * {
+  transition: none;
+}
 .leaflet-tile-container * {
   border-radius: 0;
 }
@@ -120,6 +123,9 @@ export default {
 
 <style lang="scss" scoped>
 .marker {
+  * {
+    transition: $transition;
+  }
   transform-origin: top center;
   width: fit-content;
   height: fit-content;
