@@ -1,6 +1,6 @@
 <template>
-  <div class="section panel-sparse small">
-    <div class="panel-horizontal-dense wrap card">
+  <div class="section col-2 small">
+    <div class="row wrap card">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
@@ -15,7 +15,7 @@
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid small" v-if="file">
-      <div class="panel-sparse">
+      <div class="col-2">
         <ActionHeader button="" icon="text_snippet" header="Sample Text">
           <template #caption>
             Text that will be displayed to demonstrate the converter.
@@ -31,9 +31,9 @@
             Two mappings that will be set by default. The left should be set to
             the sample's original writing system.
           </template>
-          <div class="panel-horizontal-dense" v-if="defaultConversion">
+          <div class="row" v-if="defaultConversion">
             <p class="icon">south</p>
-            <div class="panel-dense flex">
+            <div class="col flex">
               <Select
                 :value.sync="defaultConversion[0]"
                 :items="mappings"
@@ -54,7 +54,7 @@
             <ButtonAlert @confirm="deleteMapping" />
           </template>
           <div
-            class="panel-horizontal-dense"
+            class="row"
             :key="i"
             v-for="(m, i) in mappings"
           >
@@ -79,7 +79,7 @@
           versa (right with left) if conversion is reversed.</template
         >
         <template #default>
-          <div class="panel-horizontal-dense" :key="i" v-for="(p, i) in pairs">
+          <div class="row" :key="i" v-for="(p, i) in pairs">
             <Button @click.native="addPair(i)" icon="add" />
             <input type="text" v-model="p[0]" placeholder="from" />
             <input type="text" v-model="p[1]" placeholder="to" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-solid">
+  <div class="col-0">
     <Button
       :key="i"
       v-for="(v, i) in values"

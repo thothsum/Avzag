@@ -1,12 +1,12 @@
 <template>
   <div class="section" v-if="phonemes">
-    <div class="panel scroll">
+    <div class="col-1 scroll">
       <ChipsQuery @query="lectQuery = $event" :items="lects" itemKey="name" />
       <InputQuery
         placeholder="Query phonemes, e.g. voiced -velar..."
         @query="featureQuery = $event"
       />
-      <div class="panel" :key="c" v-for="c in categories">
+      <div class="col-1" :key="c" v-for="c in categories">
         <h2>{{ c + "s" }}</h2>
         <PhoneticTable
           v-model="phoneme"

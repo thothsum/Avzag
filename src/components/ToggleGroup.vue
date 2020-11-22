@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense">
+  <div class="row">
     <Button
       :key="i"
       v-for="(ic, i) in icons"

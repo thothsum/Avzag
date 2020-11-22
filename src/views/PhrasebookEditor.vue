@@ -1,6 +1,6 @@
 <template>
-  <div class="section panel-sparse small">
-    <div id="header" class="panel-horizontal-dense wrap card">
+  <div class="section col-2 small">
+    <div id="header" class="row wrap card">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
@@ -20,11 +20,11 @@
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid small" v-if="phrasebook && phrasebook.length && file">
-      <div class="panel-sparse">
-        <div class="panel wrap card">
-          <div class="panel-horizontal">
+      <div class="col-2">
+        <div class="col-1 wrap card">
+          <div class="row-1">
             <p class="icon">topic</p>
-            <h2 class="panel flex">
+            <h2 class="col-1 flex">
               <Select
                 :value.sync="section"
                 :items="phrasebook"
@@ -32,7 +32,7 @@
               />
             </h2>
           </div>
-          <div class="panel-horizontal" v-if="phrases">
+          <div class="row-1" v-if="phrases">
             <p class="icon">short_text</p>
             <Select
               class="flex"
@@ -48,7 +48,7 @@
           <template v-if="phrase">
             <PhraseContext :context="context" />
             <div
-              class="panel-horizontal-dense wrap"
+              class="row wrap"
               v-if="phrase.blocks && phrase.blocks.length"
             >
               <PhraseBlock
@@ -72,9 +72,9 @@
               :context="context"
               :translation="translation.context"
             />
-            <div class="panel-horizontal wrap block-editor">
+            <div class="row-1 wrap block-editor">
               <div
-                class="panel-horizontal-dense"
+                class="row"
                 :key="lect + i + phrase.id"
                 v-for="(b, i) in blocks"
               >

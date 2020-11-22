@@ -1,8 +1,8 @@
 <template>
   <ActionHeader @action="add" :icon="icon" :header="header">
     <template #caption><slot /></template>
-    <div class="scroll panel-dense">
-      <div class="panel-horizontal-dense" :key="i" v-for="(c, i) in conditions">
+    <div class="scroll col">
+      <div class="row" :key="i" v-for="(c, i) in conditions">
         <Button
           :value.sync="c.passive"
           v-if="allowPassive"

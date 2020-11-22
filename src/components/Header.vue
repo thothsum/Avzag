@@ -1,6 +1,6 @@
 <template>
   <div id="root">
-    <div class="section panel-horizontal scroll">
+    <div class="section row-1 scroll">
       <Button @click.native="navigate('Home')" icon="arrow_back" />
       <Button
         @click.native="navigate(t)"

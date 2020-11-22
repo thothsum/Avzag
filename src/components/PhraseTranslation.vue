@@ -1,6 +1,6 @@
 <template>
-  <div class="panel card" v-if="translation">
-    <div class="panel-horizontal small">
+  <div class="col-1 card" v-if="translation">
+    <div class="row-1 small">
       <Button @click.native="copy" icon="content_copy" />
       <h2>{{ lect }}</h2>
     </div>
@@ -10,7 +10,7 @@
       :translation="translation.context"
       :blocks="$refs.blocks"
     />
-    <div class="panel-horizontal-dense wrap flex">
+    <div class="row wrap flex">
       <PhraseBlock
         ref="blocks"
         :id="id"

@@ -3,8 +3,8 @@
     <template #header>
       <Button :value.sync="state.implicit" icon="opacity" />
     </template>
-    <div v-if="display" class="panel-dense">
-      <div class="panel-horizontal-dense" :key="i" v-for="(d, i) in display">
+    <div v-if="display" class="col">
+      <div class="row" :key="i" v-for="(d, i) in display">
         <Button @click.native="toggle(i)" icon="palette" />
         <input
           :class="colors[i]"

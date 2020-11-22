@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense scroll" v-if="many">
+  <div class="row scroll" v-if="many">
     <Button
       class="small round"
       :class="{ highlight: value == items[i] }"

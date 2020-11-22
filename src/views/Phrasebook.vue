@@ -1,7 +1,7 @@
 <template>
-  <div class="section panel" v-if="lects && phrasebook">
-    <div class="panel">
-      <div class="panel-horizontal">
+  <div class="section col-1" v-if="lects && phrasebook">
+    <div class="col-1">
+      <div class="row-1">
         <Button :value.sync="searching" icon="search" />
         <input
           v-if="searching"
@@ -10,15 +10,15 @@
           type="text"
           placeholder="Search all phrases..."
         />
-        <h2 v-else class="panel flex">
+        <h2 v-else class="col-1 flex">
           <Select :value.sync="section" :items="phrasebook" display="name" />
         </h2>
       </div>
       <template v-if="phrases">
-        <div v-if="searching" class="panel scroll">
-          <div class="panel-dense" :key="s" v-for="(ps, s) of phrases">
+        <div v-if="searching" class="col-1 scroll">
+          <div class="col" :key="s" v-for="(ps, s) of phrases">
             <h2>{{ phrasebook[s].name }}</h2>
-            <div class="panel-solid">
+            <div class="col-0">
               <Button
                 :class="{
                   highlight: phrase == phrasebook[s].phrases[p],
@@ -40,8 +40,8 @@
         />
       </template>
     </div>
-    <div class="panel" v-if="phrase">
-      <div class="panel-horizontal-dense scroll small">
+    <div class="col-1" v-if="phrase">
+      <div class="row scroll small">
         <Button
           class="round"
           :value.sync="showNotes"
@@ -67,9 +67,9 @@
           text="Glossed"
         />
       </div>
-      <div class="panel wrap card" v-show="showSource">
+      <div class="col-1 wrap card" v-show="showSource">
         <PhraseContext v-if="interactive" :context="context" />
-        <div class="panel-horizontal-dense wrap">
+        <div class="row wrap">
           <PhraseBlock
             :id="selected"
             :context.sync="context"

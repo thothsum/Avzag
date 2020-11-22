@@ -8,9 +8,9 @@
         :visible="visible"
       />
     </div>
-    <div id="ui" class="panel">
-      <div id="top" class="panel card">
-        <div class="panel-horizontal">
+    <div id="ui" class="col-1">
+      <div id="top" class="col-1 card">
+        <div class="row-1">
           <Button :value.sync="about" icon="info" />
           <input
             class="flex"
@@ -20,7 +20,7 @@
           />
           <Button icon="arrow_forward" @click.native="load" :disabled="empty" />
         </div>
-        <div class="panel-horizontal-dense scroll-hidden">
+        <div class="row scroll-hidden">
           <p id="placeholder" v-if="empty">
             Click on the map or use the input field above.
           </p>
@@ -33,11 +33,11 @@
           />
         </div>
       </div>
-      <div class="panel scroll">
-        <div id="about" class="panel card center text-center" v-if="about">
+      <div class="col-1 scroll">
+        <div id="about" class="col-1 card text-center" v-if="about">
           <h1>Ævzag</h1>
           <p v-show="quote">{{ quote }}</p>
-          <div class="panel-horizontal center wrap">
+          <div class="row-1 wrap center">
             <router-link to="/editor/phonology">Editor tools</router-link>
             <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
             <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>

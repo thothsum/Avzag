@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-dense scroll" v-if="many">
+  <div class="row scroll" v-if="many">
     <button @click="reset" class="small icon round">clear</button>
     <button
       class="small round"

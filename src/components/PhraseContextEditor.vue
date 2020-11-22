@@ -1,7 +1,7 @@
 <template>
   <ActionHeader @action="add" icon="widgets" header="context">
-    <div class="panel-dense scroll">
-      <div class="panel-horizontal-dense" :key="i" v-for="(c, i) in context">
+    <div class="col scroll">
+      <div class="row" :key="i" v-for="(c, i) in context">
         <input
           class="entity"
           :class="'colored-' + i"

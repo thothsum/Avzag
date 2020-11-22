@@ -1,7 +1,7 @@
 <template>
   <button
     :class="{ 'text-faded': faded, highlight: selected }"
-    class="panel-solid"
+    class="col-0"
   >
     <b>{{ str }}</b>
     <span class="text-ipa" :class="{ 'text-faded': str }">{{ ipa }}</span>

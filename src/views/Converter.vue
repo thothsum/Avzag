@@ -1,9 +1,9 @@
 <template>
-  <div class="section panel" v-if="lects">
+  <div class="section col-1" v-if="lects">
     <ChipsSelect v-model="lect" :items="lects" itemKey="name" />
     <div class="split" v-if="converter">
-      <div class="panel">
-        <div class="panel-horizontal">
+      <div class="col">
+        <div class="row">
           <Select
             class="flex"
             :value.sync="sourceMapping"
@@ -26,8 +26,8 @@
         />
         <MappingTable v-if="showMappings" :mapping="sourceMapping" />
       </div>
-      <div class="panel">
-        <div class="panel-horizontal">
+      <div class="col">
+        <div class="row">
           <Select
             class="flex"
             :value.sync="resultMapping"

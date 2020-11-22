@@ -14,7 +14,7 @@ select {
     @extend .text-faded;
   }
 
-  @extend .panel-horizontal-dense;
+  @extend .row;
 
   background-color: var(--color-active);
   height: map-get($button-height, "normal");

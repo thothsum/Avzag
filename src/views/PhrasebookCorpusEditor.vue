@@ -1,6 +1,6 @@
 <template>
-  <div class="section panel-sparse small">
-    <div id="header" class="panel-horizontal-dense wrap card">
+  <div class="section col-2 small">
+    <div id="header" class="row wrap card">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
@@ -20,13 +20,13 @@
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid small" v-if="file">
-      <div class="panel-sparse">
+      <div class="col-2">
         <ActionHeader @action="addSection" icon="topic" header="sections">
           <template #header v-if="section">
             <ButtonAlert @confirm="removeSection" />
           </template>
-          <div class="panel-dense scroll">
-            <div class="panel-horizontal-dense" :key="s.id" v-for="s in file">
+          <div class="col scroll">
+            <div class="row" :key="s.id" v-for="s in file">
               <Button
                 icon="edit"
                 @click.native="section = s"
@@ -45,12 +45,8 @@
           <template #header v-if="phrase">
             <ButtonAlert @confirm="removePhrase" />
           </template>
-          <div class="panel-dense scroll">
-            <div
-              class="panel-horizontal-dense"
-              :key="p.id"
-              v-for="p in section.phrases"
-            >
+          <div class="col scroll">
+            <div class="row" :key="p.id" v-for="p in section.phrases">
               <Button
                 icon="edit"
                 @click.native="phrase = p"
@@ -70,12 +66,8 @@
             <ButtonAlert @confirm="removeBlock" />
           </template>
           <PhraseContext :context="context" />
-          <div class="panel-horizontal wrap block-editor">
-            <div
-              class="panel-horizontal-dense"
-              :key="phrase.id + i"
-              v-for="(b, i) in blocks"
-            >
+          <div class="row-1 wrap block-editor">
+            <div class="row" :key="phrase.id + i" v-for="(b, i) in blocks">
               <Button
                 @click.native="block = b"
                 icon="edit"

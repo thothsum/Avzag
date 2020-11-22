@@ -1,6 +1,6 @@
 <template>
-  <div class="section panel-sparse small">
-    <div class="panel-horizontal-dense wrap small card">
+  <div class="section col-2 small">
+    <div class="row wrap small card">
       <router-link to="/home">Home</router-link>
       <p class="text-dot" />
       <router-link to="/editor/phonology">Phonology</router-link>
@@ -16,7 +16,7 @@
     </div>
     <div class="grid">
       <ActionHeader @action="addPhoneme" icon="view_comfy" header="Phonemes">
-        <div class="panel-horizontal-dense wrap">
+        <div class="row wrap">
           <PhoneticItem
             @click.native="phoneme = p"
             :selected="phoneme == p"
@@ -27,7 +27,7 @@
           />
         </div>
       </ActionHeader>
-      <div class="panel-sparse small" v-if="phoneme">
+      <div class="col-2 small" v-if="phoneme">
         <ActionHeader button="" icon="hearing" header="Phoneme">
           <template #header><ButtonAlert @confirm="removePhoneme" /></template>
           <input
@@ -50,7 +50,7 @@
             <div
               :key="i"
               v-for="(s, i) in phoneme.samples"
-              class="panel-horizontal-dense sample"
+              class="row sample"
             >
               <input type="text" v-model="s.grapheme" placeholder="grapheme" />
               <input

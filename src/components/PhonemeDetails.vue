@@ -1,6 +1,6 @@
 <template>
-  <div class="panel">
-    <div class="card panel">
+  <div class="col-1">
+    <div class="card col-1">
       <h1 class="text-ipa">{{ phoneme.ipa }}</h1>
       <p class="text-caption text-faded text-spaced">{{ phoneme.tags }}</p>
     </div>

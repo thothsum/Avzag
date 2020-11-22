@@ -1,7 +1,7 @@
 <template>
   <div>
     <p
-      :class="{ 'text-faded': faded[i], 'text-ipa': t == 'ipa', t }"
+      :class="{ 'text-faded': state.implicit, 'text-ipa': t == 'ipa', t }"
       :key="i"
       v-for="(t, i) in types"
     >
@@ -22,9 +22,6 @@ export default {
     colored: { type: Boolean, default: true },
   },
   computed: {
-    faded() {
-      return this.types.map((t) => t == "text" && this.state.implicit);
-    },
     entities() {
       return Object.keys(this.context);
     },

@@ -2,8 +2,7 @@
   flex-wrap: wrap;
 }
 
-.flex,
-.flex-content > * {
+.flex {
   flex: 1;
 }
 
@@ -11,44 +10,37 @@
   justify-content: center;
 }
 
-%panel {
-  display: flex;
-}
+@mixin gaps($self) {
+  gap: map-get($margins, "half");
 
-@mixin density($parent) {
-  gap: map-get($margins, "normal");
-
-  &-solid {
-    @extend #{$parent};
+  &-0 {
+    @extend #{$self};
     overflow: hidden;
     gap: 0;
     > * {
       border-radius: 0;
     }
   }
-
-  &-dense {
-    @extend #{$parent};
-    gap: map-get($margins, "half");
+  &-1 {
+    @extend #{$self};
+    gap: map-get($margins, "normal");
   }
-
-  &-sparse {
-    @extend #{$parent};
+  &-2 {
+    @extend #{$self};
     gap: map-get($margins, "double");
   }
 }
 
-.panel {
-  @extend %panel;
-  @include density(".panel");
-  flex-direction: column;
+.row {
+  display: flex;
+  align-items: center;
+  @include gaps(".row");
 }
 
-.panel-horizontal {
-  @extend %panel;
-  @include density(".panel-horizontal");
-  place-items: center;
-  flex-direction: row;
+.col {
+  display: flex;
+  flex-flow: column;
+  @include gaps(".col");
 }
 
 .card {

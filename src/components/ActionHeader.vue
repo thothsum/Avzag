@@ -1,6 +1,6 @@
 <template>
-  <div class="panel-dense">
-    <div class="panel-horizontal-dense">
+  <div class="col">
+    <div class="row">
       <slot v-if="$slots.action" name="action" />
       <Button
         v-else-if="button"

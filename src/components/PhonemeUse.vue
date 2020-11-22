@@ -1,12 +1,12 @@
 <template>
-  <div class="panel card">
+  <div class="col-1 card">
     <div class="title">
       <h2 class="flex">{{ lect }}</h2>
       <p :key="g" v-for="g in graphemes" class="text-dot">{{ g }}</p>
     </div>
-    <div class="panel-solid">
+    <div class="col-0">
       <button
-        class="small panel-horizontal"
+        class="small row"
         @click="play(i)"
         :key="i"
         v-for="(s, i) in fullSamples"
@@ -89,7 +89,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.panel-solid {
+.col-0 {
   $margin: -1 * map-get($margins, "normal");
   margin-left: $margin;
   margin-right: $margin;

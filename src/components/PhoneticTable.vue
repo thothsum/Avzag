@@ -1,5 +1,5 @@
 <template>
-  <div id="root" :class="{ narrow }" class="panel-horizontal-dense scroll wrap">
+  <div id="root" :class="{ narrow }" class="row scroll wrap">
     <PhoneticItem
       @click.native="$emit('select', p)"
       :selected="phoneme == p"

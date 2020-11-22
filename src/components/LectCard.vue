@@ -1,6 +1,6 @@
 <template>
-  <div class="panel-horizontal card" v-if="visible">
-    <div class="panel-solid">
+  <div class="row-1 card" v-if="visible">
+    <div class="col-0">
       <h1 :class="{ selected }">{{ lect.name }}</h1>
       <p class="text-caption">
         <span split class="text-dot" :key="f" v-for="f in lect.family">

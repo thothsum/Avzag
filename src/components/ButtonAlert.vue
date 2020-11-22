@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-horizontal-solid">
+  <div class="row-0">
     <template v-if="prompt">
       <Button @click.native="emit" class="alert" icon="delete_forever" />
       <Button @click.native="prompt = false" icon="check" />

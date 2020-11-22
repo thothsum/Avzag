@@ -1,5 +1,5 @@
 <template>
-  <div class="block panel-sparse">
+  <div class="block col-2">
     <PhraseConditionsEditor
       :conditions.sync="block.requirements"
       :context="context"
@@ -18,8 +18,8 @@
         <p class="text-dot" />
         <ButtonAlert @confirm="remove" />
       </template>
-      <div class="panel-horizontal wrap block-editor">
-        <div class="panel-horizontal-dense" :key="i" v-for="(s, i) in states">
+      <div class="row-1 wrap block-editor">
+        <div class="row" :key="i" v-for="(s, i) in states">
           <Button
             @click.native="state = s"
             icon="edit"

@@ -1,5 +1,5 @@
 <template>
-  <div class="card panel-horizontal wrap" v-if="pairs.length > 0">
+  <div class="card row-1 wrap" v-if="pairs.length > 0">
     <p :key="i" v-for="(p, i) in pairs">
       <span class="text-faded">{{ p[left].replace(" ", "_") }}</span>
       <span>{{ p[right].replace(" ", "_") }}</span>
