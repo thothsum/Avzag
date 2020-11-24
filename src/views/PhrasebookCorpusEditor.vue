@@ -67,7 +67,11 @@
           </template>
           <PhraseContext :context="context" />
           <div class="row-1 wrap block-editor">
-            <div class="row" :key="phrase.id + i" v-for="(b, i) in blocks">
+            <div
+              class="row"
+              :key="i + '_' + phrase.id"
+              v-for="(b, i) in blocks"
+            >
               <Button
                 @click.native="block = b"
                 icon="edit"
@@ -162,6 +166,9 @@ export default {
     this.reset();
   },
   updated() {
+    localStorage.pbcEditor = JSON.stringify(this.file);
+  },
+  beforeDestroy() {
     localStorage.pbcEditor = JSON.stringify(this.file);
   },
   methods: {

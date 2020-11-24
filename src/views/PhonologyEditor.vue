@@ -47,11 +47,7 @@
             word, and the word's ipa.
           </template>
           <template #default>
-            <div
-              :key="i"
-              v-for="(s, i) in phoneme.samples"
-              class="row sample"
-            >
+            <div :key="i" v-for="(s, i) in phoneme.samples" class="row sample">
               <input type="text" v-model="s.grapheme" placeholder="grapheme" />
               <input
                 class="flex"
@@ -115,6 +111,9 @@ export default {
     this.reset();
   },
   updated() {
+    localStorage.pEditor = JSON.stringify(this.file);
+  },
+  beforeDestroy() {
     localStorage.pEditor = JSON.stringify(this.file);
   },
   methods: {

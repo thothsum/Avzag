@@ -47,16 +47,13 @@
           </p>
           <template v-if="phrase">
             <PhraseContext :context="context" />
-            <div
-              class="row wrap"
-              v-if="phrase.blocks && phrase.blocks.length"
-            >
+            <div class="row wrap" v-if="phrase.blocks && phrase.blocks.length">
               <PhraseBlock
                 :id="phrase.id"
                 :context.sync="context"
                 :interactive="true"
                 :block="b"
-                :key="phrase.id + i"
+                :key="i + '-' + phrase.id"
                 v-for="(b, i) in phrase.blocks"
               />
             </div>
@@ -75,7 +72,7 @@
             <div class="row-1 wrap block-editor">
               <div
                 class="row"
-                :key="lect + i + phrase.id"
+                :key="i + '_' + phrase.id"
                 v-for="(b, i) in blocks"
               >
                 <Button
@@ -141,7 +138,7 @@ export default {
   },
   data() {
     return {
-      lect: undefined,
+      lect: "default",
       file: undefined,
       section: undefined,
       phrase: undefined,
@@ -224,6 +221,9 @@ export default {
   updated() {
     localStorage.pbEditor = JSON.stringify(this.file);
   },
+  beforeDestroy() {
+    localStorage.pbEditor = JSON.stringify(this.file);
+  },
   methods: {
     fillMissing() {
       if (!(this.file && this.section && this.phrase)) return;
@@ -237,7 +237,7 @@ export default {
     loadFromLect() {
       fetch(
         this.$store.state.root +
-          (this.lect = window.prompt("Enter lect name")) +
+          window.prompt("Enter lect name") +
           "/phrasebook.json"
       )
         .then((r) => r.json())

@@ -35,6 +35,7 @@ export default {
     return {
       state: undefined,
       visible: false,
+      pressed: false,
     };
   },
   computed: {
@@ -84,6 +85,10 @@ export default {
     },
     context: {
       handler() {
+        if (this.pressed) {
+          this.pressed = false;
+          return;
+        }
         const visible =
           this.context && this.checkConditions(this.requirements)[0] == 1;
 
@@ -143,12 +148,16 @@ export default {
         });
     },
     switchState(state) {
-      let context = Object.assign({}, this.context);
+      let context = Object.entries(this.context).reduce((c, [e, ts]) => {
+        c[e] = new Set(ts);
+        return c;
+      }, {});
 
       this.applyConditions(context, this.state?.conditions, false);
       this.applyConditions(context, state?.conditions, true);
 
       this.state = state;
+      console.log(context);
       this.$emit("update:context", context);
     },
     move() {
@@ -162,6 +171,7 @@ export default {
           const i = this.transition.split(" ").map((i) => Number(i));
           state = this.findBestState(i);
         }
+        this.pressed = true;
         this.switchState(state);
       } else if (this.transition) {
         // directly modify global environment

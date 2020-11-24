@@ -53,11 +53,7 @@
           <template v-if="mapping" #header>
             <ButtonAlert @confirm="deleteMapping" />
           </template>
-          <div
-            class="row"
-            :key="i"
-            v-for="(m, i) in mappings"
-          >
+          <div class="row" :key="i" v-for="(m, i) in mappings">
             <Button
               @click.native="mapping = m"
               :class="{ highlight: mapping == m }"
@@ -133,6 +129,9 @@ export default {
     this.reset();
   },
   updated() {
+    localStorage.cEditor = JSON.stringify(this.file);
+  },
+  beforeDestroy() {
     localStorage.cEditor = JSON.stringify(this.file);
   },
   methods: {
