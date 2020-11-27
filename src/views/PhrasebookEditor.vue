@@ -72,7 +72,7 @@
             <div class="row-1 wrap block-editor">
               <div
                 class="row"
-                :key="i + '_' + phrase.id"
+                :key="state + '_' + i + '_' + phrase.id"
                 v-for="(b, i) in blocks"
               >
                 <Button
@@ -81,7 +81,7 @@
                   :class="{ highlight: block == b }"
                 />
                 <PhraseBlock
-                  :id="phrase.id"
+                  :id="state + phrase.id"
                   :context.sync="context"
                   :interactive="true"
                   :block="b"
@@ -138,6 +138,7 @@ export default {
   },
   data() {
     return {
+      state: 0,
       lect: "default",
       file: undefined,
       section: undefined,
@@ -166,6 +167,7 @@ export default {
       }
     },
     file() {
+      this.state = Math.random();
       if (this.file && this.phrasebook?.length) {
         this.section = this.phrasebook[0];
         this.phrase = this.section?.phrases[0];
@@ -227,12 +229,8 @@ export default {
   methods: {
     fillMissing() {
       if (!(this.file && this.section && this.phrase)) return;
-      if (!this.file[this.section.id]) this.file[this.section.id] = {};
-
-      let section = this.file[this.section.id];
-      if (!section[this.phrase.id]) this.$set(section, this.phrase.id, {});
-
-      this.translation = section[this.phrase.id];
+      if (!this.file[this.phrase.id]) this.$set(this.file, this.phrase.id, {});
+      this.translation = this.file[this.phrase.id];
     },
     loadFromLect() {
       fetch(

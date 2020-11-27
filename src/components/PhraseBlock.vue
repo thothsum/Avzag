@@ -157,7 +157,6 @@ export default {
       this.applyConditions(context, state?.conditions, true);
 
       this.state = state;
-      console.log(context);
       this.$emit("update:context", context);
     },
     move() {
