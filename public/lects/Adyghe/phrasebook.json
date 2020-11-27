@@ -125,7 +125,7 @@
                         "transition": "next",
                         "display": [
                             {
-                                "text": "сыдэущтэу"
+                                "text": "таущтэу"
                             }
                         ]
                     },
@@ -150,10 +150,6 @@
                     {
                         "conditions": [
                             {
-                                "entity": "tense",
-                                "tag": "present"
-                            },
-                            {
                                 "entity": "actor",
                                 "tag": "singular"
                             }
@@ -171,10 +167,6 @@
                     {
                         "conditions": [
                             {
-                                "entity": "tense",
-                                "tag": "present"
-                            },
-                            {
                                 "entity": "actor",
                                 "tag": "plural"
                             }
@@ -186,56 +178,6 @@
                             },
                             {
                                 "text": "кӏощта?"
-                            }
-                        ]
-                    },
-                    {
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "future"
-                            },
-                            {
-                                "entity": "actor",
-                                "tag": "singular"
-                            }
-                        ],
-                        "display": [
-                            {
-                                "text": "сы",
-                                "entity": "actor"
-                            },
-                            {
-                                "text": "зы",
-                                "entity": "tense"
-                            },
-                            {
-                                "text": "кӏощтыр?"
-                            }
-                        ]
-                    },
-                    {
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "future"
-                            },
-                            {
-                                "entity": "actor",
-                                "tag": "plural"
-                            }
-                        ],
-                        "display": [
-                            {
-                                "text": "ты",
-                                "entity": "actor"
-                            },
-                            {
-                                "text": "зы",
-                                "entity": "tense"
-                            },
-                            {
-                                "text": "кӏощтыр?"
                             }
                         ]
                     }
