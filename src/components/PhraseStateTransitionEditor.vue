@@ -41,7 +41,12 @@ export default {
   },
   computed: {
     ints() {
-      return this.state.transition?.split(" ").map((t) => Number(t)) ?? [];
+      return (
+        this.state.transition
+          ?.split(" ")
+          .map((t) => Number(t))
+          .filter((n) => !isNaN(n)) ?? []
+      );
     },
     present() {
       return this.states.map((s, i) => this.ints.includes(i));

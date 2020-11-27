@@ -11,11 +11,6 @@
     </PhraseConditionsEditor>
     <ActionHeader @action="add" icon="tune" header="States">
       <template #header v-if="state">
-        <ToggleGroup
-          :icons="['visibility', 'widgets', 'alt_route']"
-          :value.sync="editingMode"
-        />
-        <p class="text-dot" />
         <ButtonAlert @confirm="remove" />
       </template>
       <div class="row-1 wrap block-editor">
@@ -30,8 +25,8 @@
       </div>
     </ActionHeader>
     <template v-if="state">
+      <PhraseStateDisplayEditor :state="state" :context="context" />
       <PhraseConditionsEditor
-        v-if="editingMode == 1"
         :conditions.sync="state.conditions"
         :context="context"
         :allowPassive="true"
@@ -39,12 +34,10 @@
         header="conditions"
       />
       <PhraseStateTransitionEditor
-        v-else-if="editingMode == 2"
         :state="state"
         :context="context"
         :states="states"
       />
-      <PhraseStateDisplayEditor :state="state" :context="context" v-else />
     </template>
   </div>
 </template>
@@ -52,7 +45,6 @@
 <script>
 import Button from "./Button";
 import ButtonAlert from "./ButtonAlert";
-import ToggleGroup from "./ToggleGroup";
 import ActionHeader from "./ActionHeader";
 import PhraseConditionsEditor from "./PhraseConditionsEditor";
 import PhraseStateTransitionEditor from "./PhraseStateTransitionEditor";
@@ -64,7 +56,6 @@ export default {
   components: {
     Button,
     ButtonAlert,
-    ToggleGroup,
     ActionHeader,
     PhraseConditionsEditor,
     PhraseStateTransitionEditor,
@@ -75,7 +66,6 @@ export default {
   data() {
     return {
       state: undefined,
-      editingMode: 0,
     };
   },
   computed: {

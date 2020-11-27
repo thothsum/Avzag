@@ -1,30 +1,227 @@
 {
-    "Greeting": [
-        {
-            "translation": "Hello.",
-            "text": [
-                "Hello [",
-                {
-                    "id": "plur",
-                    "values": [
+    "10": {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "Уырдӕм"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "present"
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "Дуканимӕ"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "shop"
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "Хӕдзармӕ"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "home"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "куыд"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "present"
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "кӕд"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "future"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "ацӕуон?"
+                            }
+                        ],
+                        "transition": "1",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular",
+                                "passive": false
+                            },
+                            {
+                                "entity": "tense",
+                                "tag": "present",
+                                "passive": true
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "ацӕуӕм?"
+                            }
+                        ],
+                        "transition": "0",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "plural"
+                            },
+                            {
+                                "entity": "tense",
+                                "tag": "present",
+                                "passive": true
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "ацӕудзынӕн?"
+                            }
+                        ],
+                        "transition": "3",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular"
+                            },
+                            {
+                                "entity": "tense",
+                                "tag": "future",
+                                "passive": true
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "ацӕудзыстӕм?"
+                            }
+                        ],
+                        "transition": "2",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "plural"
+                            },
+                            {
+                                "entity": "tense",
+                                "tag": "future",
+                                "passive": true
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "context": [
+            {
+                "entity": [
+                    "tense",
+                    ""
+                ],
+                "tags": [
+                    [
+                        "present",
+                        ""
+                    ],
+                    [
+                        "future",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "entity": [
+                    "actor",
+                    "удгоймаг"
+                ],
+                "tags": [
+                    [
                         "singular",
-                        "plural"
+                        ""
+                    ],
+                    [
+                        "feminine",
+                        "сылгоймаг"
+                    ],
+                    [
+                        "masculine",
+                        "нæлгоймаг"
+                    ],
+                    [
+                        "plural",
+                        ""
                     ]
-                },
-                "]."
-            ],
-            "source": [
-                "Байрай",
-                {
-                    "id": "plur",
-                    "align": "left",
-                    "values": [
-                        "",
-                        "ут"
+                ]
+            },
+            {
+                "entity": [
+                    "destination",
+                    ""
+                ],
+                "tags": [
+                    [
+                        "there",
+                        ""
+                    ],
+                    [
+                        "home",
+                        ""
+                    ],
+                    [
+                        "shop",
+                        ""
                     ]
-                },
-                "."
-            ]
-        }
-    ]
+                ]
+            }
+        ]
+    }
 }
