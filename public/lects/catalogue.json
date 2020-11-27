@@ -73,8 +73,7 @@
             "Northwest Caucasian",
             "Circassian"
         ],
-        "tags": "Caucasian Pontic Adyghe",
-        "quote": "Псэм ипэ напэ."
+        "tags": "Caucasian Pontic Adyghe"
     },
     {
         "name": "Keren",
@@ -89,5 +88,17 @@
         ],
         "tags": "Western Samur",
         "quote": "Яхӏ гӏумурдилас багьа э."
+    },
+    {
+        "name": "Udmurt",
+        "coordinates": [
+            56.672482,
+            52.516333
+        ],
+        "family": [
+            "Uralic",
+            "Permic"
+        ],
+        "tags": "Finno Ugric"
     }
 ]
