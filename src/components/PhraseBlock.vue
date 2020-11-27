@@ -129,8 +129,7 @@ export default {
         ?.filter((s) => s.conditions)
         .forEach((s) => {
           const [f, l] = this.checkConditions(s.conditions);
-
-          if (fit == 1 ? f == 1 && l > len : f > fit) {
+          if (fit == 1 ? f == 1 && l >= len : f >= fit) {
             state = s;
             fit = f;
             len = l;
