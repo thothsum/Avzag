@@ -1,0 +1,205 @@
+{
+    "10": {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "Кызьы",
+                                "ipa": ""
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "present"
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "Ку"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "future"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "мон"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular"
+                            }
+                        ],
+                        "implicit": true
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "ми"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "plural"
+                            }
+                        ],
+                        "implicit": true
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "отчы"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "there"
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "магазинэ"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "shop"
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "гуртэ"
+                            }
+                        ],
+                        "transition": "next",
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "home"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "мыныны кулэ?"
+                            }
+                        ]
+                    },
+                    {
+                        "display": [
+                            {
+                                "text": "ку мыном?"
+                            }
+                        ],
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "future"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "context": [
+            {
+                "entity": [
+                    "tense",
+                    ""
+                ],
+                "tags": [
+                    [
+                        "present",
+                        ""
+                    ],
+                    [
+                        "future",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "entity": [
+                    "actor",
+                    "адями"
+                ],
+                "tags": [
+                    [
+                        "singular",
+                        ""
+                    ],
+                    [
+                        "feminine",
+                        "кышномурт"
+                    ],
+                    [
+                        "masculine",
+                        "пиосмурт"
+                    ],
+                    [
+                        "plural",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "entity": [
+                    "destination",
+                    ""
+                ],
+                "tags": [
+                    [
+                        "there",
+                        ""
+                    ],
+                    [
+                        "home",
+                        ""
+                    ],
+                    [
+                        "shop",
+                        ""
+                    ]
+                ]
+            }
+        ]
+    }
+}
