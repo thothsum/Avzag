@@ -15,15 +15,14 @@ export default {
   props: ["context", "translation", "blocks"],
   computed: {
     dictionary() {
-      let translation = { entities: {}, tags: [] };
+      let translation = { entities: {}, tags: {} };
       this.translation?.forEach(({ entity, tags }) => {
         translation.entities[entity[0]] = entity[1];
-        translation.tags.push(
+        translation.tags[entity[0]] =
           tags?.reduce((d, t) => {
             d[t[0]] = t[1];
             return d;
-          }, {}) ?? {}
-        );
+          }, {}) ?? {};
       });
       return translation;
     },
@@ -47,14 +46,11 @@ export default {
       );
     },
     tags() {
-      return Object.entries(this.context)
-        .filter((c) => c[1]?.size)
-        .map(([e, ts]) =>
-          [...ts].filter((t) => !this.explicitContext[e]?.has(t))
-        )
-        .map((ts, i) =>
-          ts.map((t) => this.translate(this.dictionary.tags[i], t))
-        );
+      return Object.entries(this.context).map(([e, ts]) =>
+        [...(ts ?? [])]
+          .filter((t) => !this.explicitContext[e]?.has(t))
+          .map((t) => this.translate(this.dictionary.tags[e], t))
+      );
     },
     any() {
       return this.tags.some((t) => t?.length);

@@ -148,10 +148,11 @@ export default {
         });
     },
     switchState(state) {
-      let context = Object.entries(this.context).reduce((c, [e, ts]) => {
-        c[e] = new Set(ts);
-        return c;
-      }, {});
+      // let context = Object.entries(this.context).reduce((c, [e, ts]) => {
+      //   c[e] = new Set(ts);
+      //   return c;
+      // }, {});
+      let context = Object.assign({}, this.context);
 
       this.applyConditions(context, this.state?.conditions, false);
       this.applyConditions(context, state?.conditions, true);

@@ -64,6 +64,19 @@
         "quote": "Псэм ипэ напэ."
     },
     {
+        "name": "Adyghe",
+        "coordinates": [
+            44.486928,
+            40.152485
+        ],
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe",
+        "quote": "Псэм ипэ напэ."
+    },
+    {
         "name": "Keren",
         "coordinates": [
             41.707224,

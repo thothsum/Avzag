@@ -57,7 +57,7 @@ export default new Vuex.Store({
     async collectPhonemes({ commit, state }) {
       let phonemes = {};
       state.lects.forEach((l) => {
-        l.phonology.forEach((p) => {
+        l.phonology?.forEach((p) => {
           const ph = p.phoneme;
           if (!(ph in phonemes))
             phonemes[ph] = {
