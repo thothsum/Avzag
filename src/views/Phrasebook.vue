@@ -146,7 +146,9 @@ export default {
         : this.section?.phrases;
     },
     translations() {
-      return this.lects.map((l) => this.getPhrase(l.phrasebook));
+      return this.lects.map(({ phrasebook }) =>
+        phrasebook ? phrasebook[this.phrase.id] : null
+      );
     },
   },
   watch: {
@@ -174,9 +176,6 @@ export default {
     select(s, p) {
       this.section = this.phrasebook[s];
       this.phrase = this.section.phrases[p];
-    },
-    getPhrase(s) {
-      if (s && s[this.section.id]) return s[this.section.id][this.phrase.id];
     },
   },
 };
