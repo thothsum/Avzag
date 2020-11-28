@@ -64,7 +64,7 @@
         "quote": "Псэм ипэ напэ."
     },
     {
-        "name": "Adyghe",
+        "name": "Temirgoy",
         "coordinates": [
             44.486928,
             40.152485
@@ -73,7 +73,7 @@
             "Northwest Caucasian",
             "Circassian"
         ],
-        "tags": "Caucasian Pontic Adyghe Temirgoy"
+        "tags": "Caucasian Pontic Adyghe"
     },
     {
         "name": "Keren",
