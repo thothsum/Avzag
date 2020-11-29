@@ -121,6 +121,12 @@
                             {
                                 "text": "мыныны кулэ?"
                             }
+                        ],
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "present"
+                            }
                         ]
                     },
                     {
