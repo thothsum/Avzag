@@ -157,6 +157,10 @@
             "tags": "consonant fricative voiced pharyngeal"
         },
         {
+            "ipa": "ʡ",
+            "tags": "consonant stop voiceless pharyngeal"
+        },
+        {
             "ipa": "χ",
             "tags": "consonant fricative voiceless uvular"
         },

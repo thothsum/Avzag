@@ -43,7 +43,7 @@
         "samples": [
             {
                 "word": "гӏяхӏле",
-                "ipa": "ʕɑˤħle",
+                "ipa": "ʡɑˤħle",
                 "grapheme": "я"
             }
         ],
@@ -53,7 +53,7 @@
         "samples": [
             {
                 "word": "гӏябал",
-                "ipa": "ʕɑˤbɑl",
+                "ipa": "ʡɑˤbɑl",
                 "grapheme": "б"
             }
         ],
@@ -616,11 +616,11 @@
         "samples": [
             {
                 "word": "лягӏ",
-                "ipa": "lɑˤʕ",
+                "ipa": "lɑˤʡ",
                 "grapheme": "гӏ"
             }
         ],
-        "phoneme": "ʕ"
+        "phoneme": "ʡ"
     },
     {
         "samples": [
