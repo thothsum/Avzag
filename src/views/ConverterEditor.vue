@@ -9,9 +9,9 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button @click.native="loadFromLect" text="load from lect" />
-      <Button @click.native="loadFromJson" text="load from JSON" />
-      <Button @click.native="saveToJson" text="save JSON to clipboard" />
+      <Button @click="loadFromLect" text="load from lect" />
+      <Button @click="loadFromJson" text="load from JSON" />
+      <Button @click="saveToJson" text="save JSON to clipboard" />
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid small" v-if="file">
@@ -55,7 +55,7 @@
           </template>
           <div class="row" :key="i" v-for="(m, i) in mappings">
             <Button
-              @click.native="mapping = m"
+              @click="mapping = m"
               :class="{ highlight: mapping == m }"
               icon="edit"
             />
@@ -76,10 +76,10 @@
         >
         <template #default>
           <div class="row" :key="i" v-for="(p, i) in pairs">
-            <Button @click.native="addPair(i)" icon="add" />
+            <Button @click="addPair(i)" icon="add" />
             <input type="text" v-model="p[0]" placeholder="from" />
             <input type="text" v-model="p[1]" placeholder="to" />
-            <Button @click.native="deletePair(i)" icon="clear" />
+            <Button @click="deletePair(i)" icon="clear" />
           </div>
         </template>
       </ActionHeader>

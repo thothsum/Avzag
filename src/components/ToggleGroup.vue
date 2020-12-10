@@ -5,7 +5,7 @@
       v-for="(ic, i) in icons"
       :icon="ic"
       :class="{ highlight: i == value }"
-      @click.native="$emit('update:value', i)"
+      @click="$emit('update:value', i)"
     />
   </div>
 </template>

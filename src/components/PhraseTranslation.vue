@@ -1,7 +1,7 @@
 <template>
   <div class="col-1 card" v-if="translation">
     <div class="row-1 small">
-      <Button @click.native="copy" icon="content_copy" />
+      <Button @click="copy" icon="content_copy" />
       <h2>{{ lect }}</h2>
     </div>
     <PhraseContext

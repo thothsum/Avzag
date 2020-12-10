@@ -16,7 +16,7 @@
           :value.sync="c.tag"
           :items="context[c.entity]"
         />
-        <Button @click.native="remove(i)" icon="clear" />
+        <Button @click="remove(i)" icon="clear" />
       </div>
     </div>
   </ActionHeader>

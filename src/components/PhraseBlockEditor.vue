@@ -16,7 +16,7 @@
       <div class="row-1 wrap block-editor">
         <div class="row" :key="i" v-for="(s, i) in states">
           <Button
-            @click.native="state = s"
+            @click="state = s"
             icon="edit"
             :class="{ highlight: state == s }"
           />

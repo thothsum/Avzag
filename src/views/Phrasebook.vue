@@ -23,7 +23,7 @@
                 :class="{
                   highlight: phrase == phrasebook[s].phrases[p],
                 }"
-                @click.native="select(s, p)"
+                @click="select(s, p)"
                 :key="p"
                 v-for="p in ps"
                 :text="phrasebook[s].phrases[p].preview"

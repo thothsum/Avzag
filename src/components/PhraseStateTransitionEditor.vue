@@ -9,7 +9,7 @@
     <div class="row-1 wrap block-editor" v-if="mode == 2">
       <div class="row" :key="i" v-for="(s, i) in states">
         <Button
-          @click.native="toggle(i)"
+          @click="toggle(i)"
           icon="check"
           :class="{ highlight: present[i] }"
         />

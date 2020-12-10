@@ -9,10 +9,10 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button @click.native="loadFromLect" icon="language" text="Load lect" />
-      <Button @click.native="loadFromJson" icon="code" text="Load JSON" />
+      <Button @click="loadFromLect" icon="language" text="Load lect" />
+      <Button @click="loadFromJson" icon="code" text="Load JSON" />
       <Button
-        @click.native="saveToJson"
+        @click="saveToJson"
         icon="content_paste"
         text="Save to clipboard"
       />
@@ -29,7 +29,7 @@
             <div class="row" :key="s.id" v-for="s in file">
               <Button
                 icon="edit"
-                @click.native="section = s"
+                @click="section = s"
                 :class="{ highlight: section == s }"
               />
               <input class="flex" type="text" v-model="s.name" />
@@ -49,7 +49,7 @@
             <div class="row" :key="p.id" v-for="p in section.phrases">
               <Button
                 icon="edit"
-                @click.native="phrase = p"
+                @click="phrase = p"
                 :class="{ highlight: phrase == p }"
               />
               <input class="flex" type="text" v-model="p.preview" />
@@ -73,7 +73,7 @@
               v-for="(b, i) in blocks"
             >
               <Button
-                @click.native="block = b"
+                @click="block = b"
                 icon="edit"
                 :class="{ highlight: block == b }"
               />

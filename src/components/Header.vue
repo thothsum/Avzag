@@ -1,10 +1,10 @@
 <template>
   <div id="root">
     <div class="section row-1 scroll">
-      <Button @click.native="navigate('Home')" icon="arrow_back" />
+      <Button @click="navigate('Home')" icon="arrow_back" />
       <Button
-        @click.native="navigate(t)"
-        :class="{ 'highlight': $route.name === t }"
+        @click="navigate(t)"
+        :class="{ highlight: $route.name === t }"
         :icon="i"
         :text="t"
         :key="i"

@@ -1,7 +1,7 @@
 <template>
   <div id="root" :class="{ narrow }" class="row scroll wrap">
     <PhoneticItem
-      @click.native="$emit('select', p)"
+      @click="$emit('select', p)"
       :selected="phoneme == p"
       :faded="!fitting[i]"
       :ipa="p.ipa"

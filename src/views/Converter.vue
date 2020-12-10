@@ -10,12 +10,12 @@
             :items="fullMappings"
             display="name"
           />
-          <Button v-if="source" @click.native="source = ''" icon="clear" />
-          <Button v-else @click.native="displaySample" icon="text_snippet" />
-          <Button @click.native="$refs.file.click()" icon="publish" />
+          <Button v-if="source" @click="source = ''" icon="clear" />
+          <Button v-else @click="displaySample" icon="text_snippet" />
+          <Button @click="$refs.file.click()" icon="publish" />
           <Button
             v-show="!resultMapping.partial"
-            @click.native="swap"
+            @click="swap"
             icon="swap_horiz"
           />
         </div>
@@ -35,7 +35,7 @@
             display="name"
           />
           <Button :value.sync="showMappings" icon="visibility" />
-          <Button @click.native="copy" icon="file_copy" />
+          <Button @click="copy" icon="file_copy" />
         </div>
         <ConverterText
           :readonly="true"

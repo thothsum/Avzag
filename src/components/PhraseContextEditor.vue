@@ -9,7 +9,7 @@
           v-model="c.entity"
         />
         <input class="flex" type="text" v-model="c.tags" />
-        <Button icon="clear" @click.native="remove(i)" />
+        <Button icon="clear" @click="remove(i)" />
       </div>
     </div>
   </ActionHeader>

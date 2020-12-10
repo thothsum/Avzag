@@ -18,7 +18,7 @@
             v-model="search"
             placeholder="Search languages..."
           />
-          <Button icon="arrow_forward" @click.native="load" :disabled="empty" />
+          <Button icon="arrow_forward" @click="load" :disabled="empty" />
         </div>
         <div class="row scroll-hidden">
           <p id="placeholder" v-if="empty">
@@ -29,7 +29,7 @@
             :key="i"
             v-for="(l, i) in lects"
             :text="l.name"
-            @click.native="toggleLect(l)"
+            @click="toggleLect(l)"
           />
         </div>
       </div>
@@ -50,7 +50,7 @@
           :lect="l"
           :selected="selected[i]"
           :query="query"
-          @click.native="toggleLect(l)"
+          @click="toggleLect(l)"
           @visible="setVisibility(l, $event)"
         />
       </div>

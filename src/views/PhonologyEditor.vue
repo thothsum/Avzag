@@ -9,16 +9,16 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button @click.native="loadFromLect" text="load from lect" />
-      <Button @click.native="loadFromJson" text="load from JSON" />
-      <Button @click.native="saveToJson" text="save JSON to clipboard" />
+      <Button @click="loadFromLect" text="load from lect" />
+      <Button @click="loadFromJson" text="load from JSON" />
+      <Button @click="saveToJson" text="save JSON to clipboard" />
       <ButtonAlert @confirm="reset" text="Reset" />
     </div>
     <div class="grid">
       <ActionHeader @action="addPhoneme" icon="view_comfy" header="Phonemes">
         <div class="row wrap">
           <PhoneticItem
-            @click.native="phoneme = p"
+            @click="phoneme = p"
             :selected="phoneme == p"
             :ipa="p.phoneme"
             :str="graphemes[i]"
@@ -61,7 +61,7 @@
                 v-model="s.ipa"
                 placeholder="ipa"
               />
-              <Button @click.native="removeSample(i)" icon="clear" />
+              <Button @click="removeSample(i)" icon="clear" />
             </div>
           </template>
         </ActionHeader>

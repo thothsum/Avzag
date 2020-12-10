@@ -2,8 +2,8 @@
   <ActionHeader @action="add" icon="sticky_note_2" header="Notes">
     <template #caption><slot /></template>
     <div class="row" :key="i" v-for="(n, i) in notes">
-      <input type="text" v-model="notes[i]"/>
-      <Button @click.native="remove(i)" icon="clear" />
+      <input type="text" v-model="notes[i]" />
+      <Button @click="remove(i)" icon="clear" />
     </div>
   </ActionHeader>
 </template>

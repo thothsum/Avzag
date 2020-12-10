@@ -5,7 +5,7 @@
     </template>
     <div v-if="display" class="col">
       <div class="row" :key="i" v-for="(d, i) in display">
-        <Button @click.native="toggle(i)" icon="palette" />
+        <Button @click="toggle(i)" icon="palette" />
         <input
           :class="colors[i]"
           type="text"
@@ -26,7 +26,7 @@
           v-model="d.glossing"
           placeholder="glossing"
         />
-        <Button @click.native="remove(i)" icon="clear" />
+        <Button @click="remove(i)" icon="clear" />
       </div>
     </div>
   </ActionHeader>

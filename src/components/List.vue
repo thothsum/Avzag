@@ -5,7 +5,7 @@
       v-for="(v, i) in values"
       :text="text[i]"
       :class="{ highlight: value == v }"
-      @click.native="select(v)"
+      @click="select(v)"
     />
   </div>
 </template>

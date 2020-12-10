@@ -9,10 +9,10 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button @click.native="loadFromLect" icon="language" text="Load lect" />
-      <Button @click.native="loadFromJson" icon="code" text="Load JSON" />
+      <Button @click="loadFromLect" icon="language" text="Load lect" />
+      <Button @click="loadFromJson" icon="code" text="Load JSON" />
       <Button
-        @click.native="saveToJson"
+        @click="saveToJson"
         icon="content_paste"
         text="Save to clipboard"
       />
@@ -76,7 +76,7 @@
                 v-for="(b, i) in blocks"
               >
                 <Button
-                  @click.native="block = b"
+                  @click="block = b"
                   icon="edit"
                   :class="{ highlight: block == b }"
                 />
