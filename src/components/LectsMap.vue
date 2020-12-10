@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker, LIcon } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
 
 export default {
   name: "LectsMap",
