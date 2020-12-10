@@ -43,6 +43,11 @@ export default {
     PhraseBlock,
     PhoneticNote,
   },
+  data() {
+    return {
+      blocks: [],
+    };
+  },
   props: [
     "id",
     "lect",
@@ -54,13 +59,19 @@ export default {
   ],
   computed: {
     text() {
-      return this.$refs.blocks
+      return this.blocks
         ?.filter((b) => b.visible)
         .map((b) => b.$refs.display.text)
         .join(" ");
     },
   },
+  beforeUpdate() {
+    this.blocks = [];
+  },
   methods: {
+    setBlock(el) {
+      this.blocks.push(el);
+    },
     copy() {
       navigator.clipboard.writeText(this.text);
     },
