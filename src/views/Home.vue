@@ -11,7 +11,7 @@
     <div id="ui" class="col-1">
       <div id="top" class="col-1 card">
         <div class="row-1">
-          <Button :value.sync="about" icon="info" />
+          <Button v-model:value="about" icon="info" />
           <input
             class="flex"
             type="text"

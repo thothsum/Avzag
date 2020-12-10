@@ -3,7 +3,7 @@
     <template #header>
       <ToggleGroup
         :icons="['block', 'arrow_forward', 'star_outline']"
-        :value.sync="mode"
+        v-model:value="mode"
       />
     </template>
     <div class="row-1 wrap block-editor" v-if="mode == 2">

@@ -1,7 +1,7 @@
 <template>
   <div id="root" :class="{ narrow }" class="row scroll wrap">
     <PhoneticItem
-      @click="$emit('select', p)"
+      @click="$emit('update:phoneme', p)"
       :selected="phoneme == p"
       :faded="!fitting[i]"
       :ipa="p.ipa"
@@ -20,10 +20,6 @@ export default {
     PhoneticItem,
   },
   props: ["phoneme", "filter", "lectQuery", "featureQuery", "phonemes"],
-  model: {
-    prop: "phoneme",
-    event: "select",
-  },
   computed: {
     filtered() {
       return this.filter

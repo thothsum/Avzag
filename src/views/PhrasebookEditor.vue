@@ -26,7 +26,7 @@
             <p class="icon">topic</p>
             <h2 class="col-1 flex">
               <Select
-                :value.sync="section"
+                v-model:value="section"
                 :items="phrasebook"
                 display="name"
               />
@@ -36,7 +36,7 @@
             <p class="icon">short_text</p>
             <Select
               class="flex"
-              :value.sync="phrase"
+              v-model:value="phrase"
               :items="phrases"
               display="preview"
             />
@@ -50,7 +50,7 @@
             <div class="row wrap" v-if="phrase.blocks && phrase.blocks.length">
               <PhraseBlock
                 :id="phrase.id"
-                :context.sync="context"
+                v-model:context="context"
                 :interactive="true"
                 :block="b"
                 v-for="(b, i) in phrase.blocks"
@@ -77,19 +77,19 @@
                 />
                 <PhraseBlock
                   :id="state + phrase.id"
-                  :context.sync="context"
+                  v-model:context="context"
                   :interactive="true"
                   :block="b"
                 />
               </div>
             </div>
           </ActionHeader>
-          <NotesEditor :notes.sync="translation.notes">
+          <NotesEditor v-model:notes="translation.notes">
             You can add notes, for example, to explain certain grammatical
             rules.
           </NotesEditor>
           <PhraseContextTranslation
-            :translation.sync="translation.context"
+            v-model:translation="translation.context"
             :context="fullContext"
           >
             Translate the context keys (entites & tags) to provide full phrase

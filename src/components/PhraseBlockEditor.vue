@@ -1,7 +1,7 @@
 <template>
   <div class="block col-2">
     <PhraseConditionsEditor
-      :conditions.sync="block.requirements"
+      v-model:conditions="block.requirements"
       :context="context"
       icon="lock"
       header="Requirements"
@@ -27,7 +27,7 @@
     <template v-if="state">
       <PhraseStateDisplayEditor :state="state" :context="context" />
       <PhraseConditionsEditor
-        :conditions.sync="state.conditions"
+        v-model:conditions="state.conditions"
         :context="context"
         :allowPassive="true"
         icon="widgets"

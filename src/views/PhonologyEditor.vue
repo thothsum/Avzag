@@ -36,7 +36,7 @@
             placeholder="phoneme"
           />
         </ActionHeader>
-        <NotesEditor :notes.sync="phoneme.notes">
+        <NotesEditor v-model:notes="phoneme.notes">
           You can add notes to clarify certain use cases or to give some
           additional info.
         </NotesEditor>

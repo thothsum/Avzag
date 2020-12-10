@@ -75,7 +75,7 @@
               />
               <PhraseBlock
                 :id="phrase.id"
-                :context.sync="context"
+                v-model:context="context"
                 :interactive="true"
                 :block="b"
               />

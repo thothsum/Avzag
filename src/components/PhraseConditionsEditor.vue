@@ -4,16 +4,16 @@
     <div class="scroll col">
       <div class="row" v-for="(c, i) in conditions">
         <Button
-          :value.sync="c.passive"
+          v-model:value="c.passive"
           v-if="allowPassive"
           icon="call_missed"
         />
-        <Select class="flex" :value.sync="c.entity" :items="entities" />
+        <Select class="flex" v-model:value="c.entity" :items="entities" />
         <p class="icon">west</p>
         <Select
           v-if="context[c.entity]"
           class="flex"
-          :value.sync="c.tag"
+          v-model:value="c.tag"
           :items="context[c.entity]"
         />
         <Button @click="remove(i)" icon="clear" />

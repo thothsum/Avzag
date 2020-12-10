@@ -1,8 +1,8 @@
 <template>
   <l-map
     ref="map"
-    :center.sync="center"
-    :zoom.sync="zoom"
+    v-model:center="center"
+    v-model:zoom="zoom"
     :options="{ zoomControl: false }"
   >
     <l-tile-layer :url="layerUrl" :options="layerOptions" />

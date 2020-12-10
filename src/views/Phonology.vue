@@ -9,7 +9,7 @@
       <div class="col" v-for="c in categories">
         <h2>{{ c + "s" }}</h2>
         <PhoneticTable
-          v-model="phoneme"
+          v-model:phoneme="phoneme"
           :filter="c"
           :featureQuery="featureQuery"
           :lectQuery="lectQuery"

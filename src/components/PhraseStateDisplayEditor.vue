@@ -1,7 +1,7 @@
 <template>
   <ActionHeader @action="add" icon="visibility" header="display">
     <template #header>
-      <Button :value.sync="state.implicit" icon="opacity" />
+      <Button v-model:value="state.implicit" icon="opacity" />
     </template>
     <div v-if="display" class="col">
       <div class="row" v-for="(d, i) in display">

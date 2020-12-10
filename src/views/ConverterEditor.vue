@@ -35,13 +35,13 @@
             <p class="icon">south</p>
             <div class="col flex">
               <Select
-                :value.sync="defaultConversion[0]"
+                v-model:value="defaultConversion[0]"
                 :items="mappings"
                 display="name"
                 indexed="true"
               />
               <Select
-                :value.sync="defaultConversion[1]"
+                v-model:value="defaultConversion[1]"
                 :items="mappings"
                 display="name"
                 indexed="true"

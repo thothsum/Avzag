@@ -1,12 +1,12 @@
 <template>
   <div class="section col-1" v-if="lects">
-    <ChipsSelect v-model="lect" :items="lects" itemKey="name" />
+    <ChipsSelect v-model:lect="lect" :items="lects" itemKey="name" />
     <div class="split" v-if="converter">
       <div class="col">
         <div class="row">
           <Select
             class="flex"
-            :value.sync="sourceMapping"
+            v-model:value="sourceMapping"
             :items="fullMappings"
             display="name"
           />
@@ -30,11 +30,11 @@
         <div class="row">
           <Select
             class="flex"
-            :value.sync="resultMapping"
+            v-model:value="resultMapping"
             :items="mappings"
             display="name"
           />
-          <Button :value.sync="showMappings" icon="visibility" />
+          <Button v-model:value="showMappings" icon="visibility" />
           <Button @click="copy" icon="file_copy" />
         </div>
         <ConverterText

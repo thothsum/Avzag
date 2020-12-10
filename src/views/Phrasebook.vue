@@ -2,7 +2,7 @@
   <div class="section col-1" v-if="lects && phrasebook">
     <div class="col-1">
       <div class="row">
-        <Button :value.sync="searching" icon="search" />
+        <Button v-model:value="searching" icon="search" />
         <input
           v-if="searching"
           v-model="query"
@@ -11,7 +11,7 @@
           placeholder="Search all phrases..."
         />
         <h2 v-else class="col-1 flex">
-          <Select :value.sync="section" :items="phrasebook" display="name" />
+          <Select v-model:value="section" :items="phrasebook" display="name" />
         </h2>
       </div>
       <template v-if="phrases">
@@ -33,7 +33,7 @@
         <List
           class="scroll"
           v-else
-          :value.sync="phrase"
+          v-model:value="phrase"
           :items="phrases"
           display="preview"
         />
@@ -43,25 +43,25 @@
       <div class="row scroll small">
         <Button
           class="round"
-          :value.sync="showNotes"
+          v-model:value="showNotes"
           icon="sticky_note_2"
           text="Notes"
         />
         <Button
           class="round"
-          :value.sync="showSource"
+          v-model:value="showSource"
           icon="short_text"
           text="Source"
         />
         <Button
           class="round"
-          :value.sync="interactive"
+          v-model:value="interactive"
           icon="tune"
           text="Interactive"
         />
         <Button
           class="round"
-          :value.sync="glossed"
+          v-model:value="glossed"
           icon="layers"
           text="Glossed"
         />
@@ -71,7 +71,7 @@
         <div class="row wrap">
           <PhraseBlock
             :id="selected"
-            :context.sync="context"
+            v-model:context="context"
             :interactive="interactive"
             :block="b"
             v-for="(b, i) in phrase.blocks"
@@ -80,7 +80,7 @@
       </div>
       <PhraseTranslation
         :id="selected"
-        :context.sync="context"
+        v-model:context="context"
         :lect="lects[i].name"
         :translation="t"
         :interactive="interactive"

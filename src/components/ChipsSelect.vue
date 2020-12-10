@@ -17,10 +17,6 @@ export default {
   name: "ChipsSelect",
   components: { Button },
   props: ["value", "items", "itemKey"],
-  model: {
-    prop: "value",
-    event: "select",
-  },
   computed: {
     keys() {
       return this.itemKey
@@ -41,7 +37,7 @@ export default {
   },
   methods: {
     select(i) {
-      this.$emit("select", this.items[i]);
+      this.$emit("update:value", this.items[i]);
     },
   },
 };
