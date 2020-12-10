@@ -6,7 +6,7 @@
         placeholder="Query phonemes, e.g. voiced -velar..."
         @query="featureQuery = $event"
       />
-      <div class="col" :key="c" v-for="c in categories">
+      <div class="col" v-for="c in categories">
         <h2>{{ c + "s" }}</h2>
         <PhoneticTable
           v-model="phoneme"

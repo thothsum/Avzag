@@ -2,10 +2,9 @@
   <div>
     <p
       :class="{ 'text-faded': state.implicit, 'text-ipa': t == 'ipa', t }"
-      :key="i"
       v-for="(t, i) in types"
     >
-      <span :class="colors[j]" :key="j" v-for="(s, j) in segments[i]">
+      <span :class="colors[j]" v-for="(s, j) in segments[i]">
         {{ s }}
       </span>
     </p>

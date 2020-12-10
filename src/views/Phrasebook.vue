@@ -16,7 +16,7 @@
       </div>
       <template v-if="phrases">
         <div v-if="searching" class="col-1 scroll">
-          <div class="col" :key="s" v-for="(ps, s) of phrases">
+          <div class="col" v-for="(ps, s) of phrases">
             <h2>{{ phrasebook[s].name }}</h2>
             <div class="col-0">
               <Button
@@ -24,7 +24,6 @@
                   highlight: phrase == phrasebook[s].phrases[p],
                 }"
                 @click="select(s, p)"
-                :key="p"
                 v-for="p in ps"
                 :text="phrasebook[s].phrases[p].preview"
               />
@@ -75,7 +74,6 @@
             :context.sync="context"
             :interactive="interactive"
             :block="b"
-            :key="i"
             v-for="(b, i) in phrase.blocks"
           />
         </div>
@@ -88,7 +86,6 @@
         :interactive="interactive"
         :glossed="glossed"
         :showNotes="showNotes"
-        :key="i"
         v-for="(t, i) in translations"
       />
     </div>

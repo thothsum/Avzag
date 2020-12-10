@@ -10,17 +10,13 @@
       <ButtonAlert @confirm="remove" />
     </template>
     <template v-if="translation">
-      <div
-        class="row wrap"
-        :key="i"
-        v-for="(e, i) in entities"
-      >
+      <div class="row wrap" v-for="(e, i) in entities">
         <div class="row wrap block-editor">
           <div class="col">
             <h2 class="text-caption" :class="colors[i]">{{ e[0] }}</h2>
             <input :size="sizes[i].entity" type="text" v-model="e[1]" />
           </div>
-          <div class="col" :key="t[0]" v-for="(t, j) in tags[i]">
+          <div class="col" v-for="(t, j) in tags[i]">
             <p class="text-caption">{{ t[0] }}</p>
             <input :size="sizes[i].tags[j]" type="text" v-model="t[1]" />
           </div>

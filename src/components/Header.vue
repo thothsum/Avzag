@@ -7,7 +7,6 @@
         :class="{ highlight: $route.name === t }"
         :icon="i"
         :text="t"
-        :key="i"
         v-for="[t, i] in menus"
       />
     </div>

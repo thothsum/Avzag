@@ -53,7 +53,7 @@
           <template v-if="mapping" #header>
             <ButtonAlert @confirm="deleteMapping" />
           </template>
-          <div class="row" :key="i" v-for="(m, i) in mappings">
+          <div class="row" v-for="(m, i) in mappings">
             <Button
               @click="mapping = m"
               :class="{ highlight: mapping == m }"
@@ -75,7 +75,7 @@
           versa (right with left) if conversion is reversed.</template
         >
         <template #default>
-          <div class="row" :key="i" v-for="(p, i) in pairs">
+          <div class="row" v-for="(p, i) in pairs">
             <Button @click="addPair(i)" icon="add" />
             <input type="text" v-model="p[0]" placeholder="from" />
             <input type="text" v-model="p[1]" placeholder="to" />

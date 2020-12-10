@@ -7,7 +7,6 @@
     <audio ref="player"></audio>
     <PhonemeUse
       @play="play"
-      :key="l"
       v-for="(u, l) of phoneme.lects"
       :lect="l"
       :use="u"

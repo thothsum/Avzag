@@ -2,15 +2,10 @@
   <div class="col-1 card">
     <div class="title">
       <h2 class="flex">{{ lect }}</h2>
-      <p :key="g" v-for="g in graphemes" class="text-dot">{{ g }}</p>
+      <p v-for="g in graphemes" class="text-dot">{{ g }}</p>
     </div>
     <div class="col-0">
-      <button
-        class="small row"
-        @click="play(i)"
-        :key="i"
-        v-for="(s, i) in fullSamples"
-      >
+      <button class="small row" @click="play(i)" v-for="(s, i) in fullSamples">
         <span class="icon">{{
           canPlay[i] ? "play_arrow" : "arrow_right"
         }}</span>
@@ -22,7 +17,7 @@
         ></span>
       </button>
     </div>
-    <PhoneticNote :key="i" v-for="(n, i) in use.notes" :text="n" />
+    <PhoneticNote v-for="(n, i) in use.notes" :text="n" />
   </div>
 </template>
 

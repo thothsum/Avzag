@@ -5,7 +5,6 @@
       :class="{ highlight: value == items[i] }"
       @click="select(i)"
       :text="k"
-      :key="i"
       v-for="(k, i) in keys"
     />
   </div>

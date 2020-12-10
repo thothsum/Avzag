@@ -11,7 +11,6 @@
         @click="$emit('toggle', l)"
         v-if="l.coordinates"
         :lat-lng="l.coordinates"
-        :key="i"
       >
         <l-icon :icon-anchor="[0, 0]">
           <div class="marker" :class="'zoom-' + zoom">

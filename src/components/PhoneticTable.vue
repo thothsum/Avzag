@@ -6,7 +6,6 @@
       :faded="!fitting[i]"
       :ipa="p.ipa"
       :str="graphemes[i]"
-      :key="i"
       v-for="(p, i) in filtered"
     />
   </div>

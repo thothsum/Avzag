@@ -26,7 +26,6 @@
           </p>
           <Button
             class="small round"
-            :key="i"
             v-for="(l, i) in lects"
             :text="l.name"
             @click="toggleLect(l)"
@@ -45,7 +44,6 @@
           </div>
         </div>
         <LectCard
-          :key="i"
           v-for="(l, i) in catalogue"
           :lect="l"
           :selected="selected[i]"

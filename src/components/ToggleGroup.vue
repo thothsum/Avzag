@@ -1,7 +1,6 @@
 <template>
   <div class="row">
     <Button
-      :key="i"
       v-for="(ic, i) in icons"
       :icon="ic"
       :class="{ highlight: i == value }"
