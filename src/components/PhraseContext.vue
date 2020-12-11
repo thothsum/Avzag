@@ -1,7 +1,7 @@
 <template>
   <div class="row text-caption text-faded wrap" v-if="any">
-    <template v-for="(ts, i) of tags">
-      <div class="row wrap" :key="i" v-if="ts.length">
+    <template :key="i" v-for="(ts, i) of tags">
+      <div class="row wrap" v-if="ts.length">
         <h2 :class="'colored-dot-' + i">{{ entities[i] }}</h2>
         <p :key="t" v-for="t in ts">{{ t }}</p>
       </div>

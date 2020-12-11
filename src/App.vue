@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from "vue";
 import Header from "./components/Header.vue";
 
@@ -23,7 +23,7 @@ export default Vue.extend({
   },
   watch: {
     "$route.path": {
-      handler(): void {
+      handler() {
         if (this.$route.name) localStorage.url = this.$route.path;
       },
     },

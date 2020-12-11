@@ -6,12 +6,11 @@
     :options="{ zoomControl: false }"
   >
     <l-tile-layer :url="layerUrl" :options="layerOptions" />
-    <template v-for="(l, i) in catalogue">
+    <template :key="i" v-for="(l, i) in catalogue">
       <l-marker
         @click="$emit('toggle', l)"
         v-if="l.coordinates"
         :lat-lng="l.coordinates"
-        :key="i"
       >
         <l-icon :icon-anchor="[0, 0]">
           <div class="marker" :class="'zoom-' + zoom">
