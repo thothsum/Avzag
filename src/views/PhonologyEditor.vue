@@ -22,6 +22,7 @@
             :selected="phoneme == p"
             :ipa="p.phoneme"
             :str="graphemes[i]"
+            :key="i"
             v-for="(p, i) in file"
           />
         </div>
@@ -46,7 +47,7 @@
             word, and the word's ipa.
           </template>
           <template #default>
-            <div v-for="(s, i) in phoneme.samples" class="row sample">
+            <div :key="i" v-for="(s, i) in phoneme.samples" class="row sample">
               <input type="text" v-model="s.grapheme" placeholder="grapheme" />
               <input
                 class="flex"

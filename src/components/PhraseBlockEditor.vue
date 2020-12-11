@@ -14,7 +14,7 @@
         <ButtonAlert @confirm="remove" />
       </template>
       <div class="row-1 wrap block-editor">
-        <div class="row" v-for="(s, i) in states">
+        <div class="row" :key="i" v-for="(s, i) in states">
           <Button
             @click="state = s"
             icon="edit"

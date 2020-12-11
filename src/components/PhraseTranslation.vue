@@ -19,11 +19,12 @@
         :interactive="interactive"
         :glossed="glossed"
         :block="b"
+        :key="i"
         v-for="(b, i) in translation.blocks"
       />
     </div>
     <template v-if="showNotes">
-      <PhoneticNote v-for="(n, i) in translation.notes" :text="n" />
+      <PhoneticNote :key="i" v-for="(n, i) in translation.notes" :text="n" />
     </template>
   </div>
 </template>

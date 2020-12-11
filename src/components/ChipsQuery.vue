@@ -5,6 +5,7 @@
       class="small round"
       :class="highlights[i]"
       @click="toggle(i)"
+      :key="k"
       v-for="(k, i) in keys"
     >
       {{ k }}

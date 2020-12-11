@@ -1,6 +1,7 @@
 <template>
   <div class="col-0">
     <Button
+      :key="i"
       v-for="(v, i) in values"
       :text="text[i]"
       :class="{ highlight: value == v }"

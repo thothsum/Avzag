@@ -1,6 +1,6 @@
 <template>
   <div class="card row-1 wrap" v-if="pairs.length > 0">
-    <p v-for="(p, i) in pairs">
+    <p :key="i" v-for="(p, i) in pairs">
       <span class="text-faded">{{ p[left].replace(" ", "_") }}</span>
       <span>{{ p[right].replace(" ", "_") }}</span>
     </p>

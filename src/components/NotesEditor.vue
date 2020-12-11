@@ -1,7 +1,7 @@
 <template>
   <ActionHeader @action="add" icon="sticky_note_2" header="Notes">
     <template #caption><slot /></template>
-    <div class="row" v-for="(n, i) in notes">
+    <div class="row" :key="i" v-for="(n, i) in notes">
       <input type="text" v-model="notes[i]" />
       <Button @click="remove(i)" icon="clear" />
     </div>

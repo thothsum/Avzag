@@ -3,7 +3,7 @@
     <div class="col-0">
       <h1 :class="{ selected }">{{ lect.name }}</h1>
       <p class="text-caption">
-        <span split class="text-dot" v-for="f in lect.family">
+        <span split class="text-dot" :key="f" v-for="f in lect.family">
           {{ f }}
         </span>
       </p>

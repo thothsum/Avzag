@@ -53,6 +53,7 @@
                 v-model:context="context"
                 :interactive="true"
                 :block="b"
+                :key="i + '-' + phrase.id"
                 v-for="(b, i) in phrase.blocks"
               />
             </div>
@@ -69,7 +70,11 @@
               :translation="translation.context"
             />
             <div class="row-1 wrap block-editor">
-              <div class="row" v-for="(b, i) in blocks">
+              <div
+                class="row"
+                :key="state + '_' + i + '_' + phrase.id"
+                v-for="(b, i) in blocks"
+              >
                 <Button
                   @click="block = b"
                   icon="edit"

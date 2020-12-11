@@ -26,7 +26,7 @@
             <ButtonAlert @confirm="removeSection" />
           </template>
           <div class="col scroll">
-            <div class="row" v-for="s in file">
+            <div class="row" :key="s.id" v-for="s in file">
               <Button
                 icon="edit"
                 @click="section = s"
@@ -46,7 +46,7 @@
             <ButtonAlert @confirm="removePhrase" />
           </template>
           <div class="col scroll">
-            <div class="row" v-for="p in section.phrases">
+            <div class="row" :key="p.id" v-for="p in section.phrases">
               <Button
                 icon="edit"
                 @click="phrase = p"
@@ -67,7 +67,11 @@
           </template>
           <PhraseContext :context="context" />
           <div class="row-1 wrap block-editor">
-            <div class="row" v-for="(b, i) in blocks">
+            <div
+              class="row"
+              :key="i + '_' + phrase.id"
+              v-for="(b, i) in blocks"
+            >
               <Button
                 @click="block = b"
                 icon="edit"

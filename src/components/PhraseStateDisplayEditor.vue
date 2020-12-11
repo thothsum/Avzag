@@ -4,7 +4,7 @@
       <Button v-model:value="state.implicit" icon="opacity" />
     </template>
     <div v-if="display" class="col">
-      <div class="row" v-for="(d, i) in display">
+      <div class="row" :key="i" v-for="(d, i) in display">
         <Button @click="toggle(i)" icon="palette" />
         <input
           :class="colors[i]"
