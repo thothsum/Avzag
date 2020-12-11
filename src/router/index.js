@@ -53,12 +53,11 @@ const routes = [
     component: Phrasebook
   },
   {
-    path: '*',
+    path: '/:pathMatch(.*)',
     redirect: {
       name: 'Home'
     }
   },
 ]
 
-const router = createRouter({ routes })
-export default router
+export const router = createRouter({ history: createWebHashHistory(), routes })
