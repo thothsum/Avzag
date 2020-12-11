@@ -6,14 +6,21 @@
 </template>
 
 <script setup>
-import { watch, computed, onCreated, useRoute } from "vue";
+import { watchEffect, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useStore } from "vuex";
 // eslint-disable-next-line
 import Header from "./components/Header.vue";
 
 const route = useRoute();
+const router = useRouter();
+const store = useStore();
 
-watch(route.path, () => {
-  if (route.name) localStorage.url = route.path;
+watchEffect(() => {
+  if (route.name) {
+    localStorage.url = route.path;
+    console.log(route.path);
+  }
 });
 
 // eslint-disable-next-line
@@ -21,19 +28,17 @@ const showHeader = computed(
   () => route.name != "Home" && !route.path.includes("/editor/")
 );
 
-onCreated(() => {
-  this.$store.dispatch("initialize");
-  if (!this.$route.name || this.$route.name == "Home")
-    this.$router.push(
-      localStorage.url && localStorage.url != this.$route.path
-        ? { path: localStorage.url }
-        : { name: "Home" }
-    );
-  if (this.$route.name != "Home") {
-    const lects = JSON.parse(localStorage.lects ?? "[]");
-    if (lects) this.$store.dispatch("loadLects", lects);
-  }
-});
+store.dispatch("initialize");
+if (!route.name || route.name == "Home")
+  router.push(
+    localStorage.url && localStorage.url != route.path
+      ? { path: localStorage.url }
+      : { name: "Home" }
+  );
+if (route.name != "Home") {
+  const lects = JSON.parse(localStorage.lects ?? "[]");
+  if (lects) store.dispatch("loadLects", lects);
+}
 </script>
 
 <style lang="scss">
