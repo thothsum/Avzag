@@ -1,6 +1,5 @@
 import { createStore } from 'vuex'
 
-
 const getTags = function (p, ipa) {
   let tags = '';
 
@@ -17,7 +16,7 @@ const getTags = function (p, ipa) {
   return tags;
 };
 
-export const store = createStore({
+export default createStore({
   state: {
     root: process.env.BASE_URL + "lects/",
     ipa: undefined,

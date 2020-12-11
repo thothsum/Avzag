@@ -6,10 +6,9 @@
 </template>
 
 <script>
-import Vue from "vue";
 import Header from "./components/Header.vue";
 
-export default Vue.extend({
+export default {
   name: "App",
   components: {
     Header,
@@ -41,7 +40,7 @@ export default Vue.extend({
       if (lects) this.$store.dispatch("loadLects", lects);
     }
   },
-});
+};
 </script>
 
 <style lang="scss">
