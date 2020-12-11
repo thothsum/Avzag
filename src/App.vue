@@ -5,42 +5,35 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { watch, computed, onCreated, useRoute } from "vue";
+// eslint-disable-next-line
 import Header from "./components/Header.vue";
 
-export default {
-  name: "App",
-  components: {
-    Header,
-  },
-  computed: {
-    showHeader() {
-      return (
-        this.$route.name != "Home" && !this.$route.path.includes("/editor/")
-      );
-    },
-  },
-  watch: {
-    "$route.path": {
-      handler() {
-        if (this.$route.name) localStorage.url = this.$route.path;
-      },
-    },
-  },
-  created() {
-    this.$store.dispatch("initialize");
-    if (!this.$route.name || this.$route.name == "Home")
-      this.$router.push(
-        localStorage.url && localStorage.url != this.$route.path
-          ? { path: localStorage.url }
-          : { name: "Home" }
-      );
-    if (this.$route.name != "Home") {
-      const lects = JSON.parse(localStorage.lects ?? "[]");
-      if (lects) this.$store.dispatch("loadLects", lects);
-    }
-  },
-};
+const route = useRoute();
+
+watch(route.path, () => {
+  if (route.name) localStorage.url = route.path;
+});
+
+// eslint-disable-next-line
+const showHeader = computed(
+  () => route.name != "Home" && !route.path.includes("/editor/")
+);
+
+onCreated(() => {
+  this.$store.dispatch("initialize");
+  if (!this.$route.name || this.$route.name == "Home")
+    this.$router.push(
+      localStorage.url && localStorage.url != this.$route.path
+        ? { path: localStorage.url }
+        : { name: "Home" }
+    );
+  if (this.$route.name != "Home") {
+    const lects = JSON.parse(localStorage.lects ?? "[]");
+    if (lects) this.$store.dispatch("loadLects", lects);
+  }
+});
 </script>
 
 <style lang="scss">
