@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter } from 'vue-router'
 
 import PhonologyEditor from '../views/PhonologyEditor.vue'
 import ConverterEditor from '../views/ConverterEditor.vue'
@@ -11,8 +10,6 @@ import Converter from '../views/Converter.vue'
 import Phrasebook from '../views/Phrasebook.vue'
 
 import Home from '../views/Home.vue'
-
-Vue.use(VueRouter)
 
 const routes = [
   {
@@ -63,6 +60,5 @@ const routes = [
   },
 ]
 
-const router = new VueRouter({ routes })
-
+const router = createRouter({ routes })
 export default router

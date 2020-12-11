@@ -11,13 +11,7 @@ import 'leaflet/dist/leaflet.css';
 //   store,
 //   render: h => h(App)
 // }).$mount('#app')
-
-const app = createApp(App)
-
-app.use(router)
-app.use(store)
-
-router.isReady()
-  .then(() => {
-    app.mount('#app')
-  })
+createApp(App)
+  .use(router)
+  .use(store)
+  .mount('#app');
