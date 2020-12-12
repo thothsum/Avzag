@@ -248,7 +248,7 @@ export default {
       if (file) this.file = file;
     },
     saveToJson() {
-      navigator.clipboard.writeText(JSON.stringify(this.file));
+      navigator.clipboard.writeText(JSON.stringify(this.file, null, 2));
     },
     reset() {
       this.file = {};
