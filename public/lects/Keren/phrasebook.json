@@ -6,7 +6,9 @@
           {
             "display": [
               {
-                "text": "Мус"
+                "text": "Мус",
+                "ipa": "mus",
+                "glossing": "when"
               }
             ],
             "transition": "next",
@@ -20,7 +22,9 @@
           {
             "display": [
               {
-                "text": "Фиштти"
+                "text": "Фиштти",
+                "ipa": "ˈfiʃtːi",
+                "glossing": "how"
               }
             ],
             "transition": "next",
@@ -38,7 +42,9 @@
           {
             "display": [
               {
-                "text": "зун"
+                "text": "зун",
+                "ipa": "zun",
+                "glossing": "I"
               }
             ],
             "transition": "2",
@@ -57,7 +63,15 @@
           {
             "display": [
               {
-                "text": "завас"
+                "text": "за",
+                "ipa": "ˈza",
+                "glossing": "I"
+              },
+              {
+                "text": "вас",
+                "ipa": "-was",
+                "glossing": "-ABLAT.",
+                "entity": "tense"
               }
             ],
             "transition": "3",
@@ -76,7 +90,9 @@
           {
             "display": [
               {
-                "text": "чин"
+                "text": "чин",
+                "ipa": "t͡ʃin",
+                "glossing": "we-INCL."
               }
             ],
             "transition": "0",
@@ -95,7 +111,15 @@
           {
             "display": [
               {
-                "text": "чевас"
+                "text": "че",
+                "ipa": "ˈt͡ʃe",
+                "glossing": "we-INCL."
+              },
+              {
+                "text": "вас",
+                "ipa": "-was",
+                "glossing": "-ABLAT.",
+                "entity": "tense"
               }
             ],
             "transition": "1",
@@ -118,7 +142,15 @@
           {
             "display": [
               {
-                "text": "въас"
+                "text": "въа",
+                "ipa": "wˤa",
+                "glossing": "go"
+              },
+              {
+                "text": "с",
+                "ipa": "-s",
+                "glossing": "-INF.",
+                "entity": "tense"
               }
             ],
             "conditions": [
@@ -131,14 +163,9 @@
           {
             "display": [
               {
-                "text": "въа",
-                "glossing": "go",
-                "ipa": "wˤa"
-              },
-              {
-                "text": "с",
-                "glossing": "-INF",
-                "ipa": "-s"
+                "text": "въас",
+                "glossing": "go-INF.",
+                "ipa": "wˤas"
               },
               {
                 "text": "е",
@@ -162,7 +189,15 @@
           {
             "display": [
               {
-                "text": "въайа"
+                "text": "въа",
+                "ipa": "wˤa",
+                "glossing": "can"
+              },
+              {
+                "text": "йа",
+                "ipa": "-ja",
+                "glossing": "-IMPERFECT.",
+                "entity": "tense"
               }
             ],
             "conditions": []
@@ -180,7 +215,21 @@
           {
             "display": [
               {
-                "text": "дукандис?"
+                "text": "дукан",
+                "ipa": "duˈkʰan",
+                "glossing": "shop"
+              },
+              {
+                "text": "ди",
+                "ipa": "-di",
+                "glossing": "-ERG.",
+                "entity": "tense"
+              },
+              {
+                "text": "с?",
+                "ipa": "-s",
+                "glossing": "-DAT.",
+                "entity": "destination"
               }
             ],
             "transition": "next",
@@ -194,7 +243,21 @@
           {
             "display": [
               {
-                "text": "хуластти?"
+                "text": "хул",
+                "ipa": "χuˈl",
+                "glossing": "home"
+              },
+              {
+                "text": "а",
+                "ipa": "-a",
+                "glossing": "-ERG.",
+                "entity": "tense"
+              },
+              {
+                "text": "стти?",
+                "ipa": "-stːi",
+                "glossing": "-INALLAT.",
+                "entity": "destination"
               }
             ],
             "transition": "next",
@@ -208,7 +271,21 @@
           {
             "display": [
               {
-                "text": "тисастти?"
+                "text": "тис",
+                "ipa": "ˈtʰis",
+                "glossing": "there"
+              },
+              {
+                "text": "а",
+                "ipa": "-a",
+                "glossing": "-ERG.",
+                "entity": "tense"
+              },
+              {
+                "text": "стти?",
+                "ipa": "-stːi",
+                "glossing": "-INALLAT.",
+                "entity": "destination"
               }
             ],
             "transition": "next",
@@ -217,7 +294,8 @@
                 "entity": "destination",
                 "tag": "there"
               }
-            ]
+            ],
+            "implicit": false
           }
         ]
       }
