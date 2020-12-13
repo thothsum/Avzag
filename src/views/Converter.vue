@@ -64,107 +64,107 @@
 </template>
 
 <script>
-import Button from '@/components/Button'
-import Select from '@/components/Select'
-import ChipsSelect from '@/components/ChipsSelect'
-import MappingTable from '@/components/MappingTable'
-import ConverterText from '@/components/ConverterText'
+import Button from "@/components/Button";
+import Select from "@/components/Select";
+import ChipsSelect from "@/components/ChipsSelect";
+import MappingTable from "@/components/MappingTable";
+import ConverterText from "@/components/ConverterText";
 
 export default {
-  name: 'Converter',
+  name: "Converter",
   components: {
     Button,
     Select,
     ChipsSelect,
     MappingTable,
-    ConverterText
+    ConverterText,
   },
-  data () {
+  data() {
     return {
       lect: undefined,
-      source: '',
+      source: "",
       sourceMapping: undefined,
-      result: '',
+      result: "",
       resultMapping: undefined,
-      intermediate: '',
-      showMappings: false
-    }
+      intermediate: "",
+      showMappings: false,
+    };
   },
   computed: {
-    lects () {
-      return this.$store.state.lects
+    lects() {
+      return this.$store.state.lects;
     },
-    converter () {
-      return this.lect?.converter
+    converter() {
+      return this.lect?.converter;
     },
-    mappings () {
-      return this.converter?.mappings
+    mappings() {
+      return this.converter?.mappings;
     },
-    fullMappings () {
+    fullMappings() {
       return this.mappings.filter((m) =>
-        m.pairs.every((a) => a == m.pairs.find((b) => b[0] == a[0]))
-      )
+        m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))
+      );
     },
-    sample () {
-      return this.converter?.sample ?? ''
+    sample() {
+      return this.converter?.sample ?? "";
     },
-    defaultConversion () {
-      return this.converter?.default
-    }
+    defaultConversion() {
+      return this.converter?.default;
+    },
   },
   watch: {
-    mappings (m) {
+    mappings(m) {
       if (m) {
-        this.sourceMapping = m[0]
-        this.resultMapping = m[1]
+        this.sourceMapping = m[0];
+        this.resultMapping = m[1];
       }
     },
-    sample (s) {
-      this.source = s
+    sample(s) {
+      this.source = s;
     },
-    defaultConversion (c) {
+    defaultConversion(c) {
       if (c) {
-        this.sourceMapping = this.mappings[c[0]]
-        this.resultMapping = this.mappings[c[1]]
+        this.sourceMapping = this.mappings[c[0]];
+        this.resultMapping = this.mappings[c[1]];
       }
-    }
+    },
   },
   methods: {
-    displaySample () {
-      const mapping = this.sourceMapping
-      this.sourceMapping = this.mappings[this.defaultConversion[0]]
-      this.source = this.sample
+    displaySample() {
+      const mapping = this.sourceMapping;
+      this.sourceMapping = this.mappings[this.defaultConversion[0]];
+      this.source = this.sample;
       this.$nextTick(() => {
-        this.sourceMapping = mapping
-      })
+        this.sourceMapping = mapping;
+      });
     },
-    swap () {
-      const source = this.result
-      const mapping = this.sourceMapping
-      this.sourceMapping = this.resultMapping
-      this.resultMapping = mapping
-      this.source = source
+    swap() {
+      const source = this.result;
+      const mapping = this.sourceMapping;
+      this.sourceMapping = this.resultMapping;
+      this.resultMapping = mapping;
+      this.source = source;
     },
-    upload (event) {
-      const reader = new FileReader()
+    upload(event) {
+      const reader = new FileReader();
       reader.onload = (e) =>
         this.download(
           event.target.files[0].name,
           this.convert(e.target.result)
-        )
-      reader.readAsText(event.target.files[0])
+        );
+      reader.readAsText(event.target.files[0]);
     },
-    download (filename, text) {
-      const link = this.$refs.link
-      link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
-      link.download = filename
-      link.click()
+    download(filename, text) {
+      const link = this.$refs.link;
+      link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
+      link.download = filename;
+      link.click();
     },
-    copy () {
-      navigator.clipboard.writeText(this.result)
-    }
-  }
-}
+    copy() {
+      navigator.clipboard.writeText(this.result);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
