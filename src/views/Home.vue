@@ -59,82 +59,82 @@
 </template>
 
 <script>
-import LectsMap from '@/components/LectsMap'
-import LectCard from '@/components/LectCard'
-import Button from '@/components/Button'
+import LectsMap from "@/components/LectsMap";
+import LectCard from "@/components/LectCard";
+import Button from "@/components/Button";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     LectsMap,
     LectCard,
-    Button
+    Button,
   },
-  data () {
+  data() {
     return {
       about: false,
-      search: '',
+      search: "",
       lects: undefined,
-      visible: []
-    }
+      visible: [],
+    };
   },
   computed: {
-    catalogue () {
-      return this.$store.state.catalogue
+    catalogue() {
+      return this.$store.state.catalogue;
     },
-    empty () {
-      return !this.lects?.length
+    empty() {
+      return !this.lects?.length;
     },
-    query () {
-      return this.search ? this.search.toLowerCase().split(' ') : null
+    query() {
+      return this.search ? this.search.toLowerCase().split(" ") : null;
     },
-    selected () {
-      return this.catalogue?.map((l) => this.lects.includes(l))
+    selected() {
+      return this.catalogue?.map((l) => this.lects.includes(l));
     },
-    quote () {
-      return this.lects[this.lects.length - 1]?.quote
-    }
+    quote() {
+      return this.lects[this.lects.length - 1]?.quote;
+    },
   },
   watch: {
     catalogue: {
-      handler () {
+      handler() {
         if (this.catalogue) {
           try {
             this.lects = JSON.parse(localStorage.lects)?.map((n) =>
-              this.catalogue.find((l) => l.name == n)
-            )
+              this.catalogue.find((l) => l.name === n)
+            );
           } catch (_) {
-            this.lects = []
+            this.lects = [];
           }
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
-  destroyed () {
-    localStorage.lects = JSON.stringify(this.lects.map((l) => l.name))
+  unmounted() {
+    localStorage.lects = JSON.stringify(this.lects.map((l) => l.name));
   },
   methods: {
-    toggleLect (lect) {
-      const i = this.lects.indexOf(lect)
-      if (i < 0) this.lects.push(lect)
-      else this.lects.splice(i, 1)
+    toggleLect(lect) {
+      const i = this.lects.indexOf(lect);
+      if (i < 0) this.lects.push(lect);
+      else this.lects.splice(i, 1);
     },
-    setVisibility (lect, value) {
-      const i = this.visible.indexOf(lect)
+    setVisibility(lect, value) {
+      const i = this.visible.indexOf(lect);
       if (i < 0) {
-        if (value) this.visible.push(lect)
-      } else if (!value) this.visible.splice(i, 1)
+        if (value) this.visible.push(lect);
+      } else if (!value) this.visible.splice(i, 1);
     },
-    load () {
+    load() {
       this.$store.dispatch(
-        'loadLects',
+        "loadLects",
         this.lects.map((l) => l.name)
-      )
-      this.$router.push({ name: 'Phonology' })
-    }
-  }
-}
+      );
+      this.$router.push({ name: "Phonology" });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

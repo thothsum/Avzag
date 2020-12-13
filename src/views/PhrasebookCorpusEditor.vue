@@ -132,7 +132,7 @@ export default {
   },
   computed: {
     contextSource() {
-      return this.phrase?.context;
+      return this.phrase?.context ?? [];
     },
     blocks() {
       return this.phrase?.blocks;
@@ -146,7 +146,7 @@ export default {
       handler() {
         this.context = {};
         this.fullContext = {};
-        this.contextSource?.forEach(({ entity, tags }) => {
+        this.contextSource.forEach(({ entity, tags }) => {
           this.context[entity] = new Set();
           this.fullContext[entity] = tags.split(" ");
         });
