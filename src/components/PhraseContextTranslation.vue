@@ -10,11 +10,7 @@
       <ButtonAlert @confirm="remove" />
     </template>
     <template v-if="translation">
-      <div
-        v-for="(e, i) in entities"
-        :key="i"
-        class="row wrap"
-      >
+      <div v-for="(e, i) in entities" :key="i" class="row wrap">
         <div class="row wrap block-editor">
           <div class="col">
             <h2 class="text-caption" :class="colors[i]">{{ e[0] }}</h2>
@@ -31,46 +27,46 @@
 </template>
 
 <script>
-import ButtonAlert from './ButtonAlert'
-import ActionHeader from '@/components/ActionHeader'
+import ButtonAlert from "./ButtonAlert";
+import ActionHeader from "@/components/ActionHeader";
 
 export default {
-  name: 'PhraseContextTranslation',
+  name: "PhraseContextTranslation",
   components: {
     ButtonAlert,
-    ActionHeader
+    ActionHeader,
   },
-  props: ['translation', 'context'],
+  props: ["translation", "context"],
   computed: {
-    entities () {
-      return this.translation.map((t) => t.entity)
+    entities() {
+      return this.translation.map((t) => t.entity);
     },
-    tags () {
-      return this.translation.map((t) => t.tags)
+    tags() {
+      return this.translation.map((t) => t.tags);
     },
-    sizes () {
+    sizes() {
       return this.translation.map(({ entity, tags }) => ({
         entity: Math.max(entity[1].length, 1),
-        tags: tags.map((t) => Math.max(t[1].length, 1))
-      }))
+        tags: tags.map((t) => Math.max(t[1].length, 1)),
+      }));
     },
-    colors () {
-      return this.entities.map((_, i) => 'colored-dot-' + i)
-    }
+    colors() {
+      return this.entities.map((_, i) => "colored-dot-" + i);
+    },
   },
   methods: {
-    add () {
+    add() {
       this.$emit(
-        'update:translation',
+        "update:translation",
         Object.entries(this.context).map(([e, ts]) => ({
-          entity: [e, ''],
-          tags: ts.map((t) => [t, ''])
+          entity: [e, ""],
+          tags: ts.map((t) => [t, ""]),
         }))
-      )
+      );
     },
-    remove () {
-      this.$emit('update:translation')
-    }
-  }
-}
+    remove() {
+      this.$emit("update:translation");
+    },
+  },
+};
 </script>

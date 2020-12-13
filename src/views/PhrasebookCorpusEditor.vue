@@ -99,18 +99,18 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
-import Button from '@/components/Button'
-import ButtonAlert from '@/components/ButtonAlert'
-import ActionHeader from '@/components/ActionHeader'
-import PhraseContext from '@/components/PhraseContext'
-import PhraseContextEditor from '@/components/PhraseContextEditor'
-import PhraseBlock from '@/components/PhraseBlock'
-import PhraseBlockEditor from '@/components/PhraseBlockEditor'
+import Button from "@/components/Button";
+import ButtonAlert from "@/components/ButtonAlert";
+import ActionHeader from "@/components/ActionHeader";
+import PhraseContext from "@/components/PhraseContext";
+import PhraseContextEditor from "@/components/PhraseContextEditor";
+import PhraseBlock from "@/components/PhraseBlock";
+import PhraseBlockEditor from "@/components/PhraseBlockEditor";
 
 export default {
-  name: 'PhrasebookCorpusEditor',
+  name: "PhrasebookCorpusEditor",
   components: {
     Button,
     ButtonAlert,
@@ -118,116 +118,116 @@ export default {
     PhraseContext,
     PhraseContextEditor,
     PhraseBlock,
-    PhraseBlockEditor
+    PhraseBlockEditor,
   },
-  data () {
+  data() {
     return {
       file: [],
       section: undefined,
       phrase: undefined,
       block: undefined,
       context: undefined,
-      fullContext: undefined
-    }
+      fullContext: undefined,
+    };
   },
   computed: {
-    contextSource () {
-      return this.phrase?.context
+    contextSource() {
+      return this.phrase?.context;
     },
-    blocks () {
-      return this.phrase?.blocks
-    }
+    blocks() {
+      return this.phrase?.blocks;
+    },
   },
   watch: {
-    section () {
-      this.phrase = this.section?.phrases[0]
+    section() {
+      this.phrase = this.section?.phrases[0];
     },
     phrase: {
-      handler () {
-        this.context = {}
-        this.fullContext = {}
+      handler() {
+        this.context = {};
+        this.fullContext = {};
         this.contextSource?.forEach(({ entity, tags }) => {
-          this.context[entity] = new Set()
-          this.fullContext[entity] = tags.split(' ')
-        })
+          this.context[entity] = new Set();
+          this.fullContext[entity] = tags.split(" ");
+        });
       },
       deep: true,
-      immediate: true
-    }
+      immediate: true,
+    },
   },
-  mounted () {
+  mounted() {
     try {
-      const file = JSON.parse(localStorage.pbcEditor)
-      if (file) this.file = file
-      return
+      const file = JSON.parse(localStorage.pbcEditor);
+      if (file) this.file = file;
+      return;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    this.reset()
+    this.reset();
   },
-  updated () {
-    localStorage.pbcEditor = JSON.stringify(this.file)
+  updated() {
+    localStorage.pbcEditor = JSON.stringify(this.file);
   },
-  beforeDestroy () {
-    localStorage.pbcEditor = JSON.stringify(this.file)
+  beforeUnmount() {
+    localStorage.pbcEditor = JSON.stringify(this.file);
   },
   methods: {
-    addSection () {
+    addSection() {
       const s = {
         id: uuidv4(),
-        name: 'New section',
-        phrases: []
-      }
-      this.file.push(s)
-      this.section = s
+        name: "New section",
+        phrases: [],
+      };
+      this.file.push(s);
+      this.section = s;
     },
-    removeSection () {
-      this.$delete(this.file, this.file.indexOf(this.section))
+    removeSection() {
+      this.$delete(this.file, this.file.indexOf(this.section));
     },
-    addPhrase () {
+    addPhrase() {
       const p = {
         id: uuidv4(),
-        preview: 'New phrase',
+        preview: "New phrase",
         context: [],
-        blocks: []
-      }
-      this.section.phrases.push(p)
-      this.phrase = p
+        blocks: [],
+      };
+      this.section.phrases.push(p);
+      this.phrase = p;
     },
-    removePhrase () {
+    removePhrase() {
       this.$delete(
         this.section.phrases,
         this.section.phrases.indexOf(this.phrase)
-      )
+      );
     },
-    addBlock () {
-      const b = {}
-      this.blocks.push(b)
-      this.block = b
+    addBlock() {
+      const b = {};
+      this.blocks.push(b);
+      this.block = b;
     },
-    removeBlock () {
-      this.$delete(this.blocks, this.blocks.indexOf(this.block))
-      this.block = this.blocks[this.blocks.length - 1]
+    removeBlock() {
+      this.$delete(this.blocks, this.blocks.indexOf(this.block));
+      this.block = this.blocks[this.blocks.length - 1];
     },
-    loadFromLect () {
-      fetch(this.$store.state.root + '/phrasebook.json')
+    loadFromLect() {
+      fetch(this.$store.state.root + "/phrasebook.json")
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.file = j
-        })
+          if (j) this.file = j;
+        });
     },
-    loadFromJson () {
-      const file = JSON.parse(window.prompt('Enter JSON'))
-      if (file) this.file = file
+    loadFromJson() {
+      const file = JSON.parse(window.prompt("Enter JSON"));
+      if (file) this.file = file;
     },
-    saveToJson () {
-      navigator.clipboard.writeText(JSON.stringify(this.file))
+    saveToJson() {
+      navigator.clipboard.writeText(JSON.stringify(this.file));
     },
-    reset () {
-      this.file = []
-    }
-  }
-}
+    reset() {
+      this.file = [];
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

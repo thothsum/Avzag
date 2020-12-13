@@ -113,18 +113,18 @@
 </template>
 
 <script>
-import Button from '@/components/Button'
-import ActionHeader from '@/components/ActionHeader'
-import ButtonAlert from '@/components/ButtonAlert'
-import Select from '@/components/Select'
-import PhraseBlock from '@/components/PhraseBlock'
-import PhraseContext from '@/components/PhraseContext'
-import PhraseBlockEditor from '@/components/PhraseBlockEditor'
-import NotesEditor from '@/components/NotesEditor'
-import PhraseContextTranslation from '@/components/PhraseContextTranslation'
+import Button from "@/components/Button";
+import ActionHeader from "@/components/ActionHeader";
+import ButtonAlert from "@/components/ButtonAlert";
+import Select from "@/components/Select";
+import PhraseBlock from "@/components/PhraseBlock";
+import PhraseContext from "@/components/PhraseContext";
+import PhraseBlockEditor from "@/components/PhraseBlockEditor";
+import NotesEditor from "@/components/NotesEditor";
+import PhraseContextTranslation from "@/components/PhraseContextTranslation";
 
 export default {
-  name: 'PhrasebookEditor',
+  name: "PhrasebookEditor",
   components: {
     Button,
     ActionHeader,
@@ -134,12 +134,12 @@ export default {
     PhraseContext,
     PhraseBlockEditor,
     NotesEditor,
-    PhraseContextTranslation
+    PhraseContextTranslation,
   },
-  data () {
+  data() {
     return {
       state: 0,
-      lect: 'default',
+      lect: "default",
       file: undefined,
       section: undefined,
       phrase: undefined,
@@ -147,123 +147,123 @@ export default {
       fullContext: undefined,
       translation: undefined,
       block: undefined,
-      phrasebook: undefined
-    }
+      phrasebook: undefined,
+    };
   },
   computed: {
-    phrases () {
-      return this.section?.phrases ?? []
+    phrases() {
+      return this.section?.phrases ?? [];
     },
-    blocks () {
-      return this.translation?.blocks
-    }
+    blocks() {
+      return this.translation?.blocks;
+    },
   },
   watch: {
-    phrasebook () {
+    phrasebook() {
       if (this.file && this.phrasebook?.length) {
-        this.section = this.phrasebook[0]
-        this.phrase = this.section?.phrases[0]
-        this.fillMissing()
+        this.section = this.phrasebook[0];
+        this.phrase = this.section?.phrases[0];
+        this.fillMissing();
       }
     },
-    file () {
-      this.state = Math.random()
+    file() {
+      this.state = Math.random();
       if (this.file && this.phrasebook?.length) {
-        this.section = this.phrasebook[0]
-        this.phrase = this.section?.phrases[0]
-        this.fillMissing()
+        this.section = this.phrasebook[0];
+        this.phrase = this.section?.phrases[0];
+        this.fillMissing();
       }
     },
     section: {
-      handler () {
-        this.phrase = this.phrases[0]
+      handler() {
+        this.phrase = this.phrases[0];
       },
-      immediate: true
+      immediate: true,
     },
     phrase: {
-      handler () {
-        if (!this.phrase) return
+      handler() {
+        if (!this.phrase) return;
 
-        this.context = {}
-        this.fullContext = {}
+        this.context = {};
+        this.fullContext = {};
         this.phrase.context.forEach(({ entity, tags }) => {
-          this.context[entity] = new Set()
-          this.fullContext[entity] = tags.split(' ')
-        })
+          this.context[entity] = new Set();
+          this.fullContext[entity] = tags.split(" ");
+        });
 
-        this.fillMissing()
+        this.fillMissing();
       },
-      immediate: true
+      immediate: true,
     },
-    blocks () {
-      this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null
-    }
+    blocks() {
+      this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null;
+    },
   },
-  mounted () {
+  mounted() {
     try {
-      this.file = JSON.parse(localStorage.pbEditor) ?? {}
+      this.file = JSON.parse(localStorage.pbEditor) ?? {};
     } catch {
-      console.log('phrasebook did not load')
-      this.file = {}
+      console.log("phrasebook did not load");
+      this.file = {};
     }
 
     try {
-      this.phrasebook = JSON.parse(localStorage.pbcEditor)
+      this.phrasebook = JSON.parse(localStorage.pbcEditor);
     } catch {
-      this.phrasebook = {}
+      this.phrasebook = {};
     }
     if (!Object.keys(this.phrasebook ?? {})?.length) {
-      fetch(this.$store.state.root + '/phrasebook.json')
+      fetch(this.$store.state.root + "/phrasebook.json")
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.phrasebook = j
-        })
+          if (j) this.phrasebook = j;
+        });
     }
   },
-  updated () {
-    localStorage.pbEditor = JSON.stringify(this.file)
+  updated() {
+    localStorage.pbEditor = JSON.stringify(this.file);
   },
-  beforeDestroy () {
-    localStorage.pbEditor = JSON.stringify(this.file)
+  beforeUnmount() {
+    localStorage.pbEditor = JSON.stringify(this.file);
   },
   methods: {
-    fillMissing () {
-      if (!(this.file && this.section && this.phrase)) return
-      if (!this.file[this.phrase.id]) this.$set(this.file, this.phrase.id, {})
-      this.translation = this.file[this.phrase.id]
+    fillMissing() {
+      if (!(this.file && this.section && this.phrase)) return;
+      if (!this.file[this.phrase.id]) this.$set(this.file, this.phrase.id, {});
+      this.translation = this.file[this.phrase.id];
     },
-    loadFromLect () {
+    loadFromLect() {
       fetch(
         this.$store.state.root +
-          window.prompt('Enter lect name') +
-          '/phrasebook.json'
+          window.prompt("Enter lect name") +
+          "/phrasebook.json"
       )
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.file = j
-        })
+          if (j) this.file = j;
+        });
     },
-    loadFromJson () {
-      const file = JSON.parse(window.prompt('Enter JSON'))
-      if (file) this.file = file
+    loadFromJson() {
+      const file = JSON.parse(window.prompt("Enter JSON"));
+      if (file) this.file = file;
     },
-    saveToJson () {
-      navigator.clipboard.writeText(JSON.stringify(this.file))
+    saveToJson() {
+      navigator.clipboard.writeText(JSON.stringify(this.file));
     },
-    reset () {
-      this.file = {}
+    reset() {
+      this.file = {};
     },
-    addBlock () {
-      this.block = {}
-      if (this.blocks) this.blocks.push(this.block)
-      else this.$set(this.translation, 'blocks', [this.block])
+    addBlock() {
+      this.block = {};
+      if (this.blocks) this.blocks.push(this.block);
+      else this.$set(this.translation, "blocks", [this.block]);
     },
-    removeBlock () {
-      this.$delete(this.blocks, this.blocks.indexOf(this.block))
-      this.block = this.blocks[this.blocks.length - 1]
-    }
-  }
-}
+    removeBlock() {
+      this.$delete(this.blocks, this.blocks.indexOf(this.block));
+      this.block = this.blocks[this.blocks.length - 1];
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
