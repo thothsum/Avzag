@@ -9,12 +9,12 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button @click="loadFromLect" text="load from lect" />
-      <Button @click="loadFromJson" text="load from JSON" />
-      <Button @click="saveToJson" text="save JSON to clipboard" />
-      <ButtonAlert @confirm="reset" text="Reset" />
+      <Button text="load from lect" @click="loadFromLect" />
+      <Button text="load from JSON" @click="loadFromJson" />
+      <Button text="save JSON to clipboard" @click="saveToJson" />
+      <ButtonAlert text="Reset" @confirm="reset" />
     </div>
-    <div class="grid small" v-if="file">
+    <div v-if="file" class="grid small">
       <div class="col-2">
         <ActionHeader button="" icon="text_snippet" header="Sample Text">
           <template #caption>
@@ -31,7 +31,7 @@
             Two mappings that will be set by default. The left should be set to
             the sample's original writing system.
           </template>
-          <div class="row" v-if="defaultConversion">
+          <div v-if="defaultConversion" class="row">
             <p class="icon">south</p>
             <div class="col flex">
               <Select
@@ -49,25 +49,25 @@
             </div>
           </div>
         </ActionHeader>
-        <ActionHeader @action="addMapping" icon="call_merge" header="Mappings">
+        <ActionHeader icon="call_merge" header="Mappings" @action="addMapping">
           <template v-if="mapping" #header>
             <ButtonAlert @confirm="deleteMapping" />
           </template>
-          <div class="row" :key="i" v-for="(m, i) in mappings">
+          <div v-for="(m, i) in mappings" :key="i" class="row">
             <Button
-              @click="mapping = m"
               :class="{ highlight: mapping == m }"
               icon="edit"
+              @click="mapping = m"
             />
-            <input type="text" v-model="m.name" />
+            <input v-model="m.name" type="text" />
           </div>
         </ActionHeader>
       </div>
       <ActionHeader
         v-if="mapping"
-        @action="addPair(pairs.length)"
         icon="format_list_numbered"
         header="Pairs"
+        @action="addPair(pairs.length)"
       >
         <template #caption>
           During conversion system will consuquently go over these pairs,
@@ -75,11 +75,11 @@
           versa (right with left) if conversion is reversed.</template
         >
         <template #default>
-          <div class="row" :key="i" v-for="(p, i) in pairs">
-            <Button @click="addPair(i)" icon="add" />
-            <input type="text" v-model="p[0]" placeholder="from" />
-            <input type="text" v-model="p[1]" placeholder="to" />
-            <Button @click="deletePair(i)" icon="clear" />
+          <div v-for="(p, i) in pairs" :key="i" class="row">
+            <Button icon="add" @click="addPair(i)" />
+            <input v-model="p[0]" type="text" placeholder="from" />
+            <input v-model="p[1]" type="text" placeholder="to" />
+            <Button icon="clear" @click="deletePair(i)" />
           </div>
         </template>
       </ActionHeader>
@@ -88,90 +88,90 @@
 </template>
 
 <script>
-import Button from "@/components/Button";
-import ButtonAlert from "@/components/ButtonAlert";
-import ActionHeader from "@/components/ActionHeader";
-import Select from "@/components/Select";
+import Button from '@/components/Button'
+import ButtonAlert from '@/components/ButtonAlert'
+import ActionHeader from '@/components/ActionHeader'
+import Select from '@/components/Select'
 
 export default {
-  name: "ConverterEditor",
+  name: 'ConverterEditor',
   components: {
     Button,
     ButtonAlert,
     ActionHeader,
-    Select,
+    Select
   },
-  data() {
+  data () {
     return {
       file: undefined,
-      mapping: undefined,
-    };
+      mapping: undefined
+    }
   },
   computed: {
-    mappings() {
-      return this.file?.mappings ?? [];
+    mappings () {
+      return this.file?.mappings ?? []
     },
-    defaultConversion() {
-      return this.file.default;
+    defaultConversion () {
+      return this.file.default
     },
-    pairs() {
-      return this.mapping?.pairs ?? [];
-    },
-  },
-  mounted() {
-    try {
-      const file = JSON.parse(localStorage.cEditor);
-      if (file) this.file = file;
-      return;
-    } catch (error) {
-      console.log(error);
+    pairs () {
+      return this.mapping?.pairs ?? []
     }
-    this.reset();
   },
-  updated() {
-    localStorage.cEditor = JSON.stringify(this.file);
+  mounted () {
+    try {
+      const file = JSON.parse(localStorage.cEditor)
+      if (file) this.file = file
+      return
+    } catch (error) {
+      console.log(error)
+    }
+    this.reset()
   },
-  beforeDestroy() {
-    localStorage.cEditor = JSON.stringify(this.file);
+  updated () {
+    localStorage.cEditor = JSON.stringify(this.file)
+  },
+  beforeDestroy () {
+    localStorage.cEditor = JSON.stringify(this.file)
   },
   methods: {
-    addMapping() {
-      this.mapping = { name: "newMapping", pairs: [] };
-      this.mappings.push(this.mapping);
+    addMapping () {
+      this.mapping = { name: 'newMapping', pairs: [] }
+      this.mappings.push(this.mapping)
     },
-    deleteMapping() {
-      this.mappings.splice(this.mappings.indexOf(this.mapping), 1);
-      this.mapping = this.mappings[this.mappings.length - 1];
+    deleteMapping () {
+      this.mappings.splice(this.mappings.indexOf(this.mapping), 1)
+      this.mapping = this.mappings[this.mappings.length - 1]
     },
-    addPair(i) {
-      this.mapping.pairs.splice(i, 0, ["", ""]);
+    addPair (i) {
+      this.mapping.pairs.splice(i, 0, ['', ''])
     },
-    deletePair(i) {
-      this.$delete(this.mapping.pairs, i);
+    deletePair (i) {
+      this.$delete(this.mapping.pairs, i)
     },
-    loadFromLect() {
+    loadFromLect () {
       fetch(
         this.$store.state.root +
-          window.prompt("Enter lect name") +
-          "/converter.json"
+          window.prompt('Enter lect name') +
+          '/converter.json'
       )
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.file = j;
-        });
+          if (j) this.file = j
+        })
     },
-    loadFromJson() {
-      const file = JSON.parse(window.prompt("Enter JSON"));
-      if (file) this.file = file;
+    loadFromJson () {
+      const file = JSON.parse(window.prompt('Enter JSON'))
+      if (file) this.file = file
     },
-    saveToJson() {
-      navigator.clipboard.writeText(JSON.stringify(this.file));
+    saveToJson () {
+      navigator.clipboard.writeText(JSON.stringify(this.file))
     },
-    reset() {
-      this.file = { default: [0, 0], mappings: [] };
-    },
-  },
-};
+    reset () {
+      this.file = { default: [0, 0], mappings: [] }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

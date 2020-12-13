@@ -9,16 +9,16 @@
       If at least one of these conditions fails, the block will be completely
       hidden.
     </PhraseConditionsEditor>
-    <ActionHeader @action="add" icon="tune" header="States">
-      <template #header v-if="state">
+    <ActionHeader icon="tune" header="States" @action="add">
+      <template v-if="state" #header>
         <ButtonAlert @confirm="remove" />
       </template>
       <div class="row-1 wrap block-editor">
-        <div class="row" :key="i" v-for="(s, i) in states">
+        <div v-for="(s, i) in states" :key="i" class="row">
           <Button
-            @click="state = s"
             icon="edit"
             :class="{ highlight: state == s }"
+            @click="state = s"
           />
           <PhraseStateDisplay :state="s" :context="context" />
         </div>
@@ -29,7 +29,7 @@
       <PhraseConditionsEditor
         v-model:conditions="state.conditions"
         :context="context"
-        :allowPassive="true"
+        :allow-passive="true"
         icon="widgets"
         header="conditions"
       />
@@ -43,16 +43,16 @@
 </template>
 
 <script>
-import Button from "./Button";
-import ButtonAlert from "./ButtonAlert";
-import ActionHeader from "./ActionHeader";
-import PhraseConditionsEditor from "./PhraseConditionsEditor";
-import PhraseStateTransitionEditor from "./PhraseStateTransitionEditor";
-import PhraseStateDisplayEditor from "./PhraseStateDisplayEditor";
-import PhraseStateDisplay from "./PhraseStateDisplay";
+import Button from './Button'
+import ButtonAlert from './ButtonAlert'
+import ActionHeader from './ActionHeader'
+import PhraseConditionsEditor from './PhraseConditionsEditor'
+import PhraseStateTransitionEditor from './PhraseStateTransitionEditor'
+import PhraseStateDisplayEditor from './PhraseStateDisplayEditor'
+import PhraseStateDisplay from './PhraseStateDisplay'
 
 export default {
-  name: "PhraseBlockEditor",
+  name: 'PhraseBlockEditor',
   components: {
     Button,
     ButtonAlert,
@@ -60,43 +60,42 @@ export default {
     PhraseConditionsEditor,
     PhraseStateTransitionEditor,
     PhraseStateDisplayEditor,
-    PhraseStateDisplay,
+    PhraseStateDisplay
   },
-  props: ["block", "context"],
-  data() {
+  props: ['block', 'context'],
+  data () {
     return {
-      state: undefined,
-    };
+      state: undefined
+    }
   },
   computed: {
-    states() {
-      return this.block.states;
-    },
+    states () {
+      return this.block.states
+    }
   },
   watch: {
     block: {
-      handler() {
+      handler () {
         if (!this.states?.length) {
-          this.$set(this.block, "states", []);
-          this.add();
-        } else this.state = this.states[this.states.length - 1];
+          this.$set(this.block, 'states', [])
+          this.add()
+        } else this.state = this.states[this.states.length - 1]
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
   methods: {
-    add() {
+    add () {
       const state = {
-        display: [{ text: "new state" }],
-        transition: "next",
-      };
-      this.states.push(state);
-      this.state = state;
+        display: [{ text: 'new state' }],
+        transition: 'next'
+      }
+      this.states.push(state)
+      this.state = state
     },
-    remove() {
-      if (this.states.length > 1)
-        this.$delete(this.states, this.states.indexOf(this.state));
-    },
-  },
-};
+    remove () {
+      if (this.states.length > 1) { this.$delete(this.states, this.states.indexOf(this.state)) }
+    }
+  }
+}
 </script>

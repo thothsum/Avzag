@@ -1,10 +1,10 @@
 <template>
   <button
+    v-show="visible"
+    v-if="state"
     class="small"
     :class="{ disabled, glossed }"
-    v-show="visible"
     @click="move"
-    v-if="state"
   >
     <template v-if="interactive">
       <IndexedColor :passive="true" :indexes="passiveIndexes" />
@@ -21,163 +21,164 @@
 </template>
 
 <script>
-import IndexedColor from "./IndexedColor";
-import PhraseStateDisplay from "./PhraseStateDisplay";
+import IndexedColor from './IndexedColor'
+import PhraseStateDisplay from './PhraseStateDisplay'
 
 export default {
-  name: "PhraseBlock",
+  name: 'PhraseBlock',
   components: {
     IndexedColor,
-    PhraseStateDisplay,
+    PhraseStateDisplay
   },
-  props: ["id", "context", "block", "interactive", "glossed"],
-  data() {
+  props: ['id', 'context', 'block', 'interactive', 'glossed'],
+  data () {
     return {
       state: undefined,
       visible: false,
-      pressed: false,
-    };
+      pressed: false
+    }
   },
   computed: {
-    requirements() {
-      return this.block.requirements;
+    requirements () {
+      return this.block.requirements
     },
-    states() {
-      return this.block.states;
+    states () {
+      return this.block.states
     },
-    transition() {
-      return this.state?.transition;
+    transition () {
+      return this.state?.transition
     },
-    conditions() {
-      return this.state?.conditions;
+    conditions () {
+      return this.state?.conditions
     },
-    disabled() {
-      return !(this.interactive && this.transition);
+    disabled () {
+      return !(this.interactive && this.transition)
     },
-    entities() {
-      return Object.keys(this.context);
+    entities () {
+      return Object.keys(this.context)
     },
-    passiveIndexes() {
-      let conditions = [];
+    passiveIndexes () {
+      let conditions = []
 
-      if (this.requirements) conditions = conditions.concat(this.requirements);
-      if (this.conditions)
+      if (this.requirements) conditions = conditions.concat(this.requirements)
+      if (this.conditions) {
         conditions = conditions.concat(
           this.transition
             ? this.conditions.filter((c) => c.passive)
             : this.conditions
-        );
+        )
+      }
 
-      return this.getConditionIndexes(conditions);
+      return this.getConditionIndexes(conditions)
     },
-    activeIndexes() {
+    activeIndexes () {
       return this.transition && this.conditions
         ? this.getConditionIndexes(this.conditions.filter((c) => !c.passive))
-        : [];
-    },
+        : []
+    }
   },
   watch: {
     id: {
-      handler() {
-        this.visible = false;
+      handler () {
+        this.visible = false
       },
-      immediate: true,
+      immediate: true
     },
     context: {
-      handler() {
+      handler () {
         if (this.pressed) {
-          this.pressed = false;
-          return;
+          this.pressed = false
+          return
         }
         const visible =
-          this.context && this.checkConditions(this.requirements)[0] == 1;
+          this.context && this.checkConditions(this.requirements)[0] == 1
 
         if (visible) {
-          const state = this.findBestState();
-          if (state != this.state) this.switchState(state);
+          const state = this.findBestState()
+          if (state != this.state) this.switchState(state)
         } else if (this.state) {
-          this.switchState(null);
+          this.switchState(null)
         }
 
-        this.visible = visible;
+        this.visible = visible
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
   methods: {
-    getConditionIndexes(conditions) {
-      const entities = new Set(conditions.map((c) => c.entity));
-      return [...entities].map((e) => this.entities.indexOf(e));
+    getConditionIndexes (conditions) {
+      const entities = new Set(conditions.map((c) => c.entity))
+      return [...entities].map((e) => this.entities.indexOf(e))
     },
-    checkConditions(conditions) {
+    checkConditions (conditions) {
       return conditions?.length
         ? [
-            conditions.reduce((f, { entity, tag }) => {
-              return f + (tag ? this.context[entity]?.has(tag) : 1);
-            }, 0) / conditions.length,
-            conditions.length,
-          ]
-        : [1, 0];
+          conditions.reduce((f, { entity, tag }) => {
+            return f + (tag ? this.context[entity]?.has(tag) : 1)
+          }, 0) / conditions.length,
+          conditions.length
+        ]
+        : [1, 0]
     },
-    findBestState(indexes) {
-      let state = null;
-      let fit = 0;
-      let len = false;
+    findBestState (indexes) {
+      let state = null
+      let fit = 0
+      let len = false
 
-      const states = indexes?.map((i) => this.states[i]) ?? this.states ?? [];
+      const states = indexes?.map((i) => this.states[i]) ?? this.states ?? []
       states
         ?.filter((s) => s.conditions)
         .forEach((s) => {
-          const [f, l] = this.checkConditions(s.conditions);
+          const [f, l] = this.checkConditions(s.conditions)
           if (fit == 1 ? f == 1 && l >= len : f >= fit) {
-            state = s;
-            fit = f;
-            len = l;
+            state = s
+            fit = f
+            len = l
           }
-        });
+        })
 
-      return state ?? states[0];
+      return state ?? states[0]
     },
-    applyConditions(context, conditions, positive) {
+    applyConditions (context, conditions, positive) {
       conditions
         ?.filter(({ passive, tag }) => !passive && tag)
         .forEach(({ entity, tag }) => {
-          if (positive) context[entity]?.add(tag);
-          else context[entity]?.delete(tag);
-        });
+          if (positive) context[entity]?.add(tag)
+          else context[entity]?.delete(tag)
+        })
     },
-    switchState(state) {
+    switchState (state) {
       // let context = Object.entries(this.context).reduce((c, [e, ts]) => {
       //   c[e] = new Set(ts);
       //   return c;
       // }, {});
-      let context = Object.assign({}, this.context);
+      const context = Object.assign({}, this.context)
 
-      this.applyConditions(context, this.state?.conditions, false);
-      this.applyConditions(context, state?.conditions, true);
+      this.applyConditions(context, this.state?.conditions, false)
+      this.applyConditions(context, state?.conditions, true)
 
-      this.state = state;
-      this.$emit("update:context", context);
+      this.state = state
+      this.$emit('update:context', context)
     },
-    move() {
-      if (this.disabled) return;
-      if (typeof this.transition == "string") {
-        let state;
-        if (this.transition == "next") {
-          const i = this.states.indexOf(this.state);
-          state = this.states[(i + 1) % this.states.length];
+    move () {
+      if (this.disabled) return
+      if (typeof this.transition === 'string') {
+        let state
+        if (this.transition == 'next') {
+          const i = this.states.indexOf(this.state)
+          state = this.states[(i + 1) % this.states.length]
         } else if (this.transition) {
-          const i = this.transition.split(" ").map((i) => Number(i));
-          state = this.findBestState(i);
+          const i = this.transition.split(' ').map((i) => Number(i))
+          state = this.findBestState(i)
         }
-        this.pressed = true;
-        this.switchState(state);
+        this.pressed = true
+        this.switchState(state)
       } else if (this.transition) {
         // directly modify global environment
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

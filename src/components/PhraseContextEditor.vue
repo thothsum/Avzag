@@ -1,14 +1,14 @@
 <template>
-  <ActionHeader @action="add" icon="widgets" header="context">
+  <ActionHeader icon="widgets" header="context" @action="add">
     <div class="col scroll">
-      <div class="row" :key="i" v-for="(c, i) in context">
+      <div v-for="(c, i) in context" :key="i" class="row">
         <input
+          v-model="c.entity"
           class="entity"
           :class="'colored-' + i"
           type="text"
-          v-model="c.entity"
         />
-        <input class="flex" type="text" v-model="c.tags" />
+        <input v-model="c.tags" class="flex" type="text" />
         <Button icon="clear" @click="remove(i)" />
       </div>
     </div>
@@ -16,28 +16,28 @@
 </template>
 
 <script>
-import Button from "./Button";
-import ActionHeader from "./ActionHeader";
+import Button from './Button'
+import ActionHeader from './ActionHeader'
 
 export default {
-  name: "PhraseContextEditor",
+  name: 'PhraseContextEditor',
   components: {
     Button,
-    ActionHeader,
+    ActionHeader
   },
-  props: ["context"],
+  props: ['context'],
   methods: {
-    add() {
+    add () {
       this.context.push({
-        entity: "new entity",
-        tags: "tags",
-      });
+        entity: 'new entity',
+        tags: 'tags'
+      })
     },
-    remove(i) {
-      this.$delete(this.context, i);
-    },
-  },
-};
+    remove (i) {
+      this.$delete(this.context, i)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

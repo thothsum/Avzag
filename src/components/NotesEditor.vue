@@ -1,41 +1,41 @@
 <template>
-  <ActionHeader @action="add" icon="sticky_note_2" header="Notes">
+  <ActionHeader icon="sticky_note_2" header="Notes" @action="add">
     <template #caption><slot /></template>
-    <div class="row" :key="i" v-for="(n, i) in notes">
-      <input type="text" v-model="notes[i]" />
-      <Button @click="remove(i)" icon="clear" />
+    <div v-for="(n, i) in notes" :key="i" class="row">
+      <input v-model="notes[i]" type="text" />
+      <Button icon="clear" @click="remove(i)" />
     </div>
   </ActionHeader>
 </template>
 
 <script>
-import Button from "./Button";
-import ActionHeader from "@/components/ActionHeader";
+import Button from './Button'
+import ActionHeader from '@/components/ActionHeader'
 
 export default {
-  name: "NotesEditor",
+  name: 'NotesEditor',
   components: {
     Button,
-    ActionHeader,
+    ActionHeader
   },
-  props: ["notes"],
+  props: ['notes'],
   watch: {
     notes: {
-      handler() {
-        this.$forceUpdate();
+      handler () {
+        this.$forceUpdate()
       },
       deep: true,
-      immediate: true,
-    },
+      immediate: true
+    }
   },
   methods: {
-    add() {
-      if (this.notes) this.notes.push("");
-      else this.$emit("update:notes", [""]);
+    add () {
+      if (this.notes) this.notes.push('')
+      else this.$emit('update:notes', [''])
     },
-    remove(i) {
-      this.$delete(this.notes, i);
-    },
-  },
-};
+    remove (i) {
+      this.$delete(this.notes, i)
+    }
+  }
+}
 </script>

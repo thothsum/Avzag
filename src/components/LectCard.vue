@@ -1,9 +1,9 @@
 <template>
-  <div class="row-1 card" v-if="visible">
+  <div v-if="visible" class="row-1 card">
     <div class="col-0">
       <h1 :class="{ selected }">{{ lect.name }}</h1>
       <p class="text-caption">
-        <span split class="text-dot" :key="f" v-for="f in lect.family">
+        <span v-for="f in lect.family" :key="f" split class="text-dot">
           {{ f }}
         </span>
       </p>
@@ -14,30 +14,30 @@
 
 <script>
 export default {
-  name: "LectCard",
-  props: ["lect", "selected", "query"],
+  name: 'LectCard',
+  props: ['lect', 'selected', 'query'],
   computed: {
-    family() {
-      return this.lect.family.join(" › ");
+    family () {
+      return this.lect.family.join(' › ')
     },
-    flag() {
-      return this.$store.state.root + this.lect.name + "/flag.png";
+    flag () {
+      return this.$store.state.root + this.lect.name + '/flag.png'
     },
-    tags() {
-      return [this.lect.name, this.lect.tags, this.lect.family.join(" ")]
-        .join(" ")
-        .toLowerCase();
+    tags () {
+      return [this.lect.name, this.lect.tags, this.lect.family.join(' ')]
+        .join(' ')
+        .toLowerCase()
     },
-    visible() {
-      return this.query?.every((t) => this.tags.includes(t));
-    },
+    visible () {
+      return this.query?.every((t) => this.tags.includes(t))
+    }
   },
   watch: {
-    visible() {
-      this.$emit("visible", this.visible);
-    },
-  },
-};
+    visible () {
+      this.$emit('visible', this.visible)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

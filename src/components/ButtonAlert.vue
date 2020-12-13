@@ -1,40 +1,40 @@
 <template>
   <div class="row-0">
     <template v-if="prompt">
-      <Button @click="emit" class="alert" icon="delete_forever" />
-      <Button @click="prompt = false" icon="check" />
+      <Button class="alert" icon="delete_forever" @click="emit" />
+      <Button icon="check" @click="prompt = false" />
     </template>
     <Button
       v-else
-      @click="prompt = true"
       class="alert"
       icon="delete"
       :text="text"
+      @click="prompt = true"
     />
   </div>
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button'
 
 export default {
-  name: "ButtonAlert",
+  name: 'ButtonAlert',
   components: {
-    Button,
+    Button
   },
-  props: ["text"],
-  data() {
+  props: ['text'],
+  data () {
     return {
-      prompt: false,
-    };
+      prompt: false
+    }
   },
   methods: {
-    emit() {
-      this.prompt = false;
-      this.$emit("confirm");
-    },
-  },
-};
+    emit () {
+      this.prompt = false
+      this.$emit('confirm')
+    }
+  }
+}
 </script>
 
 <style lang="scss" >

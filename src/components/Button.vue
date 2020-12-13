@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{ highlight: value }">
+  <button :class="{ highlight: value }" @click="toggle">
     <p v-if="icon" class="icon">{{ icon }}</p>
     <p v-if="text">{{ text }}</p>
   </button>
@@ -7,12 +7,12 @@
 
 <script>
 export default {
-  name: "Button",
-  props: ["value", "icon", "text"],
+  name: 'Button',
+  props: ['value', 'icon', 'text'],
   methods: {
-    toggle() {
-      this.$emit("update:value", !this.value);
-    },
-  },
-};
+    toggle () {
+      this.$emit('update:value', !this.value)
+    }
+  }
+}
 </script>

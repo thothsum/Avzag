@@ -9,73 +9,73 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button @click="loadFromLect" icon="language" text="Load lect" />
-      <Button @click="loadFromJson" icon="code" text="Load JSON" />
+      <Button icon="language" text="Load lect" @click="loadFromLect" />
+      <Button icon="code" text="Load JSON" @click="loadFromJson" />
       <Button
-        @click="saveToJson"
         icon="content_paste"
         text="Save to clipboard"
+        @click="saveToJson"
       />
       <p class="text-dot" />
-      <ButtonAlert @confirm="reset" text="Reset" />
+      <ButtonAlert text="Reset" @confirm="reset" />
     </div>
-    <div class="grid small" v-if="file">
+    <div v-if="file" class="grid small">
       <div class="col-2">
-        <ActionHeader @action="addSection" icon="topic" header="sections">
-          <template #header v-if="section">
+        <ActionHeader icon="topic" header="sections" @action="addSection">
+          <template v-if="section" #header>
             <ButtonAlert @confirm="removeSection" />
           </template>
           <div class="col scroll">
-            <div class="row" :key="s.id" v-for="s in file">
+            <div v-for="s in file" :key="s.id" class="row">
               <Button
                 icon="edit"
-                @click="section = s"
                 :class="{ highlight: section == s }"
+                @click="section = s"
               />
-              <input class="flex" type="text" v-model="s.name" />
+              <input v-model="s.name" class="flex" type="text" />
             </div>
           </div>
         </ActionHeader>
         <ActionHeader
-          @action="addPhrase"
+          v-if="section"
           icon="short_text"
           header="phrases"
-          v-if="section"
+          @action="addPhrase"
         >
-          <template #header v-if="phrase">
+          <template v-if="phrase" #header>
             <ButtonAlert @confirm="removePhrase" />
           </template>
           <div class="col scroll">
-            <div class="row" :key="p.id" v-for="p in section.phrases">
+            <div v-for="p in section.phrases" :key="p.id" class="row">
               <Button
                 icon="edit"
-                @click="phrase = p"
                 :class="{ highlight: phrase == p }"
+                @click="phrase = p"
               />
-              <input class="flex" type="text" v-model="p.preview" />
+              <input v-model="p.preview" class="flex" type="text" />
             </div>
           </div>
         </ActionHeader>
         <ActionHeader
           v-if="phrase"
-          @action="addBlock"
           icon="account_tree"
           header="Blocks"
+          @action="addBlock"
         >
-          <template #header v-if="block">
+          <template v-if="block" #header>
             <ButtonAlert @confirm="removeBlock" />
           </template>
           <PhraseContext :context="context" />
           <div class="row-1 wrap block-editor">
             <div
-              class="row"
-              :key="i + '_' + phrase.id"
               v-for="(b, i) in blocks"
+              :key="i + '_' + phrase.id"
+              class="row"
             >
               <Button
-                @click="block = b"
                 icon="edit"
                 :class="{ highlight: block == b }"
+                @click="block = b"
               />
               <PhraseBlock
                 :id="phrase.id"
@@ -86,31 +86,31 @@
             </div>
           </div>
         </ActionHeader>
-        <PhraseContextEditor :context="contextSource" v-if="phrase" />
+        <PhraseContextEditor v-if="phrase" :context="contextSource" />
       </div>
       <PhraseBlockEditor
         v-if="phrase && block"
-        @remove="removeBlock"
         :block="block"
         :context="fullContext"
+        @remove="removeBlock"
       />
     </div>
   </div>
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid'
 
-import Button from "@/components/Button";
-import ButtonAlert from "@/components/ButtonAlert";
-import ActionHeader from "@/components/ActionHeader";
-import PhraseContext from "@/components/PhraseContext";
-import PhraseContextEditor from "@/components/PhraseContextEditor";
-import PhraseBlock from "@/components/PhraseBlock";
-import PhraseBlockEditor from "@/components/PhraseBlockEditor";
+import Button from '@/components/Button'
+import ButtonAlert from '@/components/ButtonAlert'
+import ActionHeader from '@/components/ActionHeader'
+import PhraseContext from '@/components/PhraseContext'
+import PhraseContextEditor from '@/components/PhraseContextEditor'
+import PhraseBlock from '@/components/PhraseBlock'
+import PhraseBlockEditor from '@/components/PhraseBlockEditor'
 
 export default {
-  name: "PhrasebookCorpusEditor",
+  name: 'PhrasebookCorpusEditor',
   components: {
     Button,
     ButtonAlert,
@@ -118,116 +118,116 @@ export default {
     PhraseContext,
     PhraseContextEditor,
     PhraseBlock,
-    PhraseBlockEditor,
+    PhraseBlockEditor
   },
-  data() {
+  data () {
     return {
       file: [],
       section: undefined,
       phrase: undefined,
       block: undefined,
       context: undefined,
-      fullContext: undefined,
-    };
+      fullContext: undefined
+    }
   },
   computed: {
-    contextSource() {
-      return this.phrase?.context;
+    contextSource () {
+      return this.phrase?.context
     },
-    blocks() {
-      return this.phrase?.blocks;
-    },
+    blocks () {
+      return this.phrase?.blocks
+    }
   },
   watch: {
-    section() {
-      this.phrase = this.section?.phrases[0];
+    section () {
+      this.phrase = this.section?.phrases[0]
     },
     phrase: {
-      handler() {
-        this.context = {};
-        this.fullContext = {};
+      handler () {
+        this.context = {}
+        this.fullContext = {}
         this.contextSource?.forEach(({ entity, tags }) => {
-          this.context[entity] = new Set();
-          this.fullContext[entity] = tags.split(" ");
-        });
+          this.context[entity] = new Set()
+          this.fullContext[entity] = tags.split(' ')
+        })
       },
       deep: true,
-      immediate: true,
-    },
-  },
-  mounted() {
-    try {
-      const file = JSON.parse(localStorage.pbcEditor);
-      if (file) this.file = file;
-      return;
-    } catch (error) {
-      console.log(error);
+      immediate: true
     }
-    this.reset();
   },
-  updated() {
-    localStorage.pbcEditor = JSON.stringify(this.file);
+  mounted () {
+    try {
+      const file = JSON.parse(localStorage.pbcEditor)
+      if (file) this.file = file
+      return
+    } catch (error) {
+      console.log(error)
+    }
+    this.reset()
   },
-  beforeDestroy() {
-    localStorage.pbcEditor = JSON.stringify(this.file);
+  updated () {
+    localStorage.pbcEditor = JSON.stringify(this.file)
+  },
+  beforeDestroy () {
+    localStorage.pbcEditor = JSON.stringify(this.file)
   },
   methods: {
-    addSection() {
+    addSection () {
       const s = {
         id: uuidv4(),
-        name: "New section",
-        phrases: [],
-      };
-      this.file.push(s);
-      this.section = s;
+        name: 'New section',
+        phrases: []
+      }
+      this.file.push(s)
+      this.section = s
     },
-    removeSection() {
-      this.$delete(this.file, this.file.indexOf(this.section));
+    removeSection () {
+      this.$delete(this.file, this.file.indexOf(this.section))
     },
-    addPhrase() {
+    addPhrase () {
       const p = {
         id: uuidv4(),
-        preview: "New phrase",
+        preview: 'New phrase',
         context: [],
-        blocks: [],
-      };
-      this.section.phrases.push(p);
-      this.phrase = p;
+        blocks: []
+      }
+      this.section.phrases.push(p)
+      this.phrase = p
     },
-    removePhrase() {
+    removePhrase () {
       this.$delete(
         this.section.phrases,
         this.section.phrases.indexOf(this.phrase)
-      );
+      )
     },
-    addBlock() {
-      const b = {};
-      this.blocks.push(b);
-      this.block = b;
+    addBlock () {
+      const b = {}
+      this.blocks.push(b)
+      this.block = b
     },
-    removeBlock() {
-      this.$delete(this.blocks, this.blocks.indexOf(this.block));
-      this.block = this.blocks[this.blocks.length - 1];
+    removeBlock () {
+      this.$delete(this.blocks, this.blocks.indexOf(this.block))
+      this.block = this.blocks[this.blocks.length - 1]
     },
-    loadFromLect() {
-      fetch(this.$store.state.root + "/phrasebook.json")
+    loadFromLect () {
+      fetch(this.$store.state.root + '/phrasebook.json')
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.file = j;
-        });
+          if (j) this.file = j
+        })
     },
-    loadFromJson() {
-      const file = JSON.parse(window.prompt("Enter JSON"));
-      if (file) this.file = file;
+    loadFromJson () {
+      const file = JSON.parse(window.prompt('Enter JSON'))
+      if (file) this.file = file
     },
-    saveToJson() {
-      navigator.clipboard.writeText(JSON.stringify(this.file));
+    saveToJson () {
+      navigator.clipboard.writeText(JSON.stringify(this.file))
     },
-    reset() {
-      this.file = [];
-    },
-  },
-};
+    reset () {
+      this.file = []
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -246,7 +246,6 @@ export default {
   }
 }
 </style>
-
 
 <style lang="scss">
 .block-editor {

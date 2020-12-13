@@ -1,5 +1,5 @@
 <template>
-  <div class="section col-1" v-if="lects && phrasebook">
+  <div v-if="lects && phrasebook" class="section col-1">
     <div class="col-1">
       <div class="row">
         <Button v-model:value="searching" icon="search" />
@@ -16,104 +16,104 @@
       </div>
       <template v-if="phrases">
         <div v-if="searching" class="col-1 scroll">
-          <div class="col" :key="s" v-for="(ps, s) of phrases">
+          <div v-for="(ps, s) of phrases" :key="s" class="col">
             <h2>{{ phrasebook[s].name }}</h2>
             <div class="col-0">
               <Button
+                v-for="p in ps"
+                :key="p"
                 :class="{
                   highlight: phrase == phrasebook[s].phrases[p],
                 }"
-                @click="select(s, p)"
-                :key="p"
-                v-for="p in ps"
                 :text="phrasebook[s].phrases[p].preview"
+                @click="select(s, p)"
               />
             </div>
           </div>
         </div>
         <List
-          class="scroll"
           v-else
           v-model:value="phrase"
+          class="scroll"
           :items="phrases"
           display="preview"
         />
       </template>
     </div>
-    <div class="col-1" v-if="phrase">
+    <div v-if="phrase" class="col-1">
       <div class="row scroll small">
         <Button
-          class="round"
           v-model:value="showNotes"
+          class="round"
           icon="sticky_note_2"
           text="Notes"
         />
         <Button
-          class="round"
           v-model:value="showSource"
+          class="round"
           icon="short_text"
           text="Source"
         />
         <Button
-          class="round"
           v-model:value="interactive"
+          class="round"
           icon="tune"
           text="Interactive"
         />
         <Button
-          class="round"
           v-model:value="glossed"
+          class="round"
           icon="layers"
           text="Glossed"
         />
       </div>
-      <div class="col-1 wrap card" v-show="showSource">
+      <div v-show="showSource" class="col-1 wrap card">
         <PhraseContext v-if="interactive" :context="context" />
         <div class="row wrap">
           <PhraseBlock
+            v-for="(b, i) in phrase.blocks"
             :id="selected"
+            :key="i"
             v-model:context="context"
             :interactive="interactive"
             :block="b"
-            :key="i"
-            v-for="(b, i) in phrase.blocks"
           />
         </div>
       </div>
       <PhraseTranslation
+        v-for="(t, i) in translations"
         :id="selected"
+        :key="i"
         v-model:context="context"
         :lect="lects[i].name"
         :translation="t"
         :interactive="interactive"
         :glossed="glossed"
-        :showNotes="showNotes"
-        :key="i"
-        v-for="(t, i) in translations"
+        :show-notes="showNotes"
       />
     </div>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button";
-import Select from "@/components/Select";
-import List from "@/components/List";
-import PhraseContext from "@/components/PhraseContext";
-import PhraseBlock from "@/components/PhraseBlock";
-import PhraseTranslation from "@/components/PhraseTranslation";
+import Button from '@/components/Button'
+import Select from '@/components/Select'
+import List from '@/components/List'
+import PhraseContext from '@/components/PhraseContext'
+import PhraseBlock from '@/components/PhraseBlock'
+import PhraseTranslation from '@/components/PhraseTranslation'
 
 export default {
-  name: "Phrasebook",
+  name: 'Phrasebook',
   components: {
     Button,
     Select,
     List,
     PhraseContext,
     PhraseBlock,
-    PhraseTranslation,
+    PhraseTranslation
   },
-  data() {
+  data () {
     return {
       section: undefined,
       phrase: undefined,
@@ -123,62 +123,62 @@ export default {
       showNotes: false,
       showSource: true,
       searching: false,
-      query: "",
-    };
+      query: ''
+    }
   },
   computed: {
-    lects() {
-      return this.$store.state.lects;
+    lects () {
+      return this.$store.state.lects
     },
-    phrasebook() {
-      return this.$store.state.phrasebook;
+    phrasebook () {
+      return this.$store.state.phrasebook
     },
-    phrases() {
+    phrases () {
       return this.searching
         ? this.phrasebook.reduce((f, s, i) => {
-            f[i] = s.phrases
-              .map((p, i) => [p, i])
-              .filter((p) => p[0].preview.includes(this.query))
-              .map((p) => p[1]);
-            if (!f[i].length) delete f[i];
-            return f;
-          }, {})
-        : this.section?.phrases;
+          f[i] = s.phrases
+            .map((p, i) => [p, i])
+            .filter((p) => p[0].preview.includes(this.query))
+            .map((p) => p[1])
+          if (!f[i].length) delete f[i]
+          return f
+        }, {})
+        : this.section?.phrases
     },
-    translations() {
+    translations () {
       return this.lects.map(({ phrasebook }) =>
         phrasebook ? phrasebook[this.phrase.id] : null
-      );
-    },
+      )
+    }
   },
   watch: {
     phrasebook: {
-      handler() {
-        if (this.phrasebook) this.selected = localStorage.phrase;
+      handler () {
+        if (this.phrasebook) this.selected = localStorage.phrase
       },
-      immediate: true,
+      immediate: true
     },
     phrase: {
-      handler() {
+      handler () {
         this.context =
           this.phrase?.context?.reduce((c, { entity }) => {
-            c[entity] = new Set();
-            return c;
-          }, {}) ?? {};
+            c[entity] = new Set()
+            return c
+          }, {}) ?? {}
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
-  destroyed() {
-    localStorage.phrase = this.selected;
+  destroyed () {
+    localStorage.phrase = this.selected
   },
   methods: {
-    select(s, p) {
-      this.section = this.phrasebook[s];
-      this.phrase = this.section.phrases[p];
-    },
-  },
-};
+    select (s, p) {
+      this.section = this.phrasebook[s]
+      this.phrase = this.section.phrases[p]
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

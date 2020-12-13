@@ -10,9 +10,9 @@
 
 <script>
 export default {
-  name: "PhoneticItem",
-  props: ["selected", "faded", "ipa", "str"],
-};
+  name: 'PhoneticItem',
+  props: ['selected', 'faded', 'ipa', 'str']
+}
 </script>
 
 <style lang="scss" scoped>

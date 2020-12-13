@@ -9,17 +9,17 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button @click="loadFromLect" icon="language" text="Load lect" />
-      <Button @click="loadFromJson" icon="code" text="Load JSON" />
+      <Button icon="language" text="Load lect" @click="loadFromLect" />
+      <Button icon="code" text="Load JSON" @click="loadFromJson" />
       <Button
-        @click="saveToJson"
         icon="content_paste"
         text="Save to clipboard"
+        @click="saveToJson"
       />
       <p class="text-dot" />
-      <ButtonAlert @confirm="reset" text="Reset" />
+      <ButtonAlert text="Reset" @confirm="reset" />
     </div>
-    <div class="grid small" v-if="phrasebook && phrasebook.length && file">
+    <div v-if="phrasebook && phrasebook.length && file" class="grid small">
       <div class="col-2">
         <div class="col-1 wrap card">
           <div class="row-1">
@@ -32,11 +32,11 @@
               />
             </h2>
           </div>
-          <div class="row-1" v-if="phrases">
+          <div v-if="phrases" class="row-1">
             <p class="icon">short_text</p>
             <Select
-              class="flex"
               v-model:value="phrase"
+              class="flex"
               :items="phrases"
               display="preview"
             />
@@ -47,21 +47,21 @@
           </p>
           <template v-if="phrase">
             <PhraseContext :context="context" />
-            <div class="row wrap" v-if="phrase.blocks && phrase.blocks.length">
+            <div v-if="phrase.blocks && phrase.blocks.length" class="row wrap">
               <PhraseBlock
+                v-for="(b, i) in phrase.blocks"
                 :id="phrase.id"
+                :key="i + '-' + phrase.id"
                 v-model:context="context"
                 :interactive="true"
                 :block="b"
-                :key="i + '-' + phrase.id"
-                v-for="(b, i) in phrase.blocks"
               />
             </div>
           </template>
         </div>
         <template v-if="phrase && translation">
-          <ActionHeader @action="addBlock" icon="account_tree" header="Blocks">
-            <template #header v-if="block">
+          <ActionHeader icon="account_tree" header="Blocks" @action="addBlock">
+            <template v-if="block" #header>
               <ButtonAlert @confirm="removeBlock" />
             </template>
             <PhraseContext
@@ -71,14 +71,14 @@
             />
             <div class="row-1 wrap block-editor">
               <div
-                class="row"
-                :key="state + '_' + i + '_' + phrase.id"
                 v-for="(b, i) in blocks"
+                :key="state + '_' + i + '_' + phrase.id"
+                class="row"
               >
                 <Button
-                  @click="block = b"
                   icon="edit"
                   :class="{ highlight: block == b }"
+                  @click="block = b"
                 />
                 <PhraseBlock
                   :id="state + phrase.id"
@@ -104,27 +104,27 @@
       </div>
       <PhraseBlockEditor
         v-if="block"
-        @remove="removeBlock"
         :block="block"
         :context="fullContext"
+        @remove="removeBlock"
       />
     </div>
   </div>
 </template>
 
 <script>
-import Button from "@/components/Button";
-import ActionHeader from "@/components/ActionHeader";
-import ButtonAlert from "@/components/ButtonAlert";
-import Select from "@/components/Select";
-import PhraseBlock from "@/components/PhraseBlock";
-import PhraseContext from "@/components/PhraseContext";
-import PhraseBlockEditor from "@/components/PhraseBlockEditor";
-import NotesEditor from "@/components/NotesEditor";
-import PhraseContextTranslation from "@/components/PhraseContextTranslation";
+import Button from '@/components/Button'
+import ActionHeader from '@/components/ActionHeader'
+import ButtonAlert from '@/components/ButtonAlert'
+import Select from '@/components/Select'
+import PhraseBlock from '@/components/PhraseBlock'
+import PhraseContext from '@/components/PhraseContext'
+import PhraseBlockEditor from '@/components/PhraseBlockEditor'
+import NotesEditor from '@/components/NotesEditor'
+import PhraseContextTranslation from '@/components/PhraseContextTranslation'
 
 export default {
-  name: "PhrasebookEditor",
+  name: 'PhrasebookEditor',
   components: {
     Button,
     ActionHeader,
@@ -134,12 +134,12 @@ export default {
     PhraseContext,
     PhraseBlockEditor,
     NotesEditor,
-    PhraseContextTranslation,
+    PhraseContextTranslation
   },
-  data() {
+  data () {
     return {
       state: 0,
-      lect: "default",
+      lect: 'default',
       file: undefined,
       section: undefined,
       phrase: undefined,
@@ -147,123 +147,123 @@ export default {
       fullContext: undefined,
       translation: undefined,
       block: undefined,
-      phrasebook: undefined,
-    };
+      phrasebook: undefined
+    }
   },
   computed: {
-    phrases() {
-      return this.section?.phrases ?? [];
+    phrases () {
+      return this.section?.phrases ?? []
     },
-    blocks() {
-      return this.translation?.blocks;
-    },
+    blocks () {
+      return this.translation?.blocks
+    }
   },
   watch: {
-    phrasebook() {
+    phrasebook () {
       if (this.file && this.phrasebook?.length) {
-        this.section = this.phrasebook[0];
-        this.phrase = this.section?.phrases[0];
-        this.fillMissing();
+        this.section = this.phrasebook[0]
+        this.phrase = this.section?.phrases[0]
+        this.fillMissing()
       }
     },
-    file() {
-      this.state = Math.random();
+    file () {
+      this.state = Math.random()
       if (this.file && this.phrasebook?.length) {
-        this.section = this.phrasebook[0];
-        this.phrase = this.section?.phrases[0];
-        this.fillMissing();
+        this.section = this.phrasebook[0]
+        this.phrase = this.section?.phrases[0]
+        this.fillMissing()
       }
     },
     section: {
-      handler() {
-        this.phrase = this.phrases[0];
+      handler () {
+        this.phrase = this.phrases[0]
       },
-      immediate: true,
+      immediate: true
     },
     phrase: {
-      handler() {
-        if (!this.phrase) return;
+      handler () {
+        if (!this.phrase) return
 
-        this.context = {};
-        this.fullContext = {};
+        this.context = {}
+        this.fullContext = {}
         this.phrase.context.forEach(({ entity, tags }) => {
-          this.context[entity] = new Set();
-          this.fullContext[entity] = tags.split(" ");
-        });
+          this.context[entity] = new Set()
+          this.fullContext[entity] = tags.split(' ')
+        })
 
-        this.fillMissing();
+        this.fillMissing()
       },
-      immediate: true,
+      immediate: true
     },
-    blocks() {
-      this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null;
-    },
+    blocks () {
+      this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null
+    }
   },
-  mounted() {
+  mounted () {
     try {
-      this.file = JSON.parse(localStorage.pbEditor) ?? {};
+      this.file = JSON.parse(localStorage.pbEditor) ?? {}
     } catch {
-      console.log("phrasebook did not load");
-      this.file = {};
+      console.log('phrasebook did not load')
+      this.file = {}
     }
 
     try {
-      this.phrasebook = JSON.parse(localStorage.pbcEditor);
+      this.phrasebook = JSON.parse(localStorage.pbcEditor)
     } catch {
-      this.phrasebook = {};
+      this.phrasebook = {}
     }
     if (!Object.keys(this.phrasebook ?? {})?.length) {
-      fetch(this.$store.state.root + "/phrasebook.json")
+      fetch(this.$store.state.root + '/phrasebook.json')
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.phrasebook = j;
-        });
+          if (j) this.phrasebook = j
+        })
     }
   },
-  updated() {
-    localStorage.pbEditor = JSON.stringify(this.file);
+  updated () {
+    localStorage.pbEditor = JSON.stringify(this.file)
   },
-  beforeDestroy() {
-    localStorage.pbEditor = JSON.stringify(this.file);
+  beforeDestroy () {
+    localStorage.pbEditor = JSON.stringify(this.file)
   },
   methods: {
-    fillMissing() {
-      if (!(this.file && this.section && this.phrase)) return;
-      if (!this.file[this.phrase.id]) this.$set(this.file, this.phrase.id, {});
-      this.translation = this.file[this.phrase.id];
+    fillMissing () {
+      if (!(this.file && this.section && this.phrase)) return
+      if (!this.file[this.phrase.id]) this.$set(this.file, this.phrase.id, {})
+      this.translation = this.file[this.phrase.id]
     },
-    loadFromLect() {
+    loadFromLect () {
       fetch(
         this.$store.state.root +
-          window.prompt("Enter lect name") +
-          "/phrasebook.json"
+          window.prompt('Enter lect name') +
+          '/phrasebook.json'
       )
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.file = j;
-        });
+          if (j) this.file = j
+        })
     },
-    loadFromJson() {
-      const file = JSON.parse(window.prompt("Enter JSON"));
-      if (file) this.file = file;
+    loadFromJson () {
+      const file = JSON.parse(window.prompt('Enter JSON'))
+      if (file) this.file = file
     },
-    saveToJson() {
-      navigator.clipboard.writeText(JSON.stringify(this.file));
+    saveToJson () {
+      navigator.clipboard.writeText(JSON.stringify(this.file))
     },
-    reset() {
-      this.file = {};
+    reset () {
+      this.file = {}
     },
-    addBlock() {
-      this.block = {};
-      if (this.blocks) this.blocks.push(this.block);
-      else this.$set(this.translation, "blocks", [this.block]);
+    addBlock () {
+      this.block = {}
+      if (this.blocks) this.blocks.push(this.block)
+      else this.$set(this.translation, 'blocks', [this.block])
     },
-    removeBlock() {
-      this.$delete(this.blocks, this.blocks.indexOf(this.block));
-      this.block = this.blocks[this.blocks.length - 1];
-    },
-  },
-};
+    removeBlock () {
+      this.$delete(this.blocks, this.blocks.indexOf(this.block))
+      this.block = this.blocks[this.blocks.length - 1]
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -282,7 +282,6 @@ export default {
   }
 }
 </style>
-
 
 <style lang="scss">
 .block-editor {

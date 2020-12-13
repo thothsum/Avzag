@@ -1,21 +1,21 @@
 <template>
   <div class="row">
     <Button
-      :key="i"
       v-for="(ic, i) in icons"
+      :key="i"
       :icon="ic"
       :class="{ highlight: i == value }"
       @click="$emit('update:value', i)"
     />
   </div>
 </template>
-    
+
 <script>
-import Button from "./Button";
+import Button from './Button'
 
 export default {
-  name: "ToggleGroup",
+  name: 'ToggleGroup',
   components: { Button },
-  props: ["icons", "value"],
-};
+  props: ['icons', 'value']
+}
 </script>

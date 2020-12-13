@@ -1,35 +1,35 @@
 <template>
   <div id="root">
-    <input :placeholder="placeholder" type="text" v-model="input" />
+    <input v-model="input" :placeholder="placeholder" type="text" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "InputQuery",
-  props: ["placeholder"],
-  data() {
+  name: 'InputQuery',
+  props: ['placeholder'],
+  data () {
     return {
-      input: "",
-    };
+      input: ''
+    }
   },
   watch: {
-    input() {
+    input () {
       this.$emit(
-        "query",
+        'query',
         this.input
           .toLowerCase()
-          .split(" ")
+          .split(' ')
           .filter((s) => s)
           .reduce((q, t) => {
-            if (t[0] === "-") q[t.substr(1)] = false;
-            else q[t] = true;
-            return q;
+            if (t[0] === '-') q[t.substr(1)] = false
+            else q[t] = true
+            return q
           }, {})
-      );
-    },
-  },
-};
+      )
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,18 +1,18 @@
 <template>
-  <div class="section" v-if="phonemes">
+  <div v-if="phonemes" class="section">
     <div class="col-1 scroll">
-      <ChipsQuery @query="lectQuery = $event" :items="lects" itemKey="name" />
+      <ChipsQuery :items="lects" item-key="name" @query="lectQuery = $event" />
       <InputQuery
         placeholder="Query phonemes, e.g. voiced -velar..."
         @query="featureQuery = $event"
       />
-      <div class="col" :key="c" v-for="c in categories">
+      <div v-for="c in categories" :key="c" class="col">
         <h2>{{ c + "s" }}</h2>
         <PhoneticTable
           v-model:phoneme="phoneme"
           :filter="c"
-          :featureQuery="featureQuery"
-          :lectQuery="lectQuery"
+          :feature-query="featureQuery"
+          :lect-query="lectQuery"
           :phonemes="phonemes"
         />
       </div>
@@ -22,51 +22,51 @@
 </template>
 
 <script>
-import ChipsQuery from "@/components/ChipsQuery";
-import InputQuery from "@/components/InputQuery";
-import PhoneticTable from "@/components/PhoneticTable";
-import PhonemeDetails from "@/components/PhonemeDetails";
+import ChipsQuery from '@/components/ChipsQuery'
+import InputQuery from '@/components/InputQuery'
+import PhoneticTable from '@/components/PhoneticTable'
+import PhonemeDetails from '@/components/PhonemeDetails'
 
 export default {
-  name: "Phonology",
+  name: 'Phonology',
   components: {
     PhoneticTable,
     PhonemeDetails,
     ChipsQuery,
-    InputQuery,
+    InputQuery
   },
-  data() {
+  data () {
     return {
-      categories: ["vowel", "consonant"],
+      categories: ['vowel', 'consonant'],
       phoneme: undefined,
       lectQuery: undefined,
-      featureQuery: undefined,
-    };
+      featureQuery: undefined
+    }
   },
   computed: {
-    lects() {
-      return this.$store.state.lects;
+    lects () {
+      return this.$store.state.lects
     },
-    phonemes() {
-      return this.$store.state.phonemes;
-    },
+    phonemes () {
+      return this.$store.state.phonemes
+    }
   },
   watch: {
     phonemes: {
-      handler() {
+      handler () {
         if (this.phonemes) {
-          const phoneme = localStorage.phoneme;
+          const phoneme = localStorage.phoneme
           this.phoneme =
-            this.phonemes.find((p) => p.ipa == phoneme) ?? this.phonemes[0];
+            this.phonemes.find((p) => p.ipa == phoneme) ?? this.phonemes[0]
         }
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
-  destroyed() {
-    localStorage.phoneme = this.phoneme.ipa;
-  },
-};
+  destroyed () {
+    localStorage.phoneme = this.phoneme.ipa
+  }
+}
 </script>
 
 <style lang="scss" scoped>

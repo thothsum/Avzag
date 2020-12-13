@@ -1,46 +1,47 @@
 <template>
   <div id="root">
     <div class="section row-1 scroll">
-      <Button @click="navigate('Home')" icon="arrow_back" />
+      <Button icon="arrow_back" @click="navigate('Home')" />
       <Button
-        @click="navigate(t)"
+        v-for="[t, i] in menus"
+        :key="i"
         :class="{ highlight: $route.name === t }"
         :icon="i"
         :text="t"
-        :key="i"
-        v-for="[t, i] in menus"
+        @click="navigate(t)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button'
 
 export default {
-  name: "Header",
+  name: 'Header',
   components: {
-    Button,
+    Button
   },
-  data() {
+  data () {
     return {
       menus: [
-        ["Phonology", "audiotrack"],
-        ["Converter", "sync_alt"],
-        ["Phrasebook", "book"],
-      ],
-    };
+        ['Phonology', 'audiotrack'],
+        ['Converter', 'sync_alt'],
+        ['Phrasebook', 'book']
+      ]
+    }
   },
   methods: {
-    navigate(path) {
-      if (this.$route.name !== path)
+    navigate (path) {
+      if (this.$route.name !== path) {
         this.$router.push({
           name: path,
-          params: { lang: this.$route.params.lang },
-        });
-    },
-  },
-};
+          params: { lang: this.$route.params.lang }
+        })
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

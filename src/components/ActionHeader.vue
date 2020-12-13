@@ -4,7 +4,7 @@
       <slot v-if="$slots.action" name="action" />
       <Button v-else-if="button" :icon="button" @click="$emit('action')" />
       <p v-if="icon" class="icon">{{ icon }}</p>
-      <h2 class="flex" v-if="header">{{ header }}</h2>
+      <h2 v-if="header" class="flex">{{ header }}</h2>
       <slot name="header" />
     </div>
     <p v-if="$slots.caption" class="text-caption text-faded">
@@ -15,17 +15,17 @@
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button'
 
 export default {
-  name: "ActionHeader",
+  name: 'ActionHeader',
   components: { Button },
   props: {
     button: {
-      default: "add",
+      default: 'add'
     },
     icon: String,
-    header: String,
-  },
-};
+    header: String
+  }
+}
 </script>

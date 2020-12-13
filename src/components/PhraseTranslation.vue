@@ -1,7 +1,7 @@
 <template>
-  <div class="col-1 card" v-if="translation">
+  <div v-if="translation" class="col-1 card">
     <div class="row-1 small">
-      <Button @click="copy" icon="content_copy" />
+      <Button icon="content_copy" @click="copy" />
       <h2>{{ lect }}</h2>
     </div>
     <PhraseContext
@@ -12,71 +12,71 @@
     />
     <div class="row wrap flex">
       <PhraseBlock
-        ref="blocks"
         :id="id"
+        ref="blocks"
+        v-for="(b, i) in translation.blocks"
+        :key="i"
         :context="context"
-        @update:context="$emit('update:context', $event)"
         :interactive="interactive"
         :glossed="glossed"
         :block="b"
-        :key="i"
-        v-for="(b, i) in translation.blocks"
+        @update:context="$emit('update:context', $event)"
       />
     </div>
     <template v-if="showNotes">
-      <PhoneticNote :key="i" v-for="(n, i) in translation.notes" :text="n" />
+      <PhoneticNote v-for="(n, i) in translation.notes" :key="i" :text="n" />
     </template>
   </div>
 </template>
 
 <script>
-import Button from "./Button";
-import PhraseContext from "@/components/PhraseContext";
-import PhraseBlock from "./PhraseBlock";
-import PhoneticNote from "./PhoneticNote";
+import Button from './Button'
+import PhraseContext from '@/components/PhraseContext'
+import PhraseBlock from './PhraseBlock'
+import PhoneticNote from './PhoneticNote'
 
 export default {
-  name: "PhraseTranslation",
+  name: 'PhraseTranslation',
   components: {
     Button,
     PhraseContext,
     PhraseBlock,
-    PhoneticNote,
-  },
-  data() {
-    return {
-      blocks: [],
-    };
+    PhoneticNote
   },
   props: [
-    "id",
-    "lect",
-    "context",
-    "translation",
-    "interactive",
-    "glossed",
-    "showNotes",
+    'id',
+    'lect',
+    'context',
+    'translation',
+    'interactive',
+    'glossed',
+    'showNotes'
   ],
+  data () {
+    return {
+      blocks: []
+    }
+  },
   computed: {
-    text() {
+    text () {
       return this.blocks
         ?.filter((b) => b.visible)
         .map((b) => b.$refs.display.text)
-        .join(" ");
-    },
+        .join(' ')
+    }
   },
-  beforeUpdate() {
-    this.blocks = [];
+  beforeUpdate () {
+    this.blocks = []
   },
   methods: {
-    setBlock(el) {
-      this.blocks.push(el);
+    setBlock (el) {
+      this.blocks.push(el)
     },
-    copy() {
-      navigator.clipboard.writeText(this.text);
-    },
-  },
-};
+    copy () {
+      navigator.clipboard.writeText(this.text)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

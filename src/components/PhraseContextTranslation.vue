@@ -1,9 +1,9 @@
 <template>
   <ActionHeader
-    @action="add"
     :button="translation ? '' : 'queue'"
     icon="format_list_bulleted"
     header="context translation"
+    @action="add"
   >
     <template #caption><slot /></template>
     <template v-if="translation" #header>
@@ -11,18 +11,18 @@
     </template>
     <template v-if="translation">
       <div
-        class="row wrap"
-        :key="i"
         v-for="(e, i) in entities"
+        :key="i"
+        class="row wrap"
       >
         <div class="row wrap block-editor">
           <div class="col">
             <h2 class="text-caption" :class="colors[i]">{{ e[0] }}</h2>
-            <input :size="sizes[i].entity" type="text" v-model="e[1]" />
+            <input v-model="e[1]" :size="sizes[i].entity" type="text" />
           </div>
-          <div class="col" :key="t[0]" v-for="(t, j) in tags[i]">
+          <div v-for="(t, j) in tags[i]" :key="t[0]" class="col">
             <p class="text-caption">{{ t[0] }}</p>
-            <input :size="sizes[i].tags[j]" type="text" v-model="t[1]" />
+            <input v-model="t[1]" :size="sizes[i].tags[j]" type="text" />
           </div>
         </div>
       </div>
@@ -31,46 +31,46 @@
 </template>
 
 <script>
-import ButtonAlert from "./ButtonAlert";
-import ActionHeader from "@/components/ActionHeader";
+import ButtonAlert from './ButtonAlert'
+import ActionHeader from '@/components/ActionHeader'
 
 export default {
-  name: "PhraseContextTranslation",
+  name: 'PhraseContextTranslation',
   components: {
     ButtonAlert,
-    ActionHeader,
+    ActionHeader
   },
-  props: ["translation", "context"],
+  props: ['translation', 'context'],
   computed: {
-    entities() {
-      return this.translation.map((t) => t.entity);
+    entities () {
+      return this.translation.map((t) => t.entity)
     },
-    tags() {
-      return this.translation.map((t) => t.tags);
+    tags () {
+      return this.translation.map((t) => t.tags)
     },
-    sizes() {
+    sizes () {
       return this.translation.map(({ entity, tags }) => ({
         entity: Math.max(entity[1].length, 1),
-        tags: tags.map((t) => Math.max(t[1].length, 1)),
-      }));
+        tags: tags.map((t) => Math.max(t[1].length, 1))
+      }))
     },
-    colors() {
-      return this.entities.map((_, i) => "colored-dot-" + i);
-    },
+    colors () {
+      return this.entities.map((_, i) => 'colored-dot-' + i)
+    }
   },
   methods: {
-    add() {
+    add () {
       this.$emit(
-        "update:translation",
+        'update:translation',
         Object.entries(this.context).map(([e, ts]) => ({
-          entity: [e, ""],
-          tags: ts.map((t) => [t, ""]),
+          entity: [e, ''],
+          tags: ts.map((t) => [t, ''])
         }))
-      );
+      )
     },
-    remove() {
-      this.$emit("update:translation");
-    },
-  },
-};
+    remove () {
+      this.$emit('update:translation')
+    }
+  }
+}
 </script>

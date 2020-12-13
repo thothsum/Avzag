@@ -1,19 +1,19 @@
 <template>
   <div v-if="classes" class="row line" :class="{ passive }">
-    <div class="dash" :class="c" :key="i" v-for="(c, i) in classes" />
+    <div v-for="(c, i) in classes" :key="i" class="dash" :class="c" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "IndexedColor",
-  props: ["indexes", "passive"],
+  name: 'IndexedColor',
+  props: ['indexes', 'passive'],
   computed: {
-    classes() {
-      return this.indexes.map((i) => "colored-back-" + i);
-    },
-  },
-};
+    classes () {
+      return this.indexes.map((i) => 'colored-back-' + i)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,8 +1,8 @@
 <template>
   <div class="col-0">
     <Button
-      :key="i"
       v-for="(v, i) in values"
+      :key="i"
       :text="text[i]"
       :class="{ highlight: value == v }"
       @click="select(v)"
@@ -11,39 +11,39 @@
 </template>
 
 <script>
-import Button from "./Button";
+import Button from './Button'
 
 export default {
-  name: "List",
+  name: 'List',
   components: {
-    Button,
+    Button
   },
-  props: ["value", "items", "indexed", "display"],
+  props: ['value', 'items', 'indexed', 'display'],
   computed: {
-    text() {
+    text () {
       return this.display
-        ? typeof this.display == "object"
+        ? typeof this.display === 'object'
           ? this.display
           : this.items.map((i) => i[this.display])
-        : this.items;
+        : this.items
     },
-    values() {
-      return this.indexed ? this.items.map((_, i) => i) : this.items;
-    },
+    values () {
+      return this.indexed ? this.items.map((_, i) => i) : this.items
+    }
   },
   watch: {
     items: {
-      handler() {
-        if (this.items && !this.value) this.select(this.values[0]);
+      handler () {
+        if (this.items && !this.value) this.select(this.values[0])
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   },
 
   methods: {
-    select(v) {
-      this.$emit("update:value", v);
-    },
-  },
-};
+    select (v) {
+      this.$emit('update:value', v)
+    }
+  }
+}
 </script>
