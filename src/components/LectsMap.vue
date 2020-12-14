@@ -5,7 +5,8 @@
     v-model:zoom="zoom"
     :options="{ zoomControl: false }"
   >
-    <l-tile-layer :url="layerUrl" :options="layerOptions" />
+    <!-- <l-tile-layer :url="layerUrl" :options="layerOptions" /> -->
+    <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
     <template v-for="(l, i) in catalogue" :key="i">
       <l-marker
         v-if="l.coordinates"
@@ -54,7 +55,7 @@ export default {
       layerOptions: {
         attribution:
           '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> | <a href="https://www.mapbox.com/">Mapbox</a>',
-        tileSize: 256,
+        tileSize: 512,
         zoomOffset: -1,
         accessToken: process.env.VUE_APP_MAP_TOKEN,
       },
