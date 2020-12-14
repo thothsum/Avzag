@@ -23,34 +23,34 @@
 </template>
 
 <script>
-import Button from '@/components/Button'
-import ActionHeader from '@/components/ActionHeader'
-import Select from '@/components/Select'
+import Button from "@/components/Button";
+import ActionHeader from "@/components/ActionHeader";
+import Select from "@/components/Select";
 
 export default {
-  name: 'PhraseConditionsEditor',
+  name: "PhraseConditionsEditor",
   components: {
     Button,
     ActionHeader,
-    Select
+    Select,
   },
-  props: ['conditions', 'context', 'allowPassive', 'header', 'icon'],
+  props: ["conditions", "context", "allowPassive", "header", "icon"],
   computed: {
-    entities () {
-      return Object.keys(this.context)
-    }
+    entities() {
+      return Object.keys(this.context);
+    },
   },
   methods: {
-    add () {
-      let c = this.conditions
-      if (!c) this.$emit('update:conditions', (c = []))
-      c.push({})
+    add() {
+      let c = this.conditions;
+      if (!c) this.$emit("update:conditions", (c = []));
+      c.push({});
     },
-    remove (i) {
-      this.$delete(this.conditions, i)
-    }
-  }
-}
+    remove(i) {
+      this.$delete(this.conditions, i);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -27,61 +27,61 @@
 </template>
 
 <script>
-import PhoneticNote from './PhoneticNote'
+import PhoneticNote from "./PhoneticNote";
 
 export default {
-  name: 'PhonemeUse',
+  name: "PhonemeUse",
   components: { PhoneticNote },
-  props: ['lect', 'use'],
-  data () {
+  props: ["lect", "use"],
+  data() {
     return {
-      canPlay: []
-    }
+      canPlay: [],
+    };
   },
   computed: {
-    root () {
-      return this.$store.state.root + this.lect + '/audio/'
+    root() {
+      return this.$store.state.root + this.lect + "/audio/";
     },
-    fullSamples () {
-      return this.use.samples.filter((s) => s.word || s.ipa)
+    fullSamples() {
+      return this.use.samples.filter((s) => s.word || s.ipa);
     },
-    urls () {
+    urls() {
       return this.fullSamples
-        .map((s) => s.word?.replace(/\*/g, '') ?? s.ipa)
-        .map((w) => this.root + w + '.mp3')
+        .map((s) => s.word?.replace(/\*/g, "") ?? s.ipa)
+        .map((w) => this.root + w + ".mp3");
     },
-    graphemes () {
-      return new Set(this.use.samples.map((s) => s.grapheme))
-    }
+    graphemes() {
+      return new Set(this.use.samples.map((s) => s.grapheme));
+    },
   },
   watch: {
     urls: {
-      handler () {
-        this.canPlay = new Array(this.urls)
+      handler() {
+        this.canPlay = new Array(this.urls);
         this.urls.forEach((u, i) => {
-          fetch(u, { method: 'HEAD' }).then((r) => {
-            this.$set(this.canPlay, i, r.ok)
-          })
-        })
+          fetch(u, { method: "HEAD" }).then((r) => {
+            this.$set(this.canPlay, i, r.ok);
+          });
+        });
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
-    color (s) {
-      return `<span style='color: var(--color-highlight)'>${s}</span>`
+    color(s) {
+      return `<span style='color: var(--color-highlight)'>${s}</span>`;
     },
-    highlight (word, grap) {
-      if (!word) return null
-      return word.includes('*')
-        ? word.replace(/\*([^*]+)\*/g, this.color('$1'))
-        : word.replace(new RegExp(grap, 'g'), this.color(grap))
+    highlight(word, grap) {
+      if (!word) return null;
+      return word.includes("*")
+        ? word.replace(/\*([^*]+)\*/g, this.color("$1"))
+        : word.replace(new RegExp(grap, "g"), this.color(grap));
     },
-    play (i) {
-      if (this.canPlay[i]) this.$emit('play', this.urls[i])
-    }
-  }
-}
+    play(i) {
+      if (this.canPlay[i]) this.$emit("play", this.urls[i]);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

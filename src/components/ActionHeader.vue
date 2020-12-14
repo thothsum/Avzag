@@ -15,17 +15,17 @@
 </template>
 
 <script>
-import Button from './Button'
+import Button from "./Button";
 
 export default {
-  name: 'ActionHeader',
+  name: "ActionHeader",
   components: { Button },
   props: {
     button: {
-      default: 'add'
+      default: "add",
     },
     icon: String,
-    header: String
-  }
-}
+    header: String,
+  },
+};
 </script>

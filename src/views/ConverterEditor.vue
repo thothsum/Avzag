@@ -88,90 +88,90 @@
 </template>
 
 <script>
-import Button from '@/components/Button'
-import ButtonAlert from '@/components/ButtonAlert'
-import ActionHeader from '@/components/ActionHeader'
-import Select from '@/components/Select'
+import Button from "@/components/Button";
+import ButtonAlert from "@/components/ButtonAlert";
+import ActionHeader from "@/components/ActionHeader";
+import Select from "@/components/Select";
 
 export default {
-  name: 'ConverterEditor',
+  name: "ConverterEditor",
   components: {
     Button,
     ButtonAlert,
     ActionHeader,
-    Select
+    Select,
   },
-  data () {
+  data() {
     return {
       file: undefined,
-      mapping: undefined
-    }
+      mapping: undefined,
+    };
   },
   computed: {
-    mappings () {
-      return this.file?.mappings ?? []
+    mappings() {
+      return this.file?.mappings ?? [];
     },
-    defaultConversion () {
-      return this.file.default
+    defaultConversion() {
+      return this.file.default;
     },
-    pairs () {
-      return this.mapping?.pairs ?? []
-    }
+    pairs() {
+      return this.mapping?.pairs ?? [];
+    },
   },
-  mounted () {
+  mounted() {
     try {
-      const file = JSON.parse(localStorage.cEditor)
-      if (file) this.file = file
-      return
+      const file = JSON.parse(localStorage.cEditor);
+      if (file) this.file = file;
+      return;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    this.reset()
+    this.reset();
   },
-  updated () {
-    localStorage.cEditor = JSON.stringify(this.file)
+  updated() {
+    localStorage.cEditor = JSON.stringify(this.file);
   },
-  beforeDestroy () {
-    localStorage.cEditor = JSON.stringify(this.file)
+  beforeUnmount() {
+    localStorage.cEditor = JSON.stringify(this.file);
   },
   methods: {
-    addMapping () {
-      this.mapping = { name: 'newMapping', pairs: [] }
-      this.mappings.push(this.mapping)
+    addMapping() {
+      this.mapping = { name: "newMapping", pairs: [] };
+      this.mappings.push(this.mapping);
     },
-    deleteMapping () {
-      this.mappings.splice(this.mappings.indexOf(this.mapping), 1)
-      this.mapping = this.mappings[this.mappings.length - 1]
+    deleteMapping() {
+      this.mappings.splice(this.mappings.indexOf(this.mapping), 1);
+      this.mapping = this.mappings[this.mappings.length - 1];
     },
-    addPair (i) {
-      this.mapping.pairs.splice(i, 0, ['', ''])
+    addPair(i) {
+      this.mapping.pairs.splice(i, 0, ["", ""]);
     },
-    deletePair (i) {
-      this.$delete(this.mapping.pairs, i)
+    deletePair(i) {
+      this.$delete(this.mapping.pairs, i);
     },
-    loadFromLect () {
+    loadFromLect() {
       fetch(
         this.$store.state.root +
-          window.prompt('Enter lect name') +
-          '/converter.json'
+          window.prompt("Enter lect name") +
+          "/converter.json"
       )
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.file = j
-        })
+          if (j) this.file = j;
+        });
     },
-    loadFromJson () {
-      const file = JSON.parse(window.prompt('Enter JSON'))
-      if (file) this.file = file
+    loadFromJson() {
+      const file = JSON.parse(window.prompt("Enter JSON"));
+      if (file) this.file = file;
     },
-    saveToJson () {
-      navigator.clipboard.writeText(JSON.stringify(this.file))
+    saveToJson() {
+      navigator.clipboard.writeText(JSON.stringify(this.file));
     },
-    reset () {
-      this.file = { default: [0, 0], mappings: [] }
-    }
-  }
-}
+    reset() {
+      this.file = { default: [0, 0], mappings: [] };
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

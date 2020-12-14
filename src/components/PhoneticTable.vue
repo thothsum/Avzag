@@ -13,58 +13,58 @@
 </template>
 
 <script>
-import PhoneticItem from './PhoneticItem'
+import PhoneticItem from "./PhoneticItem";
 
 export default {
-  name: 'PhoneticTable',
+  name: "PhoneticTable",
   components: {
-    PhoneticItem
+    PhoneticItem,
   },
-  props: ['phoneme', 'filter', 'lectQuery', 'featureQuery', 'phonemes'],
+  props: ["phoneme", "filter", "lectQuery", "featureQuery", "phonemes"],
   computed: {
-    filtered () {
+    filtered() {
       return this.filter
         ? this.phonemes.filter((p) => p.tags.includes(this.filter))
-        : this.phonemes
+        : this.phonemes;
     },
-    fitting () {
+    fitting() {
       return this.filtered.map(
         (p) =>
           this.pass(Object.keys(p.lects), this.lectQuery) &&
           this.pass(p.tags, this.featureQuery)
-      )
+      );
     },
-    singleLect () {
-      let lect = null
+    singleLect() {
+      let lect = null;
       for (const l in this.lectQuery) {
         if (this.lectQuery[l] > 0) {
-          if (!lect) lect = l
-          else return
+          if (!lect) lect = l;
+          else return;
         }
       }
-      return lect
+      return lect;
     },
-    graphemes () {
+    graphemes() {
       return this.singleLect
         ? this.filtered.map(
-          (p) => p.lects[this.singleLect]?.samples[0]?.grapheme
-        )
-        : []
+            (p) => p.lects[this.singleLect]?.samples[0]?.grapheme
+          )
+        : [];
     },
-    narrow () {
-      return this.filtered.length <= 12
-    }
+    narrow() {
+      return this.filtered.length <= 12;
+    },
   },
   methods: {
-    pass (tags, query) {
-      if (!query) return true
+    pass(tags, query) {
+      if (!query) return true;
       for (const [tag, mode] of Object.entries(query)) {
-        if (mode != tags.includes(tag)) return false
+        if (mode !== tags.includes(tag)) return false;
       }
-      return true
-    }
-  }
-}
+      return true;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

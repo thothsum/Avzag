@@ -9,7 +9,7 @@
 import { watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
-// eslint-disable-next-line
+
 import Header from "./components/Header.vue";
 
 const route = useRoute();
@@ -17,13 +17,9 @@ const router = useRouter();
 const store = useStore();
 
 watchEffect(() => {
-  if (route.name) {
-    localStorage.url = route.path;
-    console.log(route.path);
-  }
+  if (route.name) localStorage.url = route.path;
 });
 
-// eslint-disable-next-line
 const showHeader = computed(
   () => route.name !== "Home" && !route.path.includes("/editor/")
 );

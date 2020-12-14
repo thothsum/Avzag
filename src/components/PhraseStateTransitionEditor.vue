@@ -20,60 +20,60 @@
 </template>
 
 <script>
-import Button from './Button'
-import ToggleGroup from './ToggleGroup'
-import ActionHeader from './ActionHeader'
-import PhraseStateDisplay from './PhraseStateDisplay'
+import Button from "./Button";
+import ToggleGroup from "./ToggleGroup";
+import ActionHeader from "./ActionHeader";
+import PhraseStateDisplay from "./PhraseStateDisplay";
 
 export default {
-  name: 'PhraseStateTransitionEditor',
+  name: "PhraseStateTransitionEditor",
   components: {
     Button,
     ToggleGroup,
     ActionHeader,
-    PhraseStateDisplay
+    PhraseStateDisplay,
   },
-  props: ['state', 'states', 'context'],
-  data () {
+  props: ["state", "states", "context"],
+  data() {
     return {
-      mode: 0
-    }
+      mode: 0,
+    };
   },
   computed: {
-    ints () {
+    ints() {
       return (
         this.state.transition
-          ?.split(' ')
+          ?.split(" ")
           .map((t) => Number(t))
           .filter((n) => !isNaN(n)) ?? []
-      )
+      );
     },
-    present () {
-      return this.states.map((s, i) => this.ints.includes(i))
-    }
+    present() {
+      return this.states.map((s, i) => this.ints.includes(i));
+    },
   },
   watch: {
     state: {
-      handler () {
-        if (this.state.transition == 'next') this.mode = 1
-        else if (this.state.transition) this.mode = 2
-        else this.mode = 0
+      handler() {
+        if (this.state.transition === "next") this.mode = 1;
+        else if (this.state.transition) this.mode = 2;
+        else this.mode = 0;
       },
-      immediate: true
+      immediate: true,
     },
-    mode () {
-      if (this.mode == 1) this.$set(this.state, 'transition', 'next')
-      else if (!this.mode) this.$set(this.state, 'transition')
-    }
+    mode() {
+      if (this.mode === 1) this.$set(this.state, "transition", "next");
+      else if (!this.mode) this.$set(this.state, "transition");
+    },
   },
   methods: {
-    toggle (i) {
-      const ints = this.ints
-      if (ints.includes(i)) ints.splice(ints.indexOf(i), 1)
-      else ints.push(i)
+    toggle(i) {
+      const ints = this.ints;
+      if (ints.includes(i)) ints.splice(ints.indexOf(i), 1);
+      else ints.push(i);
 
-      if (this.mode == 2) this.$set(this.state, 'transition', ints.join(' '))
-    }
-  }
-}
+      if (this.mode === 2) this.$set(this.state, "transition", ints.join(" "));
+    },
+  },
+};
 </script>

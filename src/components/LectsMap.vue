@@ -33,68 +33,70 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker, LIcon } from '@vue-leaflet/vue-leaflet'
+import { LMap, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
 
 export default {
-  name: 'LectsMap',
+  name: "LectsMap",
   components: {
     LMap,
     LTileLayer,
     LMarker,
-    LIcon
+    LIcon,
   },
-  props: ['catalogue', 'selected', 'visible'],
-  data () {
+  props: ["catalogue", "selected", "visible"],
+  data() {
     return {
       center: null,
       zoom: null,
       options: { zoomControl: false },
       layerUrl:
-        'https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}',
+        "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
       layerOptions: {
         attribution:
           '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> | <a href="https://www.mapbox.com/">Mapbox</a>',
         tileSize: 256,
         zoomOffset: -1,
-        accessToken: process.env.VUE_APP_MAP_TOKEN
-      }
-    }
+        accessToken: process.env.VUE_APP_MAP_TOKEN,
+      },
+    };
   },
   computed: {
-    faded () {
+    faded() {
       return this.visible?.length
         ? this.catalogue.map((l) => !this.visible.includes(l))
-        : []
-    }
+        : [];
+    },
   },
-  created () {
-    this.center = JSON.parse(localStorage.mapCenter ?? '[43, 44]')
-    this.zoom = JSON.parse(localStorage.mapZoom ?? '7')
+  created() {
+    this.center = JSON.parse(localStorage.mapCenter ?? "[43, 44]");
+    this.zoom = JSON.parse(localStorage.mapZoom ?? "7");
 
-    this.setupTheming()
+    this.setupTheming();
   },
-  destroyed () {
-    localStorage.mapCenter = JSON.stringify(this.center)
-    localStorage.mapZoom = JSON.stringify(this.zoom)
+  unmounted() {
+    localStorage.mapCenter = JSON.stringify(this.center);
+    localStorage.mapZoom = JSON.stringify(this.zoom);
   },
   methods: {
-    setupTheming () {
+    setupTheming() {
       const url = (t) =>
-        (this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`)
+        (this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`);
 
       if (
         window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      ) { url('dark') }
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        url("dark");
+      }
 
       window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', (e) => {
-          url(e.matches ? 'dark' : 'light')
-        })
-    }
-  }
-}
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          url(e.matches ? "dark" : "light");
+        });
+    },
+  },
+};
 </script>
 
 <style lang="scss">

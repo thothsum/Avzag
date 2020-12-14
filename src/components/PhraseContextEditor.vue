@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-mutating-props */
 <template>
   <ActionHeader icon="widgets" header="context" @action="add">
     <div class="col scroll">
@@ -16,28 +17,28 @@
 </template>
 
 <script>
-import Button from './Button'
-import ActionHeader from './ActionHeader'
+import Button from "./Button";
+import ActionHeader from "./ActionHeader";
 
 export default {
-  name: 'PhraseContextEditor',
+  name: "PhraseContextEditor",
   components: {
     Button,
-    ActionHeader
+    ActionHeader,
   },
-  props: ['context'],
+  props: ["context"],
   methods: {
-    add () {
+    add() {
       this.context.push({
-        entity: 'new entity',
-        tags: 'tags'
-      })
+        entity: "new entity",
+        tags: "tags",
+      });
     },
-    remove (i) {
-      this.$delete(this.context, i)
-    }
-  }
-}
+    remove(i) {
+      this.$delete(this.context, i);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -15,33 +15,33 @@
 </template>
 
 <script>
-import Button from './Button'
+import Button from "./Button";
 
 export default {
-  name: 'Header',
+  name: "Header",
   components: {
-    Button
+    Button,
   },
-  data () {
+  data() {
     return {
       menus: [
-        ['Phonology', 'audiotrack'],
-        ['Converter', 'sync_alt'],
-        ['Phrasebook', 'book']
-      ]
-    }
+        ["Phonology", "audiotrack"],
+        ["Converter", "sync_alt"],
+        ["Phrasebook", "book"],
+      ],
+    };
   },
   methods: {
-    navigate (path) {
+    navigate(path) {
       if (this.$route.name !== path) {
         this.$router.push({
           name: path,
-          params: { lang: this.$route.params.lang }
-        })
+          params: { lang: this.$route.params.lang },
+        });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -16,22 +16,22 @@
 </template>
 
 <script>
-import PhonemeUse from './PhonemeUse'
+import PhonemeUse from "./PhonemeUse";
 
 export default {
-  name: 'PhonemeDetails',
+  name: "PhonemeDetails",
   components: {
-    PhonemeUse
+    PhonemeUse,
   },
-  props: ['phoneme'],
+  props: ["phoneme"],
   methods: {
-    play (audio) {
-      const player = this.$refs.player
-      player.src = audio
-      player.play()
-    }
-  }
-}
+    play(audio) {
+      const player = this.$refs.player;
+      player.src = audio;
+      player.play();
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

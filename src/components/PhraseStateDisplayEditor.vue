@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-mutating-props */
 <template>
   <ActionHeader icon="visibility" header="display" @action="add">
     <template #header>
@@ -33,42 +34,44 @@
 </template>
 
 <script>
-import Button from './Button'
-import ActionHeader from './ActionHeader'
+import Button from "./Button";
+import ActionHeader from "./ActionHeader";
 
 export default {
-  name: 'PhraseStateDisplayEditor',
+  name: "PhraseStateDisplayEditor",
   components: {
     Button,
-    ActionHeader
+    ActionHeader,
   },
-  props: ['state', 'context', 'allowEmpty'],
+  props: ["state", "context", "allowEmpty"],
   computed: {
-    display () {
-      return this.state.display
+    display() {
+      return this.state.display;
     },
-    entities () {
-      return [undefined].concat(Object.keys(this.context))
+    entities() {
+      return [undefined].concat(Object.keys(this.context));
     },
-    colors () {
+    colors() {
       return this.state.display?.map(
-        (d) => 'colored-' + (this.entities.indexOf(d.entity) - 1)
-      )
-    }
+        (d) => "colored-" + (this.entities.indexOf(d.entity) - 1)
+      );
+    },
   },
   methods: {
-    add () {
-      if (this.display) this.display.push({})
-      else this.$set(this.state, 'display', [{}])
+    add() {
+      if (this.display) this.display.push({});
+      else this.$set(this.state, "display", [{}]);
     },
-    toggle (j) {
-      let i = this.entities.indexOf(this.display[j].entity)
-      i = (i + 1) % this.entities.length
-      this.$set(this.display[j], 'entity', this.entities[i])
+    toggle(j) {
+      let i = this.entities.indexOf(this.display[j].entity);
+      i = (i + 1) % this.entities.length;
+      this.$set(this.display[j], "entity", this.entities[i]);
     },
-    remove (i) {
-      if (this.allowEmpty || this.display.length > 1) { this.$delete(this.display, i) }
-    }
-  }
-}
+    remove(i) {
+      if (this.allowEmpty || this.display.length > 1) {
+        this.$delete(this.display, i);
+      }
+    },
+  },
+};
 </script>

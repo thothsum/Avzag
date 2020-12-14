@@ -9,20 +9,20 @@
 
 <script>
 export default {
-  name: 'MappingTable',
-  props: ['mapping', 'reverse'],
+  name: "MappingTable",
+  props: ["mapping", "reverse"],
   computed: {
-    pairs () {
-      return this.mapping.pairs
+    pairs() {
+      return this.mapping.pairs;
     },
-    left () {
-      return this.reverse ? 1 : 0
+    left() {
+      return this.reverse ? 1 : 0;
     },
-    right () {
-      return this.reverse ? 0 : 1
-    }
-  }
-}
+    right() {
+      return this.reverse ? 0 : 1;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

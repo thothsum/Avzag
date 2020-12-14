@@ -15,57 +15,57 @@
 
 <script>
 export default {
-  name: 'ChipsQuery',
-  props: ['items', 'itemKey'],
-  data () {
+  name: "ChipsQuery",
+  props: ["items", "itemKey"],
+  data() {
     return {
-      input: undefined
-    }
+      input: undefined,
+    };
   },
   computed: {
-    keys () {
+    keys() {
       return this.itemKey
         ? this.items.map((it) => it[this.itemKey])
-        : this.items
+        : this.items;
     },
-    highlights () {
+    highlights() {
       return this.input.map((i) =>
-        i ? (i > 0 ? 'highlight-confirm' : 'highlight-alert') : null
-      )
+        i ? (i > 0 ? "highlight-confirm" : "highlight-alert") : null
+      );
     },
-    many () {
-      return this.keys.length > 1
-    }
+    many() {
+      return this.keys.length > 1;
+    },
   },
   watch: {
     items: {
-      handler () {
-        this.reset()
+      handler() {
+        this.reset();
       },
-      immediate: true
+      immediate: true,
     },
     input: {
-      handler () {
+      handler() {
         this.$emit(
-          'query',
+          "query",
           this.many
             ? this.input.reduce((q, inp, i) => {
-              if (inp) q[this.keys[i]] = inp > 0
-              return q
-            }, {})
+                if (inp) q[this.keys[i]] = inp > 0;
+                return q;
+              }, {})
             : { [this.keys[0]]: 1 }
-        )
+        );
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
-    toggle (i) {
-      this.$set(this.input, i, ((this.input[i] + 2) % 3) - 1)
+    toggle(i) {
+      this.$set(this.input, i, ((this.input[i] + 2) % 3) - 1);
     },
-    reset () {
-      this.input = new Array(this.keys.length).fill(0)
-    }
-  }
-}
+    reset() {
+      this.input = new Array(this.keys.length).fill(0);
+    },
+  },
+};
 </script>

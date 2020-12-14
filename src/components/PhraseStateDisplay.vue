@@ -14,36 +14,36 @@
 
 <script>
 export default {
-  name: 'PhraseStateDisplay',
+  name: "PhraseStateDisplay",
   props: {
     state: { type: Object },
     glossed: { type: Boolean, default: false },
     context: { type: Object },
-    colored: { type: Boolean, default: true }
+    colored: { type: Boolean, default: true },
   },
   computed: {
-    entities () {
-      return Object.keys(this.context)
+    entities() {
+      return Object.keys(this.context);
     },
-    types () {
-      return this.glossed ? ['ipa', 'glossing'] : ['text']
+    types() {
+      return this.glossed ? ["ipa", "glossing"] : ["text"];
     },
-    colors () {
+    colors() {
       return this.colored
         ? this.state.display.map(
-          (d) => 'colored-' + this.entities.indexOf(d.entity)
-        )
-        : []
+            (d) => "colored-" + this.entities.indexOf(d.entity)
+          )
+        : [];
     },
-    segments () {
-      return this.types.map((t) => this.state.display.map((d) => d[t]))
+    segments() {
+      return this.types.map((t) => this.state.display.map((d) => d[t]));
     },
-    text () {
-      const texts = this.segments.map((s) => s.join(''))
-      return texts.length == 1 ? texts[0] : texts.join('\n')
-    }
-  }
-}
+    text() {
+      const texts = this.segments.map((s) => s.join(""));
+      return texts.length === 1 ? texts[0] : texts.join("\n");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -6,14 +6,14 @@
 
 <script>
 export default {
-  name: 'IndexedColor',
-  props: ['indexes', 'passive'],
+  name: "IndexedColor",
+  props: ["indexes", "passive"],
   computed: {
-    classes () {
-      return this.indexes.map((i) => 'colored-back-' + i)
-    }
-  }
-}
+    classes() {
+      return this.indexes.map((i) => "colored-back-" + i);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

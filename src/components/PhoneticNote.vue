@@ -4,14 +4,14 @@
 
 <script>
 export default {
-  name: 'PhoneticNote',
-  props: ['text'],
+  name: "PhoneticNote",
+  props: ["text"],
   computed: {
-    parsed () {
+    parsed() {
       return this.text
-        .replace(/<(.+)>/g, '<b>$1</b>')
-        .replace(/\/([^/<>]+)\//g, "<span class='text-ipa'>$1</span>")
-    }
-  }
-}
+        .replace(/<(.+)>/g, "<b>$1</b>")
+        .replace(/\/([^/<>]+)\//g, "<span class='text-ipa'>$1</span>");
+    },
+  },
+};
 </script>

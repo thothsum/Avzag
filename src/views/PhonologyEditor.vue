@@ -71,93 +71,93 @@
 </template>
 
 <script>
-import Button from '@/components/Button'
-import ButtonAlert from '@/components/ButtonAlert'
-import ActionHeader from '@/components/ActionHeader'
-import PhoneticItem from '@/components/PhoneticItem'
-import NotesEditor from '@/components/NotesEditor'
+import Button from "@/components/Button";
+import ButtonAlert from "@/components/ButtonAlert";
+import ActionHeader from "@/components/ActionHeader";
+import PhoneticItem from "@/components/PhoneticItem";
+import NotesEditor from "@/components/NotesEditor";
 
 export default {
-  name: 'PhonologyEditor',
+  name: "PhonologyEditor",
   components: {
     Button,
     ButtonAlert,
     ActionHeader,
     PhoneticItem,
-    NotesEditor
+    NotesEditor,
   },
-  data () {
+  data() {
     return {
       file: undefined,
-      phoneme: undefined
-    }
+      phoneme: undefined,
+    };
   },
   computed: {
-    graphemes () {
-      return this.file.map((p) => p?.samples?.[0]?.grapheme)
+    graphemes() {
+      return this.file.map((p) => p?.samples?.[0]?.grapheme);
     },
-    notes () {
-      return this.phoneme?.notes ?? []
-    }
+    notes() {
+      return this.phoneme?.notes ?? [];
+    },
   },
-  mounted () {
+  mounted() {
     try {
-      const file = JSON.parse(localStorage.pEditor)
-      if (file) this.file = file
-      return
+      const file = JSON.parse(localStorage.pEditor);
+      if (file) this.file = file;
+      return;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    this.reset()
+    this.reset();
   },
-  updated () {
-    localStorage.pEditor = JSON.stringify(this.file)
+  updated() {
+    localStorage.pEditor = JSON.stringify(this.file);
   },
-  beforeDestroy () {
-    localStorage.pEditor = JSON.stringify(this.file)
+  beforeUnmount() {
+    localStorage.pEditor = JSON.stringify(this.file);
   },
   methods: {
-    addPhoneme () {
-      const p = { phoneme: 'new' }
-      this.file.push(p)
-      this.phoneme = p
+    addPhoneme() {
+      const p = { phoneme: "new" };
+      this.file.push(p);
+      this.phoneme = p;
     },
-    removePhoneme () {
-      const i = this.file.indexOf(this.phoneme)
-      this.file.splice(i, 1)
-      this.phoneme = this.file[this.file.length - 1]
+    removePhoneme() {
+      const i = this.file.indexOf(this.phoneme);
+      this.file.splice(i, 1);
+      this.phoneme = this.file[this.file.length - 1];
     },
-    addSample () {
-      if (this.phoneme.samples) this.phoneme.samples.push({})
-      else this.$set(this.phoneme, 'samples', [{}])
+    addSample() {
+      if (this.phoneme.samples) this.phoneme.samples.push({});
+      else this.$set(this.phoneme, "samples", [{}]);
     },
-    removeSample (i) {
-      this.$delete(this.phoneme.samples, i)
+    removeSample(i) {
+      this.$delete(this.phoneme.samples, i);
     },
-    loadFromLect () {
+    loadFromLect() {
       fetch(
         this.$store.state.root +
-          window.prompt('Enter lect name') +
-          '/phonology.json'
+          window.prompt("Enter lect name") +
+          "/phonology.json"
       )
         .then((r) => r.json())
         .then((j) => {
-          if (j) this.file = j
-        })
+          if (j) this.file = j;
+        });
     },
-    loadFromJson () {
-      const file = JSON.parse(window.prompt('Enter JSON'))
-      if (file) this.file = file
+    loadFromJson() {
+      const file = JSON.parse(window.prompt("Enter JSON"));
+      if (file) this.file = file;
     },
-    saveToJson () {
-      navigator.clipboard.writeText(JSON.stringify(this.file))
+    saveToJson() {
+      navigator.clipboard.writeText(JSON.stringify(this.file));
     },
-    reset () {
-      this.file = []
-      this.phoneme = null
-    }
-  }
-}
+    reset() {
+      this.file = [];
+      this.phoneme = null;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

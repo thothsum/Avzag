@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import Button from './Button'
+import Button from "./Button";
 
 export default {
-  name: 'ToggleGroup',
+  name: "ToggleGroup",
   components: { Button },
-  props: ['icons', 'value']
-}
+  props: ["icons", "value"],
+};
 </script>

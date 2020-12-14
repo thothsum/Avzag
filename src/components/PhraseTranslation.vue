@@ -30,53 +30,53 @@
 </template>
 
 <script>
-import Button from './Button'
-import PhraseContext from '@/components/PhraseContext'
-import PhraseBlock from './PhraseBlock'
-import PhoneticNote from './PhoneticNote'
+import Button from "./Button";
+import PhraseContext from "@/components/PhraseContext";
+import PhraseBlock from "./PhraseBlock";
+import PhoneticNote from "./PhoneticNote";
 
 export default {
-  name: 'PhraseTranslation',
+  name: "PhraseTranslation",
   components: {
     Button,
     PhraseContext,
     PhraseBlock,
-    PhoneticNote
+    PhoneticNote,
   },
   props: [
-    'id',
-    'lect',
-    'context',
-    'translation',
-    'interactive',
-    'glossed',
-    'showNotes'
+    "id",
+    "lect",
+    "context",
+    "translation",
+    "interactive",
+    "glossed",
+    "showNotes",
   ],
-  data () {
+  data() {
     return {
-      blocks: []
-    }
+      blocks: [],
+    };
   },
   computed: {
-    text () {
+    text() {
       return this.blocks
         ?.filter((b) => b.visible)
         .map((b) => b.$refs.display.text)
-        .join(' ')
-    }
+        .join(" ");
+    },
   },
-  beforeUpdate () {
-    this.blocks = []
+  beforeUpdate() {
+    this.blocks = [];
   },
   methods: {
-    setBlock (el) {
-      this.blocks.push(el)
+    setBlock(el) {
+      this.blocks.push(el);
     },
-    copy () {
-      navigator.clipboard.writeText(this.text)
-    }
-  }
-}
+    copy() {
+      navigator.clipboard.writeText(this.text);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

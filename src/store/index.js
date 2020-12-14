@@ -56,19 +56,21 @@ export default createStore({
     },
     async collectPhonemes({ commit, state }) {
       let phonemes = {};
-      state.lects.forEach((l) => {
-        l.phonology?.forEach((p) => {
-          const ph = p.phoneme;
-          if (!(ph in phonemes)) {
-            phonemes[ph] = {
-              ipa: ph,
-              tags: getTags(ph, state.ipa),
-              lects: {},
-            };
-          }
-          phonemes[ph].lects[l.name] = p;
+      state.lects
+        .filter((l) => l.phonology)
+        .forEach(({ phonology, name }) => {
+          phonology.forEach((p) => {
+            const ph = p.phoneme;
+            if (!(ph in phonemes)) {
+              phonemes[ph] = {
+                ipa: ph,
+                tags: getTags(ph, state.ipa),
+                lects: {},
+              };
+            }
+            phonemes[ph].lects[name] = p;
+          });
         });
-      });
 
       phonemes = Object.values(phonemes);
       phonemes.sort((a, b) => (a.ipa > b.ipa ? 1 : b.ipa > a.ipa ? -1 : 0));

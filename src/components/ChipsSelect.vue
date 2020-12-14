@@ -12,34 +12,34 @@
 </template>
 
 <script>
-import Button from '@/components/Button'
+import Button from "@/components/Button";
 
 export default {
-  name: 'ChipsSelect',
+  name: "ChipsSelect",
   components: { Button },
-  props: ['value', 'items', 'itemKey'],
+  props: ["value", "items", "itemKey"],
   computed: {
-    keys () {
+    keys() {
       return this.itemKey
         ? this.items.map((it) => it[this.itemKey])
-        : this.items
+        : this.items;
     },
-    many () {
-      return this.keys.length > 1
-    }
+    many() {
+      return this.keys.length > 1;
+    },
   },
   watch: {
     value: {
-      handler () {
-        if (!this.value) this.select(0)
+      handler() {
+        if (!this.value) this.select(0);
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
-    select (i) {
-      this.$emit('update:value', this.items[i])
-    }
-  }
-}
+    select(i) {
+      this.$emit("update:value", this.items[i]);
+    },
+  },
+};
 </script>

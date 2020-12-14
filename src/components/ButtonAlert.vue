@@ -15,29 +15,29 @@
 </template>
 
 <script>
-import Button from './Button'
+import Button from "./Button";
 
 export default {
-  name: 'ButtonAlert',
+  name: "ButtonAlert",
   components: {
-    Button
+    Button,
   },
-  props: ['text'],
-  data () {
+  props: ["text"],
+  data() {
     return {
-      prompt: false
-    }
+      prompt: false,
+    };
   },
   methods: {
-    emit () {
-      this.prompt = false
-      this.$emit('confirm')
-    }
-  }
-}
+    emit() {
+      this.prompt = false;
+      this.$emit("confirm");
+    },
+  },
+};
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .alert * {
   color: var(--color-alert);
 }

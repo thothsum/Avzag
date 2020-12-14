@@ -22,51 +22,52 @@
 </template>
 
 <script>
-import ChipsQuery from '@/components/ChipsQuery'
-import InputQuery from '@/components/InputQuery'
-import PhoneticTable from '@/components/PhoneticTable'
-import PhonemeDetails from '@/components/PhonemeDetails'
+import ChipsQuery from "@/components/ChipsQuery";
+import InputQuery from "@/components/InputQuery";
+import PhoneticTable from "@/components/PhoneticTable";
+import PhonemeDetails from "@/components/PhonemeDetails";
 
 export default {
-  name: 'Phonology',
+  name: "Phonology",
   components: {
     PhoneticTable,
     PhonemeDetails,
     ChipsQuery,
-    InputQuery
+    InputQuery,
   },
-  data () {
+  data() {
     return {
-      categories: ['vowel', 'consonant'],
+      categories: ["vowel", "consonant"],
       phoneme: undefined,
       lectQuery: undefined,
-      featureQuery: undefined
-    }
+      featureQuery: undefined,
+    };
   },
   computed: {
-    lects () {
-      return this.$store.state.lects
+    lects() {
+      return this.$store.state.lects;
     },
-    phonemes () {
-      return this.$store.state.phonemes
-    }
+    phonemes() {
+      return this.$store.state.phonemes;
+    },
   },
   watch: {
     phonemes: {
-      handler () {
+      handler() {
         if (this.phonemes) {
-          const phoneme = localStorage.phoneme
+          const phoneme = localStorage.phoneme;
           this.phoneme =
-            this.phonemes.find((p) => p.ipa == phoneme) ?? this.phonemes[0]
+            this.phonemes.find(({ ipa }) => ipa === phoneme) ??
+            this.phonemes[0];
         }
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
-  destroyed () {
-    localStorage.phoneme = this.phoneme.ipa
-  }
-}
+  unmounted() {
+    localStorage.phoneme = this.phoneme.ipa;
+  },
+};
 </script>
 
 <style lang="scss" scoped>

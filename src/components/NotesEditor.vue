@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-mutating-props */
 <template>
   <ActionHeader icon="sticky_note_2" header="Notes" @action="add">
     <template #caption><slot /></template>
@@ -9,33 +10,33 @@
 </template>
 
 <script>
-import Button from './Button'
-import ActionHeader from '@/components/ActionHeader'
+import Button from "./Button";
+import ActionHeader from "@/components/ActionHeader";
 
 export default {
-  name: 'NotesEditor',
+  name: "NotesEditor",
   components: {
     Button,
-    ActionHeader
+    ActionHeader,
   },
-  props: ['notes'],
+  props: ["notes"],
   watch: {
     notes: {
-      handler () {
-        this.$forceUpdate()
+      handler() {
+        this.$forceUpdate();
       },
       deep: true,
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   methods: {
-    add () {
-      if (this.notes) this.notes.push('')
-      else this.$emit('update:notes', [''])
+    add() {
+      if (this.notes) this.notes.push("");
+      else this.$emit("update:notes", [""]);
     },
-    remove (i) {
-      this.$delete(this.notes, i)
-    }
-  }
-}
+    remove(i) {
+      this.$delete(this.notes, i);
+    },
+  },
+};
 </script>

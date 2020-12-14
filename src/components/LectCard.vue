@@ -14,30 +14,30 @@
 
 <script>
 export default {
-  name: 'LectCard',
-  props: ['lect', 'selected', 'query'],
+  name: "LectCard",
+  props: ["lect", "selected", "query"],
   computed: {
-    family () {
-      return this.lect.family.join(' › ')
+    family() {
+      return this.lect.family.join(" › ");
     },
-    flag () {
-      return this.$store.state.root + this.lect.name + '/flag.png'
+    flag() {
+      return this.$store.state.root + this.lect.name + "/flag.png";
     },
-    tags () {
-      return [this.lect.name, this.lect.tags, this.lect.family.join(' ')]
-        .join(' ')
-        .toLowerCase()
+    tags() {
+      return [this.lect.name, this.lect.tags, this.lect.family.join(" ")]
+        .join(" ")
+        .toLowerCase();
     },
-    visible () {
-      return this.query?.every((t) => this.tags.includes(t))
-    }
+    visible() {
+      return this.query?.every((t) => this.tags.includes(t));
+    },
   },
   watch: {
-    visible () {
-      this.$emit('visible', this.visible)
-    }
-  }
-}
+    visible() {
+      this.$emit("visible", this.visible);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -96,24 +96,24 @@
 </template>
 
 <script>
-import Button from '@/components/Button'
-import Select from '@/components/Select'
-import List from '@/components/List'
-import PhraseContext from '@/components/PhraseContext'
-import PhraseBlock from '@/components/PhraseBlock'
-import PhraseTranslation from '@/components/PhraseTranslation'
+import Button from "@/components/Button";
+import Select from "@/components/Select";
+import List from "@/components/List";
+import PhraseContext from "@/components/PhraseContext";
+import PhraseBlock from "@/components/PhraseBlock";
+import PhraseTranslation from "@/components/PhraseTranslation";
 
 export default {
-  name: 'Phrasebook',
+  name: "Phrasebook",
   components: {
     Button,
     Select,
     List,
     PhraseContext,
     PhraseBlock,
-    PhraseTranslation
+    PhraseTranslation,
   },
-  data () {
+  data() {
     return {
       section: undefined,
       phrase: undefined,
@@ -123,62 +123,62 @@ export default {
       showNotes: false,
       showSource: true,
       searching: false,
-      query: ''
-    }
+      query: "",
+    };
   },
   computed: {
-    lects () {
-      return this.$store.state.lects
+    lects() {
+      return this.$store.state.lects;
     },
-    phrasebook () {
-      return this.$store.state.phrasebook
+    phrasebook() {
+      return this.$store.state.phrasebook;
     },
-    phrases () {
+    phrases() {
       return this.searching
         ? this.phrasebook.reduce((f, s, i) => {
-          f[i] = s.phrases
-            .map((p, i) => [p, i])
-            .filter((p) => p[0].preview.includes(this.query))
-            .map((p) => p[1])
-          if (!f[i].length) delete f[i]
-          return f
-        }, {})
-        : this.section?.phrases
+            f[i] = s.phrases
+              .map((p, i) => [p, i])
+              .filter((p) => p[0].preview.includes(this.query))
+              .map((p) => p[1]);
+            if (!f[i].length) delete f[i];
+            return f;
+          }, {})
+        : this.section?.phrases;
     },
-    translations () {
+    translations() {
       return this.lects.map(({ phrasebook }) =>
         phrasebook ? phrasebook[this.phrase.id] : null
-      )
-    }
+      );
+    },
   },
   watch: {
     phrasebook: {
-      handler () {
-        if (this.phrasebook) this.selected = localStorage.phrase
+      handler() {
+        if (this.phrasebook) this.selected = localStorage.phrase;
       },
-      immediate: true
+      immediate: true,
     },
     phrase: {
-      handler () {
+      handler() {
         this.context =
           this.phrase?.context?.reduce((c, { entity }) => {
-            c[entity] = new Set()
-            return c
-          }, {}) ?? {}
+            c[entity] = new Set();
+            return c;
+          }, {}) ?? {};
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
-  destroyed () {
-    localStorage.phrase = this.selected
+  unmounted() {
+    localStorage.phrase = this.selected;
   },
   methods: {
-    select (s, p) {
-      this.section = this.phrasebook[s]
-      this.phrase = this.section.phrases[p]
-    }
-  }
-}
+    select(s, p) {
+      this.section = this.phrasebook[s];
+      this.phrase = this.section.phrases[p];
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

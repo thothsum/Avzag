@@ -5,14 +5,17 @@
   </button>
 </template>
 
-<script>
-export default {
-  name: 'Button',
-  props: ['value', 'icon', 'text'],
-  methods: {
-    toggle () {
-      this.$emit('update:value', !this.value)
-    }
-  }
-}
+<script setup="props, { emit }">
+import { computed, defineProps, defineEmit } from "vue";
+
+const props = defineProps({
+  value: Boolean,
+  icon: String,
+  text: String,
+});
+const icon = computed(() => props.icon);
+const text = computed(() => props.text);
+
+const emit = defineEmit(["update:value"]);
+const toggle = () => emit("update:value", !props.value);
 </script>
