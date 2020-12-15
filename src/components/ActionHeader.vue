@@ -1,13 +1,13 @@
 <template>
   <div class="col">
     <div class="row">
-      <slot v-if="$slots.action" name="action" />
-      <Button v-else-if="button" :icon="button" @click="$emit('action')" />
+      <slot v-if="slots.action" name="action" />
+      <Button v-else-if="button" :icon="button" @click="emit('action')" />
       <p v-if="icon" class="icon">{{ icon }}</p>
       <h2 v-if="header" class="flex">{{ header }}</h2>
       <slot name="header" />
     </div>
-    <p v-if="$slots.caption" class="text-caption text-faded">
+    <p v-if="slots.caption" class="text-caption text-faded">
       <slot name="caption" />
     </p>
     <slot />
@@ -15,17 +15,19 @@
 </template>
 
 <script>
-import Button from "./Button";
+import { defineComponent } from "vue";
+import Button from "./Button.vue";
 
-export default {
-  name: "ActionHeader",
+export default defineComponent({
   components: { Button },
   props: {
-    button: {
-      default: "add",
-    },
-    icon: String,
-    header: String,
+    button: { type: String, default: "add" },
+    icon: { type: String, default: "" },
+    header: { type: String, default: "" },
   },
-};
+  emits: ["action"],
+  setup(props, context) {
+    return context;
+  },
+});
 </script>

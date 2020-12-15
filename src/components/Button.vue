@@ -5,17 +5,19 @@
   </button>
 </template>
 
-<script setup="props, { emit }">
-import { computed, defineProps, defineEmit } from "vue";
+<script>
+import { defineComponent } from "vue";
 
-const props = defineProps({
-  value: Boolean,
-  icon: String,
-  text: String,
+export default defineComponent({
+  props: {
+    value: Boolean,
+    icon: { type: String, default: "" },
+    text: { type: String, default: "" },
+  },
+  emits: ["update:value"],
+  setup(props, { emit }) {
+    const toggle = () => emit("update:value", !props.value);
+    return { toggle };
+  },
 });
-const icon = computed(() => props.icon);
-const text = computed(() => props.text);
-
-const emit = defineEmit(["update:value"]);
-const toggle = () => emit("update:value", !props.value);
 </script>

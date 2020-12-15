@@ -5,39 +5,42 @@
   </div>
 </template>
 
-<script setup>
+<script>
 import "tailwindcss/tailwind.css";
-
-import { watchEffect, computed } from "vue";
+import { defineComponent, watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
-
 import Header from "./components/Header.vue";
 
-const route = useRoute();
-const router = useRouter();
-const store = useStore();
+export default defineComponent({
+  components: { Header },
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
+    const store = useStore();
 
-watchEffect(() => {
-  if (route.name) localStorage.url = route.path;
+    store.dispatch("initialize");
+    if (!route.name || route.name === "Home") {
+      router.push(
+        localStorage.url && localStorage.url !== route.path
+          ? { path: localStorage.url }
+          : { name: "Home" }
+      );
+    }
+    if (route.name !== "Home") {
+      const lects = JSON.parse(localStorage.lects ?? "[]");
+      if (lects) store.dispatch("loadLects", lects);
+    }
+    watchEffect(() => {
+      if (route.name) localStorage.url = route.path;
+    });
+
+    const showHeader = computed(
+      () => route.name !== "Home" && !route.path.includes("/editor/")
+    );
+    return { showHeader };
+  },
 });
-
-const showHeader = computed(
-  () => route.name !== "Home" && !route.path.includes("/editor/")
-);
-
-store.dispatch("initialize");
-if (!route.name || route.name === "Home") {
-  router.push(
-    localStorage.url && localStorage.url !== route.path
-      ? { path: localStorage.url }
-      : { name: "Home" }
-  );
-}
-if (route.name !== "Home") {
-  const lects = JSON.parse(localStorage.lects ?? "[]");
-  if (lects) store.dispatch("loadLects", lects);
-}
 </script>
 
 <style lang="scss">
