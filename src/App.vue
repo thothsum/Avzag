@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import "tailwindcss/tailwind.css";
 import { defineComponent, watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
