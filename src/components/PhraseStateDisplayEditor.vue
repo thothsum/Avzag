@@ -2,7 +2,7 @@
 <template>
   <ActionHeader icon="visibility" header="display" @action="add">
     <template #header>
-      <Button v-model:value="state.implicit" icon="opacity" />
+      <Button v-model="state.implicit" icon="opacity" />
     </template>
     <div v-if="display" class="col">
       <div v-for="(d, i) in display" :key="i" class="row">

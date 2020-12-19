@@ -3,11 +3,7 @@
     <template #caption><slot /></template>
     <div class="scroll col">
       <div v-for="(c, i) in conditions" :key="i" class="row">
-        <Button
-          v-if="allowPassive"
-          v-model:value="c.passive"
-          icon="call_missed"
-        />
+        <Button v-if="allowPassive" v-model="c.passive" icon="call_missed" />
         <Select v-model:value="c.entity" class="flex" :items="entities" />
         <p class="icon">west</p>
         <Select

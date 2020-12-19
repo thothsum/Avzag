@@ -2,7 +2,7 @@
   <div v-if="lects && phrasebook" class="section col-1">
     <div class="col-1">
       <div class="row">
-        <Button v-model:value="searching" icon="search" />
+        <Button v-model="searching" icon="search" />
         <input
           v-if="searching"
           v-model="query"
@@ -43,29 +43,24 @@
     <div v-if="phrase" class="col-1">
       <div class="row scroll small">
         <Button
-          v-model:value="showNotes"
+          v-model="showNotes"
           class="round"
           icon="sticky_note_2"
           text="Notes"
         />
         <Button
-          v-model:value="showSource"
+          v-model="showSource"
           class="round"
           icon="short_text"
           text="Source"
         />
         <Button
-          v-model:value="interactive"
+          v-model="interactive"
           class="round"
           icon="tune"
           text="Interactive"
         />
-        <Button
-          v-model:value="glossed"
-          class="round"
-          icon="layers"
-          text="Glossed"
-        />
+        <Button v-model="glossed" class="round" icon="layers" text="Glossed" />
       </div>
       <div v-show="showSource" class="col-1 wrap card">
         <PhraseContext v-if="interactive" :context="context" />

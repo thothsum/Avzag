@@ -34,7 +34,7 @@
             :items="mappings"
             display="name"
           />
-          <Button v-model:value="showMappings" icon="visibility" />
+          <Button v-model="showMappings" icon="visibility" />
           <Button icon="file_copy" @click="copy" />
         </div>
         <ConverterText
