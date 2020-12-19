@@ -1,23 +1,30 @@
 <template>
-  <button :class="{ highlight: value }" @click="toggle">
+  <button :class="{ highlight }" @click="toggle">
     <p v-if="icon" class="icon">{{ icon }}</p>
     <p v-if="text">{{ text }}</p>
   </button>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
   props: {
-    value: Boolean,
+    modelValue: Boolean,
     icon: { type: String, default: "" },
     text: { type: String, default: "" },
   },
-  emits: ["update:value"],
+  emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const toggle = () => emit("update:value", !props.value);
-    return { toggle };
+    const highlight = computed({
+      get: () => props.modelValue,
+      set: (value) => emit("update:modelValue", value),
+    });
+    const toggle = () => (highlight.value = !highlight.value);
+    return {
+      highlight,
+      toggle,
+    };
   },
 });
 </script>
