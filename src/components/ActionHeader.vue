@@ -13,24 +13,18 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useContext, defineEmit, defineProps } from "vue";
 import Button from "./Button.vue";
 
-export default defineComponent({
-  components: { Button },
-  props: {
-    button: { type: String, default: "add" },
-    icon: { type: String, default: "" },
-    header: { type: String, default: "" },
-  },
-  emits: ["action"],
-  setup(props, { emit, slots }) {
-    const act = () => emit("action");
-    return {
-      caption: slots.caption,
-      act,
-    };
-  },
+const props = defineProps({
+  button: { type: String, default: "add" },
+  icon: { type: String, default: "" },
+  header: { type: String, default: "" },
 });
+const emit = defineEmit();
+
+const act = () => emit("action");
+const { caption } = useContext().slots;
 </script>

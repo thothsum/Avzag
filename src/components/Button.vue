@@ -5,26 +5,20 @@
   </button>
 </template>
 
-<script>
-import { defineComponent, computed } from "vue";
+<script setup>
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { defineComponent, computed, defineProps, defineEmit } from "vue";
 
-export default defineComponent({
-  props: {
-    modelValue: Boolean,
-    icon: { type: String, default: "" },
-    text: { type: String, default: "" },
-  },
-  emits: ["update:modelValue"],
-  setup(props, { emit }) {
-    const highlight = computed({
-      get: () => props.modelValue,
-      set: (value) => emit("update:modelValue", value),
-    });
-    const toggle = () => (highlight.value = !highlight.value);
-    return {
-      highlight,
-      toggle,
-    };
-  },
+const props = defineProps({
+  modelValue: Boolean,
+  icon: { type: String, default: "" },
+  text: { type: String, default: "" },
 });
+const emit = defineEmit(["update:modelValue"]);
+
+const highlight = computed({
+  get: () => props.modelValue,
+  set: (value) => emit("update:modelValue", value),
+});
+const toggle = () => (highlight.value = !highlight.value);
 </script>

@@ -8,26 +8,22 @@
   </div>
 </template>
 
-<script>
-import { ref, defineComponent } from "vue";
+<script setup>
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { ref, defineComponent, defineEmit, defineProps } from "vue";
 import Button from "./Button";
 
-export default defineComponent({
-  components: { Button },
-  props: {
-    text: { type: String, default: "" },
-  },
-  emits: ["confirm"],
-  setup(props, { emit }) {
-    const prompt = ref(false);
-    const toggle = () => (prompt.value = !prompt.value);
-    const confirm = () => {
-      toggle();
-      emit("confirm");
-    };
-    return { prompt, toggle, confirm };
-  },
+const props = defineProps({
+  text: { type: String, default: "" },
 });
+const emit = defineEmit(["confirm"]);
+
+const prompt = ref(false);
+const toggle = () => (prompt.value = !prompt.value);
+const confirm = () => {
+  toggle();
+  emit("confirm");
+};
 </script>
 
 <style lang="scss">
