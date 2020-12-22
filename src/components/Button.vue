@@ -5,7 +5,7 @@
   </button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { defineComponent, computed, defineProps, defineEmit } from "vue";
 

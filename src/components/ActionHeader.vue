@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useContext, defineEmit, defineProps } from "vue";
 import Button from "./Button.vue";
@@ -23,7 +23,7 @@ const props = defineProps({
   icon: { type: String, default: "" },
   header: { type: String, default: "" },
 });
-const emit = defineEmit();
+const emit = defineEmit(["action"]);
 
 const act = () => emit("action");
 const { caption } = useContext().slots;

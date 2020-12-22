@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ref, defineComponent, defineEmit, defineProps } from "vue";
 import Button from "./Button";
