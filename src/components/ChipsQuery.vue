@@ -1,5 +1,5 @@
 <template>
-  <div v-if="many" class="row scroll">
+  <div v-if="visible" class="row scroll">
     <button class="small icon round" @click="reset">clear</button>
     <button
       v-for="(k, i) in keys"
@@ -16,6 +16,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
+  PropType,
   computed,
   defineEmit,
   defineProps,
@@ -25,39 +26,35 @@ import {
 } from "vue";
 
 const props = defineProps({
-  items: { type: Object, default: {} },
-  itemKey: { type: String, default: "name" },
+  modelValue: {
+    type: Object as PropType<Record<string, boolean>>,
+    default: {},
+  },
+  items: { type: Array as PropType<string[]>, default: [] },
 });
 const emit = defineEmit(["query"]);
 
 const input = ref<number[]>([]);
 
-const keys = computed<string[]>(() =>
-  props.itemKey
-    ? props.items.map((it: Record<string, string>) => it[props.itemKey])
-    : props.items
-);
 const highlights = computed<string[]>(() =>
   input.value.map((i) =>
     i ? (i > 0 ? "highlight-confirm" : "highlight-alert") : ""
   )
 );
-const many = computed(() => keys.value.length > 1);
+const visible = computed(() => props.items.length > 1);
 const query = computed(() =>
-  many.value
-    ? input.value.reduce(
-        (q: Record<string, boolean>, inp: number, i: number) => {
-          if (inp) q[keys.value[i]] = inp > 0;
-          return q;
-        },
-        {}
-      )
-    : { [keys.value[0]]: 1 }
+  input.value.reduce((q, inp: number, i: number) => {
+    if (inp) q[props.items[i]] = inp > 0;
+    return q;
+  }, {} as Record<string, boolean>)
 );
 
 const reset = () => (input.value = []);
 const toggle = (i: number) => (input.value[i] = ((input.value[i] + 2) % 3) - 1);
 
-watch(props.items, () => reset());
+watch(props.items, () => {
+  reset();
+  if (props.items.length === 1) input.value[0] = 1;
+});
 watchEffect(() => emit("query", query));
 </script>

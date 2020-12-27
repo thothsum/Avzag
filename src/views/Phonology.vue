@@ -1,7 +1,7 @@
 <template>
   <div v-if="phonemes" class="section">
     <div class="col-1 scroll">
-      <ChipsQuery :items="lects" item-key="name" @query="lectQuery = $event" />
+      <ChipsQuery v-model="lectQuery" :items="lects" />
       <InputQuery
         placeholder="Query phonemes, e.g. voiced -velar..."
         @query="featureQuery = $event"
@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     lects() {
-      return this.$store.state.lects;
+      return this.$store.state.lects.map((l) => l.name);
     },
     phonemes() {
       return this.$store.state.phonemes;
