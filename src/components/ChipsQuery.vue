@@ -13,59 +13,51 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ChipsQuery",
-  props: ["items", "itemKey"],
-  data() {
-    return {
-      input: undefined,
-    };
-  },
-  computed: {
-    keys() {
-      return this.itemKey
-        ? this.items.map((it) => it[this.itemKey])
-        : this.items;
-    },
-    highlights() {
-      return this.input.map((i) =>
-        i ? (i > 0 ? "highlight-confirm" : "highlight-alert") : null
-      );
-    },
-    many() {
-      return this.keys.length > 1;
-    },
-  },
-  watch: {
-    items: {
-      handler() {
-        this.reset();
-      },
-      immediate: true,
-    },
-    input: {
-      handler() {
-        this.$emit(
-          "query",
-          this.many
-            ? this.input.reduce((q, inp, i) => {
-                if (inp) q[this.keys[i]] = inp > 0;
-                return q;
-              }, {})
-            : { [this.keys[0]]: 1 }
-        );
-      },
-      immediate: true,
-    },
-  },
-  methods: {
-    toggle(i) {
-      this.$set(this.input, i, ((this.input[i] + 2) % 3) - 1);
-    },
-    reset() {
-      this.input = new Array(this.keys.length).fill(0);
-    },
-  },
-};
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  computed,
+  defineEmit,
+  defineProps,
+  ref,
+  watch,
+  watchEffect,
+} from "vue";
+
+const props = defineProps({
+  items: { type: Object, default: {} },
+  itemKey: { type: String, default: "name" },
+});
+const emit = defineEmit(["query"]);
+
+const input = ref<number[]>([]);
+
+const keys = computed<string[]>(() =>
+  props.itemKey
+    ? props.items.map((it: Record<string, string>) => it[props.itemKey])
+    : props.items
+);
+const highlights = computed<string[]>(() =>
+  input.value.map((i) =>
+    i ? (i > 0 ? "highlight-confirm" : "highlight-alert") : ""
+  )
+);
+const many = computed(() => keys.value.length > 1);
+const query = computed(() =>
+  many.value
+    ? input.value.reduce(
+        (q: Record<string, boolean>, inp: number, i: number) => {
+          if (inp) q[keys.value[i]] = inp > 0;
+          return q;
+        },
+        {}
+      )
+    : { [keys.value[0]]: 1 }
+);
+
+const reset = () => (input.value = []);
+const toggle = (i: number) => (input.value[i] = ((input.value[i] + 2) % 3) - 1);
+
+watch(props.items, () => reset());
+watchEffect(() => emit("query", query));
 </script>
