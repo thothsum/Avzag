@@ -1,14 +1,14 @@
 <template>
   <div v-if="visible" class="row scroll small">
-    <button class="icon round" @click="update">clear</button>
+    <button class="icon round" @click="update()">clear</button>
     <button
-      v-for="(c, i) in colors"
-      :key="items[i]"
+      v-for="i in items"
+      :key="i"
       class="round"
       :class="colors[i]"
-      @click="toggle(items[i])"
+      @click="toggle(i)"
     >
-      {{ items[i] }}
+      {{ i }}
     </button>
   </div>
 </template>
@@ -35,12 +35,11 @@ const emit = defineEmit(["update:modelValue"]);
 
 const visible = computed(() => items.value.length > 1);
 const colors = computed(() =>
-  items.value.map((i) =>
-    i in query.value
-      ? props.modelValue[i]
-        ? "highlight-confirm"
-        : "highlight-alert"
-      : ""
+  Object.fromEntries(
+    Object.entries(query.value).map(([item, flag]) => [
+      item,
+      flag ? "highlight-confirm" : "highlight-alert",
+    ])
   )
 );
 
