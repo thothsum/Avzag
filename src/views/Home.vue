@@ -112,7 +112,7 @@ export default {
     },
   },
   unmounted() {
-    localStorage.lects = JSON.stringify(this.lects.map((l) => l.name));
+    localStorage.lects = JSON.stringify(this.lects?.map((l) => l.name) || []);
   },
   methods: {
     toggleLect(lect) {
