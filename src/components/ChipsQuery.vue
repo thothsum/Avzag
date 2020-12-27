@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" class="row scroll small">
-    <button class="icon round" @click="reset">clear</button>
+    <button class="icon round" @click="update">clear</button>
     <button
       v-for="(c, i) in colors"
       :key="items[i]"
@@ -21,9 +21,7 @@ import {
   computed,
   defineEmit,
   defineProps,
-  ref,
   watch,
-  watchEffect,
 } from "vue";
 
 type Query = Record<string, boolean>;
@@ -32,12 +30,13 @@ const props = defineProps({
   modelValue: { type: Object as PropType<Query>, default: {} },
   items: { type: Array as PropType<string[]>, default: [] },
 });
+const { modelValue: query, items } = toRefs(props);
 const emit = defineEmit(["update:modelValue"]);
 
-const visible = computed(() => props.items.length > 1);
+const visible = computed(() => items.value.length > 1);
 const colors = computed(() =>
-  props.items.map((i) =>
-    i in props.modelValue
+  items.value.map((i) =>
+    i in query.value
       ? props.modelValue[i]
         ? "highlight-confirm"
         : "highlight-alert"
@@ -45,24 +44,17 @@ const colors = computed(() =>
   )
 );
 
-const reset = () => emit("update:modelValue", {});
-const toggle = (item: number, flag: boolean | undefined) => {
-  item in props.modelValue
-    ? props.modelValue[item]
-      ? (props.modelValue[item] = false)
-      : delete props.modelValue[item]
-    : (props.modelValue[item] = true);
-  emit("update:modelValue", props.modelValue);
+const update = (query: Query = {}) => emit("update:modelValue", query);
+const toggle = (item: number) => {
+  item in query.value
+    ? query.value[item]
+      ? (query.value[item] = false)
+      : delete query.value[item]
+    : (query.value[item] = true);
+  update(query.value);
 };
 
-watch(
-  () => props.items,
-  (items) => {
-    reset();
-    if (items.length === 1) {
-      props.modelValue[items[0]] = true;
-      emit("update:modelValue", props.modelValue);
-    }
-  }
-);
+watch(items, (items) => {
+  update(items.length === 1 ? { [items[0]]: true } : {});
+});
 </script>
