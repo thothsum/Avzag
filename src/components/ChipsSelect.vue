@@ -7,7 +7,7 @@
       :class="highlights[i]"
       @click="select(i)"
     >
-      {{ l }}
+      <slot :label="l">{{ l }}</slot>
     </button>
   </div>
 </template>
