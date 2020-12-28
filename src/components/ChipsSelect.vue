@@ -45,10 +45,10 @@ const highlights = computed(() =>
   labels.value.map((l) => (l === selected.value ? "highlight" : ""))
 );
 
-function select(index: number) {
+const select = (index: number) => {
   selected.value = labels.value[index];
   emit("update:modelValue", props.indexed ? index : selected.value);
-}
+};
 
 watch(labels, () => select(0));
 </script>

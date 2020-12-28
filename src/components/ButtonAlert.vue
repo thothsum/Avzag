@@ -23,6 +23,7 @@ const props = defineProps({
 const emit = defineEmit(["confirm"]);
 
 const prompt = ref(false);
+
 const toggle = () => (prompt.value = !prompt.value);
 const confirm = () => {
   toggle();

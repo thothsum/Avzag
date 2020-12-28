@@ -23,7 +23,7 @@ const props = defineProps({
   header: { type: String, default: "" },
 });
 const emit = defineEmit(["action"]);
+const { caption } = useContext().slots;
 
 const act = () => emit("action");
-const { caption } = useContext().slots;
 </script>
