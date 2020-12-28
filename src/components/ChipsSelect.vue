@@ -1,45 +1,55 @@
 <template>
-  <div v-if="many" class="row scroll">
-    <Button
-      v-for="(k, i) in keys"
-      :key="i"
-      class="small round"
-      :class="{ highlight: value == items[i] }"
-      :text="k"
+  <div v-if="many" class="row scroll small">
+    <button
+      v-for="(l, i) in labels"
+      :key="l"
+      class="round"
+      :class="highlights[i]"
       @click="select(i)"
-    />
+    >
+      <slot />
+    </button>
   </div>
 </template>
 
-<script>
-import Button from "@/components/Button";
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  computed,
+  defineEmit,
+  defineProps,
+  PropType,
+  ref,
+  toRefs,
+  watch,
+} from "vue";
 
-export default {
-  name: "ChipsSelect",
-  components: { Button },
-  props: ["value", "items", "itemKey"],
-  computed: {
-    keys() {
-      return this.itemKey
-        ? this.items.map((it) => it[this.itemKey])
-        : this.items;
-    },
-    many() {
-      return this.keys.length > 1;
-    },
+type Item = { [index: string]: string };
+
+const props = defineProps({
+  modelValue: {
+    type: Object as PropType<string | number>,
+    default: 0,
   },
-  watch: {
-    value: {
-      handler() {
-        if (!this.value) this.select(0);
-      },
-      immediate: true,
-    },
-  },
-  methods: {
-    select(i) {
-      this.$emit("update:value", this.items[i]);
-    },
-  },
-};
+  items: { type: Object as PropType<(Item | string)[]>, default: [] },
+  itemKey: { type: String, default: "name" },
+  indexed: { type: Boolean },
+});
+const emit = defineEmit(["update:modelValue"]);
+
+const selected = ref("");
+const labels = computed(() =>
+  props.items.map((i) => (i === "string" ? i : (i as Item)[props.itemKey]))
+);
+const visible = computed(() => labels.value.length > 1);
+const highlights = computed(() =>
+  labels.value.map((l) => l === selected.value)
+);
+
+function select(index: number) {
+  selected.value = labels.value[index];
+  emit("update:modelValue", props.indexed ? index : selected.value);
+}
+
+watch(labels, () => select(0));
 </script>
