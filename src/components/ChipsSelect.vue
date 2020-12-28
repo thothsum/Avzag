@@ -1,5 +1,5 @@
 <template>
-  <div v-if="many" class="row scroll small">
+  <div v-if="visible" class="row scroll small">
     <button
       v-for="(l, i) in labels"
       :key="l"
@@ -7,7 +7,7 @@
       :class="highlights[i]"
       @click="select(i)"
     >
-      <slot />
+      {{ l }}
     </button>
   </div>
 </template>
@@ -27,10 +27,7 @@ import {
 type Item = { [index: string]: string };
 
 const props = defineProps({
-  modelValue: {
-    type: Object as PropType<string | number>,
-    default: 0,
-  },
+  modelValue: { type: [String, Number], default: 0 },
   items: { type: Object as PropType<(Item | string)[]>, default: [] },
   itemKey: { type: String, default: "name" },
   indexed: { type: Boolean },
@@ -43,7 +40,7 @@ const labels = computed(() =>
 );
 const visible = computed(() => labels.value.length > 1);
 const highlights = computed(() =>
-  labels.value.map((l) => l === selected.value)
+  labels.value.map((l) => (l === selected.value ? "highlight" : ""))
 );
 
 function select(index: number) {

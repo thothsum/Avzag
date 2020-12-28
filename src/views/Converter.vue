@@ -1,6 +1,6 @@
 <template>
   <div v-if="lects" class="section col-1">
-    <ChipsSelect v-model:lect="lect" :items="lects" />
+    <ChipsSelect v-model="lect" :items="lects" />
     <div v-if="converter" class="split">
       <div class="col">
         <div class="row">
