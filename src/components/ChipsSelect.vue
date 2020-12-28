@@ -36,7 +36,9 @@ const emit = defineEmit(["update:modelValue"]);
 
 const selected = ref("");
 const labels = computed(() =>
-  props.items.map((i) => (i === "string" ? i : (i as Item)[props.itemKey]))
+  props.items.map((i) =>
+    typeof i === "string" ? i : (i as Item)[props.itemKey]
+  )
 );
 const visible = computed(() => labels.value.length > 1);
 const highlights = computed(() =>
