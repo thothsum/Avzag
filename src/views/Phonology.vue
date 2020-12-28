@@ -1,7 +1,7 @@
 <template>
   <div v-if="phonemes" class="section">
     <div class="col-1 scroll">
-      <ChipsQuery v-model="lectQuery" :items="lects" />
+      <ChipsQuery v-model="lectQuery" :labels="lects" />
       <InputQuery
         placeholder="Query phonemes, e.g. voiced -velar..."
         @query="featureQuery = $event"

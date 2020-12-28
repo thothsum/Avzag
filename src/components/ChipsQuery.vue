@@ -2,13 +2,13 @@
   <div v-if="visible" class="row scroll small">
     <button class="icon round" @click="update()">clear</button>
     <button
-      v-for="i in items"
-      :key="i"
+      v-for="l in labels"
+      :key="l"
       class="round"
-      :class="colors[i]"
-      @click="toggle(i)"
+      :class="highlights[l]"
+      @click="toggle(l)"
     >
-      {{ i }}
+      <slot />
     </button>
   </div>
 </template>
@@ -28,32 +28,32 @@ type Query = Record<string, boolean>;
 
 const props = defineProps({
   modelValue: { type: Object as PropType<Query>, default: {} },
-  items: { type: Array as PropType<string[]>, default: [] },
+  labels: { type: Array as PropType<string[]>, default: [] },
 });
-const { modelValue: query, items } = toRefs(props);
 const emit = defineEmit(["update:modelValue"]);
 
-const visible = computed(() => items.value.length > 1);
-const colors = computed(() =>
+const { modelValue: query, labels } = toRefs(props);
+const visible = computed(() => labels.value.length > 1);
+const highlights = computed(() =>
   Object.fromEntries(
-    Object.entries(query.value).map(([item, flag]) => [
-      item,
+    Object.entries(query.value).map(([label, flag]) => [
+      label,
       flag ? "highlight-confirm" : "highlight-alert",
     ])
   )
 );
 
 const update = (query: Query = {}) => emit("update:modelValue", query);
-const toggle = (item: number) => {
-  item in query.value
-    ? query.value[item]
-      ? (query.value[item] = false)
-      : delete query.value[item]
-    : (query.value[item] = true);
+const toggle = (label: string) => {
+  label in query.value
+    ? query.value[label]
+      ? (query.value[label] = false)
+      : delete query.value[label]
+    : (query.value[label] = true);
   update(query.value);
 };
 
-watch(items, (items) => {
-  update(items.length === 1 ? { [items[0]]: true } : {});
+watch(labels, (labels) => {
+  update(labels.length === 1 ? { [labels[0]]: true } : {});
 });
 </script>
