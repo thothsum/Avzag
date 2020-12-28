@@ -50,5 +50,5 @@ const select = (index: number) => {
   emit("update:modelValue", props.indexed ? index : selected.value);
 };
 
-watch(labels, () => select(0));
+watch(labels, () => select(0), { immediate: true });
 </script>
