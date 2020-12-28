@@ -1,17 +1,21 @@
 <template>
   <div class="row-0">
     <template v-if="prompt">
-      <Button class="alert" icon="delete_forever" @click="confirm" />
-      <Button icon="check" @click="toggle" />
+      <button class="highlight-font-alert icon" @click="confirm">
+        delete_forever
+      </button>
+      <button class="icon" @click="toggle">check</button>
     </template>
-    <Button v-else class="alert" icon="delete" :text="text" @click="toggle" />
+    <button v-else class="highlight-font-alert icon" @click="toggle">
+      delete
+      <p>{{ text }}</p>
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ref, defineComponent, defineEmit, defineProps } from "vue";
-import Button from "./Button";
 
 const props = defineProps({
   text: { type: String, default: "" },
@@ -25,9 +29,3 @@ const confirm = () => {
   emit("confirm");
 };
 </script>
-
-<style lang="scss">
-.alert * {
-  color: var(--color-alert);
-}
-</style>

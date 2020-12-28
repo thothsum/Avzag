@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <div class="row">
-      <Button v-if="button" :icon="button" @click="act" />
+      <button v-if="button" class="icon" @click="act">{{ button }}</button>
       <p class="icon">{{ icon }}</p>
       <h2 class="flex">{{ header }}</h2>
       <slot name="header" />
@@ -16,7 +16,6 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useContext, defineEmit, defineProps } from "vue";
-import Button from "./Button.vue";
 
 const props = defineProps({
   button: { type: String, default: "add" },
