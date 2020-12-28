@@ -47,7 +47,7 @@ const highlights = computed(() =>
 
 const select = (index: number) => {
   selected.value = labels.value[index];
-  emit("update:modelValue", props.indexed ? index : selected.value);
+  emit("update:modelValue", props.indexed ? index : props.items[index]);
 };
 
 watch(labels, () => select(0), { immediate: true });

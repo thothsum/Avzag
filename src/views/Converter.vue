@@ -1,13 +1,6 @@
 <template>
   <div v-if="lects" class="section col-1">
     <ChipsSelect v-model="lect" :items="lects" />
-    <ChipsSelect
-      v-slot="{ label }"
-      v-model="lect"
-      :items="['add', 'remove', 'close']"
-    >
-      <p class="icon">{{ label }}</p>
-    </ChipsSelect>
     <div v-if="converter" class="split">
       <div class="col">
         <div class="row">

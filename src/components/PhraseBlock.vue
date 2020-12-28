@@ -13,7 +13,7 @@
     <PhraseStateDisplay
       ref="display"
       :glossed="glossed"
-      :colored="this.interactive"
+      :colored="interactive"
       :state="state"
       :context="context"
     />
@@ -140,7 +140,7 @@ export default {
       return state ?? states[0];
     },
     applyConditions(context, conditions, positive) {
-      conditions
+      (conditions ?? [])
         .filter(
           ({ entity, tag, passive }) => !passive && tag && context[entity]
         )

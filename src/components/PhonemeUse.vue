@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 import PhoneticNote from "./PhoneticNote";
 
 export default {
@@ -60,7 +61,7 @@ export default {
         this.canPlay = new Array(this.urls);
         this.urls.forEach((u, i) => {
           fetch(u, { method: "HEAD" }).then((r) => {
-            this.$set(this.canPlay, i, r.ok);
+            this.canPlay = this.canPlay.splice(i, 1, r.ok);
           });
         });
       },
