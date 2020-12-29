@@ -27,7 +27,7 @@ const emit = defineEmit(["update:modelValue"]);
 
 const query = computed({
   get: () => props.modelValue,
-  set: (query) => emit("update:modelValue", query),
+  set: (q) => emit("update:modelValue", q),
 });
 const toggle = (label: string) => {
   label in query.value
@@ -52,6 +52,7 @@ const defaultQuery = computed(() =>
 );
 watch(
   () => props.labels,
-  () => (query.value = defaultQuery.value)
+  () => (query.value = defaultQuery.value),
+  { immediate: true }
 );
 </script>
