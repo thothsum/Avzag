@@ -21,7 +21,7 @@ import {
   computed,
   defineEmit,
   defineProps,
-  watch,
+  onMounted,
 } from "vue";
 
 type Query = Record<string, boolean>;
@@ -53,7 +53,7 @@ const toggle = (label: string) => {
   update(query.value);
 };
 
-watch(labels, (labels) => {
-  update(labels.length === 1 ? { [labels[0]]: true } : {});
-});
+onMounted(() =>
+  update(labels.value.length === 1 ? { [labels.value[0]]: true } : {})
+);
 </script>
