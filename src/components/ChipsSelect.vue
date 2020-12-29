@@ -1,14 +1,10 @@
 <template>
   <div v-if="visible" class="row scroll small">
-    <button
-      v-for="(l, i) in labels"
-      :key="l"
-      class="round"
-      :class="highlights[i]"
-      @click="select(i)"
-    >
-      <slot :label="l">{{ l }}</slot>
-    </button>
+    <div v-for="(l, i) in labels" :key="l" @click="select(i)">
+      <slot :label="l" :highlight="highlights[i]">
+        <button class="round" :class="highlights[i]">{{ l }}</button>
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -32,16 +28,16 @@ const labels = computed(() =>
   )
 );
 const visible = computed(() => labels.value.length > 1);
+const selected = computed(() =>
+  props.indexed ? props.items[props.modelValue as number] : props.modelValue
+);
 const highlights = computed(() => {
-  const item = props.indexed
-    ? props.items[props.modelValue as number]
-    : props.modelValue;
-  return props.items.map((l) => (l === item ? "highlight" : ""));
+  return props.items.map((l) => (l === selected.value ? "highlight" : ""));
 });
 
-const select = (index: number) => {
+const select = (index = 0) => {
   emit("update:modelValue", props.indexed ? index : props.items[index]);
 };
 
-onMounted(() => select(0));
+onMounted(() => select);
 </script>

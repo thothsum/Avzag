@@ -2,12 +2,12 @@
   <div v-if="lects" class="section col-1">
     <ChipsSelect v-model="lect" :items="lects" />
     <ChipsSelect
-      v-slot="{ label }"
+      v-slot="{ label, highlight }"
       v-model="lect1"
       :items="['add', 'remove', 'close']"
       :indexed="true"
     >
-      <p class="icon">{{ label }}</p>
+      <button class="icon" :class="highlight">{{ label }}</button>
     </ChipsSelect>
     <div v-if="converter" class="split">
       <div class="col">
