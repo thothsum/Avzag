@@ -13,13 +13,14 @@
 import { computed, defineEmit, defineProps, PropType, onMounted } from "vue";
 
 type Item = { [index: string]: string };
+type Value = number | string | Item;
 
 const props = defineProps({
   modelValue: {
-    type: [() => Object as PropType<Item>, String, Number],
-    default: {},
+    type: [Number, String, Object as () => Item],
+    default: "",
   },
-  items: { type: Object as PropType<(Item | string)[]>, default: [] },
+  items: { type: Object as PropType<(string | Item)[]>, default: [] },
   labelKey: { type: [Number, String], default: "name" },
   type: {
     type: String as PropType<"item" | "label" | "index">,
@@ -34,17 +35,17 @@ const labels = computed(() =>
   )
 );
 const visible = computed(() => labels.value.length > 1);
-const selected = computed(() => {
+const index = computed(() => {
   const value = props.modelValue;
-  if (props.type === "item") return value;
-  else if (props.type === "label") {
+  if (props.type === "item") return props.items.indexOf(value as Item);
+  if (props.type === "label") {
     const key = props.labelKey;
-    return props.items.find((i) => (i as Item)[key] === value);
+    return props.items.findIndex((i) => (i as Item)[key] === value);
   }
-  return props.items[value as number];
+  return value as number;
 });
 const highlights = computed(() => {
-  return props.items.map((l) => (l === selected.value ? "highlight" : ""));
+  return props.items.map((l, i) => (i === index.value ? "highlight" : ""));
 });
 
 const select = (index = 0) => {

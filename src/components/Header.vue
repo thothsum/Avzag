@@ -8,7 +8,7 @@
         class="row-1"
         :items="menus"
         :label-key="0"
-        type="key"
+        type="label"
       >
         <button class="icon" :class="highlight">
           {{ item[1] }}
@@ -36,7 +36,6 @@ const menus = [
 const path = computed({
   get: (): string => route.name as string,
   set: (p: string) => {
-    console.log(p);
     if (route.name !== p) {
       router.push({
         name: p,
