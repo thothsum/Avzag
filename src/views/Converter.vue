@@ -1,14 +1,6 @@
 <template>
   <div v-if="lects" class="section col-1">
     <ChipsSelect v-model="lect" :items="lects" />
-    <ChipsSelect
-      v-slot="{ label, highlight }"
-      v-model="lect1"
-      :items="['add', 'remove', 'close']"
-      :indexed="true"
-    >
-      <button class="icon" :class="highlight">{{ label }}</button>
-    </ChipsSelect>
     <div v-if="converter" class="split">
       <div class="col">
         <div class="row">
@@ -89,7 +81,6 @@ export default {
   },
   data() {
     return {
-      lect1: 0,
       lect: undefined,
       source: "",
       sourceMapping: undefined,
