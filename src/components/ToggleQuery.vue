@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" class="row scroll small">
-    <button class="icon round" @click="update()">clear</button>
+    <button class="icon round" @click="query = {}">clear</button>
     <button
       v-for="l in labels"
       :key="l"
@@ -15,14 +15,7 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  PropType,
-  toRefs,
-  computed,
-  defineEmit,
-  defineProps,
-  onMounted,
-} from "vue";
+import { PropType, computed, defineEmit, defineProps, watch } from "vue";
 
 type Query = Record<string, boolean>;
 
@@ -32,8 +25,19 @@ const props = defineProps({
 });
 const emit = defineEmit(["update:modelValue"]);
 
-const { modelValue: query, labels } = toRefs(props);
-const visible = computed(() => labels.value.length > 1);
+const query = computed({
+  get: () => props.modelValue,
+  set: (query) => emit("update:modelValue", query),
+});
+const toggle = (label: string) => {
+  label in query.value
+    ? query.value[label]
+      ? (query.value[label] = false)
+      : delete query.value[label]
+    : (query.value[label] = true);
+};
+
+const visible = computed(() => props.labels.length > 1);
 const highlights = computed(() =>
   Object.fromEntries(
     Object.entries(query.value).map(([label, flag]) => [
@@ -43,17 +47,11 @@ const highlights = computed(() =>
   )
 );
 
-const update = (query: Query = {}) => emit("update:modelValue", query);
-const toggle = (label: string) => {
-  label in query.value
-    ? query.value[label]
-      ? (query.value[label] = false)
-      : delete query.value[label]
-    : (query.value[label] = true);
-  update(query.value);
-};
-
-onMounted(() =>
-  update(labels.value.length === 1 ? { [labels.value[0]]: true } : {})
+const defaultQuery = computed(() =>
+  props.labels.length === 1 ? { [props.labels[0]]: true } : {}
+);
+watch(
+  () => props.labels,
+  () => (query.value = defaultQuery.value)
 );
 </script>
