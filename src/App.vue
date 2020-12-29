@@ -5,40 +5,35 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, watchEffect, computed } from "vue";
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import Header from "./components/Header.vue";
 
-export default defineComponent({
-  components: { Header },
-  setup() {
-    const route = useRoute();
-    const router = useRouter();
-    const store = useStore();
+const route = useRoute();
+const router = useRouter();
+const store = useStore();
 
-    store.dispatch("initialize");
-    if (!route.name || route.name === "Home") {
-      router.push(
-        localStorage.url && localStorage.url !== route.path
-          ? { path: localStorage.url }
-          : { name: "Home" }
-      );
-    }
-    if (route.name !== "Home") {
-      const lects = JSON.parse(localStorage.lects ?? "[]");
-      if (lects) store.dispatch("loadLects", lects);
-    }
-    watchEffect(() => {
-      if (route.name) localStorage.url = route.path;
-    });
+store.dispatch("initialize");
+if (!route.name || route.name === "Home") {
+  router.push(
+    localStorage.url && localStorage.url !== route.path
+      ? { path: localStorage.url }
+      : { name: "Home" }
+  );
+}
+if (route.name !== "Home") {
+  const lects = JSON.parse(localStorage.lects ?? "[]");
+  if (lects) store.dispatch("loadLects", lects);
+}
 
-    const showHeader = computed(
-      () => route.name !== "Home" && !route.path.includes("/editor/")
-    );
-    return { showHeader };
-  },
+const showHeader = computed(
+  () => route.name !== "Home" && !route.path.includes("/editor/")
+);
+watchEffect(() => {
+  if (route.name) localStorage.url = route.path;
 });
 </script>
 
