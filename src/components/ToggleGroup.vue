@@ -20,9 +20,9 @@ const props = defineProps({
     default: {},
   },
   items: { type: Object as PropType<(Item | string)[]>, default: [] },
-  itemKey: { type: [Number, String], default: "name" },
+  labelKey: { type: [Number, String], default: "name" },
   type: {
-    type: String as PropType<"item" | "key" | "index">,
+    type: String as PropType<"item" | "label" | "index">,
     default: "item",
   },
 });
@@ -30,15 +30,15 @@ const emit = defineEmit(["update:modelValue"]);
 
 const labels = computed(() =>
   props.items.map((i) =>
-    typeof i === "string" ? i : (i as Item)[props.itemKey]
+    typeof i === "string" ? i : (i as Item)[props.labelKey]
   )
 );
 const visible = computed(() => labels.value.length > 1);
 const selected = computed(() => {
   const value = props.modelValue;
   if (props.type === "item") return value;
-  else if (props.type === "key") {
-    const key = props.itemKey;
+  else if (props.type === "label") {
+    const key = props.labelKey;
     return props.items.find((i) => (i as Item)[key] === value);
   }
   return props.items[value as number];
@@ -49,7 +49,7 @@ const highlights = computed(() => {
 
 const select = (index = 0) => {
   let value: object | string | number = props.items[index];
-  if (props.type === "key") value = (value as Item)[props.itemKey];
+  if (props.type === "label") value = (value as Item)[props.labelKey];
   else if (props.type === "index") value = index;
   emit("update:modelValue", value);
 };

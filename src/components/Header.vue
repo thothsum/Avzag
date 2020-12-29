@@ -7,7 +7,7 @@
         v-model="path"
         class="row-1"
         :items="menus"
-        :item-key="0"
+        :label-key="0"
         type="key"
       >
         <button class="icon" :class="highlight">
