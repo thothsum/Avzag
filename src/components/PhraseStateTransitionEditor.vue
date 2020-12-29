@@ -1,14 +1,14 @@
 <template>
   <ActionHeader button="" icon="alt_route" header="transition">
     <template #header>
-      <ChipsSelect
+      <ToggleGroup
         v-slot="{ label, highlight }"
         v-model="mode"
         :items="['block', 'arrow_forward', 'star_outline']"
         :indexed="true"
       >
         <button class="icon" :class="highlight">{{ label }}</button>
-      </ChipsSelect>
+      </ToggleGroup>
     </template>
     <div v-if="mode == 2" class="row-1 wrap block-editor">
       <div v-for="(s, i) in states" :key="i" class="row">
@@ -25,7 +25,7 @@
 
 <script>
 import Button from "./Button";
-import ChipsSelect from "./ChipsSelect";
+import ToggleGroup from "./ToggleGroup";
 import ActionHeader from "./ActionHeader";
 import PhraseStateDisplay from "./PhraseStateDisplay";
 
@@ -33,7 +33,7 @@ export default {
   name: "PhraseStateTransitionEditor",
   components: {
     Button,
-    ChipsSelect,
+    ToggleGroup,
     ActionHeader,
     PhraseStateDisplay,
   },

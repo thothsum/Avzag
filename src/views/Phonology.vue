@@ -1,7 +1,7 @@
 <template>
   <div v-if="phonemes" class="section">
     <div class="col-1 scroll">
-      <ChipsQuery v-model="lectQuery" :labels="lects" />
+      <ToggleQuery v-model="lectQuery" :labels="lects" />
       <InputQuery
         placeholder="Query phonemes, e.g. voiced -velar..."
         @query="featureQuery = $event"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ChipsQuery from "@/components/ChipsQuery";
+import ToggleQuery from "@/components/ToggleQuery";
 import InputQuery from "@/components/InputQuery";
 import PhoneticTable from "@/components/PhoneticTable";
 import PhonemeDetails from "@/components/PhonemeDetails";
@@ -32,7 +32,7 @@ export default {
   components: {
     PhoneticTable,
     PhonemeDetails,
-    ChipsQuery,
+    ToggleQuery,
     InputQuery,
   },
   data() {

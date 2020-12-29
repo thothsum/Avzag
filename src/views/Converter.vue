@@ -1,6 +1,6 @@
 <template>
   <div v-if="lects" class="section col-1">
-    <ChipsSelect v-model="lect" :items="lects" />
+    <ToggleGroup v-model="lect" :items="lects" />
     <div v-if="converter" class="split">
       <div class="col">
         <div class="row">
@@ -66,7 +66,7 @@
 <script>
 import Button from "@/components/Button";
 import Select from "@/components/Select";
-import ChipsSelect from "@/components/ChipsSelect";
+import ToggleGroup from "@/components/ToggleGroup";
 import MappingTable from "@/components/MappingTable";
 import ConverterText from "@/components/ConverterText";
 
@@ -75,7 +75,7 @@ export default {
   components: {
     Button,
     Select,
-    ChipsSelect,
+    ToggleGroup,
     MappingTable,
     ConverterText,
   },
