@@ -1,5 +1,5 @@
-<template>
-  <div v-if="visible" class="row scroll small">
+<template v-if="visible">
+  <div class="row scroll small">
     <div v-for="(l, i) in labels" :key="l" @click="select(i)">
       <slot :label="l" :highlight="highlights[i]">
         <button class="round" :class="highlights[i]">{{ l }}</button>
