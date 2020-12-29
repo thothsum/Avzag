@@ -14,41 +14,34 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  computed,
-  defineEmit,
-  defineProps,
-  PropType,
-  ref,
-  toRefs,
-  watch,
-} from "vue";
+import { computed, defineEmit, defineProps, PropType, onMounted } from "vue";
 
 type Item = { [index: string]: string };
 
 const props = defineProps({
-  modelValue: { type: [String, Number], default: 0 },
+  modelValue: { type: [Object, String, Number], default: {} },
   items: { type: Object as PropType<(Item | string)[]>, default: [] },
   itemKey: { type: String, default: "name" },
   indexed: { type: Boolean },
 });
 const emit = defineEmit(["update:modelValue"]);
 
-const selected = ref("");
 const labels = computed(() =>
   props.items.map((i) =>
     typeof i === "string" ? i : (i as Item)[props.itemKey]
   )
 );
 const visible = computed(() => labels.value.length > 1);
-const highlights = computed(() =>
-  labels.value.map((l) => (l === selected.value ? "highlight" : ""))
-);
+const highlights = computed(() => {
+  const item = props.indexed
+    ? props.items[props.modelValue as number]
+    : props.modelValue;
+  return props.items.map((l) => (l === item ? "highlight" : ""));
+});
 
 const select = (index: number) => {
-  selected.value = labels.value[index];
   emit("update:modelValue", props.indexed ? index : props.items[index]);
 };
 
-watch(labels, () => select(0), { immediate: true });
+onMounted(() => select(0));
 </script>
