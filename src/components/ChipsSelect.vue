@@ -39,5 +39,5 @@ const select = (index = 0) => {
   emit("update:modelValue", props.indexed ? index : props.items[index]);
 };
 
-onMounted(() => select);
+onMounted(() => select());
 </script>
