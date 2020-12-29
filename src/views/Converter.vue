@@ -1,6 +1,6 @@
 <template>
   <div v-if="lects" class="section col-1">
-    <ToggleGroup v-model="lect" :items="lects" />
+    <ToggleGroup v-model="lect" class="small" :items="lects" />
     <div v-if="converter" class="split">
       <div class="col">
         <div class="row">

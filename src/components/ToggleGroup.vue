@@ -1,7 +1,7 @@
 <template>
-  <div v-if="visible" class="row scroll small">
+  <div v-if="visible" class="row scroll">
     <div v-for="(l, i) in labels" :key="l" @click="select(i)">
-      <slot :label="l" :highlight="highlights[i]">
+      <slot :item="items[i]" :highlight="highlights[i]">
         <button class="round" :class="highlights[i]">{{ l }}</button>
       </slot>
     </div>
@@ -15,10 +15,16 @@ import { computed, defineEmit, defineProps, PropType, onMounted } from "vue";
 type Item = { [index: string]: string };
 
 const props = defineProps({
-  modelValue: { type: [Object, String, Number], default: {} },
+  modelValue: {
+    type: [() => Object as PropType<Item>, String, Number],
+    default: {},
+  },
   items: { type: Object as PropType<(Item | string)[]>, default: [] },
-  itemKey: { type: String, default: "name" },
-  indexed: { type: Boolean },
+  itemKey: { type: [Number, String], default: "name" },
+  type: {
+    type: String as PropType<"item" | "key" | "index">,
+    default: "item",
+  },
 });
 const emit = defineEmit(["update:modelValue"]);
 
@@ -28,15 +34,24 @@ const labels = computed(() =>
   )
 );
 const visible = computed(() => labels.value.length > 1);
-const selected = computed(() =>
-  props.indexed ? props.items[props.modelValue as number] : props.modelValue
-);
+const selected = computed(() => {
+  const value = props.modelValue;
+  if (props.type === "item") return value;
+  else if (props.type === "key") {
+    const key = props.itemKey;
+    return props.items.find((i) => (i as Item)[key] === value);
+  }
+  return props.items[value as number];
+});
 const highlights = computed(() => {
   return props.items.map((l) => (l === selected.value ? "highlight" : ""));
 });
 
 const select = (index = 0) => {
-  emit("update:modelValue", props.indexed ? index : props.items[index]);
+  let value: object | string | number = props.items[index];
+  if (props.type === "key") value = (value as Item)[props.itemKey];
+  else if (props.type === "index") value = index;
+  emit("update:modelValue", value);
 };
 
 onMounted(() => select());

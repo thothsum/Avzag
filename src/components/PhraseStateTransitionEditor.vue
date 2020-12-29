@@ -2,12 +2,12 @@
   <ActionHeader button="" icon="alt_route" header="transition">
     <template #header>
       <ToggleGroup
-        v-slot="{ label, highlight }"
+        v-slot="{ item, highlight }"
         v-model="mode"
         :items="['block', 'arrow_forward', 'star_outline']"
-        :indexed="true"
+        type="index"
       >
-        <button class="icon" :class="highlight">{{ label }}</button>
+        <button class="icon" :class="highlight">{{ item }}</button>
       </ToggleGroup>
     </template>
     <div v-if="mode == 2" class="row-1 wrap block-editor">

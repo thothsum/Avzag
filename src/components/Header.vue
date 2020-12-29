@@ -1,47 +1,50 @@
 <template>
   <div id="root">
     <div class="section row-1 scroll">
-      <Button icon="arrow_back" @click="navigate('Home')" />
-      <Button
-        v-for="[t, i] in menus"
-        :key="i"
-        :class="{ highlight: $route.name === t }"
-        :icon="i"
-        :text="t"
-        @click="navigate(t)"
-      />
+      <button class="icon" @click="path = 'Home'">arrow_back</button>
+      <ToggleGroup
+        v-slot="{ item, highlight }"
+        v-model="path"
+        class="row-1"
+        :items="menus"
+        :item-key="0"
+        type="key"
+      >
+        <button class="icon" :class="highlight">
+          {{ item[1] }}
+          <p>{{ item[0] }}</p>
+        </button>
+      </ToggleGroup>
     </div>
   </div>
 </template>
 
-<script>
-import Button from "./Button";
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import ToggleGroup from "./ToggleGroup";
 
-export default {
-  name: "Header",
-  components: {
-    Button,
+const route = useRoute();
+const router = useRouter();
+
+const menus = [
+  ["Phonology", "audiotrack"],
+  ["Converter", "sync_alt"],
+  ["Phrasebook", "book"],
+];
+const path = computed({
+  get: (): string => route.name as string,
+  set: (p: string) => {
+    console.log(p);
+    if (route.name !== p) {
+      router.push({
+        name: p,
+        params: { lang: route.params.lang },
+      });
+    }
   },
-  data() {
-    return {
-      menus: [
-        ["Phonology", "audiotrack"],
-        ["Converter", "sync_alt"],
-        ["Phrasebook", "book"],
-      ],
-    };
-  },
-  methods: {
-    navigate(path) {
-      if (this.$route.name !== path) {
-        this.$router.push({
-          name: path,
-          params: { lang: this.$route.params.lang },
-        });
-      }
-    },
-  },
-};
+});
 </script>
 
 <style lang="scss" scoped>
@@ -53,7 +56,7 @@ export default {
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
 }
-Button {
+:not(.icon) {
   font-weight: bold;
 }
 </style>
