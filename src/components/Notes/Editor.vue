@@ -1,18 +1,19 @@
 <template>
-  <ActionHeader icon="sticky_note_2" header="Notes" @action="add">
-    <template #caption><slot /></template>
-    <div v-for="(n, i) in modelValue" :key="i" class="row">
-      <p>{{ n }}</p>
-      <!-- <input v-model="modelValue[i]" type="text" /> -->
+  <div class="col">
+    <div class="row">
+      <button @click="add">+</button>
+      <h2>Notes</h2>
+    </div>
+    <div v-for="(n, i) in notes" :key="i" class="row">
+      <input v-model="notes[i]" type="text" />
       <button class="icon" @click="remove(i)">clear</button>
     </div>
-  </ActionHeader>
+  </div>
 </template>
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineEmit, defineProps, PropType } from "vue";
-import ActionHeader from "@/components/ActionHeader";
 
 const props = defineProps({
   modelValue: Array as PropType<string[]>,
@@ -20,15 +21,11 @@ const props = defineProps({
 });
 const emit = defineEmit(["update:modelValue"]);
 
-const add = () => {
-  const t = props.modelValue ?? [];
-  t.push("");
-  emit("update:modelValue", t);
-};
+const notes = computed({
+  get: () => props.modelValue,
+  set: (n) => emit("update:modelValue", n),
+});
 
-const remove = (i: number) => {
-  const t = props.modelValue ?? [];
-  t.splice(i, 1);
-  emit("update:modelValue", t);
-};
+const add = () => (notes.value ? notes.value.push("") : (notes.value = [""]));
+const remove = (i: number) => notes.value?.splice(i, 1);
 </script>
