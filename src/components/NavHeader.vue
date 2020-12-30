@@ -1,17 +1,16 @@
 <template>
   <div id="root">
     <div class="section row-1 scroll">
-      <button class="icon" @click="path = 'Home'">arrow_back</button>
       <router-link
-        v-for="[p, i] in menus"
-        :key="p"
+        v-for="{ icon, text, name } in navs"
+        :key="name ?? text ?? icon"
         v-slot="{ isActive, navigate }"
         custom
-        :to="{ name: p }"
+        :to="{ name: name ?? text }"
       >
-        <button class="icon" :class="{ highlight: isActive }" @click="navigate">
-          {{ i }}
-          <p>{{ p }}</p>
+        <button :class="{ highlight: isActive }" @click="navigate">
+          <p v-if="icon" class="icon">{{ icon }}</p>
+          <p v-if="text">{{ text }}</p>
         </button>
       </router-link>
     </div>
@@ -20,11 +19,25 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const menus = [
-  ["Phonology", "audiotrack"],
-  ["Converter", "sync_alt"],
-  ["Phrasebook", "book"],
-];
+import { defineProps, PropType } from "vue";
+
+interface Nav {
+  icon?: string;
+  text?: string;
+  name?: string;
+}
+
+const props = defineProps({
+  navs: {
+    type: Array as PropType<Nav[]>,
+    default: [
+      { icon: "arrow_back", name: "Home" },
+      { icon: "audiotrack", text: "Phonology" },
+      { icon: "sync_alt", text: "Converter" },
+      { icon: "book", text: "Phrasebook" },
+    ],
+  },
+});
 </script>
 
 <style lang="scss" scoped>
