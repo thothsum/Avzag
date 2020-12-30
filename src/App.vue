@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header v-if="showHeader" />
-    <router-view></router-view>
+    <router-view name="NavHeader" />
+    <router-view />
   </div>
 </template>
 
@@ -10,7 +10,6 @@
 import { watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
-import Header from "./components/Header.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -28,10 +27,6 @@ if (route.name !== "Home") {
   const lects = JSON.parse(localStorage.lects ?? "[]");
   if (lects) store.dispatch("loadLects", lects);
 }
-
-const showHeader = computed(
-  () => route.name !== "Home" && !route.path.includes("/editor/")
-);
 watchEffect(() => {
   if (route.name) localStorage.url = route.path;
 });

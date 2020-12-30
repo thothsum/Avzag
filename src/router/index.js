@@ -9,6 +9,7 @@ import Phonology from "../views/Phonology.vue";
 import Converter from "../views/Converter.vue";
 import Phrasebook from "../views/Phrasebook.vue";
 
+import NavHeader from "../components/NavHeader.vue";
 import Home from "../views/Home.vue";
 
 export default createRouter({
@@ -18,6 +19,21 @@ export default createRouter({
       path: "/",
       name: "Home",
       component: Home,
+    },
+    {
+      path: "/phonology/",
+      name: "Phonology",
+      components: { default: Phonology, NavHeader },
+    },
+    {
+      path: "/converter/",
+      name: "Converter",
+      components: { default: Converter, NavHeader },
+    },
+    {
+      path: "/phrasebook/",
+      name: "Phrasebook",
+      components: { default: Phrasebook, NavHeader },
     },
     {
       path: "/editor/phonology/",
@@ -38,21 +54,6 @@ export default createRouter({
       path: "/editor/phrasebook/corpus/",
       name: "PhrasebookCorpusEditor",
       component: PhrasebookCorpusEditor,
-    },
-    {
-      path: "/phonology/",
-      name: "Phonology",
-      component: Phonology,
-    },
-    {
-      path: "/converter/",
-      name: "Converter",
-      component: Converter,
-    },
-    {
-      path: "/phrasebook/",
-      name: "Phrasebook",
-      component: Phrasebook,
     },
     {
       path: "/:pathMatch(.*)",
