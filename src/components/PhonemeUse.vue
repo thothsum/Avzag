@@ -22,7 +22,7 @@
         ></span>
       </button>
     </div>
-    <PhoneticNote v-for="(n, i) in use.notes" :key="i" :text="n" />
+    <PhoneticNote :notes="use.notes" />
   </div>
 </template>
 

@@ -23,9 +23,7 @@
         @update:context="$emit('update:context', $event)"
       />
     </div>
-    <template v-if="showNotes">
-      <PhoneticNote v-for="(n, i) in translation.notes" :key="i" :text="n" />
-    </template>
+    <PhoneticNote v-if="showNotes" :notes="translation.notes" />
   </div>
 </template>
 
