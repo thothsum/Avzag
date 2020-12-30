@@ -120,7 +120,7 @@ import Select from "@/components/Select";
 import PhraseBlock from "@/components/PhraseBlock";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseBlockEditor from "@/components/PhraseBlockEditor";
-import NotesEditor from "@/components/NotesEditor";
+import NotesEditor from "@/components/Notes/Editor";
 import PhraseContextTranslation from "@/components/PhraseContextTranslation";
 
 export default {

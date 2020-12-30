@@ -22,17 +22,17 @@
         ></span>
       </button>
     </div>
-    <PhoneticNote :notes="use.notes" />
+    <Notes :notes="use.notes" />
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import PhoneticNote from "./PhoneticNote";
+import Notes from "@/components/Notes";
 
 export default {
   name: "PhonemeUse",
-  components: { PhoneticNote },
+  components: { Notes },
   props: ["lect", "use"],
   data() {
     return {

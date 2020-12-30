@@ -1,5 +1,5 @@
 <template>
-  <div class="col text-caption">
+  <div v-if="notes?.length" class="col text-caption">
     <p v-for="(ps, i) in pieces" :key="i">
       <template v-for="{ text, type } in ps" :key="text">
         <span v-if="type === 'text'">{{ text }}</span>
@@ -28,9 +28,9 @@ const isWrapped = (text: string, start: string, end: string) =>
 
 const toPiece = (text: string): Piece =>
   isWrapped(text, "/", "/")
-    ? { text: text.slice(0, -1), type: "phoneme" }
+    ? { text: text.slice(1, -1), type: "phoneme" }
     : isWrapped(text, "<", ">")
-    ? { text: text.slice(0, -1), type: "grapheme" }
+    ? { text: text.slice(1, -1), type: "grapheme" }
     : { text, type: "text" };
 
 const pieces = computed(() =>

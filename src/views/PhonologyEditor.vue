@@ -75,7 +75,7 @@ import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
 import PhoneticItem from "@/components/PhoneticItem";
-import NotesEditor from "@/components/NotesEditor";
+import NotesEditor from "@/components/Notes/Editor";
 
 export default {
   name: "PhonologyEditor",

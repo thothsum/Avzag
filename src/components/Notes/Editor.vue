@@ -1,42 +1,29 @@
-/* eslint-disable vue/no-mutating-props */
 <template>
   <ActionHeader icon="sticky_note_2" header="Notes" @action="add">
     <template #caption><slot /></template>
-    <div v-for="(n, i) in notes" :key="i" class="row">
+    <div v-for="(n, i) in modelValue" :key="i" class="row">
       <input v-model="notes[i]" type="text" />
-      <Button icon="clear" @click="remove(i)" />
+      <button class="icon" @click="remove(i)">clear</button>
     </div>
   </ActionHeader>
 </template>
 
-<script>
-import Button from "./Button";
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { computed, defineEmit, defineProps, PropType } from "vue";
 import ActionHeader from "@/components/ActionHeader";
 
-export default {
-  name: "NotesEditor",
-  components: {
-    Button,
-    ActionHeader,
-  },
-  props: ["notes"],
-  watch: {
-    notes: {
-      handler() {
-        this.$forceUpdate();
-      },
-      deep: true,
-      immediate: true,
-    },
-  },
-  methods: {
-    add() {
-      if (this.notes) this.notes.push("");
-      else this.$emit("update:notes", [""]);
-    },
-    remove(i) {
-      this.$delete(this.notes, i);
-    },
-  },
-};
+const props = defineProps({
+  modelValue: Array as PropType<string[]>,
+  default: [],
+});
+const emit = defineEmit(["update:modelValue"]);
+
+const notes = computed({
+  get: () => props.modelValue,
+  set: (n) => emit("update:modelValue", n),
+});
+
+const add = () => (notes.value ? notes.value.push("") : (notes.value = []));
+const remove = (i: number) => notes.value?.splice(i, 1);
 </script>

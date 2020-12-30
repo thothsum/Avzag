@@ -23,7 +23,7 @@
         @update:context="$emit('update:context', $event)"
       />
     </div>
-    <PhoneticNote v-if="showNotes" :notes="translation.notes" />
+    <Notes v-if="showNotes" :notes="translation.notes" />
   </div>
 </template>
 
@@ -31,7 +31,7 @@
 import Button from "./Button";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseBlock from "./PhraseBlock";
-import PhoneticNote from "./PhoneticNote";
+import Notes from "@/components/Notes";
 
 export default {
   name: "PhraseTranslation",
@@ -39,7 +39,7 @@ export default {
     Button,
     PhraseContext,
     PhraseBlock,
-    PhoneticNote,
+    Notes,
   },
   props: [
     "id",
