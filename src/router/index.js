@@ -5,7 +5,6 @@ import ConverterEditor from "../views/ConverterEditor";
 import PhrasebookEditor from "../views/PhrasebookEditor";
 import PhrasebookCorpusEditor from "../views/PhrasebookCorpusEditor";
 
-import Test from "../views/Test";
 import Phonology from "../views/Phonology";
 import Converter from "../views/Converter";
 import Phrasebook from "../views/Phrasebook";
@@ -21,11 +20,6 @@ export default createRouter({
       path: "/",
       name: "Home",
       component: Home,
-    },
-    {
-      path: "/test",
-      name: "Test",
-      component: Test,
     },
     {
       path: "/phonology",

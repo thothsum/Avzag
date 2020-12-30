@@ -1,19 +1,17 @@
 <template>
-  <div class="col">
-    <div class="row">
-      <button @click="add">+</button>
-      <h2>Notes</h2>
-    </div>
+  <ActionHeader icon="sticky_note_2" header="Notes" @action="add">
+    <template #caption><slot /></template>
     <div v-for="(n, i) in notes" :key="i" class="row">
       <input v-model="notes[i]" type="text" />
       <button class="icon" @click="remove(i)">clear</button>
     </div>
-  </div>
+  </ActionHeader>
 </template>
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineEmit, defineProps, PropType } from "vue";
+import ActionHeader from "@/components/ActionHeader";
 
 const props = defineProps({
   modelValue: Array as PropType<string[]>,
