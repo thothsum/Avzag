@@ -2,48 +2,29 @@
   <div id="root">
     <div class="section row-1 scroll">
       <button class="icon" @click="path = 'Home'">arrow_back</button>
-      <ToggleGroup
-        v-slot="{ item, highlight }"
-        v-model="path"
-        class="row-1"
-        :items="menus"
-        :label-key="0"
-        type="label"
+      <router-link
+        v-for="[p, i] in menus"
+        :key="p"
+        v-slot="{ isActive, navigate }"
+        custom
+        :to="{ name: p }"
       >
-        <button class="icon" :class="highlight">
-          {{ item[1] }}
-          <p>{{ item[0] }}</p>
+        <button class="icon" :class="{ highlight: isActive }" @click="navigate">
+          {{ i }}
+          <p>{{ p }}</p>
         </button>
-      </ToggleGroup>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import ToggleGroup from "./ToggleGroup";
-
-const route = useRoute();
-const router = useRouter();
-
 const menus = [
   ["Phonology", "audiotrack"],
   ["Converter", "sync_alt"],
   ["Phrasebook", "book"],
 ];
-const path = computed({
-  get: (): string => route.name as string,
-  set: (p: string) => {
-    if (route.name !== p) {
-      router.push({
-        name: p,
-        params: { lang: route.params.lang },
-      });
-    }
-  },
-});
 </script>
 
 <style lang="scss" scoped>
