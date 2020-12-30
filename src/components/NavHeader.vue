@@ -15,6 +15,7 @@
       </router-link>
     </div>
   </div>
+  <router-view />
 </template>
 
 <script setup lang="ts">

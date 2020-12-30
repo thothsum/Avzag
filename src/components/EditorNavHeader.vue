@@ -1,6 +1,5 @@
 <template>
-  <!-- <NavHeader class="small" :navs="menus" /> -->
-  <router-view />
+  <NavHeader class="small" :navs="menus" />
 </template>
 
 <script setup lang="ts">

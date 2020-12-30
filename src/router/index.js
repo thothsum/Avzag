@@ -37,30 +37,27 @@ export default createRouter({
       components: { default: Phrasebook, NavHeader },
     },
     {
-      path: "/editor",
-      components: { NavHeader: EditorNavHeader },
-      children: [
-        {
-          path: "phonology",
-          name: "PhonologyEditor",
-          component: PhonologyEditor,
-        },
-        {
-          path: "converter",
-          name: "ConverterEditor",
-          component: ConverterEditor,
-        },
-        {
-          path: "phrasebook",
-          name: "PhrasebookEditor",
-          component: PhrasebookEditor,
-        },
-        {
-          path: "phrasebook/corpus",
-          name: "PhrasebookCorpusEditor",
-          component: PhrasebookCorpusEditor,
-        },
-      ],
+      path: "/editor/phonology",
+      name: "PhonologyEditor",
+      components: { default: PhonologyEditor, NavHeader: EditorNavHeader },
+    },
+    {
+      path: "/editor/converter",
+      name: "ConverterEditor",
+      components: { default: ConverterEditor, NavHeader: EditorNavHeader },
+    },
+    {
+      path: "/editor/phrasebook",
+      name: "PhrasebookEditor",
+      components: { default: PhrasebookEditor, NavHeader: EditorNavHeader },
+    },
+    {
+      path: "/editor/phrasebook/corpus",
+      name: "PhrasebookCorpusEditor",
+      components: {
+        default: PhrasebookCorpusEditor,
+        NavHeader: EditorNavHeader,
+      },
     },
     {
       path: "/:pathMatch(.*)",
