@@ -1,7 +1,3 @@
-<template>
-  <NavHeader class="small" :navs="menus" />
-</template>
-
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import NavHeader from "./NavHeader";

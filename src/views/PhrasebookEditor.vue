@@ -89,7 +89,7 @@
               </div>
             </div>
           </ActionHeader>
-          <NotesEditor v-model:notes="translation.notes">
+          <NotesEditor v-model="translation.notes">
             You can add notes, for example, to explain certain grammatical
             rules.
           </NotesEditor>

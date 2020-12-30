@@ -37,7 +37,7 @@
             placeholder="phoneme"
           />
         </ActionHeader>
-        <NotesEditor v-model:notes="phoneme.notes">
+        <NotesEditor v-model="phoneme.notes">
           You can add notes to clarify certain use cases or to give some
           additional info.
         </NotesEditor>
@@ -95,9 +95,6 @@ export default {
   computed: {
     graphemes() {
       return this.file.map((p) => p?.samples?.[0]?.grapheme);
-    },
-    notes() {
-      return this.phoneme?.notes ?? [];
     },
   },
   mounted() {
