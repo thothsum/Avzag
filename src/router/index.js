@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import PhonologyEditor from "../views/PhonologyEditor";
+import PhonologyEditor from "../views/Phonology/Editor";
 import ConverterEditor from "../views/ConverterEditor";
 import PhrasebookEditor from "../views/PhrasebookEditor";
 import PhrasebookCorpusEditor from "../views/PhrasebookCorpusEditor";
