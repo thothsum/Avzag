@@ -12,32 +12,33 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "LectCard",
-  props: ["lect", "selected", "query"],
-  computed: {
-    family() {
-      return this.lect.family.join(" › ");
-    },
-    flag() {
-      return this.$store.state.root + this.lect.name + "/flag.png";
-    },
-    tags() {
-      return [this.lect.name, this.lect.tags, this.lect.family.join(" ")]
-        .join(" ")
-        .toLowerCase();
-    },
-    visible() {
-      return this.query?.every((t) => this.tags.includes(t));
-    },
-  },
-  watch: {
-    visible() {
-      this.$emit("visible", this.visible);
-    },
-  },
-};
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { computed, defineEmit, defineProps, PropType, watchEffect } from "vue";
+import { useStore } from "vuex";
+import Lect from "./lect";
+
+const props = defineProps({
+  lect: { type: Object as PropType<Lect>, default: {} },
+  selected: Boolean,
+  query: { type: Array as PropType<string[] | null>, default: [] },
+});
+const emit = defineEmit(["visible"]);
+const store = useStore();
+
+const flag = computed(() => store.state.root + props.lect.name + "/flag.png");
+const family = computed(() => props.lect.family.join(" › "));
+const tags = computed(() =>
+  [props.lect.name, props.lect.tags, props.lect.family]
+    .flat()
+    .join(" ")
+    .toLowerCase()
+);
+
+const visible = computed(() =>
+  props.query?.every((t) => tags.value.includes(t))
+);
+watchEffect(() => emit("visible", visible.value));
 </script>
 
 <style lang="scss" scoped>

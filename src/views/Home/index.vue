@@ -1,7 +1,7 @@
 <template>
   <div v-if="catalogue" id="root">
     <div id="map">
-      <LectsMap
+      <LectMap
         :catalogue="catalogue"
         :selected="selected"
         :visible="visible"
@@ -58,83 +58,66 @@
   </div>
 </template>
 
-<script>
-import LectsMap from "./LectsMap";
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import LectMap from "./LectMap";
 import LectCard from "./LectCard";
 import Button from "@/components/Button";
+import Lect from "./lect";
+import { computed, onUnmounted, ref, watch } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
-export default {
-  name: "Home",
-  components: {
-    LectsMap,
-    LectCard,
-    Button,
+const store = useStore();
+const router = useRouter();
+
+const catalogue = computed(() => store.state.catalogue as Lect[]);
+const lects = ref([] as Lect[]);
+const visible = ref([] as Lect[]);
+const selected = computed(() =>
+  catalogue.value.map((l) => lects.value.includes(l))
+);
+const names = computed(() => lects.value.map((l) => l.name));
+
+const search = ref("");
+const query = computed(() =>
+  search.value ? search.value.toLowerCase().split(" ") : null
+);
+
+const empty = computed(() => !lects.value.length);
+const about = ref(false);
+const quote = computed(() => lects.value[lects.value.length - 1]?.quote);
+
+function toggleLect(lect: Lect) {
+  const i = lects.value.indexOf(lect);
+  if (i < 0) lects.value.push(lect);
+  else lects.value.splice(i, 1);
+}
+function setVisibility(lect: Lect, value: boolean) {
+  const i = visible.value.indexOf(lect);
+  if (i < 0) {
+    if (value) visible.value.push(lect);
+  } else if (!value) visible.value.splice(i, 1);
+}
+function load() {
+  store.dispatch("loadLects", names.value);
+  router.push({ name: "Phonology" });
+}
+
+watch(
+  catalogue,
+  () => {
+    try {
+      lects.value = ((JSON.parse(localStorage.lects) as string[])?.map((n) =>
+        catalogue.value.find(({ name }) => name === n)
+      ) ?? []) as Lect[];
+    } catch {
+      lects.value = [];
+    }
   },
-  data() {
-    return {
-      about: false,
-      search: "",
-      lects: undefined,
-      visible: [],
-    };
-  },
-  computed: {
-    catalogue() {
-      return this.$store.state.catalogue;
-    },
-    empty() {
-      return !this.lects?.length;
-    },
-    query() {
-      return this.search ? this.search.toLowerCase().split(" ") : null;
-    },
-    selected() {
-      return this.catalogue?.map((l) => this.lects.includes(l));
-    },
-    quote() {
-      return this.lects[this.lects.length - 1]?.quote;
-    },
-  },
-  watch: {
-    catalogue: {
-      handler() {
-        if (this.catalogue) {
-          try {
-            this.lects = JSON.parse(localStorage.lects)?.map((n) =>
-              this.catalogue.find((l) => l.name === n)
-            );
-          } catch (_) {
-            this.lects = [];
-          }
-        }
-      },
-      immediate: true,
-    },
-  },
-  unmounted() {
-    localStorage.lects = JSON.stringify(this.lects?.map((l) => l.name) || []);
-  },
-  methods: {
-    toggleLect(lect) {
-      const i = this.lects.indexOf(lect);
-      if (i < 0) this.lects.push(lect);
-      else this.lects.splice(i, 1);
-    },
-    setVisibility(lect, value) {
-      const i = this.visible.indexOf(lect);
-      if (i < 0) {
-        if (value) this.visible.push(lect);
-      } else if (!value) this.visible.splice(i, 1);
-    },
-    load() {
-      this.$store.dispatch(
-        "loadLects",
-        this.lects.map((l) => l.name)
-      );
-      this.$router.push({ name: "Phonology" });
-    },
-  },
-};
+  { immediate: true }
+);
+onUnmounted(() => JSON.stringify(names.value));
 </script>
 
 <style lang="scss" scoped>

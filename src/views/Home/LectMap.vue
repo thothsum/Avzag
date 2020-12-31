@@ -4,8 +4,9 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import Lect from "./lect";
 import mapboxgl from "mapbox-gl";
-import Vue, {
+import {
   computed,
   defineEmit,
   defineProps,
@@ -21,16 +22,8 @@ import Vue, {
   nextTick,
 } from "vue";
 
-type Point = [number, number];
-interface Lect {
-  name: string;
-  coordinates: Point;
-  family: string[];
-  tags: string;
-  quote: string;
-}
 interface Camera {
-  center: Point;
+  center: [number, number];
   zoom: number;
 }
 
@@ -126,7 +119,10 @@ onMounted(() => {
       .addTo(map as mapboxgl.Map);
   });
 
-  map.on("moveend", () => (camera.center = map.getCenter().toArray() as Point));
+  map.on(
+    "moveend",
+    () => (camera.center = map.getCenter().toArray() as [number, number])
+  );
   map.on("zoomend", () => (camera.zoom = map.getZoom()));
 
   setupTheming(map);
