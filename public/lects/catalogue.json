@@ -1,52 +1,52 @@
 [
   {
     "name": "Kaitag",
-    "coordinates": [42.082736, 47.822142],
+    "coordinates": [47.822142, 42.082736],
     "family": ["Northeast Caucasian", "Dargic"],
     "tags": "Dagestani Caucasian Caspian",
     "quote": "Жанаттен яхӏ дурхъалце."
   },
   {
     "name": "Akusha",
-    "coordinates": [42.27213, 47.324441],
+    "coordinates": [47.324441, 42.27213],
     "family": ["Northeast Caucasian", "Dargic"],
     "tags": "Dagestani Caucasian Caspian"
   },
   {
     "name": "Iron",
-    "coordinates": [42.865209, 44.245623],
+    "coordinates": [44.245623, 42.865209],
     "family": ["Iranian", "Eastern Iranian", "Ossetian"],
     "tags": "Caucasian Alanian"
   },
   {
     "name": "Digor",
-    "coordinates": [43.172488, 43.871052],
+    "coordinates": [43.871052, 43.172488],
     "family": ["Iranian", "Eastern Iranian", "Ossetian"],
     "tags": "Caucasian Alanian"
   },
   {
     "name": "Kabardian",
-    "coordinates": [43.762647, 42.769419],
+    "coordinates": [42.769419, 43.762647],
     "family": ["Northwest Caucasian", "Circassian"],
     "tags": "Caucasian Pontic Adyghe",
     "quote": "Псэм ипэ напэ."
   },
   {
     "name": "Temirgoy",
-    "coordinates": [44.486928, 40.152485],
+    "coordinates": [40.152485, 44.486928],
     "family": ["Northwest Caucasian", "Circassian"],
     "tags": "Caucasian Pontic Adyghe"
   },
   {
     "name": "Keren",
-    "coordinates": [41.707224, 47.546501],
+    "coordinates": [47.546501, 41.707224],
     "family": ["Northeast Caucasian", "Lezgic", "Aghul"],
     "tags": "Western Samur",
     "quote": "Яхӏ гӏумурдилас багьа э."
   },
   {
     "name": "Udmurt",
-    "coordinates": [56.672482, 52.516333],
+    "coordinates": [52.516333, 56.672482],
     "family": ["Uralic", "Permic"],
     "tags": "Finno Ugric"
   }

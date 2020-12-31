@@ -150,8 +150,8 @@ $margin: -1 * map-get($margins, "normal");
   }
 }
 #map {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   z-index: 1;
   position: absolute;
 }
