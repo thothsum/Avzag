@@ -36,7 +36,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import mapboxgl from "mapbox-gl";
-import {
+import Vue, {
   computed,
   defineEmit,
   defineProps,
@@ -46,6 +46,8 @@ import {
   onUnmounted,
   onMounted,
   watchEffect,
+  watch,
+  useContext,
 } from "vue";
 
 type Point = [number, number];
@@ -97,12 +99,12 @@ const setupTheming = () => {
 };
 
 const templates = computed(() =>
-  props.catalogue.map(() => document.createElement("template"))
+  props.catalogue.map(() => document.createElement("div"))
 );
 const markers = computed(() =>
   props.catalogue
     .map(
-      ({ name, coordinates }, i) => ` <div class="marker" class="${
+      ({ name, coordinates }, i) => `<div class="marker" class="${
         "zoom-" + camera.zoom
       }">
             <div class="icon" class="${props.selected[i] ? "selected" : ""}">
@@ -118,11 +120,19 @@ const markers = computed(() =>
           </div>`
     )
     .map((h, i) => {
+      console.log("updating markers");
       const t = templates.value[i];
       t.innerHTML = h;
-      return t.firstChild as HTMLElement;
+      t.onclick = () => emit("toggle", props.catalogue[i]);
+      return t;
     })
 );
+// watch(markers, () => )
+
+window.addEventListener("resize", () => {
+  console.log("sueta");
+  if (map) map.resize();
+});
 
 onMounted(() => {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
@@ -130,11 +140,11 @@ onMounted(() => {
   map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/light-v10", // stylesheet location
-    center: [0, 0],
+    center: props.catalogue[0].coordinates,
     zoom: 9,
     interactive: true,
   });
-
+  map.resize();
   markers.value.forEach((m, i) => {
     new mapboxgl.Marker({
       element: m,
@@ -148,12 +158,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.marker:hover {
-  color: pink;
-  transition: $transition;
-}
 .marker {
   * {
+    transition: $transition;
   }
   z-index: 10;
   transform-origin: top center;
@@ -181,5 +188,8 @@ h2 {
   padding-bottom: $border-width;
   border-bottom: $border-width dashed transparent;
   border-radius: 0;
+  &:hover {
+    text-decoration: 1px solid underline;
+  }
 }
 </style>
