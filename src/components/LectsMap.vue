@@ -1,8 +1,8 @@
 <template>
   <l-map
     ref="map"
-    v-model:center="center"
-    v-model:zoom="zoom"
+    v-model:center="camera.center"
+    v-model:zoom="camera.zoom"
     :options="{ zoomControl: false }"
   >
     <!-- <l-tile-layer :url="layerUrl" :options="layerOptions" /> -->
@@ -11,10 +11,10 @@
       <l-marker
         v-if="l.coordinates"
         :lat-lng="l.coordinates"
-        @click="$emit('toggle', l)"
+        @click="emit('toggle', l)"
       >
         <l-icon :icon-anchor="[0, 0]">
-          <div class="marker" :class="'zoom-' + zoom">
+          <div class="marker" :class="'zoom-' + camera.zoom">
             <div class="icon" :class="{ selected: selected[i] }">
               expand_less
             </div>
@@ -33,71 +33,81 @@
   </l-map>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { LMap, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
+import {
+  computed,
+  defineEmit,
+  defineProps,
+  PropType,
+  reactive,
+  ref,
+  onUnmounted,
+} from "vue";
 
-export default {
-  name: "LectsMap",
-  components: {
-    LMap,
-    LTileLayer,
-    LMarker,
-    LIcon,
-  },
-  props: ["catalogue", "selected", "visible"],
-  data() {
-    return {
-      center: null,
-      zoom: null,
-      options: { zoomControl: false },
-      layerUrl:
-        "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
-      layerOptions: {
-        attribution:
-          '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> | <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> | <a href="https://www.mapbox.com/">Mapbox</a>',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: process.env.VUE_APP_MAP_TOKEN,
-      },
-    };
-  },
-  computed: {
-    faded() {
-      return this.visible?.length
-        ? this.catalogue.map((l) => !this.visible.includes(l))
-        : [];
-    },
-  },
-  created() {
-    this.center = JSON.parse(localStorage.mapCenter ?? "[43, 44]");
-    this.zoom = JSON.parse(localStorage.mapZoom ?? "7");
+type Point = [number, number];
+interface Lect {
+  name: string;
+  coordinates: Point;
+  family: string[];
+  tags: string;
+  quote: string;
+}
+interface Camera {
+  center: Point;
+  zoom: number;
+}
 
-    this.setupTheming();
-  },
-  unmounted() {
-    localStorage.mapCenter = JSON.stringify(this.center);
-    localStorage.mapZoom = JSON.stringify(this.zoom);
-  },
-  methods: {
-    setupTheming() {
-      const url = (t) =>
-        (this.layerUrl = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`);
+const props = defineProps({
+  catalogue: { type: Array as PropType<Lect[]>, default: [] },
+  selected: { type: Array as PropType<boolean[]>, default: [] },
+  visible: { type: Array as PropType<Lect[]>, default: [] },
+});
+const emit = defineEmit(["toggle"]);
 
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        url("dark");
-      }
+const faded = computed(() =>
+  props.visible?.length
+    ? props.catalogue.map((l) => !props.visible.includes(l))
+    : []
+);
 
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (e) => {
-          url(e.matches ? "dark" : "light");
-        });
-    },
-  },
+const camera = reactive<Camera>({ center: [0, 0], zoom: 1 });
+if (localStorage.camera) Object.assign(camera, JSON.parse(localStorage.camera));
+onUnmounted(() => (localStorage.camera = JSON.stringify(camera)));
+
+const layerUrl = ref(
+  "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}"
+);
+const setupTheming = () => {
+  const url = (t: string) =>
+    (layerUrl.value = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`);
+
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    url("dark");
+  }
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+      url(e.matches ? "dark" : "light");
+    });
 };
+setupTheming();
+
+// created() {
+//   this.center = JSON.parse(localStorage.mapCenter ?? "[43, 44]");
+//   this.zoom = JSON.parse(localStorage.mapZoom ?? "7");
+
+//   this.setupTheming();
+// },
+// unmounted() {
+//   localStorage.mapCenter = JSON.stringify(this.center);
+//   localStorage.mapZoom = JSON.stringify(this.zoom);
+// },
 </script>
 
 <style lang="scss">
