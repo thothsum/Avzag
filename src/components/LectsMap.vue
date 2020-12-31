@@ -1,11 +1,11 @@
 <template>
-  <l-map
+  <div id="map" style="color: pink"></div>
+  <!-- <l-map
     ref="map"
     v-model:center="camera.center"
     v-model:zoom="camera.zoom"
     :options="{ zoomControl: false }"
   >
-    <!-- <l-tile-layer :url="layerUrl" :options="layerOptions" /> -->
     <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
     <template v-for="(l, i) in catalogue" :key="i">
       <l-marker
@@ -30,12 +30,12 @@
         </l-icon>
       </l-marker>
     </template>
-  </l-map>
+  </l-map> -->
 </template>
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { LMap, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
+import mapboxgl from "mapbox-gl";
 import {
   computed,
   defineEmit,
@@ -44,6 +44,8 @@ import {
   reactive,
   ref,
   onUnmounted,
+  onMounted,
+  watchEffect,
 } from "vue";
 
 type Point = [number, number];
@@ -76,74 +78,91 @@ const camera = reactive<Camera>({ center: [0, 0], zoom: 1 });
 if (localStorage.camera) Object.assign(camera, JSON.parse(localStorage.camera));
 onUnmounted(() => (localStorage.camera = JSON.stringify(camera)));
 
-const layerUrl = ref(
-  "https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}?access_token={accessToken}"
-);
+let map = undefined as mapboxgl.Map | undefined;
 const setupTheming = () => {
-  const url = (t: string) =>
-    (layerUrl.value = `https://api.mapbox.com/styles/v1/mapbox/${t}-v10/tiles/{z}/{x}/{y}?access_token={accessToken}`);
+  const setStyle = (t: string) =>
+    map?.setStyle(`mapbox://styles/mapbox/${t}-v10`);
 
   if (
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    url("dark");
-  }
+  )
+    setStyle("dark");
 
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (e) => {
-      url(e.matches ? "dark" : "light");
+      setStyle(e.matches ? "dark" : "light");
     });
 };
-setupTheming();
 
-// created() {
-//   this.center = JSON.parse(localStorage.mapCenter ?? "[43, 44]");
-//   this.zoom = JSON.parse(localStorage.mapZoom ?? "7");
+const templates = computed(() =>
+  props.catalogue.map(() => document.createElement("template"))
+);
+const markers = computed(() =>
+  props.catalogue
+    .map(
+      ({ name, coordinates }, i) => ` <div class="marker" class="${
+        "zoom-" + camera.zoom
+      }">
+            <div class="icon" class="${props.selected[i] ? "selected" : ""}">
+              expand_less
+            </div>
+            <h2
+              class="${faded.value[i] ? "text-faded" : ""} ${
+        !faded.value[i] && props.selected[i] ? "selected" : ""
+      }"
+            >
+              ${name}
+            </h2>
+          </div>`
+    )
+    .map((h, i) => {
+      const t = templates.value[i];
+      t.innerHTML = h;
+      return t.firstChild as HTMLElement;
+    })
+);
 
-//   this.setupTheming();
-// },
-// unmounted() {
-//   localStorage.mapCenter = JSON.stringify(this.center);
-//   localStorage.mapZoom = JSON.stringify(this.zoom);
-// },
+onMounted(() => {
+  mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
+
+  map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/mapbox/light-v10", // stylesheet location
+    center: [0, 0],
+    zoom: 9,
+    interactive: true,
+  });
+
+  markers.value.forEach((m, i) => {
+    new mapboxgl.Marker({
+      element: m,
+    })
+      .setLngLat(props.catalogue[i].coordinates)
+      .addTo(map as mapboxgl.Map);
+  });
+
+  setupTheming();
+});
 </script>
 
 <style lang="scss">
-.vue2leaflet-map * {
-  transition: none;
+.marker:hover {
+  color: pink;
+  transition: $transition;
 }
-.leaflet-tile-container * {
-  border-radius: 0;
-}
-.leaflet-control-attribution * {
-  margin: 0;
-  padding: 0;
-  font-size: map-get($font-sizes, "small") !important;
-  line-height: normal;
-}
-.leaflet-marker-icon {
-  z-index: 100 !important;
-  transition: initial;
-  &:hover {
-    z-index: 101 !important;
-  }
-}
-</style>
-
-<style lang="scss" scoped>
 .marker {
   * {
-    transition: $transition;
   }
+  z-index: 10;
   transform-origin: top center;
   width: fit-content;
   height: fit-content;
   text-align: center;
   line-height: 100%;
   text-shadow: map-get($shadows, "elevated");
-  &:hover h2 {
+  &:hover {
     border-color: var(--color-text);
   }
   @for $i from 1 through 13 {

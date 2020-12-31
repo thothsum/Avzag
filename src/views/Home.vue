@@ -142,18 +142,18 @@ $margin: -1 * map-get($margins, "normal");
 
 #root {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   > * {
     left: $margin;
     top: $margin;
   }
 }
 #map {
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
-  position: absolute;
+  width: 100%;
+  height: 100%;
+  // z-index: 1;
+  // position: absolute;
 }
 #ui {
   padding: -$margin;

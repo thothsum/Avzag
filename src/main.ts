@@ -4,7 +4,6 @@ import store from "./store";
 import App from "./App.vue";
 
 import "./registerServiceWorker";
-import "leaflet/dist/leaflet.css";
 
 const app = createApp(App);
 app.use(router);
