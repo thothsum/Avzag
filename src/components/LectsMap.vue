@@ -107,9 +107,10 @@ onBeforeMount(
       icon.innerText = "expand_less";
 
       const header = document.createElement("h2");
+      header.innerText = name;
 
       const div = document.createElement("div");
-      div.className = "marker";
+      div.className = "map-marker";
       div.onclick = () => emit("toggle", props.catalogue[i]);
       div.append(icon);
       div.append(header);
@@ -132,7 +133,7 @@ watchEffect(() =>
       }`;
     t.getElementsByTagName("h2")[0].className =
       (faded.value[i] ? "text-faded" : "") +
-      (!faded.value[i] && props.selected[i] ? " selected" : "");
+      (!faded.value[i] && props.selected[i] ? " highlight-font" : "");
   })
 );
 
@@ -159,38 +160,31 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.marker {
+.map-marker {
   * {
     transition: $transition;
   }
-  z-index: 10;
   transform-origin: top center;
   width: fit-content;
   height: fit-content;
   text-align: center;
   line-height: 100%;
   text-shadow: map-get($shadows, "elevated");
-  &:hover {
+  h2 {
+    padding-bottom: $border-width;
+    border-bottom: $border-width dashed transparent;
+    border-radius: 0;
+  }
+  &:hover h2 {
     border-color: var(--color-text);
+  }
+  p {
+    font-size: map-get($font-sizes, "large");
   }
   @for $i from 1 through 13 {
     &.zoom-#{$i} {
       transform: translate(-50%) scale(#{$i * $i / 72});
     }
-  }
-}
-.icon {
-  font-size: map-get($font-sizes, "large");
-}
-.selected {
-  color: var(--color-highlight);
-}
-h2 {
-  padding-bottom: $border-width;
-  border-bottom: $border-width dashed transparent;
-  border-radius: 0;
-  &:hover {
-    text-decoration: 1px solid underline;
   }
 }
 </style>
