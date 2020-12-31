@@ -48,6 +48,7 @@ import Vue, {
   watchEffect,
   watch,
   useContext,
+  onBeforeMount,
 } from "vue";
 
 type Point = [number, number];
@@ -70,13 +71,7 @@ const props = defineProps({
 });
 const emit = defineEmit(["toggle"]);
 
-const faded = computed(() =>
-  props.visible?.length
-    ? props.catalogue.map((l) => !props.visible.includes(l))
-    : []
-);
-
-const camera = reactive<Camera>({ center: [0, 0], zoom: 1 });
+const camera = { center: [0, 0], zoom: 1 } as Camera;
 if (localStorage.camera) Object.assign(camera, JSON.parse(localStorage.camera));
 onUnmounted(() => (localStorage.camera = JSON.stringify(camera)));
 
@@ -98,56 +93,62 @@ const setupTheming = () => {
     });
 };
 
-const templates = computed(() =>
-  props.catalogue.map(() => document.createElement("div"))
-);
-const markers = computed(() =>
-  props.catalogue
-    .map(
-      ({ name, coordinates }, i) => `<div class="marker" class="${
-        "zoom-" + camera.zoom
-      }">
-            <div class="icon" class="${props.selected[i] ? "selected" : ""}">
-              expand_less
-            </div>
-            <h2
-              class="${faded.value[i] ? "text-faded" : ""} ${
-        !faded.value[i] && props.selected[i] ? "selected" : ""
-      }"
-            >
-              ${name}
-            </h2>
-          </div>`
-    )
-    .map((h, i) => {
-      console.log("updating markers");
-      const t = templates.value[i];
-      t.innerHTML = h;
-      t.onclick = () => emit("toggle", props.catalogue[i]);
-      return t;
-    })
-);
-// watch(markers, () => )
-
 window.addEventListener("resize", () => {
-  console.log("sueta");
+  console.log("resizing");
   if (map) map.resize();
 });
+
+let templates = [] as HTMLElement[];
+onBeforeMount(
+  () =>
+    (templates = props.catalogue.map(({ name }, i) => {
+      const icon = document.createElement("p");
+      icon.className = "icon";
+      icon.innerText = "expand_less";
+
+      const header = document.createElement("h2");
+
+      const div = document.createElement("div");
+      div.className = "marker";
+      div.onclick = () => emit("toggle", props.catalogue[i]);
+      div.append(icon);
+      div.append(header);
+
+      return div;
+    }))
+);
+
+const faded = computed(() =>
+  props.visible?.length
+    ? props.catalogue.map((l) => !props.visible.includes(l))
+    : []
+);
+watchEffect(() =>
+  templates.forEach((t, i) => {
+    console.log("updating markers");
+    if (t.children.item(0))
+      t.getElementsByTagName("p")[0].className = `icon ${
+        props.selected[i] ? " selected" : ""
+      }`;
+    t.getElementsByTagName("h2")[0].className =
+      (faded.value[i] ? "text-faded" : "") +
+      (!faded.value[i] && props.selected[i] ? " selected" : "");
+  })
+);
 
 onMounted(() => {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
 
   map = new mapboxgl.Map({
     container: "map",
-    style: "mapbox://styles/mapbox/light-v10", // stylesheet location
+    style: "mapbox://styles/mapbox/light-v10",
     center: props.catalogue[0].coordinates,
     zoom: 9,
-    interactive: true,
   });
   map.resize();
-  markers.value.forEach((m, i) => {
+  templates.forEach((t, i) => {
     new mapboxgl.Marker({
-      element: m,
+      element: t,
     })
       .setLngLat(props.catalogue[i].coordinates)
       .addTo(map as mapboxgl.Map);
