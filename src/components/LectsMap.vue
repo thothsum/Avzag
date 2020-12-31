@@ -1,5 +1,5 @@
 <template>
-  <div id="map" style="color: pink"></div>
+  <div><div id="map" /></div>
   <!-- <l-map
     ref="map"
     v-model:center="camera.center"
@@ -49,6 +49,7 @@ import Vue, {
   watch,
   useContext,
   onBeforeMount,
+  nextTick,
 } from "vue";
 
 type Point = [number, number];
@@ -93,10 +94,12 @@ const setupTheming = () => {
     });
 };
 
-window.addEventListener("resize", () => {
-  console.log("resizing");
-  if (map) map.resize();
-});
+window.addEventListener("resize", () =>
+  nextTick(() => {
+    console.log("resizing");
+    if (map) map.resize();
+  })
+);
 
 let templates = [] as HTMLElement[];
 onBeforeMount(
@@ -124,22 +127,30 @@ const faded = computed(() =>
     ? props.catalogue.map((l) => !props.visible.includes(l))
     : []
 );
-watchEffect(() =>
+const updateVisuals = () => {
+  console.log("updating");
   templates.forEach((t, i) => {
     console.log("updating markers");
     if (t.children.item(0))
       t.getElementsByTagName("p")[0].className = `icon ${
-        props.selected[i] ? " selected" : ""
+        props.selected[i] ? " highlight-font" : ""
       }`;
     t.getElementsByTagName("h2")[0].className =
       (faded.value[i] ? "text-faded" : "") +
       (!faded.value[i] && props.selected[i] ? " highlight-font" : "");
-  })
+  });
+};
+watch(
+  () => faded.value,
+  () => updateVisuals()
+);
+watch(
+  () => props.selected,
+  () => updateVisuals()
 );
 
 onMounted(() => {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
-
   map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/light-v10",
@@ -150,6 +161,7 @@ onMounted(() => {
   templates.forEach((t, i) => {
     new mapboxgl.Marker({
       element: t,
+      anchor: "top",
     })
       .setLngLat(props.catalogue[i].coordinates)
       .addTo(map as mapboxgl.Map);
@@ -174,9 +186,9 @@ onMounted(() => {
     padding-bottom: $border-width;
     border-bottom: $border-width dashed transparent;
     border-radius: 0;
-  }
-  &:hover h2 {
-    border-color: var(--color-text);
+    &:hover {
+      border-color: var(--color-text);
+    }
   }
   p {
     font-size: map-get($font-sizes, "large");
