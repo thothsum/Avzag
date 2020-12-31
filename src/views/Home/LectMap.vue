@@ -1,36 +1,5 @@
 <template>
   <div><div id="map" /></div>
-  <!-- <l-map
-    ref="map"
-    v-model:center="camera.center"
-    v-model:zoom="camera.zoom"
-    :options="{ zoomControl: false }"
-  >
-    <l-tile-layer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-    <template v-for="(l, i) in catalogue" :key="i">
-      <l-marker
-        v-if="l.coordinates"
-        :lat-lng="l.coordinates"
-        @click="emit('toggle', l)"
-      >
-        <l-icon :icon-anchor="[0, 0]">
-          <div class="marker" :class="'zoom-' + camera.zoom">
-            <div class="icon" :class="{ selected: selected[i] }">
-              expand_less
-            </div>
-            <h2
-              :class="{
-                'text-faded': faded[i],
-                selected: !faded[i] && selected[i],
-              }"
-            >
-              {{ l.name }}
-            </h2>
-          </div>
-        </l-icon>
-      </l-marker>
-    </template>
-  </l-map> -->
 </template>
 
 <script setup lang="ts">

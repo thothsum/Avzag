@@ -59,8 +59,8 @@
 </template>
 
 <script>
-import LectsMap from "@/components/LectsMap";
-import LectCard from "@/components/LectCard";
+import LectsMap from "./LectsMap";
+import LectCard from "./LectCard";
 import Button from "@/components/Button";
 
 export default {
