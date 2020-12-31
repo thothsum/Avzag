@@ -72,12 +72,11 @@ const props = defineProps({
 });
 const emit = defineEmit(["toggle"]);
 
-const camera = { center: [0, 0], zoom: 1 } as Camera;
+const camera = reactive<Camera>({ center: [0, 0], zoom: 5 });
 if (localStorage.camera) Object.assign(camera, JSON.parse(localStorage.camera));
 onUnmounted(() => (localStorage.camera = JSON.stringify(camera)));
 
-let map = undefined as mapboxgl.Map | undefined;
-const setupTheming = () => {
+const setupTheming = (map: mapboxgl.Map) => {
   const setStyle = (t: string) =>
     map?.setStyle(`mapbox://styles/mapbox/${t}-v10`);
 
@@ -93,13 +92,6 @@ const setupTheming = () => {
       setStyle(e.matches ? "dark" : "light");
     });
 };
-
-window.addEventListener("resize", () =>
-  nextTick(() => {
-    console.log("resizing");
-    if (map) map.resize();
-  })
-);
 
 let templates = [] as HTMLElement[];
 onBeforeMount(
@@ -128,9 +120,7 @@ const faded = computed(() =>
     : []
 );
 const updateVisuals = () => {
-  console.log("updating");
   templates.forEach((t, i) => {
-    console.log("updating markers");
     if (t.children.item(0))
       t.getElementsByTagName("p")[0].className = `icon ${
         props.selected[i] ? " highlight-font" : ""
@@ -151,11 +141,11 @@ watch(
 
 onMounted(() => {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
-  map = new mapboxgl.Map({
+  const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/light-v10",
-    center: props.catalogue[0].coordinates,
-    zoom: 9,
+    center: camera.center,
+    zoom: camera.zoom,
   });
   map.resize();
   templates.forEach((t, i) => {
@@ -167,7 +157,15 @@ onMounted(() => {
       .addTo(map as mapboxgl.Map);
   });
 
-  setupTheming();
+  map.on("moveend", () => (camera.center = map.getCenter().toArray() as Point));
+  map.on("zoomend", () => (camera.zoom = map.getZoom()));
+
+  setupTheming(map);
+  window.addEventListener("resize", () =>
+    nextTick(() => {
+      map.resize();
+    })
+  );
 });
 </script>
 
