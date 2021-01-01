@@ -7,10 +7,7 @@
       <div id="top" class="col-1 card">
         <div class="row-1">
           <Button v-model="about" icon="info" />
-          <InputQuery
-            placeholder="Search languages..."
-            @query="query = $event"
-          />
+          <InputQuery v-model="query" placeholder="Search languages..." />
           <Button icon="arrow_forward" :disabled="empty" @click="load" />
         </div>
         <div class="row scroll-hidden">
