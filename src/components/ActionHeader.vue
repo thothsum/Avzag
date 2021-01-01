@@ -1,7 +1,9 @@
 <template>
   <div class="col">
     <div class="row">
-      <button v-if="button" class="icon" @click="act">{{ button }}</button>
+      <button v-if="button" class="icon" @click="emit('action')">
+        {{ button }}
+      </button>
       <p class="icon">{{ icon }}</p>
       <h2 class="flex">{{ header }}</h2>
       <slot name="header" />
@@ -24,6 +26,4 @@ const props = defineProps({
 });
 const emit = defineEmit(["action"]);
 const { caption } = useContext().slots;
-
-const act = () => emit("action");
 </script>

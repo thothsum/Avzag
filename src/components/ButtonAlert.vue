@@ -4,9 +4,9 @@
       <button class="highlight-font-alert icon" @click="confirm">
         delete_forever
       </button>
-      <button class="icon" @click="toggle">check</button>
+      <button class="icon" @click="prompt = false">check</button>
     </template>
-    <button v-else class="highlight-font-alert icon" @click="toggle">
+    <button v-else class="highlight-font-alert icon" @click="prompt = true">
       delete
       <p>{{ text }}</p>
     </button>
@@ -24,9 +24,8 @@ const emit = defineEmit(["confirm"]);
 
 const prompt = ref(false);
 
-const toggle = () => (prompt.value = !prompt.value);
-const confirm = () => {
-  toggle();
+function confirm() {
+  prompt.value = false;
   emit("confirm");
-};
+}
 </script>

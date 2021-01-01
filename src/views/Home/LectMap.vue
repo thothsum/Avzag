@@ -38,9 +38,10 @@ const camera = reactive<Camera>({ center: [0, 0], zoom: 5 });
 if (localStorage.camera) Object.assign(camera, JSON.parse(localStorage.camera));
 onUnmounted(() => (localStorage.camera = JSON.stringify(camera)));
 
-const setupTheming = (map: mapboxgl.Map) => {
-  const setStyle = (t: string) =>
-    map?.setStyle(`mapbox://styles/mapbox/${t}-v10`);
+function setupTheming(map: mapboxgl.Map) {
+  function setStyle(t: string) {
+    map.setStyle(`mapbox://styles/mapbox/${t}-v10`);
+  }
 
   if (
     window.matchMedia &&
@@ -53,7 +54,7 @@ const setupTheming = (map: mapboxgl.Map) => {
     .addEventListener("change", (e) => {
       setStyle(e.matches ? "dark" : "light");
     });
-};
+}
 
 let templates = [] as HTMLElement[];
 onBeforeMount(
@@ -81,7 +82,7 @@ const faded = computed(() =>
     ? props.catalogue.map((l) => !props.visible.includes(l))
     : []
 );
-const updateVisuals = () => {
+function updateVisuals() {
   templates.forEach((t, i) => {
     if (t.children.item(0))
       t.getElementsByTagName("p")[0].className = `icon ${
@@ -91,7 +92,7 @@ const updateVisuals = () => {
       (faded.value[i] ? "text-faded" : "") +
       (!faded.value[i] && props.selected[i] ? " highlight-font" : "");
   });
-};
+}
 watch(
   () => faded.value,
   () => updateVisuals()

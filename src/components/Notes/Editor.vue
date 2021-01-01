@@ -24,6 +24,11 @@ const notes = computed({
   set: (n) => emit("update:modelValue", n),
 });
 
-const add = () => (notes.value ? notes.value.push("") : (notes.value = [""]));
-const remove = (i: number) => notes.value?.splice(i, 1);
+function add() {
+  if (notes.value) notes.value.push("");
+  else notes.value = [""];
+}
+function remove(i: number) {
+  if (notes.value) notes.value.splice(i, 1);
+}
 </script>

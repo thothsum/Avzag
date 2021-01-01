@@ -16,5 +16,7 @@ const props = defineProps({
 });
 const emit = defineEmit(["update:modelValue"]);
 
-const toggle = () => emit("update:modelValue", !props.modelValue);
+function toggle() {
+  emit("update:modelValue", !props.modelValue);
+}
 </script>

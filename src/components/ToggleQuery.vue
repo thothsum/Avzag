@@ -30,11 +30,10 @@ const query = computed({
   set: (q) => emit("update:modelValue", q),
 });
 const toggle = (label: string) => {
-  label in query.value
-    ? query.value[label]
-      ? (query.value[label] = false)
-      : delete query.value[label]
-    : (query.value[label] = true);
+  if (label in query.value)
+    if (query.value[label]) query.value[label] = false;
+    else delete query.value[label];
+  else query.value[label] = true;
 };
 
 const visible = computed(() => props.labels.length > 1);
@@ -47,9 +46,10 @@ const highlights = computed(() =>
   )
 );
 
-const defaultQuery = computed(() =>
-  props.labels.length === 1 ? { [props.labels[0]]: true } : {}
-);
+const defaultQuery = computed(() => {
+  if (props.labels.length === 1) return { [props.labels[0]]: true };
+  return {};
+});
 watch(
   () => props.labels,
   () => (query.value = defaultQuery.value),

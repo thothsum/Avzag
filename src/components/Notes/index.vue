@@ -23,15 +23,16 @@ interface Piece {
   type: "text" | "grapheme" | "phoneme";
 }
 
-const isWrapped = (text: string, start: string, end: string) =>
-  text[0] === start && text[text.length - 1] === end;
-
-const toPiece = (text: string): Piece =>
-  isWrapped(text, "/", "/")
-    ? { text: text.slice(1, -1), type: "phoneme" }
-    : isWrapped(text, "<", ">")
-    ? { text: text.slice(1, -1), type: "grapheme" }
-    : { text, type: "text" };
+function isWrapped(text: string, start: string, end: string) {
+  return text[0] === start && text[text.length - 1] === end;
+}
+function toPiece(text: string): Piece {
+  if (isWrapped(text, "/", "/"))
+    return { text: text.slice(1, -1), type: "phoneme" };
+  if (isWrapped(text, "<", ">"))
+    return { text: text.slice(1, -1), type: "grapheme" };
+  return { text, type: "text" };
+}
 
 const pieces = computed(() =>
   props.notes.map((n) => n.split(/(\/[^/<>]+\/|<.+>)/g).map((n) => toPiece(n)))

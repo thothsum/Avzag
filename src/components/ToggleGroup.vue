@@ -48,12 +48,12 @@ const highlights = computed(() => {
   return props.items.map((l, i) => (i === index.value ? "highlight" : ""));
 });
 
-const select = (index = 0) => {
+function select(index = 0) {
   let value: object | string | number = props.items[index];
   if (props.type === "label") value = (value as Item)[props.labelKey];
   else if (props.type === "index") value = index;
   emit("update:modelValue", value);
-};
+}
 
 onMounted(() => select());
 </script>
