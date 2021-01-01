@@ -38,11 +38,10 @@
           </div>
         </div>
         <LectCard
-          v-for="(l, i) in catalogue"
-          :key="i"
+          v-for="l in catalogue"
+          :key="l.name"
           :lect="l"
           :state="state"
-          :query="query"
           @click="toggleLect(l.name)"
         />
       </div>
@@ -57,23 +56,49 @@ import LectCard from "./LectCard";
 import Button from "@/components/Button";
 import InputQuery from "@/components/InputQuery";
 import { Lect, SearchState } from "./lect";
-import { computed, onUnmounted, reactive, ref, watch } from "vue";
+import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
 const store = useStore();
 const router = useRouter();
 
+type Query = Record<string, boolean>;
+function pass(tags: string[] | string, query: Query, failEmpty = false) {
+  if (!query) return true;
+  const entries = Object.entries(query);
+  if (failEmpty && !entries.length) return false;
+
+  for (const [tag, flag] of entries) {
+    if (flag !== tags.includes(tag)) return false;
+  }
+  return true;
+}
+
 const catalogue = computed(() => store.state.catalogue as Lect[]);
 const state = reactive({
   selected: new Set<string>(),
   visible: new Set<string>(),
 } as SearchState);
-const query = ref({});
+
+const query = ref({} as Query);
+const tags = computed(
+  () =>
+    catalogue.value?.map(({ name, tags, family }) =>
+      [name, tags ?? "", family].flat().join(" ").toLowerCase()
+    ) ?? []
+);
 
 const empty = computed(() => !state.selected.size);
 const about = ref(false);
 
+watchEffect(() =>
+  tags.value.forEach((t, i) => {
+    const name = catalogue.value[i].name;
+    if (pass(t, query.value, true)) state.visible.add(name);
+    else state.visible.delete(name);
+  })
+);
 function toggleLect(name: string) {
   if (state.selected.has(name)) state.selected.delete(name);
   else state.selected.add(name);

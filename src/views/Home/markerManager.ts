@@ -41,7 +41,6 @@ export function updateVisuals({ selected, visible }: SearchState) {
     const name = header.innerText;
     const highlighted = selected.has(name);
     const faded = visible.size && !visible.has(name);
-    console.log(faded);
 
     header.className =
       (faded ? "text-faded" : "") +
