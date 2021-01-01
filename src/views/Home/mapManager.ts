@@ -1,13 +1,8 @@
 import mapboxgl from "mapbox-gl";
 import { nextTick, onUnmounted } from "vue";
 
-interface Camera {
-  center: mapboxgl.LngLat;
-  zoom: number;
-}
-
 function bindCamera(map: mapboxgl.Map) {
-  const camera = { center: new mapboxgl.LngLat(0, 0), zoom: 5 } as Camera;
+  const camera = { center: new mapboxgl.LngLat(0, 0), zoom: 5 };
 
   if (localStorage.camera)
     Object.assign(camera, JSON.parse(localStorage.camera));
@@ -33,7 +28,6 @@ function bindTheme(map: mapboxgl.Map) {
 export default function initMap(container = "map") {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
   const map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
-  map.scrollZoom.setWheelZoomRate(1 / 200);
 
   bindCamera(map);
   bindTheme(map);
