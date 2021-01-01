@@ -1,9 +1,11 @@
 import mapboxgl from "mapbox-gl";
 import { Lect, SearchState } from "./lect";
 
+type Click = (n: string) => void;
+type Map = mapboxgl.Map;
 let templates = [] as HTMLElement[];
 
-function createTemplates(lects: Lect[], emit: any) {
+function createTemplates(lects: Lect[], onclick: Click) {
   templates = lects.map(({ name }) => {
     const icon = document.createElement("p");
     icon.className = "icon";
@@ -11,9 +13,10 @@ function createTemplates(lects: Lect[], emit: any) {
 
     const header = document.createElement("h2");
     header.innerText = name;
+
     const div = document.createElement("div");
     div.className = "map-marker";
-    div.onclick = () => emit("toggle", name);
+    div.onclick = () => onclick(name);
     div.append(icon);
     div.append(header);
 
@@ -22,7 +25,7 @@ function createTemplates(lects: Lect[], emit: any) {
   return templates;
 }
 
-function attachMarkers(map: mapboxgl.Map, lects: Lect[]) {
+function attachMarkers(map: Map, lects: Lect[]) {
   templates.forEach((t, i) => {
     new mapboxgl.Marker({
       element: t,
@@ -49,7 +52,7 @@ export function updateVisuals({ selected, visible }: SearchState) {
   });
 }
 
-export function initMarkers(map: mapboxgl.Map, lects: Lect[], emit: any) {
-  createTemplates(lects, emit);
+export function initMarkers(map: Map, lects: Lect[], onclick: Click) {
+  createTemplates(lects, onclick);
   attachMarkers(map, lects);
 }

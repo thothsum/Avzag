@@ -30,10 +30,12 @@ const props = defineProps({
 });
 const emit = defineEmit(["toggle"]);
 
-watch(props.state, () => updateVisuals(props.state), { deep: true });
-
+function toggle(name: string) {
+  emit("toggle", name);
+}
+watch(props.state, (state) => updateVisuals(state));
 onMounted(() => {
-  initMarkers(initMap(), props.catalogue, emit);
+  initMarkers(initMap(), props.catalogue, toggle);
   updateVisuals(props.state);
 });
 </script>
