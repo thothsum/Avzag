@@ -1,7 +1,7 @@
 <template>
   <div v-if="catalogue" id="root">
     <div id="map">
-      <Map :catalogue="catalogue" :state="state" @toggle="toggleLect" />
+      <Map :catalogue="catalogue" :search="search" @toggle="toggleLect" />
     </div>
     <div id="ui" class="col-1">
       <div id="top" class="col-1 card">
@@ -15,7 +15,7 @@
             Click on the map or use the input field above.
           </p>
           <control
-            v-for="n in state.selected"
+            v-for="n in search.selected"
             :key="n"
             :text="n"
             class="small round"
@@ -37,7 +37,7 @@
           v-for="l in catalogue"
           :key="l.name"
           :lect="l"
-          :state="state"
+          :search="search"
           @click="toggleLect(l.name)"
         />
       </div>
@@ -60,7 +60,7 @@ const store = useStore();
 const router = useRouter();
 
 const catalogue = computed(() => store.state.catalogue as Lect[]);
-const state = reactive({
+const search = reactive({
   selected: new Set<string>(),
   visible: new Set<string>(),
 } as SearchState);
@@ -73,22 +73,22 @@ const tags = computed(
     ) ?? []
 );
 
-const empty = computed(() => !state.selected.size);
+const empty = computed(() => !search.selected.size);
 const about = ref(false);
 
 watchEffect(() =>
   tags.value.forEach((t, i) => {
     const name = catalogue.value[i].name;
-    if (EvaluateQuery(t, query.value, true)) state.visible.add(name);
-    else state.visible.delete(name);
+    if (EvaluateQuery(t, query.value, true)) search.visible.add(name);
+    else search.visible.delete(name);
   })
 );
 function toggleLect(name: string) {
-  if (state.selected.has(name)) state.selected.delete(name);
-  else state.selected.add(name);
+  if (search.selected.has(name)) search.selected.delete(name);
+  else search.selected.add(name);
 }
 function load() {
-  store.dispatch("loadLects", [...state.selected]);
+  store.dispatch("loadLects", [...search.selected]);
   router.push({ name: "Phonology" });
 }
 
@@ -96,7 +96,7 @@ watch(
   catalogue,
   () => {
     try {
-      state.selected = new Set(
+      search.selected = new Set(
         (JSON.parse(localStorage.lects) ?? []) as string[]
       );
     } catch {
@@ -105,7 +105,7 @@ watch(
   },
   { immediate: true }
 );
-onUnmounted(() => (localStorage.lects = JSON.stringify([...state.selected])));
+onUnmounted(() => (localStorage.lects = JSON.stringify([...search.selected])));
 </script>
 
 <style lang="scss" scoped>

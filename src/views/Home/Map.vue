@@ -26,17 +26,17 @@ import mapboxgl from "mapbox-gl";
 
 const props = defineProps({
   catalogue: { type: Array as PropType<Lect[]>, default: [] },
-  state: { type: Object as PropType<SearchState>, default: {} },
+  search: { type: Object as PropType<SearchState>, default: {} },
 });
 const emit = defineEmit(["toggle"]);
 
 function toggle(name: string) {
   emit("toggle", name);
 }
-watch(props.state, (state) => updateVisuals(state));
+watch(props.search, (s) => updateVisuals(s));
 onMounted(() => {
   initMarkers(initMap(), props.catalogue, toggle);
-  updateVisuals(props.state);
+  updateVisuals(props.search);
 });
 </script>
 

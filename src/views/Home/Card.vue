@@ -22,7 +22,7 @@ import { Lect, SearchState } from "./lect";
 
 const props = defineProps({
   lect: { type: Object as PropType<Lect>, default: {} },
-  state: { type: Object as PropType<SearchState>, default: {} },
+  search: { type: Object as PropType<SearchState>, default: {} },
 });
 const store = useStore();
 
@@ -30,8 +30,8 @@ const name = computed(() => props.lect.name);
 const flag = computed(() => store.state.root + name.value + "/flag.png");
 const family = computed(() => props.lect.family.join(" › "));
 
-const selected = computed(() => props.state.selected.has(name.value));
-const visible = computed(() => props.state.visible.has(name.value));
+const selected = computed(() => props.search.selected.has(name.value));
+const visible = computed(() => props.search.visible.has(name.value));
 </script>
 
 <style lang="scss" scoped>
