@@ -1,6 +1,6 @@
 <template>
   <div id="root" :class="{ narrow }" class="row scroll wrap">
-    <PhoneticItem
+    <Phoneme
       v-for="(p, i) in filtered"
       :key="i"
       :selected="phoneme == p"
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import PhoneticItem from "./PhoneticItem";
+import Phoneme from "./Phoneme";
 
 export default {
   name: "PhoneticTable",
   components: {
-    PhoneticItem,
+    Phoneme,
   },
   props: ["phoneme", "filter", "lectQuery", "featureQuery", "phonemes"],
   computed: {

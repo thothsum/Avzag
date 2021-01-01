@@ -16,7 +16,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PropType, computed, defineEmit, defineProps, watch } from "vue";
-import { Query } from "./index";
+import { Query } from ".";
 
 const props = defineProps({
   modelValue: { type: Object as PropType<Query>, default: {} },

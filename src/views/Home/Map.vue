@@ -4,10 +4,6 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Lect, SearchState } from "./lect";
-import { updateVisuals, initMarkers } from "./markerManager";
-import initMap from "./mapManager";
-import mapboxgl from "mapbox-gl";
 import {
   computed,
   defineEmit,
@@ -23,6 +19,10 @@ import {
   onBeforeMount,
   nextTick,
 } from "vue";
+import { Lect, SearchState } from "./lect";
+import { updateVisuals, initMarkers } from "./markerManager";
+import initMap from "./mapManager";
+import mapboxgl from "mapbox-gl";
 
 const props = defineProps({
   catalogue: { type: Array as PropType<Lect[]>, default: [] },

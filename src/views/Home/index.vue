@@ -1,7 +1,7 @@
 <template>
   <div v-if="catalogue" id="root">
     <div id="map">
-      <LectMap :catalogue="catalogue" :state="state" @toggle="toggleLect" />
+      <Map :catalogue="catalogue" :state="state" @toggle="toggleLect" />
     </div>
     <div id="ui" class="col-1">
       <div id="top" class="col-1 card">
@@ -34,7 +34,7 @@
             <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
           </div>
         </div>
-        <LectCard
+        <Card
           v-for="l in catalogue"
           :key="l.name"
           :lect="l"
@@ -48,8 +48,8 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import LectMap from "./LectMap";
-import LectCard from "./LectCard";
+import Map from "./Map";
+import Card from "./Card";
 import Button from "@/components/Button";
 import InputQuery from "@/components/Query/InputQuery";
 import { Query, EvaluateQuery } from "@/components/Query";

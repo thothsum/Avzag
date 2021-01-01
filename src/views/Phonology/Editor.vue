@@ -17,7 +17,7 @@
     <div class="grid">
       <ActionHeader icon="view_comfy" header="Phonemes" @action="addPhoneme">
         <div class="row wrap">
-          <PhoneticItem
+          <Phoneme
             v-for="(p, i) in file"
             :key="i"
             :selected="phoneme == p"
@@ -74,7 +74,7 @@
 import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
-import PhoneticItem from "./PhoneticItem";
+import Phoneme from "./Phoneme";
 import NotesEditor from "@/components/Notes/Editor";
 
 export default {
@@ -83,7 +83,7 @@ export default {
     Button,
     ButtonAlert,
     ActionHeader,
-    PhoneticItem,
+    Phoneme,
     NotesEditor,
   },
   data() {

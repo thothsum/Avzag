@@ -8,7 +8,7 @@
       />
       <div v-for="c in categories" :key="c" class="col">
         <h2>{{ c + "s" }}</h2>
-        <PhoneticTable
+        <Table
           v-model:phoneme="phoneme"
           :filter="c"
           :feature-query="featureQuery"
@@ -17,21 +17,21 @@
         />
       </div>
     </div>
-    <PhonemeDetails :phoneme="phoneme" />
+    <Inspector :phoneme="phoneme" />
   </div>
 </template>
 
 <script>
 import ToggleQuery from "@/components/Query/ToggleQuery";
 import InputQuery from "@/components/Query/InputQuery";
-import PhoneticTable from "./PhoneticTable";
-import PhonemeDetails from "./PhonemeDetails";
+import Table from "./Table";
+import Inspector from "./Inspector";
 
 export default {
   name: "Phonology",
   components: {
-    PhoneticTable,
-    PhonemeDetails,
+    Table,
+    Inspector,
     ToggleQuery,
     InputQuery,
   },

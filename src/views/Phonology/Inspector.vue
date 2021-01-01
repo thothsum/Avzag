@@ -5,7 +5,7 @@
       <p class="text-caption text-faded text-spaced">{{ phoneme.tags }}</p>
     </div>
     <audio ref="player"></audio>
-    <PhonemeUse
+    <Occurence
       v-for="(u, l) of phoneme.lects"
       :key="l"
       :lect="l"
@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import PhonemeUse from "./PhonemeUse";
+import Occurence from "./Occurence";
 
 export default {
   name: "PhonemeDetails",
   components: {
-    PhonemeUse,
+    Occurence,
   },
   props: ["phoneme"],
   methods: {

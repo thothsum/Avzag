@@ -11,7 +11,7 @@ import {
   defineEmit,
   watchEffect,
 } from "vue";
-import { Query } from "./index";
+import { Query } from ".";
 
 const props = defineProps({
   modelValue: { type: Object as PropType<Query>, default: {} },
