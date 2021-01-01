@@ -4,8 +4,8 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Lect from "./lect";
-import { updateVisuals, initMarkers } from "./initMarkers";
+import { Lect, SearchState } from "./lect";
+import { updateVisuals, initMarkers } from "./markerManager";
 import initMap from "./mapManager";
 import mapboxgl from "mapbox-gl";
 import {
@@ -26,30 +26,15 @@ import {
 
 const props = defineProps({
   catalogue: { type: Array as PropType<Lect[]>, default: [] },
-  selected: { type: Array as PropType<boolean[]>, default: [] },
-  visible: { type: Array as PropType<Lect[]>, default: [] },
+  state: { type: Object as PropType<SearchState>, default: {} },
 });
 const emit = defineEmit(["toggle"]);
 
-const faded = computed(() =>
-  props.visible?.length
-    ? props.catalogue.map((l) => !props.visible.includes(l))
-    : []
-);
-
-watch(
-  () => faded.value,
-  () => updateVisuals(props.selected, props.visible)
-);
-watch(
-  () => props.selected,
-  () => updateVisuals(props.selected, props.visible)
-);
+watch(props.state, () => updateVisuals(props.state), { deep: true });
 
 onMounted(() => {
-  const map = initMap();
-  initMarkers(map, props.catalogue, emit);
-  updateVisuals(props.selected, props.visible);
+  initMarkers(initMap(), props.catalogue, emit);
+  updateVisuals(props.state);
 });
 </script>
 

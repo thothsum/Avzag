@@ -1,7 +1,9 @@
 <template>
   <div v-if="visible" class="row-1 card">
     <div class="col-0">
-      <h1 :class="{ selected }">{{ lect.name }}</h1>
+      <h1 :class="{ 'highlight-font': state.selected.has(lect.name) }">
+        {{ lect.name }}
+      </h1>
       <p class="text-caption">
         <span v-for="f in lect.family" :key="f" split class="text-dot">
           {{ f }}
@@ -16,11 +18,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineEmit, defineProps, PropType, watchEffect } from "vue";
 import { useStore } from "vuex";
-import Lect from "./lect";
+import { Lect, SearchState } from "./lect";
 
 const props = defineProps({
   lect: { type: Object as PropType<Lect>, default: {} },
-  selected: Boolean,
+  state: { type: Object as PropType<SearchState>, default: {} },
   query: { type: Array as PropType<string[] | null>, default: [] },
 });
 const emit = defineEmit(["visible"]);
@@ -45,9 +47,6 @@ watchEffect(() => emit("visible", visible.value));
 * {
   text-align: left;
   user-select: none;
-}
-.selected {
-  color: var(--color-highlight);
 }
 .card {
   min-height: 54px;

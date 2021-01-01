@@ -1,10 +1,10 @@
 import mapboxgl from "mapbox-gl";
-import Lect from "./lect";
+import { Lect, SearchState } from "./lect";
 
 let templates = [] as HTMLElement[];
 
 function createTemplates(lects: Lect[], emit: any) {
-  templates = lects.map(({ name }, i) => {
+  templates = lects.map(({ name }) => {
     const icon = document.createElement("p");
     icon.className = "icon";
     icon.innerText = "expand_less";
@@ -14,7 +14,7 @@ function createTemplates(lects: Lect[], emit: any) {
 
     const div = document.createElement("div");
     div.className = "map-marker";
-    div.onclick = () => emit("toggle", lects[i]);
+    div.onclick = () => emit("toggle", name);
     div.append(icon);
     div.append(header);
 
@@ -34,14 +34,19 @@ function attachMarkers(map: mapboxgl.Map, lects: Lect[]) {
   });
 }
 
-export function updateVisuals(selected: boolean[], faded: Lect[]) {
-  templates.forEach((t, i) => {
-    t.getElementsByTagName("p")[0].className = `icon ${
-      selected[i] ? " highlight-font" : ""
-    }`;
-    t.getElementsByTagName("h2")[0].className =
-      (faded[i] ? "text-faded" : "") +
-      (!faded[i] && selected[i] ? " highlight-font" : "");
+export function updateVisuals({ selected, visible }: SearchState) {
+  templates.forEach((t) => {
+    const header = t.getElementsByTagName("h2")[0];
+    const icon = t.getElementsByTagName("p")[0];
+
+    const name = header.innerText;
+    const highlighted = selected.has(name);
+    const faded = visible.size && !visible.has(name);
+
+    header.className =
+      (faded ? "text-faded" : "") +
+      (!faded && highlighted ? " highlight-font" : "");
+    icon.className = `icon ${highlighted ? " highlight-font" : ""}`;
   });
 }
 

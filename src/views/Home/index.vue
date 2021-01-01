@@ -1,12 +1,7 @@
 <template>
   <div v-if="catalogue" id="root">
     <div id="map">
-      <LectMap
-        :catalogue="catalogue"
-        :selected="selected"
-        :visible="visible"
-        @toggle="toggleLect"
-      />
+      <LectMap :catalogue="catalogue" :state="state" @toggle="toggleLect" />
     </div>
     <div id="ui" class="col-1">
       <div id="top" class="col-1 card">
@@ -24,19 +19,19 @@
           <p v-if="empty" id="placeholder">
             Click on the map or use the input field above.
           </p>
-          <Button
-            v-for="(l, i) in lects"
-            :key="i"
+          <button
+            v-for="n in state.selected"
+            :key="n"
             class="small round"
-            :text="l.name"
-            @click="toggleLect(l)"
-          />
+            @click="toggleLect(n)"
+          >
+            {{ n }}
+          </button>
         </div>
       </div>
       <div class="col-1 scroll">
         <div v-if="about" id="about" class="col-1 card text-center">
           <h1>Ævzag</h1>
-          <p v-show="quote">{{ quote }}</p>
           <div class="row-1 wrap center">
             <router-link to="/editor/phonology">Editor tools</router-link>
             <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
@@ -48,10 +43,10 @@
           v-for="(l, i) in catalogue"
           :key="i"
           :lect="l"
-          :selected="selected[i]"
+          :state="state"
           :query="query"
-          @click="toggleLect(l)"
-          @visible="setVisibility(l, $event)"
+          @click="toggleLect(l.name)"
+          @visible="setVisibility(l.name, $event)"
         />
       </div>
     </div>
@@ -63,8 +58,8 @@
 import LectMap from "./LectMap";
 import LectCard from "./LectCard";
 import Button from "@/components/Button";
-import Lect from "./lect";
-import { computed, onUnmounted, ref, watch } from "vue";
+import { Lect, SearchState } from "./lect";
+import { computed, onUnmounted, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -72,35 +67,29 @@ const store = useStore();
 const router = useRouter();
 
 const catalogue = computed(() => store.state.catalogue as Lect[]);
-const lects = ref([] as Lect[]);
-const visible = ref([] as Lect[]);
-const selected = computed(() =>
-  catalogue.value.map((l) => lects.value.includes(l))
-);
-const names = computed(() => lects.value.map((l) => l.name));
+const state = reactive({
+  selected: new Set<string>(),
+  visible: new Set<string>(),
+} as SearchState);
 
 const search = ref("");
 const query = computed(() =>
   search.value ? search.value.toLowerCase().split(" ") : null
 );
 
-const empty = computed(() => !lects.value.length);
+const empty = computed(() => !state.selected.size);
 const about = ref(false);
-const quote = computed(() => lects.value[lects.value.length - 1]?.quote);
 
-function toggleLect(lect: Lect) {
-  const i = lects.value.indexOf(lect);
-  if (i < 0) lects.value.push(lect);
-  else lects.value.splice(i, 1);
+function toggleLect(name: string) {
+  if (state.selected.has(name)) state.selected.delete(name);
+  else state.selected.add(name);
 }
-function setVisibility(lect: Lect, value: boolean) {
-  const i = visible.value.indexOf(lect);
-  if (i < 0) {
-    if (value) visible.value.push(lect);
-  } else if (!value) visible.value.splice(i, 1);
+function setVisibility(name: string, value: boolean) {
+  if (state.visible.has(name)) state.visible.delete(name);
+  else state.visible.add(name);
 }
 function load() {
-  store.dispatch("loadLects", names.value);
+  store.dispatch("loadLects", [...state.selected]);
   router.push({ name: "Phonology" });
 }
 
@@ -108,16 +97,16 @@ watch(
   catalogue,
   () => {
     try {
-      lects.value = ((JSON.parse(localStorage.lects) as string[])?.map((n) =>
-        catalogue.value.find(({ name }) => name === n)
-      ) ?? []) as Lect[];
+      state.selected = new Set(
+        (JSON.parse(localStorage.lects) ?? []) as string[]
+      );
     } catch {
-      lects.value = [];
+      console.log("error loading lect names from last save");
     }
   },
   { immediate: true }
 );
-onUnmounted(() => (localStorage.lects = JSON.stringify(names.value)));
+onUnmounted(() => (localStorage.lects = JSON.stringify([...state.selected])));
 </script>
 
 <style lang="scss" scoped>
