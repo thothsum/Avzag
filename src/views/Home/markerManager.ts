@@ -11,7 +11,6 @@ function createTemplates(lects: Lect[], emit: any) {
 
     const header = document.createElement("h2");
     header.innerText = name;
-
     const div = document.createElement("div");
     div.className = "map-marker";
     div.onclick = () => emit("toggle", name);
@@ -42,6 +41,7 @@ export function updateVisuals({ selected, visible }: SearchState) {
     const name = header.innerText;
     const highlighted = selected.has(name);
     const faded = visible.size && !visible.has(name);
+    console.log(faded);
 
     header.className =
       (faded ? "text-faded" : "") +

@@ -1,8 +1,8 @@
 <template>
   <div v-if="visible" class="row-1 card">
     <div class="col-0">
-      <h1 :class="{ 'highlight-font': state.selected.has(lect.name) }">
-        {{ lect.name }}
+      <h1 :class="{ 'highlight-font': state.selected.has(name) }">
+        {{ name }}
       </h1>
       <p class="text-caption">
         <span v-for="f in lect.family" :key="f" split class="text-dot">
@@ -16,31 +16,43 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { computed, defineEmit, defineProps, PropType, watchEffect } from "vue";
+import { computed, defineEmit, defineProps, PropType, watch } from "vue";
 import { useStore } from "vuex";
 import { Lect, SearchState } from "./lect";
 
 const props = defineProps({
   lect: { type: Object as PropType<Lect>, default: {} },
   state: { type: Object as PropType<SearchState>, default: {} },
-  query: { type: Array as PropType<string[] | null>, default: [] },
+  query: { type: Object as PropType<Query>, default: {} },
 });
-const emit = defineEmit(["visible"]);
 const store = useStore();
 
+const name = computed(() => props.lect.name);
 const flag = computed(() => store.state.root + props.lect.name + "/flag.png");
 const family = computed(() => props.lect.family.join(" › "));
 const tags = computed(() =>
-  [props.lect.name, props.lect.tags, props.lect.family]
+  [props.lect.name, props.lect.tags ?? "", props.lect.family]
     .flat()
     .join(" ")
     .toLowerCase()
 );
 
-const visible = computed(() =>
-  props.query?.every((t) => tags.value.includes(t))
+type Query = Record<string, boolean>;
+function pass(tags: string[] | string, query: Query) {
+  if (!query) return true;
+  for (const [tag, flag] of Object.entries(query)) {
+    if (flag !== tags.includes(tag)) return false;
+  }
+  return true;
+}
+
+const visible = computed(
+  () => Object.keys(props.query).length && pass(tags.value, props.query)
 );
-watchEffect(() => emit("visible", visible.value));
+watch(visible, (visible) => {
+  if (visible) props.state.visible.delete(name.value);
+  else props.state.visible.delete(name.value);
+});
 </script>
 
 <style lang="scss" scoped>

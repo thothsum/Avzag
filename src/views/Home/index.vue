@@ -7,11 +7,9 @@
       <div id="top" class="col-1 card">
         <div class="row-1">
           <Button v-model="about" icon="info" />
-          <input
-            v-model="search"
-            class="flex"
-            type="text"
+          <InputQuery
             placeholder="Search languages..."
+            @query="query = $event"
           />
           <Button icon="arrow_forward" :disabled="empty" @click="load" />
         </div>
@@ -46,7 +44,6 @@
           :state="state"
           :query="query"
           @click="toggleLect(l.name)"
-          @visible="setVisibility(l.name, $event)"
         />
       </div>
     </div>
@@ -58,6 +55,7 @@
 import LectMap from "./LectMap";
 import LectCard from "./LectCard";
 import Button from "@/components/Button";
+import InputQuery from "@/components/InputQuery";
 import { Lect, SearchState } from "./lect";
 import { computed, onUnmounted, reactive, ref, watch } from "vue";
 import { useStore } from "vuex";
@@ -71,11 +69,7 @@ const state = reactive({
   selected: new Set<string>(),
   visible: new Set<string>(),
 } as SearchState);
-
-const search = ref("");
-const query = computed(() =>
-  search.value ? search.value.toLowerCase().split(" ") : null
-);
+const query = ref({});
 
 const empty = computed(() => !state.selected.size);
 const about = ref(false);
@@ -83,10 +77,6 @@ const about = ref(false);
 function toggleLect(name: string) {
   if (state.selected.has(name)) state.selected.delete(name);
   else state.selected.add(name);
-}
-function setVisibility(name: string, value: boolean) {
-  if (state.visible.has(name)) state.visible.delete(name);
-  else state.visible.add(name);
 }
 function load() {
   store.dispatch("loadLects", [...state.selected]);
