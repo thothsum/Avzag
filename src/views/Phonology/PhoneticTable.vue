@@ -1,8 +1,8 @@
 <template>
   <div id="root" :class="{ narrow }" class="row scroll wrap">
     <PhoneticItem
-      :key="i"
       v-for="(p, i) in filtered"
+      :key="i"
       :selected="phoneme == p"
       :faded="!fitting[i]"
       :ipa="p.ipa"
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/panels";
+@import "@/scss/_panels";
 $item-width: 46px;
 $item-height: 40px;
 

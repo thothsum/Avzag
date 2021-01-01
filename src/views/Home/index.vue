@@ -51,7 +51,8 @@
 import LectMap from "./LectMap";
 import LectCard from "./LectCard";
 import Button from "@/components/Button";
-import InputQuery from "@/components/InputQuery";
+import InputQuery from "@/components/Query/InputQuery";
+import { Query, EvaluateQuery } from "@/components/Query";
 import { Lect, SearchState } from "./lect";
 import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
 import { useStore } from "vuex";
@@ -59,18 +60,6 @@ import { useRouter } from "vue-router";
 
 const store = useStore();
 const router = useRouter();
-
-type Query = Record<string, boolean>;
-function pass(tags: string[] | string, query: Query, failEmpty = false) {
-  if (!query) return true;
-  const entries = Object.entries(query);
-  if (failEmpty && !entries.length) return false;
-
-  for (const [tag, flag] of entries) {
-    if (flag !== tags.includes(tag)) return false;
-  }
-  return true;
-}
 
 const catalogue = computed(() => store.state.catalogue as Lect[]);
 const state = reactive({
@@ -92,7 +81,7 @@ const about = ref(false);
 watchEffect(() =>
   tags.value.forEach((t, i) => {
     const name = catalogue.value[i].name;
-    if (pass(t, query.value, true)) state.visible.add(name);
+    if (EvaluateQuery(t, query.value, true)) state.visible.add(name);
     else state.visible.delete(name);
   })
 );

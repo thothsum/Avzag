@@ -3,8 +3,8 @@
     <div class="col-1 scroll">
       <ToggleQuery v-model="lectQuery" :labels="lects" />
       <InputQuery
+        v-model="featureQuery"
         placeholder="Query phonemes, e.g. voiced -velar..."
-        @query="featureQuery = $event"
       />
       <div v-for="c in categories" :key="c" class="col">
         <h2>{{ c + "s" }}</h2>
@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import ToggleQuery from "@/components/ToggleQuery";
-import InputQuery from "@/components/InputQuery";
-import PhoneticTable from "@/components/PhoneticTable";
-import PhonemeDetails from "@/components/PhonemeDetails";
+import ToggleQuery from "@/components/Query/ToggleQuery";
+import InputQuery from "@/components/Query/InputQuery";
+import PhoneticTable from "./PhoneticTable";
+import PhonemeDetails from "./PhonemeDetails";
 
 export default {
   name: "Phonology",

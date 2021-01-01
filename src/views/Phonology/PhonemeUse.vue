@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import Notes from "@/components/Notes";
 
 export default {

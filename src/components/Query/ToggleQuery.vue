@@ -16,8 +16,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PropType, computed, defineEmit, defineProps, watch } from "vue";
-
-type Query = Record<string, boolean>;
+import { Query } from "./index";
 
 const props = defineProps({
   modelValue: { type: Object as PropType<Query>, default: {} },

@@ -74,7 +74,7 @@
 import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
-import PhoneticItem from "@/components/PhoneticItem";
+import PhoneticItem from "./PhoneticItem";
 import NotesEditor from "@/components/Notes/Editor";
 
 export default {
