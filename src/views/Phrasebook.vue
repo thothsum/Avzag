@@ -2,7 +2,7 @@
   <div v-if="lects && phrasebook" class="section col-1">
     <div class="col-1">
       <div class="row">
-        <Button v-model="searching" icon="search" />
+        <toggle v-model="searching" icon="search" />
         <input
           v-if="searching"
           v-model="query"
@@ -19,7 +19,7 @@
           <div v-for="(ps, s) of phrases" :key="s" class="col">
             <h2>{{ phrasebook[s].name }}</h2>
             <div class="col-0">
-              <Button
+              <control
                 v-for="p in ps"
                 :key="p"
                 :class="{
@@ -42,25 +42,25 @@
     </div>
     <div v-if="phrase" class="col-1">
       <div class="row scroll small">
-        <Button
+        <toggle
           v-model="showNotes"
           class="round"
           icon="sticky_note_2"
           text="Notes"
         />
-        <Button
+        <toggle
           v-model="showSource"
           class="round"
           icon="short_text"
           text="Source"
         />
-        <Button
+        <toggle
           v-model="interactive"
           class="round"
           icon="tune"
           text="Interactive"
         />
-        <Button v-model="glossed" class="round" icon="layers" text="Glossed" />
+        <toggle v-model="glossed" class="round" icon="layers" text="Glossed" />
       </div>
       <div v-show="showSource" class="col-1 wrap card">
         <PhraseContext v-if="interactive" :context="context" />
@@ -91,7 +91,6 @@
 </template>
 
 <script>
-import Button from "@/components/Button";
 import Select from "@/components/Select";
 import List from "@/components/List";
 import PhraseContext from "@/components/PhraseContext";
@@ -101,7 +100,6 @@ import PhraseTranslation from "@/components/PhraseTranslation";
 export default {
   name: "Phrasebook",
   components: {
-    Button,
     Select,
     List,
     PhraseContext,

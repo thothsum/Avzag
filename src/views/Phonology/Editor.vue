@@ -9,9 +9,9 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button text="load from lect" @click="loadFromLect" />
-      <Button text="load from JSON" @click="loadFromJson" />
-      <Button text="save JSON to clipboard" @click="saveToJson" />
+      <control text="load from lect" @click="loadFromLect" />
+      <control text="load from JSON" @click="loadFromJson" />
+      <control text="save JSON to clipboard" @click="saveToJson" />
       <ButtonAlert text="Reset" @confirm="reset" />
     </div>
     <div class="grid">
@@ -61,7 +61,7 @@
                 type="text"
                 placeholder="ipa"
               />
-              <Button icon="clear" @click="removeSample(i)" />
+              <control icon="clear" @click="removeSample(i)" />
             </div>
           </template>
         </ActionHeader>
@@ -71,7 +71,6 @@
 </template>
 
 <script>
-import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
 import Phoneme from "./Phoneme";
@@ -80,7 +79,6 @@ import NotesEditor from "@/components/Notes/Editor";
 export default {
   name: "PhonologyEditor",
   components: {
-    Button,
     ButtonAlert,
     ActionHeader,
     Phoneme,

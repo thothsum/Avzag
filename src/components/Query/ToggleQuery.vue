@@ -1,15 +1,14 @@
 <template>
   <div v-if="visible" class="row scroll small">
-    <button class="icon round" @click="query = {}">clear</button>
-    <button
+    <control class="round" icon="clear" @click="query = {}" />
+    <control
       v-for="l in labels"
       :key="l"
+      :text="l"
       class="round"
       :class="highlights[l]"
       @click="toggle(l)"
-    >
-      {{ l }}
-    </button>
+    />
   </div>
 </template>
 

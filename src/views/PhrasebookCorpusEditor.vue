@@ -9,9 +9,9 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button icon="language" text="Load lect" @click="loadFromLect" />
-      <Button icon="code" text="Load JSON" @click="loadFromJson" />
-      <Button
+      <control icon="language" text="Load lect" @click="loadFromLect" />
+      <control icon="code" text="Load JSON" @click="loadFromJson" />
+      <control
         icon="content_paste"
         text="Save to clipboard"
         @click="saveToJson"
@@ -27,7 +27,7 @@
           </template>
           <div class="col scroll">
             <div v-for="s in file" :key="s.id" class="row">
-              <Button
+              <control
                 icon="edit"
                 :class="{ highlight: section == s }"
                 @click="section = s"
@@ -47,7 +47,7 @@
           </template>
           <div class="col scroll">
             <div v-for="p in section.phrases" :key="p.id" class="row">
-              <Button
+              <control
                 icon="edit"
                 :class="{ highlight: phrase == p }"
                 @click="phrase = p"
@@ -72,7 +72,7 @@
               :key="i + '_' + phrase.id"
               class="row"
             >
-              <Button
+              <control
                 icon="edit"
                 :class="{ highlight: block == b }"
                 @click="block = b"
@@ -101,7 +101,6 @@
 <script>
 import { v4 as uuidv4 } from "uuid";
 
-import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
 import PhraseContext from "@/components/PhraseContext";
@@ -112,7 +111,6 @@ import PhraseBlockEditor from "@/components/PhraseBlockEditor";
 export default {
   name: "PhrasebookCorpusEditor",
   components: {
-    Button,
     ButtonAlert,
     ActionHeader,
     PhraseContext,

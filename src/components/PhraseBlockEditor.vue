@@ -16,7 +16,7 @@
       </template>
       <div class="row-1 wrap block-editor">
         <div v-for="(s, i) in states" :key="i" class="row">
-          <Button
+          <control
             icon="edit"
             :class="{ highlight: state == s }"
             @click="state = s"
@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import Button from "./Button";
 import ButtonAlert from "./ButtonAlert";
 import ActionHeader from "./ActionHeader";
 import PhraseConditionsEditor from "./PhraseConditionsEditor";
@@ -55,7 +54,6 @@ import PhraseStateDisplay from "./PhraseStateDisplay";
 export default {
   name: "PhraseBlockEditor",
   components: {
-    Button,
     ButtonAlert,
     ActionHeader,
     PhraseConditionsEditor,

@@ -2,11 +2,11 @@
 <template>
   <ActionHeader icon="visibility" header="display" @action="add">
     <template #header>
-      <Button v-model="state.implicit" icon="opacity" />
+      <toggle v-model="state.implicit" icon="opacity" />
     </template>
     <div v-if="display" class="col">
       <div v-for="(d, i) in display" :key="i" class="row">
-        <Button icon="palette" @click="toggle(i)" />
+        <control icon="palette" @click="toggle(i)" />
         <input
           v-model="d.text"
           :class="colors[i]"
@@ -27,20 +27,18 @@
           type="text"
           placeholder="glossing"
         />
-        <Button icon="clear" @click="remove(i)" />
+        <control icon="clear" @click="remove(i)" />
       </div>
     </div>
   </ActionHeader>
 </template>
 
 <script>
-import Button from "./Button";
 import ActionHeader from "./ActionHeader";
 
 export default {
   name: "PhraseStateDisplayEditor",
   components: {
-    Button,
     ActionHeader,
   },
   props: ["state", "context", "allowEmpty"],

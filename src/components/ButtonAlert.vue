@@ -1,15 +1,20 @@
 <template>
   <div class="row-0">
     <template v-if="prompt">
-      <button class="highlight-font-alert icon" @click="confirm">
-        delete_forever
-      </button>
-      <button class="icon" @click="prompt = false">check</button>
+      <control
+        class="highlight-font-alert"
+        icon="delete_forever"
+        @click="confirm"
+      />
+      <control :icon="check" @click="prompt = false" />
     </template>
-    <button v-else class="highlight-font-alert icon" @click="prompt = true">
-      delete
-      <p>{{ text }}</p>
-    </button>
+    <control
+      v-else
+      class="highlight-font-alert"
+      icon="delete"
+      :text="text"
+      @click="prompt = true"
+    />
   </div>
 </template>
 

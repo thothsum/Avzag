@@ -1,6 +1,6 @@
 <template>
   <div class="col-0">
-    <Button
+    <control
       v-for="(v, i) in values"
       :key="i"
       :text="text[i]"
@@ -11,13 +11,8 @@
 </template>
 
 <script>
-import Button from "./Button";
-
 export default {
   name: "List",
-  components: {
-    Button,
-  },
   props: ["value", "items", "indexed", "display"],
   computed: {
     text() {

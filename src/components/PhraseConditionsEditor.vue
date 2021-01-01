@@ -3,7 +3,7 @@
     <template #caption><slot /></template>
     <div class="scroll col">
       <div v-for="(c, i) in conditions" :key="i" class="row">
-        <Button v-if="allowPassive" v-model="c.passive" icon="call_missed" />
+        <toggle v-if="allowPassive" v-model="c.passive" icon="call_missed" />
         <Select v-model:value="c.entity" class="flex" :items="entities" />
         <p class="icon">west</p>
         <Select
@@ -12,21 +12,19 @@
           class="flex"
           :items="context[c.entity]"
         />
-        <Button icon="clear" @click="remove(i)" />
+        <control icon="clear" @click="remove(i)" />
       </div>
     </div>
   </ActionHeader>
 </template>
 
 <script>
-import Button from "@/components/Button";
 import ActionHeader from "@/components/ActionHeader";
 import Select from "@/components/Select";
 
 export default {
   name: "PhraseConditionsEditor",
   components: {
-    Button,
     ActionHeader,
     Select,
   },

@@ -10,20 +10,18 @@
           type="text"
         />
         <input v-model="c.tags" class="flex" type="text" />
-        <Button icon="clear" @click="remove(i)" />
+        <control icon="clear" @click="remove(i)" />
       </div>
     </div>
   </ActionHeader>
 </template>
 
 <script>
-import Button from "./Button";
 import ActionHeader from "./ActionHeader";
 
 export default {
   name: "PhraseContextEditor",
   components: {
-    Button,
     ActionHeader,
   },
   props: ["context"],

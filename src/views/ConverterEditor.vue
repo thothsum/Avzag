@@ -9,9 +9,9 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button text="load from lect" @click="loadFromLect" />
-      <Button text="load from JSON" @click="loadFromJson" />
-      <Button text="save JSON to clipboard" @click="saveToJson" />
+      <control text="load from lect" @click="loadFromLect" />
+      <control text="load from JSON" @click="loadFromJson" />
+      <control text="save JSON to clipboard" @click="saveToJson" />
       <ButtonAlert text="Reset" @confirm="reset" />
     </div>
     <div v-if="file" class="grid small">
@@ -54,7 +54,7 @@
             <ButtonAlert @confirm="deleteMapping" />
           </template>
           <div v-for="(m, i) in mappings" :key="i" class="row">
-            <Button
+            <control
               :class="{ highlight: mapping == m }"
               icon="edit"
               @click="mapping = m"
@@ -76,10 +76,10 @@
         >
         <template #default>
           <div v-for="(p, i) in pairs" :key="i" class="row">
-            <Button icon="add" @click="addPair(i)" />
+            <control icon="add" @click="addPair(i)" />
             <input v-model="p[0]" type="text" placeholder="from" />
             <input v-model="p[1]" type="text" placeholder="to" />
-            <Button icon="clear" @click="deletePair(i)" />
+            <control icon="clear" @click="deletePair(i)" />
           </div>
         </template>
       </ActionHeader>
@@ -88,7 +88,6 @@
 </template>
 
 <script>
-import Button from "@/components/Button";
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
 import Select from "@/components/Select";
@@ -96,7 +95,6 @@ import Select from "@/components/Select";
 export default {
   name: "ConverterEditor",
   components: {
-    Button,
     ButtonAlert,
     ActionHeader,
     Select,

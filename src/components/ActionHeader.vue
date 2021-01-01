@@ -1,9 +1,7 @@
 <template>
   <div class="col">
     <div class="row">
-      <button v-if="button" class="icon" @click="emit('action')">
-        {{ button }}
-      </button>
+      <control v-if="button" :icon="button" @click="emit('action')" />
       <p class="icon">{{ icon }}</p>
       <h2 class="flex">{{ header }}</h2>
       <slot name="header" />

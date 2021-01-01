@@ -1,5 +1,5 @@
 <template>
-  <button :class="{ highlight: modelValue }" @click="toggle">
+  <button>
     <p v-if="icon" class="icon">{{ icon }}</p>
     <p v-if="text">{{ text }}</p>
   </button>
@@ -7,16 +7,10 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { defineProps, defineEmit } from "vue";
+import { defineProps } from "vue";
 
 const props = defineProps({
-  modelValue: Boolean,
   icon: { type: String, default: "" },
   text: { type: String, default: "" },
 });
-const emit = defineEmit(["update:modelValue"]);
-
-function toggle() {
-  emit("update:modelValue", !props.modelValue);
-}
 </script>

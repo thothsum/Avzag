@@ -3,7 +3,7 @@
     <template #caption><slot /></template>
     <div v-for="(n, i) in notes" :key="i" class="row">
       <input v-model="notes[i]" type="text" />
-      <button class="icon" @click="remove(i)">clear</button>
+      <control icon="clear" @click="remove(i)" />
     </div>
   </ActionHeader>
 </template>

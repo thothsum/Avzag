@@ -2,7 +2,7 @@
   <div v-if="visible" class="row scroll">
     <div v-for="(l, i) in labels" :key="l" @click="select(i)">
       <slot :item="items[i]" :highlight="highlights[i]">
-        <button class="round" :class="highlights[i]">{{ l }}</button>
+        <control class="round" :text="l" :class="highlights[i]" />
       </slot>
     </div>
   </div>

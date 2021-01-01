@@ -1,7 +1,7 @@
 <template>
   <div v-if="translation" class="col-1 card">
     <div class="row-1 small">
-      <Button icon="content_copy" @click="copy" />
+      <control icon="content_copy" @click="copy" />
       <h2>{{ lect }}</h2>
     </div>
     <PhraseContext
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import Button from "./Button";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseBlock from "./PhraseBlock";
 import Notes from "@/components/Notes";
@@ -36,7 +35,6 @@ import Notes from "@/components/Notes";
 export default {
   name: "PhraseTranslation",
   components: {
-    Button,
     PhraseContext,
     PhraseBlock,
     Notes,

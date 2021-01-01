@@ -6,22 +6,21 @@
     <div id="ui" class="col-1">
       <div id="top" class="col-1 card">
         <div class="row-1">
-          <Button v-model="about" icon="info" />
+          <toggle v-model="about" icon="info" />
           <InputQuery v-model="query" placeholder="Search languages..." />
-          <Button icon="arrow_forward" :disabled="empty" @click="load" />
+          <control icon="arrow_forward" :disabled="empty" @click="load" />
         </div>
         <div class="row scroll-hidden">
           <p v-if="empty" id="placeholder">
             Click on the map or use the input field above.
           </p>
-          <button
+          <control
             v-for="n in state.selected"
             :key="n"
+            :text="n"
             class="small round"
             @click="toggleLect(n)"
-          >
-            {{ n }}
-          </button>
+          />
         </div>
       </div>
       <div class="col-1 scroll">
@@ -50,7 +49,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Map from "./Map";
 import Card from "./Card";
-import Button from "@/components/Button";
 import InputQuery from "@/components/Query/InputQuery";
 import { Query, EvaluateQuery } from "@/components/Query";
 import { Lect, SearchState } from "./lect";

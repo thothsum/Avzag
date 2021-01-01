@@ -10,10 +10,10 @@
             :items="fullMappings"
             display="name"
           />
-          <Button v-if="source" icon="clear" @click="source = ''" />
-          <Button v-else icon="text_snippet" @click="displaySample" />
-          <Button icon="publish" @click="$refs.file.click()" />
-          <Button
+          <control v-if="source" icon="clear" @click="source = ''" />
+          <control v-else icon="text_snippet" @click="displaySample" />
+          <control icon="publish" @click="$refs.file.click()" />
+          <control
             v-show="!resultMapping.partial"
             icon="swap_horiz"
             @click="swap"
@@ -34,8 +34,8 @@
             :items="mappings"
             display="name"
           />
-          <Button v-model="showMappings" icon="visibility" />
-          <Button icon="file_copy" @click="copy" />
+          <toggle v-model="showMappings" icon="visibility" />
+          <control icon="file_copy" @click="copy" />
         </div>
         <ConverterText
           :readonly="true"
@@ -64,7 +64,6 @@
 </template>
 
 <script>
-import Button from "@/components/Button";
 import Select from "@/components/Select";
 import ToggleGroup from "@/components/ToggleGroup";
 import MappingTable from "@/components/MappingTable";
@@ -73,7 +72,6 @@ import ConverterText from "@/components/ConverterText";
 export default {
   name: "Converter",
   components: {
-    Button,
     Select,
     ToggleGroup,
     MappingTable,

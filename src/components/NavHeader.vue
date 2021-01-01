@@ -8,10 +8,12 @@
         custom
         :to="{ name: name ?? text }"
       >
-        <button :class="{ highlight: isActive }" @click="navigate">
-          <p v-if="icon" class="icon">{{ icon }}</p>
-          <p v-if="text">{{ text }}</p>
-        </button>
+        <control
+          :class="{ highlight: isActive }"
+          :icon="icon"
+          :text="text"
+          @click="navigate"
+        />
       </router-link>
     </div>
   </div>

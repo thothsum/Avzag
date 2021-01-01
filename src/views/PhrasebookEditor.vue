@@ -9,9 +9,9 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <Button icon="language" text="Load lect" @click="loadFromLect" />
-      <Button icon="code" text="Load JSON" @click="loadFromJson" />
-      <Button
+      <control icon="language" text="Load lect" @click="loadFromLect" />
+      <control icon="code" text="Load JSON" @click="loadFromJson" />
+      <control
         icon="content_paste"
         text="Save to clipboard"
         @click="saveToJson"
@@ -75,7 +75,7 @@
                 :key="state + '_' + i + '_' + phrase.id"
                 class="row"
               >
-                <Button
+                <control
                   icon="edit"
                   :class="{ highlight: block == b }"
                   @click="block = b"
@@ -113,7 +113,6 @@
 </template>
 
 <script>
-import Button from "@/components/Button";
 import ActionHeader from "@/components/ActionHeader";
 import ButtonAlert from "@/components/ButtonAlert";
 import Select from "@/components/Select";
@@ -126,7 +125,6 @@ import PhraseContextTranslation from "@/components/PhraseContextTranslation";
 export default {
   name: "PhrasebookEditor",
   components: {
-    Button,
     ActionHeader,
     ButtonAlert,
     Select,

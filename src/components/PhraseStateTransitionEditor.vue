@@ -7,12 +7,12 @@
         :items="['block', 'arrow_forward', 'star_outline']"
         type="index"
       >
-        <button class="icon" :class="highlight">{{ item }}</button>
+        <control :icon="item" :class="highlight" />
       </ToggleGroup>
     </template>
-    <div v-if="mode == 2" class="row-1 wrap block-editor">
+    <div v-if="mode === 2" class="row-1 wrap block-editor">
       <div v-for="(s, i) in states" :key="i" class="row">
-        <Button
+        <control
           icon="check"
           :class="{ highlight: present[i] }"
           @click="toggle(i)"
@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import Button from "./Button";
 import ToggleGroup from "./ToggleGroup";
 import ActionHeader from "./ActionHeader";
 import PhraseStateDisplay from "./PhraseStateDisplay";
@@ -32,7 +31,6 @@ import PhraseStateDisplay from "./PhraseStateDisplay";
 export default {
   name: "PhraseStateTransitionEditor",
   components: {
-    Button,
     ToggleGroup,
     ActionHeader,
     PhraseStateDisplay,
