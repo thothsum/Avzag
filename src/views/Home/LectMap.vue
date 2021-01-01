@@ -5,9 +5,8 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Lect from "./lect";
-import Camera from "./camera";
 import { updateVisuals, initMarkers } from "./initMarkers";
-import initMap from "./initMap";
+import initMap from "./mapManager";
 import mapboxgl from "mapbox-gl";
 import {
   computed,
@@ -32,10 +31,6 @@ const props = defineProps({
 });
 const emit = defineEmit(["toggle"]);
 
-const camera = reactive<Camera>({ center: [0, 0], zoom: 5 });
-if (localStorage.camera) Object.assign(camera, JSON.parse(localStorage.camera));
-onUnmounted(() => (localStorage.camera = JSON.stringify(camera)));
-
 const faded = computed(() =>
   props.visible?.length
     ? props.catalogue.map((l) => !props.visible.includes(l))
@@ -52,14 +47,9 @@ watch(
 );
 
 onMounted(() => {
-  const map = initMap(camera);
+  const map = initMap();
   initMarkers(map, props.catalogue, emit);
-
-  map.on(
-    "moveend",
-    () => (camera.center = map.getCenter().toArray() as [number, number])
-  );
-  map.on("zoomend", () => (camera.zoom = map.getZoom()));
+  updateVisuals(props.selected, props.visible);
 });
 </script>
 

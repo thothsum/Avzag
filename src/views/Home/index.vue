@@ -117,7 +117,7 @@ watch(
   },
   { immediate: true }
 );
-onUnmounted(() => JSON.stringify(names.value));
+onUnmounted(() => (localStorage.lects = JSON.stringify(names.value)));
 </script>
 
 <style lang="scss" scoped>
