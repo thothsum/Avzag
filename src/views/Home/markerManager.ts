@@ -3,6 +3,7 @@ import { Lect, SearchState } from "./lect";
 
 type Click = (n: string) => void;
 let templates = [] as HTMLElement[];
+let map = {} as mapboxgl.Map;
 
 function createTemplates(lects: Lect[], onclick: Click) {
   return lects.map(({ name }) => {
@@ -23,15 +24,25 @@ function createTemplates(lects: Lect[], onclick: Click) {
   });
 }
 
+export function attachRef(ref: HTMLElement, point: [number, number]) {
+  console.log("attached");
+  new mapboxgl.Marker({
+    element: ref,
+    anchor: "top",
+  })
+    .setLngLat(point)
+    .addTo(map);
+}
+
 function attachMarkers(map: mapboxgl.Map, lects: Lect[]) {
-  templates.forEach((t, i) => {
-    new mapboxgl.Marker({
-      element: t,
-      anchor: "top",
-    })
-      .setLngLat(lects[i].coordinates)
-      .addTo(map);
-  });
+  // templates.forEach((t, i) => {
+  //   new mapboxgl.Marker({
+  //     element: t,
+  //     anchor: "top",
+  //   })
+  //     .setLngLat(lects[i].coordinates)
+  //     .addTo(map);
+  // });
 }
 
 export function updateVisuals({ selected, visible }: SearchState) {
@@ -50,7 +61,8 @@ export function updateVisuals({ selected, visible }: SearchState) {
   });
 }
 
-export function initMarkers(map: mapboxgl.Map, lects: Lect[], onclick: Click) {
+export function initMarkers(_map: mapboxgl.Map, lects: Lect[], onclick: Click) {
+  map = _map;
   templates = createTemplates(lects, onclick);
-  attachMarkers(map, lects);
+  attachMarkers(_map, lects);
 }
