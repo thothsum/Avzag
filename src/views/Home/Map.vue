@@ -3,7 +3,7 @@
   <Marker
     v-for="{ name, coordinates } in catalogue"
     :key="name"
-    :ref="(m) => addMarker(m, coordinates)"
+    :ref="(m) => markers.push([m, coordinates])"
     :name="name"
     :search="search"
     @click="toggle(name)"
@@ -14,17 +14,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   onMounted,
-  watch,
   defineProps,
   defineEmit,
   PropType,
   reactive,
+  watch,
+  ref,
 } from "vue";
 import { Lect, SearchState } from "./lect";
-import Marker from "./Marker";
-import { updateVisuals, initMarkers, attachRef } from "./markerManager";
+import { initMarkers, attachRef } from "./markerManager";
 import initMap from "./mapManager";
 import mapboxgl from "mapbox-gl";
+import Marker from "./Marker";
 
 const props = defineProps({
   catalogue: { type: Array as PropType<Lect[]>, default: [] },
@@ -34,13 +35,6 @@ const emit = defineEmit(["toggle"]);
 
 let map: undefined | mapboxgl.Map;
 const markers = reactive([] as [HTMLElement, [number, number]][]);
-watch(markers, () => console.log(markers));
-function addMarker(ref: HTMLElement, point: [number, number]) {
-  // console.log("adding", ref);
-  // if (map) attachRef(ref, point);
-  // else refs.push([ref, point]);
-  markers.push([ref, point]);
-}
 
 function toggle(name: string) {
   emit("toggle", name);
@@ -49,10 +43,9 @@ function toggle(name: string) {
 onMounted(() => {
   map = initMap();
   initMarkers(map, props.catalogue, toggle);
-
-  console.log("ref", markers[0]);
-  // refs.forEach(([ref, point]) => addRefs(ref, point));
-  // refs.length = 0;
+  console.log("markers", markers);
+  // markers.forEach(([marker, point]) => attachRef(marker, point));
+  // markers.value.length = 0;
 });
 </script>
 
