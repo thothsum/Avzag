@@ -3,7 +3,7 @@
   <Marker
     v-for="{ name, coordinates } in catalogue"
     :key="name"
-    :ref="(el) => addRefs(el, coordinates)"
+    :ref="(m) => addMarker(m, coordinates)"
     :name="name"
     :search="search"
     @click="toggle(name)"
@@ -33,13 +33,13 @@ const props = defineProps({
 const emit = defineEmit(["toggle"]);
 
 let map: undefined | mapboxgl.Map;
-const refs = reactive([] as [HTMLElement, [number, number]][]);
-watch(refs, () => console.log(refs));
-function addRefs(ref: HTMLElement, point: [number, number]) {
+const markers = reactive([] as [HTMLElement, [number, number]][]);
+watch(markers, () => console.log(markers));
+function addMarker(ref: HTMLElement, point: [number, number]) {
   // console.log("adding", ref);
   // if (map) attachRef(ref, point);
   // else refs.push([ref, point]);
-  refs.push([ref, point]);
+  markers.push([ref, point]);
 }
 
 function toggle(name: string) {
@@ -50,7 +50,7 @@ onMounted(() => {
   map = initMap();
   initMarkers(map, props.catalogue, toggle);
 
-  console.log("ref", refs[0]);
+  console.log("ref", markers[0]);
   // refs.forEach(([ref, point]) => addRefs(ref, point));
   // refs.length = 0;
 });
