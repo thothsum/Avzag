@@ -34,8 +34,5 @@ const markers = [] as MarkerInfo[];
 function addMarkerInfo(el: HTMLElement, point: [number, number]) {
   markers.push({ el, point });
 }
-onMounted(() => {
-  attachMarkers(initMap(), markers);
-  markers.length = 0;
-});
+onMounted(() => attachMarkers(initMap(), markers));
 </script>
