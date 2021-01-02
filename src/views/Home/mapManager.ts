@@ -41,5 +41,6 @@ export default function createMap(container = "map") {
   bindCamera();
   bindTheme();
   bindResize();
+
   return map;
 }
