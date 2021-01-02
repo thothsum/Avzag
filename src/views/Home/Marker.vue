@@ -60,10 +60,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .map-marker {
   text-align: center;
-  line-height: 100%;
   text-shadow: map-get($shadows, "elevated");
 }
+.icon {
+  line-height: 30%;
+  margin-bottom: map-get($margins, "half");
+}
 h2 {
+  line-height: 100%;
   cursor: pointer;
   padding-bottom: $border-width;
   border-bottom: $border-width dashed transparent;
