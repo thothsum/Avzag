@@ -1,13 +1,15 @@
 <template>
-  <div><div id="map" /></div>
-  <Marker
-    v-for="{ name, coordinates } in catalogue"
-    :key="name"
-    :ref="(m) => markers.push([m, coordinates])"
-    :name="name"
-    :search="search"
-    @click="toggle(name)"
-  />
+  <div>
+    <div><div id="map" /></div>
+    <Marker
+      v-for="{ name, coordinates } in catalogue"
+      :key="name"
+      :ref="(m) => markers.push([m, coordinates])"
+      :name="name"
+      :search="search"
+      @click="toggle(name)"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -20,6 +22,7 @@ import {
   reactive,
   watch,
   ref,
+  onUpdated,
 } from "vue";
 import { Lect, SearchState } from "./lect";
 import { initMarkers, attachRef } from "./markerManager";
@@ -41,12 +44,14 @@ function toggle(name: string) {
 }
 
 onMounted(() => {
-  map = initMap();
-  initMarkers(map, props.catalogue, toggle);
+  // map = initMap();
+  // initMarkers(map, props.catalogue, toggle);
   console.log("markers", markers);
   // markers.forEach(([marker, point]) => attachRef(marker, point));
   // markers.value.length = 0;
 });
+
+onUpdated(() => console.log("markers updated", markers));
 </script>
 
 <style lang="scss">
