@@ -1,5 +1,5 @@
 <template>
-  <div class="col-1 card">
+  <div class="col-1 card small">
     <div class="title">
       <h2 class="flex">{{ lect }}</h2>
       <p v-for="g in graphemes" :key="g" class="text-dot">{{ g }}</p>
@@ -8,80 +8,70 @@
       <button
         v-for="(s, i) in fullSamples"
         :key="i"
-        class="small row"
+        class="row"
         @click="play(i)"
       >
         <span class="icon">{{
-          canPlay[i] ? "play_arrow" : "arrow_right"
+          playable[i] ? "play_arrow" : "arrow_right"
         }}</span>
-        <span class="text" v-html="highlight(s.word, s.grapheme)"></span>
-        <span
-          v-if="s.ipa"
-          class="text-ipa"
-          v-html="highlight(s.ipa, use.phoneme)"
-        ></span>
+        <Notes class="word" :notes="[words[i]]" />
+        <Notes :notes="[ipas[i]]" />
       </button>
     </div>
-    <Notes :notes="use.notes" />
+    <Notes class="text-caption" :notes="use.notes" />
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Notes from "@/components/Notes";
+import { computed, defineEmit, defineProps, ref, watch } from "vue";
+import { useStore } from "vuex";
 
-export default {
-  name: "PhonemeUse",
-  components: { Notes },
-  props: ["lect", "use"],
-  data() {
-    return {
-      canPlay: [],
-    };
+const props = defineProps({
+  lect: { type: String, default: "" },
+  use: { type: Object, default: {} },
+});
+const emit = defineEmit(["play"]);
+const store = useStore();
+
+const root = computed(() => store.state.root + props.lect + "/audio/");
+const graphemes = computed(
+  () => new Set(props.use.samples.map(({ grapheme }) => grapheme))
+);
+const fullSamples = computed(() =>
+  props.use.samples.filter(({ word, ipa }) => word || ipa)
+);
+const urls = computed(() =>
+  fullSamples.value
+    .map(({ word, ipa }) => word?.replaceAll("*", "") ?? ipa)
+    .map((n) => root.value + n + ".mp3")
+);
+
+function highlight(text: string, target: string) {
+  return text.includes("*") ? text : text.replaceAll(target, `*${target}*`);
+}
+const words = computed(() =>
+  fullSamples.value.map(({ word, grapheme }) => highlight(word, grapheme))
+);
+const ipas = computed(() =>
+  fullSamples.value.map(({ ipa }) => highlight(ipa, props.use.phoneme))
+);
+
+const playable = ref([] as boolean[]);
+function play(index: number) {
+  if (playable.value[index]) emit("play", urls.value[index]);
+}
+watch(
+  urls,
+  (urls) => {
+    playable.value = new Array(urls);
+    urls.forEach((u, i) => {
+      fetch(u, { method: "HEAD" }).then(({ ok }) => (playable.value[i] = ok));
+    });
   },
-  computed: {
-    root() {
-      return this.$store.state.root + this.lect + "/audio/";
-    },
-    fullSamples() {
-      return this.use.samples.filter((s) => s.word || s.ipa);
-    },
-    urls() {
-      return this.fullSamples
-        .map((s) => s.word?.replace(/\*/g, "") ?? s.ipa)
-        .map((w) => this.root + w + ".mp3");
-    },
-    graphemes() {
-      return new Set(this.use.samples.map((s) => s.grapheme));
-    },
-  },
-  watch: {
-    urls: {
-      handler() {
-        this.canPlay = new Array(this.urls);
-        this.urls.forEach((u, i) => {
-          fetch(u, { method: "HEAD" }).then((r) => {
-            this.canPlay = this.canPlay.splice(i, 1, r.ok);
-          });
-        });
-      },
-      immediate: true,
-    },
-  },
-  methods: {
-    color(s) {
-      return `<span style='color: var(--color-highlight)'>${s}</span>`;
-    },
-    highlight(word, grap) {
-      if (!word) return null;
-      return word.includes("*")
-        ? word.replace(/\*([^*]+)\*/g, this.color("$1"))
-        : word.replace(new RegExp(grap, "g"), this.color(grap));
-    },
-    play(i) {
-      if (this.canPlay[i]) this.$emit("play", this.urls[i]);
-    },
-  },
-};
+  { immediate: true }
+);
 </script>
 
 <style lang="scss" scoped>
@@ -99,7 +89,7 @@ export default {
     border-radius: 0 0 $border-radius $border-radius;
   }
 }
-.text {
+.word {
   flex: 1;
   text-align: left;
 }

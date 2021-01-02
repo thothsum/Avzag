@@ -6,7 +6,7 @@
         icon="delete_forever"
         @click="confirm"
       />
-      <control :icon="check" @click="prompt = false" />
+      <control icon="check" @click="prompt = false" />
     </template>
     <control
       v-else

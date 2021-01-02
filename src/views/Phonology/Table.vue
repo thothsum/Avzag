@@ -3,68 +3,62 @@
     <Phoneme
       v-for="(p, i) in filtered"
       :key="i"
-      :selected="phoneme == p"
       :faded="!fitting[i]"
       :ipa="p.ipa"
       :str="graphemes[i]"
-      @click="$emit('update:phoneme', p)"
+      :selected="selected == p"
+      @click="selected = p"
     />
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { computed, defineEmit, defineProps, PropType } from "vue";
 import Phoneme from "./Phoneme";
+import { Query, EvaluateQuery } from "@/components/Query";
 
-export default {
-  name: "PhoneticTable",
-  components: {
-    Phoneme,
-  },
-  props: ["phoneme", "filter", "lectQuery", "featureQuery", "phonemes"],
-  computed: {
-    filtered() {
-      return this.filter
-        ? this.phonemes.filter((p) => p.tags.includes(this.filter))
-        : this.phonemes;
-    },
-    fitting() {
-      return this.filtered.map(
-        (p) =>
-          this.pass(Object.keys(p.lects), this.lectQuery) &&
-          this.pass(p.tags, this.featureQuery)
-      );
-    },
-    singleLect() {
-      let lect = null;
-      for (const l in this.lectQuery) {
-        if (this.lectQuery[l] > 0) {
-          if (!lect) lect = l;
-          else return;
-        }
-      }
-      return lect;
-    },
-    graphemes() {
-      return this.singleLect
-        ? this.filtered.map(
-            (p) => p.lects[this.singleLect]?.samples[0]?.grapheme
-          )
-        : [];
-    },
-    narrow() {
-      return this.filtered.length <= 12;
-    },
-  },
-  methods: {
-    pass(tags, query) {
-      if (!query) return true;
-      for (const [tag, mode] of Object.entries(query)) {
-        if (mode !== tags.includes(tag)) return false;
-      }
-      return true;
-    },
-  },
-};
+const props = defineProps({
+  modelValue: { type: Object, default: {} },
+  phonemes: { type: Array, default: [] },
+  filter: { type: String, default: "" },
+  lectQuery: { type: Object as PropType<Query>, default: "" },
+  featureQuery: { type: Object as PropType<Query>, default: "" },
+});
+const emit = defineEmit(["update:modelValue"]);
+
+const selected = computed({
+  get: () => props.modelValue,
+  set: (s) => emit("update:modelValue", s),
+});
+const filtered = computed(() =>
+  props.filter
+    ? props.phonemes.filter(({ tags }) => tags.includes(props.filter))
+    : props.phonemes
+);
+const fitting = computed(() =>
+  filtered.value.map(
+    ({ lects, tags }) =>
+      EvaluateQuery(Object.keys(lects), props.lectQuery) &&
+      EvaluateQuery(tags, props.featureQuery)
+  )
+);
+const singleLect = computed(() => {
+  let single;
+  for (const [lect, flag] of Object.entries(props.lectQuery))
+    if (flag)
+      if (!single) single = lect;
+      else return;
+  return single;
+});
+const graphemes = computed(() =>
+  singleLect.value
+    ? filtered.value.map(
+        ({ lects }) => lects[singleLect.value]?.samples[0]?.grapheme
+      )
+    : []
+);
+const narrow = computed(() => filtered.value.length <= 12);
 </script>
 
 <style lang="scss" scoped>

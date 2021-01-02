@@ -5,11 +5,16 @@
   </button>
 </template>
 
-<script>
-export default {
-  name: "PhoneticItem",
-  props: ["selected", "faded", "ipa", "str"],
-};
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { defineProps } from "vue";
+
+const props = defineProps({
+  selected: Boolean,
+  faded: Boolean,
+  ipa: { type: String, default: "" },
+  str: { type: String, default: "" },
+});
 </script>
 
 <style lang="scss" scoped>

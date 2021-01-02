@@ -15,23 +15,19 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { ref, defineProps } from "vue";
 import Occurence from "./Occurence";
 
-export default {
-  name: "PhonemeDetails",
-  components: {
-    Occurence,
-  },
-  props: ["phoneme"],
-  methods: {
-    play(audio) {
-      const player = this.$refs.player;
-      player.src = audio;
-      player.play();
-    },
-  },
-};
+const player = ref({} as HTMLMediaElement);
+const props = defineProps({ phoneme: Object });
+
+function play(audio: string) {
+  player.value.src = audio;
+  player.value.play();
+  console.log(audio);
+}
 </script>
 
 <style lang="scss" scoped>

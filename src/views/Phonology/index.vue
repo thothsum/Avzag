@@ -9,7 +9,7 @@
       <div v-for="c in categories" :key="c" class="col">
         <h2>{{ c + "s" }}</h2>
         <Table
-          v-model:phoneme="phoneme"
+          v-model="phoneme"
           :filter="c"
           :feature-query="featureQuery"
           :lect-query="lectQuery"
@@ -21,53 +21,30 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import ToggleQuery from "@/components/Query/ToggleQuery";
 import InputQuery from "@/components/Query/InputQuery";
 import Table from "./Table";
 import Inspector from "./Inspector";
+import { computed, onUnmounted, ref, watch } from "vue";
+import { useStore } from "vuex";
 
-export default {
-  name: "Phonology",
-  components: {
-    Table,
-    Inspector,
-    ToggleQuery,
-    InputQuery,
-  },
-  data() {
-    return {
-      categories: ["vowel", "consonant"],
-      phoneme: undefined,
-      lectQuery: undefined,
-      featureQuery: undefined,
-    };
-  },
-  computed: {
-    lects() {
-      return this.$store.state.lects.map((l) => l.name);
-    },
-    phonemes() {
-      return this.$store.state.phonemes;
-    },
-  },
-  watch: {
-    phonemes: {
-      handler() {
-        if (this.phonemes) {
-          const phoneme = localStorage.phoneme;
-          this.phoneme =
-            this.phonemes.find(({ ipa }) => ipa === phoneme) ??
-            this.phonemes[0];
-        }
-      },
-      immediate: true,
-    },
-  },
-  unmounted() {
-    localStorage.phoneme = this.phoneme.ipa;
-  },
-};
+const store = useStore();
+
+const categories = ["vowel", "consonant"];
+const phoneme = ref({});
+const lectQuery = ref({});
+const featureQuery = ref({});
+
+const lects = computed(() => store.state.lects?.map(({ name }) => name) ?? []);
+const phonemes = computed(() => store.state.phonemes ?? []);
+
+watch(phonemes, (phonemes) => {
+  const p = localStorage.phoneme;
+  phoneme.value = phonemes.find(({ ipa }) => ipa === p) ?? phonemes[0];
+});
+onUnmounted(() => (localStorage.phoneme = phoneme.value.ipa));
 </script>
 
 <style lang="scss" scoped>

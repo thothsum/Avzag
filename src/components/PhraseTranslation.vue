@@ -23,7 +23,7 @@
         @update:context="$emit('update:context', $event)"
       />
     </div>
-    <Notes v-if="showNotes" :notes="translation.notes" />
+    <Notes v-if="showNotes" class="text-caption" :notes="translation.notes" />
   </div>
 </template>
 
