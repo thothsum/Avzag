@@ -4,7 +4,7 @@
     <Marker
       v-for="{ name, coordinates } in catalogue"
       :key="name"
-      :ref="(m) => markers.push([m, coordinates])"
+      :ref="(m) => markers.push([m?.$el, coordinates])"
       :name="name"
       :search="search"
       @click="toggle(name)"
@@ -37,18 +37,21 @@ const props = defineProps({
 const emit = defineEmit(["toggle"]);
 
 let map: undefined | mapboxgl.Map;
-const markers = reactive([] as [HTMLElement, [number, number]][]);
+const markers = reactive([] as [undefined | HTMLElement, [number, number]][]);
 
 function toggle(name: string) {
   emit("toggle", name);
 }
 
 onMounted(() => {
-  // map = initMap();
-  // initMarkers(map, props.catalogue, toggle);
+  map = initMap();
+  initMarkers(map, props.catalogue, toggle);
+
   console.log("markers", markers);
-  // markers.forEach(([marker, point]) => attachRef(marker, point));
-  // markers.value.length = 0;
+  markers.forEach(([marker, point]) => {
+    if (marker) attachRef(marker, point);
+  });
+  markers.length = 0;
 });
 
 onUpdated(() => console.log("markers updated", markers));
