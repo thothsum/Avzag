@@ -44,7 +44,7 @@ function toPiece(text: string): Piece {
   return { text, display: "plain" };
 }
 const pieces = computed(() => {
-  const separator = /(\/[^/<>]+\/|<.+>|\*[^*]+\*)/g;
+  const separator = /(\/[^/]+\/|<[^<>]+>|\*[^*]+\*)/g;
   return props.notes.map((n) => n.split(separator).map((n) => toPiece(n)));
 });
 </script>
