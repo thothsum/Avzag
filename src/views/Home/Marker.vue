@@ -1,5 +1,5 @@
 <template>
-  <div class="map-marker">
+  <div ref="root" class="map-marker">
     <p class="icon" :class="{ 'highlight-font': selected }">expand_less</p>
     <h2
       :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
@@ -12,23 +12,47 @@
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { computed, defineComponent, PropType } from "vue";
-import { SearchState } from "./lect";
+import {
+  ref,
+  computed,
+  defineComponent,
+  PropType,
+  watchEffect,
+  toRaw,
+} from "vue";
+import { Lect, SearchState } from "./lect";
+import mapboxgl from "mapbox-gl";
 
 export default defineComponent({
   props: {
-    name: { type: String, default: "" },
+    lect: { type: Object as PropType<Lect>, default: {} },
     search: { type: Object as PropType<SearchState>, default: {} },
+    map: {
+      type: Object as PropType<undefined | mapboxgl.Map>,
+      default: undefined,
+    },
   },
   emits: ["click"],
   setup(props, { emit }) {
-    return {
-      emit,
-      selected: computed(() => props.search.selected.has(props.name)),
-      faded: computed(
-        () => props.search.visible.size && !props.search.visible.has(props.name)
-      ),
-    };
+    const root = ref(undefined as undefined | HTMLElement);
+    watchEffect(() => {
+      const map = toRaw(props.map);
+      if (root.value && map)
+        new mapboxgl.Marker({
+          element: root.value,
+          anchor: "top",
+        })
+          .setLngLat(props.lect.point)
+          .addTo(map);
+    });
+
+    const name = computed(() => props.lect.name);
+    const selected = computed(() => props.search.selected.has(name.value));
+    const faded = computed(
+      () => props.search.visible.size && !props.search.visible.has(name.value)
+    );
+
+    return { emit, root, name, selected, faded };
   },
 });
 </script>

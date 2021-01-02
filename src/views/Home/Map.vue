@@ -2,23 +2,23 @@
   <div>
     <div><div id="map" /></div>
     <Marker
-      v-for="{ name, point } in catalogue"
-      :key="name"
-      :ref="(m) => addMarkerInfo(m?.$el, point)"
-      :name="name"
+      v-for="l in catalogue"
+      :key="l.name"
+      :lect="l"
       :search="search"
-      @click="toggle(name)"
+      :map="map"
+      @click="emit('toggle', l.name)"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { onMounted, defineProps, defineEmit, PropType } from "vue";
+import { ref, onMounted, defineProps, defineEmit, PropType } from "vue";
 import { Lect, SearchState } from "./lect";
 import Marker from "./Marker";
-import { MarkerInfo, attachMarkers } from "./markerManager";
-import initMap from "./mapManager";
+import createMap from "./mapManager";
+import mapboxgl from "mapbox-gl";
 
 const props = defineProps({
   catalogue: { type: Array as PropType<Lect[]>, default: [] },
@@ -26,13 +26,6 @@ const props = defineProps({
 });
 const emit = defineEmit(["toggle"]);
 
-function toggle(name: string) {
-  emit("toggle", name);
-}
-
-const markers = [] as MarkerInfo[];
-function addMarkerInfo(el: HTMLElement, point: [number, number]) {
-  markers.push({ el, point });
-}
-onMounted(() => attachMarkers(initMap(), markers));
+const map = ref(undefined as undefined | mapboxgl.Map);
+onMounted(() => (map.value = createMap()));
 </script>

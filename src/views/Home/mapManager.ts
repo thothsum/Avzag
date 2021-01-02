@@ -33,7 +33,7 @@ function bindResize() {
   observer.observe(map.getContainer());
 }
 
-export default function initMap(container = "map") {
+export default function createMap(container = "map") {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
   map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
   map.doubleClickZoom.disable();

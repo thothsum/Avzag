@@ -3,8 +3,7 @@
     "name": "Kaitag",
     "point": [47.822142, 42.082736],
     "family": ["Northeast Caucasian", "Dargic"],
-    "tags": "Dagestani Caucasian Caspian",
-    "quote": "Жанаттен яхӏ дурхъалце."
+    "tags": "Dagestani Caucasian Caspian"
   },
   {
     "name": "Akusha",
@@ -28,8 +27,7 @@
     "name": "Kabardian",
     "point": [42.769419, 43.762647],
     "family": ["Northwest Caucasian", "Circassian"],
-    "tags": "Caucasian Pontic Adyghe",
-    "quote": "Псэм ипэ напэ."
+    "tags": "Caucasian Pontic Adyghe"
   },
   {
     "name": "Temirgoy",
@@ -41,8 +39,7 @@
     "name": "Keren",
     "point": [47.546501, 41.707224],
     "family": ["Northeast Caucasian", "Lezgic", "Aghul"],
-    "tags": "Western Samur",
-    "quote": "Яхӏ гӏумурдилас багьа э."
+    "tags": "Western Samur"
   },
   {
     "name": "Udmurt",
