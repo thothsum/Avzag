@@ -1,6 +1,6 @@
 export interface Lect {
   name: string;
-  coordinates: [number, number];
+  point: [number, number];
   family: string[];
   tags?: string;
   quote?: string;

@@ -1,7 +1,10 @@
 <template>
   <div class="map-marker">
-    <p class="icon">expand_less</p>
-    <h2 :class="{ 'highlight-font': selected, faded }" @click="emit('click')">
+    <p class="icon" :class="{ 'highlight-font': selected }">expand_less</p>
+    <h2
+      :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
+      @click="emit('click')"
+    >
       {{ name }}
     </h2>
   </div>

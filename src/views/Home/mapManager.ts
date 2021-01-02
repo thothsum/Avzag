@@ -36,6 +36,7 @@ function bindResize() {
 export default function initMap(container = "map") {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
   map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
+  map.doubleClickZoom.disable();
 
   bindCamera();
   bindTheme();

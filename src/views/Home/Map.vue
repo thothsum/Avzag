@@ -2,9 +2,9 @@
   <div>
     <div><div id="map" /></div>
     <Marker
-      v-for="{ name, coordinates } in catalogue"
+      v-for="{ name, point } in catalogue"
       :key="name"
-      :ref="(m) => markers.push([m?.$el, coordinates])"
+      :ref="(m) => addMarkerInfo(m?.$el, point)"
       :name="name"
       :search="search"
       @click="toggle(name)"
@@ -14,21 +14,11 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  onMounted,
-  defineProps,
-  defineEmit,
-  PropType,
-  reactive,
-  watch,
-  ref,
-  onUpdated,
-} from "vue";
+import { onMounted, defineProps, defineEmit, PropType } from "vue";
 import { Lect, SearchState } from "./lect";
-import { initMarkers, attachRef } from "./markerManager";
-import initMap from "./mapManager";
-import mapboxgl from "mapbox-gl";
 import Marker from "./Marker";
+import { MarkerInfo, attachMarkers } from "./markerManager";
+import initMap from "./mapManager";
 
 const props = defineProps({
   catalogue: { type: Array as PropType<Lect[]>, default: [] },
@@ -36,25 +26,18 @@ const props = defineProps({
 });
 const emit = defineEmit(["toggle"]);
 
-let map: undefined | mapboxgl.Map;
-const markers = reactive([] as [undefined | HTMLElement, [number, number]][]);
-
 function toggle(name: string) {
   emit("toggle", name);
 }
 
+const markers = [] as MarkerInfo[];
+function addMarkerInfo(el: HTMLElement, point: [number, number]) {
+  markers.push({ el, point });
+}
 onMounted(() => {
-  map = initMap();
-  initMarkers(map, props.catalogue, toggle);
-
-  console.log("markers", markers);
-  markers.forEach(([marker, point]) => {
-    if (marker) attachRef(marker, point);
-  });
+  attachMarkers(initMap(), markers);
   markers.length = 0;
 });
-
-onUpdated(() => console.log("markers updated", markers));
 </script>
 
 <style lang="scss">
