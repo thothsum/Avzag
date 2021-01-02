@@ -39,33 +39,3 @@ onMounted(() => {
   markers.length = 0;
 });
 </script>
-
-<style lang="scss">
-.map-marker {
-  * {
-    transition: $transition;
-  }
-  transform-origin: top center;
-  width: fit-content;
-  height: fit-content;
-  text-align: center;
-  line-height: 100%;
-  text-shadow: map-get($shadows, "elevated");
-  h2 {
-    padding-bottom: $border-width;
-    border-bottom: $border-width dashed transparent;
-    border-radius: 0;
-    &:hover {
-      border-color: var(--color-text);
-    }
-  }
-  p {
-    font-size: map-get($font-sizes, "large");
-  }
-  @for $i from 1 through 13 {
-    &.zoom-#{$i} {
-      transform: translate(-50%) scale(#{$i * $i / 72});
-    }
-  }
-}
-</style>
