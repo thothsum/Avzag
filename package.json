@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/mapbox-gl": "^2.0.0",
+    "@types/resize-observer-browser": "^0.1.4",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "^4.5.9",
@@ -42,6 +43,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.4.0",
     "prettier": "^2.2.1",
+    "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.32.0",
     "sass-loader": "^8.0.2",
     "typescript": "^3.9.7",

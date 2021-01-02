@@ -1,7 +1,10 @@
 import mapboxgl from "mapbox-gl";
-import { nextTick, onUnmounted } from "vue";
+import ResizeObserver from "resize-observer-polyfill";
+import { onUnmounted } from "vue";
 
-function bindCamera(map: mapboxgl.Map) {
+let map = {} as mapboxgl.Map;
+
+function bindCamera() {
   const camera = { center: new mapboxgl.LngLat(0, 0), zoom: 5 };
 
   if (localStorage.camera)
@@ -15,7 +18,7 @@ function bindCamera(map: mapboxgl.Map) {
   map.on("zoom", () => (camera.zoom = map.getZoom()));
 }
 
-function bindTheme(map: mapboxgl.Map) {
+function bindTheme() {
   function setStyle({ matches }: MediaQueryList | MediaQueryListEvent) {
     const theme = matches ? "dark" : "light";
     map.setStyle(`mapbox://styles/mapbox/${theme}-v10`);
@@ -25,18 +28,17 @@ function bindTheme(map: mapboxgl.Map) {
   setStyle(query);
 }
 
+function bindResize() {
+  const observer = new ResizeObserver(() => map.resize());
+  observer.observe(map.getContainer());
+}
+
 export default function initMap(container = "map") {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
-  const map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
+  map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
 
-  bindCamera(map);
-  bindTheme(map);
-
-  window.addEventListener("resize", () =>
-    nextTick(() => {
-      map.resize();
-    })
-  );
-
+  bindCamera();
+  bindTheme();
+  bindResize();
   return map;
 }
