@@ -31,46 +31,21 @@ export default defineComponent({
     };
   },
 });
-
-// const props = defineProps({
-//   name: { type: String, default: "" },
-//   search: { type: Object as PropType<SearchState>, default: {} },
-// });
-// const emit = defineEmit(["click"]);
-
-// const selected = computed(() => props.search.selected.has(props.name));
-// const faded = computed(
-//   () => props.search.visible.size && !props.search.visible.has(props.name)
-// );
 </script>
 
 <style lang="scss" scoped>
 .map-marker {
-  * {
-    transition: $transition;
-  }
-  transform-origin: top center;
-  width: fit-content;
-  height: fit-content;
   text-align: center;
   line-height: 100%;
   text-shadow: map-get($shadows, "elevated");
-  h2 {
-    padding-bottom: $border-width;
-    border-bottom: $border-width dashed transparent;
-    border-radius: 0;
-    cursor: pointer;
-    &:hover {
-      border-color: var(--color-text);
-    }
-  }
-  p {
-    font-size: map-get($font-sizes, "large");
-  }
-  @for $i from 1 through 13 {
-    &.zoom-#{$i} {
-      transform: translate(-50%) scale(#{$i * $i / 72});
-    }
+}
+h2 {
+  cursor: pointer;
+  padding-bottom: $border-width;
+  border-bottom: $border-width dashed transparent;
+  border-radius: 0;
+  &:hover {
+    border-color: var(--color-text);
   }
 }
 </style>
