@@ -1,17 +1,17 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import PhonologyEditor from "../views/Phonology/Editor";
-import ConverterEditor from "../views/ConverterEditor";
-import PhrasebookEditor from "../views/PhrasebookEditor";
-import PhrasebookCorpusEditor from "../views/PhrasebookCorpusEditor";
+const PhonologyEditor = () => import("../views/Phonology/Editor");
+const ConverterEditor = () => import("../views/ConverterEditor");
+const PhrasebookEditor = () => import("../views/PhrasebookEditor");
+const PhrasebookCorpusEditor = () => import("../views/PhrasebookCorpusEditor");
 
-import Phonology from "../views/Phonology";
-import Converter from "../views/Converter";
-import Phrasebook from "../views/Phrasebook";
+const Phonology = () => import("../views/Phonology");
+const Converter = () => import("../views/Converter");
+const Phrasebook = () => import("../views/Phrasebook");
 
-import NavHeader from "../components/NavHeader";
-import EditorNavHeader from "../components/EditorNavHeader";
-import Home from "../views/Home";
+const NavHeader = () => import("../components/NavHeader");
+const EditorNavHeader = () => import("../components/EditorNavHeader");
+const Home = () => import("../views/Home");
 
 export default createRouter({
   history: createWebHashHistory(),
