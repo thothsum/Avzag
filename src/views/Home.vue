@@ -36,6 +36,7 @@
       <div class="col-1 scroll">
         <div id="about" class="col-1 card text-center" v-if="about">
           <h1>Ævzag</h1>
+          <p>v0.3.0</p>
           <p v-show="quote">{{ quote }}</p>
           <div class="row-1 wrap center">
             <router-link to="/editor/phonology">Editor tools</router-link>
