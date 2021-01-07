@@ -43,7 +43,7 @@
           </div>
           <p class="text-faded text-caption">
             The source corpus is loading from what is saved on Phrasebook
-            Corppus editor page.
+            Corpus editor page.
           </p>
           <template v-if="phrase">
             <PhraseContext :context="context" />
