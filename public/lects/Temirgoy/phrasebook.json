@@ -1,0 +1,250 @@
+{
+    "10": {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true,
+                        "display": [
+                            {
+                                "text": "Сэ"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "plural"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true,
+                        "display": [
+                            {
+                                "text": "Тэ"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "there"
+                            },
+                            {
+                                "entity": "tense",
+                                "tag": "present",
+                                "passive": true
+                            }
+                        ],
+                        "transition": "2",
+                        "display": [
+                            {
+                                "text": "а"
+                            },
+                            {
+                                "text": "кӏэ",
+                                "entity": "tense"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "there"
+                            },
+                            {
+                                "entity": "tense",
+                                "tag": "future",
+                                "passive": true
+                            }
+                        ],
+                        "transition": "2",
+                        "display": [
+                            {
+                                "text": "а"
+                            },
+                            {
+                                "text": "щ",
+                                "entity": "tense"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "shop"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "тучаным"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "home"
+                            }
+                        ],
+                        "transition": "0 1",
+                        "display": [
+                            {
+                                "text": "унэм"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "present"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "таущтэу"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "future"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "тхьапшым"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular"
+                            }
+                        ],
+                        "display": [
+                            {
+                                "text": "сы",
+                                "entity": "actor"
+                            },
+                            {
+                                "text": "кӏощта?"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "plural"
+                            }
+                        ],
+                        "display": [
+                            {
+                                "text": "ты",
+                                "entity": "actor"
+                            },
+                            {
+                                "text": "кӏощта?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "context": [
+            {
+                "entity": [
+                    "tense",
+                    ""
+                ],
+                "tags": [
+                    [
+                        "present",
+                        ""
+                    ],
+                    [
+                        "future",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "entity": [
+                    "actor",
+                    "цӏыфы"
+                ],
+                "tags": [
+                    [
+                        "singular",
+                        ""
+                    ],
+                    [
+                        "feminine",
+                        "бзылъфыгъ"
+                    ],
+                    [
+                        "masculine",
+                        "хъулъфыгъ"
+                    ],
+                    [
+                        "plural",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "entity": [
+                    "destination",
+                    ""
+                ],
+                "tags": [
+                    [
+                        "there",
+                        ""
+                    ],
+                    [
+                        "home",
+                        ""
+                    ],
+                    [
+                        "shop",
+                        ""
+                    ]
+                ]
+            }
+        ]
+    }
+}
