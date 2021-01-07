@@ -1,0 +1,104 @@
+[
+    {
+        "name": "Kaitag",
+        "coordinates": [
+            42.082736,
+            47.822142
+        ],
+        "family": [
+            "Northeast Caucasian",
+            "Dargic"
+        ],
+        "tags": "Dagestani Caucasian Caspian",
+        "quote": "Жанаттен яхӏ дурхъалце."
+    },
+    {
+        "name": "Akusha",
+        "coordinates": [
+            42.272130,
+            47.324441
+        ],
+        "family": [
+            "Northeast Caucasian",
+            "Dargic"
+        ],
+        "tags": "Dagestani Caucasian Caspian"
+    },
+    {
+        "name": "Iron",
+        "coordinates": [
+            42.865209,
+            44.245623
+        ],
+        "family": [
+            "Iranian",
+            "Eastern Iranian",
+            "Ossetian"
+        ],
+        "tags": "Caucasian Alanian"
+    },
+    {
+        "name": "Digor",
+        "coordinates": [
+            43.172488,
+            43.871052
+        ],
+        "family": [
+            "Iranian",
+            "Eastern Iranian",
+            "Ossetian"
+        ],
+        "tags": "Caucasian Alanian"
+    },
+    {
+        "name": "Kabardian",
+        "coordinates": [
+            43.762647,
+            42.769419
+        ],
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe",
+        "quote": "Псэм ипэ напэ."
+    },
+    {
+        "name": "Temirgoy",
+        "coordinates": [
+            44.486928,
+            40.152485
+        ],
+        "family": [
+            "Northwest Caucasian",
+            "Circassian"
+        ],
+        "tags": "Caucasian Pontic Adyghe"
+    },
+    {
+        "name": "Keren",
+        "coordinates": [
+            41.707224,
+            47.546501
+        ],
+        "family": [
+            "Northeast Caucasian",
+            "Lezgic",
+            "Aghul"
+        ],
+        "tags": "Western Samur",
+        "quote": "Яхӏ гӏумурдилас багьа э."
+    },
+    {
+        "name": "Udmurt",
+        "coordinates": [
+            56.672482,
+            52.516333
+        ],
+        "family": [
+            "Uralic",
+            "Permic"
+        ],
+        "tags": "Finno Ugric"
+    }
+]

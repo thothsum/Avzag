@@ -1,0 +1,563 @@
+{
+    "10": {
+        "notes": [
+            "In most cases, append <-цци> to form directive case."
+        ],
+        "context": [
+            {
+                "entity": [
+                    "tense",
+                    "замана"
+                ],
+                "tags": [
+                    [
+                        "present",
+                        "гьана"
+                    ],
+                    [
+                        "future",
+                        "цӏил"
+                    ]
+                ]
+            },
+            {
+                "entity": [
+                    "actor",
+                    "Мейдам"
+                ],
+                "tags": [
+                    [
+                        "singular",
+                        "цагина"
+                    ],
+                    [
+                        "feminine",
+                        "хьулум"
+                    ],
+                    [
+                        "masculine",
+                        "мургул"
+                    ],
+                    [
+                        "plural",
+                        "чумилра"
+                    ]
+                ]
+            },
+            {
+                "entity": [
+                    "destination",
+                    "мусса"
+                ],
+                "tags": [
+                    [
+                        "there",
+                        "гьетав"
+                    ],
+                    [
+                        "home",
+                        "хъале"
+                    ],
+                    [
+                        "shop",
+                        "тукен"
+                    ]
+                ]
+            }
+        ],
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "present"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "Цигле",
+                                "ipa": "t͡sigle",
+                                "glossing": "how"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "tense",
+                                "tag": "future"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "Цикъкъел",
+                                "ipa": "t͡siqːel",
+                                "glossing": "when"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true,
+                        "display": [
+                            {
+                                "text": "ду",
+                                "ipa": "du",
+                                "glossing": "1SG"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "plural"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true,
+                        "display": [
+                            {
+                                "text": "нисса",
+                                "ipa": "nisːɑ",
+                                "glossing": "1PL.EXCL"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "there"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "гьетин",
+                                "ipa": "het-in",
+                                "glossing": "that-LOC"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "home"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "хъили"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "destination",
+                                "tag": "shop"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "тукенцци"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular",
+                                "passive": true
+                            },
+                            {
+                                "entity": "actor",
+                                "tag": "masculine"
+                            }
+                        ],
+                        "transition": "1",
+                        "display": [
+                            {
+                                "text": "в",
+                                "ipa": "β-",
+                                "glossing": "M-",
+                                "entity": "actor"
+                            },
+                            {
+                                "text": "янилдай?",
+                                "ipa": "ɑˤ-nil-dɑ-j",
+                                "glossing": "go-ADJ-1-Q"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "singular",
+                                "passive": true
+                            },
+                            {
+                                "entity": "actor",
+                                "tag": "feminine"
+                            }
+                        ],
+                        "transition": "0",
+                        "display": [
+                            {
+                                "text": "р",
+                                "glossing": "F-",
+                                "ipa": "r-",
+                                "entity": "actor"
+                            },
+                            {
+                                "text": "янилдай?",
+                                "ipa": "ɑˤ-nil-dɑ-j",
+                                "glossing": "go-ADJ-1-Q"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "actor",
+                                "tag": "plural"
+                            }
+                        ],
+                        "display": [
+                            {
+                                "text": "д",
+                                "glossing": "PL-",
+                                "entity": "actor",
+                                "ipa": "d-"
+                            },
+                            {
+                                "text": "янилдай?",
+                                "ipa": "ɑˤ-nil-dɑ-j",
+                                "glossing": "go-ADJ-1-Q"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "11": {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "object"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "Гьежей"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "person"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "second"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "Этти"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "person"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "third"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "Гьетей"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "object"
+                            }
+                        ],
+                        "display": [
+                            {
+                                "text": "ци"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "person"
+                            }
+                        ],
+                        "display": [
+                            {
+                                "text": "ча"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "бикӏварай?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "12": {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "Баркалла,"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tag": "singular"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true,
+                        "display": [
+                            {
+                                "text": "ил"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tag": "plural"
+                            }
+                        ],
+                        "transition": "next",
+                        "implicit": true,
+                        "display": [
+                            {
+                                "text": "нишшали"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "singular"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "дами"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "plural"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "ниссай"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "цӏакьле"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tag": "singular"
+                            }
+                        ],
+                        "display": [
+                            {
+                                "text": "икьалабаривде."
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "subject",
+                                "tag": "plural"
+                            }
+                        ],
+                        "display": [
+                            {
+                                "text": "икьалабаривда."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "13": {},
+    "21": {
+        "blocks": [
+            {
+                "states": [
+                    {
+                        "display": [
+                            {
+                                "text": "Гьуналжия"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "states": [
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "singular"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "гьеж?"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "ticket"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "sigular"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "къагъар?"
+                            }
+                        ]
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "entity": "object",
+                                "tag": "apple"
+                            },
+                            {
+                                "entity": "object",
+                                "tag": "plural"
+                            }
+                        ],
+                        "transition": "next",
+                        "display": [
+                            {
+                                "text": "гьинце?"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
