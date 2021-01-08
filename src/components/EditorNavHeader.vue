@@ -17,7 +17,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Select from "./Select";
-import { ref, useContext, watch } from "vue";
+import { ref, useContext, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -45,8 +45,8 @@ const menus = [
     name: "PhrasebookCorpusEditor",
   },
 ];
-const menu = ref(1);
-// watch(menu, ({ name }) => router.push({ name }));
+const menu = ref(menus[0]);
+watchEffect(() => router.push({ name: menu.value.name }));
 </script>
 
 <style lang="scss" scoped>
