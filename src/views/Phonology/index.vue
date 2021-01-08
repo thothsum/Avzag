@@ -29,19 +29,20 @@ import Table from "./Table";
 import Inspector from "./Inspector";
 import { computed, onUnmounted, ref, watch } from "vue";
 import { useStore } from "vuex";
+import { Phoneme } from "./types";
 
 const store = useStore();
 
 const categories = ["vowel", "consonant"];
-const phoneme = ref({});
+const phoneme = ref({} as Phoneme);
 const lectQuery = ref({});
 const featureQuery = ref({});
 
 const lects = computed(() => store.state.lects?.map(({ name }) => name) ?? []);
-const phonemes = computed(() => store.state.phonemes ?? []);
+const phonemes = computed(() => (store.state.phonemes ?? []) as Phoneme[]);
 
 watch(phonemes, (phonemes) => {
-  const p = localStorage.phoneme;
+  const p = localStorage.phoneme as string;
   phoneme.value = phonemes.find(({ ipa }) => ipa === p) ?? phonemes[0];
 });
 onUnmounted(() => (localStorage.phoneme = phoneme.value.ipa));

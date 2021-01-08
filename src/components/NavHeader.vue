@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { defineProps, PropType } from "vue";
+import { PropType, defineProps } from "vue";
 
 interface Nav {
   icon?: string;

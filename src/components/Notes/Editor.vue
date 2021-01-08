@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { computed, defineEmit, defineProps, PropType } from "vue";
+import { PropType, computed, defineEmit, defineProps } from "vue";
 import ActionHeader from "@/components/ActionHeader";
 
 const props = defineProps({

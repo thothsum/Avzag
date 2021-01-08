@@ -17,7 +17,7 @@
     <div class="grid">
       <ActionHeader icon="view_comfy" header="Phonemes" @action="addPhoneme">
         <div class="row wrap">
-          <Phoneme
+          <TableEntry
             v-for="(p, i) in file"
             :key="i"
             :selected="phoneme == p"
@@ -73,7 +73,7 @@
 <script>
 import ButtonAlert from "@/components/ButtonAlert";
 import ActionHeader from "@/components/ActionHeader";
-import Phoneme from "./Phoneme";
+import TableEntry from "./TableEntry";
 import NotesEditor from "@/components/Notes/Editor";
 
 export default {
@@ -81,7 +81,7 @@ export default {
   components: {
     ButtonAlert,
     ActionHeader,
-    Phoneme,
+    TableEntry,
     NotesEditor,
   },
   data() {

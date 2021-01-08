@@ -5,7 +5,7 @@
       <p class="text-caption text-faded text-spaced">{{ phoneme.tags }}</p>
     </div>
     <audio ref="player"></audio>
-    <Occurence
+    <InspectorCard
       v-for="(u, l) of phoneme.lects"
       :key="l"
       :lect="l"
@@ -17,16 +17,18 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { ref, defineProps } from "vue";
-import Occurence from "./Occurence";
+import { ref, defineProps, PropType } from "vue";
+import InspectorCard from "./InspectorCard";
+import { Phoneme } from "./types";
 
 const player = ref({} as HTMLMediaElement);
-const props = defineProps({ phoneme: Object });
+const props = defineProps({
+  phoneme: { type: Object as PropType<Phoneme>, default: {} },
+});
 
-function play(audio: string) {
-  player.value.src = audio;
+function play(url: string) {
+  player.value.src = url;
   player.value.play();
-  console.log(audio);
 }
 </script>
 

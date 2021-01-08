@@ -1,6 +1,6 @@
 <template>
   <div id="root" :class="{ narrow }" class="row scroll wrap">
-    <Phoneme
+    <TableEntry
       v-for="(p, i) in filtered"
       :key="i"
       :faded="!fitting[i]"
@@ -15,11 +15,12 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineEmit, defineProps, PropType } from "vue";
-import Phoneme from "./Phoneme";
+import TableEntry from "./TableEntry";
 import { Query, EvaluateQuery } from "@/components/Query/types";
+import { Phoneme } from "./types";
 
 const props = defineProps({
-  modelValue: { type: Object, default: {} },
+  modelValue: { type: Object as PropType<Phoneme>, default: {} },
   phonemes: { type: Array, default: [] },
   filter: { type: String, default: "" },
   lectQuery: { type: Object as PropType<Query>, default: "" },
