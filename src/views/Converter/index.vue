@@ -20,9 +20,9 @@
           />
         </div>
         <ConverterText
+          v-model="intermediate"
           :source="source"
           :mapping="sourceMapping"
-          @result="intermediate = $event"
         />
         <MappingTable v-if="showMappings" :mapping="sourceMapping" />
       </div>
@@ -38,10 +38,10 @@
           <control icon="file_copy" @click="copy" />
         </div>
         <ConverterText
+          v-model="result"
           :source="intermediate"
           :mapping="resultMapping"
           :reverse="true"
-          @result="result = $event"
         />
         <MappingTable
           v-if="showMappings"

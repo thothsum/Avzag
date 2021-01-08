@@ -1,6 +1,8 @@
+export type Pairs = [string, string][];
+
 export type Mapping = {
   name: string;
-  pairs: [string, string][];
+  pairs: Pairs;
 };
 
 export type Converter = {
