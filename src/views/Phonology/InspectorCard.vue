@@ -38,16 +38,16 @@ const store = useStore();
 
 const root = computed(() => store.state.root + props.lect + "/audio/");
 const graphemes = computed(() => {
-  const set = new Set(props.use.samples.map(({ grapheme }) => grapheme));
+  const set = new Set(props.use.samples?.map(({ grapheme }) => grapheme));
   set.delete(undefined);
   return set;
 });
 const fullSamples = computed(() =>
-  props.use.samples.filter(({ word, ipa }) => word || ipa)
+  props.use.samples?.filter(({ word, ipa }) => word || ipa)
 );
 const urls = computed(() =>
   fullSamples.value
-    .map(({ word, ipa }) => word?.replaceAll("*", "") ?? ipa)
+    ?.map(({ word, ipa }) => word?.replaceAll("*", "") ?? ipa)
     .map((n) => root.value + n + ".mp3")
 );
 
@@ -55,23 +55,24 @@ function highlight(text: string, target: string) {
   return text.includes("*") ? text : text.replaceAll(target, `*${target}*`);
 }
 const words = computed(() =>
-  fullSamples.value.map(({ word, grapheme }) =>
+  fullSamples.value?.map(({ word, grapheme }) =>
     highlight(word as string, grapheme as string)
   )
 );
 const ipas = computed(() =>
-  fullSamples.value.map(({ ipa }) =>
+  fullSamples.value?.map(({ ipa }) =>
     highlight(ipa as string, props.use.phoneme)
   )
 );
 
 const playable = ref([] as boolean[]);
 function play(index: number) {
-  if (playable.value[index]) emit("play", urls.value[index]);
+  if (playable.value[index] && urls.value) emit("play", urls.value[index]);
 }
 watch(
   urls,
   (urls) => {
+    if (!urls) return;
     playable.value = new Array(urls.length);
     urls.forEach((u, i) =>
       fetch(u, { method: "HEAD" }).then(({ ok }) => (playable.value[i] = ok))

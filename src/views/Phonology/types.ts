@@ -6,7 +6,7 @@ export type PhonemeSample = {
 
 export type PhonemeUse = {
   phoneme: string;
-  samples: PhonemeSample[];
+  samples?: PhonemeSample[];
   notes: string[];
 };
 

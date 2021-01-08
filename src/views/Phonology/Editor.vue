@@ -70,89 +70,82 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
 import TableEntry from "./TableEntry";
 import NotesEditor from "@/components/Notes/Editor";
 
-export default {
-  name: "PhonologyEditor",
-  components: {
-    ButtonAlert,
-    EditorCard,
-    TableEntry,
-    NotesEditor,
-  },
-  data() {
-    return {
-      file: undefined,
-      phoneme: undefined,
-    };
-  },
-  computed: {
-    graphemes() {
-      return this.file.map((p) => p?.samples?.[0]?.grapheme);
-    },
-  },
-  mounted() {
-    try {
-      const file = JSON.parse(localStorage.pEditor);
-      if (file) this.file = file;
-      return;
-    } catch (error) {
-      console.log(error);
-    }
-    this.reset();
-  },
-  updated() {
-    localStorage.pEditor = JSON.stringify(this.file);
-  },
-  beforeUnmount() {
-    localStorage.pEditor = JSON.stringify(this.file);
-  },
-  methods: {
-    addPhoneme() {
-      const p = { phoneme: "new" };
-      this.file.push(p);
-      this.phoneme = p;
-    },
-    removePhoneme() {
-      const i = this.file.indexOf(this.phoneme);
-      this.file.splice(i, 1);
-      this.phoneme = this.file[this.file.length - 1];
-    },
-    addSample() {
-      if (this.phoneme.samples) this.phoneme.samples.push({});
-      else this.$set(this.phoneme, "samples", [{}]);
-    },
-    removeSample(i) {
-      this.$delete(this.phoneme.samples, i);
-    },
-    loadFromLect() {
-      fetch(
-        this.$store.state.root +
-          window.prompt("Enter lect name") +
-          "/phonology.json"
-      )
-        .then((r) => r.json())
-        .then((j) => {
-          if (j) this.file = j;
-        });
-    },
-    loadFromJson() {
-      const file = JSON.parse(window.prompt("Enter JSON"));
-      if (file) this.file = file;
-    },
-    saveToJson() {
-      navigator.clipboard.writeText(JSON.stringify(this.file));
-    },
-    reset() {
-      this.file = [];
-      this.phoneme = null;
-    },
-  },
-};
+import { computed, onBeforeUnmount, onMounted, onUpdated, ref } from "vue";
+import { PhonemeUse } from "./types";
+import { useStore } from "vuex";
+
+const store = useStore();
+
+const file = ref([] as PhonemeUse[]);
+const phoneme = ref({} as PhonemeUse);
+
+const graphemes = computed(() =>
+  file.value.map((p) => p?.samples?.[0].grapheme)
+);
+
+function loadFromLect() {
+  fetch(store.state.root + window.prompt("Enter lect name") + "/phonology.json")
+    .then((r) => r.json())
+    .then((j) => {
+      if (j) {
+        file.value = j;
+        phoneme.value = file.value[0];
+      }
+    });
+}
+function loadFromJson() {
+  const f = JSON.parse(window.prompt("Enter JSON") ?? "{}");
+  if (f) {
+    file.value = f;
+    phoneme.value = file.value[0];
+  }
+}
+function saveToJson() {
+  navigator.clipboard.writeText(JSON.stringify(file.value));
+}
+function reset() {
+  file.value = [];
+  phoneme.value = file.value[0];
+}
+
+onMounted(() => {
+  try {
+    const f = JSON.parse(localStorage.pEditor);
+    if (f) file.value = f;
+    return;
+  } catch (error) {
+    console.log(error);
+  }
+  reset();
+});
+onUpdated(() => (localStorage.pEditor = JSON.stringify(file.value)));
+onBeforeUnmount(() => (localStorage.pEditor = JSON.stringify(file.value)));
+
+function addPhoneme() {
+  const p = { phoneme: "new" } as PhonemeUse;
+  file.value.push(p);
+  phoneme.value = p;
+}
+function removePhoneme() {
+  const i = file.value.indexOf(phoneme.value);
+  file.value.splice(i, 1);
+  phoneme.value = file.value[file.value.length - 1];
+}
+
+function addSample() {
+  if (phoneme.value.samples) phoneme.value.samples.push({});
+  else phoneme.value.samples = [{}];
+}
+function removeSample(index: number) {
+  if (phoneme.value.samples) phoneme.value.samples.splice(index, 1);
+}
 </script>
 
 <style lang="scss" scoped>
