@@ -15,7 +15,7 @@
       <ButtonAlert text="Reset" @confirm="reset" />
     </div>
     <div class="grid">
-      <ActionHeader icon="view_comfy" header="Phonemes" @action="addPhoneme">
+      <EditorCard icon="view_comfy" header="Phonemes" @action="addPhoneme">
         <div class="row wrap">
           <TableEntry
             v-for="(p, i) in file"
@@ -26,9 +26,9 @@
             @click="phoneme = p"
           />
         </div>
-      </ActionHeader>
+      </EditorCard>
       <div v-if="phoneme" class="col-2 small">
-        <ActionHeader button="" icon="hearing" header="Phoneme">
+        <EditorCard button="" icon="hearing" header="Phoneme">
           <template #header><ButtonAlert @confirm="removePhoneme" /></template>
           <input
             v-model="phoneme.phoneme"
@@ -36,12 +36,12 @@
             class="text-ipa"
             placeholder="phoneme"
           />
-        </ActionHeader>
+        </EditorCard>
         <NotesEditor v-model="phoneme.notes">
           You can add notes to clarify certain use cases or to give some
           additional info.
         </NotesEditor>
-        <ActionHeader header="Samples" icon="playlist_play" @action="addSample">
+        <EditorCard header="Samples" icon="playlist_play" @action="addSample">
           <template #caption>
             Use cases of the phoneme within the language, defined by a letter, a
             word, and the word's ipa.
@@ -64,7 +64,7 @@
               <control icon="clear" @click="removeSample(i)" />
             </div>
           </template>
-        </ActionHeader>
+        </EditorCard>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@
 
 <script>
 import ButtonAlert from "@/components/ButtonAlert";
-import ActionHeader from "@/components/ActionHeader";
+import EditorCard from "@/components/EditorCard";
 import TableEntry from "./TableEntry";
 import NotesEditor from "@/components/Notes/Editor";
 
@@ -80,7 +80,7 @@ export default {
   name: "PhonologyEditor",
   components: {
     ButtonAlert,
-    ActionHeader,
+    EditorCard,
     TableEntry,
     NotesEditor,
   },

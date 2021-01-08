@@ -1,6 +1,6 @@
 /* eslint-disable vue/no-mutating-props */
 <template>
-  <ActionHeader icon="visibility" header="display" @action="add">
+  <EditorCard icon="visibility" header="display" @action="add">
     <template #header>
       <toggle v-model="state.implicit" icon="opacity" />
     </template>
@@ -30,16 +30,16 @@
         <control icon="clear" @click="remove(i)" />
       </div>
     </div>
-  </ActionHeader>
+  </EditorCard>
 </template>
 
 <script>
-import ActionHeader from "./ActionHeader";
+import EditorCard from "./EditorCard";
 
 export default {
   name: "PhraseStateDisplayEditor",
   components: {
-    ActionHeader,
+    EditorCard,
   },
   props: ["state", "context", "allowEmpty"],
   computed: {

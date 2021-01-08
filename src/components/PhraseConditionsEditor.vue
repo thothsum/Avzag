@@ -1,5 +1,5 @@
 <template>
-  <ActionHeader :icon="icon" :header="header" @action="add">
+  <EditorCard :icon="icon" :header="header" @action="add">
     <template #caption><slot /></template>
     <div class="scroll col">
       <div v-for="(c, i) in conditions" :key="i" class="row">
@@ -15,17 +15,17 @@
         <control icon="clear" @click="remove(i)" />
       </div>
     </div>
-  </ActionHeader>
+  </EditorCard>
 </template>
 
 <script>
-import ActionHeader from "@/components/ActionHeader";
+import EditorCard from "@/components/EditorCard";
 import Select from "@/components/Select";
 
 export default {
   name: "PhraseConditionsEditor",
   components: {
-    ActionHeader,
+    EditorCard,
     Select,
   },
   props: ["conditions", "context", "allowPassive", "header", "icon"],

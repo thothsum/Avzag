@@ -1,5 +1,5 @@
 <template>
-  <ActionHeader button="" icon="alt_route" header="transition">
+  <EditorCard button="" icon="alt_route" header="transition">
     <template #header>
       <ToggleGroup
         v-slot="{ item, highlight }"
@@ -20,19 +20,19 @@
         <PhraseStateDisplay :state="s" :context="context" />
       </div>
     </div>
-  </ActionHeader>
+  </EditorCard>
 </template>
 
 <script>
 import ToggleGroup from "./ToggleGroup";
-import ActionHeader from "./ActionHeader";
+import EditorCard from "./EditorCard";
 import PhraseStateDisplay from "./PhraseStateDisplay";
 
 export default {
   name: "PhraseStateTransitionEditor",
   components: {
     ToggleGroup,
-    ActionHeader,
+    EditorCard,
     PhraseStateDisplay,
   },
   props: ["state", "states", "context"],

@@ -21,7 +21,7 @@
     </div>
     <div v-if="file" class="grid small">
       <div class="col-2">
-        <ActionHeader icon="topic" header="sections" @action="addSection">
+        <EditorCard icon="topic" header="sections" @action="addSection">
           <template v-if="section" #header>
             <ButtonAlert @confirm="removeSection" />
           </template>
@@ -35,8 +35,8 @@
               <input v-model="s.name" class="flex" type="text" />
             </div>
           </div>
-        </ActionHeader>
-        <ActionHeader
+        </EditorCard>
+        <EditorCard
           v-if="section"
           icon="short_text"
           header="phrases"
@@ -55,8 +55,8 @@
               <input v-model="p.preview" class="flex" type="text" />
             </div>
           </div>
-        </ActionHeader>
-        <ActionHeader
+        </EditorCard>
+        <EditorCard
           v-if="phrase"
           icon="account_tree"
           header="Blocks"
@@ -85,7 +85,7 @@
               />
             </div>
           </div>
-        </ActionHeader>
+        </EditorCard>
         <PhraseContextEditor v-if="phrase" :context="contextSource" />
       </div>
       <PhraseBlockEditor
@@ -102,7 +102,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 import ButtonAlert from "@/components/ButtonAlert";
-import ActionHeader from "@/components/ActionHeader";
+import EditorCard from "@/components/EditorCard";
 import PhraseContext from "@/components/PhraseContext";
 import PhraseContextEditor from "@/components/PhraseContextEditor";
 import PhraseBlock from "@/components/PhraseBlock";
@@ -112,7 +112,7 @@ export default {
   name: "PhrasebookCorpusEditor",
   components: {
     ButtonAlert,
-    ActionHeader,
+    EditorCard,
     PhraseContext,
     PhraseContextEditor,
     PhraseBlock,

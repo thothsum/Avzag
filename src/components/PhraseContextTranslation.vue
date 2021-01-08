@@ -1,5 +1,5 @@
 <template>
-  <ActionHeader
+  <EditorCard
     :button="translation ? '' : 'queue'"
     icon="format_list_bulleted"
     header="context translation"
@@ -23,18 +23,18 @@
         </div>
       </div>
     </template>
-  </ActionHeader>
+  </EditorCard>
 </template>
 
 <script>
 import ButtonAlert from "./ButtonAlert";
-import ActionHeader from "@/components/ActionHeader";
+import EditorCard from "@/components/EditorCard";
 
 export default {
   name: "PhraseContextTranslation",
   components: {
     ButtonAlert,
-    ActionHeader,
+    EditorCard,
   },
   props: ["translation", "context"],
   computed: {

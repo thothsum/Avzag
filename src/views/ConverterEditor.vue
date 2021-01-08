@@ -16,17 +16,13 @@
     </div>
     <div v-if="file" class="grid small">
       <div class="col-2">
-        <ActionHeader button="" icon="text_snippet" header="Sample Text">
+        <EditorCard button="" icon="text_snippet" header="Sample Text">
           <template #caption>
             Text that will be displayed to demonstrate the converter.
           </template>
           <textarea v-model="file.sample" />
-        </ActionHeader>
-        <ActionHeader
-          button=""
-          icon="compare_arrows"
-          header="Default Conversion"
-        >
+        </EditorCard>
+        <EditorCard button="" icon="compare_arrows" header="Default Conversion">
           <template #caption>
             Two mappings that will be set by default. The left should be set to
             the sample's original writing system.
@@ -48,8 +44,8 @@
               />
             </div>
           </div>
-        </ActionHeader>
-        <ActionHeader icon="call_merge" header="Mappings" @action="addMapping">
+        </EditorCard>
+        <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
           <template v-if="mapping" #header>
             <ButtonAlert @confirm="deleteMapping" />
           </template>
@@ -61,9 +57,9 @@
             />
             <input v-model="m.name" type="text" />
           </div>
-        </ActionHeader>
+        </EditorCard>
       </div>
-      <ActionHeader
+      <EditorCard
         v-if="mapping"
         icon="format_list_numbered"
         header="Pairs"
@@ -82,21 +78,21 @@
             <control icon="clear" @click="deletePair(i)" />
           </div>
         </template>
-      </ActionHeader>
+      </EditorCard>
     </div>
   </div>
 </template>
 
 <script>
 import ButtonAlert from "@/components/ButtonAlert";
-import ActionHeader from "@/components/ActionHeader";
+import EditorCard from "@/components/EditorCard";
 import Select from "@/components/Select";
 
 export default {
   name: "ConverterEditor",
   components: {
     ButtonAlert,
-    ActionHeader,
+    EditorCard,
     Select,
   },
   data() {

@@ -1,6 +1,6 @@
 /* eslint-disable vue/no-mutating-props */
 <template>
-  <ActionHeader icon="widgets" header="context" @action="add">
+  <EditorCard icon="widgets" header="context" @action="add">
     <div class="col scroll">
       <div v-for="(c, i) in context" :key="i" class="row">
         <input
@@ -13,16 +13,16 @@
         <control icon="clear" @click="remove(i)" />
       </div>
     </div>
-  </ActionHeader>
+  </EditorCard>
 </template>
 
 <script>
-import ActionHeader from "./ActionHeader";
+import EditorCard from "./EditorCard";
 
 export default {
   name: "PhraseContextEditor",
   components: {
-    ActionHeader,
+    EditorCard,
   },
   props: ["context"],
   methods: {

@@ -60,7 +60,7 @@
           </template>
         </div>
         <template v-if="phrase && translation">
-          <ActionHeader icon="account_tree" header="Blocks" @action="addBlock">
+          <EditorCard icon="account_tree" header="Blocks" @action="addBlock">
             <template v-if="block" #header>
               <ButtonAlert @confirm="removeBlock" />
             </template>
@@ -88,7 +88,7 @@
                 />
               </div>
             </div>
-          </ActionHeader>
+          </EditorCard>
           <NotesEditor v-model="translation.notes">
             You can add notes, for example, to explain certain grammatical
             rules.
@@ -113,7 +113,7 @@
 </template>
 
 <script>
-import ActionHeader from "@/components/ActionHeader";
+import EditorCard from "@/components/EditorCard";
 import ButtonAlert from "@/components/ButtonAlert";
 import Select from "@/components/Select";
 import PhraseBlock from "@/components/PhraseBlock";
@@ -125,7 +125,7 @@ import PhraseContextTranslation from "@/components/PhraseContextTranslation";
 export default {
   name: "PhrasebookEditor",
   components: {
-    ActionHeader,
+    EditorCard,
     ButtonAlert,
     Select,
     PhraseBlock,

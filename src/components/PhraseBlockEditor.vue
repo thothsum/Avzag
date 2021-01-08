@@ -10,7 +10,7 @@
       If at least one of these conditions fails, the block will be completely
       hidden.
     </PhraseConditionsEditor>
-    <ActionHeader icon="tune" header="States" @action="add">
+    <EditorCard icon="tune" header="States" @action="add">
       <template v-if="state" #header>
         <ButtonAlert @confirm="remove" />
       </template>
@@ -24,7 +24,7 @@
           <PhraseStateDisplay :state="s" :context="context" />
         </div>
       </div>
-    </ActionHeader>
+    </EditorCard>
     <template v-if="state">
       <PhraseStateDisplayEditor :state="state" :context="context" />
       <PhraseConditionsEditor
@@ -45,7 +45,7 @@
 
 <script>
 import ButtonAlert from "./ButtonAlert";
-import ActionHeader from "./ActionHeader";
+import EditorCard from "./EditorCard";
 import PhraseConditionsEditor from "./PhraseConditionsEditor";
 import PhraseStateTransitionEditor from "./PhraseStateTransitionEditor";
 import PhraseStateDisplayEditor from "./PhraseStateDisplayEditor";
@@ -55,7 +55,7 @@ export default {
   name: "PhraseBlockEditor",
   components: {
     ButtonAlert,
-    ActionHeader,
+    EditorCard,
     PhraseConditionsEditor,
     PhraseStateTransitionEditor,
     PhraseStateDisplayEditor,
