@@ -6,7 +6,7 @@ export type Mapping = {
 };
 
 export type Converter = {
-  sample: string;
-  default: [number, number];
+  sample?: string;
+  default?: [number, number];
   mappings: Mapping[];
 };

@@ -101,7 +101,7 @@ function loadFromLect() {
     });
 }
 function loadFromJson() {
-  const f = JSON.parse(window.prompt("Enter JSON") ?? "{}");
+  const f = JSON.parse(window.prompt("Enter JSON") ?? "[]");
   if (f) {
     file.value = f;
     phoneme.value = file.value[0];

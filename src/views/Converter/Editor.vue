@@ -27,17 +27,17 @@
             Two mappings that will be set by default. The left should be set to
             the sample's original writing system.
           </template>
-          <div v-if="defaultConversion" class="row">
+          <div v-if="file.default" class="row">
             <p class="icon">south</p>
             <div class="col flex">
               <Select
-                v-model:value="defaultConversion[0]"
+                v-model:value="file.default[0]"
                 :items="mappings"
                 display="name"
                 indexed="true"
               />
               <Select
-                v-model:value="defaultConversion[1]"
+                v-model:value="file.default[1]"
                 :items="mappings"
                 display="name"
                 indexed="true"
@@ -83,89 +83,78 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
 import Select from "@/components/Select";
 
-export default {
-  name: "ConverterEditor",
-  components: {
-    ButtonAlert,
-    EditorCard,
-    Select,
-  },
-  data() {
-    return {
-      file: undefined,
-      mapping: undefined,
-    };
-  },
-  computed: {
-    mappings() {
-      return this.file?.mappings ?? [];
-    },
-    defaultConversion() {
-      return this.file.default;
-    },
-    pairs() {
-      return this.mapping?.pairs ?? [];
-    },
-  },
-  mounted() {
-    try {
-      const file = JSON.parse(localStorage.cEditor);
-      if (file) this.file = file;
-      return;
-    } catch (error) {
-      console.log(error);
+import { computed, onBeforeUnmount, onMounted, onUpdated, ref } from "vue";
+import { useStore } from "vuex";
+import { Mapping, Converter } from "./types";
+
+const store = useStore();
+
+const file = ref({} as Converter);
+const mapping = ref({} as Mapping);
+
+const mappings = computed(() => file.value?.mappings ?? []);
+const pairs = computed(() => mapping.value.pairs ?? []);
+
+function addMapping() {
+  mapping.value = { name: "newMapping", pairs: [] };
+  mappings.value.push(mapping.value);
+}
+function deleteMapping() {
+  mappings.value.splice(mappings.value.indexOf(mapping.value), 1);
+  mapping.value = mappings.value[mappings.value.length - 1];
+}
+function addPair(index: number) {
+  mapping.value.pairs.splice(index, 0, ["", ""]);
+}
+function deletePair(index: number) {
+  mapping.value.pairs.splice(index, 1);
+}
+
+function loadFromLect() {
+  fetch(store.state.root + window.prompt("Enter lect name") + "/converter.json")
+    .then((r) => r.json())
+    .then((j) => {
+      if (j) {
+        file.value = j;
+        mapping.value = file.value.mappings?.[0];
+      }
+    });
+}
+function loadFromJson() {
+  const f = JSON.parse(window.prompt("Enter JSON") ?? "{}");
+  if (f) {
+    file.value = f;
+    mapping.value = file.value.mappings?.[0];
+  }
+}
+function saveToJson() {
+  navigator.clipboard.writeText(JSON.stringify(file.value));
+}
+function reset() {
+  file.value = { default: [0, 0], mappings: [] };
+}
+
+onMounted(() => {
+  try {
+    const f = JSON.parse(localStorage.cEditor);
+    if (f) {
+      file.value = f;
+      mapping.value = file.value.mappings?.[0];
     }
-    this.reset();
-  },
-  updated() {
-    localStorage.cEditor = JSON.stringify(this.file);
-  },
-  beforeUnmount() {
-    localStorage.cEditor = JSON.stringify(this.file);
-  },
-  methods: {
-    addMapping() {
-      this.mapping = { name: "newMapping", pairs: [] };
-      this.mappings.push(this.mapping);
-    },
-    deleteMapping() {
-      this.mappings.splice(this.mappings.indexOf(this.mapping), 1);
-      this.mapping = this.mappings[this.mappings.length - 1];
-    },
-    addPair(i) {
-      this.mapping.pairs.splice(i, 0, ["", ""]);
-    },
-    deletePair(i) {
-      this.$delete(this.mapping.pairs, i);
-    },
-    loadFromLect() {
-      fetch(
-        this.$store.state.root +
-          window.prompt("Enter lect name") +
-          "/converter.json"
-      )
-        .then((r) => r.json())
-        .then((j) => {
-          if (j) this.file = j;
-        });
-    },
-    loadFromJson() {
-      const file = JSON.parse(window.prompt("Enter JSON"));
-      if (file) this.file = file;
-    },
-    saveToJson() {
-      navigator.clipboard.writeText(JSON.stringify(this.file));
-    },
-    reset() {
-      this.file = { default: [0, 0], mappings: [] };
-    },
-  },
-};
+    return;
+  } catch (error) {
+    console.log(error);
+  }
+  reset();
+});
+onUpdated(() => (localStorage.cEditor = JSON.stringify(file.value)));
+onBeforeUnmount(() => (localStorage.cEditor = JSON.stringify(file.value)));
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="root" v-bind="attrs">
     <div class="section row-1 scroll">
       <router-link
         v-for="{ icon, text, name } in menus"
@@ -22,25 +22,16 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { PropType, defineProps } from "vue";
+import { useContext } from "vue";
 
-interface Menu {
-  icon?: string;
-  text?: string;
-  name?: string;
-}
+const attrs = useContext().attrs;
 
-const props = defineProps({
-  menus: {
-    type: Array as PropType<Menu[]>,
-    default: [
-      { icon: "arrow_back", name: "Home" },
-      { icon: "audiotrack", text: "Phonology" },
-      { icon: "sync_alt", text: "Converter" },
-      { icon: "book", text: "Phrasebook" },
-    ],
-  },
-});
+const menus = [
+  { icon: "arrow_back", name: "Home" },
+  { icon: "audiotrack", text: "Phonology" },
+  { icon: "sync_alt", text: "Converter" },
+  { icon: "book", text: "Phrasebook" },
+];
 </script>
 
 <style lang="scss" scoped>

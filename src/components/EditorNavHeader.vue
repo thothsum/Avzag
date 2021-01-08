@@ -1,16 +1,29 @@
 <template>
-  <NavHeader :menus="menus" />
+  <div id="root" v-bind="attrs" class="small">
+    <div class="section row-1 scroll">
+      <router-link v-slot="{ isActive, navigate }" custom to="Home">
+        <control
+          :class="{ highlight: isActive }"
+          icon="arrow_back"
+          @click="navigate"
+        />
+      </router-link>
+      <Select v-model="menu" :items="menus" label-key="text" />
+    </div>
+  </div>
+  <router-view />
 </template>
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import NavHeader from "./NavHeader";
+import Select from "./Select";
+import { ref, useContext, watch } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const attrs = useContext().attrs;
 
 const menus = [
-  {
-    icon: "arrow_back",
-    name: "Home",
-  },
   {
     icon: "audiotrack",
     text: "Phonology",
@@ -32,4 +45,20 @@ const menus = [
     name: "PhrasebookCorpusEditor",
   },
 ];
+const menu = ref(1);
+// watch(menu, ({ name }) => router.push({ name }));
 </script>
+
+<style lang="scss" scoped>
+#root {
+  background-color: var(--color-foreground);
+  margin: -1 * map-get($margins, "normal");
+  margin-bottom: map-get($margins, "double");
+  padding: map-get($margins, "normal");
+  border-radius: 0;
+  box-shadow: map-get($shadows, "elevated");
+}
+:not(.icon) {
+  font-weight: bold;
+}
+</style>

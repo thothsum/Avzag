@@ -58,7 +58,6 @@
       accept=".txt"
       @change="upload"
     />
-    <a v-show="false" ref="link"></a>
   </div>
 </template>
 
@@ -69,13 +68,12 @@ import ToggleGroup from "@/components/ToggleGroup";
 import MappingTable from "./MappingTable";
 import ConverterText from "./ConverterText";
 
-import { computed, ref, nextTick, watch, watchEffect } from "vue";
+import { computed, ref, nextTick, watch } from "vue";
+import { useStore } from "vuex";
 import { Mapping } from "./types";
 import convert from "./convert";
-import { useStore } from "vuex";
 
 const store = useStore();
-const link = ref({} as HTMLLinkElement);
 const fileInput = ref({} as HTMLInputElement);
 
 const source = ref("");
@@ -91,7 +89,6 @@ const lect = ref({} as any);
 const converter = computed(() => lect.value.converter);
 const sample = computed(() => converter.value?.sample ?? "");
 
-const defaultConversion = computed(() => converter.value?.default);
 const mappings = computed(() => converter.value?.mappings);
 const fullMappings = computed(() =>
   mappings.value?.filter((m) =>
@@ -99,19 +96,9 @@ const fullMappings = computed(() =>
   )
 );
 
-watch(sample, (sample) => (source.value = sample));
-watch(mappings, ([f = 0, t = 1]) => {
-  sourceMapping.value = mappings.value[f];
-  resultMapping.value = mappings.value[t];
-});
-watch(defaultConversion, ([f = 0, t = 1]) => {
-  sourceMapping.value = mappings.value[f];
-  resultMapping.value = mappings.value[t];
-});
-
 function displaySample() {
   const mapping = sourceMapping.value;
-  sourceMapping.value = mappings.value[defaultConversion.value[0]];
+  sourceMapping.value = mappings.value[converter.value.default[0]];
   source.value = sample.value;
   nextTick(() => (sourceMapping.value = mapping));
 }
@@ -123,9 +110,17 @@ function swap() {
   source.value = text;
 }
 function download(filename: string, text: string) {
-  link.value.href = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
-  link.value.setAttribute("donwload", filename);
-  link.value.click();
+  const link = document.createElement("a");
+  link.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+  );
+  link.setAttribute("download", filename);
+
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 function upload({ target }: InputEvent) {
   const reader = new FileReader();
@@ -140,6 +135,21 @@ function upload({ target }: InputEvent) {
 function copy() {
   navigator.clipboard.writeText(result.value);
 }
+
+watch(mappings, () => {
+  sourceMapping.value = mappings.value[0];
+  resultMapping.value = mappings.value[1];
+});
+watch(converter.value?.default, (conversion) => {
+  let f = 0;
+  let t = 1;
+  if (conversion) {
+    f = conversion[0];
+    t = conversion[1];
+  }
+  sourceMapping.value = mappings.value[f];
+  resultMapping.value = mappings.value[t];
+});
 </script>
 
 <style lang="scss" scoped>
