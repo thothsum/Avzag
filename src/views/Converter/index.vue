@@ -12,7 +12,7 @@
           />
           <control v-if="source" icon="clear" @click="source = ''" />
           <control v-else icon="text_snippet" @click="displaySample" />
-          <control icon="publish" @click="$refs.file.click()" />
+          <control icon="publish" @click="fileInput.click()" />
           <control
             v-show="!resultMapping.partial"
             icon="swap_horiz"
@@ -53,7 +53,7 @@
     <h2 v-else>No data for this lect.</h2>
     <input
       v-show="false"
-      ref="file"
+      ref="fileInput"
       type="file"
       accept=".txt"
       @change="upload"
@@ -63,97 +63,83 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Select from "@/components/Select";
 import ToggleGroup from "@/components/ToggleGroup";
 import MappingTable from "./MappingTable";
 import ConverterText from "./ConverterText";
 
-//   data() {
-//     return {
-//       lect: undefined,
-//       source: "",
-//       sourceMapping: undefined,
-//       result: "",
-//       resultMapping: undefined,
-//       intermediate: "",
-//       showMappings: false,
-//     };
-//   },
-//   computed: {
-//     lects() {
-//       return this.$store.state.lects;
-//     },
-//     converter() {
-//       return this.lect?.converter;
-//     },
-//     mappings() {
-//       return this.converter?.mappings;
-//     },
-//     fullMappings() {
-//       return this.mappings.filter((m) =>
-//         m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))
-//       );
-//     },
-//     sample() {
-//       return this.converter?.sample ?? "";
-//     },
-//     defaultConversion() {
-//       return this.converter?.default;
-//     },
-//   },
-//   watch: {
-//     mappings(m) {
-//       if (m) {
-//         this.sourceMapping = m[0];
-//         this.resultMapping = m[1];
-//       }
-//     },
-//     sample(s) {
-//       this.source = s;
-//     },
-//     defaultConversion(c) {
-//       if (c) {
-//         this.sourceMapping = this.mappings[c[0]];
-//         this.resultMapping = this.mappings[c[1]];
-//       }
-//     },
-//   },
-//   methods: {
-//     displaySample() {
-//       const mapping = this.sourceMapping;
-//       this.sourceMapping = this.mappings[this.defaultConversion[0]];
-//       this.source = this.sample;
-//       this.$nextTick(() => {
-//         this.sourceMapping = mapping;
-//       });
-//     },
-//     swap() {
-//       const source = this.result;
-//       const mapping = this.sourceMapping;
-//       this.sourceMapping = this.resultMapping;
-//       this.resultMapping = mapping;
-//       this.source = source;
-//     },
-//     upload(event) {
-//       const reader = new FileReader();
-//       reader.onload = (e) =>
-//         this.download(
-//           event.target.files[0].name,
-//           this.convert(e.target.result)
-//         );
-//       reader.readAsText(event.target.files[0]);
-//     },
-//     download(filename, text) {
-//       const link = this.$refs.link;
-//       link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
-//       link.download = filename;
-//       link.click();
-//     },
-//     copy() {
-//       navigator.clipboard.writeText(this.result);
-//     },
-//   },
-// };
+import { computed, ref, nextTick, watch, watchEffect } from "vue";
+import { Mapping } from "./types";
+import convert from "./convert";
+import { useStore } from "vuex";
+
+const store = useStore();
+const link = ref({} as HTMLLinkElement);
+const fileInput = ref({} as HTMLInputElement);
+
+const source = ref("");
+const result = ref("");
+const intermediate = ref("");
+
+const sourceMapping = ref({} as Mapping);
+const resultMapping = ref({} as Mapping);
+const showMappings = ref(false);
+
+const lects = computed(() => store.state.lects);
+const lect = ref({} as any);
+const converter = computed(() => lect.value.converter);
+const sample = computed(() => converter.value?.sample ?? "");
+
+const defaultConversion = computed(() => converter.value?.default);
+const mappings = computed(() => converter.value?.mappings);
+const fullMappings = computed(() =>
+  mappings.value?.filter((m) =>
+    m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))
+  )
+);
+
+watch(sample, (sample) => (source.value = sample));
+watch(mappings, ([f = 0, t = 1]) => {
+  sourceMapping.value = mappings.value[f];
+  resultMapping.value = mappings.value[t];
+});
+watch(defaultConversion, ([f = 0, t = 1]) => {
+  sourceMapping.value = mappings.value[f];
+  resultMapping.value = mappings.value[t];
+});
+
+function displaySample() {
+  const mapping = sourceMapping.value;
+  sourceMapping.value = mappings.value[defaultConversion.value[0]];
+  source.value = sample.value;
+  nextTick(() => (sourceMapping.value = mapping));
+}
+function swap() {
+  const text = result.value;
+  const mapping = sourceMapping.value;
+  sourceMapping.value = resultMapping.value;
+  resultMapping.value = mapping;
+  source.value = text;
+}
+function download(filename: string, text: string) {
+  link.value.href = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
+  link.value.setAttribute("donwload", filename);
+  link.value.click();
+}
+function upload({ target }: InputEvent) {
+  const reader = new FileReader();
+  const file = (target as HTMLInputElement).files?.[0] as File;
+  reader.onload = (e) =>
+    download(
+      file.name,
+      convert(e.target?.result as string, sourceMapping.value.pairs)
+    );
+  reader.readAsText(file);
+}
+function copy() {
+  navigator.clipboard.writeText(result.value);
+}
 </script>
 
 <style lang="scss" scoped>
