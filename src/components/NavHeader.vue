@@ -2,7 +2,7 @@
   <div id="root">
     <div class="section row-1 scroll">
       <router-link
-        v-for="{ icon, text, name } in navs"
+        v-for="{ icon, text, name } in menus"
         :key="name ?? text ?? icon"
         v-slot="{ isActive, navigate }"
         custom
@@ -24,15 +24,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PropType, defineProps } from "vue";
 
-interface Nav {
+interface Menu {
   icon?: string;
   text?: string;
   name?: string;
 }
 
 const props = defineProps({
-  navs: {
-    type: Array as PropType<Nav[]>,
+  menus: {
+    type: Array as PropType<Menu[]>,
     default: [
       { icon: "arrow_back", name: "Home" },
       { icon: "audiotrack", text: "Phonology" },
