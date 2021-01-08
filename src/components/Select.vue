@@ -5,14 +5,14 @@
 </template>
 
 <script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   computed,
   defineProps,
-  ref,
   PropType,
   defineEmit,
   onMounted,
-  watch,
+  toRaw,
 } from "vue";
 
 type Item = { [index: string]: string };
@@ -37,45 +37,23 @@ const labels = computed(() =>
     typeof i === "string" ? i : (i as Item)[props.labelKey]
   )
 );
-const index = ref(0);
-//  computed({
-//   const value = props.modelValue;
-//   if (props.type === "item") return props.items.indexOf(value as Item);
-//   if (props.type === "label") {
-//     const key = props.labelKey;
-//     return props.items.findIndex((i) => (i as Item)[key] === value);
-//   }
-//   return value as number;
-// });
+const index = computed({
+  get: () => {
+    const value = toRaw(props.modelValue);
+    if (props.type === "item") return props.items.indexOf(value as Item);
+    if (props.type === "label") {
+      const key = props.labelKey;
+      return props.items.findIndex((i) => (i as Item)[key] === value);
+    }
+    return value as number;
+  },
+  set: (index) => {
+    let value: object | string | number = props.items[index];
+    if (props.type === "label") value = (value as Item)[props.labelKey];
+    else if (props.type === "index") value = index;
+    emit("update:modelValue", value);
+  },
+});
 
-function select(index = 0) {
-  let value: object | string | number = props.items[index];
-  if (props.type === "label") value = (value as Item)[props.labelKey];
-  else if (props.type === "index") value = index;
-  emit("update:modelValue", value);
-}
-
-watch(index, (index) => select(index));
-onMounted(() => select());
-
-//   values() {
-//     return this.indexed ? this.items.map((_, i) => i) : this.items;
-//   },
-// },
-
-// watch: {
-//   value: {
-//     handler(v) {
-//       const i = this.values?.indexOf(v) ?? 0;
-//       this.index = i < 0 ? 0 : i;
-//     },
-//     immediate: true,
-//   },
-//   index: {
-//     handler(i) {
-//       this.$emit("update:value", this.values[i]);
-//     },
-//     immediate: true,
-//   },
-// },
+onMounted(() => (index.value = 0));
 </script>
