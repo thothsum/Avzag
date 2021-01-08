@@ -39,13 +39,13 @@ const labels = computed(() =>
 );
 const index = computed({
   get: () => {
-    const value = toRaw(props.modelValue);
-    if (props.type === "item") return props.items.indexOf(value as Item);
+    let value = toRaw(props.modelValue);
+    if (props.type === "item") value = props.items.indexOf(value as Item);
     if (props.type === "label") {
       const key = props.labelKey;
-      return props.items.findIndex((i) => (i as Item)[key] === value);
+      value = props.items.findIndex((i) => (i as Item)[key] === value);
     }
-    return value as number;
+    return Math.max(value as number, 0);
   },
   set: (index) => {
     let value: object | string | number = props.items[index];
@@ -54,6 +54,4 @@ const index = computed({
     emit("update:modelValue", value);
   },
 });
-
-onMounted(() => (index.value = 0));
 </script>

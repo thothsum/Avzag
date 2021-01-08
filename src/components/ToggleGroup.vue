@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" class="row scroll">
-    <div v-for="(l, i) in labels" :key="l" @click="select(i)">
+    <div v-for="(l, i) in labels" :key="l" @click="index = i">
       <slot :item="items[i]" :highlight="highlights[i]">
         <control class="round" :text="l" :class="highlights[i]" />
       </slot>
@@ -37,13 +37,13 @@ const labels = computed(() =>
 const visible = computed(() => labels.value.length > 1);
 const index = computed({
   get: () => {
-    const value = props.modelValue;
-    if (props.type === "item") return props.items.indexOf(value as Item);
-    if (props.type === "label") {
+    let value = props.modelValue;
+    if (props.type === "item") value = props.items.indexOf(value as Item);
+    else if (props.type === "label") {
       const key = props.labelKey;
-      return props.items.findIndex((i) => (i as Item)[key] === value);
+      value = props.items.findIndex((i) => (i as Item)[key] === value);
     }
-    return value as number;
+    return Math.max(value as number, 0);
   },
   set: (index) => {
     let value: object | string | number = props.items[index];
@@ -55,6 +55,4 @@ const index = computed({
 const highlights = computed(() => {
   return props.items.map((l, i) => (i === index.value ? "highlight" : ""));
 });
-
-onMounted(() => (index.value = 0));
 </script>
