@@ -18,7 +18,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineProps, PropType } from "vue";
 import { useStore } from "vuex";
-import { Lect, SearchState } from "./lect";
+import { Lect, SearchState } from "./types";
 
 const props = defineProps({
   lect: { type: Object as PropType<Lect>, default: {} },

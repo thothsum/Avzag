@@ -16,12 +16,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { defineProps, computed, PropType } from "vue";
-
-export type PieceDisplay = "plain" | "highlight" | "grapheme" | "phoneme";
-export interface Piece {
-  text: string;
-  display: PieceDisplay;
-}
+import { PieceDisplay, Piece } from "./types";
 
 const props = defineProps({
   notes: { type: Array as PropType<string[]>, default: [] },

@@ -50,8 +50,8 @@
 import Map from "./Map";
 import Card from "./Card";
 import InputQuery from "@/components/Query/InputQuery";
-import { Query, EvaluateQuery } from "@/components/Query";
-import { Lect, SearchState } from "./lect";
+import { Query, EvaluateQuery } from "@/components/Query/types";
+import { Lect, SearchState } from "./types";
 import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";

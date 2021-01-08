@@ -20,7 +20,7 @@ import {
   watchEffect,
   toRaw,
 } from "vue";
-import { Lect, SearchState } from "./lect";
+import { Lect, SearchState } from "./types";
 import mapboxgl from "mapbox-gl";
 
 export default defineComponent({

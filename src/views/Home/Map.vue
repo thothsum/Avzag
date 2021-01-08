@@ -15,7 +15,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ref, onMounted, defineProps, defineEmit, PropType } from "vue";
-import { Lect, SearchState } from "./lect";
+import { Lect, SearchState } from "./types";
 import Marker from "./Marker";
 import createMap from "./mapManager";
 import mapboxgl from "mapbox-gl";

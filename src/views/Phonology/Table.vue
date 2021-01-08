@@ -16,7 +16,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineEmit, defineProps, PropType } from "vue";
 import Phoneme from "./Phoneme";
-import { Query, EvaluateQuery } from "@/components/Query";
+import { Query, EvaluateQuery } from "@/components/Query/types";
 
 const props = defineProps({
   modelValue: { type: Object, default: {} },
