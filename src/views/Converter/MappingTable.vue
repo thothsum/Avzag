@@ -7,22 +7,19 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "MappingTable",
-  props: ["mapping", "reverse"],
-  computed: {
-    pairs() {
-      return this.mapping.pairs;
-    },
-    left() {
-      return this.reverse ? 1 : 0;
-    },
-    right() {
-      return this.reverse ? 0 : 1;
-    },
-  },
-};
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { computed, defineProps, PropType } from "vue";
+import { Mapping } from "./types";
+
+const props = defineProps({
+  mapping: { type: Object as PropType<Mapping>, default: {} },
+  reverse: Boolean,
+});
+
+const pairs = computed(() => props.mapping.pairs);
+const right = computed(() => (props.reverse ? 0 : 1));
+const left = computed(() => (right.value + 1) % 2);
 </script>
 
 <style lang="scss" scoped>

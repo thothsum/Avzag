@@ -1,11 +1,11 @@
 <template>
-  <textarea ref="textarea" v-model="text" :readonly="readonly"></textarea>
+  <textarea ref="textarea" v-model="text" :readonly="reverse"></textarea>
 </template>
 
-<script>
+<script setup lang="ts">
 export default {
   name: "ConverterText",
-  props: ["source", "mapping", "readonly", "reverse"],
+  props: ["source", "mapping", "reverse"],
   data() {
     return {
       text: "",
@@ -25,7 +25,7 @@ export default {
   watch: {
     source: {
       handler() {
-        this.text = this.readonly
+        this.text = this.reverse
           ? this.convert(this.source, this.pairs)
           : this.source;
       },
@@ -33,7 +33,7 @@ export default {
     },
     text: {
       handler() {
-        this.result = this.readonly
+        this.result = this.reverse
           ? this.text
           : this.convert(this.text, this.pairs);
         this.$emit("result", this.result);
@@ -42,7 +42,7 @@ export default {
     },
     pairs: {
       handler() {
-        this.text = this.readonly
+        this.text = this.reverse
           ? this.convert(this.source, this.pairs)
           : this.convert(this.result, this.reversePairs);
       },
