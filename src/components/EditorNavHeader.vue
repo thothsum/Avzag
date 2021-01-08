@@ -1,12 +1,8 @@
 <template>
   <div id="root" v-bind="attrs" class="small">
     <div class="section row-1 scroll">
-      <router-link v-slot="{ isActive, navigate }" custom to="Home">
-        <control
-          :class="{ highlight: isActive }"
-          icon="arrow_back"
-          @click="navigate"
-        />
+      <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
+        <control icon="arrow_back" @click="navigate" />
       </router-link>
       <Select v-model="menu" :items="menus" label-key="text" />
     </div>
@@ -17,7 +13,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Select from "./Select";
-import { ref, useContext, watchEffect } from "vue";
+import { ref, useContext, watch } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -46,7 +42,7 @@ const menus = [
   },
 ];
 const menu = ref(menus[0]);
-watchEffect(() => router.push({ name: menu.value.name }));
+watch(menu, ({ name }) => router.push({ name }));
 </script>
 
 <style lang="scss" scoped>

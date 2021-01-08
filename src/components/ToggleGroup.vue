@@ -35,25 +35,26 @@ const labels = computed(() =>
   )
 );
 const visible = computed(() => labels.value.length > 1);
-const index = computed(() => {
-  const value = props.modelValue;
-  if (props.type === "item") return props.items.indexOf(value as Item);
-  if (props.type === "label") {
-    const key = props.labelKey;
-    return props.items.findIndex((i) => (i as Item)[key] === value);
-  }
-  return value as number;
+const index = computed({
+  get: () => {
+    const value = props.modelValue;
+    if (props.type === "item") return props.items.indexOf(value as Item);
+    if (props.type === "label") {
+      const key = props.labelKey;
+      return props.items.findIndex((i) => (i as Item)[key] === value);
+    }
+    return value as number;
+  },
+  set: (index) => {
+    let value: object | string | number = props.items[index];
+    if (props.type === "label") value = (value as Item)[props.labelKey];
+    else if (props.type === "index") value = index;
+    emit("update:modelValue", value);
+  },
 });
 const highlights = computed(() => {
   return props.items.map((l, i) => (i === index.value ? "highlight" : ""));
 });
 
-function select(index = 0) {
-  let value: object | string | number = props.items[index];
-  if (props.type === "label") value = (value as Item)[props.labelKey];
-  else if (props.type === "index") value = index;
-  emit("update:modelValue", value);
-}
-
-onMounted(() => select());
+onMounted(() => (index.value = 0));
 </script>
