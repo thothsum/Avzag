@@ -73,23 +73,17 @@ import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
 import Select from "@/components/Select";
 
-import { computed, onBeforeUnmount, onMounted, onUpdated, ref, Ref } from "vue";
-import { useStore } from "vuex";
+import { computed, ref, Ref } from "vue";
 import { Mapping, Converter } from "./types";
-import { config } from "@/editorManager";
+import { setupEditor } from "@/editorManager";
 
-const store = useStore();
-
-const file = config.file as Ref<Converter>;
 const mapping = ref({} as Mapping);
-
-config.defaultFile = { default: [0, 0], mappings: [] };
-config.file.value = config.defaultFile;
-config.filename = "/converter.json";
-config.onReset = () => {
-  console.log("reset converter");
-  mapping.value = (config.file.value as Converter).mappings[0];
-};
+const file = setupEditor(
+  { default: [0, 0], mappings: [] },
+  "/converter.json",
+  "editor.converter",
+  () => (mapping.value = file.value.mappings[0])
+) as Ref<Converter>;
 
 const mappings = computed(() => file.value?.mappings ?? []);
 const pairs = computed(() => mapping.value.pairs ?? []);
@@ -108,22 +102,6 @@ function addPair(index: number) {
 function deletePair(index: number) {
   mapping.value.pairs.splice(index, 1);
 }
-
-onMounted(() => {
-  try {
-    const f = JSON.parse(localStorage.cEditor);
-    if (f) {
-      file.value = f;
-      mapping.value = file.value.mappings?.[0];
-    }
-    return;
-  } catch (error) {
-    console.log(error);
-  }
-  config.reset();
-});
-onUpdated(() => (localStorage.cEditor = JSON.stringify(file.value)));
-onBeforeUnmount(() => (localStorage.cEditor = JSON.stringify(file.value)));
 </script>
 
 <style lang="scss" scoped>

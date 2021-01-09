@@ -28,7 +28,7 @@ import Select from "./Select";
 import { ref, useContext, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { config } from "@/editorManager";
+import { editorConfig } from "@/editorManager";
 
 const attrs = useContext().attrs;
 const route = useRoute();
@@ -61,21 +61,21 @@ const menu = ref(menus.find(({ name }) => name === route.name) ?? menus[0]);
 watch(menu, ({ name }) => router.push({ name }));
 
 function reset() {
-  config.reset();
+  editorConfig.reset();
 }
 function loadLect() {
   const filename =
-    store.state.root + window.prompt("Enter lect name") + config.filename;
+    store.state.root + window.prompt("Enter lect name") + editorConfig.filename;
   fetch(filename)
     .then((response) => response.json())
-    .then((file) => config.setFile(file));
+    .then((file) => editorConfig.setFile(file));
 }
 function loadJSON() {
   const json = window.prompt("Enter JSON");
-  if (json) config.setFile(JSON.parse(json));
+  if (json) editorConfig.setFile(JSON.parse(json));
 }
 function saveJSON() {
-  navigator.clipboard.writeText(JSON.stringify(config.file.value));
+  navigator.clipboard.writeText(JSON.stringify(editorConfig.file.value));
 }
 </script>
 

@@ -61,39 +61,21 @@ import EditorCard from "@/components/EditorCard";
 import TableEntry from "./TableEntry";
 import NotesEditor from "@/components/Notes/Editor";
 
-import { computed, onBeforeUnmount, onMounted, onUpdated, ref, Ref } from "vue";
-import { useStore } from "vuex";
+import { computed, ref, Ref } from "vue";
 import { PhonemeUse } from "./types";
-import { config } from "@/editorManager";
+import { setupEditor } from "@/editorManager";
 
-const store = useStore();
-
-const file = config.file as Ref<PhonemeUse[]>;
 const phoneme = ref({} as PhonemeUse);
+const file = setupEditor(
+  [],
+  "/phonology.json",
+  "editor.phonology",
+  () => (phoneme.value = file.value[0])
+) as Ref<PhonemeUse[]>;
+
 const graphemes = computed(() =>
   file.value.map((p) => p?.samples?.[0].grapheme)
 );
-
-config.defaultFile = [];
-config.file.value = config.defaultFile;
-config.filename = "/phonology.json";
-config.onReset = () => {
-  console.log("reset phoneme");
-  phoneme.value = (config.file.value as PhonemeUse[])[0];
-};
-
-onMounted(() => {
-  try {
-    const f = JSON.parse(localStorage.pEditor);
-    if (f) file.value = f;
-    return;
-  } catch (error) {
-    console.log(error);
-  }
-  config.reset();
-});
-onUpdated(() => (localStorage.pEditor = JSON.stringify(file.value)));
-onBeforeUnmount(() => (localStorage.pEditor = JSON.stringify(file.value)));
 
 function addPhoneme() {
   const p = { phoneme: "new" } as PhonemeUse;
