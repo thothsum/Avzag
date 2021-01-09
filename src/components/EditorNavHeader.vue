@@ -8,9 +8,12 @@
         <Select v-model="menu" :items="menus" label-key="text" />
       </div>
       <div class="row-1 controls">
+        <control icon="save" />
+        <p class="text-dot" />
         <control icon="language" @click="loadLect" />
         <control icon="code" @click="loadJSON" />
         <control icon="integration_instructions" @click="saveJSON" />
+        <p class="text-dot" />
         <ButtonAlert @confirm="reset" />
       </div>
     </div>
@@ -91,5 +94,10 @@ function saveJSON() {
 .controls {
   flex: 1;
   justify-content: flex-end;
+}
+@media only screen and (max-width: $mobile-width) {
+  #root .section {
+    flex-flow: column;
+  }
 }
 </style>
