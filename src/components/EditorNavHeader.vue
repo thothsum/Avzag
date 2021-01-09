@@ -8,8 +8,6 @@
         <Select v-model="menu" :items="menus" label-key="text" />
       </div>
       <div class="row-1 controls">
-        <control icon="save" />
-        <p class="text-dot" />
         <control icon="language" @click="loadLect" />
         <control icon="code" @click="loadJSON" />
         <control icon="integration_instructions" @click="saveJSON" />
@@ -65,7 +63,11 @@ function reset() {
 }
 function loadLect() {
   const filename =
-    store.state.root + window.prompt("Enter lect name") + editorConfig.filename;
+    store.state.root +
+    (typeof editorConfig.filename === "string"
+      ? window.prompt("Enter lect name") + editorConfig.filename
+      : editorConfig.filename());
+
   fetch(filename)
     .then((response) => response.json())
     .then((file) => editorConfig.setFile(file));

@@ -1,12 +1,12 @@
-import { onMounted, onUpdated, onBeforeUnmount, ref } from "vue";
+import { onMounted, onBeforeUnmount, ref, watch } from "vue";
 
 export const editorConfig = {
   file: ref({} as object),
   defaultFile: {} as object,
-  filename: "",
+  filename: "" as string | (() => string),
   onReset: (() => undefined) as () => void,
   reset() {
-    this.setFile(Object.create(this.defaultFile));
+    this.setFile(JSON.parse(JSON.stringify(this.defaultFile)));
   },
   setFile(file: object) {
     if (file) {
@@ -16,10 +16,10 @@ export const editorConfig = {
   },
 };
 
-export function setupEditor<T>(
+export function setupEditor(
   defaultFile: object,
-  filename: string,
-  localStorageName: string,
+  filename: string | (() => string),
+  storage: string,
   onReset: () => void
 ) {
   editorConfig.file.value = editorConfig.defaultFile = defaultFile;
@@ -28,21 +28,15 @@ export function setupEditor<T>(
 
   onMounted(() => {
     try {
-      editorConfig.setFile(JSON.parse(localStorage[localStorageName]));
+      editorConfig.setFile(JSON.parse(localStorage[storage]));
     } catch (error) {
-      console.log(error);
       editorConfig.reset();
     }
-    console.log("loading file");
   });
-  onUpdated(() => {
-    localStorage[localStorageName] = JSON.stringify(editorConfig.file.value);
-    console.log("saving file");
-  });
-  onBeforeUnmount(
-    () =>
-      (localStorage[localStorageName] = JSON.stringify(editorConfig.file.value))
-  );
+  const save = () =>
+    (localStorage[storage] = JSON.stringify(editorConfig.file.value));
+  watch(editorConfig.file, () => save(), { deep: true });
+  onBeforeUnmount(save);
 
   return editorConfig.file;
 }
