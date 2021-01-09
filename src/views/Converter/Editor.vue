@@ -9,6 +9,9 @@
       </EditorCard>
       <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
         <template v-if="mapping" #header>
+          <control icon="keyboard_arrow_up" @click="shiftMapping(-1)" />
+          <control icon="keyboard_arrow_down" @click="shiftMapping(1)" />
+          <p class="text-dot" />
           <ButtonAlert @confirm="deleteMapping" />
         </template>
         <div v-for="(m, i) in mappings" :key="i" class="row">
@@ -65,6 +68,12 @@ const file = setupEditor(
 const mappings = computed(() => file.value?.mappings ?? []);
 const pairs = computed(() => mapping.value.pairs ?? []);
 
+function shiftMapping(shift: number) {
+  const length = mappings.value.length;
+  const from = mappings.value.indexOf(mapping.value);
+  const to = (from + shift + length) % length;
+  mappings.value.splice(to, 0, mappings.value.splice(from, 1)[0]);
+}
 function addMapping() {
   mapping.value = { name: "newMapping", pairs: [] };
   mappings.value.push(mapping.value);
