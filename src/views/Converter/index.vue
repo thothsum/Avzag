@@ -1,11 +1,11 @@
 <template>
   <div v-if="lects" class="section col-1">
     <ToggleGroup v-model="lect" class="small" :items="lects" />
-    <div v-if="converter" class="split">
+    <div v-if="mappings" class="split">
       <div class="col">
         <div class="row">
           <Select
-            v-model:value="sourceMapping"
+            v-model="sourceMapping"
             class="flex"
             :items="fullMappings"
             display="name"
@@ -20,6 +20,7 @@
           />
         </div>
         <ConverterText
+          v-if="sourceMapping"
           v-model="intermediate"
           :source="source"
           :mapping="sourceMapping"
@@ -29,7 +30,7 @@
       <div class="col">
         <div class="row">
           <Select
-            v-model:value="resultMapping"
+            v-model="resultMapping"
             class="flex"
             :items="mappings"
             display="name"
@@ -38,6 +39,7 @@
           <control icon="file_copy" @click="copy" />
         </div>
         <ConverterText
+          v-if="sourceMapping"
           v-model="result"
           :source="intermediate"
           :mapping="resultMapping"
@@ -136,20 +138,13 @@ function copy() {
   navigator.clipboard.writeText(result.value);
 }
 
-watch(mappings, () => {
-  sourceMapping.value = mappings.value[0];
-  resultMapping.value = mappings.value[1];
-});
-watch(converter.value?.default, (conversion) => {
-  let f = 0;
-  let t = 1;
-  if (conversion) {
-    f = conversion[0];
-    t = conversion[1];
+watch(
+  () => converter.value?.default ?? [0, 1],
+  ([f, t]) => {
+    sourceMapping.value = mappings.value[f];
+    resultMapping.value = mappings.value[t];
   }
-  sourceMapping.value = mappings.value[f];
-  resultMapping.value = mappings.value[t];
-});
+);
 </script>
 
 <style lang="scss" scoped>

@@ -10,7 +10,14 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { computed, defineEmit, defineProps, PropType, onMounted } from "vue";
+import {
+  computed,
+  defineEmit,
+  defineProps,
+  PropType,
+  onMounted,
+  toRaw,
+} from "vue";
 
 type Item = { [index: string]: string };
 type Value = number | string | Item;
@@ -37,16 +44,17 @@ const labels = computed(() =>
 const visible = computed(() => labels.value.length > 1);
 const index = computed({
   get: () => {
-    let value = props.modelValue;
-    if (props.type === "item") value = props.items.indexOf(value as Item);
-    else if (props.type === "label") {
+    const value = toRaw(props.modelValue);
+    if (props.type === "item")
+      return props.items.map((i) => toRaw(i)).indexOf(value as Item);
+    if (props.type === "label") {
       const key = props.labelKey;
-      value = props.items.findIndex((i) => (i as Item)[key] === value);
+      return props.items.findIndex((i) => (i as Item)[key] === value);
     }
-    return Math.max(value as number, 0);
+    return value as number;
   },
   set: (index) => {
-    let value: object | string | number = props.items[index];
+    let value: Value = props.items[index];
     if (props.type === "label") value = (value as Item)[props.labelKey];
     else if (props.type === "index") value = index;
     emit("update:modelValue", value);
@@ -54,5 +62,9 @@ const index = computed({
 });
 const highlights = computed(() => {
   return props.items.map((l, i) => (i === index.value ? "highlight" : ""));
+});
+
+onMounted(() => {
+  if (index.value < 0) index.value = 0;
 });
 </script>
