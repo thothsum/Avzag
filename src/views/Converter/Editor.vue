@@ -14,6 +14,10 @@
           <p class="text-dot" />
           <ButtonAlert @confirm="deleteMapping" />
         </template>
+        <template #caption>
+          The 1st mapping should be the same as the caption. Default conversion
+          is from the 1st into the 2nd mappings in the order.
+        </template>
         <div v-for="(m, i) in mappings" :key="i" class="row">
           <control
             :class="{ highlight: mapping == m }"
