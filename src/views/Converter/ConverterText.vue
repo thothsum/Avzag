@@ -41,7 +41,8 @@ const pairs = computed(() =>
 
 watchEffect(() => (result.value = convert(source.value, pairs.value)));
 watch(pairs, (pairs) => {
-  if (!props.reverse) source.value = convert(result.value, reversePairs(pairs));
+  if (!props.reverse && result.value)
+    source.value = convert(result.value, reversePairs(pairs));
 });
 </script>
 

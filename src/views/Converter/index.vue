@@ -105,7 +105,9 @@ function displaySample() {
   const mapping = sourceMapping.value;
   sourceMapping.value = mappings.value[0];
   source.value = converter.value?.sample ?? "";
-  nextTick(() => (sourceMapping.value = mapping));
+  nextTick(() => {
+    sourceMapping.value = mapping;
+  });
 }
 function swap() {
   const mapping = sourceMapping.value;
