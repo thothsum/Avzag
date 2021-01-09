@@ -14,15 +14,15 @@
           <control v-else icon="text_snippet" @click="displaySample" />
           <control icon="publish" @click="fileInput.click()" />
           <control
-            v-show="!resultMapping.partial"
+            v-show="fullMappings.includes(resultMapping)"
             icon="swap_horiz"
             @click="swap"
           />
         </div>
         <ConverterText
           v-if="sourceMapping"
-          v-model="intermediate"
-          :source="source"
+          v-model="source"
+          v-model:converted="intermediate"
           :mapping="sourceMapping"
         />
         <MappingTable v-if="showMappings" :mapping="sourceMapping" />
@@ -39,9 +39,9 @@
           <control icon="file_copy" @click="copy" />
         </div>
         <ConverterText
-          v-if="sourceMapping"
-          v-model="result"
-          :source="intermediate"
+          v-if="resultMapping"
+          v-model="intermediate"
+          v-model:converted="result"
           :mapping="resultMapping"
           :reverse="true"
         />
@@ -89,7 +89,6 @@ const showMappings = ref(false);
 const lects = computed(() => store.state.lects);
 const lect = ref({} as any);
 const converter = computed(() => lect.value.converter);
-const sample = computed(() => converter.value?.sample ?? "");
 
 const mappings = computed(() => converter.value?.mappings);
 const fullMappings = computed(() =>
@@ -104,16 +103,14 @@ watch(mappings, ([f, t]) => {
 
 function displaySample() {
   const mapping = sourceMapping.value;
-  sourceMapping.value = mappings.value[converter.value.default[0]];
-  source.value = sample.value;
+  sourceMapping.value = mappings.value[0];
+  source.value = converter.value?.sample ?? "";
   nextTick(() => (sourceMapping.value = mapping));
 }
 function swap() {
-  const text = result.value;
   const mapping = sourceMapping.value;
   sourceMapping.value = resultMapping.value;
   resultMapping.value = mapping;
-  source.value = text;
 }
 function download(filename: string, text: string) {
   const link = document.createElement("a");

@@ -1,56 +1,48 @@
 <template>
-  <textarea ref="textarea" v-model="display" :readonly="reverse"></textarea>
+  <textarea v-if="reverse" v-model="result" readonly></textarea>
+  <textarea v-else v-model="source"></textarea>
 </template>
 
 <script setup lang="ts">
-import { computed, defineEmit, defineProps, PropType, ref, watch } from "vue";
+import {
+  computed,
+  defineEmit,
+  defineProps,
+  PropType,
+  watch,
+  watchEffect,
+} from "vue";
 import { Pairs, Mapping } from "./types";
 import convert from "./convert";
 
 const props = defineProps({
   modelValue: { type: String, default: "" },
-  source: { type: String, default: "" },
+  converted: { type: String, default: "" },
   mapping: { type: Object as PropType<Mapping>, default: {} },
   reverse: Boolean,
 });
-const emit = defineEmit(["update:modelValue"]);
+const emit = defineEmit(["update:modelValue", "update:converted"]);
 
-const display = ref("");
-const result = computed({
+const source = computed({
   get: () => props.modelValue,
-  set: (r) => emit("update:modelValue", r),
+  set: (d) => emit("update:modelValue", d),
+});
+const result = computed({
+  get: () => props.converted,
+  set: (r) => emit("update:converted", r),
 });
 
-const pairs = computed(
-  () =>
-    (props.reverse
-      ? props.mapping.pairs.map(([l, r]) => [r, l])
-      : props.mapping.pairs) as Pairs
-);
-const reversePairs = computed(
-  () => pairs.value.map(([l, r]) => [r, l]) as Pairs
+function reversePairs(pairs: Pairs): Pairs {
+  return pairs.map(([l, r]) => [r, l]);
+}
+const pairs = computed(() =>
+  props.reverse ? reversePairs(props.mapping.pairs) : props.mapping.pairs
 );
 
-watch(
-  () => props.source,
-  (source) =>
-    (display.value = props.reverse ? convert(source, pairs.value) : source),
-  { immediate: true }
-);
-watch(
-  display,
-  (display) =>
-    (result.value = props.reverse ? display : convert(display, pairs.value)),
-  { immediate: true }
-);
-watch(
-  pairs,
-  (pairs) =>
-    (display.value = props.reverse
-      ? convert(props.source, pairs)
-      : convert(result.value, reversePairs.value)),
-  { deep: true, immediate: true }
-);
+watchEffect(() => (result.value = convert(source.value, pairs.value)));
+watch(pairs, (pairs) => {
+  if (!props.reverse) source.value = convert(result.value, reversePairs(pairs));
+});
 </script>
 
 <style lang="scss" scoped>
