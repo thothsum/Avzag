@@ -8,10 +8,10 @@
         <Select v-model="menu" :items="menus" label-key="text" />
       </div>
       <div class="row-1 controls">
-        <control icon="language" />
-        <control icon="code" />
-        <control icon="integration_instructions" />
-        <ButtonAlert />
+        <control icon="language" @click="loadLect" />
+        <control icon="code" @click="loadJSON" />
+        <control icon="integration_instructions" @click="saveJSON" />
+        <ButtonAlert @confirm="reset" />
       </div>
     </div>
   </div>
@@ -23,10 +23,14 @@
 import ButtonAlert from "./ButtonAlert";
 import Select from "./Select";
 import { ref, useContext, watch } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { config } from "@/editorManager";
 
-const router = useRouter();
 const attrs = useContext().attrs;
+const route = useRoute();
+const router = useRouter();
+const store = useStore();
 
 const menus = [
   {
@@ -50,8 +54,26 @@ const menus = [
     name: "PhrasebookCorpusEditor",
   },
 ];
-const menu = ref(menus[0]);
+const menu = ref(menus.find(({ name }) => name === route.name) ?? menus[0]);
 watch(menu, ({ name }) => router.push({ name }));
+
+function reset() {
+  config.reset();
+}
+function loadLect() {
+  const filename =
+    store.state.root + window.prompt("Enter lect name") + config.filename;
+  fetch(filename)
+    .then((response) => response.json())
+    .then((file) => config.setFile(file));
+}
+function loadJSON() {
+  const json = window.prompt("Enter JSON");
+  if (json) config.setFile(JSON.parse(json));
+}
+function saveJSON() {
+  navigator.clipboard.writeText(JSON.stringify(config.file.value));
+}
 </script>
 
 <style lang="scss" scoped>
@@ -62,9 +84,9 @@ watch(menu, ({ name }) => router.push({ name }));
   padding: map-get($margins, "normal");
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
-}
-:not(.icon) {
-  font-weight: bold;
+  :not(.icon) {
+    font-weight: bold;
+  }
 }
 .controls {
   flex: 1;

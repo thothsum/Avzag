@@ -42,8 +42,9 @@ const menus = [
   padding: map-get($margins, "normal");
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
-}
-:not(.icon) {
-  font-weight: bold;
+
+  :not(.icon) {
+    font-weight: bold;
+  }
 }
 </style>
