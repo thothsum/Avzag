@@ -97,6 +97,10 @@ const fullMappings = computed(() =>
     m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))
   )
 );
+watch(mappings, ([f, t]) => {
+  sourceMapping.value = f;
+  resultMapping.value = t;
+});
 
 function displaySample() {
   const mapping = sourceMapping.value;
@@ -137,14 +141,6 @@ function upload({ target }: InputEvent) {
 function copy() {
   navigator.clipboard.writeText(result.value);
 }
-
-watch(
-  () => converter.value?.default ?? [0, 1],
-  ([f, t]) => {
-    sourceMapping.value = mappings.value[f];
-    resultMapping.value = mappings.value[t];
-  }
-);
 </script>
 
 <style lang="scss" scoped>

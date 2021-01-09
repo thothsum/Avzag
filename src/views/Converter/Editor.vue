@@ -7,29 +7,6 @@
         </template>
         <textarea v-model="file.sample" />
       </EditorCard>
-      <EditorCard button="" icon="compare_arrows" header="Default Conversion">
-        <template #caption>
-          Two mappings that will be set by default. The left should be set to
-          the sample's original writing system.
-        </template>
-        <div v-if="file.default" class="row">
-          <p class="icon">south</p>
-          <div class="col flex">
-            <Select
-              v-model:value="file.default[0]"
-              :items="mappings"
-              display="name"
-              :indexed="true"
-            />
-            <Select
-              v-model:value="file.default[1]"
-              :items="mappings"
-              display="name"
-              :indexed="true"
-            />
-          </div>
-        </div>
-      </EditorCard>
       <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
         <template v-if="mapping" #header>
           <ButtonAlert @confirm="deleteMapping" />
