@@ -15,3 +15,9 @@ export type Phoneme = {
   tags?: string;
   lects: Record<string, PhonemeUse>;
 };
+
+type IPAEntry = { ipa: string; tags: string };
+export type IPARegistry = {
+  primary: IPAEntry[];
+  secondary: IPAEntry[];
+};

@@ -71,7 +71,7 @@ import MappingTable from "./MappingTable";
 import ConverterText from "./ConverterText";
 
 import { computed, ref, nextTick, watch } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 import { Mapping } from "./types";
 import convert from "./convert";
 
@@ -87,7 +87,7 @@ const resultMapping = ref({} as Mapping);
 const showMappings = ref(false);
 
 const lects = computed(() => store.state.lects);
-const lect = ref({} as any);
+const lect = ref(lects.value[0]);
 const converter = computed(() => lect.value.converter);
 
 const mappings = computed(() => converter.value?.mappings);

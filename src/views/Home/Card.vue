@@ -17,7 +17,7 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineProps, PropType } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 import { Lect, SearchState } from "./types";
 
 const props = defineProps({

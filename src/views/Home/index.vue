@@ -51,15 +51,15 @@ import Map from "./Map";
 import Card from "./Card";
 import InputQuery from "@/components/Query/InputQuery";
 import { Query, EvaluateQuery } from "@/components/Query/types";
-import { Lect, SearchState } from "./types";
+import { SearchState } from "./types";
 import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 import { useRouter } from "vue-router";
 
 const store = useStore();
 const router = useRouter();
 
-const catalogue = computed(() => store.state.catalogue as Lect[]);
+const catalogue = computed(() => store.state.catalogue);
 const search = reactive({
   selected: new Set<string>(),
   visible: new Set<string>(),

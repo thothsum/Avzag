@@ -28,7 +28,7 @@ import InputQuery from "@/components/Query/InputQuery";
 import Table from "./Table";
 import Inspector from "./Inspector";
 import { computed, onUnmounted, ref, watch } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 import { Phoneme } from "./types";
 
 const store = useStore();

@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 
 const route = useRoute();
 const router = useRouter();
