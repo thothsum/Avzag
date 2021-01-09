@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import EditorCard from "./EditorCard";
+import EditorCard from "@/components/EditorCard";
 
 export default {
   name: "PhraseContextEditor",

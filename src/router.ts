@@ -7,13 +7,13 @@ const EditorNavHeader = () => import("@/components/EditorNavHeader.vue");
 
 const Phonology = () => import("@/views/Phonology/index.vue");
 const Converter = () => import("@/views/Converter/index.vue");
-const Phrasebook = () => import("@/views/Phrasebook.vue");
+const Phrasebook = () => import("@/views/Phrasebook/index.vue");
 
 const PhonologyEditor = () => import("@/views/Phonology/Editor.vue");
 const ConverterEditor = () => import("@/views/Converter/Editor.vue");
-const PhrasebookEditor = () => import("@/views/PhrasebookEditor.vue");
+const PhrasebookEditor = () => import("@/views/Phrasebook/Editor.vue");
 const PhrasebookCorpusEditor = () =>
-  import("@/views/PhrasebookCorpusEditor.vue");
+  import("@/views/Phrasebook/CorpusEditor.vue");
 
 const routes = [
   {

@@ -10,7 +10,7 @@
       <IndexedColor :passive="true" :indexes="passiveIndexes" />
       <IndexedColor :indexes="activeIndexes" />
     </template>
-    <PhraseStateDisplay
+    <Display
       ref="display"
       :glossed="glossed"
       :colored="interactive"
@@ -22,13 +22,13 @@
 
 <script>
 import IndexedColor from "./IndexedColor";
-import PhraseStateDisplay from "./PhraseStateDisplay";
+import Display from "./Display";
 
 export default {
   name: "PhraseBlock",
   components: {
     IndexedColor,
-    PhraseStateDisplay,
+    Display,
   },
   props: ["id", "context", "block", "interactive", "glossed"],
   data() {

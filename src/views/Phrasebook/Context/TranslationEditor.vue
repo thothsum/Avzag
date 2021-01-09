@@ -27,11 +27,11 @@
 </template>
 
 <script>
-import ButtonAlert from "./ButtonAlert";
+import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
 
 export default {
-  name: "PhraseContextTranslation",
+  name: "PhraseContextTranslationEditor",
   components: {
     ButtonAlert,
     EditorCard,

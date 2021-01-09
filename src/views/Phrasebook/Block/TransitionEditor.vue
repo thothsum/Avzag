@@ -17,23 +17,23 @@
           :class="{ highlight: present[i] }"
           @click="toggle(i)"
         />
-        <PhraseStateDisplay :state="s" :context="context" />
+        <Display :state="s" :context="context" />
       </div>
     </div>
   </EditorCard>
 </template>
 
 <script>
-import ToggleGroup from "./ToggleGroup";
-import EditorCard from "./EditorCard";
-import PhraseStateDisplay from "./PhraseStateDisplay";
+import ToggleGroup from "@/components/ToggleGroup";
+import EditorCard from "@/components/EditorCard";
+import Display from "./Display";
 
 export default {
   name: "PhraseStateTransitionEditor",
   components: {
     ToggleGroup,
     EditorCard,
-    PhraseStateDisplay,
+    Display,
   },
   props: ["state", "states", "context"],
   data() {
