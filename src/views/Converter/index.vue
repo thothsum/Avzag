@@ -90,7 +90,7 @@ const lects = computed(() => store.state.lects);
 const lect = ref(lects.value[0]);
 const converter = computed(() => lect.value.converter);
 
-const mappings = computed(() => converter.value?.mappings);
+const mappings = computed(() => converter.value?.mappings ?? []);
 const fullMappings = computed(() =>
   mappings.value?.filter((m) =>
     m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))

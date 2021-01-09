@@ -7,9 +7,9 @@ import { Converter } from "@/views/Converter/types";
 type DBLect = {
   [key: string]: unknown;
   name: string;
-  phonology: PhonemeUse[];
-  converter: Converter;
-  phrasebook: object;
+  phonology?: PhonemeUse[];
+  converter?: Converter;
+  phrasebook?: object;
 };
 
 export interface State {
