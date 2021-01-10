@@ -22,21 +22,17 @@ import {
 } from "vue";
 import { Lect, SearchState } from "./types";
 import mapboxgl from "mapbox-gl";
+import { map } from "./map";
 
 export default defineComponent({
   props: {
     lect: { type: Object as PropType<Lect>, default: {} },
     search: { type: Object as PropType<SearchState>, default: {} },
-    map: {
-      type: Object as PropType<undefined | mapboxgl.Map>,
-      default: undefined,
-    },
   },
   emits: ["click"],
   setup(props, { emit }) {
     const root = ref(undefined as undefined | HTMLElement);
     watchEffect(() => {
-      const map = toRaw(props.map);
       if (root.value && map)
         new mapboxgl.Marker({
           element: root.value,

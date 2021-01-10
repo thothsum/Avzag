@@ -2,7 +2,7 @@ import mapboxgl from "mapbox-gl";
 import ResizeObserver from "resize-observer-polyfill";
 import { onUnmounted } from "vue";
 
-let map = {} as mapboxgl.Map;
+export let map: mapboxgl.Map;
 
 function bindCamera() {
   const camera = { center: new mapboxgl.LngLat(0, 0), zoom: 5 };
@@ -33,7 +33,7 @@ function bindResize() {
   observer.observe(map.getContainer());
 }
 
-export default function createMap(container = "map") {
+export function createMap(container = "map") {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
   map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
   map.doubleClickZoom.disable();
@@ -41,6 +41,4 @@ export default function createMap(container = "map") {
   bindCamera();
   bindTheme();
   bindResize();
-
-  return map;
 }

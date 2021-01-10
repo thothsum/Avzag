@@ -6,7 +6,6 @@
       :key="l.name"
       :lect="l"
       :search="search"
-      :map="map"
       @click="emit('toggle', l.name)"
     />
   </div>
@@ -17,7 +16,7 @@
 import { ref, onMounted, defineProps, defineEmit, PropType } from "vue";
 import { Lect, SearchState } from "./types";
 import Marker from "./Marker";
-import createMap from "./map";
+import { createMap } from "./map";
 import mapboxgl from "mapbox-gl";
 
 const props = defineProps({
@@ -27,5 +26,5 @@ const props = defineProps({
 const emit = defineEmit(["toggle"]);
 
 const map = ref(undefined as undefined | mapboxgl.Map);
-onMounted(() => (map.value = createMap()));
+onMounted(createMap);
 </script>
