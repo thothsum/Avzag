@@ -840,7 +840,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/lects/Iron/audio/ӕххуыс.mp3"
   },
   {
-    "revision": "9be11cc2b82e9b48d85fa4a49562bbc9",
+    "revision": "91e0cd3fab4ec34f517f7f71d3564a11",
     "url": "/lects/Iron/converter.json"
   },
   {
