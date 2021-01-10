@@ -52,48 +52,63 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import Marker from "./Marker";
-import Card from "./Card";
-import InputQuery from "@/components/Query/InputQuery";
+<script lang="ts">
+import Marker from "./Marker.vue";
+import Card from "./Card.vue";
+import InputQuery from "@/components/Query/InputQuery.vue";
 
-import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import {
+  computed,
+  onMounted,
+  onUnmounted,
+  ref,
+  watch,
+  defineComponent,
+} from "vue";
 import { useRouter } from "vue-router";
 import { setupStore } from "@/store";
 import { initialize, catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
-const router = useRouter();
-initialize();
-onMounted(createMap);
+export default defineComponent({
+  components: { Marker, Card, InputQuery },
+  setup() {
+    const router = useRouter();
+    initialize();
+    onMounted(createMap);
 
-const empty = computed(() => !search.selected.size);
-const about = ref(false);
+    const empty = computed(() => !search.selected.size);
+    const about = ref(false);
 
-function toggleLect(name: string) {
-  if (search.selected.has(name)) search.selected.delete(name);
-  else search.selected.add(name);
-}
-function load() {
-  setupStore([...search.selected]);
-  router.push({ name: "Phonology" });
-}
-
-watch(
-  catalogue,
-  () => {
-    try {
-      search.selected = new Set(
-        (JSON.parse(localStorage.lects) ?? []) as string[]
-      );
-    } catch {
-      console.log("error loading lect names from last save");
+    function toggleLect(name: string) {
+      if (search.selected.has(name)) search.selected.delete(name);
+      else search.selected.add(name);
     }
+    function load() {
+      setupStore([...search.selected]);
+      router.push({ name: "Phonology" });
+    }
+
+    watch(
+      catalogue,
+      () => {
+        try {
+          search.selected = new Set(
+            (JSON.parse(localStorage.lects) ?? []) as string[]
+          );
+        } catch {
+          console.log("error loading lect names from last save");
+        }
+      },
+      { immediate: true }
+    );
+    onUnmounted(
+      () => (localStorage.lects = JSON.stringify([...search.selected]))
+    );
+
+    return { catalogue, query, search, empty, about, toggleLect, load };
   },
-  { immediate: true }
-);
-onUnmounted(() => (localStorage.lects = JSON.stringify([...search.selected])));
+});
 </script>
 
 <style lang="scss" scoped>

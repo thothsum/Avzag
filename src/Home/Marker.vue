@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ref, computed, defineComponent, PropType, onMounted } from "vue";
 import { Lect, SearchState } from "./types";
 import mapboxgl from "mapbox-gl";

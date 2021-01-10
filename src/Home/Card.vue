@@ -14,23 +14,27 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { computed, defineProps, PropType } from "vue";
+<script lang="ts">
+import { computed, defineComponent, PropType } from "vue";
 import { Lect, SearchState } from "./types";
 import { root } from "@/store";
 
-const props = defineProps({
-  lect: { type: Object as PropType<Lect>, default: {} },
-  search: { type: Object as PropType<SearchState>, default: {} },
+export default defineComponent({
+  props: {
+    lect: { type: Object as PropType<Lect>, default: {} },
+    search: { type: Object as PropType<SearchState>, default: {} },
+  },
+  setup(props) {
+    const name = computed(() => props.lect.name);
+    const flag = computed(() => root + name.value + "/flag.png");
+    const family = computed(() => props.lect.family.join(" › "));
+
+    const selected = computed(() => props.search.selected.has(name.value));
+    const visible = computed(() => props.search.visible.has(name.value));
+
+    return { flag, family, selected, visible };
+  },
 });
-
-const name = computed(() => props.lect.name);
-const flag = computed(() => root + name.value + "/flag.png");
-const family = computed(() => props.lect.family.join(" › "));
-
-const selected = computed(() => props.search.selected.has(name.value));
-const visible = computed(() => props.search.visible.has(name.value));
 </script>
 
 <style lang="scss" scoped>
