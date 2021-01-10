@@ -1,7 +1,5 @@
-import { lects } from "@/store";
+import { root, lects } from "@/store";
 import { IPARegistry, Phoneme, PhonemeUse } from "./types";
-
-const root = process.env.BASE_URL + "lects/";
 
 let registry: IPARegistry;
 
@@ -24,8 +22,8 @@ function collectTags(phomene: string) {
 async function collectPhonemes() {
   const registry = {} as Record<string, Phoneme>;
 
-  for (const { name } of lects.value) {
-    const uses = (await fetch(root + name + "/phonology.json").then((r) =>
+  for (const { name, root } of lects.value) {
+    const uses = (await fetch(root + "phonology.json").then((r) =>
       r.json()
     )) as PhonemeUse[];
     if (!uses) continue;
@@ -48,7 +46,7 @@ async function collectPhonemes() {
   return phonemes;
 }
 
-export default async function setupStore() {
+export default async function initialize() {
   if (!registry)
     registry = (await fetch(root + "ipa.json").then((r) =>
       r.json()

@@ -26,7 +26,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Notes from "@/components/Notes";
 import { computed, defineEmit, defineProps, ref, watch, PropType } from "vue";
-import { useStore } from "@/storex";
+import { lects } from "@/store";
 import { PhonemeUse } from "./types";
 
 const props = defineProps({
@@ -34,9 +34,10 @@ const props = defineProps({
   use: { type: Object as PropType<PhonemeUse>, default: {} },
 });
 const emit = defineEmit(["play"]);
-const store = useStore();
 
-const root = computed(() => store.state.root + props.lect + "/audio/");
+const root = computed(
+  () => lects.value.find(({ name }) => name === props.lect)?.root + "audio/"
+);
 const graphemes = computed(() => {
   const set = new Set(props.use.samples?.map(({ grapheme }) => grapheme));
   set.delete(undefined);
