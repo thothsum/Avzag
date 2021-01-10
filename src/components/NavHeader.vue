@@ -9,9 +9,9 @@
         :to="{ name: name ?? text }"
       >
         <control
-          :class="{ highlight: isActive }"
           :icon="icon"
           :text="text"
+          :is-on="isActive"
           @click="navigate"
         />
       </router-link>

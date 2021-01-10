@@ -1,8 +1,8 @@
 <template>
-  <div v-if="pairs.length > 0" class="card row-1 wrap">
-    <p v-for="(p, i) in pairs" :key="i">
-      <span class="text-faded">{{ p[left].replace(" ", "_") }}</span>
-      <span>{{ p[right].replace(" ", "_") }}</span>
+  <div v-if="pairs.length" class="card row-1 wrap">
+    <p v-for="([l, r], i) in pairs" :key="i">
+      <span class="text-faded">{{ l }}</span>
+      <span>{{ r }}</span>
     </p>
   </div>
 </template>
@@ -10,16 +10,15 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineProps, PropType } from "vue";
-import { Mapping } from "./types";
+import { Pairs } from "./types";
 
 const props = defineProps({
-  mapping: { type: Object as PropType<Mapping>, default: {} },
-  reverse: Boolean,
+  pairs: { type: Object as PropType<Pairs>, default: {} },
 });
 
-const pairs = computed(() => props.mapping.pairs);
-const right = computed(() => (props.reverse ? 0 : 1));
-const left = computed(() => (right.value + 1) % 2);
+const pairs = computed(() =>
+  props.pairs.map((p) => p.map((t) => t.replace(" ", "_")))
+);
 </script>
 
 <style lang="scss" scoped>

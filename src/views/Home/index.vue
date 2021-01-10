@@ -1,7 +1,14 @@
 <template>
   <div v-if="catalogue" id="root">
-    <div id="map">
-      <Map :catalogue="catalogue" :search="search" @toggle="toggleLect" />
+    <div class="map-container">
+      <div id="map" />
+      <Marker
+        v-for="l in catalogue"
+        :key="l.name"
+        :lect="l"
+        :search="search"
+        @click="toggleLect(l.name)"
+      />
     </div>
     <div id="ui" class="col-1">
       <div id="top" class="col-1 card">
@@ -47,20 +54,30 @@
 
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import Map from "./Map";
+import Marker from "./Marker";
 import Card from "./Card";
 import InputQuery from "@/components/Query/InputQuery";
 
-import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
+import {
+  computed,
+  onMounted,
+  onUnmounted,
+  reactive,
+  ref,
+  watch,
+  watchEffect,
+} from "vue";
 import { useRouter } from "vue-router";
 
 import { Query, EvaluateQuery } from "@/components/Query/types";
 import { SearchState } from "./types";
-import * as MainStore from "@/store.ts";
+import { setupStore as registerLects } from "@/store.ts";
 import { setupStore, catalogue } from "./store";
+import { createMap } from "./map";
 
 const router = useRouter();
 setupStore();
+onMounted(createMap);
 
 const search = reactive({
   selected: new Set<string>(),
@@ -90,7 +107,7 @@ function toggleLect(name: string) {
   else search.selected.add(name);
 }
 function load() {
-  MainStore.setupStore([...search.selected]);
+  registerLects([...search.selected]);
   router.push({ name: "Phonology" });
 }
 
@@ -122,10 +139,10 @@ $margin: -1 * map-get($margins, "normal");
     top: $margin;
   }
 }
+.map-container,
 #map {
   width: 100vw;
   height: 100vh;
-  z-index: 1;
   position: absolute;
 }
 #ui {

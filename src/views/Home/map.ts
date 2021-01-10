@@ -1,10 +1,10 @@
 import mapboxgl from "mapbox-gl";
 import ResizeObserver from "resize-observer-polyfill";
-import { onUnmounted } from "vue";
+import { onUnmounted, shallowRef } from "vue";
 
-export let map: mapboxgl.Map;
+export const map = shallowRef<mapboxgl.Map>();
 
-function bindCamera() {
+function bindCamera(map: mapboxgl.Map) {
   const camera = { center: new mapboxgl.LngLat(0, 0), zoom: 5 };
 
   if (localStorage.camera)
@@ -18,7 +18,7 @@ function bindCamera() {
   map.on("zoom", () => (camera.zoom = map.getZoom()));
 }
 
-function bindTheme() {
+function bindTheme(map: mapboxgl.Map) {
   function setStyle({ matches }: MediaQueryList | MediaQueryListEvent) {
     const theme = matches ? "dark" : "light";
     map.setStyle(`mapbox://styles/mapbox/${theme}-v10`);
@@ -28,17 +28,17 @@ function bindTheme() {
   setStyle(query);
 }
 
-function bindResize() {
+function bindResize(map: mapboxgl.Map) {
   const observer = new ResizeObserver(() => map.resize());
   observer.observe(map.getContainer());
 }
 
 export function createMap(container = "map") {
   mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
-  map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
-  map.doubleClickZoom.disable();
+  map.value = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
+  map.value.doubleClickZoom.disable();
 
-  bindCamera();
-  bindTheme();
-  bindResize();
+  bindCamera(map.value);
+  bindTheme(map.value);
+  bindResize(map.value);
 }

@@ -11,8 +11,6 @@ function capitalize(text: string) {
 }
 
 export default function convert(source: string, pairs: Pairs) {
-  if (!pairs?.length) return source;
-
   source = " " + source.replace(/\n/g, "\n ").trim();
   let result = "";
 

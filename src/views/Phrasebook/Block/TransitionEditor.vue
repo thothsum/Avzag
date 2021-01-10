@@ -1,14 +1,15 @@
 <template>
   <EditorCard button="" icon="alt_route" header="transition">
     <template #header>
-      <ToggleGroup
-        v-slot="{ item, highlight }"
-        v-model="mode"
-        :items="['block', 'arrow_forward', 'star_outline']"
-        type="index"
-      >
-        <control :icon="item" :class="highlight" />
-      </ToggleGroup>
+      <div class="row-0">
+        <control
+          v-for="(ic, i) in icons"
+          :key="ic"
+          :icon="ic"
+          :is-on="mode === i"
+          @click="mode = i"
+        />
+      </div>
     </template>
     <div v-if="mode === 2" class="row-1 wrap block-editor">
       <div v-for="(s, i) in states" :key="i" class="row">
@@ -24,14 +25,12 @@
 </template>
 
 <script>
-import ToggleGroup from "@/components/ToggleGroup";
 import EditorCard from "@/components/EditorCard";
 import Display from "./Display";
 
 export default {
   name: "PhraseStateTransitionEditor",
   components: {
-    ToggleGroup,
     EditorCard,
     Display,
   },
@@ -39,6 +38,7 @@ export default {
   data() {
     return {
       mode: 0,
+      icons: ["block", "arrow_forward", "star_outline"],
     };
   },
   computed: {

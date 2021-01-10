@@ -5,7 +5,7 @@
         v-bind="attrs"
         :icon="icon"
         :text="props.text"
-        :class="{ highlight: modelValue }"
+        :is-on="modelValue"
       />
     </slot>
   </div>

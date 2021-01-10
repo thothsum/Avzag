@@ -12,14 +12,7 @@
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  ref,
-  computed,
-  defineComponent,
-  PropType,
-  watchEffect,
-  toRaw,
-} from "vue";
+import { ref, computed, defineComponent, PropType, onMounted } from "vue";
 import { Lect, SearchState } from "./types";
 import mapboxgl from "mapbox-gl";
 import { map } from "./map";
@@ -31,15 +24,15 @@ export default defineComponent({
   },
   emits: ["click"],
   setup(props, { emit }) {
-    const root = ref(undefined as undefined | HTMLElement);
-    watchEffect(() => {
-      if (root.value && map)
+    const root = ref<HTMLElement>();
+    onMounted(() => {
+      if (map.value)
         new mapboxgl.Marker({
           element: root.value,
           anchor: "top",
         })
           .setLngLat(props.lect.point)
-          .addTo(map);
+          .addTo(map.value);
     });
 
     const name = computed(() => props.lect.name);

@@ -1,5 +1,5 @@
 <template>
-  <button>
+  <button :class="{ highlight: isOn }">
     <p v-if="icon" class="icon">{{ icon }}</p>
     <p v-if="text">{{ text }}</p>
   </button>
@@ -12,5 +12,6 @@ import { defineProps } from "vue";
 const props = defineProps({
   icon: { type: String, default: "" },
   text: { type: String, default: "" },
+  isOn: Boolean,
 });
 </script>

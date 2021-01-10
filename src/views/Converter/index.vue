@@ -1,60 +1,56 @@
 <template>
-  <div v-if="lects" class="section col-1">
-    <ToggleGroup v-model="lect" class="small" :items="lects" />
-    <div v-if="mappings" class="split">
+  <div class="section col-1">
+    <div class="row small">
+      <control
+        v-for="(c, n) of converters"
+        :key="n"
+        class="round"
+        :text="n"
+        :is-on="converter === c"
+        @click="converter = c"
+      />
+    </div>
+    <div v-if="converter" class="split">
       <div class="col">
         <div class="row">
           <Select
-            v-model="sourceMapping"
+            v-model="mappings.initial"
             class="flex"
             :items="fullMappings"
             display="name"
           />
-          <control v-if="source" icon="clear" @click="source = ''" />
+          <control
+            v-if="texts.initial"
+            icon="clear"
+            @click="texts.initial = ''"
+          />
           <control v-else icon="text_snippet" @click="displaySample" />
           <control icon="publish" @click="fileInput.click()" />
-          <control
-            v-show="fullMappings.includes(resultMapping)"
-            icon="swap_horiz"
-            @click="swap"
-          />
+          <control v-if="canSwap" icon="swap_horiz" @click="swap" />
         </div>
-        <template v-if="sourceMapping">
-          <ConverterText
-            v-model="source"
-            v-model:converted="intermediate"
-            :mapping="sourceMapping"
-          />
-          <MappingTable v-if="showMappings" :mapping="sourceMapping" />
+        <template v-if="pairs.initial">
+          <textarea v-model="texts.initial" />
+          <Pairs v-if="showPairs" :pairs="pairs.initial" />
         </template>
       </div>
       <div class="col">
         <div class="row">
           <Select
-            v-model="resultMapping"
+            v-model="mappings.final"
             class="flex"
-            :items="mappings"
+            :items="converter.mappings"
             display="name"
           />
-          <toggle v-model="showMappings" icon="visibility" />
+          <toggle v-model="showPairs" icon="visibility" />
           <control icon="file_copy" @click="copy" />
         </div>
-        <template v-if="resultMapping">
-          <ConverterText
-            v-model="intermediate"
-            v-model:converted="result"
-            :mapping="resultMapping"
-            :reverse="true"
-          />
-          <MappingTable
-            v-if="showMappings"
-            :mapping="resultMapping"
-            :reverse="true"
-          />
+        <template v-if="pairs.final">
+          <textarea v-model="texts.final" readonly />
+          <Pairs v-if="showPairs" :pairs="pairs.final" />
         </template>
       </div>
     </div>
-    <h2 v-else>No data for this lect.</h2>
+    <h2 v-else>Selected languages have no converters.</h2>
     <input
       v-show="false"
       ref="fileInput"
@@ -68,54 +64,46 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Select from "@/components/Select";
-import ToggleGroup from "@/components/ToggleGroup";
-import MappingTable from "./MappingTable";
-import ConverterText from "./ConverterText";
+import Pairs from "./Pairs";
 
 import { computed, ref, nextTick, watch } from "vue";
-import { useStore } from "@/store";
-import { Mapping } from "./types";
-import { DBLect } from "@/store/types";
+import {
+  initialize,
+  converters,
+  converter,
+  texts,
+  mappings,
+  pairs,
+} from "./main";
+import { Mapping, Converter } from "./types";
 import convert from "./convert";
 
-const store = useStore();
-const fileInput = ref({} as HTMLInputElement);
+initialize();
 
-const source = ref("");
-const result = ref("");
-const intermediate = ref("");
-
-const sourceMapping = ref({} as Mapping);
-const resultMapping = ref({} as Mapping);
-const showMappings = ref(false);
-
-const lects = computed(() => store.state.lects);
-const lect = ref({} as DBLect);
-const converter = computed(() => lect.value.converter);
-
-const mappings = computed(() => converter.value?.mappings ?? []);
+const showPairs = ref(false);
 const fullMappings = computed(() =>
-  mappings.value?.filter((m) =>
+  converter.value?.mappings.filter((m) =>
     m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))
   )
 );
-watch(mappings, ([f, t]) => {
-  sourceMapping.value = f;
-  resultMapping.value = t;
-});
+const canSwap = computed(
+  () => mappings.final && fullMappings.value?.includes(mappings.final)
+);
 
+const fileInput = ref({} as HTMLInputElement);
 function displaySample() {
-  const mapping = sourceMapping.value;
-  sourceMapping.value = mappings.value[0];
-  source.value = converter.value?.sample ?? "";
+  const mapping = mappings.initial;
+  mappings.initial = converter.value?.mappings[0];
+  texts.initial = converter.value?.sample ?? "";
   nextTick(() => {
-    sourceMapping.value = mapping;
+    mappings.initial = mapping;
   });
 }
 function swap() {
-  const mapping = sourceMapping.value;
-  sourceMapping.value = resultMapping.value;
-  resultMapping.value = mapping;
+  const mapping = mappings.initial;
+  mappings.initial = mappings.final;
+  mappings.final = mapping;
+  texts.initial = texts.final;
 }
 function download(filename: string, text: string) {
   const link = document.createElement("a");
@@ -133,15 +121,14 @@ function download(filename: string, text: string) {
 function upload({ target }: InputEvent) {
   const reader = new FileReader();
   const file = (target as HTMLInputElement).files?.[0] as File;
-  reader.onload = (e) =>
-    download(
-      file.name,
-      convert(e.target?.result as string, sourceMapping.value.pairs)
-    );
+  reader.onload = ({ target }) => {
+    if (pairs.initial)
+      download(file.name, convert(target?.result as string, pairs.initial));
+  };
   reader.readAsText(file);
 }
 function copy() {
-  navigator.clipboard.writeText(result.value);
+  navigator.clipboard.writeText(texts.final);
 }
 </script>
 
@@ -150,6 +137,9 @@ function copy() {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: map-get($margins, "double");
+}
+textarea {
+  height: 256px;
 }
 @media only screen and (max-width: $mobile-width) {
   .split {
