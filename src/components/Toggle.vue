@@ -1,25 +1,26 @@
 <template>
   <div @click="toggle">
     <slot :on="modelValue">
-      <control
-        v-bind="attrs"
-        :icon="icon"
-        :text="props.text"
-        :is-on="modelValue"
-      />
+      <control v-bind="attrs" :icon="icon" :text="text" :is-on="modelValue" />
     </slot>
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useContext, defineEmit, defineProps } from "vue";
+<script lang="ts">
+import { defineComponent } from "vue";
 
-const props = defineProps({ modelValue: Boolean, icon: String, text: String });
-const emit = defineEmit(["update:modelValue"]);
-const attrs = useContext().attrs;
-
-function toggle() {
-  emit("update:modelValue", !props.modelValue);
-}
+export default defineComponent({
+  props: {
+    modelValue: Boolean,
+    icon: { type: String, default: "" },
+    text: { type: String, default: "" },
+  },
+  emits: ["update:modelValue"],
+  setup(props, { emit, attrs }) {
+    function toggle() {
+      emit("update:modelValue", !props.modelValue);
+    }
+    return { toggle, attrs };
+  },
+});
 </script>

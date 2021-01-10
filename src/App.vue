@@ -2,28 +2,31 @@
   <router-view />
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { watchEffect, computed } from "vue";
+<script lang="ts">
+import { watchEffect, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { setupStore } from "./store";
 
-const route = useRoute();
-const router = useRouter();
+export default defineComponent({
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
 
-if (!route.name || route.name === "Home") {
-  router.push(
-    localStorage.url && localStorage.url !== route.path
-      ? { path: localStorage.url }
-      : { name: "Home" }
-  );
-}
-if (route.name !== "Home") {
-  const lects = JSON.parse(localStorage.lects ?? "[]");
-  setupStore(lects);
-}
-watchEffect(() => {
-  if (route.name) localStorage.url = route.path;
+    if (!route.name || route.name === "Home") {
+      router.push(
+        localStorage.url && localStorage.url !== route.path
+          ? { path: localStorage.url }
+          : { name: "Home" }
+      );
+    }
+    if (route.name !== "Home") {
+      const lects = JSON.parse(localStorage.lects ?? "[]");
+      setupStore(lects);
+    }
+    watchEffect(() => {
+      if (route.name) localStorage.url = route.path;
+    });
+  },
 });
 </script>
 
