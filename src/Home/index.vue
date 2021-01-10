@@ -58,56 +58,25 @@ import Marker from "./Marker";
 import Card from "./Card";
 import InputQuery from "@/components/Query/InputQuery";
 
-import {
-  computed,
-  onMounted,
-  onUnmounted,
-  reactive,
-  ref,
-  watch,
-  watchEffect,
-} from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
-
-import { Query, EvaluateQuery } from "@/components/Query/types";
-import { SearchState } from "./types";
-import { setupStore as registerLects } from "@/store";
-import { setupStore, catalogue } from "./store";
+import { setupStore } from "@/store";
+import { initialize, catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
 const router = useRouter();
-setupStore();
+initialize();
 onMounted(createMap);
-
-const search = reactive({
-  selected: new Set<string>(),
-  visible: new Set<string>(),
-} as SearchState);
-
-const query = ref({} as Query);
-const tags = computed(
-  () =>
-    catalogue.value?.map(({ name, tags, family }) =>
-      [name, tags ?? "", family].flat().join(" ").toLowerCase()
-    ) ?? []
-);
 
 const empty = computed(() => !search.selected.size);
 const about = ref(false);
 
-watchEffect(() =>
-  tags.value.forEach((t, i) => {
-    const name = catalogue.value[i].name;
-    if (EvaluateQuery(t, query.value, true)) search.visible.add(name);
-    else search.visible.delete(name);
-  })
-);
 function toggleLect(name: string) {
   if (search.selected.has(name)) search.selected.delete(name);
   else search.selected.add(name);
 }
 function load() {
-  registerLects([...search.selected]);
+  setupStore([...search.selected]);
   router.push({ name: "Phonology" });
 }
 
