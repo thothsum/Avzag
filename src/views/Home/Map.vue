@@ -17,7 +17,7 @@
 import { ref, onMounted, defineProps, defineEmit, PropType } from "vue";
 import { Lect, SearchState } from "./types";
 import Marker from "./Marker";
-import createMap from "./mapManager";
+import createMap from "./map";
 import mapboxgl from "mapbox-gl";
 
 const props = defineProps({

@@ -8,14 +8,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useStore } from "@/store";
-import * as StoreCore from "@/storeCore";
+import { setupStore } from "./store";
 
 const route = useRoute();
 const router = useRouter();
-const store = useStore();
 
-store.dispatch("initialize");
 if (!route.name || route.name === "Home") {
   router.push(
     localStorage.url && localStorage.url !== route.path
@@ -25,8 +22,7 @@ if (!route.name || route.name === "Home") {
 }
 if (route.name !== "Home") {
   const lects = JSON.parse(localStorage.lects ?? "[]");
-  if (lects) store.dispatch("loadLects", lects);
-  StoreCore.lects.value = lects;
+  setupStore(lects);
 }
 watchEffect(() => {
   if (route.name) localStorage.url = route.path;

@@ -28,11 +28,12 @@ import InputQuery from "@/components/Query/InputQuery";
 import Table from "./Table";
 import Inspector from "./Inspector";
 
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { Phoneme } from "./types";
 import setupStore from "./store";
-import { lects } from "@/storeCore";
+import { lects as storeLects } from "@/store.ts";
 
+const lects = computed(() => storeLects.value.map(({ name }) => name));
 const categories = ["vowel", "consonant"];
 const phoneme = ref({} as Phoneme);
 const lectQuery = ref({});

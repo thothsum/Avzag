@@ -17,17 +17,16 @@
 <script setup lang="ts">
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { computed, defineProps, PropType } from "vue";
-import { useStore } from "@/store";
 import { Lect, SearchState } from "./types";
+import { root } from "@/store.ts";
 
 const props = defineProps({
   lect: { type: Object as PropType<Lect>, default: {} },
   search: { type: Object as PropType<SearchState>, default: {} },
 });
-const store = useStore();
 
 const name = computed(() => props.lect.name);
-const flag = computed(() => store.state.root + name.value + "/flag.png");
+const flag = computed(() => root + name.value + "/flag.png");
 const family = computed(() => props.lect.family.join(" › "));
 
 const selected = computed(() => props.search.selected.has(name.value));

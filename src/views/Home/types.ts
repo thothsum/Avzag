@@ -5,6 +5,7 @@ export type Lect = {
   tags?: string;
   quote?: string;
 };
+
 export type SearchState = {
   selected: Set<string>;
   visible: Set<string>;

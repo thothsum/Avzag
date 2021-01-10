@@ -53,14 +53,13 @@ import InputQuery from "@/components/Query/InputQuery";
 import { Query, EvaluateQuery } from "@/components/Query/types";
 import { SearchState } from "./types";
 import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
-import { useStore } from "@/store";
 import { useRouter } from "vue-router";
-import * as StoreCore from "@/storeCore";
+import * as MainStore from "@/store.ts";
+import { setupStore, catalogue } from "./store";
 
-const store = useStore();
 const router = useRouter();
+setupStore();
 
-const catalogue = computed(() => store.state.catalogue);
 const search = reactive({
   selected: new Set<string>(),
   visible: new Set<string>(),
@@ -89,8 +88,7 @@ function toggleLect(name: string) {
   else search.selected.add(name);
 }
 function load() {
-  store.dispatch("loadLects", [...search.selected]);
-  StoreCore.lects.value = [...search.selected];
+  MainStore.setupStore([...search.selected]);
   router.push({ name: "Phonology" });
 }
 
