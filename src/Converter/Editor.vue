@@ -96,12 +96,18 @@ export default defineComponent({
       mapping.value.pairs.splice(index, 1);
     }
 
-    const converted = computed(() =>
-      convert(
-        convert(file.value?.sample ?? "", mappings.value[0].pairs),
-        pairs.value.map(([l, r]) => [r, l])
-      )
-    );
+    const converted = computed(() => {
+      const intermediate = convert(
+        file.value?.sample ?? "",
+        mappings.value[0].pairs
+      );
+      return pairs.value === mappings.value[0].pairs
+        ? intermediate
+        : convert(
+            intermediate,
+            pairs.value.map(([l, r]) => [r, l])
+          );
+    });
 
     return {
       file,
