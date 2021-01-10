@@ -30,20 +30,15 @@ import Inspector from "./Inspector";
 
 import { computed, ref } from "vue";
 import { Phoneme } from "./types";
-import initialize from "./main";
+import { initialize, phonemes, phoneme } from "./main";
 import { lects } from "@/store";
+
+initialize();
 
 const lectNames = computed(() => lects.value.map(({ name }) => name));
 const categories = ["vowel", "consonant"];
-const phoneme = ref({} as Phoneme);
 const lectQuery = ref({});
 const featureQuery = ref({});
-
-const phonemes = ref([] as Phoneme[]);
-
-initialize().then((r) => {
-  phonemes.value = r as Phoneme[];
-});
 </script>
 
 <style lang="scss" scoped>

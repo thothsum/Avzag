@@ -1,7 +1,7 @@
 <template>
   <div v-if="notes.length" class="col">
     <p v-for="(ps, i) in pieces" :key="i">
-      <template v-for="{ text, display } in ps" :key="text">
+      <template v-for="({ text, display }, j) in ps" :key="j">
         <span v-if="display === 'plain'">{{ text }}</span>
         <span v-else-if="display === 'highlight'" class="highlight-font">{{
           text

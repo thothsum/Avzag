@@ -1,7 +1,11 @@
 import { root, lects } from "@/store";
+import { shallowRef } from "vue";
 import { IPARegistry, Phoneme, PhonemeUse } from "./types";
 
 let registry: IPARegistry;
+
+export const phonemes = shallowRef<Phoneme[]>();
+export const phoneme = shallowRef<Phoneme>();
 
 function collectTags(phomene: string) {
   let collected = "";
@@ -19,13 +23,11 @@ function collectTags(phomene: string) {
   return collected;
 }
 
-async function collectPhonemes() {
+function collectPhonemes(allUses: Record<string, undefined | PhonemeUse[]>) {
   const registry = {} as Record<string, Phoneme>;
 
-  for (const { name, root } of lects.value) {
-    const uses = (await fetch(root + "phonology.json").then((r) =>
-      r.json()
-    )) as PhonemeUse[];
+  for (const name in allUses) {
+    const uses = allUses[name];
     if (!uses) continue;
 
     uses.forEach((use) => {
@@ -41,16 +43,32 @@ async function collectPhonemes() {
     });
   }
 
-  const phonemes = Object.values(registry);
-  phonemes.sort(({ ipa: a }, { ipa: b }) => (a > b ? 1 : b > a ? -1 : 0));
-  return phonemes;
+  phonemes.value = Object.values(registry);
+  phonemes.value.sort(({ ipa: a }, { ipa: b }) => (a > b ? 1 : b > a ? -1 : 0));
+  phoneme.value = phonemes.value[0];
 }
 
-export default async function initialize() {
-  if (!registry)
-    registry = (await fetch(root + "ipa.json").then((r) =>
-      r.json()
-    )) as IPARegistry;
+export function initialize() {
+  let loading = fetch(root + "ipa.json")
+    .then((r) => r.json())
+    .then((j) => {
+      registry = j;
+    });
 
-  return await collectPhonemes();
+  const phonemes = {} as Record<string, undefined | PhonemeUse[]>;
+  lects.value.forEach(
+    ({ name, root }) =>
+      (loading = loading.then(() =>
+        fetch(root + "phonology.json")
+          .then(
+            (r) => r.json(),
+            () => undefined
+          )
+          .then((j) => {
+            phonemes[name] = j;
+          })
+      ))
+  );
+
+  loading.then(() => collectPhonemes(phonemes));
 }
