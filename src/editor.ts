@@ -1,42 +1,46 @@
-import { onMounted, onBeforeUnmount, ref, watch } from "vue";
+import { onMounted, onUnmounted, Ref, ref, watch } from "vue";
 
-export const editorConfig = {
-  file: ref({} as object),
-  defaultFile: {} as object,
-  filename: "" as string | (() => string),
-  onReset: (() => undefined) as () => void,
-  reset() {
-    this.setFile(JSON.parse(JSON.stringify(this.defaultFile)));
-  },
-  setFile(file: object) {
-    if (file) {
-      this.file.value = file;
-      this.onReset();
-    }
-  },
+type Options = {
+  defaultFile: object;
+  storage: string;
+  filename: string | (() => string);
+  onReset: () => void;
 };
 
-export function setupEditor(
-  defaultFile: object,
-  filename: string | (() => string),
-  storage: string,
-  onReset: () => void
-) {
-  editorConfig.file.value = editorConfig.defaultFile = defaultFile;
-  editorConfig.filename = filename;
-  editorConfig.onReset = onReset;
+export const config: { file: Ref<object> } & Options = {
+  file: ref({} as object),
+  defaultFile: {},
+  storage: "",
+  filename: "",
+  onReset: () => undefined,
+};
+
+export function setFile(file: object) {
+  if (file) {
+    config.file.value = file;
+    config.onReset();
+  }
+}
+
+export function resetFile() {
+  config.file.value = JSON.parse(JSON.stringify(config.defaultFile));
+}
+
+export function setupEditor(options: Partial<Options>) {
+  Object.assign(config, options);
 
   onMounted(() => {
     try {
-      editorConfig.setFile(JSON.parse(localStorage[storage]));
+      setFile(JSON.parse(localStorage[config.storage]));
     } catch (error) {
-      editorConfig.reset();
+      resetFile();
     }
   });
-  const save = () =>
-    (localStorage[storage] = JSON.stringify(editorConfig.file.value));
-  watch(editorConfig.file, () => save(), { deep: true });
-  onBeforeUnmount(save);
 
-  return editorConfig.file;
+  const saveFile = () =>
+    (localStorage[config.storage] = JSON.stringify(config.file.value));
+  watch(config.file, () => saveFile(), { deep: true });
+  onUnmounted(() => saveFile());
+
+  return config.file;
 }

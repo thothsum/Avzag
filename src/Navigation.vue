@@ -20,18 +20,21 @@
   <router-view />
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useContext } from "vue";
+<script lang="ts">
+import { defineComponent } from "vue";
 
-const attrs = useContext().attrs;
-
-const menus = [
-  { icon: "arrow_back", name: "Home" },
-  { icon: "audiotrack", text: "Phonology" },
-  { icon: "sync_alt", text: "Converter" },
-  { icon: "book", text: "Phrasebook" },
-];
+export default defineComponent({
+  setup() {
+    return {
+      menus: [
+        { icon: "arrow_back", name: "Home" },
+        { icon: "audiotrack", text: "Phonology" },
+        { icon: "sync_alt", text: "Converter" },
+        { icon: "book", text: "Phrasebook" },
+      ],
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>

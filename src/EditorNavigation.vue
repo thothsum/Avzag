@@ -1,5 +1,5 @@
 <template>
-  <div id="root" v-bind="attrs" class="small">
+  <div id="root" class="small">
     <div class="section scroll row-1">
       <div class="row-1">
         <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
@@ -12,68 +12,70 @@
         <control icon="code" @click="loadJSON" />
         <control icon="integration_instructions" @click="saveJSON" />
         <p class="text-dot" />
-        <ButtonAlert @confirm="reset" />
+        <ButtonAlert @confirm="resetFile" />
       </div>
     </div>
   </div>
   <router-view />
 </template>
 
-<script setup lang="ts">
-// /* eslint-disable @typescript-eslint/no-unused-vars */
-import ButtonAlert from "@/components/ButtonAlert";
-import Select from "@/components/Select";
-import { ref, useContext, watch } from "vue";
+<script lang="ts">
+import ButtonAlert from "@/components/ButtonAlert.vue";
+import Select from "@/components/Select.vue";
+
+import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { root } from "@/store";
-import { editorConfig } from "@/editor";
+import { config, setFile, resetFile } from "@/editor";
 
-const attrs = useContext().attrs;
-const route = useRoute();
-const router = useRouter();
+export default defineComponent({
+  components: { ButtonAlert, Select },
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
 
-const menus = [
-  {
-    text: "Phonology",
-    name: "PhonologyEditor",
-  },
-  {
-    text: "Converter",
-    name: "ConverterEditor",
-  },
-  {
-    text: "Phrasebook",
-    name: "PhrasebookEditor",
-  },
-  {
-    text: "Phrasebook Corpus",
-    name: "PhrasebookCorpusEditor",
-  },
-];
-const menu = ref(menus.find(({ name }) => name === route.name) ?? menus[0]);
-watch(menu, ({ name }) => router.push({ name }));
+    const menus = [
+      {
+        text: "Phonology",
+        name: "PhonologyEditor",
+      },
+      {
+        text: "Converter",
+        name: "ConverterEditor",
+      },
+      {
+        text: "Phrasebook",
+        name: "PhrasebookEditor",
+      },
+      {
+        text: "Phrasebook Corpus",
+        name: "PhrasebookCorpusEditor",
+      },
+    ];
+    const menu = ref(menus.find(({ name }) => name === route.name) ?? menus[0]);
+    watch(menu, ({ name }) => router.push({ name }));
 
-function reset() {
-  editorConfig.reset();
-}
-function loadLect() {
-  const filename =
-    root +
-    (typeof editorConfig.filename === "string"
-      ? window.prompt("Enter lect name") + editorConfig.filename
-      : editorConfig.filename());
+    function loadLect() {
+      const filename =
+        root +
+        (typeof config.filename === "string"
+          ? window.prompt("Enter lect name") + config.filename
+          : config.filename());
 
-  fetch(filename)
-    .then((response) => response.json())
-    .then((file) => editorConfig.setFile(file));
-}
-function loadJSON() {
-  const json = window.prompt("Enter JSON");
-  if (json) editorConfig.setFile(JSON.parse(json));
-}
-function saveJSON() {
-  navigator.clipboard.writeText(JSON.stringify(editorConfig.file.value));
-}
+      fetch(filename)
+        .then((response) => response.json())
+        .then((file) => setFile(file));
+    }
+    function loadJSON() {
+      setFile(JSON.parse(window.prompt("Enter JSON") ?? ""));
+    }
+    function saveJSON() {
+      navigator.clipboard.writeText(JSON.stringify(config.file.value));
+    }
+
+    return { loadLect, loadJSON, saveJSON, resetFile };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
