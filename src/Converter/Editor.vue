@@ -97,8 +97,7 @@ export default defineComponent({
     }
 
     const converted = ref("");
-    watch([() => file.value?.sample, mapping], () => {
-      console.log("quzbass");
+    watch([() => file.value?.sample, () => mapping.value?.name], () => {
       const intermediate = convert(
         file.value?.sample ?? "",
         mappings.value[0]?.pairs ?? []
