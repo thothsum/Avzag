@@ -21,8 +21,8 @@
 
 <script setup lang="ts">
 // /* eslint-disable @typescript-eslint/no-unused-vars */
-import ButtonAlert from "./ButtonAlert";
-import Select from "./Select";
+import ButtonAlert from "@/components/ButtonAlert";
+import Select from "@/components/Select";
 import { ref, useContext, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { root } from "@/store.ts";
