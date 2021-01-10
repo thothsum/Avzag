@@ -56,7 +56,7 @@
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
-import { computed, ref, Ref, defineComponent } from "vue";
+import { computed, ref, Ref, defineComponent, watch } from "vue";
 import { Mapping, Converter } from "./types";
 import { setupEditor } from "@/editor";
 import convert from "./convert";
@@ -96,17 +96,20 @@ export default defineComponent({
       mapping.value.pairs.splice(index, 1);
     }
 
-    const converted = computed(() => {
+    const converted = ref("");
+    watch([() => file.value?.sample, mapping], () => {
+      console.log("quzbass");
       const intermediate = convert(
         file.value?.sample ?? "",
-        mappings.value[0].pairs
+        mappings.value[0]?.pairs ?? []
       );
-      return pairs.value === mappings.value[0].pairs
-        ? intermediate
-        : convert(
-            intermediate,
-            pairs.value.map(([l, r]) => [r, l])
-          );
+      converted.value =
+        mapping.value === mappings.value[0]
+          ? intermediate
+          : convert(
+              intermediate,
+              pairs.value.map(([l, r]) => [r, l])
+            );
     });
 
     return {
