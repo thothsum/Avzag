@@ -63,7 +63,7 @@ import NotesEditor from "@/components/Notes/Editor";
 
 import { computed, ref, Ref } from "vue";
 import { PhonemeUse } from "./types";
-import { setupEditor } from "@/editorManager";
+import { setupEditor } from "@/editor";
 
 const phoneme = ref({} as PhonemeUse);
 const file = setupEditor(

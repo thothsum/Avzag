@@ -20,18 +20,17 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
+// /* eslint-disable @typescript-eslint/no-unused-vars */
 import ButtonAlert from "./ButtonAlert";
 import Select from "./Select";
 import { ref, useContext, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useStore } from "@/store";
-import { editorConfig } from "@/editorManager";
+import { root } from "@/store.ts";
+import { editorConfig } from "@/editor";
 
 const attrs = useContext().attrs;
 const route = useRoute();
 const router = useRouter();
-const store = useStore();
 
 const menus = [
   {
@@ -63,7 +62,7 @@ function reset() {
 }
 function loadLect() {
   const filename =
-    store.state.root +
+    root +
     (typeof editorConfig.filename === "string"
       ? window.prompt("Enter lect name") + editorConfig.filename
       : editorConfig.filename());

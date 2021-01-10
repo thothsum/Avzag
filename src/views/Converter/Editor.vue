@@ -55,11 +55,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
-import Select from "@/components/Select";
 
 import { computed, ref, Ref } from "vue";
 import { Mapping, Converter } from "./types";
-import { setupEditor } from "@/editorManager";
+import { setupEditor } from "@/editor";
 
 const mapping = ref({} as Mapping);
 const file = setupEditor(
