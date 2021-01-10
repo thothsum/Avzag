@@ -17,6 +17,8 @@ export default function convert(source: string, pairs: Pairs) {
   for (let i = 0; i < source.length; ) {
     let found = false;
     for (const [from, to] of pairs) {
+      if (!from || !to) continue;
+
       const l = from.length;
       const sub = source.substring(i, i + l);
       const pairs = [

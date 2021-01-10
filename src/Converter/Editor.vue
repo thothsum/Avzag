@@ -96,19 +96,14 @@ export default defineComponent({
       mapping.value.pairs.splice(index, 1);
     }
 
-    const converted = ref("");
-    watch([() => file.value?.sample, () => mapping.value?.name], () => {
+    const converted = computed(() => {
       const intermediate = convert(
         file.value?.sample ?? "",
         mappings.value[0]?.pairs ?? []
       );
-      converted.value =
-        mapping.value === mappings.value[0]
-          ? intermediate
-          : convert(
-              intermediate,
-              pairs.value.map(([l, r]) => [r, l])
-            );
+      return mapping.value === mappings.value[0]
+        ? intermediate
+        : convert(intermediate, pairs.value?.map(([l, r]) => [r, l]) ?? []);
     });
 
     return {
