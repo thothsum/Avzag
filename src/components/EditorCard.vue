@@ -24,8 +24,8 @@ export default defineComponent({
     header: { type: String, default: "" },
   },
   emits: ["action"],
-  setup(_, { slots }) {
-    return { caption: slots.caption };
+  setup(_, { emit, slots }) {
+    return { emit, caption: slots.caption };
   },
 });
 </script>

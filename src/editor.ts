@@ -15,7 +15,7 @@ export const config: { file: Ref<unknown> } & Options = {
   onReset: () => undefined,
 };
 
-export function setFile(file: object) {
+export function setFile(file?: object) {
   if (file) {
     config.file.value = file;
     config.onReset();
