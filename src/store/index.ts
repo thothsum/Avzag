@@ -3,13 +3,14 @@ import { InjectionKey } from "vue";
 import { Lect } from "@/views/Home/types";
 import { IPARegistry, Phoneme, PhonemeUse } from "@/views/Phonology/types";
 import { Converter } from "@/views/Converter/types";
+import * as Phrasebook from "@/views/Phrasebook/types";
 
 type DBLect = {
   [key: string]: unknown;
   name: string;
   phonology?: PhonemeUse[];
   converter?: Converter;
-  phrasebook?: object;
+  phrasebook?: Phrasebook.Phrasebook;
 };
 
 export interface State {
@@ -17,7 +18,7 @@ export interface State {
   root: string;
   ipa: IPARegistry;
   catalogue: Lect[];
-  phrasebook: [];
+  phrasebook: Phrasebook.Corpus;
   lects: DBLect[];
   phonemes: Phoneme[];
 }
@@ -48,10 +49,10 @@ export default createStore<State>({
   state: {
     root: process.env.BASE_URL + "lects/",
     ipa: {} as IPARegistry,
-    catalogue: [] as Lect[],
+    catalogue: [],
     phrasebook: [],
-    lects: [] as DBLect[],
-    phonemes: [] as Phoneme[],
+    lects: [],
+    phonemes: [],
   },
   mutations: {
     setState(state, [key, value]) {
