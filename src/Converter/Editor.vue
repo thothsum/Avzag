@@ -56,7 +56,7 @@
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
-import { computed, ref, Ref, defineComponent, watch } from "vue";
+import { computed, ref, Ref, defineComponent } from "vue";
 import { Mapping, Converter } from "./types";
 import { setupEditor } from "@/editor";
 import convert from "./convert";
