@@ -11,7 +11,14 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, defineComponent, PropType, onMounted } from "vue";
+import {
+  ref,
+  computed,
+  defineComponent,
+  PropType,
+  onMounted,
+  nextTick,
+} from "vue";
 import { Lect, SearchState } from "./types";
 import mapboxgl from "mapbox-gl";
 import { map } from "./map";
@@ -24,15 +31,17 @@ export default defineComponent({
   emits: ["click"],
   setup(props, { emit }) {
     const root = ref<HTMLElement>();
-    onMounted(() => {
-      if (map.value)
-        new mapboxgl.Marker({
-          element: root.value,
-          anchor: "top",
-        })
-          .setLngLat(props.lect.point)
-          .addTo(map.value);
-    });
+    onMounted(() =>
+      nextTick(() => {
+        if (map.value)
+          new mapboxgl.Marker({
+            element: root.value,
+            anchor: "top",
+          })
+            .setLngLat(props.lect.point)
+            .addTo(map.value);
+      })
+    );
 
     const name = computed(() => props.lect.name);
     const selected = computed(() => props.search.selected.has(name.value));

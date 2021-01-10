@@ -41,4 +41,6 @@ export function createMap(container = "map") {
   bindCamera(map.value);
   bindTheme(map.value);
   bindResize(map.value);
+
+  onUnmounted(() => map.value?.remove());
 }

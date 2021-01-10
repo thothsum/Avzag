@@ -75,7 +75,7 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     initialize();
-    onMounted(createMap);
+    onMounted(() => createMap());
 
     const empty = computed(() => !search.selected.size);
     const about = ref(false);
