@@ -18,19 +18,21 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ref, defineComponent, defineEmit, defineProps } from "vue";
+<script lang="ts">
+import { ref, defineComponent } from "vue";
 
-const props = defineProps({
-  text: { type: String, default: "" },
+export default defineComponent({
+  props: {
+    text: { type: String, default: "" },
+  },
+  emits: ["confirm"],
+  setup(props, { emit }) {
+    const prompt = ref(false);
+    function confirm() {
+      prompt.value = false;
+      emit("confirm");
+    }
+    return { prompt, confirm };
+  },
 });
-const emit = defineEmit(["confirm"]);
-
-const prompt = ref(false);
-
-function confirm() {
-  prompt.value = false;
-  emit("confirm");
-}
 </script>

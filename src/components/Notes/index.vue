@@ -13,33 +13,36 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { defineProps, computed, PropType } from "vue";
+<script lang="ts">
+import { computed, PropType, defineComponent } from "vue";
 import { PieceDisplay, Piece } from "./types";
 
-const props = defineProps({
-  notes: { type: Array as PropType<string[]>, default: [] },
-});
+export default defineComponent({
+  props: {
+    notes: { type: Array as PropType<string[]>, default: [] },
+  },
+  setup(props) {
+    function isWrapped(text: string, start: string, end: string) {
+      return text[0] === start && text[text.length - 1] === end;
+    }
+    function toPiece(text: string): Piece {
+      const patterns = [
+        ["*", "*", "highlight"],
+        ["/", "/", "phoneme"],
+        ["<", ">", "grapheme"],
+      ] as [string, string, PieceDisplay][];
 
-function isWrapped(text: string, start: string, end: string) {
-  return text[0] === start && text[text.length - 1] === end;
-}
-function toPiece(text: string): Piece {
-  const patterns = [
-    ["*", "*", "highlight"],
-    ["/", "/", "phoneme"],
-    ["<", ">", "grapheme"],
-  ] as [string, string, PieceDisplay][];
-
-  for (const [start, end, display] of patterns) {
-    if (isWrapped(text, start, end))
-      return { text: text.slice(1, -1), display };
-  }
-  return { text, display: "plain" };
-}
-const pieces = computed(() => {
-  const separator = /(\/[^/]+\/|<[^<>]+>|\*[^*]+\*)/g;
-  return props.notes.map((n) => n.split(separator).map((n) => toPiece(n)));
+      for (const [start, end, display] of patterns) {
+        if (isWrapped(text, start, end))
+          return { text: text.slice(1, -1), display };
+      }
+      return { text, display: "plain" };
+    }
+    const pieces = computed(() => {
+      const separator = /(\/[^/]+\/|<[^<>]+>|\*[^*]+\*)/g;
+      return props.notes.map((n) => n.split(separator).map((n) => toPiece(n)));
+    });
+    return { pieces };
+  },
 });
 </script>

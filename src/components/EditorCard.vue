@@ -13,15 +13,19 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useContext, defineEmit, defineProps } from "vue";
+<script lang="ts">
+import { defineComponent } from "vue";
 
-const props = defineProps({
-  button: { type: String, default: "add" },
-  icon: { type: String, default: "" },
-  header: { type: String, default: "" },
+export default defineComponent({
+  name: "EditorCard",
+  props: {
+    button: { type: String, default: "add" },
+    icon: { type: String, default: "" },
+    header: { type: String, default: "" },
+  },
+  emits: ["action"],
+  setup(_, { slots }) {
+    return { caption: slots.caption };
+  },
 });
-const emit = defineEmit(["action"]);
-const { caption } = useContext().slots;
 </script>

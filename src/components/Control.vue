@@ -5,13 +5,14 @@
   </button>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { defineProps } from "vue";
+<script lang="ts">
+import { defineComponent } from "vue";
 
-const props = defineProps({
-  icon: { type: String, default: "" },
-  text: { type: String, default: "" },
-  isOn: Boolean,
+export default defineComponent({
+  props: {
+    icon: { type: String, default: "" },
+    text: { type: String, default: "" },
+    isOn: Boolean,
+  },
 });
 </script>
