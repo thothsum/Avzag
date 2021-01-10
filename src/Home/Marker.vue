@@ -33,13 +33,12 @@ export default defineComponent({
     const root = ref<HTMLElement>();
     onMounted(() =>
       nextTick(() => {
-        if (map.value)
-          new mapboxgl.Marker({
-            element: root.value,
-            anchor: "top",
-          })
-            .setLngLat(props.lect.point)
-            .addTo(map.value);
+        new mapboxgl.Marker({
+          element: root.value,
+          anchor: "top",
+        })
+          .setLngLat(props.lect.point)
+          .addTo(map);
       })
     );
 
