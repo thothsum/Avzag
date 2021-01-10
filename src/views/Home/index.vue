@@ -55,6 +55,7 @@ import { SearchState } from "./types";
 import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
 import { useStore } from "@/store";
 import { useRouter } from "vue-router";
+import * as StoreCore from "@/storeCore";
 
 const store = useStore();
 const router = useRouter();
@@ -89,6 +90,7 @@ function toggleLect(name: string) {
 }
 function load() {
   store.dispatch("loadLects", [...search.selected]);
+  StoreCore.lects.value = [...search.selected];
   router.push({ name: "Phonology" });
 }
 

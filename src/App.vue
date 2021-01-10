@@ -9,6 +9,7 @@
 import { watchEffect, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "@/store";
+import * as StoreCore from "@/storeCore";
 
 const route = useRoute();
 const router = useRouter();
@@ -25,6 +26,7 @@ if (!route.name || route.name === "Home") {
 if (route.name !== "Home") {
   const lects = JSON.parse(localStorage.lects ?? "[]");
   if (lects) store.dispatch("loadLects", lects);
+  StoreCore.lects.value = lects;
 }
 watchEffect(() => {
   if (route.name) localStorage.url = route.path;

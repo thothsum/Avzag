@@ -27,25 +27,22 @@ import ToggleQuery from "@/components/Query/ToggleQuery";
 import InputQuery from "@/components/Query/InputQuery";
 import Table from "./Table";
 import Inspector from "./Inspector";
-import { computed, onUnmounted, ref, watch } from "vue";
-import { useStore } from "@/store";
-import { Phoneme } from "./types";
 
-const store = useStore();
+import { ref } from "vue";
+import { Phoneme } from "./types";
+import setupStore from "./store";
+import { lects } from "@/storeCore";
 
 const categories = ["vowel", "consonant"];
 const phoneme = ref({} as Phoneme);
 const lectQuery = ref({});
 const featureQuery = ref({});
 
-const lects = computed(() => store.state.lects?.map(({ name }) => name) ?? []);
-const phonemes = computed(() => (store.state.phonemes ?? []) as Phoneme[]);
+const phonemes = ref([] as Phoneme[]);
 
-watch(phonemes, (phonemes) => {
-  const p = localStorage.phoneme as string;
-  phoneme.value = phonemes.find(({ ipa }) => ipa === p) ?? phonemes[0];
+setupStore().then((r) => {
+  phonemes.value = r as Phoneme[];
 });
-onUnmounted(() => (localStorage.phoneme = phoneme.value.ipa));
 </script>
 
 <style lang="scss" scoped>
