@@ -25,7 +25,7 @@ import ButtonAlert from "@/components/ButtonAlert";
 import Select from "@/components/Select";
 import { ref, useContext, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { root } from "@/store.ts";
+import { root } from "@/store";
 import { editorConfig } from "@/editor";
 
 const attrs = useContext().attrs;

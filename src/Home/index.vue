@@ -71,7 +71,7 @@ import { useRouter } from "vue-router";
 
 import { Query, EvaluateQuery } from "@/components/Query/types";
 import { SearchState } from "./types";
-import { setupStore as registerLects } from "@/store.ts";
+import { setupStore as registerLects } from "@/store";
 import { setupStore, catalogue } from "./store";
 import { createMap } from "./map";
 

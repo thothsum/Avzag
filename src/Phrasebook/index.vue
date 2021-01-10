@@ -100,7 +100,7 @@ import Block from "./Block";
 import PhraseTranslation from "./PhraseTranslation";
 
 import { computed, reactive, ref, watch, watchEffect } from "vue";
-import { useStore } from "@/store";
+import { useStore } from "@/storex";
 import * as Types from "./types";
 
 const store = useStore();

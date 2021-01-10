@@ -1,5 +1,5 @@
 import { reactive, ref, watch, watchEffect } from "vue";
-import { lects } from "@/store.ts";
+import { lects } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 

@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import { Lect } from "./types";
-import { root } from "@/store.ts";
+import { root } from "@/store";
 
 export const catalogue = ref([] as Lect[]);
 

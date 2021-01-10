@@ -31,7 +31,7 @@ import Inspector from "./Inspector";
 import { computed, ref } from "vue";
 import { Phoneme } from "./types";
 import setupStore from "./store";
-import { lects as storeLects } from "@/store.ts";
+import { lects as storeLects } from "@/store";
 
 const lects = computed(() => storeLects.value.map(({ name }) => name));
 const categories = ["vowel", "consonant"];

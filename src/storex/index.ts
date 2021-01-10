@@ -1,6 +1,6 @@
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { InjectionKey } from "vue";
-import { IPARegistry, Phoneme } from "@/views/Phonology/types";
+import { IPARegistry, Phoneme } from "@/Phonology/types";
 import { DBLect, State } from "./types";
 
 // eslint-disable-next-line symbol-description

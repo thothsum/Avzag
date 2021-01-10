@@ -26,7 +26,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Notes from "@/components/Notes";
 import { computed, defineEmit, defineProps, ref, watch, PropType } from "vue";
-import { useStore } from "@/store";
+import { useStore } from "@/storex";
 import { PhonemeUse } from "./types";
 
 const props = defineProps({
