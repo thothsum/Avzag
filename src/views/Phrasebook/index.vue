@@ -63,9 +63,9 @@
         <toggle v-model="glossed" class="round" icon="layers" text="Glossed" />
       </div>
       <div v-show="showSource" class="col-1 wrap card">
-        <PhraseContext v-if="interactive" :context="context" />
+        <Context v-if="interactive" :context="context" />
         <div class="row wrap">
-          <PhraseBlock
+          <Block
             v-for="(b, i) in phrase.blocks"
             :id="selected"
             :key="i"
@@ -93,17 +93,17 @@
 <script>
 import Select from "@/components/Select";
 import List from "@/components/List";
-import PhraseContext from "@/components/PhraseContext";
-import PhraseBlock from "@/components/PhraseBlock";
-import PhraseTranslation from "@/components/PhraseTranslation";
+import Context from "./Context";
+import Block from "./Block";
+import PhraseTranslation from "./PhraseTranslation";
 
 export default {
   name: "Phrasebook",
   components: {
     Select,
     List,
-    PhraseContext,
-    PhraseBlock,
+    Context,
+    Block,
     PhraseTranslation,
   },
   data() {

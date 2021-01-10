@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-mutating-props */
 <template>
   <div class="block col-2">
-    <PhraseConditionsEditor
+    <ConditionsEditor
       v-model:conditions="block.requirements"
       :context="context"
       icon="lock"
@@ -9,7 +9,7 @@
     >
       If at least one of these conditions fails, the block will be completely
       hidden.
-    </PhraseConditionsEditor>
+    </ConditionsEditor>
     <EditorCard icon="tune" header="States" @action="add">
       <template v-if="state" #header>
         <ButtonAlert @confirm="remove" />
@@ -21,45 +21,41 @@
             :class="{ highlight: state == s }"
             @click="state = s"
           />
-          <PhraseStateDisplay :state="s" :context="context" />
+          <Display :state="s" :context="context" />
         </div>
       </div>
     </EditorCard>
     <template v-if="state">
-      <PhraseStateDisplayEditor :state="state" :context="context" />
-      <PhraseConditionsEditor
+      <DisplayEditor :state="state" :context="context" />
+      <ConditionsEditor
         v-model:conditions="state.conditions"
         :context="context"
         :allow-passive="true"
         icon="widgets"
         header="conditions"
       />
-      <PhraseStateTransitionEditor
-        :state="state"
-        :context="context"
-        :states="states"
-      />
+      <TransitionEditor :state="state" :context="context" :states="states" />
     </template>
   </div>
 </template>
 
 <script>
-import ButtonAlert from "./ButtonAlert";
-import EditorCard from "./EditorCard";
-import PhraseConditionsEditor from "./PhraseConditionsEditor";
-import PhraseStateTransitionEditor from "./PhraseStateTransitionEditor";
-import PhraseStateDisplayEditor from "./PhraseStateDisplayEditor";
-import PhraseStateDisplay from "./PhraseStateDisplay";
+import ButtonAlert from "@/components/ButtonAlert";
+import EditorCard from "@/components/EditorCard";
+import ConditionsEditor from "./ConditionsEditor";
+import TransitionEditor from "./TransitionEditor";
+import DisplayEditor from "./DisplayEditor";
+import Display from "./Display";
 
 export default {
   name: "PhraseBlockEditor",
   components: {
     ButtonAlert,
     EditorCard,
-    PhraseConditionsEditor,
-    PhraseStateTransitionEditor,
-    PhraseStateDisplayEditor,
-    PhraseStateDisplay,
+    ConditionsEditor,
+    TransitionEditor,
+    Display,
+    DisplayEditor,
   },
   props: ["block", "context"],
   data() {

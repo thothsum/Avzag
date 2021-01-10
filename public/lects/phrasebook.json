@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "id": "0",
     "name": "navigation",
     "phrases": [
       {
@@ -537,7 +537,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": "1",
     "name": "in shop",
     "phrases": [
       {

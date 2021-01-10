@@ -4,18 +4,18 @@
       <control icon="content_copy" @click="copy" />
       <h2>{{ lect }}</h2>
     </div>
-    <PhraseContext
+    <Context
       v-if="interactive"
       :context="context"
       :translation="translation.context"
       :blocks="$refs.blocks"
     />
     <div class="row wrap flex">
-      <PhraseBlock
-        :id="id"
-        ref="blocks"
+      <Block
         v-for="(b, i) in translation.blocks"
+        :id="id"
         :key="i"
+        ref="blocks"
         :context="context"
         :interactive="interactive"
         :glossed="glossed"
@@ -28,15 +28,15 @@
 </template>
 
 <script>
-import PhraseContext from "@/components/PhraseContext";
-import PhraseBlock from "./PhraseBlock";
+import Context from "./Context";
+import Block from "./Block";
 import Notes from "@/components/Notes";
 
 export default {
   name: "PhraseTranslation",
   components: {
-    PhraseContext,
-    PhraseBlock,
+    Context,
+    Block,
     Notes,
   },
   props: [

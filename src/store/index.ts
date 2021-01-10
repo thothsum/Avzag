@@ -81,21 +81,20 @@ export default createStore<State>({
     },
     async collectPhonemes({ commit, state }) {
       const registry = {} as Record<string, Phoneme>;
-      state.lects
-        .filter((l) => l.phonology)
-        .forEach(({ phonology, name }) => {
-          phonology.forEach((p) => {
-            const ph = p.phoneme;
-            if (!(ph in registry)) {
-              registry[ph] = {
-                ipa: ph,
-                tags: getTags(ph, state.ipa),
-                lects: {},
-              };
-            }
-            registry[ph].lects[name] = p;
-          });
+      state.lects.forEach(({ phonology, name }) => {
+        if (!phonology) return;
+        phonology.forEach((p) => {
+          const ph = p.phoneme;
+          if (!(ph in registry)) {
+            registry[ph] = {
+              ipa: ph,
+              tags: getTags(ph, state.ipa),
+              lects: {},
+            };
+          }
+          registry[ph].lects[name] = p;
         });
+      });
 
       const phonemes = Object.values(registry);
       phonemes.sort(({ ipa: a }, { ipa: b }) => (a > b ? 1 : b > a ? -1 : 0));

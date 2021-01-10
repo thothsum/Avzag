@@ -65,7 +65,7 @@
           <template v-if="block" #header>
             <ButtonAlert @confirm="removeBlock" />
           </template>
-          <PhraseContext :context="context" />
+          <Context :context="context" />
           <div class="row-1 wrap block-editor">
             <div
               v-for="(b, i) in blocks"
@@ -77,7 +77,7 @@
                 :class="{ highlight: block == b }"
                 @click="block = b"
               />
-              <PhraseBlock
+              <Block
                 :id="phrase.id"
                 v-model:context="context"
                 :interactive="true"
@@ -86,9 +86,9 @@
             </div>
           </div>
         </EditorCard>
-        <PhraseContextEditor v-if="phrase" :context="contextSource" />
+        <ContextEditor v-if="phrase" :context="contextSource" />
       </div>
-      <PhraseBlockEditor
+      <BlockEditor
         v-if="phrase && block"
         :block="block"
         :context="fullContext"
@@ -103,20 +103,20 @@ import { v4 as uuidv4 } from "uuid";
 
 import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
-import PhraseContext from "@/components/PhraseContext";
-import PhraseContextEditor from "@/components/PhraseContextEditor";
-import PhraseBlock from "@/components/PhraseBlock";
-import PhraseBlockEditor from "@/components/PhraseBlockEditor";
+import Context from "./Context";
+import ContextEditor from "./Context/Editor";
+import Block from "./Block";
+import BlockEditor from "./Block/Editor";
 
 export default {
   name: "PhrasebookCorpusEditor",
   components: {
     ButtonAlert,
     EditorCard,
-    PhraseContext,
-    PhraseContextEditor,
-    PhraseBlock,
-    PhraseBlockEditor,
+    Context,
+    ContextEditor,
+    Block,
+    BlockEditor,
   },
   data() {
     return {
