@@ -54,47 +54,53 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import ButtonAlert from "@/components/ButtonAlert";
-import EditorCard from "@/components/EditorCard";
-import TableEntry from "./TableEntry";
-import NotesEditor from "@/components/Notes/Editor";
+<script lang="ts">
+import ButtonAlert from "@/components/ButtonAlert.vue";
+import EditorCard from "@/components/EditorCard.vue";
+import TableEntry from "./TableEntry.vue";
+import NotesEditor from "@/components/Notes/Editor.vue";
 
-import { computed, ref, Ref } from "vue";
+import { computed, ref, Ref, defineComponent } from "vue";
 import { PhonemeUse } from "./types";
 import { setupEditor } from "@/editor";
 
-const phoneme = ref({} as PhonemeUse);
-const file = setupEditor(
-  [],
-  "/phonology.json",
-  "editor.phonology",
-  () => (phoneme.value = file.value[0])
-) as Ref<PhonemeUse[]>;
+export default defineComponent({
+  components: { ButtonAlert, EditorCard, TableEntry, NotesEditor },
+  setup() {
+    const phoneme = ref({} as PhonemeUse);
+    const file: Ref<PhonemeUse[]> = setupEditor({
+      defaultFile: [],
+      filename: "/phonology.json",
+      storage: "editor.phonology",
+      onReset: () => (phoneme.value = file.value[0]),
+    });
 
-const graphemes = computed(() =>
-  file.value.map((p) => p?.samples?.[0].grapheme)
-);
+    const graphemes = computed(() =>
+      file.value.map((p) => p?.samples?.[0].grapheme)
+    );
 
-function addPhoneme() {
-  const p = { phoneme: "new" } as PhonemeUse;
-  file.value.push(p);
-  phoneme.value = p;
-}
-function removePhoneme() {
-  const i = file.value.indexOf(phoneme.value);
-  file.value.splice(i, 1);
-  phoneme.value = file.value[file.value.length - 1];
-}
+    function addPhoneme() {
+      const p = { phoneme: "new" } as PhonemeUse;
+      file.value.push(p);
+      phoneme.value = p;
+    }
+    function removePhoneme() {
+      const i = file.value.indexOf(phoneme.value);
+      file.value.splice(i, 1);
+      phoneme.value = file.value[file.value.length - 1];
+    }
 
-function addSample() {
-  if (phoneme.value.samples) phoneme.value.samples.push({});
-  else phoneme.value.samples = [{}];
-}
-function removeSample(index: number) {
-  if (phoneme.value.samples) phoneme.value.samples.splice(index, 1);
-}
+    function addSample() {
+      if (phoneme.value.samples) phoneme.value.samples.push({});
+      else phoneme.value.samples = [{}];
+    }
+    function removeSample(index: number) {
+      if (phoneme.value.samples) phoneme.value.samples.splice(index, 1);
+    }
+
+    return { graphemes, addPhoneme, removePhoneme, addSample, removeSample };
+  },
+});
 </script>
 
 <style lang="scss" scoped>

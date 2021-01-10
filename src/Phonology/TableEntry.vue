@@ -5,15 +5,16 @@
   </button>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { defineProps } from "vue";
+<script lang="ts">
+import { defineComponent } from "vue";
 
-const props = defineProps({
-  selected: Boolean,
-  faded: Boolean,
-  ipa: { type: String, default: "" },
-  str: { type: String, default: "" },
+export default defineComponent({
+  props: {
+    selected: Boolean,
+    faded: Boolean,
+    ipa: { type: String, default: "" },
+    str: { type: String, default: "" },
+  },
 });
 </script>
 

@@ -7,8 +7,8 @@ type Options = {
   onReset: () => void;
 };
 
-export const config: { file: Ref<object> } & Options = {
-  file: ref({} as object),
+export const config: { file: Ref<unknown> } & Options = {
+  file: ref<unknown>(),
   defaultFile: {},
   storage: "",
   filename: "",
@@ -26,7 +26,7 @@ export function resetFile() {
   config.file.value = JSON.parse(JSON.stringify(config.defaultFile));
 }
 
-export function setupEditor(options: Partial<Options>) {
+export function setupEditor<T>(options: Partial<Options>) {
   Object.assign(config, options);
 
   onMounted(() => {
@@ -42,5 +42,5 @@ export function setupEditor(options: Partial<Options>) {
   watch(config.file, () => saveFile(), { deep: true });
   onUnmounted(() => saveFile());
 
-  return config.file;
+  return config.file as Ref<T>;
 }
