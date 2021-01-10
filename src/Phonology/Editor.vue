@@ -98,7 +98,15 @@ export default defineComponent({
       if (phoneme.value.samples) phoneme.value.samples.splice(index, 1);
     }
 
-    return { graphemes, addPhoneme, removePhoneme, addSample, removeSample };
+    return {
+      file,
+      phoneme,
+      graphemes,
+      addPhoneme,
+      removePhoneme,
+      addSample,
+      removeSample,
+    };
   },
 });
 </script>

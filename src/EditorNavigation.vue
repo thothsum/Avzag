@@ -73,7 +73,7 @@ export default defineComponent({
       navigator.clipboard.writeText(JSON.stringify(config.file.value));
     }
 
-    return { loadLect, loadJSON, saveJSON, resetFile };
+    return { menu, menus, loadLect, loadJSON, saveJSON, resetFile };
   },
 });
 </script>

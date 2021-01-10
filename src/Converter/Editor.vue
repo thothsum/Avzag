@@ -51,46 +51,62 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import ButtonAlert from "@/components/ButtonAlert";
-import EditorCard from "@/components/EditorCard";
+<script lang="ts">
+import ButtonAlert from "@/components/ButtonAlert.vue";
+import EditorCard from "@/components/EditorCard.vue";
 
-import { computed, ref, Ref } from "vue";
+import { computed, ref, Ref, defineComponent } from "vue";
 import { Mapping, Converter } from "./types";
 import { setupEditor } from "@/editor";
 
-const mapping = ref({} as Mapping);
-const file = setupEditor(
-  { default: [0, 0], mappings: [] },
-  "/converter.json",
-  "editor.converter",
-  () => (mapping.value = file.value.mappings[0])
-) as Ref<Converter>;
+export default defineComponent({
+  components: { ButtonAlert, EditorCard },
+  setup() {
+    const mapping = ref({} as Mapping);
+    const file: Ref<Converter> = setupEditor({
+      defaultFile: { default: [0, 0], mappings: [] },
+      filename: "/converter.json",
+      storage: "editor.converter",
+      onReset: () => (mapping.value = file.value.mappings[0]),
+    });
 
-const mappings = computed(() => file.value?.mappings ?? []);
-const pairs = computed(() => mapping.value.pairs ?? []);
+    const mappings = computed(() => file.value?.mappings ?? []);
+    const pairs = computed(() => mapping.value.pairs ?? []);
 
-function shiftMapping(shift: number) {
-  const length = mappings.value.length;
-  const from = mappings.value.indexOf(mapping.value);
-  const to = (from + shift + length) % length;
-  mappings.value.splice(to, 0, mappings.value.splice(from, 1)[0]);
-}
-function addMapping() {
-  mapping.value = { name: "newMapping", pairs: [] };
-  mappings.value.push(mapping.value);
-}
-function deleteMapping() {
-  mappings.value.splice(mappings.value.indexOf(mapping.value), 1);
-  mapping.value = mappings.value[mappings.value.length - 1];
-}
-function addPair(index: number) {
-  mapping.value.pairs.splice(index, 0, ["", ""]);
-}
-function deletePair(index: number) {
-  mapping.value.pairs.splice(index, 1);
-}
+    function shiftMapping(shift: number) {
+      const length = mappings.value.length;
+      const from = mappings.value.indexOf(mapping.value);
+      const to = (from + shift + length) % length;
+      mappings.value.splice(to, 0, mappings.value.splice(from, 1)[0]);
+    }
+    function addMapping() {
+      mapping.value = { name: "newMapping", pairs: [] };
+      mappings.value.push(mapping.value);
+    }
+    function deleteMapping() {
+      mappings.value.splice(mappings.value.indexOf(mapping.value), 1);
+      mapping.value = mappings.value[mappings.value.length - 1];
+    }
+    function addPair(index: number) {
+      mapping.value.pairs.splice(index, 0, ["", ""]);
+    }
+    function deletePair(index: number) {
+      mapping.value.pairs.splice(index, 1);
+    }
+
+    return {
+      file,
+      mappings,
+      mapping,
+      pairs,
+      shiftMapping,
+      addMapping,
+      deleteMapping,
+      addPair,
+      deletePair,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>

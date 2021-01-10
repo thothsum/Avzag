@@ -54,7 +54,7 @@ export default defineComponent({
       if (index.value < 0) index.value = 0;
     });
 
-    return { labels };
+    return { index, labels };
   },
 });
 </script>

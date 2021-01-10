@@ -1,5 +1,5 @@
 <template>
-  <div id="root" v-bind="attrs">
+  <div id="root">
     <div class="section row-1 scroll">
       <router-link
         v-for="{ icon, text, name } in menus"
