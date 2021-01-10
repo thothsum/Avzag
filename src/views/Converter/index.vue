@@ -103,7 +103,6 @@ function swap() {
   const mapping = mappings.initial;
   mappings.initial = mappings.final;
   mappings.final = mapping;
-  texts.initial = texts.final;
 }
 function download(filename: string, text: string) {
   const link = document.createElement("a");

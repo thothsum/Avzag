@@ -1,4 +1,4 @@
-import { reactive, ref, watchEffect } from "vue";
+import { reactive, ref, watch, watchEffect } from "vue";
 import { lects } from "@/store.ts";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
@@ -43,13 +43,24 @@ export const texts = reactive({
 });
 function resetTexts() {
   texts.initial = "";
+  watch(
+    () => pairs.initial,
+    (pairs) => {
+      if (pairs)
+        texts.initial = convert(
+          texts.intermediate,
+          pairs.map(([l, r]) => [r, l])
+        );
+    }
+  );
+  watch(
+    () => texts.initial,
+    (text) => {
+      if (pairs.initial) texts.intermediate = convert(text, pairs.initial);
+    }
+  );
   watchEffect(() => {
-    if (mappings.initial)
-      texts.intermediate = convert(texts.initial, mappings.initial.pairs);
-  });
-  watchEffect(() => {
-    if (mappings.final)
-      texts.final = convert(texts.intermediate, mappings.final.pairs);
+    if (pairs.final) texts.final = convert(texts.intermediate, pairs.final);
   });
 }
 
