@@ -34,22 +34,18 @@ const router = useRouter();
 
 const menus = [
   {
-    icon: "audiotrack",
     text: "Phonology",
     name: "PhonologyEditor",
   },
   {
-    icon: "sync_alt",
     text: "Converter",
     name: "ConverterEditor",
   },
   {
-    icon: "book",
     text: "Phrasebook",
     name: "PhrasebookEditor",
   },
   {
-    icon: "bookmark",
     text: "Phrasebook Corpus",
     name: "PhrasebookCorpusEditor",
   },
