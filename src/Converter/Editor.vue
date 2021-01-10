@@ -6,6 +6,7 @@
           Text that will be displayed to demonstrate the converter.
         </template>
         <textarea v-model="file.sample" />
+        <textarea v-model="converted" readonly />
       </EditorCard>
       <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
         <template v-if="mapping" #header>
@@ -58,6 +59,7 @@ import EditorCard from "@/components/EditorCard.vue";
 import { computed, ref, Ref, defineComponent } from "vue";
 import { Mapping, Converter } from "./types";
 import { setupEditor } from "@/editor";
+import convert from "./convert";
 
 export default defineComponent({
   components: { ButtonAlert, EditorCard },
@@ -94,6 +96,13 @@ export default defineComponent({
       mapping.value.pairs.splice(index, 1);
     }
 
+    const converted = computed(() =>
+      convert(
+        convert(file.value?.sample ?? "", mappings.value[0].pairs),
+        pairs.value.map(([l, r]) => [r, l])
+      )
+    );
+
     return {
       file,
       mappings,
@@ -104,6 +113,7 @@ export default defineComponent({
       deleteMapping,
       addPair,
       deletePair,
+      converted,
     };
   },
 });
