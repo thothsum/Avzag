@@ -50,10 +50,12 @@
 import Map from "./Map";
 import Card from "./Card";
 import InputQuery from "@/components/Query/InputQuery";
-import { Query, EvaluateQuery } from "@/components/Query/types";
-import { SearchState } from "./types";
+
 import { computed, onUnmounted, reactive, ref, watch, watchEffect } from "vue";
 import { useRouter } from "vue-router";
+
+import { Query, EvaluateQuery } from "@/components/Query/types";
+import { SearchState } from "./types";
 import * as MainStore from "@/store.ts";
 import { setupStore, catalogue } from "./store";
 
