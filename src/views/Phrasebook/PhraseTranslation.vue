@@ -17,8 +17,8 @@
         :key="i"
         ref="blocks"
         :context="context"
-        :interactive="interactive"
-        :glossed="glossed"
+        :interactive="options.interactive"
+        :glossed="options.glossed"
         :block="b"
         @update:context="$emit('update:context', $event)"
       />
@@ -27,52 +27,40 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Context from "./Context";
 import Block from "./Block";
 import Notes from "@/components/Notes";
 
-export default {
-  name: "PhraseTranslation",
-  components: {
-    Context,
-    Block,
-    Notes,
+import { computed, defineProps, onBeforeUpdate, PropType, ref } from "vue";
+import * as Types from "./types";
+
+const props = defineProps({
+  id: { type: String, default: "" },
+  lect: { type: String, default: "" },
+  context: { type: Object as PropType<Types.DynamicContext>, default: {} },
+  options: {
+    type: Object as PropType<Types.PhraseTranslationOptions>,
+    default: {},
   },
-  props: [
-    "id",
-    "lect",
-    "context",
-    "translation",
-    "interactive",
-    "glossed",
-    "showNotes",
-  ],
-  data() {
-    return {
-      blocks: [],
-    };
-  },
-  computed: {
-    text() {
-      return this.blocks
-        ?.filter((b) => b.visible)
-        .map((b) => b.$refs.display.text)
-        .join(" ");
-    },
-  },
-  beforeUpdate() {
-    this.blocks = [];
-  },
-  methods: {
-    setBlock(el) {
-      this.blocks.push(el);
-    },
-    copy() {
-      navigator.clipboard.writeText(this.text);
-    },
-  },
-};
+});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const blocks = ref([] as any[]);
+const text = computed(() =>
+  blocks.value
+    .filter(({ visible }) => visible)
+    .map((b) => b.$refs.display.text)
+    .join(" ")
+);
+onBeforeUpdate(() => (blocks.value = []));
+function setBlock(el: object) {
+  blocks.value.push(el);
+}
+function copy() {
+  navigator.clipboard.writeText(text.value);
+}
 </script>
 
 <style lang="scss" scoped>

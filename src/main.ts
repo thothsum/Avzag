@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import router from "./router";
-import store from "./store";
+import { store, key } from "./store";
 
 import App from "./App.vue";
 import Control from "./components/Control.vue";
@@ -12,5 +12,5 @@ const app = createApp(App);
 app.component("Control", Control);
 app.component("Toggle", Toggle);
 app.use(router);
-app.use(store);
+app.use(store, key);
 router.isReady().then(() => app.mount("#app"));

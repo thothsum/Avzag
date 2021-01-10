@@ -19,13 +19,14 @@
             @click="swap"
           />
         </div>
-        <ConverterText
-          v-if="sourceMapping"
-          v-model="source"
-          v-model:converted="intermediate"
-          :mapping="sourceMapping"
-        />
-        <MappingTable v-if="showMappings" :mapping="sourceMapping" />
+        <template v-if="sourceMapping">
+          <ConverterText
+            v-model="source"
+            v-model:converted="intermediate"
+            :mapping="sourceMapping"
+          />
+          <MappingTable v-if="showMappings" :mapping="sourceMapping" />
+        </template>
       </div>
       <div class="col">
         <div class="row">
@@ -38,18 +39,19 @@
           <toggle v-model="showMappings" icon="visibility" />
           <control icon="file_copy" @click="copy" />
         </div>
-        <ConverterText
-          v-if="resultMapping"
-          v-model="intermediate"
-          v-model:converted="result"
-          :mapping="resultMapping"
-          :reverse="true"
-        />
-        <MappingTable
-          v-if="showMappings"
-          :mapping="resultMapping"
-          :reverse="true"
-        />
+        <template v-if="resultMapping">
+          <ConverterText
+            v-model="intermediate"
+            v-model:converted="result"
+            :mapping="resultMapping"
+            :reverse="true"
+          />
+          <MappingTable
+            v-if="showMappings"
+            :mapping="resultMapping"
+            :reverse="true"
+          />
+        </template>
       </div>
     </div>
     <h2 v-else>No data for this lect.</h2>
@@ -73,6 +75,7 @@ import ConverterText from "./ConverterText";
 import { computed, ref, nextTick, watch } from "vue";
 import { useStore } from "@/store";
 import { Mapping } from "./types";
+import { DBLect } from "@/store/types";
 import convert from "./convert";
 
 const store = useStore();
@@ -87,7 +90,7 @@ const resultMapping = ref({} as Mapping);
 const showMappings = ref(false);
 
 const lects = computed(() => store.state.lects);
-const lect = ref(lects.value[0]);
+const lect = ref({} as DBLect);
 const converter = computed(() => lect.value.converter);
 
 const mappings = computed(() => converter.value?.mappings ?? []);

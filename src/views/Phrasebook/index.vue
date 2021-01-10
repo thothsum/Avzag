@@ -43,24 +43,29 @@
     <div v-if="phrase" class="col-1">
       <div class="row scroll small">
         <toggle
-          v-model="showNotes"
+          v-model="options.notes"
           class="round"
           icon="sticky_note_2"
           text="Notes"
         />
         <toggle
-          v-model="showSource"
+          v-model="options.source"
           class="round"
           icon="short_text"
           text="Source"
         />
         <toggle
-          v-model="interactive"
+          v-model="options.interactive"
           class="round"
           icon="tune"
           text="Interactive"
         />
-        <toggle v-model="glossed" class="round" icon="layers" text="Glossed" />
+        <toggle
+          v-model="options.glossed"
+          class="round"
+          icon="layers"
+          text="Glossed"
+        />
       </div>
       <div v-show="showSource" class="col-1 wrap card">
         <Context v-if="interactive" :context="context" />
@@ -69,8 +74,8 @@
             v-for="(b, i) in phrase.blocks"
             :id="selected"
             :key="i"
-            v-model:context="context"
-            :interactive="interactive"
+            v-model:context="dynamicContext"
+            :interactive="options.interactive"
             :block="b"
           />
         </div>
@@ -79,99 +84,79 @@
         v-for="(t, i) in translations"
         :id="selected"
         :key="i"
-        v-model:context="context"
+        v-model:context="dynamicContext"
         :lect="lects[i].name"
-        :translation="t"
-        :interactive="interactive"
-        :glossed="glossed"
-        :show-notes="showNotes"
+        :options="options"
       />
     </div>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import Select from "@/components/Select";
 import List from "@/components/List";
 import Context from "./Context";
 import Block from "./Block";
 import PhraseTranslation from "./PhraseTranslation";
 
-export default {
-  name: "Phrasebook",
-  components: {
-    Select,
-    List,
-    Context,
-    Block,
-    PhraseTranslation,
+import { computed, reactive, ref, watch, watchEffect } from "vue";
+import { useStore } from "@/store";
+import * as Types from "./types";
+
+const store = useStore();
+
+const section = ref({} as Types.Section);
+const phrase = ref({} as Types.Phrase);
+const dynamicContext = ref({} as Types.DynamicContext);
+const options = reactive({ source: true } as Types.PhraseTranslationOptions);
+const searching = ref(false);
+const query = ref("");
+
+const lects = computed(() => store.state.lects);
+const phrasebook = computed(() => store.state.phrasebook);
+
+const selected = reactive(
+  JSON.parse(localStorage.phrase ?? "{ section: 0, phrase: 0 }")
+);
+watchEffect(() => {
+  localStorage.phrase = JSON.stringify(selected);
+  section.value = phrasebook.value[selected.section];
+  phrase.value = section.value.phrases[selected.phrase];
+});
+function select(s: number, p: number) {
+  selected.section = s;
+  selected.phrase = p;
+}
+
+const phrases = computed(() =>
+  searching.value
+    ? phrasebook.value.reduce((result, section, index) => {
+        result[index] = section.phrases
+          .map((phrase, index) => [phrase, index] as [Types.Phrase, number])
+          .filter(([phrase]) => phrase.preview.includes(query.value))
+          .map(([, index]) => index);
+        if (!result[index].length) delete result[index];
+        return result;
+      }, {} as Record<number, number[]>)
+    : section.value?.phrases
+);
+const translations = computed(() =>
+  lects.value.map(({ phrasebook }) =>
+    phrasebook ? phrasebook[phrase.value.id] : null
+  )
+);
+
+watch(
+  phrase,
+  ({ context }) => {
+    dynamicContext.value =
+      context.reduce((context, { entity }) => {
+        context[entity] = new Set();
+        return context;
+      }, {} as Types.DynamicContext) ?? {};
   },
-  data() {
-    return {
-      section: undefined,
-      phrase: undefined,
-      context: undefined,
-      interactive: false,
-      glossed: false,
-      showNotes: false,
-      showSource: true,
-      searching: false,
-      query: "",
-    };
-  },
-  computed: {
-    lects() {
-      return this.$store.state.lects;
-    },
-    phrasebook() {
-      return this.$store.state.phrasebook;
-    },
-    phrases() {
-      return this.searching
-        ? this.phrasebook.reduce((f, s, i) => {
-            f[i] = s.phrases
-              .map((p, i) => [p, i])
-              .filter((p) => p[0].preview.includes(this.query))
-              .map((p) => p[1]);
-            if (!f[i].length) delete f[i];
-            return f;
-          }, {})
-        : this.section?.phrases;
-    },
-    translations() {
-      return this.lects.map(({ phrasebook }) =>
-        phrasebook ? phrasebook[this.phrase.id] : null
-      );
-    },
-  },
-  watch: {
-    phrasebook: {
-      handler() {
-        if (this.phrasebook) this.selected = localStorage.phrase;
-      },
-      immediate: true,
-    },
-    phrase: {
-      handler() {
-        this.context =
-          this.phrase?.context?.reduce((c, { entity }) => {
-            c[entity] = new Set();
-            return c;
-          }, {}) ?? {};
-      },
-      immediate: true,
-    },
-  },
-  unmounted() {
-    localStorage.phrase = this.selected;
-  },
-  methods: {
-    select(s, p) {
-      this.section = this.phrasebook[s];
-      this.phrase = this.section.phrases[p];
-    },
-  },
-};
+  { immediate: true }
+);
 </script>
 
 <style lang="scss" scoped>

@@ -24,6 +24,7 @@ export type Context = {
   entity: string;
   tags: string;
 }[];
+export type DynamicContext = Record<string, Set<string>>;
 export type ContextTranslation = {
   entity: [string, string];
   tags: [string, string][];
@@ -39,9 +40,15 @@ export type PhraseTranslation = {
   context?: ContextTranslation;
   blocks: Block[];
 };
-export type Corpus = {
+export type PhraseTranslationOptions = {
+  interactive?: boolean;
+  glossed?: boolean;
+  notes?: boolean;
+  source?: boolean;
+};
+export type Section = {
   id: string;
   name: string;
   phrases: Phrase[];
-}[];
+};
 export type Phrasebook = Record<string, PhraseTranslation>;

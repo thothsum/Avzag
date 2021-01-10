@@ -33,7 +33,7 @@ const result = computed({
 });
 
 function reversePairs(pairs: Pairs): Pairs {
-  return pairs.map(([l, r]) => [r, l]);
+  return pairs?.map(([l, r]) => [r, l]);
 }
 const pairs = computed(() =>
   props.reverse ? reversePairs(props.mapping.pairs) : props.mapping.pairs

@@ -1,33 +1,10 @@
 import { createStore, useStore as baseUseStore, Store } from "vuex";
 import { InjectionKey } from "vue";
-import { Lect } from "@/views/Home/types";
-import { IPARegistry, Phoneme, PhonemeUse } from "@/views/Phonology/types";
-import { Converter } from "@/views/Converter/types";
-import * as Phrasebook from "@/views/Phrasebook/types";
+import { IPARegistry, Phoneme } from "@/views/Phonology/types";
+import { DBLect, State } from "./types";
 
-type DBLect = {
-  [key: string]: unknown;
-  name: string;
-  phonology?: PhonemeUse[];
-  converter?: Converter;
-  phrasebook?: Phrasebook.Phrasebook;
-};
-
-export interface State {
-  [key: string]: unknown;
-  root: string;
-  ipa: IPARegistry;
-  catalogue: Lect[];
-  phrasebook: Phrasebook.Corpus;
-  lects: DBLect[];
-  phonemes: Phoneme[];
-}
 // eslint-disable-next-line symbol-description
 export const key: InjectionKey<Store<State>> = Symbol();
-
-export function useStore() {
-  return baseUseStore(key);
-}
 
 function getTags(p: string, ipa: IPARegistry) {
   let tags = "";
@@ -45,7 +22,7 @@ function getTags(p: string, ipa: IPARegistry) {
   return tags;
 }
 
-export default createStore<State>({
+export const store = createStore<State>({
   state: {
     root: process.env.BASE_URL + "lects/",
     ipa: {} as IPARegistry,
@@ -69,10 +46,10 @@ export default createStore<State>({
     async loadLects({ dispatch, commit, state }, lectNames) {
       const lects = [];
       for (const n of lectNames) {
-        const r = state.root + n + "/";
+        const root = state.root + n + "/";
         const lect = { name: n } as DBLect;
         for (const file of ["phonology", "phrasebook", "converter"]) {
-          lect[file] = await dispatch("loadJson", r + "phrasebook" + ".json");
+          lect[file] = await dispatch("loadJson", root + file + ".json");
         }
         lects.push(lect);
       }
@@ -117,3 +94,7 @@ export default createStore<State>({
     },
   },
 });
+
+export function useStore() {
+  return baseUseStore(key);
+}
