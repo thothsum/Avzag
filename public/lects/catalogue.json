@@ -40,11 +40,5 @@
     "point": [47.546501, 41.707224],
     "family": ["Northeast Caucasian", "Lezgic", "Aghul"],
     "tags": "Western Samur"
-  },
-  {
-    "name": "Udmurt",
-    "point": [52.516333, 56.672482],
-    "family": ["Uralic", "Permic"],
-    "tags": "Finno Ugric"
   }
 ]
