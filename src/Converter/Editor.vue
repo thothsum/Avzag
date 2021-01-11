@@ -56,7 +56,7 @@
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
-import { computed, ref, Ref, defineComponent } from "vue";
+import { computed, ref, defineComponent } from "vue";
 import { Mapping, Converter } from "./types";
 import { setupEditor } from "@/editor";
 import convert from "./convert";
@@ -65,15 +65,15 @@ export default defineComponent({
   components: { ButtonAlert, EditorCard },
   setup() {
     const mapping = ref({} as Mapping);
-    const file: Ref<Converter> = setupEditor({
+    const file = setupEditor<Converter>({
       defaultFile: { default: [0, 0], mappings: [] },
       filename: "/converter.json",
       storage: "editor.converter",
-      onReset: () => (mapping.value = file.value.mappings[0]),
+      onReset: (file) => (mapping.value = file.mappings[0]),
     });
 
     const mappings = computed(() => file.value?.mappings ?? []);
-    const pairs = computed(() => mapping.value.pairs ?? []);
+    const pairs = computed(() => mapping.value?.pairs ?? []);
 
     function shiftMapping(shift: number) {
       const length = mappings.value.length;

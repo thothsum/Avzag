@@ -70,7 +70,8 @@ export default defineComponent({
         .then((file) => setFile(file));
     }
     function loadJSON() {
-      setFile(JSON.parse(window.prompt("Enter JSON") ?? "0"));
+      const file = JSON.parse(window.prompt("Enter JSON") ?? "0");
+      if (file) setFile(file);
     }
     function saveJSON() {
       navigator.clipboard.writeText(JSON.stringify(config.file.value));

@@ -1,13 +1,13 @@
-import { onMounted, onUnmounted, Ref, ref, watch } from "vue";
+import { onUnmounted, Ref, ref, watch } from "vue";
 
-type Options = {
+type Options<T> = {
   defaultFile: object;
   storage: string;
   filename: string | (() => string);
-  onReset: () => void;
+  onReset: (file: T) => void;
 };
 
-export const config: { file: Ref<unknown> } & Options = {
+export const config: { file: Ref<unknown> } & Options<unknown> = {
   file: ref<unknown>(),
   defaultFile: {},
   storage: "",
@@ -15,31 +15,30 @@ export const config: { file: Ref<unknown> } & Options = {
   onReset: () => undefined,
 };
 
-export function setFile(file?: object) {
-  if (file) {
-    config.file.value = file;
-    config.onReset();
-  }
+export function setFile(file: object) {
+  config.file.value = file;
+  config.onReset(config.file.value);
 }
 
 export function resetFile() {
   config.file.value = JSON.parse(JSON.stringify(config.defaultFile));
+  config.onReset(config.file.value);
 }
 
-export function setupEditor<T>(options: Partial<Options>) {
+export function saveFile() {
+  localStorage[config.storage] = JSON.stringify(config.file.value);
+}
+
+export function setupEditor<T>(options: Partial<Options<T>>) {
   Object.assign(config, options);
 
-  onMounted(() => {
-    try {
-      setFile(JSON.parse(localStorage[config.storage]));
-    } catch (error) {
-      resetFile();
-    }
-  });
+  try {
+    setFile(JSON.parse(localStorage[config.storage]));
+  } catch {
+    resetFile();
+  }
 
-  const saveFile = () =>
-    (localStorage[config.storage] = JSON.stringify(config.file.value));
-  watch(config.file, () => saveFile(), { deep: true });
+  watch(config.file, saveFile, { deep: true });
   onUnmounted(() => saveFile());
 
   return config.file as Ref<T>;
