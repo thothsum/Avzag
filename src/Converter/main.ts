@@ -1,5 +1,5 @@
 import { reactive, ref, watch, watchEffect } from "vue";
-import { lects } from "@/store";
+import { lects, key as dbkey } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 
@@ -64,7 +64,11 @@ function resetTexts() {
   });
 }
 
+let key: symbol;
 export function initialize() {
+  if (key === dbkey) return;
+  key = dbkey;
+
   resetCoverters();
   resetMappings();
   resetTexts();

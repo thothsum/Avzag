@@ -27,9 +27,10 @@ watchEffect(() =>
 );
 
 export function initialize() {
-  fetch(root + "catalogue.json")
-    .then((r) => r.json())
-    .then((r) => (catalogue.value = r as Lect[]));
+  if (!catalogue.value.length)
+    fetch(root + "catalogue.json")
+      .then((r) => r.json())
+      .then((r) => (catalogue.value = r as Lect[]));
 
   search.selected.clear();
   search.visible.clear();

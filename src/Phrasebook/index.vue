@@ -100,10 +100,7 @@ import Block from "./Block";
 import PhraseTranslation from "./PhraseTranslation";
 
 import { computed, reactive, ref, watch, watchEffect } from "vue";
-import { useStore } from "@/storex";
 import * as Types from "./types";
-
-const store = useStore();
 
 const section = ref({} as Types.Section);
 const phrase = ref({} as Types.Phrase);
@@ -112,8 +109,8 @@ const options = reactive({ source: true } as Types.PhraseTranslationOptions);
 const searching = ref(false);
 const query = ref("");
 
-const lects = computed(() => store.state.lects);
-const phrasebook = computed(() => store.state.phrasebook);
+const lects = computed(() => [] /* store.state.lects */);
+const phrasebook = computed(() => [] /* store.state.phrasebook */);
 
 const selected = reactive(
   JSON.parse(localStorage.phrase ?? "{ section: 0, phrase: 0 }")
