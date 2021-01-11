@@ -67,7 +67,8 @@ export default defineComponent({
 
       fetch(filename)
         .then((response) => response.json())
-        .then((file) => setFile(file));
+        .then((file) => setFile(file))
+        .catch(() => undefined);
     }
     function loadJSON() {
       const file = JSON.parse(window.prompt("Enter JSON") ?? "0");
