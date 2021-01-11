@@ -5,7 +5,11 @@
         <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
           <control icon="arrow_back" @click="navigate" />
         </router-link>
-        <Select v-model="menu" :items="menus" label-key="text" />
+        <select v-model="menu">
+          <option v-for="{ text, name } in menus" :key="name" :value="name">
+            {{ text }}
+          </option>
+        </select>
       </div>
       <div class="row-1 controls">
         <control icon="language" @click="loadLect" />
@@ -21,7 +25,6 @@
 
 <script lang="ts">
 import ButtonAlert from "@/components/ButtonAlert.vue";
-import Select from "@/components/Select.vue";
 
 import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -29,7 +32,7 @@ import { root } from "@/store";
 import { config, setFile, resetFile } from "@/editor";
 
 export default defineComponent({
-  components: { ButtonAlert, Select },
+  components: { ButtonAlert },
   setup() {
     const route = useRoute();
     const router = useRouter();
@@ -52,8 +55,8 @@ export default defineComponent({
         name: "PhrasebookCorpusEditor",
       },
     ];
-    const menu = ref(menus.find(({ name }) => name === route.name) ?? menus[0]);
-    watch(menu, ({ name }) => router.push({ name }));
+    const menu = ref((route.name ?? menus[0].name) as string);
+    watch(menu, (menu) => router.push({ name: menu }));
 
     function loadLect() {
       const filename =
