@@ -34,15 +34,12 @@ export function saveFile() {
 
 export function setupEditor<T>(options: Partial<Options<T>>) {
   Object.assign(config, options);
-
   try {
     file.value = JSON.parse(localStorage[config.storage]);
   } catch {
     resetFile();
   }
-
   watch(() => file.value, saveFile, { deep: true });
-  onUnmounted(saveFile);
 
   return file as WritableComputedRef<T>;
 }
