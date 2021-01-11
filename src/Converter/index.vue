@@ -60,15 +60,21 @@
 </template>
 
 <script lang="ts">
-import Select from "@/components/Select.vue";
 import Pairs from "./Pairs.vue";
 
 import { computed, ref, nextTick, defineComponent } from "vue";
-import { initialize, converter, texts, mappings, pairs } from "./main";
+import {
+  initialize,
+  converter,
+  converters,
+  texts,
+  mappings,
+  pairs,
+} from "./main";
 import convert from "./convert";
 
 export default defineComponent({
-  components: { Select, Pairs },
+  components: { Pairs },
   setup() {
     initialize();
 
@@ -123,10 +129,13 @@ export default defineComponent({
     }
 
     return {
+      converters,
+      converter,
       showPairs,
       canSwap,
       swap,
       upload,
+      fullMappings,
       copy,
       fileInput,
       displaySample,

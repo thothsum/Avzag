@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import Notes from "@/components/Notes.vue";
+import Notes from "@/components/Notes";
 import { computed, defineEmit, defineProps, ref, watch, PropType } from "vue";
 import { lects } from "@/store";
 import { PhonemeUse } from "./types";
