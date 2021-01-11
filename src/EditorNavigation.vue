@@ -29,7 +29,7 @@ import ButtonAlert from "@/components/ButtonAlert.vue";
 import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { root } from "@/store";
-import { config, setFile, resetFile } from "@/editor";
+import { config, file, resetFile } from "@/editor";
 
 export default defineComponent({
   components: { ButtonAlert },
@@ -66,16 +66,16 @@ export default defineComponent({
           : config.filename());
 
       fetch(filename)
-        .then((response) => response.json())
-        .then((file) => setFile(file))
+        .then((r) => r.json())
+        .then((j) => (file.value = j))
         .catch(() => undefined);
     }
     function loadJSON() {
-      const file = JSON.parse(window.prompt("Enter JSON") ?? "0");
-      if (file) setFile(file);
+      const f = JSON.parse(window.prompt("Enter JSON") ?? "0");
+      if (f) file.value = f;
     }
     function saveJSON() {
-      navigator.clipboard.writeText(JSON.stringify(config.file.value));
+      navigator.clipboard.writeText(JSON.stringify(file.value));
     }
 
     return { menu, menus, loadLect, loadJSON, saveJSON, resetFile };
