@@ -28,7 +28,6 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Context from "./Context";
 import Block from "./Block";
 import Notes from "@/components/Notes";

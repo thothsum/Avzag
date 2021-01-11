@@ -16,9 +16,8 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ref, defineProps, PropType } from "vue";
-import InspectorCard from "./InspectorCard";
+import InspectorCard from "./InspectorCard.vue";
 import { Phoneme } from "./types";
 
 const player = ref({} as HTMLMediaElement);

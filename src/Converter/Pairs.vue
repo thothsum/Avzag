@@ -1,24 +1,27 @@
 <template>
   <div v-if="pairs.length" class="card row-1 wrap">
-    <p v-for="([l, r], i) in pairs" :key="i">
+    <p v-for="([l, r], i) in texts" :key="i">
       <span class="text-faded">{{ l }}</span>
       <span>{{ r }}</span>
     </p>
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { computed, defineProps, PropType } from "vue";
+<script lang="ts">
+import { computed, defineComponent, PropType } from "vue";
 import { Pairs } from "./types";
 
-const props = defineProps({
-  pairs: { type: Object as PropType<Pairs>, default: {} },
+export default defineComponent({
+  props: {
+    pairs: { type: Object as PropType<Pairs>, default: {} },
+  },
+  setup(props) {
+    const texts = computed(() =>
+      props.pairs.map((p) => p.map((t) => t.replace(" ", "_")))
+    );
+    return { texts };
+  },
 });
-
-const pairs = computed(() =>
-  props.pairs.map((p) => p.map((t) => t.replace(" ", "_")))
-);
 </script>
 
 <style lang="scss" scoped>

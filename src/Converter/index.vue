@@ -61,74 +61,83 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import Select from "@/components/Select";
-import Pairs from "./Pairs";
+<script lang="ts">
+import Select from "@/components/Select.vue";
+import Pairs from "./Pairs.vue";
 
-import { computed, ref, nextTick, watch } from "vue";
-import {
-  initialize,
-  converters,
-  converter,
-  texts,
-  mappings,
-  pairs,
-} from "./main";
-import { Mapping, Converter } from "./types";
+import { computed, ref, nextTick, defineComponent } from "vue";
+import { initialize, converter, texts, mappings, pairs } from "./main";
 import convert from "./convert";
 
-initialize();
+export default defineComponent({
+  components: { Select, Pairs },
+  setup() {
+    initialize();
 
-const showPairs = ref(false);
-const fullMappings = computed(() =>
-  converter.value?.mappings.filter((m) =>
-    m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))
-  )
-);
-const canSwap = computed(
-  () => mappings.final && fullMappings.value?.includes(mappings.final)
-);
+    const showPairs = ref(false);
+    const fullMappings = computed(() =>
+      converter.value?.mappings.filter((m) =>
+        m.pairs.every((a) => a === m.pairs.find((b) => b[0] === a[0]))
+      )
+    );
+    const canSwap = computed(
+      () => mappings.final && fullMappings.value?.includes(mappings.final)
+    );
 
-const fileInput = ref({} as HTMLInputElement);
-function displaySample() {
-  const mapping = mappings.initial;
-  mappings.initial = converter.value?.mappings[0];
-  texts.initial = converter.value?.sample ?? "";
-  nextTick(() => {
-    mappings.initial = mapping;
-  });
-}
-function swap() {
-  const mapping = mappings.initial;
-  mappings.initial = mappings.final;
-  mappings.final = mapping;
-}
-function download(filename: string, text: string) {
-  const link = document.createElement("a");
-  link.setAttribute(
-    "href",
-    "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-  );
-  link.setAttribute("download", filename);
+    const fileInput = ref({} as HTMLInputElement);
+    function displaySample() {
+      const mapping = mappings.initial;
+      mappings.initial = converter.value?.mappings[0];
+      texts.initial = converter.value?.sample ?? "";
+      nextTick(() => {
+        mappings.initial = mapping;
+      });
+    }
+    function swap() {
+      const mapping = mappings.initial;
+      mappings.initial = mappings.final;
+      mappings.final = mapping;
+    }
+    function download(filename: string, text: string) {
+      const link = document.createElement("a");
+      link.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+      );
+      link.setAttribute("download", filename);
 
-  link.style.display = "none";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-function upload({ target }: InputEvent) {
-  const reader = new FileReader();
-  const file = (target as HTMLInputElement).files?.[0] as File;
-  reader.onload = ({ target }) => {
-    if (pairs.initial)
-      download(file.name, convert(target?.result as string, pairs.initial));
-  };
-  reader.readAsText(file);
-}
-function copy() {
-  navigator.clipboard.writeText(texts.final);
-}
+      link.style.display = "none";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    function upload({ target }: InputEvent) {
+      const reader = new FileReader();
+      const file = (target as HTMLInputElement).files?.[0] as File;
+      reader.onload = ({ target }) => {
+        if (pairs.initial)
+          download(file.name, convert(target?.result as string, pairs.initial));
+      };
+      reader.readAsText(file);
+    }
+    function copy() {
+      navigator.clipboard.writeText(texts.final);
+    }
+
+    return {
+      showPairs,
+      canSwap,
+      swap,
+      upload,
+      copy,
+      fileInput,
+      displaySample,
+      texts,
+      mappings,
+      pairs,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>

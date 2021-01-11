@@ -23,8 +23,7 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import Notes from "@/components/Notes";
+import Notes from "@/components/Notes.vue";
 import { computed, defineEmit, defineProps, ref, watch, PropType } from "vue";
 import { lects } from "@/store";
 import { PhonemeUse } from "./types";
