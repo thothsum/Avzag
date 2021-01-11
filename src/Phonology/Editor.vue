@@ -76,7 +76,7 @@ export default defineComponent({
     });
 
     const graphemes = computed(() =>
-      file.value.map((p) => p?.samples?.[0].grapheme)
+      file.value.map(({ samples }) => samples?.[0]?.grapheme)
     );
 
     function addPhoneme() {
