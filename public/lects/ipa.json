@@ -1,6 +1,46 @@
 {
   "primary": [
     {
+      "ipa": "t͡s",
+      "tags": "consonant affricate voiceless dental"
+    },
+    {
+      "ipa": "t͡ʃ",
+      "tags": "consonant affricate voiceless alveolar"
+    },
+    {
+      "ipa": "d͡z",
+      "tags": "consonant voiced dental affricate"
+    },
+    {
+      "ipa": "d͡ʒ",
+      "tags": "consonant affricate voiced alveolar"
+    },
+    {
+      "ipa": "ʈ͡ʂ",
+      "tags": "consonant voiceless retroflex affricate"
+    },
+    {
+      "ipa": "ɖ͡ʐ",
+      "tags": "consonant voiced retroflex affricate"
+    },
+    {
+      "ipa": "t͡ɕ",
+      "tags": "consonant voiceless alveolo-palatal affricate"
+    },
+    {
+      "ipa": "d͡ʑ",
+      "tags": "consonant voiced alveolo-palatal affricate"
+    },
+    {
+      "ipa": "t͡ɬ",
+      "tags": "consonant voiceless alveolar lateral affricate"
+    },
+    {
+      "ipa": "q͡χ",
+      "tags": "consonant affricate voiceless uvular"
+    },
+    {
       "ipa": "ɛ",
       "tags": "vowel open-mid central unrounded"
     },
@@ -55,14 +95,6 @@
     {
       "ipa": "ç",
       "tags": "consonant fricative voiceless palatal"
-    },
-    {
-      "ipa": "d͡z",
-      "tags": "consonant voiced dental affricate"
-    },
-    {
-      "ipa": "d͡ʒ",
-      "tags": "consonant affricate voiced alveolar"
     },
     {
       "ipa": "g",
@@ -125,14 +157,6 @@
       "tags": "consonant stop voiceless dental"
     },
     {
-      "ipa": "t͡s",
-      "tags": "consonant affricate voiceless dental"
-    },
-    {
-      "ipa": "t͡ʃ",
-      "tags": "consonant affricate voiceless alveolar"
-    },
-    {
       "ipa": "v",
       "tags": "consonant fricative voiced labiodental"
     },
@@ -185,10 +209,6 @@
       "tags": "consonant voiceless alveolar lateral fricative"
     },
     {
-      "ipa": "t͡ɬ",
-      "tags": "consonant voiceless alveolar lateral affricate"
-    },
-    {
       "ipa": "ʂ",
       "tags": "consonant voiceless retroflex fricative"
     },
@@ -199,22 +219,6 @@
     {
       "ipa": "ʑ",
       "tags": "consonant voiced alveolo-palatal fricative"
-    },
-    {
-      "ipa": "ʈ͡ʂ",
-      "tags": "consonant voiceless retroflex affricate"
-    },
-    {
-      "ipa": "ɖ͡ʐ",
-      "tags": "consonant voiced retroflex affricate"
-    },
-    {
-      "ipa": "t͡ɕ",
-      "tags": "consonant voiceless alveolo-palatal affricate"
-    },
-    {
-      "ipa": "d͡ʑ",
-      "tags": "consonant voiced alveolo-palatal affricate"
     },
     {
       "ipa": "ʡ",

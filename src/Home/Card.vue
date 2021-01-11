@@ -32,7 +32,7 @@ export default defineComponent({
     const selected = computed(() => props.search.selected.has(name.value));
     const visible = computed(() => props.search.visible.has(name.value));
 
-    return { flag, family, selected, visible };
+    return { name, flag, family, selected, visible };
   },
 });
 </script>
