@@ -13,12 +13,11 @@
     <div v-if="converter" class="split">
       <div class="col">
         <div class="row">
-          <Select
-            v-model="mappings.initial"
-            class="flex"
-            :items="fullMappings"
-            display="name"
-          />
+          <select v-model="mappings.initial" class="flex">
+            <option v-for="(m, i) in fullMappings" :key="i" :value="m">
+              {{ m.name }}
+            </option>
+          </select>
           <control
             v-if="texts.initial"
             icon="clear"
@@ -35,12 +34,11 @@
       </div>
       <div class="col">
         <div class="row">
-          <Select
-            v-model="mappings.final"
-            class="flex"
-            :items="converter.mappings"
-            display="name"
-          />
+          <select v-model="mappings.final" class="flex">
+            <option v-for="(m, i) in converter.mappings" :key="i" :value="m">
+              {{ m.name }}
+            </option>
+          </select>
           <toggle v-model="showPairs" icon="visibility" />
           <control icon="file_copy" @click="copy" />
         </div>
