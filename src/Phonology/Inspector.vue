@@ -15,20 +15,25 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, defineProps, PropType } from "vue";
+<script lang="ts">
+import { ref, PropType, defineComponent } from "vue";
 import InspectorCard from "./InspectorCard.vue";
 import { Phoneme } from "./types";
 
-const player = ref({} as HTMLMediaElement);
-const props = defineProps({
-  phoneme: { type: Object as PropType<Phoneme>, default: {} },
+export default defineComponent({
+  components: { InspectorCard },
+  props: {
+    phoneme: { type: Object as PropType<Phoneme>, default: {} },
+  },
+  setup() {
+    const player = ref({} as HTMLMediaElement);
+    function play(url: string) {
+      player.value.src = url;
+      player.value.play();
+    }
+    return { play };
+  },
 });
-
-function play(url: string) {
-  player.value.src = url;
-  player.value.play();
-}
 </script>
 
 <style lang="scss" scoped>

@@ -21,24 +21,36 @@
   </div>
 </template>
 
-<script setup lang="ts">
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import ToggleQuery from "@/components/Query/ToggleQuery";
-import InputQuery from "@/components/Query/InputQuery";
-import Table from "./Table";
-import Inspector from "./Inspector";
+<script lang="ts">
+import ToggleQuery from "@/components/Query/ToggleQuery.vue";
+import InputQuery from "@/components/Query/InputQuery.vue";
+import Table from "./Table.vue";
+import Inspector from "./Inspector.vue";
 
-import { computed, ref } from "vue";
-import { Phoneme } from "./types";
+import { computed, ref, defineComponent } from "vue";
 import { initialize, phonemes, phoneme } from "./main";
 import { lects } from "@/store";
 
-initialize();
+export default defineComponent({
+  components: { ToggleQuery, InputQuery, Table, Inspector },
+  setup() {
+    initialize();
 
-const lectNames = computed(() => lects.value.map(({ name }) => name));
-const categories = ["vowel", "consonant"];
-const lectQuery = ref({});
-const featureQuery = ref({});
+    const lectNames = computed(() => lects.value.map(({ name }) => name));
+    const categories = ["vowel", "consonant"];
+    const lectQuery = ref({});
+    const featureQuery = ref({});
+
+    return {
+      phonemes,
+      phoneme,
+      lectNames,
+      categories,
+      lectQuery,
+      featureQuery,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
