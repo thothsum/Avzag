@@ -492,7 +492,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/lects/Digor/audio/ӕфсерцъух.mp3"
   },
   {
-    "revision": "5a1f872f04f52bc71481bfb4ad4ea4a6",
+    "revision": "e3a09c9fc618aefca7e9e4902100988c",
     "url": "/lects/Digor/converter.json"
   },
   {
