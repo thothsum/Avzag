@@ -91,15 +91,10 @@ export default defineComponent({
 
     watch(
       catalogue,
-      () => {
-        try {
-          search.selected = new Set(
-            (JSON.parse(localStorage.lects) ?? []) as string[]
-          );
-        } catch {
-          console.log("error loading lect names from last save");
-        }
-      },
+      () =>
+        (search.selected = new Set(
+          JSON.parse(localStorage.lects ?? "[]") as string[]
+        )),
       { immediate: true }
     );
     onUnmounted(

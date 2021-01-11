@@ -20,7 +20,6 @@ export const file = computed({
   set: (f) => {
     _file.value = f;
     config.onReset(f);
-    console.log(f);
   },
 });
 
