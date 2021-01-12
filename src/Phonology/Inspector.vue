@@ -31,7 +31,7 @@ export default defineComponent({
       player.value.src = url;
       player.value.play();
     }
-    return { play };
+    return { player, play };
   },
 });
 </script>

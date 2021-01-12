@@ -58,12 +58,12 @@ export default defineComponent({
     }
     const words = computed(() =>
       fullSamples.value?.map(({ word, grapheme }) =>
-        highlight(word as string, grapheme as string)
+        highlight(word ?? "", grapheme ?? "")
       )
     );
     const ipas = computed(() =>
       fullSamples.value?.map(({ ipa }) =>
-        highlight(ipa as string, props.use.phoneme)
+        highlight(ipa ?? "", props.use.phoneme)
       )
     );
 
@@ -87,6 +87,7 @@ export default defineComponent({
 
     return {
       play,
+      playable,
       ipas,
       words,
       fullSamples,
