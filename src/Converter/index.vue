@@ -24,7 +24,7 @@
             @click="texts.initial = ''"
           />
           <control v-else icon="text_snippet" @click="displaySample" />
-          <control icon="publish" @click="fileInput.click()" />
+          <control icon="publish" @click="upload" />
           <control v-if="canSwap" icon="swap_horiz" @click="swap" />
         </div>
         <template v-if="pairs.initial">
@@ -49,13 +49,6 @@
       </div>
     </div>
     <h2 v-else>Selected languages have no converters.</h2>
-    <input
-      v-show="false"
-      ref="fileInput"
-      type="file"
-      accept=".txt"
-      @change="upload"
-    />
   </div>
 </template>
 
@@ -71,7 +64,7 @@ import {
   mappings,
   pairs,
 } from "./main";
-import convert from "./convert";
+import upload from "./upload";
 
 export default defineComponent({
   components: { Pairs },
@@ -88,7 +81,6 @@ export default defineComponent({
       () => mappings.final && fullMappings.value?.includes(mappings.final)
     );
 
-    const fileInput = ref({} as HTMLInputElement);
     function displaySample() {
       const mapping = mappings.initial;
       mappings.initial = converter.value?.mappings[0];
@@ -101,28 +93,6 @@ export default defineComponent({
       const mapping = mappings.initial;
       mappings.initial = mappings.final;
       mappings.final = mapping;
-    }
-    function download(filename: string, text: string) {
-      const link = document.createElement("a");
-      link.setAttribute(
-        "href",
-        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-      );
-      link.setAttribute("download", filename);
-
-      link.style.display = "none";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-    function upload({ target }: InputEvent) {
-      const reader = new FileReader();
-      const file = (target as HTMLInputElement).files?.[0] as File;
-      reader.onload = ({ target }) => {
-        if (pairs.initial)
-          download(file.name, convert(target?.result as string, pairs.initial));
-      };
-      reader.readAsText(file);
     }
     function copy() {
       navigator.clipboard.writeText(texts.final);
@@ -137,7 +107,6 @@ export default defineComponent({
       upload,
       fullMappings,
       copy,
-      fileInput,
       displaySample,
       texts,
       mappings,
