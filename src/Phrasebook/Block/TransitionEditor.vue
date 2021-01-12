@@ -2,7 +2,7 @@
   <EditorCard button="" icon="alt_route" header="transition">
     <template #header>
       <div class="row-0">
-        <control
+        <btn
           v-for="(ic, i) in icons"
           :key="ic"
           :icon="ic"
@@ -13,7 +13,7 @@
     </template>
     <div v-if="mode === 2" class="row-1 wrap block-editor">
       <div v-for="(s, i) in states" :key="i" class="row">
-        <control
+        <btn
           icon="check"
           :class="{ highlight: present[i] }"
           @click="toggle(i)"

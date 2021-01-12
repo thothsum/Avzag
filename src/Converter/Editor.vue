@@ -10,8 +10,8 @@
       </EditorCard>
       <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
         <template v-if="mapping" #header>
-          <control icon="keyboard_arrow_up" @click="shiftMapping(-1)" />
-          <control icon="keyboard_arrow_down" @click="shiftMapping(1)" />
+          <btn icon="keyboard_arrow_up" @click="shiftMapping(-1)" />
+          <btn icon="keyboard_arrow_down" @click="shiftMapping(1)" />
           <p class="text-dot" />
           <ButtonAlert @confirm="deleteMapping" />
         </template>
@@ -20,7 +20,7 @@
           is from the 1st into the 2nd mappings in the order.
         </template>
         <div v-for="(m, i) in mappings" :key="i" class="row">
-          <control
+          <btn
             :class="{ highlight: mapping == m }"
             icon="edit"
             @click="mapping = m"
@@ -42,10 +42,10 @@
       >
       <template #default>
         <div v-for="(p, i) in pairs" :key="i" class="row">
-          <control icon="add" @click="addPair(i)" />
+          <btn icon="add" @click="addPair(i)" />
           <input v-model="p[0]" type="text" placeholder="from" />
           <input v-model="p[1]" type="text" placeholder="to" />
-          <control icon="clear" @click="deletePair(i)" />
+          <btn icon="clear" @click="deletePair(i)" />
         </div>
       </template>
     </EditorCard>

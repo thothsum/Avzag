@@ -1,7 +1,7 @@
 <template>
   <div v-if="translation" class="col-1 card">
     <div class="row-1 small">
-      <control icon="content_copy" @click="copy" />
+      <btn icon="content_copy" @click="copy" />
       <h2>{{ lect }}</h2>
     </div>
     <Context

@@ -15,13 +15,13 @@
         <div class="row-1">
           <toggle v-model="about" icon="info" />
           <InputQuery v-model="query" placeholder="Search languages..." />
-          <control icon="arrow_forward" :disabled="empty" @click="load" />
+          <btn icon="arrow_forward" :disabled="empty" @click="load" />
         </div>
         <div class="row scroll-hidden">
           <p v-if="empty" id="placeholder">
             Click on the map or use the input field above.
           </p>
-          <control
+          <btn
             v-for="n in search.selected"
             :key="n"
             :text="n"

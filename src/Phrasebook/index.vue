@@ -19,7 +19,7 @@
           <div v-for="(ps, s) of phrases" :key="s" class="col">
             <h2>{{ phrasebook[s].name }}</h2>
             <div class="col-0">
-              <control
+              <btn
                 v-for="p in ps"
                 :key="p"
                 :class="{

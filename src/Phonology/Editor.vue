@@ -46,7 +46,7 @@
               type="text"
               placeholder="ipa"
             />
-            <control icon="clear" @click="removeSample(i)" />
+            <btn icon="clear" @click="removeSample(i)" />
           </div>
         </template>
       </EditorCard>

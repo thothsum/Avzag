@@ -1,14 +1,14 @@
 <template>
   <div class="row-0">
     <template v-if="prompt">
-      <control
+      <btn
         class="highlight-font-alert"
         icon="delete_forever"
         @click="confirm"
       />
-      <control icon="check" @click="prompt = false" />
+      <btn icon="check" @click="prompt = false" />
     </template>
-    <control
+    <btn
       v-else
       class="highlight-font-alert"
       icon="delete"

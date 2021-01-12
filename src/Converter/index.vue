@@ -1,7 +1,7 @@
 <template>
   <div class="section col-1">
     <div class="row small">
-      <control
+      <btn
         v-for="(c, n) of converters"
         :key="n"
         class="round"
@@ -18,14 +18,10 @@
               {{ m.name }}
             </option>
           </select>
-          <control
-            v-if="texts.initial"
-            icon="clear"
-            @click="texts.initial = ''"
-          />
-          <control v-else icon="text_snippet" @click="displaySample" />
-          <control icon="publish" @click="upload" />
-          <control v-if="canSwap" icon="swap_horiz" @click="swap" />
+          <btn v-if="texts.initial" icon="clear" @click="texts.initial = ''" />
+          <btn v-else icon="text_snippet" @click="displaySample" />
+          <btn icon="publish" @click="upload" />
+          <btn v-if="canSwap" icon="swap_horiz" @click="swap" />
         </div>
         <template v-if="pairs.initial">
           <textarea v-model="texts.initial" />
@@ -40,7 +36,7 @@
             </option>
           </select>
           <toggle v-model="showPairs" icon="visibility" />
-          <control icon="file_copy" @click="copy" />
+          <btn icon="file_copy" @click="copy" />
         </div>
         <template v-if="pairs.final">
           <textarea v-model="texts.final" readonly />

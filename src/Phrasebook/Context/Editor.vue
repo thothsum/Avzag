@@ -10,7 +10,7 @@
           type="text"
         />
         <input v-model="c.tags" class="flex" type="text" />
-        <control icon="clear" @click="remove(i)" />
+        <btn icon="clear" @click="remove(i)" />
       </div>
     </div>
   </EditorCard>

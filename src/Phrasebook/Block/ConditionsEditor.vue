@@ -12,7 +12,7 @@
           class="flex"
           :items="context[c.entity]"
         />
-        <control icon="clear" @click="remove(i)" />
+        <btn icon="clear" @click="remove(i)" />
       </div>
     </div>
   </EditorCard>

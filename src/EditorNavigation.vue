@@ -3,7 +3,7 @@
     <div class="section scroll row-1">
       <div class="row-1">
         <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
-          <control icon="arrow_back" @click="navigate" />
+          <btn icon="arrow_back" @click="navigate" />
         </router-link>
         <select v-model="menu">
           <option v-for="{ text, name } in menus" :key="name" :value="name">
@@ -12,9 +12,9 @@
         </select>
       </div>
       <div class="row-1 controls">
-        <control icon="language" @click="loadLect" />
-        <control icon="code" @click="loadJSON" />
-        <control icon="integration_instructions" @click="saveJSON" />
+        <btn icon="language" @click="loadLect" />
+        <btn icon="code" @click="loadJSON" />
+        <btn icon="integration_instructions" @click="saveJSON" />
         <p class="text-dot" />
         <ButtonAlert @confirm="resetFile" />
       </div>

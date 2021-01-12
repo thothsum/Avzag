@@ -1,6 +1,6 @@
 <template>
   <div class="col-0">
-    <control
+    <btn
       v-for="(v, i) in values"
       :key="i"
       :text="text[i]"

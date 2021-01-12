@@ -6,7 +6,7 @@
     </template>
     <div v-if="display" class="col">
       <div v-for="(d, i) in display" :key="i" class="row">
-        <control icon="palette" @click="toggle(i)" />
+        <btn icon="palette" @click="toggle(i)" />
         <input
           v-model="d.text"
           :class="colors[i]"
@@ -27,7 +27,7 @@
           type="text"
           placeholder="glossing"
         />
-        <control icon="clear" @click="remove(i)" />
+        <btn icon="clear" @click="remove(i)" />
       </div>
     </div>
   </EditorCard>

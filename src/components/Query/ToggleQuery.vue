@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" class="row scroll small">
-    <control class="round" icon="clear" @click="query = {}" />
-    <control
+    <btn class="round" icon="clear" @click="query = {}" />
+    <btn
       v-for="l in labels"
       :key="l"
       :text="l"

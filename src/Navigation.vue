@@ -8,12 +8,7 @@
         custom
         :to="{ name: name ?? text }"
       >
-        <control
-          :icon="icon"
-          :text="text"
-          :is-on="isActive"
-          @click="navigate"
-        />
+        <btn :icon="icon" :text="text" :is-on="isActive" @click="navigate" />
       </router-link>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div @click="toggle">
     <slot :on="modelValue">
-      <control v-bind="attrs" :icon="icon" :text="text" :is-on="modelValue" />
+      <btn v-bind="attrs" :icon="icon" :text="text" :is-on="modelValue" />
     </slot>
   </div>
 </template>

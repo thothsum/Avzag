@@ -58,7 +58,7 @@
               :key="state + '_' + i + '_' + phrase.id"
               class="row"
             >
-              <control
+              <btn
                 icon="edit"
                 :class="{ highlight: block == b }"
                 @click="block = b"

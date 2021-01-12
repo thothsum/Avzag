@@ -9,13 +9,9 @@
       <router-link to="/editor/phrasebook/corpus">
         Phrasebook Corpus
       </router-link>
-      <control icon="language" text="Load lect" @click="loadFromLect" />
-      <control icon="code" text="Load JSON" @click="loadFromJson" />
-      <control
-        icon="content_paste"
-        text="Save to clipboard"
-        @click="saveToJson"
-      />
+      <btn icon="language" text="Load lect" @click="loadFromLect" />
+      <btn icon="code" text="Load JSON" @click="loadFromJson" />
+      <btn icon="content_paste" text="Save to clipboard" @click="saveToJson" />
       <p class="text-dot" />
       <ButtonAlert text="Reset" @confirm="reset" />
     </div>
@@ -27,7 +23,7 @@
           </template>
           <div class="col scroll">
             <div v-for="s in file" :key="s.id" class="row">
-              <control
+              <btn
                 icon="edit"
                 :class="{ highlight: section == s }"
                 @click="section = s"
@@ -47,7 +43,7 @@
           </template>
           <div class="col scroll">
             <div v-for="p in section.phrases" :key="p.id" class="row">
-              <control
+              <btn
                 icon="edit"
                 :class="{ highlight: phrase == p }"
                 @click="phrase = p"
@@ -72,7 +68,7 @@
               :key="i + '_' + phrase.id"
               class="row"
             >
-              <control
+              <btn
                 icon="edit"
                 :class="{ highlight: block == b }"
                 @click="block = b"
