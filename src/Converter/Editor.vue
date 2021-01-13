@@ -67,7 +67,7 @@ export default defineComponent({
     const mapping = ref({} as Mapping);
     const file = setupEditor<Converter>({
       defaultFile: { default: [0, 0], mappings: [] },
-      filename: "/converter.json",
+      filename: "converter",
       storage: "editor.converter",
       onReset: (file) => (mapping.value = file.mappings[0]),
     });

@@ -28,7 +28,7 @@ import ButtonAlert from "@/components/ButtonAlert.vue";
 
 import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { root } from "@/store";
+import { loadJSON as loadDBJSON } from "@/store";
 import { config, file, resetFile } from "@/editor";
 
 export default defineComponent({
@@ -58,17 +58,11 @@ export default defineComponent({
     const menu = ref((route.name ?? menus[0].name) as string);
     watch(menu, (menu) => router.push({ name: menu }));
 
-    function loadLect() {
-      const filename =
-        root +
-        (typeof config.filename === "string"
-          ? window.prompt("Enter lect name") + config.filename
-          : config.filename());
-
-      fetch(filename)
-        .then((r) => r.json())
-        .then((j) => (file.value = j))
-        .catch(() => undefined);
+    async function loadLect() {
+      const lect = window.prompt("Enter lect name");
+      if (!lect) return;
+      const json = await loadDBJSON(lect + "/" + config.filename);
+      if (json) file.value = json;
     }
     function loadJSON() {
       const f = JSON.parse(window.prompt("Enter JSON") ?? "0");

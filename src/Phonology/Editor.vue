@@ -70,7 +70,7 @@ export default defineComponent({
     const phoneme = ref({} as PhonemeUse);
     const file = setupEditor<PhonemeUse[]>({
       defaultFile: [],
-      filename: "/phonology.json",
+      filename: "phonology",
       storage: "editor.phonology",
       onReset: (file) => (phoneme.value = file[0]),
     });
