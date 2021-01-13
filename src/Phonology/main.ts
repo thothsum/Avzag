@@ -55,9 +55,7 @@ export function initialize() {
 
   let loading = fetch(root + "ipa.json")
     .then((r) => r.json())
-    .then((j) => {
-      registry = j;
-    });
+    .then((j) => (registry = j));
 
   const phonemes = {} as Record<string, undefined | PhonemeUse[]>;
   lects.value.forEach(

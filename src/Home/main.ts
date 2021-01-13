@@ -30,7 +30,7 @@ export function initialize() {
   if (!catalogue.value.length)
     fetch(root + "catalogue.json")
       .then((r) => r.json())
-      .then((r) => (catalogue.value = r as Lect[]));
+      .then((r: Lect[]) => (catalogue.value = r));
 
   search.selected.clear();
   search.visible.clear();
