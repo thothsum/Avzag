@@ -1,7 +1,7 @@
 <template>
   <div v-if="phonemes" class="section">
     <div class="col-1 scroll">
-      <ToggleQuery v-model="lectQuery" :labels="lectNames" />
+      <ToggleQuery v-model="lectQuery" :labels="lects" />
       <InputQuery
         v-model="featureQuery"
         placeholder="Query phonemes, e.g. voiced -velar..."
@@ -27,7 +27,7 @@ import InputQuery from "@/components/Query/InputQuery.vue";
 import Table from "./Table.vue";
 import Inspector from "./Inspector.vue";
 
-import { computed, ref, defineComponent } from "vue";
+import { ref, defineComponent } from "vue";
 import { initialize, phonemes, phoneme } from "./main";
 import { lects } from "@/store";
 
@@ -36,7 +36,6 @@ export default defineComponent({
   setup() {
     initialize();
 
-    const lectNames = computed(() => lects.value.map(({ name }) => name));
     const categories = ["vowel", "consonant"];
     const lectQuery = ref({});
     const featureQuery = ref({});
@@ -44,7 +43,7 @@ export default defineComponent({
     return {
       phonemes,
       phoneme,
-      lectNames,
+      lects,
       categories,
       lectQuery,
       featureQuery,

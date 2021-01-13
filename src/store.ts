@@ -3,13 +3,10 @@ import { ref } from "vue";
 export let key: symbol;
 
 export const root = process.env.BASE_URL + "lects/";
-export const lects = ref([] as { name: string; root: string }[]);
+export const lects = ref([] as string[]);
 
-export function setupStore(lectNames: string[]) {
-  lects.value = lectNames.map((name) => ({
-    name,
-    root: root + name + "/",
-  }));
+export function setupStore(_lects: string[]) {
+  lects.value = _lects;
   key = Symbol("lects");
 }
 
@@ -20,9 +17,9 @@ export async function loadJSON(filename: string) {
 }
 export async function loadLectsJSON<T>(filename: string) {
   const files = {} as Record<string, T | undefined>;
-  for (const { name } of lects.value) {
-    const file = await loadJSON(name + "/" + filename);
-    files[name] = file;
+  for (const lect of lects.value) {
+    const file = await loadJSON(lect + "/" + filename);
+    files[lect] = file;
   }
   return files;
 }

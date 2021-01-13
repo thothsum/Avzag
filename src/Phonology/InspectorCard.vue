@@ -25,7 +25,7 @@
 <script lang="ts">
 import Notes from "@/components/Notes/index.vue";
 import { computed, defineComponent, ref, watch, PropType } from "vue";
-import { lects } from "@/store";
+import { root, lects } from "@/store";
 import { PhonemeUse } from "./types";
 
 export default defineComponent({
@@ -36,9 +36,7 @@ export default defineComponent({
   },
   emits: ["play"],
   setup(props, { emit }) {
-    const root = computed(
-      () => lects.value.find(({ name }) => name === props.lect)?.root + "audio/"
-    );
+    const lectRoot = computed(() => root + props.lect + "/audio/");
     const graphemes = computed(() => {
       const set = new Set(props.use.samples?.map(({ grapheme }) => grapheme));
       set.delete(undefined);
@@ -50,7 +48,7 @@ export default defineComponent({
     const urls = computed(() =>
       fullSamples.value
         ?.map(({ word, ipa }) => word?.replaceAll("*", "") ?? ipa)
-        .map((n) => root.value + n + ".mp3")
+        .map((n) => lectRoot.value + n + ".mp3")
     );
 
     function highlight(text: string, target: string) {
