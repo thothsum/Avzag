@@ -1,6 +1,6 @@
 import { ref, reactive, computed, watchEffect } from "vue";
 import { SearchState, Lect } from "./types";
-import { root } from "@/store";
+import { root, loadJSON } from "@/store";
 import { Query, EvaluateQuery } from "@/components/Query/types";
 
 export const catalogue = ref([] as Lect[]);
@@ -26,11 +26,8 @@ watchEffect(() =>
   })
 );
 
-export function initialize() {
-  if (!catalogue.value.length)
-    fetch(root + "catalogue.json")
-      .then((r) => r.json())
-      .then((r: Lect[]) => (catalogue.value = r));
+export async function initialize() {
+  if (!catalogue.value.length) catalogue.value = await loadJSON("catalogue");
 
   search.selected.clear();
   search.visible.clear();
