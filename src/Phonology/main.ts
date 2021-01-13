@@ -49,28 +49,21 @@ function collectPhonemes(allUses: Record<string, undefined | PhonemeUse[]>) {
 }
 
 let key: symbol;
-export function initialize() {
+export async function initialize() {
   if (key === dbkey) return;
   key = dbkey;
 
-  let loading = fetch(root + "ipa.json")
+  await fetch(root + "ipa.json")
     .then((r) => r.json())
     .then((j) => (registry = j));
 
   const phonemes = {} as Record<string, undefined | PhonemeUse[]>;
-  lects.value.forEach(
-    ({ name, root }) =>
-      (loading = loading.then(() =>
-        fetch(root + "phonology.json")
-          .then(
-            (r) => r.json(),
-            () => undefined
-          )
-          .then((j) => {
-            phonemes[name] = j;
-          })
-      ))
-  );
+  for (const { name, root } of lects.value) {
+    const file = await fetch(root + "phonology.json")
+      .then((r) => r.json())
+      .catch(() => undefined);
+    phonemes[name] = file;
+  }
 
-  loading.then(() => collectPhonemes(phonemes));
+  collectPhonemes(phonemes);
 }
