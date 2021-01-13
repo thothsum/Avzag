@@ -1,4 +1,4 @@
-import { root, lects, key as dbkey } from "@/store";
+import { key as dbkey, loadJSON, loadLectsJSON } from "@/store";
 import { shallowRef } from "vue";
 import { IPARegistry, Phoneme, PhonemeUse } from "./types";
 
@@ -53,17 +53,7 @@ export async function initialize() {
   if (key === dbkey) return;
   key = dbkey;
 
-  await fetch(root + "ipa.json")
-    .then((r) => r.json())
-    .then((j) => (registry = j));
-
-  const phonemes = {} as Record<string, undefined | PhonemeUse[]>;
-  for (const { name, root } of lects.value) {
-    const file = await fetch(root + "phonology.json")
-      .then((r) => r.json())
-      .catch(() => undefined);
-    phonemes[name] = file;
-  }
-
+  registry = await loadJSON("ipa");
+  const phonemes = await loadLectsJSON<PhonemeUse[]>("phonology");
   collectPhonemes(phonemes);
 }
