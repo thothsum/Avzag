@@ -1,25 +1,13 @@
 import { reactive, ref, watch, watchEffect } from "vue";
-import { lects, key as dbkey } from "@/store";
+import { loadLectsJSON, key as dbkey } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 
-export const converters = ref<Record<string, Converter>>({});
+export const converters = ref<Record<string, Converter | undefined>>({});
 export const converter = ref<Converter>();
-function resetCoverters() {
-  converters.value = {};
+async function resetCoverters() {
+  converters.value = await loadLectsJSON<Converter>("converter");
   converter.value = undefined;
-
-  lects.value.forEach(({ name, root }) =>
-    fetch(root + "converter.json")
-      .then((r) => r.json())
-      .then(
-        (j: Converter) => {
-          converters.value[name] = j;
-          if (!converter.value) converter.value = j;
-        },
-        () => undefined
-      )
-  );
 }
 
 export const mappings = reactive<{ initial?: Mapping; final?: Mapping }>({});
@@ -65,11 +53,11 @@ function resetTexts() {
 }
 
 let key: symbol;
-export function initialize() {
+export async function initialize() {
   if (key === dbkey) return;
   key = dbkey;
 
-  resetCoverters();
+  await resetCoverters();
   resetMappings();
   resetTexts();
 }
