@@ -2,7 +2,11 @@ import { ref } from "vue";
 
 export let key: symbol;
 
-export const root = process.env.BASE_URL + "lects/";
+export const root =
+  (process.env.NODE_ENV === "production"
+    ? "https://raw.githubusercontent.com/alkaitagi/Avzag/"
+    : "") + "store/";
+
 export const lects = ref([] as string[]);
 
 export function setupStore(_lects: string[]) {

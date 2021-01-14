@@ -1,5 +1,5 @@
 import { reactive, ref, watch, watchEffect } from "vue";
-import { loadLectsJSON, key as dbkey } from "@/store";
+import { loadLectsJSON, key as sKey } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 
@@ -54,8 +54,8 @@ function resetTexts() {
 
 let key: symbol;
 export async function initialize() {
-  if (key === dbkey) return;
-  key = dbkey;
+  if (key === sKey) return;
+  key = sKey;
 
   await resetCoverters();
   resetMappings();
