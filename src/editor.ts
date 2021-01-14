@@ -1,4 +1,4 @@
-import { computed, onUnmounted, watch, WritableComputedRef, ref } from "vue";
+import { computed, watch, WritableComputedRef, ref } from "vue";
 
 type Options<T> = {
   defaultFile: object;
