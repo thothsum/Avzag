@@ -1,9 +1,10 @@
 import { key as sKey, loadJSON, loadLectsJSON } from "@/store";
-import { shallowRef } from "vue";
+import { ref, shallowRef } from "vue";
 import { IPARegistry, Phoneme, PhonemeUse } from "./types";
 
 let registry: IPARegistry;
 
+export const lects = ref<string[]>([]);
 export const phonemes = shallowRef<Phoneme[]>();
 export const phoneme = shallowRef<Phoneme>();
 
@@ -55,5 +56,6 @@ export async function initialize() {
 
   registry = await loadJSON("ipa");
   const phonemes = await loadLectsJSON<PhonemeUse[]>("phonology");
+  lects.value = Object.keys(phonemes);
   collectPhonemes(phonemes);
 }

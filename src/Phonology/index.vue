@@ -28,8 +28,7 @@ import Table from "./Table.vue";
 import Inspector from "./Inspector.vue";
 
 import { ref, defineComponent } from "vue";
-import { initialize, phonemes, phoneme } from "./main";
-import { lects } from "@/store";
+import { initialize, lects, phonemes, phoneme } from "./main";
 
 export default defineComponent({
   components: { ToggleQuery, InputQuery, Table, Inspector },
