@@ -5,8 +5,6 @@ import App from "./App.vue";
 import Btn from "./components/Btn.vue";
 import Toggle from "./components/Toggle.vue";
 
-import "./registerServiceWorker";
-
 const app = createApp(App);
 app.component("Btn", Btn);
 app.component("Toggle", Toggle);

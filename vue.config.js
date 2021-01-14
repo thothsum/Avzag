@@ -36,10 +36,6 @@ module.exports = {
       maskIcon: "icon.png",
       msTileImage: "icon.png",
     },
-    workboxPluginMode: "InjectManifest",
-    workboxOptions: {
-      swSrc: "src/service-worker.js",
-    },
     name: "Avzag",
     themeColor: "#4A4A4A",
     msTileColor: "#4A4A4A",
