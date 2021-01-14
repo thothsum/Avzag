@@ -7,7 +7,7 @@ export const converters = ref<Record<string, Converter | undefined>>({});
 export const converter = ref<Converter>();
 async function resetCoverters() {
   converters.value = await loadLectsJSON<Converter>("converter");
-  converter.value = undefined;
+  converter.value = Object.values(converters.value)[0];
 }
 
 export const mappings = reactive<{ initial?: Mapping; final?: Mapping }>({});

@@ -23,7 +23,7 @@ export async function loadLectsJSON<T>(filename: string) {
   const files = {} as Record<string, T | undefined>;
   for (const lect of lects.value) {
     const file = await loadJSON(lect + "/" + filename);
-    files[lect] = file;
+    if (file) files[lect] = file;
   }
   return files;
 }
