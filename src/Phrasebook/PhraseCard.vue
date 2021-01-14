@@ -38,7 +38,10 @@ export default defineComponent({
   props: {
     lect: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
-    modelValue: { type: Object as PropType<DynamicContext>, default: {} },
+    modelValue: {
+      type: Object as PropType<DynamicContext>,
+      default: () => ({}),
+    },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {

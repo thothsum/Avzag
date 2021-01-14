@@ -19,7 +19,7 @@ import { PieceDisplay, Piece } from "./types";
 
 export default defineComponent({
   props: {
-    notes: { type: Array as PropType<string[]>, default: [] },
+    notes: { type: Array as PropType<string[]>, default: () => [] },
   },
   setup(props) {
     function isWrapped(text: string, start: string, end: string) {

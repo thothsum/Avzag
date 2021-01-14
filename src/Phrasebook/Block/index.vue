@@ -27,8 +27,11 @@ import { DynamicContext, Block, State } from "../types";
 export default defineComponent({
   components: { IndexedColor, Display },
   props: {
-    modelValue: { type: Object as PropType<DynamicContext>, default: {} },
-    block: { type: Object as PropType<Block>, default: {} },
+    modelValue: {
+      type: Object as PropType<DynamicContext>,
+      default: () => ({}),
+    },
+    block: { type: Object as PropType<Block>, default: () => ({}) },
     glossed: Boolean,
   },
   emits: ["update:modelValue"],

@@ -21,8 +21,8 @@ import { Phoneme } from "./types";
 export default defineComponent({
   components: { TableEntry },
   props: {
-    modelValue: { type: Object as PropType<Phoneme>, default: {} },
-    phonemes: { type: Array as PropType<Phoneme[]>, default: [] },
+    modelValue: { type: Object as PropType<Phoneme>, default: () => ({}) },
+    phonemes: { type: Array as PropType<Phoneme[]>, default: () => [] },
     filter: { type: String, default: "" },
     lectQuery: { type: Object as PropType<Query>, default: "" },
     featureQuery: { type: Object as PropType<Query>, default: "" },

@@ -16,7 +16,7 @@ export default defineComponent({
       type: [Number, String, Object as () => Item],
       default: "",
     },
-    items: { type: Object as PropType<(string | Item)[]>, default: [] },
+    items: { type: Object as PropType<(string | Item)[]>, default: () => [] },
     labelKey: { type: [Number, String], default: "name" },
     type: {
       type: String as PropType<"item" | "label" | "index">,

@@ -23,7 +23,7 @@ import { Phoneme } from "./types";
 export default defineComponent({
   components: { InspectorCard },
   props: {
-    phoneme: { type: Object as PropType<Phoneme>, default: {} },
+    phoneme: { type: Object as PropType<Phoneme>, default: () => ({}) },
   },
   setup() {
     const player = ref({} as HTMLMediaElement);

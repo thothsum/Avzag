@@ -13,7 +13,7 @@ import { Pairs } from "./types";
 
 export default defineComponent({
   props: {
-    pairs: { type: Object as PropType<Pairs>, default: {} },
+    pairs: { type: Object as PropType<Pairs>, default: () => ({}) },
   },
   setup(props) {
     const texts = computed(() =>

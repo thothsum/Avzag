@@ -25,8 +25,8 @@ import { map } from "./map";
 
 export default defineComponent({
   props: {
-    lect: { type: Object as PropType<Lect>, default: {} },
-    search: { type: Object as PropType<SearchState>, default: {} },
+    lect: { type: Object as PropType<Lect>, default: () => ({}) },
+    search: { type: Object as PropType<SearchState>, default: () => ({}) },
   },
   emits: ["click"],
   setup(props, { emit }) {

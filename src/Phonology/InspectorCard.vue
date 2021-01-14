@@ -32,7 +32,7 @@ export default defineComponent({
   components: { Notes },
   props: {
     lect: { type: String, default: "" },
-    use: { type: Object as PropType<PhonemeUse>, default: {} },
+    use: { type: Object as PropType<PhonemeUse>, default: () => ({}) },
   },
   emits: ["play"],
   setup(props, { emit }) {
