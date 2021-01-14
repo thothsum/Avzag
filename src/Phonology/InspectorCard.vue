@@ -25,7 +25,7 @@
 <script lang="ts">
 import Notes from "@/components/Notes/index.vue";
 import { computed, defineComponent, ref, watch, PropType } from "vue";
-import { root, lects } from "@/store";
+import { root } from "@/store";
 import { PhonemeUse } from "./types";
 
 export default defineComponent({

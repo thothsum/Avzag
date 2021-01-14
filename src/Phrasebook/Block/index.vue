@@ -18,18 +18,51 @@
   </button>
 </template>
 
-<script>
-import IndexedColor from "./IndexedColor";
-import Display from "./Display";
+<script lang="ts">
+import IndexedColor from "./IndexedColor.vue";
+import Display from "./Display.vue";
+import { computed, defineComponent, Prop, PropType, ref, watch } from "vue";
+import { DynamicContext, Block, State } from "../types";
 
-export default {
-  name: "PhraseBlock",
-  components: {
-    IndexedColor,
-    Display,
+export default defineComponent({
+  components: { IndexedColor, Display },
+  props: {
+    modelValue: { type: Object as PropType<DynamicContext>, default: {} },
+    block: { type: Object as PropType<Block>, default: {} },
+    glossed: Boolean,
   },
-  props: ["modelValue", "block", "glossed"],
   emits: ["update:modelValue"],
+  setup(props, { emit }) {
+    const state = ref<State>();
+    const visible = ref(false);
+    const pressed = ref(false);
+
+    const context = computed({
+      get: () => props.modelValue,
+      set: (c) => emit("update:modelValue", c),
+    });
+    watch(
+      context,
+      (context) => {
+        if (this.pressed) {
+          this.pressed = false;
+          return;
+        }
+        const visible =
+          context && this.checkConditions(this.requirements)[0] === 1;
+
+        if (visible) {
+          const state = this.findBestState();
+          if (state !== this.state) this.switchState(state);
+        } else if (this.state) {
+          this.switchState(null);
+        }
+
+        this.visible = visible;
+      },
+      { immediate: true }
+    );
+  },
   data() {
     return {
       state: undefined,
@@ -77,28 +110,6 @@ export default {
       return this.transition && this.conditions
         ? this.getConditionIndexes(this.conditions.filter((c) => !c.passive))
         : [];
-    },
-  },
-  watch: {
-    context: {
-      handler() {
-        if (this.pressed) {
-          this.pressed = false;
-          return;
-        }
-        const visible =
-          this.context && this.checkConditions(this.requirements)[0] === 1;
-
-        if (visible) {
-          const state = this.findBestState();
-          if (state !== this.state) this.switchState(state);
-        } else if (this.state) {
-          this.switchState(null);
-        }
-
-        this.visible = visible;
-      },
-      immediate: true,
     },
   },
   methods: {
@@ -176,7 +187,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
