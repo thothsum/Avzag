@@ -93,6 +93,9 @@ export default defineComponent({
   flex: 1;
   justify-content: flex-end;
 }
+select {
+  flex: 0;
+}
 @media only screen and (max-width: $mobile-width) {
   #root .section {
     flex-flow: column;

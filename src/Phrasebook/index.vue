@@ -1,5 +1,5 @@
 <template>
-  <div v-if="phrasebook" class="section col-1">
+  <div v-if="corpus" class="section col-1">
     <div class="col-1">
       <div class="row">
         <toggle v-model="searching" icon="search" />
@@ -11,26 +11,23 @@
           placeholder="Search all phrases..."
         />
         <h2 v-else class="col-1 flex">
-          <select v-model="section" class="flex">
+          <select v-model="section">
             <option v-for="c in corpus" :key="c.id" :value="c">
               {{ c.name }}
             </option>
           </select>
         </h2>
       </div>
-      <template v-if="phrases">
-        <div v-if="searching" class="col-1 scroll">
-          <template v-if="searching"> </template>
-          <template v-else>
-            <btn
-              v-for="p in corpus.phrases"
-              :key="p.id"
-              :is-on="phrase === p"
-              @click="phrase = p"
-              >{{ p.preview }}</btn
-            >
-          </template>
-          <!-- <div v-for="(ps, s) of phrases" :key="s" class="col">
+      <div class="col-0 scroll">
+        <!-- <template v-if="searching"> </template> -->
+        <btn
+          v-for="p in section.phrases"
+          :key="p.id"
+          :text="p.preview"
+          :is-on="phrase === p"
+          @click="phrase = p"
+        />
+        <!-- <div v-for="(ps, s) of phrases" :key="s" class="col">
             <h2>{{ phrasebook[s].name }}</h2>
             <div class="col-0">
               <btn
@@ -42,15 +39,14 @@
               />
             </div>
           </div> -->
-        </div>
-      </template>
+      </div>
     </div>
     <div v-if="phrase" class="col-1">
-      <PhraseCard v-model="dynamicContext" :phrase="phrase" />
+      <PhraseCard v-model="context" :phrase="phrase" />
       <PhraseCard
         v-for="(p, n) of phrasebooks"
         :key="n + '--' + phrase.id"
-        v-model="dynamicContext"
+        v-model="context"
         :lect="n"
         :phrase="p[phrase.id]"
       />
@@ -63,25 +59,29 @@ import PhraseCard from "./PhraseCard.vue";
 
 import { computed, reactive, ref, watch, defineComponent } from "vue";
 
-import { corpus, section, phrase, phrasebooks } from "./main";
+import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import * as Types from "./types";
 
 export default defineComponent({
   components: { PhraseCard },
   setup() {
-    const dynamicContext = ref({} as Types.DynamicContext);
-    watch(phrase, (phrase) => {
-      if (!phrase) return;
+    initialize();
 
-      dynamicContext.value =
-        phrase.context.reduce((context, { entity }) => {
-          context[entity] = new Set();
-          return context;
-        }, {} as Types.DynamicContext) ?? {};
-    });
+    const context = ref({} as Types.DynamicContext);
+    watch(
+      phrase,
+      ({ context: c }) => {
+        context.value =
+          c?.reduce((context, { entity }) => {
+            context[entity] = new Set();
+            return context;
+          }, {} as Types.DynamicContext) ?? {};
+      },
+      { immediate: true }
+    );
 
     const searching = ref(false);
-    // const query = ref("");
+    const query = ref("");
 
     // const selected = reactive(
     //   JSON.parse(localStorage.phrase ?? "{ section: 0, phrase: 0 }")
@@ -104,7 +104,7 @@ export default defineComponent({
     //     : section.value?.phrases
     // );
 
-    return { searching, corpus, section, phrase, phrasebooks };
+    return { searching, query, corpus, section, phrase, phrasebooks, context };
   },
 });
 </script>

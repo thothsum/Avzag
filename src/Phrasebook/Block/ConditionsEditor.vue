@@ -4,12 +4,11 @@
     <div class="scroll col">
       <div v-for="(c, i) in conditions" :key="i" class="row">
         <toggle v-if="allowPassive" v-model="c.passive" icon="call_missed" />
-        <Select v-model:value="c.entity" class="flex" :items="entities" />
+        <Select v-model:value="c.entity" :items="entities" />
         <p class="icon">west</p>
         <Select
           v-if="context[c.entity]"
           v-model:value="c.tag"
-          class="flex"
           :items="context[c.entity]"
         />
         <btn icon="clear" @click="remove(i)" />

@@ -6,14 +6,12 @@
     :class="{ disabled, glossed }"
     @click="move"
   >
-    <template v-if="interactive">
-      <IndexedColor :passive="true" :indexes="passiveIndexes" />
-      <IndexedColor :indexes="activeIndexes" />
-    </template>
+    <IndexedColor :passive="true" :indexes="passiveIndexes" />
+    <IndexedColor :indexes="activeIndexes" />
     <Display
       ref="display"
       :glossed="glossed"
-      :colored="interactive"
+      :colored="true"
       :state="state"
       :context="context"
     />
@@ -40,9 +38,8 @@ export default {
     };
   },
   computed: {
-    context: {
-      get: () => this.modelValue,
-      set: (c) => this.$emit("update:modelValue", c),
+    context() {
+      return this.modelValue;
     },
     requirements() {
       return this.block.requirements;
@@ -57,7 +54,7 @@ export default {
       return this.state?.conditions;
     },
     disabled() {
-      return !(this.interactive && this.transition);
+      return !this.transition;
     },
     entities() {
       return Object.keys(this.context);
@@ -159,7 +156,7 @@ export default {
       this.applyConditions(context, state?.conditions, true);
 
       this.state = state;
-      this.context = context;
+      this.$emit("update:modelValue", context);
     },
     move() {
       if (this.disabled) return;

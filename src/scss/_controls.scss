@@ -33,8 +33,11 @@ select {
   }
 }
 
-select option {
-  background-color: var(--color-background);
+select {
+  flex: 1;
+  option {
+    background-color: var(--color-background);
+  }
 }
 
 textarea,

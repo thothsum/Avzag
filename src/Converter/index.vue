@@ -13,7 +13,7 @@
     <div v-if="converter" class="split">
       <div class="col">
         <div class="row">
-          <select v-model="mappings.initial" class="flex">
+          <select v-model="mappings.initial">
             <option v-for="(m, i) in fullMappings" :key="i" :value="m">
               {{ m.name }}
             </option>
@@ -30,7 +30,7 @@
       </div>
       <div class="col">
         <div class="row">
-          <select v-model="mappings.final" class="flex">
+          <select v-model="mappings.final">
             <option v-for="(m, i) in converter.mappings" :key="i" :value="m">
               {{ m.name }}
             </option>

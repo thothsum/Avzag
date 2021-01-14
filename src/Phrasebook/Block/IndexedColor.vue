@@ -34,9 +34,6 @@ export default {
   }
   &:not(.passive) {
     bottom: 0;
-    .dash {
-      flex: 1;
-    }
   }
 }
 </style>

@@ -17,12 +17,7 @@
         </div>
         <div v-if="phrases" class="row-1">
           <p class="icon">short_text</p>
-          <Select
-            v-model:value="phrase"
-            class="flex"
-            :items="phrases"
-            display="preview"
-          />
+          <Select v-model:value="phrase" :items="phrases" display="preview" />
         </div>
         <p class="text-faded text-caption">
           The source corpus is loading from what is saved on Phrasebook Corppus
