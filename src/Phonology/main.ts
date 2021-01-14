@@ -23,7 +23,7 @@ function collectTags(phomene: string) {
   return collected;
 }
 
-function collectPhonemes(allUses: Record<string, undefined | PhonemeUse[]>) {
+function collectPhonemes(allUses: Record<string, PhonemeUse[]>) {
   const registry = {} as Record<string, Phoneme>;
 
   for (const name in allUses) {

@@ -29,26 +29,22 @@ export type ContextTranslation = {
   entity: [string, string];
   tags: [string, string][];
 }[];
-export type Phrase = {
+
+export type CorpusPhrase = {
   id: string;
   preview: string;
   context: Context;
   blocks: Block[];
 };
-export type PhraseTranslation = {
+export type CorpusSection = {
+  id: string;
+  name: string;
+  phrases: CorpusPhrase[];
+};
+
+export type Phrase = {
   notes?: string[];
   context?: ContextTranslation;
   blocks: Block[];
 };
-export type PhraseTranslationOptions = {
-  interactive?: boolean;
-  glossed?: boolean;
-  notes?: boolean;
-  source?: boolean;
-};
-export type Section = {
-  id: string;
-  name: string;
-  phrases: Phrase[];
-};
-export type Phrasebook = Record<string, PhraseTranslation>;
+export type Phrasebook = Record<string, Phrase>;

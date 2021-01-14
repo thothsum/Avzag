@@ -20,7 +20,7 @@ export async function loadJSON(filename: string) {
     .catch(() => undefined);
 }
 export async function loadLectsJSON<T>(filename: string) {
-  const files = {} as Record<string, T | undefined>;
+  const files = {} as Record<string, T>;
   for (const lect of lects.value) {
     const file = await loadJSON(lect + "/" + filename);
     if (file) files[lect] = file;

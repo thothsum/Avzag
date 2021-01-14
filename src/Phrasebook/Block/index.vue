@@ -30,7 +30,8 @@ export default {
     IndexedColor,
     Display,
   },
-  props: ["id", "context", "block", "interactive", "glossed"],
+  props: ["modelValue", "block", "glossed"],
+  emits: ["update:modelValue"],
   data() {
     return {
       state: undefined,
@@ -39,6 +40,10 @@ export default {
     };
   },
   computed: {
+    context: {
+      get: () => this.modelValue,
+      set: (c) => this.$emit("update:modelValue", c),
+    },
     requirements() {
       return this.block.requirements;
     },
@@ -78,12 +83,6 @@ export default {
     },
   },
   watch: {
-    id: {
-      handler() {
-        this.visible = false;
-      },
-      immediate: true,
-    },
     context: {
       handler() {
         if (this.pressed) {
@@ -160,7 +159,7 @@ export default {
       this.applyConditions(context, state?.conditions, true);
 
       this.state = state;
-      this.$emit("update:context", context);
+      this.context = context;
     },
     move() {
       if (this.disabled) return;

@@ -1,10 +1,10 @@
-import { reactive, ref, watch, watchEffect } from "vue";
+import { reactive, shallowRef, watch, watchEffect } from "vue";
 import { loadLectsJSON, key as sKey } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 
-export const converters = ref<Record<string, Converter | undefined>>({});
-export const converter = ref<Converter>();
+export const converters = shallowRef<Record<string, Converter>>({});
+export const converter = shallowRef<Converter>();
 async function resetCoverters() {
   converters.value = await loadLectsJSON<Converter>("converter");
   converter.value = Object.values(converters.value)[0];

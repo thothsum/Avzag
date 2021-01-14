@@ -1,9 +1,9 @@
-import { ref, reactive, computed, watchEffect } from "vue";
+import { ref, shallowRef, reactive, computed, watchEffect } from "vue";
 import { SearchState, Lect } from "./types";
-import { root, loadJSON } from "@/store";
+import { loadJSON } from "@/store";
 import { Query, EvaluateQuery } from "@/components/Query/types";
 
-export const catalogue = ref([] as Lect[]);
+export const catalogue = shallowRef([] as Lect[]);
 export const search = reactive({
   selected: new Set<string>(),
   visible: new Set<string>(),

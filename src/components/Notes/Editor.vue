@@ -15,7 +15,7 @@ import EditorCard from "@/components/EditorCard.vue";
 export default defineComponent({
   components: { EditorCard },
   props: {
-    modelValue: { type: Array as PropType<string[]>, default: null },
+    modelValue: { type: Array as PropType<string[]>, default: undefined },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
