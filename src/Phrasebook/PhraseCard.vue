@@ -26,14 +26,7 @@ import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 
-import {
-  computed,
-  defineComponent,
-  onBeforeUpdate,
-  PropType,
-  reactive,
-  ref,
-} from "vue";
+import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
 import { Phrase, BlockVue } from "./types";
 
