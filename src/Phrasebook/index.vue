@@ -66,21 +66,13 @@ export default defineComponent({
   setup() {
     initialize();
 
-    const context = ref({} as Context);
-    watch(
-      phrase,
-      ({ context: c }) => {
-        context.value =
-          c?.reduce((context, { entity }) => {
-            context[entity] = new Set();
-            return context;
-          }, {} as Context) ?? {};
-      },
-      { immediate: true }
-    );
-    const setContext = (c: Context) => (context.value = c);
+    const context = reactive({} as Context);
+    watch(phrase, (phrase, oldPhrase) => {
+      if (oldPhrase?.context)
+        oldPhrase.context.map(({ entity }) => delete context[entity]);
+      phrase.context.map(({ entity }) => (context[entity] = new Set()));
+    });
     provide("context", context);
-    provide("setContext", setContext);
 
     const searching = ref(false);
     const query = ref("");

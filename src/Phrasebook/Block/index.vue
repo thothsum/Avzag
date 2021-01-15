@@ -21,7 +21,15 @@
 <script lang="ts">
 import IndexedColor from "./IndexedColor.vue";
 import Display from "./Display.vue";
-import { computed, defineComponent, inject, PropType, ref, watch } from "vue";
+import {
+  computed,
+  defineComponent,
+  inject,
+  PropType,
+  ref,
+  toRaw,
+  watch,
+} from "vue";
 import { Context, Block, State, Condition } from "../types";
 import {
   applyConditions,
@@ -37,35 +45,21 @@ export default defineComponent({
     glossed: Boolean,
   },
   emits: ["update:modelValue"],
-  setup(props, { emit }) {
+  setup(props) {
     const state = ref<State>();
     const visible = ref(false);
-    const pressed = ref(false);
     const disabled = computed(() => !state.value?.transition);
 
     const context = inject("context", {} as Context);
-    const setContext = inject("setContext", (c: Context) => c);
 
     function switchState(nextState: undefined | State) {
-      // let context = Object.entries(this.context).reduce((c, [e, ts]) => {
-      //   c[e] = new Set(ts);
-      //   return c;
-      // }, {});
-      const newContext = Object.assign({}, context);
-
-      applyConditions(state.value?.conditions, newContext, false);
-      applyConditions(nextState?.conditions, newContext, true);
-
+      applyConditions(state.value?.conditions, context, false);
+      applyConditions(nextState?.conditions, context, true);
       state.value = nextState;
-      setContext(newContext);
     }
     watch(
       context,
       (context) => {
-        if (pressed.value) {
-          pressed.value = false;
-          return;
-        }
         const nextVisible =
           context &&
           checkConditions(props.block.requirements, context)[0] === 1;
@@ -76,17 +70,15 @@ export default defineComponent({
             props.block.states,
             context
           );
-          if (nextState !== state.value) switchState(nextState);
-        } else if (state.value) {
-          switchState(undefined);
-        }
+          if (toRaw(nextState) !== toRaw(state.value)) switchState(nextState);
+        } else if (state.value) switchState(undefined);
 
         visible.value = nextVisible;
       },
       { immediate: true }
     );
 
-    const entities = computed(() => Object.keys(context.value));
+    const entities = computed(() => Object.keys(context));
     const passiveIndexes = computed(() => {
       let conditions: Condition[] = [];
 
@@ -118,13 +110,12 @@ export default defineComponent({
       if (typeof transition === "string") {
         let nextState;
         if (transition === "next") {
-          const i = state.value ? states.indexOf(state.value) : -1;
+          const i = state.value ? states.indexOf(toRaw(state.value)) : -1;
           nextState = states[(i + 1) % states.length];
         } else if (transition) {
           const i = transition.split(" ").map((i) => Number(i));
           nextState = findBestState(i, states, context);
         }
-        pressed.value = true;
         switchState(nextState);
       } else if (transition) {
         // directly modify global environment
