@@ -1,4 +1,4 @@
-import { key as sKey, loadJSON, loadLectsJSON } from "@/store";
+import { getInitializer, loadJSON, loadLectsJSON } from "@/store";
 import { ref, shallowRef } from "vue";
 import { IPARegistry, Phoneme, PhonemeUse } from "./types";
 
@@ -49,13 +49,9 @@ function collectPhonemes(allUses: Record<string, PhonemeUse[]>) {
   phoneme.value = phonemes.value[0];
 }
 
-let key: symbol;
-export async function initialize() {
-  if (key === sKey) return;
-  key = sKey;
-
+export const initialize = getInitializer(async () => {
   registry = await loadJSON("ipa");
   const phonemes = await loadLectsJSON<PhonemeUse[]>("phonology");
   lects.value = Object.keys(phonemes);
   collectPhonemes(phonemes);
-}
+});

@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-export let key: symbol;
+let key: symbol;
 
 export const root =
   (process.env.NODE_ENV === "production"
@@ -12,6 +12,14 @@ export const lects = ref([] as string[]);
 export function setupStore(_lects: string[]) {
   lects.value = _lects;
   key = Symbol("lects");
+}
+export function getInitializer(callback: () => Promise<unknown>) {
+  let _key: symbol;
+  return async () => {
+    if (_key === key) return;
+    _key = key;
+    await callback();
+  };
 }
 
 export async function loadJSON(filename: string) {

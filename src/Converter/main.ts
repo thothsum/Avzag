@@ -1,5 +1,5 @@
 import { reactive, shallowRef, watch, watchEffect } from "vue";
-import { loadLectsJSON, key as sKey } from "@/store";
+import { getInitializer, loadLectsJSON } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 
@@ -52,12 +52,8 @@ function resetTexts() {
   });
 }
 
-let key: symbol;
-export async function initialize() {
-  if (key === sKey) return;
-  key = sKey;
-
+export const initialize = getInitializer(async () => {
   await resetCoverters();
   resetMappings();
   resetTexts();
-}
+});
