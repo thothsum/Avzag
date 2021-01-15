@@ -1,6 +1,6 @@
 <template>
-  <div class="section col-1">
-    <div class="row small">
+  <div v-if="converters" class="section col-1">
+    <div v-if="Object.keys(converters).length > 1" class="row small">
       <btn
         v-for="(c, n) of converters"
         :key="n"
