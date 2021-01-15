@@ -1,18 +1,17 @@
 <template>
   <div v-if="phrase" class="col-1 card">
-    <div v-if="lect" class="row-1 small">
-      <btn icon="content_copy" @click="copy" />
-      <btn v-model="glossed" icon="layers" />
-      <h2>{{ lect }}</h2>
+    <div class="row-1 small wrap" style="width: 100%">
+      <template v-if="lect">
+        <btn icon="content_copy" @click="copy" />
+        <btn v-model="glossed" icon="layers" />
+        <h2 class="flex">{{ lect }}</h2>
+      </template>
+      <Context :translation="contextTranslation" :blocks="blocks" />
     </div>
-    <!-- <Context
-      :context="context"
-      :translation="phrase.context"
-      :blocks="blocks"
-    /> -->
     <div class="row wrap flex">
       <Block
         v-for="(b, i) in phrase.blocks"
+        :ref="(el) => blocks.push(el)"
         :key="i"
         :glossed="glossed"
         :block="b"
@@ -23,42 +22,39 @@
 </template>
 
 <script lang="ts">
-// import Context from "./Context/index.vue";
+import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 
-import { computed, defineComponent, PropType, ref, inject } from "vue";
+import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
-import { Context, Phrase } from "./types";
+import { Phrase } from "./types";
 
 export default defineComponent({
-  components: { Block, Notes },
+  components: { Context, Block, Notes },
   props: {
     lect: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
   },
-  setup() {
-    const context: Context = inject("context", {});
-
+  setup(props) {
     const glossed = ref(false);
+    const contextTranslation = computed(() =>
+      props.lect ? props.phrase.context : undefined
+    );
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // const blocks = ref([] as any[]);
-    // function setBlock(el: object) {
-    //   blocks.value.push(el);
-    // }
-
-    // const text = computed(() =>
-    //   blocks.value
-    //     .filter(({ visible }) => visible)
-    //     .map((b) => b.$refs.display.text)
-    //     .join(" ")
-    // );
+    const blocks = reactive([] as any[]);
+    const text = computed(() =>
+      blocks
+        .filter(({ visible }) => visible)
+        .map((b) => b.$refs.display.text)
+        .join(" ")
+    );
     function copy() {
-      // navigator.clipboard.writeText(text.value);
+      navigator.clipboard.writeText(text.value);
     }
 
-    return { glossed, context, copy };
+    return { glossed, blocks, copy, contextTranslation };
   },
 });
 </script>

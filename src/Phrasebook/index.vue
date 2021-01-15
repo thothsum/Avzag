@@ -45,7 +45,7 @@
       <PhraseCard :phrase="phrase" />
       <PhraseCard
         v-for="(p, n) of phrasebooks"
-        :key="n + '--' + phrase.id"
+        :key="n"
         :lect="n"
         :phrase="p[phrase.id]"
       />
@@ -56,7 +56,7 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import { computed, reactive, ref, watch, defineComponent, provide } from "vue";
+import { reactive, ref, watch, defineComponent, provide } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import { Context } from "./types";

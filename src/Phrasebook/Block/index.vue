@@ -47,8 +47,11 @@ export default defineComponent({
   emits: ["update:modelValue"],
   setup(props) {
     const state = ref<State>();
+    const requirements = computed(() => props.block.requirements);
+    const conditions = computed(() => state.value?.conditions);
+    const transition = computed(() => state.value?.transition);
+    const disabled = computed(() => !transition.value);
     const visible = ref(false);
-    const disabled = computed(() => !state.value?.transition);
 
     const context = inject("context", {} as Context);
 
@@ -61,8 +64,7 @@ export default defineComponent({
       context,
       (context) => {
         const nextVisible =
-          context &&
-          checkConditions(props.block.requirements, context)[0] === 1;
+          context && checkConditions(requirements.value, context)[0] === 1;
 
         if (nextVisible) {
           const nextState = findBestState(
@@ -80,24 +82,24 @@ export default defineComponent({
 
     const entities = computed(() => Object.keys(context));
     const passiveIndexes = computed(() => {
-      let conditions: Condition[] = [];
+      let _conditions: Condition[] = [];
 
-      if (props.block.requirements)
-        conditions = conditions.concat(props.block.requirements);
-      if (state.value?.conditions) {
-        conditions = conditions.concat(
-          state.value.transition
-            ? state.value.conditions.filter((c) => c.passive)
-            : state.value.conditions
+      if (requirements.value)
+        _conditions = _conditions.concat(requirements.value);
+      if (conditions.value) {
+        _conditions = _conditions.concat(
+          transition.value
+            ? conditions.value.filter((c) => c.passive)
+            : conditions.value
         );
       }
 
-      return getEntityIndexes(conditions, entities.value);
+      return getEntityIndexes(_conditions, entities.value);
     });
     const activeIndexes = computed(() => {
-      return state.value?.transition && state.value?.conditions
+      return transition.value && conditions.value
         ? getEntityIndexes(
-            state.value?.conditions.filter(({ passive }) => !passive),
+            conditions.value.filter(({ passive }) => !passive),
             entities.value
           )
         : [];
@@ -105,19 +107,18 @@ export default defineComponent({
 
     function move() {
       if (disabled.value) return;
-      const transition = state.value?.transition;
       const states = props.block.states;
-      if (typeof transition === "string") {
+      if (typeof transition.value === "string") {
         let nextState;
-        if (transition === "next") {
+        if (transition.value === "next") {
           const i = state.value ? states.indexOf(toRaw(state.value)) : -1;
           nextState = states[(i + 1) % states.length];
-        } else if (transition) {
-          const i = transition.split(" ").map((i) => Number(i));
+        } else if (transition.value) {
+          const i = transition.value.split(" ").map((i) => Number(i));
           nextState = findBestState(i, states, context);
         }
         switchState(nextState);
-      } else if (transition) {
+      } else if (transition.value) {
         // directly modify global environment
       }
     }
@@ -130,6 +131,8 @@ export default defineComponent({
       state,
       visible,
       disabled,
+      conditions,
+      requirements,
     };
   },
 });

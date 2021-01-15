@@ -9,64 +9,83 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "PhraseContext",
-  props: ["context", "translation", "blocks"],
-  computed: {
-    dictionary() {
-      const translation = { entities: {}, tags: {} };
-      if (this.translation)
-        this.translation.forEach(({ entity, tags }) => {
+<script lang="ts">
+import { computed, defineComponent, inject, PropType } from "vue";
+import { Context, ContextTranslation, Condition } from "../types";
+
+type BlockVue = {
+  visible: boolean;
+  requirements?: Condition[];
+  conditions?: Condition[];
+};
+
+export default defineComponent({
+  props: {
+    translation: {
+      type: Object as PropType<ContextTranslation>,
+      default: () => [],
+    },
+    blocks: { type: Array as PropType<BlockVue[]>, default: () => [] },
+  },
+  setup(props) {
+    const context = inject("context", {} as Context);
+
+    const dictionary = computed(() => {
+      const translation = {
+        entities: {} as Record<string, string>,
+        tags: {} as Record<string, Record<string, string>>,
+      };
+      if (props.translation)
+        props.translation.forEach(({ entity, tags }) => {
           translation.entities[entity[0]] = entity[1];
-          translation.tags[entity[0]] =
-            tags?.reduce((d, t) => {
-              d[t[0]] = t[1];
-              return d;
-            }, {}) ?? {};
+          translation.tags[entity[0]] = (tags ?? []).reduce((d, t) => {
+            d[t[0]] = t[1];
+            return d;
+          }, {} as Record<string, string>);
         });
       return translation;
-    },
-    explicitContext() {
-      return (
-        this.blocks
-          ?.filter((b) => b.visible)
-          .map((b) => [].concat(b?.requirements, b?.conditions))
+    });
+
+    const explicitContext = computed(
+      () =>
+        props.blocks
+          ?.filter(({ visible }) => visible)
+          .map(({ requirements, conditions }) => {
+            let all = [] as Condition[];
+            if (requirements) all = all.concat(requirements);
+            if (conditions) all = all.concat(conditions);
+            return all;
+          })
           .flat()
-          .filter((b) => b)
           .reduce((c, { entity, tag }) => {
             if (!c[entity]) c[entity] = new Set();
-            c[entity].add(tag);
+            if (tag) c[entity].add(tag);
             return c;
-          }, {}) ?? {}
-      );
-    },
-    entities() {
-      return Object.keys(this.context).map((e) =>
-        this.translate(this.dictionary.entities, e)
-      );
-    },
-    tags() {
-      return Object.entries(this.context).map(([e, ts]) =>
-        [...(ts ?? [])]
-          .filter((t) => !this.explicitContext[e]?.has(t))
-          .map((t) => this.translate(this.dictionary.tags[e], t))
-      );
-    },
-    any() {
-      return this.tags.some((t) => t?.length);
-    },
-  },
-  methods: {
-    translate(d, k) {
+          }, {} as Context) ?? {}
+    );
+
+    function translate(d: undefined | Record<string, string>, k: string) {
       if (d) {
         const t = d[k];
         if (t) return t;
       }
       return k;
-    },
+    }
+    const entities = computed(() =>
+      Object.keys(context).map((e) => translate(dictionary.value.entities, e))
+    );
+    const tags = computed(() =>
+      Object.entries(context).map(([e, ts]) =>
+        [...(ts ?? [])]
+          .filter((t) => !explicitContext.value[e]?.has(t))
+          .map((t) => translate(dictionary.value.tags[e], t))
+      )
+    );
+    const any = computed(() => tags.value.some((t) => t?.length));
+
+    return { entities, tags, any, explicitContext };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
