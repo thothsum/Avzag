@@ -52,6 +52,7 @@ export default defineComponent({
     const transition = computed(() => state.value?.transition);
     const disabled = computed(() => !transition.value);
     const visible = ref(false);
+    const display = ref();
 
     const context = inject("context", {} as Context);
 
@@ -131,6 +132,7 @@ export default defineComponent({
       state,
       visible,
       disabled,
+      display,
       conditions,
       requirements,
     };

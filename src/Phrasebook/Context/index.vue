@@ -11,18 +11,12 @@
 
 <script lang="ts">
 import { computed, defineComponent, inject, PropType } from "vue";
-import { Context, ContextTranslation, Condition } from "../types";
-
-type BlockVue = {
-  visible: boolean;
-  requirements?: Condition[];
-  conditions?: Condition[];
-};
+import { Context, ContextTranslation, Condition, BlockVue } from "../types";
 
 export default defineComponent({
   props: {
     translation: {
-      type: Object as PropType<ContextTranslation>,
+      type: Object as PropType<ContextTranslation[]>,
       default: () => [],
     },
     blocks: { type: Array as PropType<BlockVue[]>, default: () => [] },
@@ -49,7 +43,7 @@ export default defineComponent({
     const explicitContext = computed(
       () =>
         props.blocks
-          ?.filter(({ visible }) => visible)
+          ?.filter((b) => b?.visible)
           .map(({ requirements, conditions }) => {
             let all = [] as Condition[];
             if (requirements) all = all.concat(requirements);

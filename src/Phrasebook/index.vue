@@ -45,7 +45,7 @@
       <PhraseCard :phrase="phrase" />
       <PhraseCard
         v-for="(p, n) of phrasebooks"
-        :key="n"
+        :key="n + '--' + phrase.id"
         :lect="n"
         :phrase="p[phrase.id]"
       />

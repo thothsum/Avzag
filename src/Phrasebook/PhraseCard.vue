@@ -26,9 +26,16 @@ import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 
-import { computed, defineComponent, PropType, reactive, ref } from "vue";
+import {
+  computed,
+  defineComponent,
+  onBeforeUpdate,
+  PropType,
+  reactive,
+  ref,
+} from "vue";
 
-import { Phrase } from "./types";
+import { Phrase, BlockVue } from "./types";
 
 export default defineComponent({
   components: { Context, Block, Notes },
@@ -42,12 +49,11 @@ export default defineComponent({
       props.lect ? props.phrase.context : undefined
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const blocks = reactive([] as any[]);
+    const blocks = reactive([] as BlockVue[]);
     const text = computed(() =>
       blocks
-        .filter(({ visible }) => visible)
-        .map((b) => b.$refs.display.text)
+        .filter((b) => b?.visible)
+        .map((b) => b.display.text)
         .join(" ")
     );
     function copy() {
