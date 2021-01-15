@@ -20,11 +20,11 @@ export type Block = {
   states: State[];
 };
 
-export type Context = {
+export type ContextSource = {
   entity: string;
   tags: string;
 }[];
-export type DynamicContext = Record<string, Set<string>>;
+export type Context = Record<string, Set<string>>;
 export type ContextTranslation = {
   entity: [string, string];
   tags: [string, string][];
@@ -33,7 +33,7 @@ export type ContextTranslation = {
 export type CorpusPhrase = {
   id: string;
   preview: string;
-  context: Context;
+  context: ContextSource;
   blocks: Block[];
 };
 export type CorpusSection = {

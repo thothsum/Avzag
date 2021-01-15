@@ -60,14 +60,14 @@ import PhraseCard from "./PhraseCard.vue";
 import { computed, reactive, ref, watch, defineComponent } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
-import * as Types from "./types";
+import { Context } from "./types";
 
 export default defineComponent({
   components: { PhraseCard },
   setup() {
     initialize();
 
-    const context = ref({} as Types.DynamicContext);
+    const context = ref({} as Context);
     watch(
       phrase,
       ({ context: c }) => {
@@ -75,7 +75,7 @@ export default defineComponent({
           c?.reduce((context, { entity }) => {
             context[entity] = new Set();
             return context;
-          }, {} as Types.DynamicContext) ?? {};
+          }, {} as Context) ?? {};
       },
       { immediate: true }
     );

@@ -31,7 +31,7 @@ import Notes from "@/components/Notes/index.vue";
 
 import { computed, defineComponent, PropType, ref } from "vue";
 
-import { DynamicContext, Phrase } from "./types";
+import { Context, Phrase } from "./types";
 
 export default defineComponent({
   components: { Block, Notes },
@@ -39,7 +39,7 @@ export default defineComponent({
     lect: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
     modelValue: {
-      type: Object as PropType<DynamicContext>,
+      type: Object as PropType<Context>,
       default: () => ({}),
     },
   },

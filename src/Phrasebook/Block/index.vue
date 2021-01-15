@@ -21,14 +21,20 @@
 <script lang="ts">
 import IndexedColor from "./IndexedColor.vue";
 import Display from "./Display.vue";
-import { computed, defineComponent, Prop, PropType, ref, watch } from "vue";
-import { DynamicContext, Block, State } from "../types";
+import { computed, defineComponent, PropType, ref, watch } from "vue";
+import { Context, Block, State, Condition } from "../types";
+import {
+  applyConditions,
+  findBestState,
+  checkConditions,
+  getEntityIndexes,
+} from "./condition";
 
 export default defineComponent({
   components: { IndexedColor, Display },
   props: {
     modelValue: {
-      type: Object as PropType<DynamicContext>,
+      type: Object as PropType<Context>,
       default: () => ({}),
     },
     block: { type: Object as PropType<Block>, default: () => ({}) },
@@ -39,156 +45,106 @@ export default defineComponent({
     const state = ref<State>();
     const visible = ref(false);
     const pressed = ref(false);
+    const disabled = computed(() => !state.value?.transition);
 
     const context = computed({
       get: () => props.modelValue,
       set: (c) => emit("update:modelValue", c),
     });
-    watch(
-      context,
-      (context) => {
-        if (this.pressed) {
-          this.pressed = false;
-          return;
-        }
-        const visible =
-          context && this.checkConditions(this.requirements)[0] === 1;
-
-        if (visible) {
-          const state = this.findBestState();
-          if (state !== this.state) this.switchState(state);
-        } else if (this.state) {
-          this.switchState(null);
-        }
-
-        this.visible = visible;
-      },
-      { immediate: true }
-    );
-  },
-  data() {
-    return {
-      state: undefined,
-      visible: false,
-      pressed: false,
-    };
-  },
-  computed: {
-    context() {
-      return this.modelValue;
-    },
-    requirements() {
-      return this.block.requirements;
-    },
-    states() {
-      return this.block.states;
-    },
-    transition() {
-      return this.state?.transition;
-    },
-    conditions() {
-      return this.state?.conditions;
-    },
-    disabled() {
-      return !this.transition;
-    },
-    entities() {
-      return Object.keys(this.context);
-    },
-    passiveIndexes() {
-      let conditions = [];
-
-      if (this.requirements) conditions = conditions.concat(this.requirements);
-      if (this.conditions) {
-        conditions = conditions.concat(
-          this.transition
-            ? this.conditions.filter((c) => c.passive)
-            : this.conditions
-        );
-      }
-
-      return this.getConditionIndexes(conditions);
-    },
-    activeIndexes() {
-      return this.transition && this.conditions
-        ? this.getConditionIndexes(this.conditions.filter((c) => !c.passive))
-        : [];
-    },
-  },
-  methods: {
-    getConditionIndexes(conditions) {
-      const entities = new Set(conditions.map((c) => c.entity));
-      return [...entities].map((e) => this.entities.indexOf(e));
-    },
-    checkConditions(conditions) {
-      return conditions?.length
-        ? [
-            conditions.reduce((f, { entity, tag }) => {
-              return f + (tag ? this.context[entity]?.has(tag) : 1);
-            }, 0) / conditions.length,
-            conditions.length,
-          ]
-        : [1, 0];
-    },
-    findBestState(indexes) {
-      let state = null;
-      let fit = 0;
-      let len = false;
-
-      const states = indexes?.map((i) => this.states[i]) ?? this.states ?? [];
-      states
-        .filter((s) => s.conditions)
-        .forEach((s) => {
-          const [f, l] = this.checkConditions(s.conditions);
-          if (fit === 1 ? f === 1 && l >= len : f >= fit) {
-            state = s;
-            fit = f;
-            len = l;
-          }
-        });
-
-      return state ?? states[0];
-    },
-    applyConditions(context, conditions, positive) {
-      (conditions ?? [])
-        .filter(
-          ({ entity, tag, passive }) => !passive && tag && context[entity]
-        )
-        .forEach(({ entity, tag }) => {
-          if (positive) context[entity].add(tag);
-          else context[entity].delete(tag);
-        });
-    },
-    switchState(state) {
+    function switchState(nextState: undefined | State) {
       // let context = Object.entries(this.context).reduce((c, [e, ts]) => {
       //   c[e] = new Set(ts);
       //   return c;
       // }, {});
-      const context = Object.assign({}, this.context);
+      const newContext = Object.assign({}, context.value);
 
-      this.applyConditions(context, this.state?.conditions, false);
-      this.applyConditions(context, state?.conditions, true);
+      applyConditions(state.value?.conditions, newContext, false);
+      applyConditions(nextState?.conditions, newContext, true);
 
-      this.state = state;
-      this.$emit("update:modelValue", context);
-    },
-    move() {
-      if (this.disabled) return;
-      if (typeof this.transition === "string") {
-        let state;
-        if (this.transition === "next") {
-          const i = this.states.indexOf(this.state);
-          state = this.states[(i + 1) % this.states.length];
-        } else if (this.transition) {
-          const i = this.transition.split(" ").map((i) => Number(i));
-          state = this.findBestState(i);
+      state.value = nextState;
+      context.value = newContext;
+    }
+    watch(
+      context,
+      (context) => {
+        if (pressed.value) {
+          pressed.value = false;
+          return;
         }
-        this.pressed = true;
-        this.switchState(state);
-      } else if (this.transition) {
+        const nextVisible =
+          context &&
+          checkConditions(props.block.requirements, context)[0] === 1;
+
+        if (nextVisible) {
+          const nextState = findBestState(
+            undefined,
+            props.block.states,
+            context
+          );
+          if (nextState !== state.value) switchState(nextState);
+        } else if (state.value) {
+          switchState(undefined);
+        }
+
+        visible.value = nextVisible;
+      },
+      { immediate: true }
+    );
+
+    const entities = computed(() => Object.keys(context.value));
+    const passiveIndexes = computed(() => {
+      let conditions: Condition[] = [];
+
+      if (props.block.requirements)
+        conditions = conditions.concat(props.block.requirements);
+      if (state.value?.conditions) {
+        conditions = conditions.concat(
+          state.value.transition
+            ? state.value.conditions.filter((c) => c.passive)
+            : state.value.conditions
+        );
+      }
+
+      return getEntityIndexes(conditions, entities.value);
+    });
+    const activeIndexes = computed(() => {
+      return state.value?.transition && state.value?.conditions
+        ? getEntityIndexes(
+            state.value?.conditions.filter(({ passive }) => !passive),
+            entities.value
+          )
+        : [];
+    });
+
+    function move() {
+      if (disabled.value) return;
+      const transition = state.value?.transition;
+      const states = props.block.states;
+      if (typeof transition === "string") {
+        let nextState;
+        if (transition === "next") {
+          const i = state.value ? states.indexOf(state.value) : -1;
+          nextState = states[(i + 1) % states.length];
+        } else if (transition) {
+          const i = transition.split(" ").map((i) => Number(i));
+          nextState = findBestState(i, states, context.value);
+        }
+        pressed.value = true;
+        switchState(nextState);
+      } else if (transition) {
         // directly modify global environment
       }
-    },
+    }
+
+    return {
+      passiveIndexes,
+      activeIndexes,
+      move,
+      context,
+      state,
+      visible,
+      disabled,
+    };
   },
 });
 </script>
