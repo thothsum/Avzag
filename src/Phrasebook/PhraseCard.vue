@@ -3,7 +3,7 @@
     <div class="row-1 small wrap" style="width: 100%">
       <template v-if="lect">
         <btn icon="content_copy" @click="copy" />
-        <btn v-model="glossed" icon="layers" />
+        <toggle v-model="glossed" icon="layers" />
         <h2 class="flex">{{ lect }}</h2>
       </template>
       <Context :translation="contextTranslation" :blocks="blocks" />
