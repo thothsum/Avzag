@@ -21,7 +21,7 @@
 <script lang="ts">
 import IndexedColor from "./IndexedColor.vue";
 import Display from "./Display.vue";
-import { computed, defineComponent, PropType, ref, watch } from "vue";
+import { computed, defineComponent, inject, PropType, ref, watch } from "vue";
 import { Context, Block, State, Condition } from "../types";
 import {
   applyConditions,
@@ -33,10 +33,6 @@ import {
 export default defineComponent({
   components: { IndexedColor, Display },
   props: {
-    modelValue: {
-      type: Object as PropType<Context>,
-      default: () => ({}),
-    },
     block: { type: Object as PropType<Block>, default: () => ({}) },
     glossed: Boolean,
   },
@@ -47,22 +43,21 @@ export default defineComponent({
     const pressed = ref(false);
     const disabled = computed(() => !state.value?.transition);
 
-    const context = computed({
-      get: () => props.modelValue,
-      set: (c) => emit("update:modelValue", c),
-    });
+    const context = inject("context", {} as Context);
+    const setContext = inject("setContext", (c: Context) => c);
+
     function switchState(nextState: undefined | State) {
       // let context = Object.entries(this.context).reduce((c, [e, ts]) => {
       //   c[e] = new Set(ts);
       //   return c;
       // }, {});
-      const newContext = Object.assign({}, context.value);
+      const newContext = Object.assign({}, context);
 
       applyConditions(state.value?.conditions, newContext, false);
       applyConditions(nextState?.conditions, newContext, true);
 
       state.value = nextState;
-      context.value = newContext;
+      setContext(newContext);
     }
     watch(
       context,
@@ -127,7 +122,7 @@ export default defineComponent({
           nextState = states[(i + 1) % states.length];
         } else if (transition) {
           const i = transition.split(" ").map((i) => Number(i));
-          nextState = findBestState(i, states, context.value);
+          nextState = findBestState(i, states, context);
         }
         pressed.value = true;
         switchState(nextState);

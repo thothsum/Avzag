@@ -8,7 +8,7 @@ export function getEntityIndexes(conditions: Condition[], entities: string[]) {
 export function checkConditions(
   conditions: undefined | Condition[],
   context: Context
-) {
+): [number, number] {
   return conditions?.length
     ? [
         conditions.reduce((f, { entity, tag }) => {

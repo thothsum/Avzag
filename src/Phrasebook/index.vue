@@ -42,11 +42,10 @@
       </div>
     </div>
     <div v-if="phrase" class="col-1">
-      <PhraseCard v-model="context" :phrase="phrase" />
+      <PhraseCard :phrase="phrase" />
       <PhraseCard
         v-for="(p, n) of phrasebooks"
         :key="n + '--' + phrase.id"
-        v-model="context"
         :lect="n"
         :phrase="p[phrase.id]"
       />
@@ -57,7 +56,7 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import { computed, reactive, ref, watch, defineComponent } from "vue";
+import { computed, reactive, ref, watch, defineComponent, provide } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import { Context } from "./types";
@@ -79,6 +78,9 @@ export default defineComponent({
       },
       { immediate: true }
     );
+    const setContext = (c: Context) => (context.value = c);
+    provide("context", context);
+    provide("setContext", setContext);
 
     const searching = ref(false);
     const query = ref("");

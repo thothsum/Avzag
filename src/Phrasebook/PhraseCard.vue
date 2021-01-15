@@ -14,8 +14,6 @@
       <Block
         v-for="(b, i) in phrase.blocks"
         :key="i"
-        ref="blocks"
-        v-model="context"
         :glossed="glossed"
         :block="b"
       />
@@ -29,7 +27,7 @@
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 
-import { computed, defineComponent, PropType, ref } from "vue";
+import { computed, defineComponent, PropType, ref, inject } from "vue";
 
 import { Context, Phrase } from "./types";
 
@@ -38,36 +36,29 @@ export default defineComponent({
   props: {
     lect: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
-    modelValue: {
-      type: Object as PropType<Context>,
-      default: () => ({}),
-    },
   },
-  emits: ["update:modelValue"],
-  setup(props, { emit }) {
+  setup() {
+    const context: Context = inject("context", {});
+
     const glossed = ref(false);
-    const context = computed({
-      get: () => props.modelValue,
-      set: (c) => emit("update:modelValue", c),
-    });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const blocks = ref([] as any[]);
-    function setBlock(el: object) {
-      blocks.value.push(el);
-    }
+    // const blocks = ref([] as any[]);
+    // function setBlock(el: object) {
+    //   blocks.value.push(el);
+    // }
 
-    const text = computed(() =>
-      blocks.value
-        .filter(({ visible }) => visible)
-        .map((b) => b.$refs.display.text)
-        .join(" ")
-    );
+    // const text = computed(() =>
+    //   blocks.value
+    //     .filter(({ visible }) => visible)
+    //     .map((b) => b.$refs.display.text)
+    //     .join(" ")
+    // );
     function copy() {
-      navigator.clipboard.writeText(text.value);
+      // navigator.clipboard.writeText(text.value);
     }
 
-    return { glossed, context, blocks, setBlock, copy };
+    return { glossed, context, copy };
   },
 });
 </script>
