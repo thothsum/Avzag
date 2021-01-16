@@ -120,13 +120,14 @@ export default defineComponent({
 
     watch(corpus, ([_section]) => (section.value = _section));
     watch(section, ({ phrases }) => (phrase.value = phrases[0]));
-    watch([phrase, file], ([{ id, context: _context }]) => {
-      if (!file.value[id]) file.value[id] = { blocks: [] };
-      translation.value = file.value[id];
+    watch([phrase, file], () => {
+      if (!file.value[phrase.value.id])
+        file.value[phrase.value.id] = { blocks: [] };
+      translation.value = file.value[phrase.value.id];
       nextTick(() => {
         context.value = {};
         contextSource.value = {};
-        _context.forEach(({ entity, tags }) => {
+        phrase.value.context.forEach(({ entity, tags }) => {
           context.value[entity] = new Set();
           contextSource.value[entity] = new Set(tags.split(" "));
         });
