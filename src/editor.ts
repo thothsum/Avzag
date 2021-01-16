@@ -1,27 +1,18 @@
-import { computed, watch, WritableComputedRef, ref } from "vue";
+import { watch, ref, Ref } from "vue";
 
-type Options<T> = {
+type Options = {
   defaultFile: object;
   storage: string;
   filename: string | (() => string);
-  onReset: (file: T) => void;
 };
 
-export const config: Options<unknown> = {
+export const config: Options = {
   defaultFile: {},
   storage: "",
   filename: "",
-  onReset: () => undefined,
 };
 
-const _file = ref();
-export const file = computed({
-  get: () => _file.value,
-  set: (f) => {
-    _file.value = f;
-    config.onReset(f);
-  },
-});
+const file = ref();
 
 export function resetFile() {
   file.value = JSON.parse(JSON.stringify(config.defaultFile));
@@ -31,14 +22,14 @@ export function saveFile() {
   localStorage[config.storage] = JSON.stringify(file.value);
 }
 
-export function setupEditor<T>(options: Partial<Options<T>>) {
+export function setupEditor<T>(options: Partial<Options>) {
   Object.assign(config, options);
   try {
     file.value = JSON.parse(localStorage[config.storage]);
   } catch {
     resetFile();
   }
-  watch(() => file.value, saveFile, { deep: true });
+  watch(file, saveFile, { deep: true });
 
-  return file as WritableComputedRef<T>;
+  return file as Ref<T>;
 }

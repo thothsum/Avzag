@@ -56,7 +56,7 @@
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
-import { computed, ref, defineComponent } from "vue";
+import { computed, ref, defineComponent, watch } from "vue";
 import { Mapping, Converter } from "./types";
 import { setupEditor } from "@/editor";
 import convert from "./convert";
@@ -69,8 +69,8 @@ export default defineComponent({
       defaultFile: { default: [0, 0], mappings: [] },
       filename: "converter",
       storage: "editor.converter",
-      onReset: (file) => (mapping.value = file.mappings[0]),
     });
+    watch(file, ({ mappings }) => (mapping.value = mappings[0]));
 
     const mappings = computed(() => file.value?.mappings ?? []);
     const pairs = computed(() => mapping.value?.pairs ?? []);

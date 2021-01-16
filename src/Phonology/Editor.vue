@@ -60,7 +60,7 @@ import EditorCard from "@/components/EditorCard.vue";
 import TableEntry from "./TableEntry.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
 
-import { computed, ref, defineComponent } from "vue";
+import { computed, ref, defineComponent, watch } from "vue";
 import { PhonemeUse } from "./types";
 import { setupEditor } from "@/editor";
 
@@ -72,8 +72,8 @@ export default defineComponent({
       defaultFile: [],
       filename: "phonology",
       storage: "editor.phonology",
-      onReset: (file) => (phoneme.value = file[0]),
     });
+    watch(file, ([_phoneme]) => (phoneme.value = _phoneme));
 
     const graphemes = computed(() =>
       file.value.map(({ samples }) => samples?.[0]?.grapheme)
