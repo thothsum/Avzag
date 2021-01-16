@@ -62,7 +62,4 @@ export default defineComponent({
 .card {
   align-items: flex-start;
 }
-div:empty {
-  display: none;
-}
 </style>

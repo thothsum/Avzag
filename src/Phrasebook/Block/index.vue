@@ -27,6 +27,7 @@ import {
   inject,
   PropType,
   ref,
+  Ref,
   toRaw,
   watch,
 } from "vue";
@@ -54,7 +55,7 @@ export default defineComponent({
     const visible = ref(false);
     const display = ref();
 
-    const context = inject("context", {} as Context);
+    const context = inject("context", {} as Ref<Context>);
 
     function switchState(nextState: undefined | State) {
       applyConditions(state.value?.conditions, context, false);
@@ -81,7 +82,7 @@ export default defineComponent({
       { immediate: true }
     );
 
-    const entities = computed(() => Object.keys(context));
+    const entities = computed(() => Object.keys(context.value));
     const passiveIndexes = computed(() => {
       let _conditions: Condition[] = [];
 
@@ -116,7 +117,7 @@ export default defineComponent({
           nextState = states[(i + 1) % states.length];
         } else if (transition.value) {
           const i = transition.value.split(" ").map((i) => Number(i));
-          nextState = findBestState(i, states, context);
+          nextState = findBestState(i, states, context.value);
         }
         switchState(nextState);
       } else if (transition.value) {

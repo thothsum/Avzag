@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, inject, PropType } from "vue";
+import { computed, defineComponent, inject, Ref, PropType } from "vue";
 import { Context, ContextTranslation, Condition, BlockVue } from "../types";
 
 export default defineComponent({
@@ -22,7 +22,7 @@ export default defineComponent({
     blocks: { type: Array as PropType<BlockVue[]>, default: () => [] },
   },
   setup(props) {
-    const context = inject("context", {} as Context);
+    const context = inject("context", {} as Ref<Context>);
 
     const dictionary = computed(() => {
       const translation = {
@@ -66,10 +66,12 @@ export default defineComponent({
       return k;
     }
     const entities = computed(() =>
-      Object.keys(context).map((e) => translate(dictionary.value.entities, e))
+      Object.keys(context.value).map((e) =>
+        translate(dictionary.value.entities, e)
+      )
     );
     const tags = computed(() =>
-      Object.entries(context).map(([e, ts]) =>
+      Object.entries(context.value).map(([e, ts]) =>
         [...(ts ?? [])]
           .filter((t) => !explicitContext.value[e]?.has(t))
           .map((t) => translate(dictionary.value.tags[e], t))

@@ -1,3 +1,4 @@
+import { Ref } from "vue";
 import { Condition, Context, State } from "../types";
 
 export function getEntityIndexes(conditions: Condition[], entities: string[]) {
@@ -44,12 +45,12 @@ export function findBestState(
 
 export function applyConditions(
   conditions: undefined | Condition[],
-  context: Context,
+  context: Ref<Context>,
   positive: boolean
 ) {
   if (!conditions) return;
   conditions.forEach(({ entity, tag, passive }) => {
-    const set = context[entity];
+    const set = context.value[entity];
     if (passive || !tag || !set) return;
     if (positive) set.add(tag);
     else set.delete(tag);

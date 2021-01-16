@@ -63,15 +63,7 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import {
-  computed,
-  reactive,
-  ref,
-  watch,
-  defineComponent,
-  provide,
-  nextTick,
-} from "vue";
+import { computed, ref, watch, defineComponent, provide, nextTick } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
@@ -81,15 +73,17 @@ export default defineComponent({
   setup() {
     initialize();
 
-    const context = reactive({} as Context);
-    watch(phrase, (phrase, oldPhrase) =>
-      nextTick(() => {
-        if (oldPhrase?.context)
-          oldPhrase.context.map(({ entity }) => delete context[entity]);
-        phrase.context.map(({ entity }) => (context[entity] = new Set()));
-        if (context.object) console.log(...context.object);
-      })
+    const context = ref({} as Context);
+    watch(phrase, ({ context: _context }) =>
+      nextTick(
+        () =>
+          (context.value = _context.reduce((c, { entity }) => {
+            c[entity] = new Set();
+            return c;
+          }, {} as Context))
+      )
     );
+
     provide("context", context);
 
     const searching = ref(false);

@@ -7,7 +7,7 @@
   >
     <template #caption><slot /></template>
     <template v-if="translation" #header>
-      <ButtonAlert @confirm="remove" />
+      <ButtonAlert @confirm="translation = null" />
     </template>
     <template v-if="translation">
       <div v-for="(e, i) in entities" :key="i" class="row wrap">
@@ -26,47 +26,52 @@
   </EditorCard>
 </template>
 
-<script>
-import ButtonAlert from "@/components/ButtonAlert";
-import EditorCard from "@/components/EditorCard";
+<script lang="ts">
+import ButtonAlert from "@/components/ButtonAlert.vue";
+import EditorCard from "@/components/EditorCard.vue";
+import { computed, defineComponent, PropType } from "vue";
+import { ContextSource, ContextTranslation } from "../types";
 
-export default {
+export default defineComponent({
   name: "PhraseContextTranslationEditor",
   components: {
     ButtonAlert,
     EditorCard,
   },
-  props: ["translation", "context"],
-  computed: {
-    entities() {
-      return this.translation.map((t) => t.entity);
+  props: {
+    modelValue: {
+      type: Object as PropType<ContextTranslation[]>,
+      default: () => [],
     },
-    tags() {
-      return this.translation.map((t) => t.tags);
-    },
-    sizes() {
-      return this.translation.map(({ entity, tags }) => ({
+    context: { type: Object as PropType<ContextSource[]>, default: () => [] },
+  },
+  emits: ["update:modelValue"],
+  setup(props, { emit }) {
+    const translation = computed({
+      get: () => props.modelValue,
+      set: (t) => emit("update:modelValue", t),
+    });
+
+    const entities = computed(() => translation.value.map((t) => t.entity));
+    const tags = computed(() => translation.value.map((t) => t.tags));
+    const sizes = computed(() =>
+      translation.value.map(({ entity, tags }) => ({
         entity: Math.max(entity[1].length, 1),
         tags: tags.map((t) => Math.max(t[1].length, 1)),
+      }))
+    );
+    const colors = computed(() =>
+      entities.value.map((_, i) => "colored-dot-" + i)
+    );
+
+    function add() {
+      translation.value = props.context.map(({ entity, tags }) => ({
+        entity: [entity, ""],
+        tags: tags.split(" ").map((t) => [t, ""]),
       }));
-    },
-    colors() {
-      return this.entities.map((_, i) => "colored-dot-" + i);
-    },
+    }
+
+    return { add, entities, tags, sizes, colors };
   },
-  methods: {
-    add() {
-      this.$emit(
-        "update:translation",
-        Object.entries(this.context).map(([e, ts]) => ({
-          entity: [e, ""],
-          tags: ts.map((t) => [t, ""]),
-        }))
-      );
-    },
-    remove() {
-      this.$emit("update:translation");
-    },
-  },
-};
+});
 </script>

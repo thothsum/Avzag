@@ -1,69 +1,54 @@
 <template>
-  <div
-    v-if="phrasebook && phrasebook.length && file"
-    class="section col-2 small grid"
-  >
+  <div v-if="file & corpus" class="section col-2 small grid">
     <div class="col-2">
       <div class="col-1 wrap card">
         <div class="row-1">
           <p class="icon">topic</p>
           <h2 class="col-1 flex">
-            <Select
-              v-model:value="section"
-              :items="phrasebook"
-              display="name"
-            />
+            <select v-model="section">
+              <option v-for="s in corpus" :key="s.name" :value="s">
+                {{ s.name }}
+              </option>
+            </select>
           </h2>
         </div>
-        <div v-if="phrases" class="row-1">
+        <div v-if="section" class="row-1">
           <p class="icon">short_text</p>
-          <Select v-model:value="phrase" :items="phrases" display="preview" />
+          <select v-model="phrase">
+            <option v-for="p in section" :key="p.id" :value="p">
+              {{ p.preview }}
+            </option>
+          </select>
         </div>
         <p class="text-faded text-caption">
-          The source corpus is loading from what is saved on Phrasebook Corppus
+          The source corpus is loading from what is saved on Phrasebook Corpus
           editor page.
         </p>
-        <template v-if="phrase">
-          <Context :context="context" />
-          <div v-if="phrase.blocks && phrase.blocks.length" class="row wrap">
-            <Block
+        <template v-if="phrase?.blocks">
+          <VContext />
+          <div class="row wrap">
+            <VBlock
               v-for="(b, i) in phrase.blocks"
-              :id="phrase.id"
-              :key="i + '-' + phrase.id"
-              v-model:context="context"
-              :interactive="true"
+              :key="phrase.id + '--' + i"
               :block="b"
             />
           </div>
         </template>
       </div>
-      <template v-if="phrase && translation">
+      <template v-if="translation">
         <EditorCard icon="account_tree" header="Blocks" @action="addBlock">
           <template v-if="block" #header>
             <ButtonAlert @confirm="removeBlock" />
           </template>
-          <Context
-            v-if="translation.context"
-            :context="context"
-            :translation="translation.context"
-          />
+          <VContext :translation="translation.context" />
           <div class="row-1 wrap block-editor">
             <div
-              v-for="(b, i) in blocks"
-              :key="state + '_' + i + '_' + phrase.id"
+              v-for="(b, i) in translation.blocks"
+              :key="phrase.id + '--' + i"
               class="row"
             >
-              <btn
-                icon="edit"
-                :class="{ highlight: block == b }"
-                @click="block = b"
-              />
-              <Block
-                :id="state + phrase.id"
-                v-model:context="context"
-                :interactive="true"
-                :block="b"
-              />
+              <btn icon="edit" :is-on="block === b" @click="block = b" />
+              <VBlock :block="b" />
             </div>
           </div>
         </EditorCard>
@@ -71,161 +56,108 @@
           You can add notes, for example, to explain certain grammatical rules.
         </NotesEditor>
         <ContextTranslationEditor
-          v-model:translation="translation.context"
-          :context="fullContext"
+          v-model="translation.context"
+          :context="phrase.context"
         >
           Translate the context keys (entites & tags) to provide full phrase
           localization.
         </ContextTranslationEditor>
       </template>
     </div>
-    <BlockEditor
-      v-if="block"
-      :block="block"
-      :context="fullContext"
-      @remove="removeBlock"
-    />
+    <BlockEditor v-if="block" v-model="block" @remove="removeBlock" />
   </div>
 </template>
 
-<script setup lang="ts">
-// import EditorCard from "@/components/EditorCard";
-// import ButtonAlert from "@/components/ButtonAlert";
-// import Select from "@/components/Select";
-// import NotesEditor from "@/components/Notes/Editor";
-// import Block from "./Block";
-// import BlockEditor from "./Block/Editor";
-// import Context from "./Context";
-// import ContextTranslationEditor from "./Context/TranslationEditor";
+<script lang="ts">
+import EditorCard from "@/components/EditorCard.vue";
+import ButtonAlert from "@/components/ButtonAlert.vue";
+import NotesEditor from "@/components/Notes/Editor.vue";
+import VBlock from "./Block/index.vue";
+import BlockEditor from "./Block/Editor.vue";
+import VContext from "./Context/index.vue";
+import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
-//   data() {
-//     return {
-//       state: 0,
-//       lect: "default",
-//       file: undefined,
-//       section: undefined,
-//       phrase: undefined,
-//       context: undefined,
-//       fullContext: undefined,
-//       translation: undefined,
-//       block: undefined,
-//       phrasebook: undefined,
-//     };
-//   },
-//   computed: {
-//     phrases() {
-//       return this.section?.phrases ?? [];
-//     },
-//     blocks() {
-//       return this.translation?.blocks;
-//     },
-//   },
-//   watch: {
-//     phrasebook() {
-//       if (this.file && this.phrasebook?.length) {
-//         this.section = this.phrasebook[0];
-//         this.phrase = this.section?.phrases[0];
-//         this.fillMissing();
-//       }
-//     },
-//     file() {
-//       this.state = Math.random();
-//       if (this.file && this.phrasebook?.length) {
-//         this.section = this.phrasebook[0];
-//         this.phrase = this.section?.phrases[0];
-//         this.fillMissing();
-//       }
-//     },
-//     section: {
-//       handler() {
-//         this.phrase = this.phrases[0];
-//       },
-//       immediate: true,
-//     },
-//     phrase: {
-//       handler() {
-//         if (!this.phrase) return;
+import { defineComponent, ref, watch, nextTick, provide } from "vue";
+import { loadJSON } from "@/store";
+import { setupEditor } from "@/editor";
+import {
+  Block,
+  Context,
+  CorpusPhrase,
+  CorpusSection,
+  Phrase,
+  Phrasebook,
+} from "./types";
 
-//         this.context = {};
-//         this.fullContext = {};
-//         this.phrase.context.forEach(({ entity, tags }) => {
-//           this.context[entity] = new Set();
-//           this.fullContext[entity] = tags.split(" ");
-//         });
+export default defineComponent({
+  components: {
+    EditorCard,
+    ButtonAlert,
+    NotesEditor,
+    VBlock,
+    BlockEditor,
+    VContext,
+    ContextTranslationEditor,
+  },
+  setup() {
+    let corpus: CorpusSection[] = [];
+    try {
+      corpus = JSON.parse(localStorage["editor.phrasebookCorpus"]);
+    } catch {
+      loadJSON("phrasebook").then((j) => (corpus = j));
+    }
+    const section = ref({} as CorpusSection);
+    const phrase = ref({} as CorpusPhrase);
+    const translation = ref({} as Phrase);
+    const context = ref({} as Context);
+    const block = ref<Block>();
+    const file = setupEditor<Phrasebook>({
+      defaultFile: {},
+      filename: "phrasebook",
+      storage: "editor.phrasebook",
+    });
 
-//         this.fillMissing();
-//       },
-//       immediate: true,
-//     },
-//     blocks() {
-//       this.block = this.blocks ? this.blocks[this.blocks.length - 1] : null;
-//     },
-//   },
-//   mounted() {
-//     try {
-//       this.file = JSON.parse(localStorage.pbEditor) ?? {};
-//     } catch {
-//       console.log("phrasebook did not load");
-//       this.file = {};
-//     }
+    provide("context", context);
+    watch(corpus, ([_section]) => (section.value = _section));
+    watch(section, ({ phrases }) => (phrase.value = phrases[0]));
+    watch([phrase, file], ([{ id, context: _context }]) => {
+      if (!file.value[id]) file.value[id] = { blocks: [] };
+      translation.value = file.value[id];
+      nextTick(
+        () =>
+          (context.value = _context.reduce((c, { entity }) => {
+            c[entity] = new Set();
+            return c;
+          }, {} as Context))
+      );
+    });
+    watch(translation, ({ blocks }) => {
+      block.value = blocks[0];
+    });
+    function addBlock() {
+      if (!translation.value) return;
+      block.value = { states: [] };
+      translation.value.blocks.push(block.value);
+    }
+    function removeBlock() {
+      if (!translation.value || !block.value) return;
+      const blocks = translation.value.blocks;
+      const index = blocks.indexOf(block.value);
+      blocks.splice(index, 1);
+      block.value = blocks[blocks.length - 1];
+    }
 
-//     try {
-//       this.phrasebook = JSON.parse(localStorage.pbcEditor);
-//     } catch {
-//       this.phrasebook = {};
-//     }
-//     if (!Object.keys(this.phrasebook ?? {})?.length) {
-//       fetch(this.$store.state.root + "/phrasebook.json")
-//         .then((r) => r.json())
-//         .then((j) => {
-//           if (j) this.phrasebook = j;
-//         });
-//     }
-//   },
-//   updated() {
-//     localStorage.pbEditor = JSON.stringify(this.file);
-//   },
-//   beforeUnmount() {
-//     localStorage.pbEditor = JSON.stringify(this.file);
-//   },
-//   methods: {
-//     fillMissing() {
-//       if (!(this.file && this.section && this.phrase)) return;
-//       if (!this.file[this.phrase.id]) this.$set(this.file, this.phrase.id, {});
-//       this.translation = this.file[this.phrase.id];
-//     },
-//     loadFromLect() {
-//       fetch(
-//         this.$store.state.root +
-//           window.prompt("Enter lect name") +
-//           "/phrasebook.json"
-//       )
-//         .then((r) => r.json())
-//         .then((j) => {
-//           if (j) this.file = j;
-//         });
-//     },
-//     loadFromJson() {
-//       const file = JSON.parse(window.prompt("Enter JSON"));
-//       if (file) this.file = file;
-//     },
-//     saveToJson() {
-//       navigator.clipboard.writeText(JSON.stringify(this.file));
-//     },
-//     reset() {
-//       this.file = {};
-//     },
-//     addBlock() {
-//       this.block = {};
-//       if (this.blocks) this.blocks.push(this.block);
-//       else this.$set(this.translation, "blocks", [this.block]);
-//     },
-//     removeBlock() {
-//       this.$delete(this.blocks, this.blocks.indexOf(this.block));
-//       this.block = this.blocks[this.blocks.length - 1];
-//     },
-//   },
-// };
+    return {
+      file,
+      corpus,
+      section,
+      phrase,
+      block,
+      addBlock,
+      removeBlock,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
