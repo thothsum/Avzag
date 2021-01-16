@@ -12,7 +12,7 @@ export const config: Options = {
   filename: "",
 };
 
-const file = ref();
+export const file = ref();
 
 export function resetFile() {
   file.value = JSON.parse(JSON.stringify(config.defaultFile));
