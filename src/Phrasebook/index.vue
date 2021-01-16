@@ -11,34 +11,41 @@
           placeholder="Search all phrases..."
         />
         <h2 v-else class="col-1 flex">
-          <select v-model="section">
-            <option v-for="c in corpus" :key="c.id" :value="c">
-              {{ c.name }}
+          <select
+            v-model="section"
+            style="flex: none"
+            @change="select(section)"
+          >
+            <option v-for="s in corpus" :key="s.id" :value="s">
+              {{ s.name }}
             </option>
           </select>
         </h2>
       </div>
-      <div class="col-0 scroll">
-        <!-- <template v-if="searching"> </template> -->
-        <btn
-          v-for="p in section.phrases"
-          :key="p.id"
-          :text="p.preview"
-          :is-on="phrase === p"
-          @click="phrase = p"
-        />
-        <!-- <div v-for="(ps, s) of phrases" :key="s" class="col">
-            <h2>{{ phrasebook[s].name }}</h2>
+      <div class="scroll">
+        <div v-if="searching" class="col">
+          <div v-for="(ps, s) of phrases" :key="s" class="col">
+            <h2>{{ corpus[s].name }}</h2>
             <div class="col-0">
               <btn
                 v-for="p in ps"
                 :key="p"
-                :is-on="phrase == phrasebook[s].phrases[p]"
-                :text="phrasebook[s].phrases[p].preview"
-                @click="select(s, p)"
+                :text="corpus[s].phrases[p].preview"
+                :is-on="phrase === corpus[s].phrases[p]"
+                @click="select(corpus[s], corpus[s].phrases[p])"
               />
             </div>
-          </div> -->
+          </div>
+        </div>
+        <div v-else class="col-0">
+          <btn
+            v-for="p in phrases"
+            :key="p.id"
+            :text="p.preview"
+            :is-on="phrase === p"
+            @click="select(null, p)"
+          />
+        </div>
       </div>
     </div>
     <div v-if="phrase" class="col-1">
@@ -56,10 +63,10 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import { reactive, ref, watch, defineComponent, provide } from "vue";
+import { computed, reactive, ref, watch, defineComponent, provide } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
-import { Context } from "./types";
+import { Context, CorpusPhrase, CorpusSection, Phrase } from "./types";
 
 export default defineComponent({
   components: { PhraseCard },
@@ -85,20 +92,34 @@ export default defineComponent({
     //   selected.phrase = p;
     // }
 
-    // const phrases = computed(() =>
-    //   searching.value
-    //     ? phrasebook.value.reduce((result, section, index) => {
-    //         result[index] = section.phrases
-    //           .map((phrase, index) => [phrase, index] as [Types.Phrase, number])
-    //           .filter(([phrase]) => phrase.preview.includes(query.value))
-    //           .map(([, index]) => index);
-    //         if (!result[index].length) delete result[index];
-    //         return result;
-    //       }, {} as Record<number, number[]>)
-    //     : section.value?.phrases
-    // );
+    const phrases = computed(() =>
+      searching.value
+        ? corpus.value.reduce((result, section, index) => {
+            result[index] = section.phrases
+              .map((phrase, index) => [phrase, index] as [CorpusPhrase, number])
+              .filter(([phrase]) => phrase.preview.includes(query.value))
+              .map(([, index]) => index);
+            if (!result[index].length) delete result[index];
+            return result;
+          }, {} as Record<number, number[]>)
+        : section.value?.phrases
+    );
+    function select(_section?: CorpusSection, _phrase?: CorpusPhrase) {
+      if (_section) section.value = _section;
+      phrase.value = _phrase ?? section.value.phrases[0];
+    }
 
-    return { searching, query, corpus, section, phrase, phrasebooks, context };
+    return {
+      searching,
+      query,
+      corpus,
+      section,
+      phrase,
+      select,
+      phrases,
+      phrasebooks,
+      context,
+    };
   },
 });
 </script>
