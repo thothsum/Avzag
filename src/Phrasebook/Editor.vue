@@ -116,7 +116,7 @@ export default defineComponent({
     });
 
     provide("context", context);
-    provide("contextSource", contextSource.value);
+    provide("contextSource", contextSource);
 
     watch(corpus, ([_section]) => (section.value = _section));
     watch(section, ({ phrases }) => (phrase.value = phrases[0]));

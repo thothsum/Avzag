@@ -1,4 +1,3 @@
-/* eslint-disable vue/no-mutating-props */
 <template>
   <div class="block col-2">
     <ConditionsEditor
@@ -55,22 +54,31 @@ export default {
     Display,
     DisplayEditor,
   },
-  props: ["block"],
+  props: ["modelValue"],
+  emits: ["update:modelValue"],
   data() {
     return {
       state: undefined,
     };
   },
   computed: {
+    block: {
+      get() {
+        return this.modelValue;
+      },
+      set(b) {
+        this.$emit("update:modelValue", b);
+      },
+    },
     states() {
-      return this.block.states;
+      return this.block?.states;
     },
   },
   watch: {
     block: {
       handler() {
         if (!this.states?.length) {
-          this.$set(this.block, "states", []);
+          this.block.states = [];
           this.add();
         } else this.state = this.states[this.states.length - 1];
       },

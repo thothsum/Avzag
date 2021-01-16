@@ -29,7 +29,7 @@
 <script lang="ts">
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
-import { computed, defineComponent, inject, PropType } from "vue";
+import { computed, defineComponent, inject, PropType, Ref } from "vue";
 import { Context, ContextTranslation } from "../types";
 
 export default defineComponent({
@@ -41,7 +41,7 @@ export default defineComponent({
   props: {
     modelValue: {
       type: Object as PropType<ContextTranslation[]>,
-      default: () => [],
+      default: undefined,
     },
   },
   emits: ["update:modelValue"],
@@ -51,21 +51,20 @@ export default defineComponent({
       set: (t) => emit("update:modelValue", t),
     });
 
-    const contextSource = inject("contextSource", {} as Context);
-    const entities = computed(() => translation.value.map((t) => t.entity));
-    const tags = computed(() => translation.value.map((t) => t.tags));
+    const contextSource = inject("contextSource", {} as Ref<Context>);
+    const entities = computed(() => translation.value?.map((t) => t.entity));
+    const tags = computed(() => translation.value?.map((t) => t.tags));
     const sizes = computed(() =>
-      translation.value.map(({ entity, tags }) => ({
+      translation.value?.map(({ entity, tags }) => ({
         entity: Math.max(entity[1].length, 1),
         tags: tags.map((t) => Math.max(t[1].length, 1)),
       }))
     );
     const colors = computed(() =>
-      entities.value.map((_, i) => "colored-dot-" + i)
+      entities.value?.map((_, i) => "colored-dot-" + i)
     );
-
     function add() {
-      translation.value = Object.entries(contextSource).map(
+      translation.value = Object.entries(contextSource.value).map(
         ([entity, tags]) => ({
           entity: [entity, ""],
           tags: [...tags].map((t) => [t, ""]),

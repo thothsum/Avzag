@@ -1,7 +1,7 @@
 <template>
   <EditorCard button="" icon="alt_route" header="transition">
     <template #header>
-      <div class="row-0">
+      <div class="row">
         <btn
           v-for="(ic, i) in icons"
           :key="ic"
