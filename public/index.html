@@ -10,6 +10,15 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
 
   <body>
