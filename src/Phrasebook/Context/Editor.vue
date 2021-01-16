@@ -1,4 +1,3 @@
-/* eslint-disable vue/no-mutating-props */
 <template>
   <EditorCard icon="widgets" header="context" @action="add">
     <div class="col scroll">
@@ -17,6 +16,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-mutating-props */
 import EditorCard from "@/components/EditorCard";
 
 export default {
