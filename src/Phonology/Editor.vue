@@ -73,7 +73,9 @@ export default defineComponent({
       filename: "phonology",
       storage: "editor.phonology",
     });
-    watch(file, ([_phoneme]) => (phoneme.value = _phoneme));
+    watch(file, ([_phoneme]) => (phoneme.value = _phoneme), {
+      immediate: true,
+    });
 
     const graphemes = computed(() =>
       file.value.map(({ samples }) => samples?.[0]?.grapheme)

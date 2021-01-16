@@ -70,7 +70,9 @@ export default defineComponent({
       filename: "converter",
       storage: "editor.converter",
     });
-    watch(file, ({ mappings }) => (mapping.value = mappings[0]));
+    watch(file, ({ mappings }) => (mapping.value = mappings[0]), {
+      immediate: true,
+    });
 
     const mappings = computed(() => file.value?.mappings ?? []);
     const pairs = computed(() => mapping.value?.pairs ?? []);
