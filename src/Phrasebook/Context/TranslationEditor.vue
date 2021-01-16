@@ -73,7 +73,7 @@ export default defineComponent({
       );
     }
 
-    return { add, entities, tags, sizes, colors };
+    return { translation, add, entities, tags, sizes, colors };
   },
 });
 </script>

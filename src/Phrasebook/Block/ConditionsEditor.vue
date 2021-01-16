@@ -20,7 +20,6 @@
 <script>
 import EditorCard from "@/components/EditorCard";
 import Select from "@/components/Select";
-import { inject } from "vue";
 
 export default {
   name: "PhraseConditionsEditor",
@@ -29,10 +28,8 @@ export default {
     Select,
   },
   props: ["conditions", "allowPassive", "header", "icon"],
+  inject: ["contextSource"],
   computed: {
-    contextSource() {
-      return inject("context", {});
-    },
     entities() {
       return Object.keys(this.contextSource);
     },

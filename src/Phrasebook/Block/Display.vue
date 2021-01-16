@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { inject } from "vue";
-
 export default {
   name: "PhraseStateDisplay",
   props: {
@@ -22,10 +20,8 @@ export default {
     glossed: { type: Boolean, default: false },
     colored: { type: Boolean, default: true },
   },
+  inject: ["contextSource"],
   computed: {
-    contextSource() {
-      return inject("contextSource", {});
-    },
     entities() {
       return Object.keys(this.contextSource);
     },

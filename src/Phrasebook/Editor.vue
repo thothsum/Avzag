@@ -1,5 +1,5 @@
 <template>
-  <div v-if="file & corpus" class="section col-2 small grid">
+  <div v-if="file && corpus" class="section col-2 small grid">
     <div class="col-2">
       <div class="col-1 wrap card">
         <div class="row-1">
@@ -15,7 +15,7 @@
         <div v-if="section" class="row-1">
           <p class="icon">short_text</p>
           <select v-model="phrase">
-            <option v-for="p in section" :key="p.id" :value="p">
+            <option v-for="p in section.phrases" :key="p.id" :value="p">
               {{ p.preview }}
             </option>
           </select>
@@ -153,6 +153,7 @@ export default defineComponent({
       corpus,
       section,
       phrase,
+      translation,
       block,
       addBlock,
       removeBlock,

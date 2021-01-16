@@ -35,7 +35,6 @@
 
 <script>
 import EditorCard from "@/components/EditorCard";
-import { inject } from "vue";
 
 export default {
   name: "PhraseStateDisplayEditor",
@@ -43,10 +42,8 @@ export default {
     EditorCard,
   },
   props: ["state", "allowEmpty"],
+  inject: ["contextSource"],
   computed: {
-    contextSource() {
-      return inject("contextSource", {});
-    },
     display() {
       return this.state.display;
     },
