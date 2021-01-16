@@ -5,7 +5,7 @@ let key: symbol;
 export const root =
   (process.env.NODE_ENV === "production"
     ? "https://raw.githubusercontent.com/alkaitagi/Avzag/"
-    : "") + "store/";
+    : "/") + "store/";
 
 export const lects = ref([] as string[]);
 
