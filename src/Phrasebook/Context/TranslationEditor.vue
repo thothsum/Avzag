@@ -29,8 +29,8 @@
 <script lang="ts">
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
-import { computed, defineComponent, PropType } from "vue";
-import { ContextSource, ContextTranslation } from "../types";
+import { computed, defineComponent, inject, PropType } from "vue";
+import { Context, ContextTranslation } from "../types";
 
 export default defineComponent({
   name: "PhraseContextTranslationEditor",
@@ -43,7 +43,6 @@ export default defineComponent({
       type: Object as PropType<ContextTranslation[]>,
       default: () => [],
     },
-    context: { type: Object as PropType<ContextSource[]>, default: () => [] },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
@@ -52,6 +51,7 @@ export default defineComponent({
       set: (t) => emit("update:modelValue", t),
     });
 
+    const contextSource = inject("contextSource", {} as Context);
     const entities = computed(() => translation.value.map((t) => t.entity));
     const tags = computed(() => translation.value.map((t) => t.tags));
     const sizes = computed(() =>
@@ -65,10 +65,12 @@ export default defineComponent({
     );
 
     function add() {
-      translation.value = props.context.map(({ entity, tags }) => ({
-        entity: [entity, ""],
-        tags: tags.split(" ").map((t) => [t, ""]),
-      }));
+      translation.value = Object.entries(contextSource).map(
+        ([entity, tags]) => ({
+          entity: [entity, ""],
+          tags: [...tags].map((t) => [t, ""]),
+        })
+      );
     }
 
     return { add, entities, tags, sizes, colors };

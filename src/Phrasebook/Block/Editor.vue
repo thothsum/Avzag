@@ -3,7 +3,6 @@
   <div class="block col-2">
     <ConditionsEditor
       v-model:conditions="block.requirements"
-      :context="context"
       icon="lock"
       header="Requirements"
     >
@@ -21,20 +20,19 @@
             :class="{ highlight: state == s }"
             @click="state = s"
           />
-          <Display :state="s" :context="context" />
+          <Display :state="s" />
         </div>
       </div>
     </EditorCard>
     <template v-if="state">
-      <DisplayEditor :state="state" :context="context" />
+      <DisplayEditor :state="state" />
       <ConditionsEditor
         v-model:conditions="state.conditions"
-        :context="context"
         :allow-passive="true"
         icon="widgets"
         header="conditions"
       />
-      <TransitionEditor :state="state" :context="context" :states="states" />
+      <TransitionEditor :state="state" :states="states" />
     </template>
   </div>
 </template>
@@ -57,7 +55,7 @@ export default {
     Display,
     DisplayEditor,
   },
-  props: ["block", "context"],
+  props: ["block"],
   data() {
     return {
       state: undefined,

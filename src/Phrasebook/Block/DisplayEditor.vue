@@ -35,19 +35,23 @@
 
 <script>
 import EditorCard from "@/components/EditorCard";
+import { inject } from "vue";
 
 export default {
   name: "PhraseStateDisplayEditor",
   components: {
     EditorCard,
   },
-  props: ["state", "context", "allowEmpty"],
+  props: ["state", "allowEmpty"],
   computed: {
+    contextSource() {
+      return inject("contextSource", {});
+    },
     display() {
       return this.state.display;
     },
     entities() {
-      return [undefined].concat(Object.keys(this.context));
+      return [undefined].concat(Object.keys(this.contextSource));
     },
     colors() {
       return this.state.display?.map(

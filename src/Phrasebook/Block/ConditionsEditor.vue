@@ -7,9 +7,9 @@
         <Select v-model:value="c.entity" :items="entities" />
         <p class="icon">west</p>
         <Select
-          v-if="context[c.entity]"
+          v-if="contextSource[c.entity]"
           v-model:value="c.tag"
-          :items="context[c.entity]"
+          :items="contextSource[c.entity]"
         />
         <btn icon="clear" @click="remove(i)" />
       </div>
@@ -20,6 +20,7 @@
 <script>
 import EditorCard from "@/components/EditorCard";
 import Select from "@/components/Select";
+import { inject } from "vue";
 
 export default {
   name: "PhraseConditionsEditor",
@@ -27,10 +28,13 @@ export default {
     EditorCard,
     Select,
   },
-  props: ["conditions", "context", "allowPassive", "header", "icon"],
+  props: ["conditions", "allowPassive", "header", "icon"],
   computed: {
+    contextSource() {
+      return inject("context", {});
+    },
     entities() {
-      return Object.keys(this.context);
+      return Object.keys(this.contextSource);
     },
   },
   methods: {

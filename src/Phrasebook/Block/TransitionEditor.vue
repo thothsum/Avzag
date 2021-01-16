@@ -18,7 +18,7 @@
           :class="{ highlight: present[i] }"
           @click="toggle(i)"
         />
-        <Display :state="s" :context="context" />
+        <Display :state="s" />
       </div>
     </div>
   </EditorCard>
@@ -34,7 +34,7 @@ export default {
     EditorCard,
     Display,
   },
-  props: ["state", "states", "context"],
+  props: ["state", "states"],
   data() {
     return {
       mode: 0,

@@ -55,10 +55,7 @@
         <NotesEditor v-model="translation.notes">
           You can add notes, for example, to explain certain grammatical rules.
         </NotesEditor>
-        <ContextTranslationEditor
-          v-model="translation.context"
-          :context="phrase.context"
-        >
+        <ContextTranslationEditor v-model="translation.context">
           Translate the context keys (entites & tags) to provide full phrase
           localization.
         </ContextTranslationEditor>
@@ -110,6 +107,7 @@ export default defineComponent({
     const phrase = ref({} as CorpusPhrase);
     const translation = ref({} as Phrase);
     const context = ref({} as Context);
+    const contextSource = ref({} as Context);
     const block = ref<Block>();
     const file = setupEditor<Phrasebook>({
       defaultFile: {},
@@ -118,18 +116,21 @@ export default defineComponent({
     });
 
     provide("context", context);
+    provide("contextSource", contextSource.value);
+
     watch(corpus, ([_section]) => (section.value = _section));
     watch(section, ({ phrases }) => (phrase.value = phrases[0]));
     watch([phrase, file], ([{ id, context: _context }]) => {
       if (!file.value[id]) file.value[id] = { blocks: [] };
       translation.value = file.value[id];
-      nextTick(
-        () =>
-          (context.value = _context.reduce((c, { entity }) => {
-            c[entity] = new Set();
-            return c;
-          }, {} as Context))
-      );
+      nextTick(() => {
+        context.value = {};
+        contextSource.value = {};
+        _context.forEach(({ entity, tags }) => {
+          context.value[entity] = new Set();
+          contextSource.value[entity] = new Set(tags.split(" "));
+        });
+      });
     });
     watch(translation, ({ blocks }) => {
       block.value = blocks[0];

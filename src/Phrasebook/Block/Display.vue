@@ -13,17 +13,21 @@
 </template>
 
 <script>
+import { inject } from "vue";
+
 export default {
   name: "PhraseStateDisplay",
   props: {
     state: { type: Object },
     glossed: { type: Boolean, default: false },
-    context: { type: Object },
     colored: { type: Boolean, default: true },
   },
   computed: {
+    contextSource() {
+      return inject("contextSource", {});
+    },
     entities() {
-      return Object.keys(this.context);
+      return Object.keys(this.contextSource);
     },
     types() {
       return this.glossed ? ["ipa", "glossing"] : ["text"];
