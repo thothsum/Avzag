@@ -97,11 +97,11 @@ export default defineComponent({
     ContextTranslationEditor,
   },
   setup() {
-    let corpus: CorpusSection[] = [];
+    const corpus = ref([] as CorpusSection[]);
     try {
-      corpus = JSON.parse(localStorage["editor.phrasebookCorpus"]);
+      corpus.value = JSON.parse(localStorage["editor.phrasebookCorpus"]);
     } catch {
-      loadJSON("phrasebook").then((j) => (corpus = j));
+      loadJSON("phrasebook").then((j) => (corpus.value = j));
     }
     const section = ref({} as CorpusSection);
     const phrase = ref({} as CorpusPhrase);
