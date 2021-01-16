@@ -1,4 +1,3 @@
-/* eslint-disable vue/no-mutating-props */
 <template>
   <EditorCard icon="visibility" header="display" @action="add">
     <template #header>
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-mutating-props */
 import EditorCard from "@/components/EditorCard";
 
 export default {
@@ -48,7 +48,7 @@ export default {
       return this.state.display;
     },
     entities() {
-      return [undefined].concat(Object.keys(this.contextSource));
+      return [undefined].concat(Object.keys(this.contextSource.value));
     },
     colors() {
       return this.state.display?.map(

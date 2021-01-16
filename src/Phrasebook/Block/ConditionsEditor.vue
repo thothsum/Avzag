@@ -4,13 +4,17 @@
     <div class="scroll col">
       <div v-for="(c, i) in conditions" :key="i" class="row">
         <toggle v-if="allowPassive" v-model="c.passive" icon="call_missed" />
-        <Select v-model:value="c.entity" :items="entities" />
+        <select v-model="c.entity">
+          <option v-for="e in entities" :key="e" :value="e" />
+        </select>
         <p class="icon">west</p>
-        <Select
-          v-if="contextSource[c.entity]"
-          v-model:value="c.tag"
-          :items="contextSource[c.entity]"
-        />
+        <select v-model="c.tag" v-if="c.entity">
+          <option
+            v-for="t in [...contextSource[c.entity]]"
+            :key="t"
+            :value="t"
+          />
+        </select>
         <btn icon="clear" @click="remove(i)" />
       </div>
     </div>
@@ -19,29 +23,33 @@
 
 <script>
 import EditorCard from "@/components/EditorCard";
-import Select from "@/components/Select";
 
 export default {
   name: "PhraseConditionsEditor",
-  components: {
-    EditorCard,
-    Select,
-  },
-  props: ["conditions", "allowPassive", "header", "icon"],
+  components: { EditorCard },
+  props: ["modelValue", "allowPassive", "header", "icon"],
   inject: ["contextSource"],
+  emits: ["update:modelValue"],
   computed: {
+    conditions: {
+      get() {
+        return this.modelValue;
+      },
+      set(c) {
+        this.$emit("update:modelValue", c);
+      },
+    },
     entities() {
-      return Object.keys(this.contextSource);
+      return Object.keys(this.contextSource.value);
     },
   },
   methods: {
     add() {
-      let c = this.conditions;
-      if (!c) this.$emit("update:conditions", (c = []));
-      c.push({});
+      if (!this.conditions) this.conditions = [];
+      this.conditions.push({});
     },
     remove(i) {
-      this.$delete(this.conditions, i);
+      this.conditions.splice(i, 1);
     },
   },
 };

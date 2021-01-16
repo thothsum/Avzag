@@ -1,7 +1,7 @@
 <template>
   <div class="block col-2">
     <ConditionsEditor
-      v-model:conditions="block.requirements"
+      v-model="block.requirements"
       icon="lock"
       header="Requirements"
     >
@@ -26,7 +26,7 @@
     <template v-if="state">
       <DisplayEditor :state="state" />
       <ConditionsEditor
-        v-model:conditions="state.conditions"
+        v-model="state.conditions"
         :allow-passive="true"
         icon="widgets"
         header="conditions"

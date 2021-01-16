@@ -1,6 +1,6 @@
 <template>
   <div v-if="classes" class="row line" :class="{ passive }">
-    <div v-for="(c, i) in classes" :key="i" class="dash" :class="c" />
+    <p v-for="(c, i) in classes" :key="i" class="dash" :class="c" />
   </div>
 </template>
 
