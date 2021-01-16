@@ -63,10 +63,18 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import { computed, reactive, ref, watch, defineComponent, provide } from "vue";
+import {
+  computed,
+  reactive,
+  ref,
+  watch,
+  defineComponent,
+  provide,
+  nextTick,
+} from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
-import { Context, CorpusPhrase, CorpusSection, Phrase } from "./types";
+import { Context, CorpusPhrase, CorpusSection } from "./types";
 
 export default defineComponent({
   components: { PhraseCard },
@@ -74,23 +82,18 @@ export default defineComponent({
     initialize();
 
     const context = reactive({} as Context);
-    watch(phrase, (phrase, oldPhrase) => {
-      if (oldPhrase?.context)
-        oldPhrase.context.map(({ entity }) => delete context[entity]);
-      phrase.context.map(({ entity }) => (context[entity] = new Set()));
-    });
+    watch(phrase, (phrase, oldPhrase) =>
+      nextTick(() => {
+        if (oldPhrase?.context)
+          oldPhrase.context.map(({ entity }) => delete context[entity]);
+        phrase.context.map(({ entity }) => (context[entity] = new Set()));
+        if (context.object) console.log(...context.object);
+      })
+    );
     provide("context", context);
 
     const searching = ref(false);
     const query = ref("");
-
-    // const selected = reactive(
-    //   JSON.parse(localStorage.phrase ?? "{ section: 0, phrase: 0 }")
-    // );
-    // function select(s: number, p: number) {
-    //   selected.section = s;
-    //   selected.phrase = p;
-    // }
 
     const phrases = computed(() =>
       searching.value

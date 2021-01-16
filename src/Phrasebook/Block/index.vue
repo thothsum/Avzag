@@ -6,7 +6,7 @@
     :class="{ disabled, glossed }"
     @click="move"
   >
-    <IndexedColor :passive="true" :indexes="passiveIndexes" />
+    <!-- <IndexedColor :passive="true" :indexes="passiveIndexes" /> -->
     <IndexedColor :indexes="activeIndexes" />
     <Display
       ref="display"
