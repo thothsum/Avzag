@@ -80,7 +80,10 @@ export default defineComponent({
   setup() {
     const file = setupEditor<CorpusSection[]>({
       defaultFile: {},
-      filename: () => "phrasebook",
+      filename: () =>
+        window.confirm("You're resetting phrasebook corpus.")
+          ? "phrasebook"
+          : "",
       storage: "editor.phrasebookCorpus",
     });
     const section = ref({} as CorpusSection);
@@ -97,25 +100,35 @@ export default defineComponent({
     });
     watch(
       section,
-      ({ phrases }) => (phrase.value = phrases[phrases.length - 1]),
+      (section) => {
+        if (section?.phrases)
+          phrase.value = section.phrases[section.phrases.length - 1];
+      },
       { immediate: true }
     );
     watch(
-      () => phrase.value.context,
-      (phraseContext) =>
-        nextTick(() => {
-          context.value = {};
-          contextSource.value = {};
-          phraseContext.forEach(({ entity, tags }) => {
-            context.value[entity] = new Set();
-            contextSource.value[entity] = new Set(tags.split(" "));
+      () => phrase.value?.context,
+      (phraseContext) => {
+        if (phraseContext)
+          nextTick(() => {
+            context.value = {};
+            contextSource.value = {};
+            phraseContext.forEach(({ entity, tags }) => {
+              context.value[entity] = new Set();
+              contextSource.value[entity] = new Set(tags.split(" "));
+            });
           });
-        }),
+      },
       { immediate: true }
     );
-    watch(phrase, ({ blocks }) => (block.value = blocks[blocks.length - 1]), {
-      immediate: true,
-    });
+    watch(
+      phrase,
+      (phrase) => {
+        if (phrase?.blocks)
+          block.value = phrase.blocks[phrase.blocks.length - 1];
+      },
+      { immediate: true }
+    );
 
     function addSection() {
       const s = {
