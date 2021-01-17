@@ -40,5 +40,11 @@
     "point": [47.546501, 41.707224],
     "family": ["Northeast Caucasian", "Lezgic", "Aghul"],
     "tags": "Western Samur"
+  },
+  {
+    "name": "Georgian",
+    "point": [44.796125, 41.688855],
+    "family": ["South Caucasian", "Kartvelian"],
+    "tags": "Kartvelian"
   }
 ]

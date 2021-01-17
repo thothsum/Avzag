@@ -85,6 +85,10 @@
       "tags": "vowel back close-mid rounded"
     },
     {
+      "ipa": "ɔ",
+      "tags": "vowel back open-mid rounded"
+    },
+    {
       "ipa": "b",
       "tags": "consonant voiced bilabial stop"
     },
