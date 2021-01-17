@@ -1,118 +1,148 @@
 <template>
-  <div class="section col-2 small">
-    <div id="header" class="row wrap card">
-      <router-link to="/home">Home</router-link>
-      <p class="text-dot" />
-      <router-link to="/editor/phonology">Phonology</router-link>
-      <router-link to="/editor/converter">Converter</router-link>
-      <router-link to="/editor/phrasebook">Phrasebook</router-link>
-      <router-link to="/editor/phrasebook/corpus">
-        Phrasebook Corpus
-      </router-link>
-      <btn icon="language" text="Load lect" @click="loadFromLect" />
-      <btn icon="code" text="Load JSON" @click="loadFromJson" />
-      <btn icon="content_paste" text="Save to clipboard" @click="saveToJson" />
-      <p class="text-dot" />
-      <ButtonAlert text="Reset" @confirm="reset" />
+  <div v-if="file" class="section col-2 small grid">
+    <div class="col-2">
+      <EditorCard icon="topic" header="sections" @action="addSection">
+        <template v-if="section" #header>
+          <ButtonAlert @confirm="removeSection" />
+        </template>
+        <div class="col scroll">
+          <div v-for="s in file" :key="s.id" class="row">
+            <btn icon="edit" :is-on="section === s" @click="section = s" />
+            <input v-model="s.name" class="flex" type="text" />
+          </div>
+        </div>
+      </EditorCard>
+      <EditorCard
+        v-if="section"
+        icon="short_text"
+        header="phrases"
+        @action="addPhrase"
+      >
+        <template v-if="phrase" #header>
+          <ButtonAlert @confirm="removePhrase" />
+        </template>
+        <div class="col scroll">
+          <div v-for="p in section.phrases" :key="p.id" class="row">
+            <btn icon="edit" :is-on="phrase === p" @click="phrase = p" />
+            <input v-model="p.preview" class="flex" type="text" />
+          </div>
+        </div>
+      </EditorCard>
+      <EditorCard
+        v-if="phrase"
+        icon="account_tree"
+        header="Blocks"
+        @action="addBlock"
+      >
+        <template v-if="block" #header>
+          <ButtonAlert @confirm="removeBlock" />
+        </template>
+        <VContext />
+        <div class="row-1 wrap block-editor">
+          <div v-for="(b, i) in blocks" :key="phrase.id + '--' + i" class="row">
+            <btn icon="edit" :is-on="block === b" @click="block = b" />
+            <VBlock :block="b" />
+          </div>
+        </div>
+      </EditorCard>
+      <ContextEditor v-if="phrase" :context="phrase.context" />
     </div>
-    <div v-if="file" class="grid small">
-      <div class="col-2">
-        <EditorCard icon="topic" header="sections" @action="addSection">
-          <template v-if="section" #header>
-            <ButtonAlert @confirm="removeSection" />
-          </template>
-          <div class="col scroll">
-            <div v-for="s in file" :key="s.id" class="row">
-              <btn
-                icon="edit"
-                :class="{ highlight: section == s }"
-                @click="section = s"
-              />
-              <input v-model="s.name" class="flex" type="text" />
-            </div>
-          </div>
-        </EditorCard>
-        <EditorCard
-          v-if="section"
-          icon="short_text"
-          header="phrases"
-          @action="addPhrase"
-        >
-          <template v-if="phrase" #header>
-            <ButtonAlert @confirm="removePhrase" />
-          </template>
-          <div class="col scroll">
-            <div v-for="p in section.phrases" :key="p.id" class="row">
-              <btn
-                icon="edit"
-                :class="{ highlight: phrase == p }"
-                @click="phrase = p"
-              />
-              <input v-model="p.preview" class="flex" type="text" />
-            </div>
-          </div>
-        </EditorCard>
-        <EditorCard
-          v-if="phrase"
-          icon="account_tree"
-          header="Blocks"
-          @action="addBlock"
-        >
-          <template v-if="block" #header>
-            <ButtonAlert @confirm="removeBlock" />
-          </template>
-          <Context :context="context" />
-          <div class="row-1 wrap block-editor">
-            <div
-              v-for="(b, i) in blocks"
-              :key="i + '_' + phrase.id"
-              class="row"
-            >
-              <btn
-                icon="edit"
-                :class="{ highlight: block == b }"
-                @click="block = b"
-              />
-              <Block
-                :id="phrase.id"
-                v-model:context="context"
-                :interactive="true"
-                :block="b"
-              />
-            </div>
-          </div>
-        </EditorCard>
-        <ContextEditor v-if="phrase" :context="contextSource" />
-      </div>
-      <BlockEditor
-        v-if="phrase && block"
-        :block="block"
-        :context="fullContext"
-        @remove="removeBlock"
-      />
-    </div>
+    <BlockEditor v-if="block" v-model="block" @remove="removeBlock" />
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import ButtonAlert from "@/components/ButtonAlert.vue";
+import EditorCard from "@/components/EditorCard.vue";
+import VContext from "./Context.vue";
+import ContextEditor from "./Context/Editor.vue";
+import VBlock from "./Block.vue";
+import BlockEditor from "./Block/Editor.vue";
+
+import { defineComponent, ref, provide, watch, nextTick } from "vue";
 import { v4 as uuidv4 } from "uuid";
+import { setupEditor } from "@/editor";
+import { Block, Context, CorpusPhrase, CorpusSection } from "./types";
 
-import ButtonAlert from "@/components/ButtonAlert";
-import EditorCard from "@/components/EditorCard";
-import Context from "./Context";
-import ContextEditor from "./Context/Editor";
-import Block from "./Block";
-import BlockEditor from "./Block/Editor";
-
-export default {
-  name: "PhrasebookCorpusEditor",
+export default defineComponent({
   components: {
     ButtonAlert,
     EditorCard,
-    Context,
+    VContext,
     ContextEditor,
-    Block,
+    VBlock,
     BlockEditor,
+  },
+  setup() {
+    const file = setupEditor<CorpusSection[]>({
+      defaultFile: {},
+      filename: () => "phrasebook",
+      storage: "editor.phrasebookCorpus",
+    });
+    const section = ref({} as CorpusSection);
+    const phrase = ref({} as CorpusPhrase);
+    const block = ref({} as Block);
+    const context = ref({} as Context);
+    const contextSource = ref({} as Context);
+
+    provide("context", context);
+    provide("contextSource", contextSource);
+
+    watch(file, ([_section]) => (section.value = _section));
+    watch(section, ({ phrases }) => (phrase.value = phrases[0]));
+    watch(
+      () => phrase.value.context,
+      (phraseContext) =>
+        nextTick(() => {
+          context.value = {};
+          contextSource.value = {};
+          phraseContext.forEach(({ entity, tags }) => {
+            context.value[entity] = new Set();
+            contextSource.value[entity] = new Set(tags.split(" "));
+          });
+        })
+    );
+    watch(phrase, ({ blocks }) => {
+      block.value = blocks[0];
+    });
+
+    function addSection() {
+      const s = {
+        id: uuidv4(),
+        name: "New section",
+        phrases: [],
+      };
+      file.value.push(s);
+      section.value = s;
+    }
+    function removeSection() {
+      file.value.splice(file.value.indexOf(section.value), 1);
+    }
+    function addPhrase() {
+      const p = {
+        id: uuidv4(),
+        preview: "New phrase",
+        context: [],
+        blocks: [],
+      };
+      section.value.phrases.push(p);
+      phrase.value = p;
+    }
+    function removePhrase() {
+      const phrases = section.value.phrases;
+      phrases.splice(phrases.indexOf(phrase.value), 1);
+    }
+
+    function addBlock() {
+      block.value = { states: [] };
+      phrase.value.blocks.push(block.value);
+    }
+    function removeBlock() {
+      const blocks = phrase.value.blocks;
+      const index = blocks.indexOf(block.value);
+      blocks.splice(index, 1);
+      block.value = blocks[blocks.length - 1];
+    }
   },
   data() {
     return {
@@ -149,79 +179,7 @@ export default {
       immediate: true,
     },
   },
-  mounted() {
-    try {
-      const file = JSON.parse(localStorage.pbcEditor);
-      if (file) this.file = file;
-      return;
-    } catch (error) {
-      console.log(error);
-    }
-    this.reset();
-  },
-  updated() {
-    localStorage.pbcEditor = JSON.stringify(this.file);
-  },
-  beforeUnmount() {
-    localStorage.pbcEditor = JSON.stringify(this.file);
-  },
-  methods: {
-    addSection() {
-      const s = {
-        id: uuidv4(),
-        name: "New section",
-        phrases: [],
-      };
-      this.file.push(s);
-      this.section = s;
-    },
-    removeSection() {
-      this.$delete(this.file, this.file.indexOf(this.section));
-    },
-    addPhrase() {
-      const p = {
-        id: uuidv4(),
-        preview: "New phrase",
-        context: [],
-        blocks: [],
-      };
-      this.section.phrases.push(p);
-      this.phrase = p;
-    },
-    removePhrase() {
-      this.$delete(
-        this.section.phrases,
-        this.section.phrases.indexOf(this.phrase)
-      );
-    },
-    addBlock() {
-      const b = {};
-      this.blocks.push(b);
-      this.block = b;
-    },
-    removeBlock() {
-      this.$delete(this.blocks, this.blocks.indexOf(this.block));
-      this.block = this.blocks[this.blocks.length - 1];
-    },
-    loadFromLect() {
-      fetch(this.$store.state.root + "/phrasebook.json")
-        .then((r) => r.json())
-        .then((j) => {
-          if (j) this.file = j;
-        });
-    },
-    loadFromJson() {
-      const file = JSON.parse(window.prompt("Enter JSON"));
-      if (file) this.file = file;
-    },
-    saveToJson() {
-      navigator.clipboard.writeText(JSON.stringify(this.file));
-    },
-    reset() {
-      this.file = [];
-    },
-  },
-};
+});
 </script>
 
 <style lang="scss" scoped>

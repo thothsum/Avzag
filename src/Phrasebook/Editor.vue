@@ -108,7 +108,7 @@ export default defineComponent({
     const translation = ref({} as Phrase);
     const context = ref({} as Context);
     const contextSource = ref({} as Context);
-    const block = ref<Block>();
+    const block = ref({} as Block);
     const file = setupEditor<Phrasebook>({
       defaultFile: {},
       filename: "phrasebook",
@@ -136,12 +136,10 @@ export default defineComponent({
       block.value = blocks[0];
     });
     function addBlock() {
-      if (!translation.value) return;
       block.value = { states: [] };
       translation.value.blocks.push(block.value);
     }
     function removeBlock() {
-      if (!translation.value || !block.value) return;
       const blocks = translation.value.blocks;
       const index = blocks.indexOf(block.value);
       blocks.splice(index, 1);

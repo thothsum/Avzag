@@ -14,11 +14,7 @@
       </template>
       <div class="row-1 wrap block-editor">
         <div v-for="(s, i) in states" :key="i" class="row">
-          <btn
-            icon="edit"
-            :class="{ highlight: state == s }"
-            @click="state = s"
-          />
+          <btn icon="edit" :is-on="state === s" @click="state = s" />
           <Display :state="s" />
         </div>
       </div>

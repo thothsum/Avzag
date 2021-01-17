@@ -20,11 +20,7 @@
           is from the 1st into the 2nd mappings in the order.
         </template>
         <div v-for="(m, i) in mappings" :key="i" class="row">
-          <btn
-            :class="{ highlight: mapping == m }"
-            icon="edit"
-            @click="mapping = m"
-          />
+          <btn icon="edit" :is-on="mapping === m" @click="mapping = m" />
           <input v-model="m.name" type="text" />
         </div>
       </EditorCard>

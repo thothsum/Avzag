@@ -13,11 +13,7 @@
     </template>
     <div v-if="mode === 2" class="row-1 wrap block-editor">
       <div v-for="(s, i) in states" :key="i" class="row">
-        <btn
-          icon="check"
-          :class="{ highlight: present[i] }"
-          @click="toggle(i)"
-        />
+        <btn icon="check" :is-on="present[i]" @click="toggle(i)" />
         <Display :state="s" />
       </div>
     </div>
