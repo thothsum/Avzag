@@ -73,7 +73,7 @@ export default defineComponent({
       filename: "phonology",
       storage: "editor.phonology",
     });
-    watch(file, ([_phoneme]) => (phoneme.value = _phoneme), {
+    watch(file, (file) => (phoneme.value = file[file.length - 1]), {
       immediate: true,
     });
 

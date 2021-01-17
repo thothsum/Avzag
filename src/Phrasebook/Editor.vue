@@ -118,23 +118,35 @@ export default defineComponent({
     provide("context", context);
     provide("contextSource", contextSource);
 
-    watch(corpus, ([_section]) => (section.value = _section));
-    watch(section, ({ phrases }) => (phrase.value = phrases[0]));
-    watch([phrase, file], ([{ id, context: phraseContext }]) => {
-      if (!file.value[id]) file.value[id] = { blocks: [] };
-      translation.value = file.value[id];
-      nextTick(() => {
-        context.value = {};
-        contextSource.value = {};
-        phraseContext.forEach(({ entity, tags }) => {
-          context.value[entity] = new Set();
-          contextSource.value[entity] = new Set(tags.split(" "));
+    watch(corpus, (corpus) => (section.value = corpus[corpus.length - 1]), {
+      immediate: true,
+    });
+    watch(
+      section,
+      ({ phrases }) => (phrase.value = phrases[phrases.length - 1]),
+      { immediate: true }
+    );
+    watch(
+      [phrase, file],
+      ([{ id, context: phraseContext }]) => {
+        if (!file.value[id]) file.value[id] = { blocks: [] };
+        translation.value = file.value[id];
+        nextTick(() => {
+          context.value = {};
+          contextSource.value = {};
+          phraseContext.forEach(({ entity, tags }) => {
+            context.value[entity] = new Set();
+            contextSource.value[entity] = new Set(tags.split(" "));
+          });
         });
-      });
-    });
-    watch(translation, ({ blocks }) => {
-      block.value = blocks[0];
-    });
+      },
+      { immediate: true }
+    );
+    watch(
+      translation,
+      ({ blocks }) => (block.value = blocks[blocks.length - 1]),
+      { immediate: true }
+    );
     function addBlock() {
       block.value = block.value = {
         states: [{ display: [{ text: "new state" }], transition: "next" }],

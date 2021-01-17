@@ -92,8 +92,14 @@ export default defineComponent({
     provide("context", context);
     provide("contextSource", contextSource);
 
-    watch(file, ([_section]) => (section.value = _section));
-    watch(section, ({ phrases }) => (phrase.value = phrases[0]));
+    watch(file, (file) => (section.value = file[file.length - 1]), {
+      immediate: true,
+    });
+    watch(
+      section,
+      ({ phrases }) => (phrase.value = phrases[phrases.length - 1]),
+      { immediate: true }
+    );
     watch(
       () => phrase.value.context,
       (phraseContext) =>
@@ -104,10 +110,11 @@ export default defineComponent({
             context.value[entity] = new Set();
             contextSource.value[entity] = new Set(tags.split(" "));
           });
-        })
+        }),
+      { immediate: true }
     );
-    watch(phrase, ({ blocks }) => {
-      block.value = blocks[0];
+    watch(phrase, ({ blocks }) => (block.value = blocks[blocks.length - 1]), {
+      immediate: true,
     });
 
     function addSection() {
@@ -121,6 +128,7 @@ export default defineComponent({
     }
     function removeSection() {
       file.value.splice(toRaw(file.value).indexOf(toRaw(section.value)), 1);
+      section.value = file.value[file.value.length - 1];
     }
     function addPhrase() {
       const p = {
