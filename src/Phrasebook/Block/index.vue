@@ -79,7 +79,7 @@ export default defineComponent({
 
         visible.value = nextVisible;
       },
-      { immediate: true }
+      { immediate: true, deep: true }
     );
 
     const entities = computed(() => Object.keys(context.value));
