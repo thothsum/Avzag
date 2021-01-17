@@ -2,8 +2,8 @@
   <div v-if="any" class="row text-caption text-faded wrap">
     <template v-for="(ts, i) of tags" :key="i">
       <div v-if="ts.length" class="row wrap">
-        <h2 :class="'colored-dot-' + i">{{ entities[i] }}</h2>
-        <p v-for="t in ts" :key="t">{{ t }}</p>
+        <!-- <h2 :class="'colored-dot-' + i">{{ entities[i] }}</h2> -->
+        <p :class="'colored-dot-' + i" v-for="t in ts" :key="t">{{ t }}</p>
       </div>
     </template>
   </div>

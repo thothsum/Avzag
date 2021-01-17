@@ -123,7 +123,10 @@ export default defineComponent({
     });
     watch(
       section,
-      ({ phrases }) => (phrase.value = phrases[phrases.length - 1]),
+      (section) => {
+        if (section?.phrases)
+          phrase.value = section.phrases[section.phrases.length - 1];
+      },
       { immediate: true }
     );
     watch(
@@ -144,7 +147,10 @@ export default defineComponent({
     );
     watch(
       translation,
-      ({ blocks }) => (block.value = blocks[blocks.length - 1]),
+      (translation) => {
+        if (translation?.blocks)
+          block.value = translation.blocks[translation.blocks.length - 1];
+      },
       { immediate: true }
     );
     function addBlock() {
