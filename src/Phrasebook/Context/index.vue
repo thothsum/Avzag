@@ -4,7 +4,6 @@
     <template v-if="any">
       <template v-for="(ts, i) of tags" :key="i">
         <div v-if="ts.length" class="row-0 wrap">
-          <!-- <h2 :class="'colored-dot-' + i">{{ entities[i] }}</h2> -->
           <p
             class="text-dot"
             :class="'colored-dot-' + i"
@@ -76,11 +75,6 @@ export default defineComponent({
       }
       return k;
     }
-    const entities = computed(() =>
-      Object.keys(context.value).map((e) =>
-        translate(dictionary.value.entities, e)
-      )
-    );
     const tags = computed(() =>
       Object.entries(context.value).map(([e, ts]) =>
         [...(ts ?? [])]
@@ -90,7 +84,7 @@ export default defineComponent({
     );
     const any = computed(() => tags.value.some((t) => t?.length));
 
-    return { entities, tags, any, explicitContext };
+    return { tags, any, explicitContext };
   },
 });
 </script>
