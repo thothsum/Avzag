@@ -55,10 +55,11 @@ export default {
       c.tag = this.tags[c.entity][0];
     },
     add() {
-      if (!this.conditions) this.conditions = [];
       const condition = { entity: this.entities[0] };
       this.setEntity(condition);
-      this.conditions.push(condition);
+      const conditions = this.conditions ?? [];
+      conditions.push(condition);
+      this.conditions = conditions;
     },
     remove(i) {
       this.conditions.splice(i, 1);
