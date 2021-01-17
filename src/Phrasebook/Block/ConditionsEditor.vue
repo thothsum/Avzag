@@ -4,7 +4,7 @@
     <div class="scroll col">
       <div v-for="(c, i) in conditions" :key="i" class="row">
         <toggle v-if="allowPassive" v-model="c.passive" icon="call_missed" />
-        <select v-model="c.entity">
+        <select v-model="c.entity" @change="setEntity(c)">
           <option v-for="e in entities" :key="e" :value="e">{{ e }}</option>
         </select>
         <p class="icon">west</p>
@@ -51,9 +51,14 @@ export default {
     },
   },
   methods: {
+    setEntity(c) {
+      c.tag = this.tags[c.entity][0];
+    },
     add() {
       if (!this.conditions) this.conditions = [];
-      this.conditions.push({});
+      const condition = { entity: this.entities[0] };
+      this.setEntity(condition);
+      this.conditions.push(condition);
     },
     remove(i) {
       this.conditions.splice(i, 1);
