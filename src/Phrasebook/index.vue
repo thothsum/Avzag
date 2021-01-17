@@ -1,7 +1,7 @@
 <template>
   <div v-if="corpus" class="section col-1">
     <div class="col-1">
-      <div class="row">
+      <div class="row-1">
         <toggle v-model="searching" icon="search" />
         <input
           v-if="searching"
@@ -120,7 +120,6 @@ export default defineComponent({
       select,
       phrases,
       phrasebooks,
-      context,
     };
   },
 });

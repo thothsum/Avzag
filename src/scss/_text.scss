@@ -36,12 +36,12 @@
     opacity: map-get($opacity, "text");
     white-space: pre;
     font-weight: normal;
-    content: " • ";
+    content: " · ";
   }
   &:empty {
     @extend .text-dot;
     &::after {
-      content: "•";
+      content: "·";
     }
   }
   &:last-child::after {

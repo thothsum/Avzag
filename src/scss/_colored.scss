@@ -30,5 +30,6 @@
   }
   .colored-dot-#{$i}::first-letter {
     color: $color;
+    font-weight: bold;
   }
 }

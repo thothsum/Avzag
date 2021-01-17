@@ -1,11 +1,22 @@
 <template>
-  <div v-if="any" class="row text-caption text-faded wrap">
-    <template v-for="(ts, i) of tags" :key="i">
-      <div v-if="ts.length" class="row wrap">
-        <!-- <h2 :class="'colored-dot-' + i">{{ entities[i] }}</h2> -->
-        <p :class="'colored-dot-' + i" v-for="t in ts" :key="t">{{ t }}</p>
-      </div>
-    </template>
+  <div class="row text-caption wrap">
+    <div class="icon">info</div>
+    <template v-if="any">
+      <template v-for="(ts, i) of tags" :key="i">
+        <div v-if="ts.length" class="row-0 wrap">
+          <!-- <h2 :class="'colored-dot-' + i">{{ entities[i] }}</h2> -->
+          <p
+            class="text-dot"
+            :class="'colored-dot-' + i"
+            v-for="t in ts"
+            :key="t"
+          >
+            {{ t }}
+          </p>
+        </div>
+      </template></template
+    >
+    <p v-else>…</p>
   </div>
 </template>
 
@@ -85,13 +96,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-h2::after {
-  content: ":";
-}
-p::after {
-  content: ",";
-}
-p:last-child::after {
-  content: ".";
+.icon {
+  font-size: map-get($font-sizes, "small");
 }
 </style>
