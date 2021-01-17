@@ -74,7 +74,7 @@ import BlockEditor from "./Block/Editor.vue";
 import VContext from "./Context/index.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
-import { defineComponent, ref, watch, nextTick, provide } from "vue";
+import { defineComponent, ref, watch, nextTick, provide, toRaw } from "vue";
 import { loadJSON } from "@/store";
 import { setupEditor } from "@/editor";
 import {
@@ -136,12 +136,14 @@ export default defineComponent({
       block.value = blocks[0];
     });
     function addBlock() {
-      block.value = { states: [] };
+      block.value = block.value = {
+        states: [{ display: [{ text: "new state" }], transition: "next" }],
+      };
       translation.value.blocks.push(block.value);
     }
     function removeBlock() {
-      const blocks = translation.value.blocks;
-      const index = blocks.indexOf(block.value);
+      const blocks = toRaw(translation.value.blocks);
+      const index = blocks.indexOf(toRaw(block.value));
       blocks.splice(index, 1);
       block.value = blocks[blocks.length - 1];
     }

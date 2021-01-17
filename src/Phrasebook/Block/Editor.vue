@@ -96,6 +96,7 @@ export default {
     remove() {
       if (this.states.length > 1) {
         this.states.splice(this.states.indexOf(this.state), 1);
+        this.state = this.states[this.states.length - 1];
       }
     },
   },

@@ -79,7 +79,7 @@ export default {
       if (ints.includes(i)) ints.splice(ints.indexOf(i), 1);
       else ints.push(i);
 
-      if (this.mode === 2) this.transition.ints.join(" ");
+      if (this.mode === 2) this.transition = ints.join(" ");
     },
   },
 };

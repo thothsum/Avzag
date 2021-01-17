@@ -63,7 +63,7 @@ import ContextEditor from "./Context/Editor.vue";
 import VBlock from "./Block/index.vue";
 import BlockEditor from "./Block/Editor.vue";
 
-import { defineComponent, ref, provide, watch, nextTick } from "vue";
+import { defineComponent, ref, provide, watch, nextTick, toRaw } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import { setupEditor } from "@/editor";
 import { Block, Context, CorpusPhrase, CorpusSection } from "./types";
@@ -120,7 +120,7 @@ export default defineComponent({
       section.value = s;
     }
     function removeSection() {
-      file.value.splice(file.value.indexOf(section.value), 1);
+      file.value.splice(toRaw(file.value).indexOf(toRaw(section.value)), 1);
     }
     function addPhrase() {
       const p = {
@@ -133,17 +133,20 @@ export default defineComponent({
       phrase.value = p;
     }
     function removePhrase() {
-      const phrases = section.value.phrases;
-      phrases.splice(phrases.indexOf(phrase.value), 1);
+      const phrases = toRaw(section.value.phrases);
+      phrases.splice(phrases.indexOf(toRaw(phrase.value)), 1);
+      phrase.value = phrases[phrases.length - 1];
     }
 
     function addBlock() {
-      block.value = { states: [] };
+      block.value = {
+        states: [{ display: [{ text: "new state" }], transition: "next" }],
+      };
       phrase.value.blocks.push(block.value);
     }
     function removeBlock() {
-      const blocks = phrase.value.blocks;
-      const index = blocks.indexOf(block.value);
+      const blocks = toRaw(phrase.value.blocks);
+      const index = blocks.indexOf(toRaw(block.value));
       blocks.splice(index, 1);
       block.value = blocks[blocks.length - 1];
     }
@@ -152,6 +155,7 @@ export default defineComponent({
       file,
       section,
       phrase,
+      block,
       addSection,
       removeSection,
       addPhrase,

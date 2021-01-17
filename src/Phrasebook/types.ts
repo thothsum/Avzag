@@ -13,7 +13,7 @@ export type State = {
   conditions?: Condition[];
   transition?: string;
   implicit?: boolean;
-  display: DisplaySegment;
+  display: DisplaySegment[];
 };
 export type Block = {
   requirements?: Condition[];
@@ -23,7 +23,7 @@ export type BlockVue = {
   visible: boolean;
   requirements?: Condition[];
   conditions?: Condition[];
-  display: DisplaySegment;
+  display: DisplaySegment[];
 };
 
 export type ContextSource = {

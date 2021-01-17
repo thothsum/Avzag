@@ -59,9 +59,14 @@ export default defineComponent({
     watch(menu, (menu) => router.push({ name: menu }));
 
     async function loadLect() {
-      const lect = window.prompt("Enter lect name");
-      if (!lect) return;
-      const json = await loadDBJSON(lect + "/" + config.filename);
+      let json;
+      if (typeof config.filename === "string") {
+        const lect = window.prompt("Enter lect name");
+        if (!lect) return;
+        json = await loadDBJSON(lect + "/" + config.filename);
+      } else {
+        json = await loadDBJSON(config.filename());
+      }
       if (json) file.value = json;
     }
     function loadJSON() {
