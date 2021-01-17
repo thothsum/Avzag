@@ -1,7 +1,11 @@
 <template>
   <EditorCard icon="visibility" header="display" @action="add">
     <template #header>
-      <toggle v-model="state.implicit" icon="opacity" />
+      <toggle
+        icon="opacity"
+        :model-value="implicit"
+        @update:modelValue="$emit('update:implicit', $event)"
+      />
     </template>
     <div v-if="display" class="col">
       <div v-for="(d, i) in display" :key="i" class="row">
@@ -33,7 +37,6 @@
 </template>
 
 <script>
-/* eslint-disable vue/no-mutating-props */
 import EditorCard from "@/components/EditorCard";
 
 export default {
@@ -41,34 +44,40 @@ export default {
   components: {
     EditorCard,
   },
-  props: ["state", "allowEmpty"],
+  props: ["modelValue", "implicit", "allowEmpty"],
+  emits: ["update:modelValue", "update:implicit"],
   inject: ["contextSource"],
   computed: {
-    display() {
-      return this.state.display;
+    display: {
+      get() {
+        return this.modelValue;
+      },
+      set(d) {
+        this.$emit("update:modelValue", d);
+      },
     },
     entities() {
       return [undefined].concat(Object.keys(this.contextSource.value));
     },
     colors() {
-      return this.state.display?.map(
+      return this.display.map(
         (d) => "colored-" + (this.entities.indexOf(d.entity) - 1)
       );
     },
   },
   methods: {
     add() {
-      if (this.display) this.display.push({});
-      else this.$set(this.state, "display", [{}]);
+      if (!this.display) this.display = [];
+      this.display.push({});
     },
     toggle(j) {
       let i = this.entities.indexOf(this.display[j].entity);
       i = (i + 1) % this.entities.length;
-      this.$set(this.display[j], "entity", this.entities[i]);
+      this.display[j].entity = this.entities[i];
     },
     remove(i) {
       if (this.allowEmpty || this.display.length > 1) {
-        this.$delete(this.display, i);
+        this.display.splice(i, 1);
       }
     },
   },

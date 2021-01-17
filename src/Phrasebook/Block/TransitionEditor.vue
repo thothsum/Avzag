@@ -30,7 +30,8 @@ export default {
     EditorCard,
     Display,
   },
-  props: ["state", "states"],
+  props: ["modelValue", "states"],
+  emits: ["update:modelValue"],
   data() {
     return {
       mode: 0,
@@ -38,9 +39,17 @@ export default {
     };
   },
   computed: {
+    transition: {
+      get() {
+        return this.modelValue;
+      },
+      set(t) {
+        this.$emit("update:modelValue", t);
+      },
+    },
     ints() {
       return (
-        this.state.transition
+        this.transition
           ?.split(" ")
           .map((t) => Number(t))
           .filter((n) => !isNaN(n)) ?? []
@@ -53,15 +62,15 @@ export default {
   watch: {
     state: {
       handler() {
-        if (this.state.transition === "next") this.mode = 1;
-        else if (this.state.transition) this.mode = 2;
+        if (this.transition === "next") this.mode = 1;
+        else if (this.transition) this.mode = 2;
         else this.mode = 0;
       },
       immediate: true,
     },
     mode() {
-      if (this.mode === 1) this.$set(this.state, "transition", "next");
-      else if (!this.mode) this.$set(this.state, "transition");
+      if (this.mode === 1) this.transition = "next";
+      else if (!this.mode) this.transition = undefined;
     },
   },
   methods: {
@@ -70,7 +79,7 @@ export default {
       if (ints.includes(i)) ints.splice(ints.indexOf(i), 1);
       else ints.push(i);
 
-      if (this.mode === 2) this.$set(this.state, "transition", ints.join(" "));
+      if (this.mode === 2) this.transition.ints.join(" ");
     },
   },
 };

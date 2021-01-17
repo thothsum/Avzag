@@ -16,7 +16,6 @@
 </template>
 
 <script>
-/* eslint-disable vue/no-mutating-props */
 import EditorCard from "@/components/EditorCard";
 
 export default {
@@ -24,7 +23,18 @@ export default {
   components: {
     EditorCard,
   },
-  props: ["context"],
+  props: ["modelValue"],
+  emits: ["update:modelValue"],
+  computed: {
+    context: {
+      get() {
+        return this.modelValue;
+      },
+      set(c) {
+        this.$emit("update:modelValue", c);
+      },
+    },
+  },
   methods: {
     add() {
       this.context.push({
@@ -33,7 +43,7 @@ export default {
       });
     },
     remove(i) {
-      this.$delete(this.context, i);
+      this.context.splice(i, 1);
     },
   },
 };

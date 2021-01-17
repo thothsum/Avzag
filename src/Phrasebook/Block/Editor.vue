@@ -20,14 +20,17 @@
       </div>
     </EditorCard>
     <template v-if="state">
-      <DisplayEditor :state="state" />
+      <DisplayEditor
+        v-model="state.display"
+        v-model:implicit="state.implicit"
+      />
       <ConditionsEditor
         v-model="state.conditions"
         :allow-passive="true"
         icon="widgets"
         header="conditions"
       />
-      <TransitionEditor :state="state" :states="states" />
+      <TransitionEditor v-model="state.transition" :states="states" />
     </template>
   </div>
 </template>
@@ -92,7 +95,7 @@ export default {
     },
     remove() {
       if (this.states.length > 1) {
-        this.$delete(this.states, this.states.indexOf(this.state));
+        this.states.splice(this.states.indexOf(this.state), 1);
       }
     },
   },

@@ -49,7 +49,7 @@
           </div>
         </div>
       </EditorCard>
-      <ContextEditor v-if="phrase" :context="phrase.context" />
+      <ContextEditor v-if="phrase" v-model="phrase.context" />
     </div>
     <BlockEditor v-if="block" v-model="block" @remove="removeBlock" />
   </div>
