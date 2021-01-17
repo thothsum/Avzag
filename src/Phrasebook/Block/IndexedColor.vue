@@ -4,16 +4,22 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { computed, defineComponent, PropType } from "vue";
+
+export default defineComponent({
   name: "IndexedColor",
-  props: ["indexes", "passive"],
-  computed: {
-    classes() {
-      return this.indexes.map((i) => "colored-back-" + i);
-    },
+  props: {
+    indexes: { type: Array as PropType<number[]>, default: () => [] },
+    passive: Boolean,
   },
-};
+  setup(props) {
+    const classes = computed(() =>
+      props.indexes.map((i) => "colored-back-" + i)
+    );
+    return { classes };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
