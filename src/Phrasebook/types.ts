@@ -23,7 +23,7 @@ export type BlockVue = {
   visible: boolean;
   requirements?: Condition[];
   conditions?: Condition[];
-  display: DisplaySegment[];
+  display: { text: string };
 };
 
 export type ContextSource = {
