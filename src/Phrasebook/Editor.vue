@@ -131,13 +131,14 @@ export default defineComponent({
     );
     watch(
       [phrase, file],
-      ([{ id, context: phraseContext }]) => {
-        if (!file.value[id]) file.value[id] = { blocks: [] };
-        translation.value = file.value[id];
+      ([phrase]) => {
+        if (!phrase) return;
+        if (!file.value[phrase.id]) file.value[phrase.id] = { blocks: [] };
+        translation.value = file.value[phrase.id];
         nextTick(() => {
           context.value = {};
           contextSource.value = {};
-          phraseContext.forEach(({ entity, tags }) => {
+          phrase.context.forEach(({ entity, tags }) => {
             context.value[entity] = new Set();
             contextSource.value[entity] = new Set(tags.split(" "));
           });
