@@ -74,14 +74,19 @@ export default defineComponent({
     initialize();
 
     const context = ref({} as Context);
-    watch(phrase, ({ context: _context }) =>
-      nextTick(
-        () =>
-          (context.value = _context.reduce((c, { entity }) => {
-            c[entity] = new Set();
-            return c;
-          }, {} as Context))
-      )
+    watch(
+      phrase,
+      (phrase) => {
+        if (phrase.context)
+          nextTick(
+            () =>
+              (context.value = phrase.context.reduce((c, { entity }) => {
+                c[entity] = new Set();
+                return c;
+              }, {} as Context))
+          );
+      },
+      { immediate: true }
     );
 
     provide("context", context);

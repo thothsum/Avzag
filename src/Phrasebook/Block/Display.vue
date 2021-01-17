@@ -20,10 +20,10 @@ export default {
     glossed: { type: Boolean, default: false },
     colored: { type: Boolean, default: true },
   },
-  inject: ["contextSource"],
+  inject: ["context"],
   computed: {
     entities() {
-      return Object.keys(this.contextSource);
+      return Object.keys(this.context.value);
     },
     types() {
       return this.glossed ? ["ipa", "glossing"] : ["text"];
