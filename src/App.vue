@@ -1,45 +1,31 @@
 <template>
-  <div id="app">
-    <Header v-if="showHeader" />
-    <router-view></router-view>
-  </div>
+  <router-view />
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Header from "./components/Header.vue";
+import { watchEffect, defineComponent } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { setupStore } from "./store";
 
-export default Vue.extend({
-  name: "App",
-  components: {
-    Header,
-  },
-  computed: {
-    showHeader() {
-      return (
-        this.$route.name != "Home" && !this.$route.path.includes("/editor/")
-      );
-    },
-  },
-  watch: {
-    "$route.path": {
-      handler(): void {
-        if (this.$route.name) localStorage.url = this.$route.path;
-      },
-    },
-  },
-  created() {
-    this.$store.dispatch("initialize");
-    if (!this.$route.name || this.$route.name == "Home")
-      this.$router.push(
-        localStorage.url && localStorage.url != this.$route.path
+export default defineComponent({
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
+
+    if (!route.name || route.name === "Home") {
+      router.push(
+        localStorage.url && localStorage.url !== route.path
           ? { path: localStorage.url }
           : { name: "Home" }
       );
-    if (this.$route.name != "Home") {
-      const lects = JSON.parse(localStorage.lects ?? "[]");
-      if (lects) this.$store.dispatch("loadLects", lects);
     }
+    if (route.name !== "Home") {
+      const lects = JSON.parse(localStorage.lects ?? "[]");
+      setupStore(lects);
+    }
+    watchEffect(() => {
+      if (route.name) localStorage.url = route.path;
+    });
   },
 });
 </script>
@@ -48,6 +34,7 @@ export default Vue.extend({
 @import url("https://fonts.googleapis.com/css?family=Material+Icons+Outlined");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap");
 
+@import "scss/variables.css";
 @import "scss/panels";
 @import "scss/scroll";
 @import "scss/text";

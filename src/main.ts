@@ -1,16 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import router from "./router";
 
-import './registerServiceWorker'
-import store from './store'
+import App from "./App.vue";
+import Btn from "./components/Btn.vue";
+import Toggle from "./components/Toggle.vue";
 
-import 'leaflet/dist/leaflet.css';
-
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+const app = createApp(App);
+app.component("Btn", Btn);
+app.component("Toggle", Toggle);
+app.use(router);
+router.isReady().then(() => app.mount("#app"));

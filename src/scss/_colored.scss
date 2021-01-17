@@ -1,35 +1,35 @@
 :root {
-    --colored-0: #4caf50;
-    --colored-1: #2196f3;
-    --colored-2: #f44336;
-    --colored-3: #ffc107;
-    --colored-4: #9c27b0;
-    --colored-5: #00bcd4;
-    --colored-6: #795548;
+  --colored-0: #4caf50;
+  --colored-1: #2196f3;
+  --colored-2: #f44336;
+  --colored-3: #ffc107;
+  --colored-4: #9c27b0;
+  --colored-5: #00bcd4;
+  --colored-6: #795548;
 }
 @media (prefers-color-scheme: dark) {
-    :root {
-        --colored-0: #81c784;
-        --colored-1: #64b5f6;
-        --colored-2: #e57373;
-        --colored-3: #ffd54f;
-        --colored-4: #ba68c8;
-        --colored-5: #4dd0e1;
-        --colored-6: #a1887f;
-    }
+  :root {
+    --colored-0: #81c784;
+    --colored-1: #64b5f6;
+    --colored-2: #e57373;
+    --colored-3: #ffd54f;
+    --colored-4: #ba68c8;
+    --colored-5: #4dd0e1;
+    --colored-6: #a1887f;
+  }
 }
 
 @for $i from 0 through 6 {
-    $color: var(--colored-#{$i});
+  $color: var(--colored-#{$i});
 
-    .colored-#{$i} {
-        color: $color;
-    }
-    .colored-back-#{$i} {
-        background-color: $color;
-    }
-    .colored-dot-#{$i}::first-letter {
-        font-weight: bold;
-        color: $color;
-    }
+  .colored-#{$i} {
+    color: $color;
+  }
+  .colored-back-#{$i} {
+    background-color: $color;
+  }
+  .colored-dot-#{$i}::first-letter {
+    color: $color;
+    font-weight: bold;
+  }
 }

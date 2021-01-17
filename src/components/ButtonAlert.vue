@@ -1,44 +1,38 @@
 <template>
   <div class="row-0">
     <template v-if="prompt">
-      <Button @click.native="emit" class="alert" icon="delete_forever" />
-      <Button @click.native="prompt = false" icon="check" />
+      <btn
+        class="highlight-font-alert"
+        icon="delete_forever"
+        @click="confirm"
+      />
+      <btn icon="check" @click="prompt = false" />
     </template>
-    <Button
+    <btn
       v-else
-      @click.native="prompt = true"
-      class="alert"
+      class="highlight-font-alert"
       icon="delete"
       :text="text"
+      @click="prompt = true"
     />
   </div>
 </template>
 
-<script>
-import Button from "./Button";
+<script lang="ts">
+import { ref, defineComponent } from "vue";
 
-export default {
-  name: "ButtonAlert",
-  components: {
-    Button,
+export default defineComponent({
+  props: {
+    text: { type: String, default: "" },
   },
-  props: ["text"],
-  data() {
-    return {
-      prompt: false,
-    };
+  emits: ["confirm"],
+  setup(props, { emit }) {
+    const prompt = ref(false);
+    function confirm() {
+      prompt.value = false;
+      emit("confirm");
+    }
+    return { prompt, confirm };
   },
-  methods: {
-    emit() {
-      this.prompt = false;
-      this.$emit("confirm");
-    },
-  },
-};
+});
 </script>
-
-<style lang="scss" >
-.alert * {
-  color: var(--color-alert);
-}
-</style>

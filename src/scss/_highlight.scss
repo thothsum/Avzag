@@ -1,18 +1,36 @@
-@mixin highligh($color) {
-    &,
-    * {
-        color: var(--color-#{$color});
-    }
-    background-color: var(--color-#{$color}-back) !important;
+@mixin highlight($color) {
+  &,
+  * {
+    color: var(--color-#{$color});
+  }
+  background-color: var(--color-#{$color}-back) !important;
 }
 
 .highlight {
-    @include highligh("highlight");
+  @include highlight("highlight");
 
-    &-confirm {
-        @include highligh("confirm");
-    }
-    &-alert {
-        @include highligh("alert");
-    }
+  &-confirm {
+    @include highlight("confirm");
+  }
+  &-alert {
+    @include highlight("alert");
+  }
+}
+
+@mixin highlight-font($color) {
+  &,
+  * {
+    color: var(--color-#{$color});
+  }
+}
+
+.highlight-font {
+  @include highlight-font("highlight");
+
+  &-confirm {
+    @include highlight-font("confirm");
+  }
+  &-alert {
+    @include highlight-font("alert");
+  }
 }
