@@ -58,9 +58,9 @@
 <script lang="ts">
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
-import VContext from "./Context.vue";
+import VContext from "./Context/index.vue";
 import ContextEditor from "./Context/Editor.vue";
-import VBlock from "./Block.vue";
+import VBlock from "./Block/index.vue";
 import BlockEditor from "./Block/Editor.vue";
 
 import { defineComponent, ref, provide, watch, nextTick } from "vue";
@@ -147,6 +147,18 @@ export default defineComponent({
       blocks.splice(index, 1);
       block.value = blocks[blocks.length - 1];
     }
+
+    return {
+      file,
+      section,
+      phrase,
+      addSection,
+      removeSection,
+      addPhrase,
+      removePhrase,
+      addBlock,
+      removeBlock,
+    };
   },
 });
 </script>
