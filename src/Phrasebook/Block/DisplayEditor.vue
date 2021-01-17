@@ -44,9 +44,9 @@ export default {
   components: {
     EditorCard,
   },
+  inject: ["contextSource"],
   props: ["modelValue", "implicit", "allowEmpty"],
   emits: ["update:modelValue", "update:implicit"],
-  inject: ["contextSource"],
   computed: {
     display: {
       get() {

@@ -5,10 +5,10 @@
       <template v-for="(ts, i) of tags" :key="i">
         <div v-if="ts.length" class="row-0 wrap">
           <p
-            class="text-dot"
-            :class="'colored-dot-' + i"
             v-for="t in ts"
             :key="t"
+            class="text-dot"
+            :class="'colored-dot-' + i"
           >
             {{ t }}
           </p>

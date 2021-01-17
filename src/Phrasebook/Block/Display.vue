@@ -15,12 +15,12 @@
 <script>
 export default {
   name: "PhraseStateDisplay",
+  inject: ["context"],
   props: {
     state: { type: Object },
     glossed: { type: Boolean, default: false },
     colored: { type: Boolean, default: true },
   },
-  inject: ["context"],
   computed: {
     entities() {
       return Object.keys(this.context.value);

@@ -25,8 +25,8 @@ import EditorCard from "@/components/EditorCard";
 export default {
   name: "PhraseConditionsEditor",
   components: { EditorCard },
-  props: ["modelValue", "allowPassive", "header", "icon"],
   inject: ["contextSource"],
+  props: ["modelValue", "allowPassive", "header", "icon"],
   emits: ["update:modelValue"],
   computed: {
     conditions: {

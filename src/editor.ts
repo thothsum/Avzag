@@ -1,7 +1,7 @@
 import { watch, ref, Ref } from "vue";
 
 type Options = {
-  defaultFile: object;
+  defaultFile: unknown;
   storage: string;
   filename: string | (() => string);
 };
