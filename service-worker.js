@@ -1,78 +1,34 @@
-importScripts("/precache-manifest.51f04b0ca683b2fa81fdbbeb03f073db.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+/**
+ * Welcome to your Workbox-powered service worker!
+ *
+ * You'll need to register this file in your web app and you should
+ * disable HTTP caching for this file too.
+ * See https://goo.gl/nhQhGp
+ *
+ * The rest of the code is auto-generated. Please don't update this file
+ * directly; instead, make changes to your Workbox build configuration
+ * and re-run your build process.
+ * See https://goo.gl/2aRDsh
+ */
 
-// This is the service worker with the Cache-first network
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-const CACHE = "sw-avzag-precache";
-const precacheFiles = self.__precacheManifest.map(f => f.url);
+importScripts(
+  "/precache-manifest.8ded2d41a63acada392764ed901672e9.js"
+);
 
-self.addEventListener("install", function (event) {
-    console.log("[PWA Builder] Install Event processing");
-    console.log("[PWA Builder] Skip waiting on install");
+workbox.core.setCacheNameDetails({prefix: "avzag"});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
-
-    event.waitUntil(
-        caches.open(CACHE).then(function (cache) {
-            console.log("[PWA Builder] Caching pages during install");
-            return cache.addAll(precacheFiles);
-        })
-    );
+  }
 });
 
-// Allow sw to control of current page
-self.addEventListener("activate", function (event) {
-    console.log("[PWA Builder] Claiming clients for current page");
-    event.waitUntil(self.clients.claim());
-});
-
-// If any fetch fails, it will look for the request in the cache and serve it from there first
-self.addEventListener("fetch", function (event) {
-    if (event.request.method !== "GET") return;
-
-    event.respondWith(
-        fromCache(event.request).then(
-            function (response) {
-                // The response was found in the cache so we responde with it and update the entry
-
-                // This is where we call the server to get the newest version of the
-                // file to use the next time we show view
-                event.waitUntil(
-                    fetch(event.request).then(function (response) {
-                        return updateCache(event.request, response);
-                    })
-                );
-
-                return response;
-            },
-            async function () {
-                // The response was not found in the cache so we look for it on the server
-                try {
-                    const response = await fetch(event.request);
-                    // If request was success, add or update it in the cache
-                    event.waitUntil(updateCache(event.request, response.clone()));
-                    return response;
-                }
-                catch (error) {
-                    console.log("[PWA Builder] Network request failed and no cache." + error);
-                }
-            }
-        )
-    );
-});
-
-async function fromCache(request) {
-    // Check to see if you have it in the cache
-    // Return response
-    // If not in the cache, then return
-    const cache = await caches.open(CACHE);
-    const matching = await cache.match(request);
-    if (!matching || matching.status === 404) {
-        return Promise.reject("no-match");
-    }
-    return matching;
-}
-
-async function updateCache(request, response) {
-    const cache = await caches.open(CACHE);
-    return cache.put(request, response);
-}
-
+/**
+ * The workboxSW.precacheAndRoute() method efficiently caches and responds to
+ * requests for URLs in the manifest.
+ * See https://goo.gl/S9QRab
+ */
+self.__precacheManifest = [].concat(self.__precacheManifest || []);
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
