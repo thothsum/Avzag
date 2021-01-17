@@ -39,7 +39,11 @@
         </template>
         <VContext />
         <div class="row-1 wrap block-editor">
-          <div v-for="(b, i) in blocks" :key="phrase.id + '--' + i" class="row">
+          <div
+            v-for="(b, i) in phrase.blocks"
+            :key="phrase.id + '--' + i"
+            class="row"
+          >
             <btn icon="edit" :is-on="block === b" @click="block = b" />
             <VBlock :block="b" />
           </div>
@@ -143,41 +147,6 @@ export default defineComponent({
       blocks.splice(index, 1);
       block.value = blocks[blocks.length - 1];
     }
-  },
-  data() {
-    return {
-      file: [],
-      section: undefined,
-      phrase: undefined,
-      block: undefined,
-      context: undefined,
-      fullContext: undefined,
-    };
-  },
-  computed: {
-    contextSource() {
-      return this.phrase?.context ?? [];
-    },
-    blocks() {
-      return this.phrase?.blocks;
-    },
-  },
-  watch: {
-    section() {
-      this.phrase = this.section?.phrases[0];
-    },
-    phrase: {
-      handler() {
-        this.context = {};
-        this.fullContext = {};
-        this.contextSource.forEach(({ entity, tags }) => {
-          this.context[entity] = new Set();
-          this.fullContext[entity] = tags.split(" ");
-        });
-      },
-      deep: true,
-      immediate: true,
-    },
   },
 });
 </script>
