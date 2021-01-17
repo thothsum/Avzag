@@ -5,15 +5,13 @@
       <div v-for="(c, i) in conditions" :key="i" class="row">
         <toggle v-if="allowPassive" v-model="c.passive" icon="call_missed" />
         <select v-model="c.entity">
-          <option v-for="e in entities" :key="e" :value="e" />
+          <option v-for="e in entities" :key="e" :value="e">{{ e }}</option>
         </select>
         <p class="icon">west</p>
-        <select v-model="c.tag" v-if="c.entity">
-          <option
-            v-for="t in [...contextSource[c.entity]]"
-            :key="t"
-            :value="t"
-          />
+        <select v-if="c.entity" v-model="c.tag">
+          <option v-for="t in tags[c.entity]" :key="t" :value="t">
+            {{ t }}
+          </option>
         </select>
         <btn icon="clear" @click="remove(i)" />
       </div>
@@ -41,6 +39,15 @@ export default {
     },
     entities() {
       return Object.keys(this.contextSource.value);
+    },
+    tags() {
+      return Object.entries(this.contextSource.value).reduce(
+        (c, [entity, tags]) => {
+          c[entity] = [...tags];
+          return c;
+        },
+        {}
+      );
     },
   },
   methods: {
