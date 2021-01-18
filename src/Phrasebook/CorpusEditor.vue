@@ -63,7 +63,7 @@ import ContextEditor from "./Context/Editor.vue";
 import VBlock from "./Block/index.vue";
 import BlockEditor from "./Block/Editor.vue";
 
-import { defineComponent, ref, provide, watch, nextTick, toRaw } from "vue";
+import { defineComponent, ref, provide, watch, toRaw } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import { setupEditor } from "@/editor";
 import { Block, Context, CorpusPhrase, CorpusSection } from "./types";
@@ -109,15 +109,14 @@ export default defineComponent({
     watch(
       () => phrase.value?.context,
       (phraseContext) => {
-        if (phraseContext)
-          nextTick(() => {
-            context.value = {};
-            contextSource.value = {};
-            phraseContext.forEach(({ entity, tags }) => {
-              context.value[entity] = new Set();
-              contextSource.value[entity] = new Set(tags.split(" "));
-            });
+        if (phraseContext) {
+          context.value = {};
+          contextSource.value = {};
+          phraseContext.forEach(({ entity, tags }) => {
+            context.value[entity] = new Set();
+            contextSource.value[entity] = new Set(tags.split(" "));
           });
+        }
       },
       { immediate: true }
     );

@@ -74,7 +74,7 @@ import BlockEditor from "./Block/Editor.vue";
 import VContext from "./Context/index.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
-import { defineComponent, ref, watch, nextTick, provide, toRaw } from "vue";
+import { defineComponent, ref, watch, provide, toRaw } from "vue";
 import { loadJSON } from "@/store";
 import { setupEditor } from "@/editor";
 import {
@@ -135,13 +135,11 @@ export default defineComponent({
         if (!phrase) return;
         if (!file.value[phrase.id]) file.value[phrase.id] = { blocks: [] };
         translation.value = file.value[phrase.id];
-        nextTick(() => {
-          context.value = {};
-          contextSource.value = {};
-          phrase.context.forEach(({ entity, tags }) => {
-            context.value[entity] = new Set();
-            contextSource.value[entity] = new Set(tags.split(" "));
-          });
+        context.value = {};
+        contextSource.value = {};
+        phrase.context.forEach(({ entity, tags }) => {
+          context.value[entity] = new Set();
+          contextSource.value[entity] = new Set(tags.split(" "));
         });
       },
       { immediate: true }

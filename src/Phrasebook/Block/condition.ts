@@ -43,11 +43,12 @@ export function applyConditions(
   context: Ref<Context>,
   positive: boolean
 ) {
-  if (!conditions) return;
-  conditions.forEach(({ entity, tag, passive }) => {
-    const set = context.value[entity];
-    if (passive || !tag || !set) return;
-    if (positive) set.add(tag);
-    else set.delete(tag);
-  });
+  if (conditions)
+    conditions.forEach(({ entity, tag, passive }) => {
+      const set = context.value[entity];
+      console.log(set);
+      if (passive || !tag || !set) return;
+      if (positive) set.add(tag);
+      else set.delete(tag);
+    });
 }

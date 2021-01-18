@@ -63,7 +63,7 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import { computed, ref, watch, defineComponent, provide, nextTick } from "vue";
+import { computed, ref, watch, defineComponent, provide } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
@@ -78,13 +78,10 @@ export default defineComponent({
       phrase,
       (phrase) => {
         if (phrase.context)
-          nextTick(
-            () =>
-              (context.value = phrase.context.reduce((c, { entity }) => {
-                c[entity] = new Set();
-                return c;
-              }, {} as Context))
-          );
+          context.value = phrase.context.reduce((c, { entity }) => {
+            c[entity] = new Set();
+            return c;
+          }, {} as Context);
       },
       { immediate: true }
     );
