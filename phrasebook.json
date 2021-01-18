@@ -5,7 +5,7 @@
     "phrases": [
       {
         "id": "10",
-        "preview": "Asking direction",
+        "name": "Asking direction",
         "context": [
           {
             "entity": "tense",
@@ -176,7 +176,7 @@
       },
       {
         "id": "11",
-        "preview": "Asking name",
+        "name": "Asking name",
         "context": [
           {
             "entity": "object",
@@ -328,7 +328,7 @@
       },
       {
         "id": "12",
-        "preview": "Giving thanks",
+        "name": "Giving thanks",
         "context": [
           {
             "entity": "subject",
@@ -425,7 +425,7 @@
       },
       {
         "id": "13",
-        "preview": "Transfering objects",
+        "name": "Transfering objects",
         "context": [
           {
             "entity": "action",
@@ -542,7 +542,7 @@
     "phrases": [
       {
         "id": "21",
-        "preview": "Asking cost",
+        "name": "Asking cost",
         "context": [
           {
             "entity": "object",
