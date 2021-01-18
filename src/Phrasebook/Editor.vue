@@ -16,7 +16,7 @@
           <p class="icon">short_text</p>
           <select v-model="phrase">
             <option v-for="p in section.phrases" :key="p.id" :value="p">
-              {{ p.preview }}
+              {{ p.name }}
             </option>
           </select>
         </div>

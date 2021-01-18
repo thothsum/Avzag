@@ -30,7 +30,7 @@
               <btn
                 v-for="p in ps"
                 :key="p"
-                :text="corpus[s].phrases[p].preview"
+                :text="corpus[s].phrases[p].name"
                 :is-on="phrase === corpus[s].phrases[p]"
                 @click="select(corpus[s], corpus[s].phrases[p])"
               />

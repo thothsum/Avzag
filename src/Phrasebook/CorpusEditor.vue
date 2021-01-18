@@ -24,7 +24,7 @@
         <div class="col scroll">
           <div v-for="p in section.phrases" :key="p.id" class="row">
             <btn icon="edit" :is-on="phrase === p" @click="phrase = p" />
-            <input v-model="p.preview" class="flex" type="text" />
+            <input v-model="p.name" class="flex" type="text" />
           </div>
         </div>
       </EditorCard>
