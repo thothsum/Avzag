@@ -41,18 +41,18 @@
           <btn
             v-for="p in phrases"
             :key="p.id"
-            :text="p.preview"
+            :text="p.name"
             :is-on="phrase === p"
             @click="select(null, p)"
           />
         </div>
       </div>
     </div>
-    <div v-if="phrase" class="col-1">
-      <PhraseCard :key="phrase.id" :phrase="phrase" />
+    <div v-if="phrase" :key="phrase.id" class="col-1">
+      <PhraseCard :phrase="phrase" />
       <PhraseCard
         v-for="(p, n) of phrasebooks"
-        :key="n + '--' + phrase.id"
+        :key="n"
         :lect="n"
         :phrase="p[phrase.id]"
       />
@@ -63,7 +63,7 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import { computed, ref, watch, defineComponent, provide } from "vue";
+import { computed, ref, watch, defineComponent, provide, nextTick } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
@@ -76,13 +76,14 @@ export default defineComponent({
     const context = ref({} as Context);
     watch(
       phrase,
-      (phrase) => {
-        if (phrase.context)
-          context.value = phrase.context.reduce((c, { entity }) => {
-            c[entity] = new Set();
-            return c;
-          }, {} as Context);
-      },
+      (phrase) =>
+        nextTick(() => {
+          if (phrase.context)
+            context.value = phrase.context.reduce((c, { entity }) => {
+              c[entity] = new Set();
+              return c;
+            }, {} as Context);
+        }),
       { immediate: true }
     );
 

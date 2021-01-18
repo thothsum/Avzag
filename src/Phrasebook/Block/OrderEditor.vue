@@ -28,7 +28,10 @@ import { CorpusPhrase, Block } from "../types";
 export default defineComponent({
   components: { EditorCard, ArrayShift, ButtonAlert, Context, VBlock },
   props: {
-    modelValue: { type: Object as PropType<Block>, default: undefined },
+    modelValue: {
+      type: Object as PropType<Block | undefined>,
+      default: undefined,
+    },
     phrase: { type: Object as PropType<CorpusPhrase>, default: () => ({}) },
   },
   emits: ["update:modelValue", "update:phrase"],
@@ -52,19 +55,23 @@ export default defineComponent({
     );
 
     function pickLast() {
-      if (blocks.value) block.value = blocks.value[blocks.value.length - 1];
+      block.value = blocks.value
+        ? blocks.value[blocks.value.length - 1]
+        : undefined;
     }
     watch(blocks, pickLast, {
       immediate: true,
     });
 
     function add() {
+      if (!blocks.value) blocks.value = [];
       blocks.value.push({
         states: [{ display: [{ text: "new state" }], transition: "next" }],
       });
       pickLast();
     }
     function remove() {
+      if (!block.value) return;
       const index = toRaw(blocks.value).indexOf(toRaw(block.value));
       blocks.value.splice(index, 1);
       pickLast();

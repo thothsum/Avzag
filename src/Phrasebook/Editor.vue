@@ -24,16 +24,7 @@
           The source corpus is loading from what is saved on Phrasebook Corpus
           editor page.
         </p>
-        <template v-if="phrase?.blocks">
-          <VContext />
-          <div class="row wrap">
-            <VBlock
-              v-for="(b, i) in phrase.blocks"
-              :key="phrase.id + '--' + i"
-              :block="b"
-            />
-          </div>
-        </template>
+        <PhraseCard :key="phrase.id" :phrase="phrase" :editor="true" />
       </div>
       <template v-if="translation">
         <BlocksOrderEditor v-model="block" v-model:phrase="translation" />
@@ -51,8 +42,7 @@
 </template>
 
 <script lang="ts">
-import VContext from "./Context/index.vue";
-import VBlock from "./Block/index.vue";
+import PhraseCard from "./PhraseCard.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
 import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import BlockEditor from "./Block/Editor.vue";
@@ -72,8 +62,7 @@ import {
 
 export default defineComponent({
   components: {
-    VContext,
-    VBlock,
+    PhraseCard,
     NotesEditor,
     BlocksOrderEditor,
     BlockEditor,
