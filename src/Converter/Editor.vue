@@ -10,7 +10,7 @@
       </EditorCard>
       <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
         <template v-if="mapping" #header>
-          <ArrayReorder v-model="mappings" :item="mapping" />
+          <ArrayShift v-model="mappings" :item="mapping" />
           <p class="text-dot" />
           <ButtonAlert @confirm="deleteMapping" />
         </template>
@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import ArrayReorder from "@/components/ArrayReorder.vue";
+import ArrayShift from "@/components/ArrayShift.vue";
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
@@ -58,7 +58,7 @@ import { setupEditor } from "@/editor";
 import convert from "./convert";
 
 export default defineComponent({
-  components: { ArrayReorder, ButtonAlert, EditorCard },
+  components: { ArrayShift, ButtonAlert, EditorCard },
   setup() {
     const mapping = ref({} as Mapping);
     const file = setupEditor<Converter>({

@@ -38,6 +38,8 @@
       <template v-if="translation">
         <EditorCard icon="account_tree" header="Blocks" @action="addBlock">
           <template v-if="block" #header>
+            <ArrayShift v-model="translation.blocks" :item="block" />
+            <p class="text-dot" />
             <ButtonAlert @confirm="removeBlock" />
           </template>
           <VContext :translation="translation.context" />
@@ -66,6 +68,7 @@
 </template>
 
 <script lang="ts">
+import ArrayShift from "@/components/ArrayShift.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
@@ -88,6 +91,7 @@ import {
 
 export default defineComponent({
   components: {
+    ArrayShift,
     EditorCard,
     ButtonAlert,
     NotesEditor,

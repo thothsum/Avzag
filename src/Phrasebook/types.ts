@@ -38,7 +38,7 @@ export type ContextTranslation = {
 
 export type CorpusPhrase = {
   id: string;
-  preview: string;
+  name: string;
   context: ContextSource[];
   blocks: Block[];
 };

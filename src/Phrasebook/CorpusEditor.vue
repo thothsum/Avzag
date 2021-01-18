@@ -3,6 +3,8 @@
     <div class="col-2">
       <EditorCard icon="topic" header="sections" @action="addSection">
         <template v-if="section" #header>
+          <ArrayShift v-model="file" :item="section" />
+          <p class="text-dot" />
           <ButtonAlert @confirm="removeSection" />
         </template>
         <div class="col scroll">
@@ -19,6 +21,8 @@
         @action="addPhrase"
       >
         <template v-if="phrase" #header>
+          <ArrayShift v-model="section.phrases" :item="phrase" />
+          <p class="text-dot" />
           <ButtonAlert @confirm="removePhrase" />
         </template>
         <div class="col scroll">
@@ -35,6 +39,8 @@
         @action="addBlock"
       >
         <template v-if="block" #header>
+          <ArrayShift v-model="phrase.blocks" :item="block" />
+          <p class="text-dot" />
           <ButtonAlert @confirm="removeBlock" />
         </template>
         <VContext />
@@ -56,6 +62,7 @@
 </template>
 
 <script lang="ts">
+import ArrayShift from "@/components/ArrayShift.vue";
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import VContext from "./Context/index.vue";
@@ -70,6 +77,7 @@ import { Block, Context, CorpusPhrase, CorpusSection } from "./types";
 
 export default defineComponent({
   components: {
+    ArrayShift,
     ButtonAlert,
     EditorCard,
     VContext,
@@ -145,7 +153,7 @@ export default defineComponent({
     function addPhrase() {
       const p = {
         id: uuidv4(),
-        preview: "New phrase",
+        name: "New phrase",
         context: [],
         blocks: [],
       };

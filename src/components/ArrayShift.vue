@@ -1,7 +1,7 @@
 <template>
   <div class="row-0">
-    <btn icon="keyboard_arrow_up" @click="shiftMapping(-1)" />
-    <btn icon="keyboard_arrow_down" @click="shiftMapping(1)" />
+    <btn icon="keyboard_arrow_up" @click="shift(-1)" />
+    <btn icon="keyboard_arrow_down" @click="shift(1)" />
   </div>
 </template>
 
