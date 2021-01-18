@@ -102,10 +102,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 button {
-  position: relative;
-  &.glossed {
-    height: map-get($button-height, "normal") + map-get($margins, "normal");
-  }
+  height: fit-content;
 }
 .disabled {
   padding: 0;

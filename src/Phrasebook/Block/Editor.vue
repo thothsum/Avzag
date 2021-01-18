@@ -10,12 +10,14 @@
     </ConditionsEditor>
     <EditorCard icon="tune" header="States" @action="add">
       <template v-if="state" #header>
+        <toggle v-model="glossed" icon="layers" />
+        <p class="text-dot" />
         <ButtonAlert @confirm="remove" />
       </template>
       <div class="row-1 wrap block-editor">
         <div v-for="(s, i) in states" :key="i" class="row">
           <btn icon="edit" :is-on="state === s" @click="state = s" />
-          <Display :state="s" />
+          <Display :state="s" :glossed="glossed" />
         </div>
       </div>
     </EditorCard>
@@ -58,6 +60,7 @@ export default {
   data() {
     return {
       state: undefined,
+      glossed: false,
     };
   },
   computed: {

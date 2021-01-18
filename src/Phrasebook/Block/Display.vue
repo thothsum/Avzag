@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <p
-      v-for="(t, i) in types"
-      :key="i"
-      :class="{ 'text-faded': state.implicit, 'text-ipa': t === 'ipa', t }"
-    >
-      <span v-for="(s, j) in segments[i]" :key="j" :class="segmentColors[j]">
-        {{ s }}
-      </span>
-    </p>
-    <div class="row line">
-      <p v-for="(c, i) in dashColors" :key="i" class="dash" :class="c" />
+  <div class="display row" :class="{ glossed: canGloss }">
+    <div class="segments" :class="{ 'text-faded': state.implicit }">
+      <p v-for="(t, i) in types" :key="i" :class="{ 'text-ipa': t === 'ipa' }">
+        <span v-for="(s, j) in segments[i]" :key="j" :class="segmentColors[j]">
+          {{ s }}
+        </span>
+      </p>
+    </div>
+    <div class="row dashes">
+      <p v-for="(c, i) in dashColors" :key="i" :class="c" />
     </div>
   </div>
 </template>
@@ -27,8 +25,13 @@ export default {
     entities() {
       return Object.keys(this.context.value);
     },
+    canGloss() {
+      return (
+        this.glossed && this.state.display.some((s) => s.ipa || s.glossing)
+      );
+    },
     types() {
-      return this.glossed ? ["ipa", "glossing"] : ["text"];
+      return this.canGloss ? ["ipa", "glossing"] : ["text"];
     },
     segmentColors() {
       return this.state.display.map(
@@ -58,11 +61,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-p {
-  display: flex;
-  gap: 0;
+.display {
+  height: map-get($button-height, "small");
+  position: relative;
+  &.glossed {
+    height: map-get($button-height, "normal") + map-get($margins, "normal");
+  }
 }
-.line {
+.segments {
+  display: flex;
+  flex-direction: column;
+  p {
+    display: flex;
+    place-content: center;
+  }
+}
+.dashes {
   overflow: hidden;
   border-radius: 0 0 $border-radius $border-radius;
   height: $border-radius;
@@ -71,7 +85,7 @@ p {
   justify-content: center;
   position: absolute;
   bottom: 0;
-  .dash {
+  > * {
     height: 100%;
     width: 4 * $border-radius;
   }
