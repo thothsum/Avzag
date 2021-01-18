@@ -96,7 +96,7 @@ export default defineComponent({
         ? corpus.value.reduce((result, section, index) => {
             result[index] = section.phrases
               .map((phrase, index) => [phrase, index] as [CorpusPhrase, number])
-              .filter(([phrase]) => phrase.preview.includes(query.value))
+              .filter(([phrase]) => phrase.name.includes(query.value))
               .map(([, index]) => index);
             if (!result[index].length) delete result[index];
             return result;
