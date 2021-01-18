@@ -57,7 +57,7 @@
       </EditorCard>
       <ContextEditor v-if="phrase" v-model="phrase.context" />
     </div>
-    <BlockEditor v-if="block" v-model="block" @remove="removeBlock" />
+    <BlockEditor v-if="block" v-model="block" />
   </div>
 </template>
 
@@ -151,7 +151,7 @@ export default defineComponent({
       section.value = file.value[file.value.length - 1];
     }
     function addPhrase() {
-      const p = {
+      const p: CorpusPhrase = {
         id: uuidv4(),
         name: "New phrase",
         context: [],
@@ -161,7 +161,7 @@ export default defineComponent({
       phrase.value = p;
     }
     function removePhrase() {
-      const phrases = toRaw(section.value.phrases);
+      const phrases = toRaw (section.value.phrases);
       phrases.splice(phrases.indexOf(toRaw(phrase.value)), 1);
       phrase.value = phrases[phrases.length - 1];
     }

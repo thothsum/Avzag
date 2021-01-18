@@ -63,7 +63,7 @@
         </ContextTranslationEditor>
       </template>
     </div>
-    <BlockEditor v-if="block" v-model="block" @remove="removeBlock" />
+    <BlockEditor v-if="block" v-model="block" />
   </div>
 </template>
 
