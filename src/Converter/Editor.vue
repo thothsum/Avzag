@@ -10,8 +10,7 @@
       </EditorCard>
       <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
         <template v-if="mapping" #header>
-          <btn icon="keyboard_arrow_up" @click="shiftMapping(-1)" />
-          <btn icon="keyboard_arrow_down" @click="shiftMapping(1)" />
+          <ArrayReorder v-model="mappings" :item="mapping" />
           <p class="text-dot" />
           <ButtonAlert @confirm="deleteMapping" />
         </template>
@@ -49,6 +48,7 @@
 </template>
 
 <script lang="ts">
+import ArrayReorder from "@/components/ArrayReorder.vue";
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
@@ -58,7 +58,7 @@ import { setupEditor } from "@/editor";
 import convert from "./convert";
 
 export default defineComponent({
-  components: { ButtonAlert, EditorCard },
+  components: { ArrayReorder, ButtonAlert, EditorCard },
   setup() {
     const mapping = ref({} as Mapping);
     const file = setupEditor<Converter>({
@@ -77,12 +77,6 @@ export default defineComponent({
     const mappings = computed(() => file.value?.mappings ?? []);
     const pairs = computed(() => mapping.value?.pairs ?? []);
 
-    function shiftMapping(shift: number) {
-      const length = mappings.value.length;
-      const from = mappings.value.indexOf(mapping.value);
-      const to = (from + shift + length) % length;
-      mappings.value.splice(to, 0, mappings.value.splice(from, 1)[0]);
-    }
     function addMapping() {
       mapping.value = { name: "newMapping", pairs: [] };
       mappings.value.push(mapping.value);
@@ -113,7 +107,6 @@ export default defineComponent({
       mappings,
       mapping,
       pairs,
-      shiftMapping,
       addMapping,
       deleteMapping,
       addPair,
