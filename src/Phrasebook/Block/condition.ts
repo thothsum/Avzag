@@ -46,7 +46,6 @@ export function applyConditions(
   if (conditions)
     conditions.forEach(({ entity, tag, passive }) => {
       const set = context.value[entity];
-      console.log(set);
       if (passive || !tag || !set) return;
       if (positive) set.add(tag);
       else set.delete(tag);
