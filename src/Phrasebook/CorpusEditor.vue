@@ -32,29 +32,7 @@
           </div>
         </div>
       </EditorCard>
-      <EditorCard
-        v-if="phrase"
-        icon="account_tree"
-        header="Blocks"
-        @action="addBlock"
-      >
-        <template v-if="block" #header>
-          <ArrayShift v-model="phrase.blocks" :item="block" />
-          <p class="text-dot" />
-          <ButtonAlert @confirm="removeBlock" />
-        </template>
-        <VContext />
-        <div class="row-1 wrap block-editor">
-          <div
-            v-for="(b, i) in phrase.blocks"
-            :key="phrase.id + '--' + i"
-            class="row"
-          >
-            <btn icon="edit" :is-on="block === b" @click="block = b" />
-            <VBlock :block="b" />
-          </div>
-        </div>
-      </EditorCard>
+      <BlocksOrderEditor v-model="block" v-model:phrase="phrase" />
       <ContextEditor v-if="phrase" v-model="phrase.context" />
     </div>
     <BlockEditor v-if="block" v-model="block" />
@@ -65,9 +43,8 @@
 import ArrayShift from "@/components/ArrayShift.vue";
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
-import VContext from "./Context/index.vue";
+import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import ContextEditor from "./Context/Editor.vue";
-import VBlock from "./Block/index.vue";
 import BlockEditor from "./Block/Editor.vue";
 
 import { defineComponent, ref, provide, watch, toRaw } from "vue";
@@ -80,9 +57,8 @@ export default defineComponent({
     ArrayShift,
     ButtonAlert,
     EditorCard,
-    VContext,
+    BlocksOrderEditor,
     ContextEditor,
-    VBlock,
     BlockEditor,
   },
   setup() {
@@ -128,14 +104,6 @@ export default defineComponent({
       },
       { immediate: true }
     );
-    watch(
-      phrase,
-      (phrase) => {
-        if (phrase?.blocks)
-          block.value = phrase.blocks[phrase.blocks.length - 1];
-      },
-      { immediate: true }
-    );
 
     function addSection() {
       const s = {
@@ -161,22 +129,9 @@ export default defineComponent({
       phrase.value = p;
     }
     function removePhrase() {
-      const phrases = toRaw (section.value.phrases);
+      const phrases = toRaw(section.value.phrases);
       phrases.splice(phrases.indexOf(toRaw(phrase.value)), 1);
       phrase.value = phrases[phrases.length - 1];
-    }
-
-    function addBlock() {
-      block.value = {
-        states: [{ display: [{ text: "new state" }], transition: "next" }],
-      };
-      phrase.value.blocks.push(block.value);
-    }
-    function removeBlock() {
-      const blocks = toRaw(phrase.value.blocks);
-      const index = blocks.indexOf(toRaw(block.value));
-      blocks.splice(index, 1);
-      block.value = blocks[blocks.length - 1];
     }
 
     return {
@@ -188,8 +143,6 @@ export default defineComponent({
       removeSection,
       addPhrase,
       removePhrase,
-      addBlock,
-      removeBlock,
     };
   },
 });

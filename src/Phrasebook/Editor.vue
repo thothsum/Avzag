@@ -36,24 +36,7 @@
         </template>
       </div>
       <template v-if="translation">
-        <EditorCard icon="account_tree" header="Blocks" @action="addBlock">
-          <template v-if="block" #header>
-            <ArrayShift v-model="translation.blocks" :item="block" />
-            <p class="text-dot" />
-            <ButtonAlert @confirm="removeBlock" />
-          </template>
-          <VContext :translation="translation.context" />
-          <div class="row-1 wrap block-editor">
-            <div
-              v-for="(b, i) in translation.blocks"
-              :key="phrase.id + '--' + i"
-              class="row"
-            >
-              <btn icon="edit" :is-on="block === b" @click="block = b" />
-              <VBlock :block="b" />
-            </div>
-          </div>
-        </EditorCard>
+        <BlocksOrderEditor v-model="block" v-model:phrase="translation" />
         <NotesEditor v-model="translation.notes">
           You can add notes, for example, to explain certain grammatical rules.
         </NotesEditor>
@@ -68,13 +51,11 @@
 </template>
 
 <script lang="ts">
-import ArrayShift from "@/components/ArrayShift.vue";
-import EditorCard from "@/components/EditorCard.vue";
-import ButtonAlert from "@/components/ButtonAlert.vue";
-import NotesEditor from "@/components/Notes/Editor.vue";
-import VBlock from "./Block/index.vue";
-import BlockEditor from "./Block/Editor.vue";
 import VContext from "./Context/index.vue";
+import VBlock from "./Block/index.vue";
+import NotesEditor from "@/components/Notes/Editor.vue";
+import BlocksOrderEditor from "./Block/OrderEditor.vue";
+import BlockEditor from "./Block/Editor.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
 import { defineComponent, ref, watch, provide, toRaw } from "vue";
@@ -91,13 +72,11 @@ import {
 
 export default defineComponent({
   components: {
-    ArrayShift,
-    EditorCard,
-    ButtonAlert,
-    NotesEditor,
-    VBlock,
-    BlockEditor,
     VContext,
+    VBlock,
+    NotesEditor,
+    BlocksOrderEditor,
+    BlockEditor,
     ContextTranslationEditor,
   },
   setup() {
