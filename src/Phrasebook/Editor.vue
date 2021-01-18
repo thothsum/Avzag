@@ -59,6 +59,7 @@ import {
   Phrase,
   Phrasebook,
 } from "./types";
+import { createContext } from "./utils";
 
 export default defineComponent({
   components: {
@@ -107,12 +108,8 @@ export default defineComponent({
         if (!phrase) return;
         if (!file.value[phrase.id]) file.value[phrase.id] = { blocks: [] };
         translation.value = file.value[phrase.id];
-        context.value = {};
-        contextSource.value = {};
-        phrase.context.forEach(({ entity, tags }) => {
-          context.value[entity] = new Set();
-          contextSource.value[entity] = new Set(tags.split(" "));
-        });
+        createContext(context, phrase.context);
+        createContext(contextSource, phrase.context, true);
       },
       { immediate: true }
     );

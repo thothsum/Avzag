@@ -67,6 +67,7 @@ import { computed, ref, watch, defineComponent, provide, nextTick } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
+import { createContext } from "./utils";
 
 export default defineComponent({
   components: { PhraseCard },
@@ -76,14 +77,7 @@ export default defineComponent({
     const context = ref({} as Context);
     watch(
       phrase,
-      (phrase) =>
-        nextTick(() => {
-          if (phrase.context)
-            context.value = phrase.context.reduce((c, { entity }) => {
-              c[entity] = new Set();
-              return c;
-            }, {} as Context);
-        }),
+      (phrase) => nextTick(() => createContext(context, phrase.context)),
       { immediate: true }
     );
 
