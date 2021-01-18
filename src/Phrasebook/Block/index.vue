@@ -6,20 +6,11 @@
     :class="{ disabled, glossed }"
     @click="move"
   >
-    <!-- <IndexedColor :passive="true" :indexes="passiveIndexes" /> -->
-    <IndexedColor :indexes="activeIndexes" />
-    <Display
-      ref="display"
-      :glossed="glossed"
-      :colored="true"
-      :state="state"
-      :context="context"
-    />
+    <Display ref="display" :glossed="glossed" :state="state" />
   </button>
 </template>
 
 <script lang="ts">
-import IndexedColor from "./IndexedColor.vue";
 import Display from "./Display.vue";
 import {
   computed,
@@ -31,16 +22,11 @@ import {
   toRaw,
   watch,
 } from "vue";
-import { Context, Block, State, Condition } from "../types";
-import {
-  applyConditions,
-  findBestState,
-  checkConditions,
-  getEntityIndexes,
-} from "./condition";
+import { Context, Block, State } from "../types";
+import { applyConditions, findBestState, checkConditions } from "./condition";
 
 export default defineComponent({
-  components: { IndexedColor, Display },
+  components: { Display },
   props: {
     block: { type: Object as PropType<Block>, default: () => ({}) },
     glossed: Boolean,
@@ -82,31 +68,6 @@ export default defineComponent({
       { immediate: true, deep: true }
     );
 
-    const entities = computed(() => Object.keys(context.value));
-    const passiveIndexes = computed(() => {
-      let _conditions: Condition[] = [];
-
-      if (requirements.value)
-        _conditions = _conditions.concat(requirements.value);
-      if (conditions.value) {
-        _conditions = _conditions.concat(
-          transition.value
-            ? conditions.value.filter((c) => c.passive)
-            : conditions.value
-        );
-      }
-
-      return getEntityIndexes(_conditions, entities.value);
-    });
-    const activeIndexes = computed(() => {
-      return transition.value && conditions.value
-        ? getEntityIndexes(
-            conditions.value.filter(({ passive }) => !passive),
-            entities.value
-          )
-        : [];
-    });
-
     function move() {
       if (disabled.value) return;
       const states = props.block.states;
@@ -126,8 +87,6 @@ export default defineComponent({
     }
 
     return {
-      passiveIndexes,
-      activeIndexes,
       move,
       context,
       state,

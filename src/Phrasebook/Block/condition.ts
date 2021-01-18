@@ -1,11 +1,6 @@
 import { Ref } from "vue";
 import { Condition, Context, State } from "../types";
 
-export function getEntityIndexes(conditions: Condition[], entities: string[]) {
-  const set = new Set(conditions.map((c) => c.entity));
-  return [...set].map((e) => entities.indexOf(e));
-}
-
 export function checkConditions(
   conditions: undefined | Condition[],
   context: Context
