@@ -1,21 +1,13 @@
 <template>
   <div class="row text-caption wrap">
     <div class="icon">info</div>
-    <template v-if="any">
-      <template v-for="(ts, i) of tags" :key="i">
-        <div v-if="ts.length" class="row-0 wrap">
-          <p
-            v-for="t in ts"
-            :key="t"
-            class="text-dot"
-            :class="'colored-dot-' + i"
-          >
-            {{ t }}
-          </p>
-        </div>
-      </template></template
-    >
-    <p v-else>…</p>
+    <template v-for="(ts, i) of tags" :key="i">
+      <template v-if="ts.length" class="row-0 wrap">
+        <p v-for="t in ts" :key="t + '--' + i" :class="'colored-dot-' + i">
+          {{ t }}
+        </p>
+      </template>
+    </template>
   </div>
 </template>
 
@@ -92,5 +84,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .icon {
   font-size: map-get($font-sizes, "small");
+}
+p:not(:last-child)::after {
+  content: ",";
 }
 </style>
