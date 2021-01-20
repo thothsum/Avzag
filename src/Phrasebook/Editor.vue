@@ -1,7 +1,7 @@
 <template>
   <div v-if="file && corpus" class="section col-2 small grid">
     <div class="col-2">
-      <div class="col-1 wrap card">
+      <div class="col wrap card">
         <div class="row-1">
           <p class="icon">topic</p>
           <h2 class="col-1 flex">
@@ -24,10 +24,17 @@
           The source corpus is loading from what is saved on Phrasebook Corpus
           editor page.
         </p>
-        <PhraseCard :key="phrase.id" :phrase="phrase" :editor="true" />
+        <VContext />
+        <div v-if="phrase" :key="phrase.id" class="row wrap flex">
+          <VBlock v-for="(b, i) in phrase.blocks" :key="i" :block="b" />
+        </div>
       </div>
       <template v-if="translation">
-        <BlocksOrderEditor v-model="block" v-model:phrase="translation" />
+        <BlocksOrderEditor
+          :key="phrase.id"
+          v-model="block"
+          v-model:phrase="translation"
+        />
         <NotesEditor v-model="translation.notes">
           You can add notes, for example, to explain certain grammatical rules.
         </NotesEditor>
@@ -42,8 +49,9 @@
 </template>
 
 <script lang="ts">
-import PhraseCard from "./PhraseCard.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
+import VContext from "./Context/index.vue";
+import VBlock from "./Block/index.vue";
 import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import BlockEditor from "./Block/Editor.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
@@ -63,7 +71,8 @@ import { createContext } from "./utils";
 
 export default defineComponent({
   components: {
-    PhraseCard,
+    VContext,
+    VBlock,
     NotesEditor,
     BlocksOrderEditor,
     BlockEditor,

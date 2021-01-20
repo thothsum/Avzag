@@ -1,13 +1,16 @@
 <template>
   <div class="row text-caption wrap">
     <div class="icon">info</div>
-    <template v-for="(ts, i) of tags" :key="i">
-      <template v-if="ts.length" class="row-0 wrap">
-        <p v-for="t in ts" :key="t + '--' + i" :class="'colored-dot-' + i">
-          {{ t }}
-        </p>
+    <template v-if="any">
+      <template v-for="(ts, i) of tags" :key="i">
+        <template v-if="ts.length" class="row-0 wrap">
+          <p v-for="t in ts" :key="t + '--' + i" :class="'colored-dot-' + i">
+            {{ t }}
+          </p>
+        </template>
       </template>
     </template>
+    <template v-else>…</template>
   </div>
 </template>
 

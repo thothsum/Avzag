@@ -1,15 +1,12 @@
 <template>
-  <div v-if="phrase" class="col-1" :class="{ card: !editor }">
+  <div v-if="phrase" class="col-1 card">
     <div class="row-1 small wrap" style="width: 100%">
       <template v-if="lect">
         <btn icon="content_copy" @click="copy" />
         <toggle v-model="glossed" icon="layers" />
         <h2 class="flex">{{ lect }}</h2>
       </template>
-      <Context
-        :translation="contextTranslation"
-        :blocks="editor ? [] : blocks"
-      />
+      <Context :translation="contextTranslation" :blocks="blocks" />
     </div>
     <div class="row wrap flex">
       <Block
@@ -38,7 +35,6 @@ export default defineComponent({
   props: {
     lect: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
-    editor: Boolean,
   },
   setup(props) {
     const glossed = ref(false);

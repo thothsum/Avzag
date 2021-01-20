@@ -5,11 +5,14 @@
       <p class="text-dot" />
       <ButtonAlert @confirm="remove" />
     </template>
-    <Context />
+    <Context
+      :translation="phrase.id ? null : phrase.context"
+      :blocks="vblocks"
+    />
     <div class="row-1 wrap block-editor">
-      <div v-for="(b, i) in blocks" :key="keys[i]" class="row">
+      <div v-for="(b, i) in blocks" :key="i" class="row">
         <btn icon="edit" :is-on="block === b" @click="block = b" />
-        <VBlock :block="b" />
+        <VBlock :ref="(el) => vblocks.push(el)" :block="b" />
       </div>
     </div>
   </EditorCard>
@@ -22,8 +25,16 @@ import ButtonAlert from "@/components/ButtonAlert.vue";
 import Context from "../Context/index.vue";
 import VBlock from "./index.vue";
 
-import { computed, defineComponent, PropType, toRaw, watch } from "vue";
-import { CorpusPhrase, Block } from "../types";
+import {
+  computed,
+  defineComponent,
+  onBeforeUpdate,
+  PropType,
+  ref,
+  toRaw,
+  watch,
+} from "vue";
+import { Phrase, CorpusPhrase, Block } from "../types";
 
 export default defineComponent({
   components: { EditorCard, ArrayShift, ButtonAlert, Context, VBlock },
@@ -32,7 +43,11 @@ export default defineComponent({
       type: Object as PropType<Block | undefined>,
       default: undefined,
     },
-    phrase: { type: Object as PropType<CorpusPhrase>, default: () => ({}) },
+    phrase: {
+      type: Object as PropType<Phrase | CorpusPhrase>,
+      default: () => ({}),
+    },
+    corpus: Boolean,
   },
   emits: ["update:modelValue", "update:phrase"],
   setup(props, { emit }) {
@@ -48,11 +63,8 @@ export default defineComponent({
       get: () => props.modelValue,
       set: (b) => emit("update:modelValue", b),
     });
-    const keys = computed(() =>
-      blocks.value.map(
-        (_, i) => mphrase.value.id + "--" + i + "--" + Math.random()
-      )
-    );
+    const vblocks = ref([]);
+    onBeforeUpdate(() => (vblocks.value = []));
 
     function pickLast() {
       block.value = blocks.value
@@ -77,7 +89,7 @@ export default defineComponent({
       pickLast();
     }
 
-    return { mphrase, blocks, block, add, remove, keys };
+    return { mphrase, blocks, vblocks, block, add, remove };
   },
 });
 </script>
