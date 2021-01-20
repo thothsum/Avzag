@@ -102,7 +102,7 @@ button {
     cursor: default;
   }
   &:not(.disabled) > * {
-    padding: 0 8px;
+    padding: 0 map-get($margins, "normal");
   }
 }
 </style>
