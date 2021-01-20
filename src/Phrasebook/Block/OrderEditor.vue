@@ -10,9 +10,9 @@
       :blocks="vblocks"
     />
     <div class="row-1 wrap block-editor">
-      <div v-for="(b, i) in blocks" :key="i" class="row">
+      <div v-for="(b, i) in blocks" :key="i + '--' + Math.random()" class="row">
         <btn icon="edit" :is-on="block === b" @click="block = b" />
-        <VBlock :ref="(el) => vblocks.push(el)" :block="b" />
+        <VBlock :ref="(el) => (el ? vblocks.push(el) : null)" :block="b" />
       </div>
     </div>
   </EditorCard>

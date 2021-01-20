@@ -42,19 +42,8 @@ export default defineComponent({
     const context = inject("context", {} as Ref<Context>);
 
     function switchState(nextState: undefined | State) {
-      const oldContext = [...Object.values(context.value)[0]].join(" ");
       applyConditions(state.value?.conditions, context, false);
       applyConditions(nextState?.conditions, context, true);
-      const newContext = [...Object.values(context.value)[0]].join(" ");
-      console.log(
-        state.value?.display[0].text,
-        "|",
-        oldContext,
-        ">",
-        newContext,
-        "|",
-        nextState?.display[0].text
-      );
       state.value = nextState;
     }
     watch(
@@ -68,7 +57,6 @@ export default defineComponent({
           );
           if (toRaw(nextState) !== toRaw(state.value)) switchState(nextState);
         } else if (state.value) switchState(undefined);
-        else console.log(props.block.states[0]?.display[0].text, "stayed off");
       },
       { immediate: true, deep: true }
     );

@@ -85,7 +85,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.icon {
+div.icon {
   font-size: map-get($font-sizes, "small");
 }
 p:not(:last-child)::after {

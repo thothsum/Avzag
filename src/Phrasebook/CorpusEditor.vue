@@ -32,7 +32,11 @@
           </div>
         </div>
       </EditorCard>
-      <BlocksOrderEditor v-model="block" v-model:phrase="phrase" />
+      <BlocksOrderEditor
+        :key="phrase.id"
+        v-model="block"
+        v-model:phrase="phrase"
+      />
       <ContextEditor v-if="phrase" v-model="phrase.context" />
     </div>
     <BlockEditor v-if="block" v-model="block" />
