@@ -75,11 +75,9 @@ export default defineComponent({
     initialize();
 
     const context = ref({} as Context);
-    watch(
-      phrase,
-      (phrase) => nextTick(() => createContext(context, phrase.context)),
-      { immediate: true }
-    );
+    watch(phrase, (phrase) => createContext(context, phrase.context), {
+      immediate: true,
+    });
 
     provide("context", context);
 

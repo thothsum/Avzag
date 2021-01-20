@@ -34,27 +34,35 @@ export default defineComponent({
   emits: ["update:modelValue"],
   setup(props) {
     const state = ref<State>();
-    const requirements = computed(() => props.block.requirements);
-    const conditions = computed(() => state.value?.conditions);
-    const transition = computed(() => state.value?.transition);
-    const disabled = computed(() => !transition.value);
-    const visible = ref(false);
+    const requirements = computed(
+      () => checkConditions(props.block.requirements, context.value)[0] === 1
+    );
+    const disabled = computed(() => !state.value?.transition);
+    const visible = computed(() => !!state.value);
     const display = ref();
 
     const context = inject("context", {} as Ref<Context>);
 
     function switchState(nextState: undefined | State) {
+      const oldContext = [...Object.values(context.value)[0]].join(" ");
       applyConditions(state.value?.conditions, context, false);
       applyConditions(nextState?.conditions, context, true);
+      const newContext = [...Object.values(context.value)[0]].join(" ");
+      console.log(
+        state.value?.display[0].text,
+        "|",
+        oldContext,
+        ">",
+        newContext,
+        "|",
+        nextState?.display[0].text
+      );
       state.value = nextState;
     }
     watch(
       context,
       (context) => {
-        const nextVisible =
-          context && checkConditions(requirements.value, context)[0] === 1;
-
-        if (nextVisible) {
+        if (requirements.value) {
           const nextState = findBestState(
             undefined,
             props.block.states,
@@ -62,8 +70,7 @@ export default defineComponent({
           );
           if (toRaw(nextState) !== toRaw(state.value)) switchState(nextState);
         } else if (state.value) switchState(undefined);
-
-        visible.value = nextVisible;
+        else console.log(props.block.states[0]?.display[0].text, "stayed off");
       },
       { immediate: true, deep: true }
     );
@@ -71,30 +78,26 @@ export default defineComponent({
     function move() {
       if (disabled.value) return;
       const states = props.block.states;
-      if (typeof transition.value === "string") {
-        let nextState;
-        if (transition.value === "next") {
-          const i = state.value ? states.indexOf(toRaw(state.value)) : -1;
-          nextState = states[(i + 1) % states.length];
-        } else if (transition.value) {
-          const i = transition.value.split(" ").map((i) => Number(i));
-          nextState = findBestState(i, states, context.value);
-        }
-        switchState(nextState);
-      } else if (transition.value) {
-        // directly modify global environment
+      const transition = state.value?.transition;
+      let nextState;
+
+      if (transition === "next") {
+        const i = state.value ? states.indexOf(toRaw(state.value)) : -1;
+        nextState = states[(i + 1) % states.length];
+      } else if (transition) {
+        const i = transition.split(" ").map((i) => Number(i));
+        nextState = findBestState(i, states, context.value);
       }
+      switchState(nextState);
+      if (!requirements.value) state.value = undefined;
     }
 
     return {
       move,
-      context,
       state,
       visible,
       disabled,
       display,
-      conditions,
-      requirements,
     };
   },
 });
