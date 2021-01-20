@@ -45,11 +45,11 @@ export default defineComponent({
     const explicitContext = computed(
       () =>
         props.blocks
-          ?.filter((b) => b?.visible)
-          .map(({ requirements, conditions }) => {
+          ?.filter(({ state }) => state)
+          .map(({ block, state }) => {
             let all = [] as Condition[];
-            if (requirements) all = all.concat(requirements);
-            if (conditions) all = all.concat(conditions);
+            if (block.requirements) all = all.concat(block.requirements);
+            if (state?.conditions) all = all.concat(state.conditions);
             return all;
           })
           .flat()

@@ -49,8 +49,8 @@ export default defineComponent({
     const blocks = reactive([] as BlockVue[]);
     const text = computed(() =>
       blocks
-        .filter((b) => b?.visible)
-        .map((b) => b.display.text)
+        .filter(({ state }) => state)
+        .map(({ text }) => text)
         .join(" ")
     );
     function copy() {

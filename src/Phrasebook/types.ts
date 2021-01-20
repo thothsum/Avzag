@@ -20,10 +20,9 @@ export type Block = {
   states: State[];
 };
 export type BlockVue = {
-  visible: boolean;
-  requirements?: Condition[];
-  conditions?: Condition[];
-  display: { text: string };
+  block: Block;
+  state?: State;
+  text: string;
 };
 
 export type ContextSource = {

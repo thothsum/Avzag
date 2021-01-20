@@ -1,12 +1,11 @@
 <template>
   <button
-    v-show="visible"
     v-if="state"
     class="small"
     :class="{ disabled, glossed }"
     @click="move"
   >
-    <Display ref="display" :glossed="glossed" :state="state" />
+    <Display :glossed="glossed" :state="state" @text="text = $event" />
   </button>
 </template>
 
@@ -38,8 +37,7 @@ export default defineComponent({
       () => checkConditions(props.block.requirements, context.value)[0] === 1
     );
     const disabled = computed(() => !state.value?.transition);
-    const visible = computed(() => !!state.value);
-    const display = ref();
+    const text = ref("");
 
     const context = inject("context", {} as Ref<Context>);
 
@@ -95,9 +93,8 @@ export default defineComponent({
     return {
       move,
       state,
-      visible,
       disabled,
-      display,
+      text,
     };
   },
 });

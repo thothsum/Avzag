@@ -21,6 +21,7 @@ export default {
     state: { type: Object, default: () => ({}) },
     glossed: { type: Boolean, default: false },
   },
+  emits: ["text"],
   computed: {
     entities() {
       return Object.keys(this.context.value);
@@ -52,9 +53,12 @@ export default {
     segments() {
       return this.types.map((t) => this.state.display.map((d) => d[t]));
     },
-    text() {
-      const texts = this.segments.map((s) => s.join(""));
-      return texts.length === 1 ? texts[0] : texts.join("\n");
+  },
+  watch: {
+    segments(segments) {
+      const texts = segments.map((s) => s.join(""));
+      const text = texts.length === 1 ? texts[0] : texts.join("\n");
+      this.$emit("text", text);
     },
   },
 };
