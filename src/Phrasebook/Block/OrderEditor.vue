@@ -47,7 +47,6 @@ export default defineComponent({
       type: Object as PropType<Phrase | CorpusPhrase>,
       default: () => ({}),
     },
-    corpus: Boolean,
   },
   emits: ["update:modelValue", "update:phrase"],
   setup(props, { emit }) {
