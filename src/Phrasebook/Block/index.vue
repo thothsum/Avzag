@@ -91,14 +91,18 @@ export default defineComponent({
 <style lang="scss" scoped>
 button {
   height: fit-content;
-}
-.disabled {
   padding: 0;
-  background-color: transparent;
-  &:hover,
-  &:active {
+  &.disabled {
+    padding: 0;
     background-color: transparent;
+    &:hover,
+    &:active {
+      background-color: transparent;
+    }
+    cursor: default;
   }
-  cursor: default;
+  &:not(.disabled) > * {
+    padding: 0 8px;
+  }
 }
 </style>
