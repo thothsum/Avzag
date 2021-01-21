@@ -39,7 +39,7 @@ export default defineComponent({
     const disabled = computed(() => !state.value?.transition);
     const text = ref("");
 
-    const context = inject("context", {} as Ref<Context>);
+    const context = inject("context", () => ({} as Ref<Context>));
 
     function switchState(nextState: undefined | State) {
       applyConditions(state.value?.conditions, context, false);

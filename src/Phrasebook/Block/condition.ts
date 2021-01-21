@@ -1,8 +1,8 @@
 import { Ref } from "vue";
-import { Condition, Context, State } from "../types";
+import { Conditions, Context, State } from "../types";
 
 export function checkConditions(
-  conditions: undefined | Condition[],
+  conditions: undefined | Conditions[],
   context: Context
 ): [number, number] {
   return conditions?.length
