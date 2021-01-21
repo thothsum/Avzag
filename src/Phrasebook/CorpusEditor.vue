@@ -100,6 +100,11 @@ export default defineComponent({
         (phrase.value = section?.phrases?.[section.phrases.length - 1]),
       { immediate: true }
     );
+    watch(
+      phrase,
+      (phrase) => (block.value = phrase?.blocks?.[phrase.blocks.length - 1]),
+      { immediate: true }
+    );
 
     function addSection() {
       const s = {

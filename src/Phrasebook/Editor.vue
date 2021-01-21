@@ -124,12 +124,11 @@ export default defineComponent({
     );
     watch(
       translation,
-      (translation) => {
-        if (translation?.blocks)
-          block.value = translation.blocks[translation.blocks.length - 1];
-      },
+      (translation) =>
+        (block.value = translation?.blocks?.[translation.blocks.length - 1]),
       { immediate: true }
     );
+
     function addBlock() {
       block.value = [{ texts: [{ plain: "new state" }], transition: "next" }];
       translation.value.blocks.push(block.value);

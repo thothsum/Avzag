@@ -5,10 +5,11 @@
         <input
           v-model="c.entity"
           class="entity"
-          :class="'colored-dot-' + i"
+          :class="'colored-' + i"
           type="text"
+          placeholder="entity"
         />
-        <input v-model="tags[i]" class="flex" type="text" />
+        <input v-model="tags[i]" class="flex" type="text" placeholder="tags" />
         <btn icon="clear" @click="remove(i)" />
       </div>
     </div>
@@ -17,7 +18,7 @@
 
 <script lang="ts">
 import EditorCard from "@/components/EditorCard.vue";
-import { computed, defineComponent, PropType } from "vue";
+import { computed, defineComponent, PropType, watch, ref } from "vue";
 import { ContextSource } from "../types";
 
 export default defineComponent({
@@ -33,7 +34,10 @@ export default defineComponent({
     });
     const tags = computed({
       get: () => context.value.map(({ tags }) => tags.join(" ")),
-      set: (ts) => context.value.forEach((c, i) => (c.tags = ts[i].split(" "))),
+      set: (ts) => {
+        console.log("updaring tags");
+        context.value.forEach((c, i) => (c.tags = ts[i].split(" ")));
+      },
     });
 
     function add() {
