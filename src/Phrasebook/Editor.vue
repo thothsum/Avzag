@@ -82,12 +82,12 @@ export default defineComponent({
     } catch {
       loadJSON("phrasebook").then((j) => (corpus.value = j));
     }
-    const section = ref({} as CorpusSection);
-    const phrase = ref({} as CorpusPhrase);
+    const section = ref(undefined as undefined | CorpusSection);
+    const phrase = ref(undefined as undefined | CorpusPhrase);
     const translation = ref({} as Phrase);
     const context = ref({} as Context);
     const contextSource = ref({} as Context);
-    const block = ref([] as State[]);
+    const block = ref(undefined as undefined | State[]);
     const file = setupEditor<Phrasebook>({
       defaultFile: {},
       filename: "phrasebook",
@@ -132,6 +132,7 @@ export default defineComponent({
       translation.value.blocks.push(block.value);
     }
     function removeBlock() {
+      if (!block.value) return;
       const blocks = toRaw(translation.value.blocks);
       const index = blocks.indexOf(toRaw(block.value));
       blocks.splice(index, 1);

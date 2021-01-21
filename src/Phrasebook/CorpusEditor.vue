@@ -77,9 +77,9 @@ export default defineComponent({
           : "",
       storage: "editor.phrasebookCorpus",
     });
-    const section = ref({} as CorpusSection);
-    const phrase = ref({} as CorpusPhrase);
-    const block = ref([] as State[]);
+    const section = ref(undefined as undefined | CorpusSection);
+    const phrase = ref(undefined as undefined | CorpusPhrase);
+    const block = ref(undefined as undefined | State[]);
     const context = ref({} as Context);
     const contextSource = ref({} as Context);
 
@@ -100,6 +100,7 @@ export default defineComponent({
     watch(
       () => phrase.value?.context,
       (phraseContext) => {
+        if (!phraseContext) return;
         createContext(context, phraseContext);
         createContext(contextSource, phraseContext, true);
       },
@@ -116,10 +117,12 @@ export default defineComponent({
       section.value = s;
     }
     function removeSection() {
+      if (!section.value) return;
       file.value.splice(toRaw(file.value).indexOf(toRaw(section.value)), 1);
       section.value = file.value[file.value.length - 1];
     }
     function addPhrase() {
+      if (!section.value) return;
       const p: CorpusPhrase = {
         id: uuidv4(),
         name: "New phrase",
@@ -130,6 +133,7 @@ export default defineComponent({
       phrase.value = p;
     }
     function removePhrase() {
+      if (!section.value || !phrase.value) return;
       const phrases = toRaw(section.value.phrases);
       phrases.splice(phrases.indexOf(toRaw(phrase.value)), 1);
       phrase.value = phrases[phrases.length - 1];
