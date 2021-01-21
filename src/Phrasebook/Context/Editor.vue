@@ -5,48 +5,49 @@
         <input
           v-model="c.entity"
           class="entity"
-          :class="'colored-' + i"
+          :class="'colored-dot-' + i"
           type="text"
         />
-        <input v-model="c.tags" class="flex" type="text" />
+        <input v-model="tags[i]" class="flex" type="text" />
         <btn icon="clear" @click="remove(i)" />
       </div>
     </div>
   </EditorCard>
 </template>
 
-<script>
-import EditorCard from "@/components/EditorCard";
+<script lang="ts">
+import EditorCard from "@/components/EditorCard.vue";
+import { computed, defineComponent, PropType } from "vue";
+import { ContextSource } from "../types";
 
-export default {
-  name: "PhraseContextEditor",
-  components: {
-    EditorCard,
+export default defineComponent({
+  components: { EditorCard },
+  props: {
+    modelValue: { type: Array as PropType<ContextSource[]>, default: () => [] },
   },
-  props: ["modelValue"],
   emits: ["update:modelValue"],
-  computed: {
-    context: {
-      get() {
-        return this.modelValue;
-      },
-      set(c) {
-        this.$emit("update:modelValue", c);
-      },
-    },
-  },
-  methods: {
-    add() {
-      this.context.push({
-        entity: "new entity",
-        tags: "tags",
+  setup(props, { emit }) {
+    const context = computed({
+      get: () => props.modelValue,
+      set: (c) => emit("update:modelValue", c),
+    });
+    const tags = computed({
+      get: () => context.value.map(({ tags }) => tags.join(" ")),
+      set: (ts) => context.value.forEach((c, i) => (c.tags = ts[i].split(" "))),
+    });
+
+    function add() {
+      context.value.push({
+        entity: "entity #" + context.value.length,
+        tags: [],
       });
-    },
-    remove(i) {
-      this.context.splice(i, 1);
-    },
+    }
+    function remove(i: number) {
+      context.value.splice(i, 1);
+    }
+    return { context, tags, add, remove };
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>
