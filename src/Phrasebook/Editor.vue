@@ -53,7 +53,7 @@ import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import BlockEditor from "./Block/Editor.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
-import { defineComponent, ref, watch, provide, toRaw, computed } from "vue";
+import { defineComponent, ref, watch, provide, computed } from "vue";
 import { loadJSON } from "@/store";
 import { setupEditor } from "@/editor";
 import {
@@ -129,18 +129,6 @@ export default defineComponent({
       { immediate: true }
     );
 
-    function addBlock() {
-      block.value = [{ texts: [{ plain: "new state" }], transition: "next" }];
-      translation.value.blocks.push(block.value);
-    }
-    function removeBlock() {
-      if (!block.value) return;
-      const blocks = toRaw(translation.value.blocks);
-      const index = blocks.indexOf(toRaw(block.value));
-      blocks.splice(index, 1);
-      block.value = blocks[blocks.length - 1];
-    }
-
     return {
       file,
       corpus,
@@ -148,8 +136,6 @@ export default defineComponent({
       phrase,
       translation,
       block,
-      addBlock,
-      removeBlock,
     };
   },
 });

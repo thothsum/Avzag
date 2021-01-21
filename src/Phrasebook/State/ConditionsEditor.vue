@@ -29,7 +29,7 @@ import { ContextSource, Conditions } from "../types";
 export default defineComponent({
   components: { EditorCard },
   props: {
-    modelValue: { type: Object as PropType<Conditions>, default: () => ({}) },
+    modelValue: { type: Object as PropType<Conditions>, default: undefined },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
@@ -60,11 +60,10 @@ export default defineComponent({
           if (!Object.keys(condition).length) delete conditions.value[entity];
         }
       }
-      refreshColors();
     }
 
     function refreshColors() {
-      if (!context?.value || !conditions?.value) return;
+      if (!context?.value) return;
       tags.value = [];
       context.value.forEach(({ entity, tags: ts }, i) => {
         ts.forEach((tag) => {

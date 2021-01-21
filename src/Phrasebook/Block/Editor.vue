@@ -9,7 +9,7 @@
       <div class="row-1 wrap block-editor">
         <div v-for="(s, i) in states" :key="i" class="row">
           <btn icon="edit" :is-on="state === s" @click="state = s" />
-          <State :state="s" :glossed="glossed" />
+          <VState :state="s" :glossed="glossed" />
         </div>
       </div>
     </EditorCard>
@@ -27,7 +27,9 @@ import EditorCard from "@/components/EditorCard";
 import ConditionsEditor from "../State/ConditionsEditor";
 import TransitionEditor from "../State/TransitionEditor";
 import TextsEditor from "../State/TextsEditor";
-import State from "../State/index.vue";
+import VState from "../State/index.vue";
+
+import { State } from "../types";
 
 export default {
   name: "PhraseBlockEditor",
@@ -36,7 +38,7 @@ export default {
     EditorCard,
     ConditionsEditor,
     TransitionEditor,
-    State,
+    VState,
     TextsEditor,
   },
   props: ["modelValue"],
@@ -76,6 +78,7 @@ export default {
       const state = {
         texts: [{ plain: "new state" }],
         transition: "next",
+        conditions: {},
       };
       this.states.push(state);
       this.state = state;

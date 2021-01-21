@@ -77,7 +77,7 @@ export default defineComponent({
     function add() {
       if (!blocks.value) blocks.value = [];
       blocks.value.push([
-        { texts: [{ plain: "new state" }], transition: "next" },
+        { texts: [{ plain: "new state" }], transition: "next", conditions: {} },
       ]);
       pickLast();
     }
