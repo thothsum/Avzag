@@ -7,7 +7,7 @@
         <ButtonAlert @confirm="remove" />
       </template>
       <div class="row-1 wrap block-editor">
-        <div v-for="(s, i) in states" :key="i" class="row">
+        <div v-for="(s, i) in block" :key="i" class="row">
           <btn icon="edit" :is-on="state === s" @click="state = s" />
           <VState :state="s" :glossed="glossed" />
         </div>
@@ -16,7 +16,7 @@
     <template v-if="state">
       <TextsEditor v-model="state.texts" />
       <ConditionsEditor v-model="state.conditions" />
-      <TransitionEditor v-model="state.transition" :states="states" />
+      <TransitionEditor v-model="state.transition" :states="block" />
     </template>
   </div>
 </template>
@@ -58,17 +58,14 @@ export default {
         this.$emit("update:modelValue", b);
       },
     },
-    states() {
-      return this.block?.states;
-    },
   },
   watch: {
     block: {
       handler() {
-        if (!this.states?.length) {
-          this.block.states = [];
+        if (!this.block?.length) {
+          this.block = [];
           this.add();
-        } else this.state = this.states[this.states.length - 1];
+        } else this.state = this.block[this.block.length - 1];
       },
       immediate: true,
     },
@@ -80,13 +77,13 @@ export default {
         transition: "next",
         conditions: {},
       };
-      this.states.push(state);
+      this.block.push(state);
       this.state = state;
     },
     remove() {
-      if (this.states.length > 1) {
-        this.states.splice(this.states.indexOf(this.state), 1);
-        this.state = this.states[this.states.length - 1];
+      if (this.block.length > 1) {
+        this.block.splice(this.block.indexOf(this.state), 1);
+        this.state = this.block[this.block.length - 1];
       }
     },
   },
