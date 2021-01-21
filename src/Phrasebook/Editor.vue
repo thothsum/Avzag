@@ -63,6 +63,7 @@ import {
   CorpusSection,
   Phrase,
   Phrasebook,
+  ContextSource,
 } from "./types";
 import { createContext } from "./utils";
 
@@ -86,7 +87,7 @@ export default defineComponent({
     const phrase = ref(undefined as undefined | CorpusPhrase);
     const translation = ref({} as Phrase);
     const context = ref({} as Context);
-    const contextSource = ref({} as Context);
+    const contextSource = ref([] as ContextSource[]);
     const block = ref(undefined as undefined | State[]);
     const file = setupEditor<Phrasebook>({
       defaultFile: {},

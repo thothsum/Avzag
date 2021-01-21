@@ -35,7 +35,7 @@ export default defineComponent({
     // TODO make reactive Ref<>
     const context = inject("contextSource", [] as ContextSource[]);
     const entityColors = computed(() =>
-      context.map((s, i) => "colored-dot-" + i)
+      context?.map((s, i) => "colored-dot-" + i)
     );
 
     const conditions = computed({

@@ -39,7 +39,8 @@ export default defineComponent({
       types.value.map((type) => props.state.texts?.map((text) => text[type]))
     );
     watch(texts, (texts) => {
-      const lines = texts.map((t) => t.join(""));
+      if (!texts) return;
+      const lines = texts.map((t) => t?.join(""));
       const text = lines.length === 1 ? lines[0] : lines.join("\n");
       emit("text", text);
     });

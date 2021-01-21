@@ -27,7 +27,9 @@ import { Text, Context } from "../types";
 
 export default defineComponent({
   components: { EditorCard },
-  props: { modelValue: { type: Array as PropType<Text[]>, default: () => [] } },
+  props: {
+    modelValue: { type: Array as PropType<Text[]>, default: undefined },
+  },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
     const context = inject("context", {} as Ref<Context>);
@@ -39,7 +41,7 @@ export default defineComponent({
     });
     const colors = computed(() =>
       texts.value
-        .map(({ entity }) => entities.value.indexOf(entity ?? ""))
+        ?.map(({ entity }) => entities.value.indexOf(entity ?? ""))
         .map((i) => "colored-" + i)
     );
 
