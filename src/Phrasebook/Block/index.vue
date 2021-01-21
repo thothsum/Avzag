@@ -22,7 +22,7 @@ import {
   watch,
 } from "vue";
 import { Context, State } from "../types";
-import { applyConditions, findBestState, checkConditions } from "./condition";
+import { applyConditions, findBestState, checkConditions } from "../utils";
 
 export default defineComponent({
   components: { VState },
@@ -34,7 +34,7 @@ export default defineComponent({
   setup(props) {
     const state = ref<State>();
     const requirements = computed(
-      () => checkConditions(state.value?.conditions, context.value)[0] === 1
+      () => checkConditions(state.value?.conditions, context.value)[0] > 0
     );
     const disabled = computed(() => !state.value?.transition);
     const text = ref("");
@@ -60,14 +60,14 @@ export default defineComponent({
     function move() {
       if (disabled.value) return;
       const transition = state.value?.transition;
+      const states = props.block;
       let nextState;
 
       if (transition === "next") {
         const i = state.value ? states.indexOf(toRaw(state.value)) : -1;
         nextState = states[(i + 1) % states.length];
       } else if (transition) {
-        const i = transition.split(" ").map((i) => Number(i));
-        nextState = findBestState(i, states, context.value);
+        nextState = findBestState(transition, states, context.value);
       }
       switchState(nextState);
       if (!requirements.value) state.value = undefined;
