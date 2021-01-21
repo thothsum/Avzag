@@ -23,7 +23,7 @@
           v-for="tag in tags"
           :key="tag"
           v-model="translation[entity][tag]"
-          :size="Math.max(1, translation[entity][tag])"
+          :size="Math.max(1, translation[entity][tag]?.length)"
           :placeholder="tag"
           type="text"
         />
