@@ -9,6 +9,6 @@ export function createContext(
   if (!source) return;
   context.value = {};
   source.forEach(({ entity, tags }) => {
-    context.value[entity] = new Set(full ? tags.split(" ") : []);
+    context.value[entity] = new Set(full ? tags : []);
   });
 }

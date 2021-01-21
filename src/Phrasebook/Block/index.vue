@@ -5,12 +5,12 @@
     :class="{ disabled, glossed }"
     @click="move"
   >
-    <Display :glossed="glossed" :state="state" @text="text = $event" />
+    <VState :glossed="glossed" :state="state" @text="text = $event" />
   </button>
 </template>
 
 <script lang="ts">
-import Display from "./Display.vue";
+import VState from "../State/index.vue";
 import {
   computed,
   defineComponent,
@@ -21,20 +21,20 @@ import {
   toRaw,
   watch,
 } from "vue";
-import { Context, Block, State } from "../types";
+import { Context, State } from "../types";
 import { applyConditions, findBestState, checkConditions } from "./condition";
 
 export default defineComponent({
-  components: { Display },
+  components: { VState },
   props: {
-    block: { type: Object as PropType<Block>, default: () => ({}) },
+    block: { type: Array as PropType<State[]>, default: () => ({}) },
     glossed: Boolean,
   },
   emits: ["update:modelValue"],
   setup(props) {
     const state = ref<State>();
     const requirements = computed(
-      () => checkConditions(props.block.requirements, context.value)[0] === 1
+      () => checkConditions(state.value?.conditions, context.value)[0] === 1
     );
     const disabled = computed(() => !state.value?.transition);
     const text = ref("");
@@ -50,11 +50,7 @@ export default defineComponent({
       context,
       (context) => {
         if (requirements.value) {
-          const nextState = findBestState(
-            undefined,
-            props.block.states,
-            context
-          );
+          const nextState = findBestState(undefined, props.block, context);
           if (toRaw(nextState) !== toRaw(state.value)) switchState(nextState);
         } else if (state.value) switchState(undefined);
       },
@@ -63,7 +59,6 @@ export default defineComponent({
 
     function move() {
       if (disabled.value) return;
-      const states = props.block.states;
       const transition = state.value?.transition;
       let nextState;
 

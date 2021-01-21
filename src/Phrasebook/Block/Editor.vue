@@ -1,14 +1,6 @@
 <template>
   <div class="block col-2">
-    <ConditionsEditor
-      v-model="block.requirements"
-      icon="lock"
-      header="Requirements"
-    >
-      If at least one of these conditions fails, the block will be completely
-      hidden.
-    </ConditionsEditor>
-    <EditorCard icon="tune" header="States" @action="add">
+    <EditorCard icon="widgets" header="States" @action="add">
       <template v-if="state" #header>
         <toggle v-model="glossed" icon="layers" />
         <p class="text-dot" />
@@ -22,16 +14,8 @@
       </div>
     </EditorCard>
     <template v-if="state">
-      <DisplayEditor
-        v-model="state.display"
-        v-model:implicit="state.implicit"
-      />
-      <ConditionsEditor
-        v-model="state.conditions"
-        :allow-passive="true"
-        icon="widgets"
-        header="conditions"
-      />
+      <DisplayEditor v-model="state.texts" />
+      <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="states" />
     </template>
   </div>

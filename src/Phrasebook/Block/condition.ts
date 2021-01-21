@@ -39,7 +39,7 @@ export function findBestState(
 }
 
 export function applyConditions(
-  conditions: undefined | Condition[],
+  conditions: undefined | Conditions,
   context: Ref<Context>,
   positive: boolean
 ) {

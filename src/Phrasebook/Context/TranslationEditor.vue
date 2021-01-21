@@ -40,7 +40,7 @@ export default defineComponent({
   },
   props: {
     modelValue: {
-      type: Object as PropType<ContextTranslation[]>,
+      type: Object as PropType<ContextTranslation>,
       default: undefined,
     },
   },

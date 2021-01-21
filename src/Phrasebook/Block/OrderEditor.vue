@@ -34,7 +34,7 @@ import {
   toRaw,
   watch,
 } from "vue";
-import { Phrase, CorpusPhrase, Block } from "../types";
+import { Phrase, CorpusPhrase, State[] } from "../types";
 
 export default defineComponent({
   components: { EditorCard, ArrayShift, ButtonAlert, Context, VBlock },
