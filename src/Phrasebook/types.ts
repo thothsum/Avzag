@@ -1,7 +1,7 @@
 export type Conditions = Record<string, Record<string, -1 | 0 | 1>>;
 export type Text = {
-  entity?: string;
-  plain?: string;
+  entity: string;
+  plain: string;
   ipa?: string;
   gloss?: string;
 };

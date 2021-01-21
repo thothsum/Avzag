@@ -22,7 +22,8 @@
 @for $i from 0 through 6 {
   $color: var(--colored-#{$i});
 
-  .colored-#{$i} {
+  .colored-#{$i},
+  .colored-#{$i} * {
     color: $color;
   }
   .colored-back-#{$i} {
