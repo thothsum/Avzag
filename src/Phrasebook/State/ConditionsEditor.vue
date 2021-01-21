@@ -60,7 +60,7 @@ export default defineComponent({
       if (flag === undefined) return "";
       return "colored-border-" + (flag + 1);
     }
-    return { conditions, toggle };
+    return { conditions, entityColors, toggle, getColor };
   },
 });
 </script>
