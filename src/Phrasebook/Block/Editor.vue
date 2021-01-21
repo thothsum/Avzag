@@ -9,12 +9,12 @@
       <div class="row-1 wrap block-editor">
         <div v-for="(s, i) in states" :key="i" class="row">
           <btn icon="edit" :is-on="state === s" @click="state = s" />
-          <Display :state="s" :glossed="glossed" />
+          <State :state="s" :glossed="glossed" />
         </div>
       </div>
     </EditorCard>
     <template v-if="state">
-      <DisplayEditor v-model="state.texts" />
+      <TextsEditor v-model="state.texts" />
       <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="states" />
     </template>
@@ -24,10 +24,10 @@
 <script>
 import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
-import ConditionsEditor from "./ConditionsEditor";
-import TransitionEditor from "./TransitionEditor";
-import DisplayEditor from "./DisplayEditor";
-import Display from "./Display";
+import ConditionsEditor from "../State/ConditionsEditor";
+import TransitionEditor from "../State/TransitionEditor";
+import TextsEditor from "../State/TextsEditor";
+import State from "../State/index.vue";
 
 export default {
   name: "PhraseBlockEditor",
@@ -36,8 +36,8 @@ export default {
     EditorCard,
     ConditionsEditor,
     TransitionEditor,
-    Display,
-    DisplayEditor,
+    State,
+    TextsEditor,
   },
   props: ["modelValue"],
   emits: ["update:modelValue"],
