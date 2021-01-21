@@ -22,7 +22,11 @@ export function checkConditions(
         if (context[entity].has(tag)) return [-1, 0];
         continue;
       }
-      score += context[entity].has(tag) ? 1 : 0;
+      try {
+        score += context[entity].has(tag) ? 1 : 0;
+      } catch {
+        console.log(entity, context);
+      }
       count += 1;
     }
   return [score / count, count];

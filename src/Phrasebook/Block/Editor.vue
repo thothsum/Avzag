@@ -48,10 +48,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const block = computed({
       get: () => props.modelValue,
-      set: (b) => {
-        console.log("updating block");
-        emit("update:modelValue", b);
-      },
+      set: (b) => emit("update:modelValue", b),
     });
     const state = ref(undefined as undefined | State);
     const glossed = ref(false);
