@@ -10,7 +10,7 @@ import { computed, defineComponent, toRaw } from "vue";
 
 export default defineComponent({
   props: {
-    modelValue: { type: Array, default: () => [] },
+    modelValue: { type: Array, default: () => undefined },
     item: { type: Object, default: undefined },
   },
   emits: ["update:modelValue"],

@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import ButtonAlert from "@/components/ButtonAlert";
 import EditorCard from "@/components/EditorCard";
 import ConditionsEditor from "../State/ConditionsEditor";
@@ -30,9 +30,9 @@ import TextsEditor from "../State/TextsEditor";
 import VState from "../State/index.vue";
 
 import { State } from "../types";
+import { defineComponent } from "vue";
 
-export default {
-  name: "PhraseBlockEditor",
+export default defineComponent({
   components: {
     ButtonAlert,
     EditorCard,
@@ -41,51 +41,49 @@ export default {
     VState,
     TextsEditor,
   },
-  props: ["modelValue"],
+  props: {"modelValue"},
   emits: ["update:modelValue"],
-  data() {
-    return {
-      state: undefined,
-      glossed: false,
-    };
-  },
-  computed: {
-    block: {
-      get() {
-        return this.modelValue;
-      },
-      set(b) {
-        this.$emit("update:modelValue", b);
-      },
-    },
-  },
-  watch: {
-    block: {
-      handler() {
-        if (!this.block?.length) {
-          this.block = [];
-          this.add();
-        } else this.state = this.block[this.block.length - 1];
-      },
-      immediate: true,
-    },
-  },
-  methods: {
-    add() {
-      const state = {
-        texts: [{ plain: "new state" }],
-        transition: "next",
-        conditions: {},
-      };
-      this.block.push(state);
-      this.state = state;
-    },
-    remove() {
-      if (this.block.length > 1) {
-        this.block.splice(this.block.indexOf(this.state), 1);
-        this.state = this.block[this.block.length - 1];
-      }
-    },
-  },
-};
+  // data() {
+  //   return {
+  //     state: undefined,
+  //     glossed: false,
+  //   };
+  // },
+  // computed: {
+  //   block: {
+  //     get() {
+  //       return this.modelValue;
+  //     },
+  //     set(b) {
+  //       console.log("updating block");
+  //       this.$emit("update:modelValue", b);
+  //     },
+  //   },
+  // },
+  // watch: {
+  //   block: {
+  //     handler() {
+  //       this.state = this.block[this.block.length - 1];
+  //     },
+  //     immediate: true,
+  //   },
+  // },
+  // methods: {
+  //   add() {
+  //     const state = {
+  //       texts: [{ plain: "new state" }],
+  //       transition: "next",
+  //       conditions: {},
+  //     };
+  //     this.block.push(state);
+  //     this.state = state;
+  //   },
+  //   remove() {
+  //     if (this.block.length > 1) {
+  //       this.block.splice(this.block.indexOf(this.state), 1);
+  //       this.state = this.block[this.block.length - 1];
+  //     }
+  //   },
+  // },
+});
 </script>

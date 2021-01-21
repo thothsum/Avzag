@@ -30,7 +30,10 @@ import { ContextSource } from "../types";
 export default defineComponent({
   components: { EditorCard },
   props: {
-    modelValue: { type: Array as PropType<ContextSource[]>, default: () => [] },
+    modelValue: {
+      type: Array as PropType<ContextSource[]>,
+      default: undefined,
+    },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {

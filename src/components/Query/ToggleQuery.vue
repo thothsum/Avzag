@@ -18,7 +18,7 @@ import { Query } from "./types";
 
 export default defineComponent({
   props: {
-    modelValue: { type: Object as PropType<Query>, default: () => ({}) },
+    modelValue: { type: Object as PropType<Query>, default: undefined },
     labels: { type: Array as PropType<string[]>, default: () => [] },
   },
   emits: ["update:modelValue"],
