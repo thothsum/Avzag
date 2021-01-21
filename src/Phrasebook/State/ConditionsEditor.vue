@@ -1,75 +1,75 @@
 <template>
-  <EditorCard :icon="icon" :header="header" @action="add">
-    <template #caption><slot /></template>
+  <EditorCard icon="tune" header="conditions" @action="add">
+    <template #caption>TODO brief explanation</template>
     <div class="scroll col">
-      <div v-for="(c, i) in conditions" :key="i" class="row">
-        <toggle v-if="allowPassive" v-model="c.passive" icon="call_missed" />
-        <select v-model="c.entity" @change="setEntity(c)">
-          <option v-for="e in entities" :key="e" :value="e">{{ e }}</option>
-        </select>
-        <p class="icon">west</p>
-        <select v-if="c.entity" v-model="c.tag">
-          <option v-for="t in tags[c.entity]" :key="t" :value="t">
-            {{ t }}
-          </option>
-        </select>
-        <btn icon="clear" @click="remove(i)" />
+      <div
+        v-for="({ entity, tags }, i) in context"
+        :key="entity"
+        class="scroll row"
+        :class="'colored-dot-' + i"
+      >
+        <btn
+          v-for="tag in tags"
+          :key="tag"
+          :text="tag"
+          :class="getColor(entity, tag)"
+          @click="toggle(entity, tag)"
+        />
       </div>
     </div>
   </EditorCard>
 </template>
 
-<script>
-import EditorCard from "@/components/EditorCard";
+<script lang="ts">
+import EditorCard from "@/components/EditorCard.vue";
+import { computed, defineComponent, PropType, inject } from "vue";
+import { ContextSource, Conditions } from "../types";
 
-export default {
-  name: "PhraseConditionsEditor",
+export default defineComponent({
   components: { EditorCard },
-  inject: ["contextSource"],
-  props: ["modelValue", "allowPassive", "header", "icon"],
+  props: {
+    modelValue: { type: Object as PropType<Conditions>, default: () => ({}) },
+  },
   emits: ["update:modelValue"],
-  computed: {
-    conditions: {
-      get() {
-        return this.modelValue;
-      },
-      set(c) {
-        this.$emit("update:modelValue", c);
-      },
-    },
-    entities() {
-      return Object.keys(this.contextSource.value);
-    },
-    tags() {
-      return Object.entries(this.contextSource.value).reduce(
-        (c, [entity, tags]) => {
-          c[entity] = [...tags];
-          return c;
-        },
-        {}
-      );
-    },
+  setup(props, { emit }) {
+    // TODO make reactive Ref<>
+    const context = inject("contextSource", [] as ContextSource[]);
+    const entityColors = computed(() =>
+      context.map((s, i) => "colored-dot-" + i)
+    );
+
+    const conditions = computed({
+      get: () => props.modelValue,
+      set: (c) => emit("update:modelValue", c),
+    });
+
+    function toggle(entity: string, tag: string) {
+      if (!conditions.value[entity]) conditions.value[entity] = {};
+      const condition = conditions.value[entity];
+
+      if (condition[tag]) {
+        condition[tag] -= 1;
+        if (condition[tag] < -1) {
+          delete condition[tag];
+          if (!Object.keys(condition).length) delete conditions.value[entity];
+        }
+      } else condition[tag] = 1;
+    }
+    function getColor(entity: string, tag: string) {
+      const flag = conditions.value[entity]?.[tag];
+      if (flag === undefined) return "";
+      return "colored-border-" + (flag + 1);
+    }
+    return { conditions, toggle };
   },
-  methods: {
-    setEntity(c) {
-      c.tag = this.tags[c.entity][0];
-    },
-    add() {
-      const condition = { entity: this.entities[0] };
-      this.setEntity(condition);
-      const conditions = this.conditions ?? [];
-      conditions.push(condition);
-      this.conditions = conditions;
-    },
-    remove(i) {
-      this.conditions.splice(i, 1);
-    },
-  },
-};
+});
 </script>
 
 <style lang="scss" scoped>
 .scroll {
   max-height: 128px;
+}
+btn {
+  border: transparent $border-width;
 }
 </style>

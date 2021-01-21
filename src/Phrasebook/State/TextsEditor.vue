@@ -26,9 +26,7 @@ import { computed, defineComponent, PropType, inject, Ref } from "vue";
 import { Text, Context } from "../types";
 
 export default defineComponent({
-  components: {
-    EditorCard,
-  },
+  components: { EditorCard },
   props: { modelValue: { type: Array as PropType<Text[]>, default: () => [] } },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
