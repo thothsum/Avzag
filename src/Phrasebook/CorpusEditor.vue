@@ -70,7 +70,7 @@ export default defineComponent({
   },
   setup() {
     const file = setupEditor<CorpusSection[]>({
-      defaultFile: {},
+      defaultFile: [],
       filename: () =>
         window.confirm("You're resetting phrasebook corpus.")
           ? "phrasebook"
