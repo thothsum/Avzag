@@ -1,9 +1,9 @@
 export type Conditions = Record<string, Record<string, -1 | 0 | 1>>;
 export type Text = {
-  entity: string;
   plain: string;
   ipa?: string;
   gloss?: string;
+  entity?: string;
 };
 export type Transition = "next" | number[];
 export type State = {

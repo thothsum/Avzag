@@ -39,19 +39,19 @@ export default defineComponent({
     });
     const colors = computed(() =>
       texts.value
-        .map(({ entity }) => entities.value.indexOf(entity))
+        .map(({ entity }) => entities.value.indexOf(entity ?? ""))
         .map((i) => "colored-" + i)
     );
 
     function add() {
-      texts.value.push({ entity: "", plain: "" });
+      texts.value.push({ plain: "" });
     }
     function remove(i: number) {
       texts.value.splice(i, 1);
     }
     function toggle(i: number) {
       const text = texts.value[i];
-      const e = entities.value.indexOf(text.entity);
+      const e = entities.value.indexOf(text.entity ?? "");
       text.entity = entities.value[e + 1];
     }
 

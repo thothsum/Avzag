@@ -40,7 +40,7 @@ export default defineComponent({
   components: { EditorCard, ArrayShift, ButtonAlert, Context, Block },
   props: {
     modelValue: {
-      type: Array as PropType<State[][] | undefined>,
+      type: Array as PropType<State[] | undefined>,
       default: undefined,
     },
     phrase: {
@@ -77,7 +77,7 @@ export default defineComponent({
     function add() {
       if (!blocks.value) blocks.value = [];
       blocks.value.push([
-        { texts: [{ entity: "", plain: "new state" }], transition: "next" },
+        { texts: [{ plain: "new state" }], transition: "next" },
       ]);
       pickLast();
     }

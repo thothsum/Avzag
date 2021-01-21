@@ -87,7 +87,7 @@ export default defineComponent({
     const translation = ref({} as Phrase);
     const context = ref({} as Context);
     const contextSource = ref({} as Context);
-    const block = ref([] as State[][]);
+    const block = ref([] as State[]);
     const file = setupEditor<Phrasebook>({
       defaultFile: {},
       filename: "phrasebook",
@@ -128,9 +128,7 @@ export default defineComponent({
       { immediate: true }
     );
     function addBlock() {
-      block.value  = {
-        states: [{ display: [{ text: "new state" }], transition: "next" }],
-      };
+      block.value = [{ texts: [{ plain: "new state" }], transition: "next" }];
       translation.value.blocks.push(block.value);
     }
     function removeBlock() {
