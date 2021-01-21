@@ -1,8 +1,12 @@
 <template>
   <div class="display row" :class="{ glossed: canGloss }">
-    <div class="segments" :class="{ 'text-faded': state.implicit }">
-      <p v-for="(t, i) in types" :key="i" :class="{ 'text-ipa': t === 'ipa' }">
-        <span v-for="(s, j) in segments[i]" :key="j" :class="segmentColors[j]">
+    <div class="segments">
+      <p
+        v-for="(t, i) in textTypes"
+        :key="i"
+        :class="{ 'text-ipa': t === 'ipa' }"
+      >
+        <span v-for="(s, j) in textSegments[i]" :key="j" :class="textColors[j]">
           {{ s }}
         </span>
       </p>
@@ -14,68 +18,54 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, Ref } from "vue";
-import { Context } from "../types";
+import { computed, defineComponent, inject, PropType, Ref, watch } from "vue";
+import { Context, State } from "../types";
 
 export default defineComponent({
   props: {
-    state: { type: Object, default: () => ({}) },
+    state: { type: Object as PropType<State>, default: () => ({}) },
     glossed: { type: Boolean, default: false },
   },
   emits: ["text"],
   setup(props, { emit }) {
-    const context = inject("context", () => ({} as Ref<Context>));
-    
+    const context = inject("context", {} as Ref<Context>);
+    const entities = computed(() => Object.keys(context.value));
+    const canGloss = computed(
+      () =>
+        props.glossed &&
+        props.state.texts.some(({ ipa, gloss }) => ipa || gloss)
+    );
+
+    const textTypes = computed<("plain" | "ipa" | "gloss")[]>(() =>
+      canGloss.value ? ["ipa", "gloss"] : ["plain"]
+    );
+    const textSegments = computed(() =>
+      textTypes.value.map((type) => props.state.texts.map((text) => text[type]))
+    );
+    watch(textSegments, (textSegments) => {
+      const lines = textSegments.map((s) => s.join(""));
+      const text = lines.length === 1 ? lines[0] : lines.join("\n");
+      emit("text", text);
+    });
+
+    const textColors = computed(() =>
+      props.state.texts
+        .map(({ entity }) => entity ?? "")
+        .map((e) => entities.value.indexOf(e))
+        .map((i) => "colored-" + i)
+    );
+    const dashColors = computed(() =>
+      props.state.transition && props.state.conditions
+        ? Object.entries(props.state.conditions)
+            .filter(([, tags]) => Object.values(tags).includes(1))
+            .map(([entity]) => entities.value.indexOf(entity))
+            .map((i) => "colored-back-" + i)
+        : []
+    );
+
+    return { canGloss, textColors, dashColors };
   },
 });
-
-// export default {
-//   name: "PhraseStateDisplay",
-//   inject: ["context"],
-//   props: {
-//     state: { type: Object, default: () => ({}) },
-//     glossed: { type: Boolean, default: false },
-//   },
-//   computed: {
-//     entities() {
-//       return Object.keys(this.context.value);
-//     },
-//     canGloss() {
-//       return (
-//         this.glossed && this.state.display.some((s) => s.ipa || s.glossing)
-//       );
-//     },
-//     types() {
-//       return this.canGloss ? ["ipa", "glossing"] : ["text"];
-//     },
-//     segmentColors() {
-//       return this.state.display.map(
-//         (d) => "colored-" + this.entities.indexOf(d.entity)
-//       );
-//     },
-//     dashColors() {
-//       if (!this.state.transition || !this.state.conditions) return [];
-//       const set = new Set(
-//         this.state.conditions
-//           .filter(({ passive }) => !passive)
-//           .map((c) => c.entity)
-//       );
-//       return [...set]
-//         .map((e) => this.entities.indexOf(e))
-//         .map((i) => "colored-back-" + i);
-//     },
-//     segments() {
-//       return this.types.map((t) => this.state.display.map((d) => d[t]));
-//     },
-//   },
-//   watch: {
-//     segments(segments) {
-//       const texts = segments.map((s) => s.join(""));
-//       const text = texts.length === 1 ? texts[0] : texts.join("\n");
-//       this.$emit("text", text);
-//     },
-//   },
-// };
 </script>
 
 <style lang="scss" scoped>

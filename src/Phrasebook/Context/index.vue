@@ -27,7 +27,7 @@ export default defineComponent({
     blocks: { type: Array as PropType<BlockVue[]>, default: () => [] },
   },
   setup(props) {
-    const context = inject("context", () => ({} as Ref<Context>));
+    const context = inject("context", {} as Ref<Context>);
 
     const dictionary = computed(() => {
       const translation = {

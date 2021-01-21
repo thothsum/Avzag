@@ -51,7 +51,7 @@ export default defineComponent({
       set: (t) => emit("update:modelValue", t),
     });
 
-    const contextSource = inject("contextSource", () => ({} as Ref<Context>));
+    const contextSource = inject("contextSource", {} as Ref<Context>);
     const entities = computed(() => translation.value?.map((t) => t.entity));
     const tags = computed(() => translation.value?.map((t) => t.tags));
     const sizes = computed(() =>
