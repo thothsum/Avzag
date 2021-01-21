@@ -1,16 +1,14 @@
 <template>
-  <EditorCard icon="tune" header="conditions">
+  <EditorCard button="" icon="tune" header="conditions">
     <template #caption>TODO brief explanation</template>
     <div class="row wrap">
-      <template v-for="(cs, i) in colors">
-        <btn
-          v-for="(c, j) in cs"
-          :key="i + '--' + j"
-          :text="context[i].tags[j]"
-          :class="c"
-          @click="toggle(i, j)"
-        />
-      </template>
+      <btn
+        v-for="{ entity, tag, color } in tags"
+        :key="entity + '--' + tag"
+        :text="tag"
+        :class="color"
+        @click="toggle(entity, tag)"
+      />
     </div>
   </EditorCard>
 </template>
@@ -24,6 +22,7 @@ import {
   inject,
   ComputedRef,
   ref,
+  watch,
 } from "vue";
 import { ContextSource, Conditions } from "../types";
 
@@ -38,17 +37,18 @@ export default defineComponent({
       "contextSource",
       {} as ComputedRef<undefined | ContextSource[]>
     );
-
     const conditions = computed({
       get: () => props.modelValue,
       set: (c) => emit("update:modelValue", c),
     });
+    const tags = ref([] as { tag: string; entity: string; color: string }[]);
 
-    function toggle(ei: number, ti: number) {
-      if (!context.value) return;
-      const entity = context.value[ei].entity;
-      const tag = context.value[ei].tags[ti];
+    watch([context, conditions], refreshColors, {
+      immediate: true,
+      deep: true,
+    });
 
+    function toggle(entity: string, tag: string) {
       if (!conditions.value[entity]) conditions.value[entity] = {};
       const condition = conditions.value[entity];
 
@@ -63,22 +63,23 @@ export default defineComponent({
       refreshColors();
     }
 
-    const colors = ref([] as string[][]);
     function refreshColors() {
-      if (!context.value) return;
-      colors.value = [] as string[][];
-      context.value.forEach(({ entity, tags }, i) => {
-        colors.value.push([]);
-        tags.forEach((tag) => {
+      if (!context?.value || !conditions?.value) return;
+      tags.value = [];
+      context.value.forEach(({ entity, tags: ts }, i) => {
+        ts.forEach((tag) => {
           let flag = conditions.value[entity]?.[tag] as number;
           flag = flag === undefined ? -1 : flag + 1;
-          colors.value[i].push(`colored-dot-${i} colored-border-${flag}`);
+          tags.value.push({
+            tag,
+            entity,
+            color: `colored-dot-${i} colored-border-${flag}`,
+          });
         });
       });
     }
-    refreshColors();
 
-    return { context, conditions, colors, toggle };
+    return { context, conditions, tags, toggle };
   },
 });
 </script>
@@ -86,8 +87,5 @@ export default defineComponent({
 <style lang="scss" scoped>
 .scroll {
   max-height: 128px;
-}
-btn {
-  border: transparent $border-width;
 }
 </style>

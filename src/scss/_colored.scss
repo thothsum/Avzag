@@ -29,8 +29,11 @@
   .colored-back-#{$i} {
     background-color: $color;
   }
+  *[class*="colored-border-"] {
+    border: solid $border-width transparent;
+  }
   .colored-border-#{$i} {
-    border-color: $color;
+    border: solid $border-width $color !important;
   }
   .colored-dot-#{$i}::first-letter,
   .colored-dot-#{$i} *::first-letter {
