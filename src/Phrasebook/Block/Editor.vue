@@ -22,15 +22,15 @@
 </template>
 
 <script lang="ts">
-import ButtonAlert from "@/components/ButtonAlert";
-import EditorCard from "@/components/EditorCard";
-import ConditionsEditor from "../State/ConditionsEditor";
-import TransitionEditor from "../State/TransitionEditor";
-import TextsEditor from "../State/TextsEditor";
+import ButtonAlert from "@/components/ButtonAlert.vue";
+import EditorCard from "@/components/EditorCard.vue";
+import ConditionsEditor from "../State/ConditionsEditor.vue";
+import TransitionEditor from "../State/TransitionEditor.vue";
+import TextsEditor from "../State/TextsEditor.vue";
 import VState from "../State/index.vue";
 
 import { State } from "../types";
-import { defineComponent } from "vue";
+import { defineComponent, PropType, computed, ref, toRaw, watch } from "vue";
 
 export default defineComponent({
   components: {
@@ -41,49 +41,41 @@ export default defineComponent({
     VState,
     TextsEditor,
   },
-  props: {"modelValue"},
+  props: {
+    modelValue: { type: Array as PropType<State[]>, default: undefined },
+  },
   emits: ["update:modelValue"],
-  // data() {
-  //   return {
-  //     state: undefined,
-  //     glossed: false,
-  //   };
-  // },
-  // computed: {
-  //   block: {
-  //     get() {
-  //       return this.modelValue;
-  //     },
-  //     set(b) {
-  //       console.log("updating block");
-  //       this.$emit("update:modelValue", b);
-  //     },
-  //   },
-  // },
-  // watch: {
-  //   block: {
-  //     handler() {
-  //       this.state = this.block[this.block.length - 1];
-  //     },
-  //     immediate: true,
-  //   },
-  // },
-  // methods: {
-  //   add() {
-  //     const state = {
-  //       texts: [{ plain: "new state" }],
-  //       transition: "next",
-  //       conditions: {},
-  //     };
-  //     this.block.push(state);
-  //     this.state = state;
-  //   },
-  //   remove() {
-  //     if (this.block.length > 1) {
-  //       this.block.splice(this.block.indexOf(this.state), 1);
-  //       this.state = this.block[this.block.length - 1];
-  //     }
-  //   },
-  // },
+  setup(props, { emit }) {
+    const block = computed({
+      get: () => props.modelValue,
+      set: (b) => {
+        console.log("updating block");
+        emit("update:modelValue", b);
+      },
+    });
+    const state = ref(undefined as undefined | State);
+    const glossed = ref(false);
+    watch(block, (block) => (state.value = block?.[block.length - 1]), {
+      immediate: true,
+    });
+
+    function add() {
+      state.value = {
+        texts: [{ plain: "new state" }],
+        transition: "next",
+        conditions: {},
+      };
+      const a = block.value;
+      a.push(state.value);
+      block.value = a;
+    }
+    function remove() {
+      if (state.value && block.value.length > 1) {
+        block.value.splice(toRaw(block.value).indexOf(toRaw(state.value)), 1);
+        state.value = block.value[block.value.length - 1];
+      }
+    }
+    return { add, remove, glossed, state, block };
+  },
 });
 </script>
