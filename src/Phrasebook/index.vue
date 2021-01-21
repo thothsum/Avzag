@@ -63,7 +63,7 @@
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
 
-import { computed, ref, watch, defineComponent, provide, nextTick } from "vue";
+import { computed, ref, watch, defineComponent, provide } from "vue";
 
 import { corpus, section, phrase, phrasebooks, initialize } from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
