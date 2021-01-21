@@ -11,7 +11,7 @@ export type State = {
   transition: Transition;
   texts: Text[];
 };
-export type BlockVue = {
+export type VBlock = {
   block: State[];
   state?: State;
   text: string;

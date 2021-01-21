@@ -38,10 +38,7 @@
         <NotesEditor v-model="translation.notes">
           You can add notes, for example, to explain certain grammatical rules.
         </NotesEditor>
-        <ContextTranslationEditor v-model="translation.context">
-          Translate the context keys (entites & tags) to provide full phrase
-          localization.
-        </ContextTranslationEditor>
+        <ContextTranslationEditor v-model="translation.context" />
       </template>
     </div>
     <BlockEditor v-if="block" v-model="block" />
@@ -60,7 +57,7 @@ import { defineComponent, ref, watch, provide, toRaw } from "vue";
 import { loadJSON } from "@/store";
 import { setupEditor } from "@/editor";
 import {
-  Block,
+  State,
   Context,
   CorpusPhrase,
   CorpusSection,
@@ -90,7 +87,7 @@ export default defineComponent({
     const translation = ref({} as Phrase);
     const context = ref({} as Context);
     const contextSource = ref({} as Context);
-    const block = ref({} as Block);
+    const block = ref([] as State[][]);
     const file = setupEditor<Phrasebook>({
       defaultFile: {},
       filename: "phrasebook",

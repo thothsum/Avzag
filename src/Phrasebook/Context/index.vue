@@ -16,34 +16,18 @@
 
 <script lang="ts">
 import { computed, defineComponent, inject, Ref, PropType } from "vue";
-import { Context, ContextTranslation, Condition, BlockVue } from "../types";
+import { Context, ContextTranslations, Conditions, BlockVue } from "../types";
 
 export default defineComponent({
   props: {
-    translation: {
-      type: Object as PropType<ContextTranslation[]>,
+    translations: {
+      type: Object as PropType<ContextTranslations[]>,
       default: () => [],
     },
     blocks: { type: Array as PropType<BlockVue[]>, default: () => [] },
   },
   setup(props) {
     const context = inject("context", {} as Ref<Context>);
-
-    const dictionary = computed(() => {
-      const translation = {
-        entities: {} as Record<string, string>,
-        tags: {} as Record<string, Record<string, string>>,
-      };
-      if (props.translation)
-        props.translation.forEach(({ entity, tags }) => {
-          translation.entities[entity[0]] = entity[1];
-          translation.tags[entity[0]] = (tags ?? []).reduce((d, t) => {
-            d[t[0]] = t[1];
-            return d;
-          }, {} as Record<string, string>);
-        });
-      return translation;
-    });
 
     const explicitContext = computed(
       () =>
