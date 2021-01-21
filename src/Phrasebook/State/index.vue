@@ -1,12 +1,8 @@
 <template>
   <div class="display row" :class="{ glossed: canGloss }">
     <div class="segments">
-      <p
-        v-for="type in types"
-        :key="type"
-        :class="{ 'text-ipa': type === 'ipa' }"
-      >
-        <span v-for="(text, i) in texts[i]" :key="i" :class="textColors[i]">
+      <p v-for="(type, i) in types" :key="type" :class="'text-' + type">
+        <span v-for="(text, j) in texts[i]" :key="j" :class="textColors[j]">
           {{ text }}
         </span>
       </p>

@@ -28,7 +28,7 @@ export default defineComponent({
   props: {
     modelValue: {
       type: Object as PropType<undefined | Transition>,
-      default: "",
+      default: undefined,
     },
     states: { type: Array as PropType<State[]>, default: () => [] },
   },

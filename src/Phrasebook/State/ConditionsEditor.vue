@@ -1,5 +1,5 @@
 <template>
-  <EditorCard icon="tune" header="conditions" @action="add">
+  <EditorCard icon="tune" header="conditions">
     <template #caption>TODO brief explanation</template>
     <div class="scroll col">
       <div
@@ -60,7 +60,7 @@ export default defineComponent({
       if (flag === undefined) return "";
       return "colored-border-" + (flag + 1);
     }
-    return { conditions, entityColors, toggle, getColor };
+    return { context, conditions, entityColors, toggle, getColor };
   },
 });
 </script>
