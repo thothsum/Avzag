@@ -1,21 +1,16 @@
 <template>
   <EditorCard icon="tune" header="conditions">
     <template #caption>TODO brief explanation</template>
-    <div class="scroll col">
-      <div
-        v-for="({ entity, tags }, i) in context"
-        :key="entity"
-        class="scroll row"
-        :class="'colored-dot-' + i"
-      >
+    <div class="row wrap">
+      <template v-for="{ entity, tags } in context">
         <btn
           v-for="tag in tags"
-          :key="tag"
+          :key="entity + '--' + tag"
           :text="tag"
           :class="getColor(entity, tag)"
           @click="toggle(entity, tag)"
         />
-      </div>
+      </template>
     </div>
   </EditorCard>
 </template>
@@ -37,7 +32,7 @@ export default defineComponent({
       {} as ComputedRef<undefined | ContextSource[]>
     );
     const entityColors = computed(() =>
-      context.value?.map((s, i) => "colored-dot-" + i)
+      context.value?.map((_, i) => "colored-dot-" + i)
     );
 
     const conditions = computed({
@@ -56,13 +51,15 @@ export default defineComponent({
           if (!Object.keys(condition).length) delete conditions.value[entity];
         }
       } else condition[tag] = 1;
+      conditions.value[entity] = condition;
     }
+
     function getColor(entity: string, tag: string) {
       const flag = conditions.value[entity]?.[tag];
       if (flag === undefined) return "";
       return "colored-border-" + (flag + 1);
     }
-    return { context, conditions, entityColors, toggle, getColor };
+    return { context, conditions, entityColors, getColor, toggle };
   },
 });
 </script>

@@ -9,7 +9,7 @@
             :key="tag + '--' + i"
             :class="'colored-dot-' + i"
           >
-            {{ t }}
+            {{ tag }}
           </p>
         </template>
       </template>
@@ -55,7 +55,7 @@ export default defineComponent({
       Object.entries(context.value).map(([entity, tags]) =>
         [...tags]
           .filter((tag) => !explicit.value[entity]?.has(tag))
-          .map((tag) => translate(props.translation[entity], tag))
+          .map((tag) => translate(props.translation?.[entity], tag))
       )
     );
     const any = computed(() => translated.value.some((tags) => tags?.length));
