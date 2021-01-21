@@ -56,7 +56,7 @@ import BlockEditor from "./Block/Editor.vue";
 import { defineComponent, ref, provide, watch, toRaw } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import { setupEditor } from "@/editor";
-import { Block, Context, CorpusPhrase, CorpusSection } from "./types";
+import { State, Context, CorpusPhrase, CorpusSection } from "./types";
 import { createContext } from "./utils";
 
 export default defineComponent({
@@ -79,7 +79,7 @@ export default defineComponent({
     });
     const section = ref({} as CorpusSection);
     const phrase = ref({} as CorpusPhrase);
-    const block = ref({} as Block);
+    const block = ref([] as State[]);
     const context = ref({} as Context);
     const contextSource = ref({} as Context);
 

@@ -2,9 +2,13 @@
   <div class="row text-caption wrap">
     <div class="icon">info</div>
     <template v-if="any">
-      <template v-for="(ts, i) of tags" :key="i">
-        <template v-if="ts.length" class="row-0 wrap">
-          <p v-for="t in ts" :key="t + '--' + i" :class="'colored-dot-' + i">
+      <template v-for="(tags, i) of translated" :key="i">
+        <template v-if="tags.length" class="row-0 wrap">
+          <p
+            v-for="tag in tags"
+            :key="tag + '--' + i"
+            :class="'colored-dot-' + i"
+          >
             {{ t }}
           </p>
         </template>
@@ -16,54 +20,47 @@
 
 <script lang="ts">
 import { computed, defineComponent, inject, Ref, PropType } from "vue";
-import { Context, ContextTranslations, Conditions, BlockVue } from "../types";
+import { Context, ContextTranslation, VBlock } from "../types";
 
 export default defineComponent({
   props: {
-    translations: {
-      type: Object as PropType<ContextTranslations[]>,
-      default: () => [],
+    translation: {
+      type: Object as PropType<ContextTranslation>,
+      default: () => ({}),
     },
-    blocks: { type: Array as PropType<BlockVue[]>, default: () => [] },
+    blocks: { type: Array as PropType<VBlock[]>, default: () => [] },
   },
   setup(props) {
     const context = inject("context", {} as Ref<Context>);
 
-    const explicitContext = computed(
-      () =>
-        props.blocks
-          ?.filter(({ state }) => state)
-          .map(({ block, state }) => {
-            let all = [] as Condition[];
-            if (block.requirements) all = all.concat(block.requirements);
-            if (state?.conditions) all = all.concat(state.conditions);
-            return all;
+    const explicit = computed(() => {
+      const result = {} as Context;
+      for (const { state } of props.blocks) {
+        const condition = state?.conditions;
+        if (!condition) continue;
+        Object.entries(condition).forEach(([entity, tags]) =>
+          Object.entries(tags).forEach(([tag]) => {
+            if (!result[entity]) result[entity] = new Set();
+            result[entity].add(tag);
           })
-          .flat()
-          .reduce((c, { entity, tag }) => {
-            if (!c[entity]) c[entity] = new Set();
-            if (tag) c[entity].add(tag);
-            return c;
-          }, {} as Context) ?? {}
-    );
+        );
+      }
+      return result;
+    });
 
     function translate(d: undefined | Record<string, string>, k: string) {
-      if (d) {
-        const t = d[k];
-        if (t) return t;
-      }
-      return k;
+      return d ? d[k] ?? k : k;
     }
-    const tags = computed(() =>
-      Object.entries(context.value).map(([e, ts]) =>
-        [...(ts ?? [])]
-          .filter((t) => !explicitContext.value[e]?.has(t))
-          .map((t) => translate(dictionary.value.tags[e], t))
+    const translated = computed(() =>
+      Object.entries(context.value).map(([entity, tags]) =>
+        [...tags]
+          .filter((tag) => !explicit.value[entity]?.has(tag))
+          .map((tag) => translate(props.translation[entity], tag))
       )
     );
-    const any = computed(() => tags.value.some((t) => t?.length));
+    const any = computed(() => translated.value.some((tags) => tags?.length));
 
-    return { tags, any, explicitContext };
+    return { translated, any };
   },
 });
 </script>

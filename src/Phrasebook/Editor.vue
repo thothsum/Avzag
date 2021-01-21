@@ -26,7 +26,7 @@
         </p>
         <VContext />
         <div v-if="phrase" :key="phrase.id" class="row wrap flex">
-          <VBlock v-for="(b, i) in phrase.blocks" :key="i" :block="b" />
+          <Block v-for="(b, i) in phrase.blocks" :key="i" :block="b" />
         </div>
       </div>
       <template v-if="translation">
@@ -48,7 +48,7 @@
 <script lang="ts">
 import NotesEditor from "@/components/Notes/Editor.vue";
 import VContext from "./Context/index.vue";
-import VBlock from "./Block/index.vue";
+import Block from "./Block/index.vue";
 import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import BlockEditor from "./Block/Editor.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
@@ -69,7 +69,7 @@ import { createContext } from "./utils";
 export default defineComponent({
   components: {
     VContext,
-    VBlock,
+    Block,
     NotesEditor,
     BlocksOrderEditor,
     BlockEditor,
@@ -128,7 +128,7 @@ export default defineComponent({
       { immediate: true }
     );
     function addBlock() {
-      block.value = block.value = {
+      block.value  = {
         states: [{ display: [{ text: "new state" }], transition: "next" }],
       };
       translation.value.blocks.push(block.value);

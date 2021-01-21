@@ -5,14 +5,13 @@ export type Text = {
   ipa?: string;
   gloss?: string;
 };
-export type Transition = undefined | "next" | number[];
+export type Transition = "next" | number[];
 export type State = {
-  conditions: Conditions;
-  transition: Transition;
+  conditions?: Conditions;
+  transition?: Transition;
   texts: Text[];
 };
 export type VBlock = {
-  block: State[];
   state?: State;
   text: string;
 };

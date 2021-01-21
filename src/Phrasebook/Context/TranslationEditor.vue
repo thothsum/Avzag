@@ -61,10 +61,8 @@ export default defineComponent({
     // TODO reactive Ref<>
     const context = inject("contextSource", [] as ContextSource[]);
     function create() {
-      translation.value = context.reduce((t, { entity }) => {
-        t[entity] = {};
-        return t;
-      }, {} as ContextTranslation);
+      translation.value = {};
+      for (const { entity } of context) translation.value[entity] = {};
     }
 
     return { translation, context, create };

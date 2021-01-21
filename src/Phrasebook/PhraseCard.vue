@@ -28,7 +28,7 @@ import Notes from "@/components/Notes/index.vue";
 
 import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
-import { Phrase, BlockVue } from "./types";
+import { Phrase, VBlock } from "./types";
 
 export default defineComponent({
   components: { Context, Block, Notes },
@@ -42,7 +42,7 @@ export default defineComponent({
       props.lect ? props.phrase.context : undefined
     );
 
-    const blocks = reactive([] as BlockVue[]);
+    const blocks = reactive([] as VBlock[]);
     const text = computed(() =>
       blocks
         .filter(({ state }) => state)

@@ -26,7 +26,10 @@ import { Transition, State } from "../types";
 export default defineComponent({
   components: { EditorCard, VState },
   props: {
-    modelValue: { type: Object as PropType<Transition>, default: "" },
+    modelValue: {
+      type: Object as PropType<undefined | Transition>,
+      default: "",
+    },
     states: { type: Array as PropType<State[]>, default: () => [] },
   },
   emits: ["update:modelValue"],

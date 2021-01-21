@@ -12,7 +12,7 @@
     <div class="row-1 wrap block-editor">
       <div v-for="(b, i) in blocks" :key="i + '--' + Math.random()" class="row">
         <btn icon="edit" :is-on="block === b" @click="block = b" />
-        <VBlock :ref="(el) => (el ? vblocks.push(el) : null)" :block="b" />
+        <Block :ref="(el) => (el ? vblocks.push(el) : null)" :block="b" />
       </div>
     </div>
   </EditorCard>
@@ -23,7 +23,7 @@ import EditorCard from "@/components/EditorCard.vue";
 import ArrayShift from "@/components/ArrayShift.vue";
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import Context from "../Context/index.vue";
-import VBlock from "./index.vue";
+import Block from "./index.vue";
 
 import {
   computed,
@@ -34,13 +34,13 @@ import {
   toRaw,
   watch,
 } from "vue";
-import { Phrase, CorpusPhrase, State[] } from "../types";
+import { Phrase, CorpusPhrase, State } from "../types";
 
 export default defineComponent({
-  components: { EditorCard, ArrayShift, ButtonAlert, Context, VBlock },
+  components: { EditorCard, ArrayShift, ButtonAlert, Context, Block },
   props: {
     modelValue: {
-      type: Object as PropType<Block | undefined>,
+      type: Array as PropType<State[][] | undefined>,
       default: undefined,
     },
     phrase: {
@@ -76,9 +76,9 @@ export default defineComponent({
 
     function add() {
       if (!blocks.value) blocks.value = [];
-      blocks.value.push({
-        states: [{ display: [{ text: "new state" }], transition: "next" }],
-      });
+      blocks.value.push([
+        { texts: [{ entity: "", plain: "new state" }], transition: "next" },
+      ]);
       pickLast();
     }
     function remove() {
