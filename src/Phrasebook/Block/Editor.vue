@@ -74,7 +74,7 @@ export default {
   methods: {
     add() {
       const state = {
-        display: [{ text: "new state" }],
+        texts: [{ plain: "new state" }],
         transition: "next",
       };
       this.states.push(state);

@@ -53,7 +53,7 @@ import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import BlockEditor from "./Block/Editor.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
-import { defineComponent, ref, watch, provide, toRaw } from "vue";
+import { defineComponent, ref, watch, provide, toRaw, computed } from "vue";
 import { loadJSON } from "@/store";
 import { setupEditor } from "@/editor";
 import {
@@ -63,7 +63,6 @@ import {
   CorpusSection,
   Phrase,
   Phrasebook,
-  ContextSource,
 } from "./types";
 import { createContext } from "./utils";
 
@@ -86,8 +85,6 @@ export default defineComponent({
     const section = ref(undefined as undefined | CorpusSection);
     const phrase = ref(undefined as undefined | CorpusPhrase);
     const translation = ref({} as Phrase);
-    const context = ref({} as Context);
-    const contextSource = ref([] as ContextSource[]);
     const block = ref(undefined as undefined | State[]);
     const file = setupEditor<Phrasebook>({
       defaultFile: {},
@@ -95,8 +92,15 @@ export default defineComponent({
       storage: "editor.phrasebook",
     });
 
-    provide("context", context);
+    const contextSource = computed(() => phrase.value?.context);
+    const context = ref({} as Context);
     provide("contextSource", contextSource);
+    provide("context", context);
+    watch(
+      contextSource,
+      (contextSource) => createContext(context, contextSource),
+      { immediate: true }
+    );
 
     watch(corpus, (corpus) => (section.value = corpus[corpus.length - 1]), {
       immediate: true,
@@ -115,8 +119,6 @@ export default defineComponent({
         if (!phrase) return;
         if (!file.value[phrase.id]) file.value[phrase.id] = { blocks: [] };
         translation.value = file.value[phrase.id];
-        createContext(context, phrase.context);
-        createContext(contextSource, phrase.context, true);
       },
       { immediate: true }
     );

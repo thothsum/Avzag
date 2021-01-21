@@ -1,15 +1,11 @@
 import { Ref } from "vue";
 import { Context, State, Conditions, ContextSource } from "./types";
 
-export function createContext(
-  context: Ref<Context>,
-  source: ContextSource[],
-  full = false
-) {
+export function createContext(context: Ref<Context>, source?: ContextSource[]) {
   if (!source) return;
   context.value = {};
   source.forEach(({ entity, tags }) => {
-    context.value[entity] = new Set(full ? tags : []);
+    context.value[entity] = new Set(tags);
   });
 }
 

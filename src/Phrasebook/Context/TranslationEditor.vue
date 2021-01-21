@@ -36,7 +36,7 @@
 import ButtonAlert from "@/components/ButtonAlert.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
-import { computed, defineComponent, inject, PropType } from "vue";
+import { computed, defineComponent, inject, PropType, ComputedRef } from "vue";
 import { ContextSource, ContextTranslation } from "../types";
 
 export default defineComponent({
@@ -57,12 +57,14 @@ export default defineComponent({
       get: () => props.modelValue,
       set: (t) => emit("update:modelValue", t),
     });
-
-    // TODO reactive Ref<>
-    const context = inject("contextSource", [] as ContextSource[]);
+    const context = inject(
+      "contextSource",
+      {} as ComputedRef<undefined | ContextSource[]>
+    );
     function create() {
+      if (!context?.value) return;
       translation.value = {};
-      for (const { entity } of context) translation.value[entity] = {};
+      for (const { entity } of context.value) translation.value[entity] = {};
     }
 
     return { translation, context, create };

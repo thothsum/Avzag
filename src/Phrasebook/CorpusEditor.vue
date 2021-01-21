@@ -53,10 +53,10 @@ import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import ContextEditor from "./Context/Editor.vue";
 import BlockEditor from "./Block/Editor.vue";
 
-import { defineComponent, ref, provide, watch, toRaw } from "vue";
+import { defineComponent, ref, provide, watch, toRaw, computed } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import { setupEditor } from "@/editor";
-import { State, Context, CorpusPhrase, CorpusSection, ContextSource } from "./types";
+import { State, Context, CorpusPhrase, CorpusSection } from "./types";
 import { createContext } from "./utils";
 
 export default defineComponent({
@@ -80,11 +80,16 @@ export default defineComponent({
     const section = ref(undefined as undefined | CorpusSection);
     const phrase = ref(undefined as undefined | CorpusPhrase);
     const block = ref(undefined as undefined | State[]);
-    const context = ref({} as Context);
-    const contextSource = ref([] as ContextSource[]);
 
-    provide("context", context);
+    const contextSource = computed(() => phrase.value?.context);
+    const context = ref({} as Context);
     provide("contextSource", contextSource);
+    provide("context", context);
+    watch(
+      contextSource,
+      (contextSource) => createContext(context, contextSource),
+      { immediate: true }
+    );
 
     watch(file, (file) => (section.value = file[file.length - 1]), {
       immediate: true,
@@ -93,15 +98,6 @@ export default defineComponent({
       section,
       (section) =>
         (phrase.value = section?.phrases?.[section.phrases.length - 1]),
-      { immediate: true }
-    );
-    watch(
-      () => phrase.value?.context,
-      (phraseContext) => {
-        if (!phraseContext) return;
-        createContext(context, phraseContext);
-        createContext(contextSource, phraseContext, true);
-      },
       { immediate: true }
     );
 

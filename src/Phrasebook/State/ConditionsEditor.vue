@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import EditorCard from "@/components/EditorCard.vue";
-import { computed, defineComponent, PropType, inject } from "vue";
+import { computed, defineComponent, PropType, inject, ComputedRef } from "vue";
 import { ContextSource, Conditions } from "../types";
 
 export default defineComponent({
@@ -32,10 +32,12 @@ export default defineComponent({
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
-    // TODO make reactive Ref<>
-    const context = inject("contextSource", [] as ContextSource[]);
+    const context = inject(
+      "contextSource",
+      {} as ComputedRef<undefined | ContextSource[]>
+    );
     const entityColors = computed(() =>
-      context?.map((s, i) => "colored-dot-" + i)
+      context.value?.map((s, i) => "colored-dot-" + i)
     );
 
     const conditions = computed({
