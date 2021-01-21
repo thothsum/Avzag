@@ -5,9 +5,10 @@ export type Text = {
   ipa?: string;
   gloss?: string;
 };
+export type Transition = undefined | "next" | number[];
 export type State = {
-  conditions?: Conditions;
-  transition: string;
+  conditions: Conditions;
+  transition: Transition;
   texts: Text[];
 };
 export type BlockVue = {
