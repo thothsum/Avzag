@@ -1,45 +1,32 @@
-export type Condition = {
-  entity: string;
-  tag?: string;
-  passive?: boolean;
-};
-export type DisplaySegment = {
-  text?: string;
-  ipa?: string;
-  glossing?: string;
+export type Conditions = Record<string, Record<string, -1 | 0 | 1>>;
+export type Text = {
   entity?: string;
+  plain?: string;
+  ipa?: string;
+  gloss?: string;
 };
 export type State = {
-  conditions?: Condition[];
-  transition?: string;
-  implicit?: boolean;
-  display: DisplaySegment[];
-};
-export type Block = {
-  requirements?: Condition[];
-  states: State[];
+  conditions?: Conditions;
+  transition: string;
+  texts: Text[];
 };
 export type BlockVue = {
-  block: Block;
+  block: State[];
   state?: State;
   text: string;
 };
 
 export type ContextSource = {
   entity: string;
-  tags: string;
+  tags: string[];
 };
 export type Context = Record<string, Set<string>>;
-export type ContextTranslation = {
-  entity: [string, string];
-  tags: [string, string][];
-};
-
+export type ContextTranslation = Record<string, Record<string, string>>;
 export type CorpusPhrase = {
   id: string;
   name: string;
   context: ContextSource[];
-  blocks: Block[];
+  blocks: State[][];
 };
 export type CorpusSection = {
   id: string;
@@ -49,7 +36,7 @@ export type CorpusSection = {
 
 export type Phrase = {
   notes?: string[];
-  context?: ContextTranslation[];
-  blocks: Block[];
+  context?: ContextTranslation;
+  blocks: State[][];
 };
 export type Phrasebook = Record<string, Phrase>;
