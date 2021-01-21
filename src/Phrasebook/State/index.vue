@@ -2,12 +2,12 @@
   <div class="display row" :class="{ glossed: canGloss }">
     <div class="segments">
       <p
-        v-for="(t, i) in textTypes"
-        :key="i"
-        :class="{ 'text-ipa': t === 'ipa' }"
+        v-for="type in types"
+        :key="type"
+        :class="{ 'text-ipa': type === 'ipa' }"
       >
-        <span v-for="(s, j) in textSegments[i]" :key="j" :class="textColors[j]">
-          {{ s }}
+        <span v-for="(text, i) in texts[i]" :key="i" :class="textColors[i]">
+          {{ text }}
         </span>
       </p>
     </div>
@@ -36,14 +36,14 @@ export default defineComponent({
         props.state.texts.some(({ ipa, gloss }) => ipa || gloss)
     );
 
-    const textTypes = computed<("plain" | "ipa" | "gloss")[]>(() =>
+    const types = computed<("plain" | "ipa" | "gloss")[]>(() =>
       canGloss.value ? ["ipa", "gloss"] : ["plain"]
     );
-    const textSegments = computed(() =>
-      textTypes.value.map((type) => props.state.texts.map((text) => text[type]))
+    const texts = computed(() =>
+      types.value.map((type) => props.state.texts?.map((text) => text[type]))
     );
-    watch(textSegments, (textSegments) => {
-      const lines = textSegments.map((s) => s.join(""));
+    watch(texts, (texts) => {
+      const lines = texts.map((t) => t.join(""));
       const text = lines.length === 1 ? lines[0] : lines.join("\n");
       emit("text", text);
     });
@@ -63,7 +63,7 @@ export default defineComponent({
         : []
     );
 
-    return { canGloss, textColors, dashColors };
+    return { types, texts, canGloss, textColors, dashColors };
   },
 });
 </script>

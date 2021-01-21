@@ -1,5 +1,5 @@
 <template>
-  <div class="block col-2">
+  <div v-if="block" class="block col-2">
     <EditorCard icon="widgets" header="States" @action="add">
       <template v-if="state" #header>
         <toggle v-model="glossed" icon="layers" />
