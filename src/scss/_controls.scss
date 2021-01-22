@@ -45,7 +45,6 @@ input[type="text"] {
   text-align: left;
   border: $border-width solid var(--color-active);
   &:read-write {
-    background-color: var(--color-foreground);
     border-bottom-width: $border-width;
     &:hover,
     &:focus {
@@ -56,6 +55,9 @@ input[type="text"] {
 
 textarea {
   padding: map-get($margins, "normal");
+  &:read-write {
+    background-color: var(--color-foreground);
+  }
 }
 
 input[type="text"] {
