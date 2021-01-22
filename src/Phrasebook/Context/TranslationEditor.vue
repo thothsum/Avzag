@@ -1,6 +1,6 @@
 <template>
   <EditorCard
-    :button="translation ? '' : 'queue'"
+    :button="translation ? '' : 'add'"
     icon="format_list_bulleted"
     header="context translation"
     @action="create"
