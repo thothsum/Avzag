@@ -37,6 +37,7 @@ import {
 import { Phrase, CorpusPhrase, State } from "../types";
 
 export default defineComponent({
+  name: "OrderEditor",
   components: { EditorCard, ArrayShift, ButtonAlert, Context, Block },
   props: {
     modelValue: {

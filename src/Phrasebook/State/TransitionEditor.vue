@@ -24,6 +24,7 @@ import { computed, defineComponent, PropType } from "vue";
 import { Transition, State } from "../types";
 
 export default defineComponent({
+  name: "TransitionEditor",
   components: { EditorCard, VState },
   props: {
     modelValue: {

@@ -33,6 +33,7 @@ import { State } from "../types";
 import { defineComponent, PropType, computed, ref, toRaw, watch } from "vue";
 
 export default defineComponent({
+  name: "BlockEditor",
   components: {
     ButtonAlert,
     EditorCard,

@@ -25,6 +25,7 @@ import { Context, State } from "../types";
 import { applyConditions, findBestState, checkConditions } from "../utils";
 
 export default defineComponent({
+  name: "Block",
   components: { VState },
   props: {
     block: { type: Array as PropType<State[]>, default: () => ({}) },

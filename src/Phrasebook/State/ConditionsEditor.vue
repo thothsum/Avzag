@@ -27,6 +27,7 @@ import {
 import { ContextSource, Conditions } from "../types";
 
 export default defineComponent({
+  name: "ConditionsEditor",
   components: { EditorCard },
   props: {
     modelValue: { type: Object as PropType<Conditions>, default: undefined },

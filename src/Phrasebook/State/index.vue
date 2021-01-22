@@ -18,6 +18,7 @@ import { computed, defineComponent, inject, PropType, Ref, watch } from "vue";
 import { Context, State } from "../types";
 
 export default defineComponent({
+  name: "State",
   props: {
     state: { type: Object as PropType<State>, default: () => ({}) },
     glossed: { type: Boolean, default: false },
