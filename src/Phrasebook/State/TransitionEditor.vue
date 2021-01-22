@@ -9,7 +9,7 @@
     </template>
     <div v-if="mode === 2" class="row-1 wrap block-editor">
       <div v-for="(s, i) in states" :key="i" class="row">
-        <btn icon="check" :is-on="transition.inclides(i)" @click="toggle(i)" />
+        <btn icon="check" :is-on="transition.includes(i)" @click="toggle(i)" />
         <VState :state="s" />
       </div>
     </div>
@@ -28,15 +28,15 @@ export default defineComponent({
   components: { EditorCard, VState },
   props: {
     modelValue: {
-      type: Object as PropType<undefined | Transition>,
+      type: [Array, String],
       default: undefined,
     },
     states: { type: Array as PropType<State[]>, default: () => [] },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const transition = computed({
-      get: () => props.modelValue,
+    const transition = computed<Transition>({
+      get: () => props.modelValue as Transition,
       set: (t) => emit("update:modelValue", t),
     });
     const mode = computed({
