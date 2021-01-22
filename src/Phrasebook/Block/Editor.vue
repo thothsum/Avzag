@@ -29,8 +29,9 @@ import TransitionEditor from "../State/TransitionEditor.vue";
 import TextsEditor from "../State/TextsEditor.vue";
 import VState from "../State/index.vue";
 
-import { State } from "../types";
 import { defineComponent, PropType, computed, ref, toRaw, watch } from "vue";
+import { State } from "../types";
+import { newState } from "../utils";
 
 export default defineComponent({
   name: "BlockEditor",
@@ -58,14 +59,8 @@ export default defineComponent({
     });
 
     function add() {
-      state.value = {
-        texts: [{ plain: "new state" }],
-        transition: "next",
-        conditions: {},
-      };
-      const a = block.value;
-      a.push(state.value);
-      block.value = a;
+      state.value = newState();
+      block.value.push(state.value);
     }
     function remove() {
       if (state.value && block.value.length > 1) {

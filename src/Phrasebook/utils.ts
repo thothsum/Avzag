@@ -1,6 +1,14 @@
 import { Ref } from "vue";
 import { Context, State, Conditions, ContextSource } from "./types";
 
+export function newState() {
+  return {
+    texts: [{ plain: "new state" }],
+    transition: "next",
+    conditions: {},
+  } as State;
+}
+
 export function createContext(context: Ref<Context>, source?: ContextSource[]) {
   if (!source) return;
   context.value = {};
@@ -22,11 +30,7 @@ export function checkConditions(
         if (context[entity].has(tag)) return [-1, 0];
         continue;
       }
-      try {
-        score += context[entity].has(tag) ? 1 : 0;
-      } catch {
-        console.log(entity, context);
-      }
+      score += context[entity].has(tag) ? 1 : 0;
       count += 1;
     }
   return [score / count, count];

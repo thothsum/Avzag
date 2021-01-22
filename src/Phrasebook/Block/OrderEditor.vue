@@ -35,6 +35,7 @@ import {
   watch,
 } from "vue";
 import { Phrase, CorpusPhrase, State } from "../types";
+import { newState } from "../utils";
 
 export default defineComponent({
   name: "OrderEditor",
@@ -77,7 +78,7 @@ export default defineComponent({
 
     function add() {
       if (!blocks.value) blocks.value = [];
-      blocks.value.push([]);
+      blocks.value.push([newState()]);
       pickLast();
     }
     function remove() {
