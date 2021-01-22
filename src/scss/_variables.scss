@@ -2,31 +2,31 @@ $border-radius: 2px;
 $border-width: 2px;
 
 $margins: (
-    "quarter": 2px,
-    "half": 4px,
-    "normal": 8px,
-    "double": 16px,
+  "quarter": 2px,
+  "half": 4px,
+  "normal": 8px,
+  "double": 16px,
 );
 $shadows: (
-    "normal": 0 1px 2px var(--color-shadow),
-    "elevated": 0 2px 8px var(--color-shadow),
+  "normal": 0 1px 2px var(--color-shadow),
+  "elevated": 0 2px 8px var(--color-shadow),
 );
 $font-sizes: (
-    "small": 12px,
-    "normal": 14px,
-    "large": 20px,
+  "small": 12px,
+  "normal": 14px,
+  "large": 20px,
 );
 $icon-sizes: (
-    "small": 18px,
-    "normal": 22px,
+  "small": 18px,
+  "normal": 22px,
 );
 $button-height: (
-    "small": 26px,
-    "normal": 32px,
+  "small": 26px,
+  "normal": 32px,
 );
 $opacity: (
-    "text": 0.6,
-    "back": 0.15,
+  "text": 0.6,
+  "back": 0.15,
 );
 
 $max-width: 960px;
