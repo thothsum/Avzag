@@ -50,7 +50,7 @@ export default defineComponent({
     });
 
     function translate(d: undefined | Record<string, string>, k: string) {
-      return d ? d[k] ?? k : k;
+      return d?.[k] || k;
     }
     const translated = computed(() =>
       Object.entries(context.value).map(([entity, tags]) =>
