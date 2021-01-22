@@ -1,5 +1,5 @@
 <template>
-  <EditorCard icon="text_format" header="texts" @action="add">
+  <EditorCard icon="short_text" header="texts" @action="add">
     <div class="col">
       <div v-for="(t, i) in texts" :key="i" class="row">
         <btn icon="palette" @click="toggle(i)" />
