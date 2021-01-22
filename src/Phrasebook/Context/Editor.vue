@@ -28,6 +28,7 @@ import { computed, defineComponent, PropType, ref, watch } from "vue";
 import { ContextSource } from "../types";
 
 export default defineComponent({
+  name: "ContextEditor",
   components: { EditorCard },
   props: {
     modelValue: {

@@ -19,14 +19,15 @@
         :class="'colored-dot-' + i"
       >
         <h2 class="text-caption">{{ entity }}</h2>
-        <input
-          v-for="tag in tags"
-          :key="tag"
-          v-model="translation[entity][tag]"
-          :size="Math.max(1, translation[entity][tag]?.length)"
-          :placeholder="tag"
-          type="text"
-        />
+        <div class="row wrap">
+          <input
+            v-for="tag in tags"
+            :key="tag"
+            v-model="translation[entity][tag]"
+            :placeholder="tag"
+            type="text"
+          />
+        </div>
       </div>
     </template>
   </EditorCard>
@@ -40,7 +41,7 @@ import { computed, defineComponent, inject, PropType, ComputedRef } from "vue";
 import { ContextSource, ContextTranslation } from "../types";
 
 export default defineComponent({
-  name: "PhraseContextTranslationEditor",
+  name: "TranslationEditor",
   components: {
     ButtonAlert,
     EditorCard,
@@ -63,11 +64,19 @@ export default defineComponent({
     );
     function create() {
       if (!context?.value) return;
-      translation.value = {};
-      for (const { entity } of context.value) translation.value[entity] = {};
+      translation.value = context.value.reduce((t, { entity }) => {
+        t[entity] = {};
+        return t;
+      }, {} as ContextTranslation);
     }
 
     return { translation, context, create };
   },
 });
 </script>
+
+<style lang="scss" scoped>
+input {
+  width: 64px;
+}
+</style>

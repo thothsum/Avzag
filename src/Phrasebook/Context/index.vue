@@ -23,6 +23,7 @@ import { computed, defineComponent, inject, Ref, PropType } from "vue";
 import { Context, ContextTranslation, VBlock } from "../types";
 
 export default defineComponent({
+  name: "Context",
   props: {
     translation: {
       type: Object as PropType<ContextTranslation>,
