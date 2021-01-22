@@ -19,6 +19,11 @@ div:empty {
   display: none;
 }
 
+hr {
+  height: $border-width;
+  background-color: var(--color-active);
+}
+
 .section {
   margin: auto auto map-get($margins, "double") auto;
   width: 100%;

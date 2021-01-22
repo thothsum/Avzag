@@ -36,4 +36,7 @@ export default defineComponent({
 .text-caption:empty {
   display: none;
 }
+.card-0 {
+  min-height: map-get($button-height, "small") + 2 * map-get($margins, "half");
+}
 </style>
