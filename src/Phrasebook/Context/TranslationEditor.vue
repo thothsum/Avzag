@@ -24,6 +24,7 @@
             v-for="tag in tags"
             :key="tag"
             v-model="translation[entity][tag]"
+            :size="getSize(entity, tag)"
             :placeholder="tag"
             type="text"
           />
@@ -69,14 +70,19 @@ export default defineComponent({
         return t;
       }, {} as ContextTranslation);
     }
+    function getSize(entity: string, tag: string) {
+      if (!translation.value) return;
+      const size = translation.value[entity][tag]?.length ?? 0;
+      return size > 0 ? size : tag.length;
+    }
 
-    return { translation, context, create };
+    return { translation, context, create, getSize };
   },
 });
 </script>
 
 <style lang="scss" scoped>
 input {
-  width: 64px;
+  width: unset;
 }
 </style>
