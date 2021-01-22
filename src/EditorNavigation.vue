@@ -1,7 +1,7 @@
 <template>
   <div id="root" class="small">
     <div class="section scroll row-1">
-      <div class="row-1">
+      <div class="row">
         <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
           <btn icon="arrow_back" @click="navigate" />
         </router-link>
@@ -11,7 +11,7 @@
           </option>
         </select>
       </div>
-      <div class="row-1 controls">
+      <div class="row controls">
         <btn icon="language" @click="loadLect" />
         <btn icon="code" @click="loadJSON" />
         <btn icon="integration_instructions" @click="saveJSON" />
@@ -87,7 +87,7 @@ export default defineComponent({
   background-color: var(--color-foreground);
   margin: -1 * map-get($margins, "normal");
   margin-bottom: map-get($margins, "double");
-  padding: map-get($margins, "normal");
+  padding: map-get($margins, "half");
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
   :not(.icon) {
