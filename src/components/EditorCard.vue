@@ -1,6 +1,6 @@
 <template>
   <div class="col">
-    <div class="row">
+    <div class="row card-0">
       <btn v-if="button" :icon="button" @click="emit('action')" />
       <p class="icon">{{ icon }}</p>
       <h2 class="flex">{{ header }}</h2>
@@ -9,7 +9,7 @@
     <p v-if="caption" class="text-caption text-faded">
       <slot name="caption" />
     </p>
-    <div class="col card-0">
+    <div class="col">
       <slot />
     </div>
   </div>
