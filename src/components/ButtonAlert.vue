@@ -1,38 +1,27 @@
 <template>
-  <div class="row-0">
-    <template v-if="prompt">
-      <btn
-        class="highlight-font-alert"
-        icon="delete_forever"
-        @click="confirm"
-      />
-      <btn icon="check" @click="prompt = false" />
-    </template>
-    <btn
-      v-else
-      class="highlight-font-alert"
-      icon="delete"
-      :text="text"
-      @click="prompt = true"
-    />
-  </div>
+  <btn
+    class="highlight-font-alert"
+    :icon="icon"
+    :text="text"
+    @click="confirm"
+  />
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
+    message: { type: String, default: "Delete?" },
+    icon: { type: String, default: "delete" },
     text: { type: String, default: "" },
   },
   emits: ["confirm"],
   setup(props, { emit }) {
-    const prompt = ref(false);
     function confirm() {
-      prompt.value = false;
-      emit("confirm");
+      if (window.confirm(props.message)) emit("confirm");
     }
-    return { prompt, confirm };
+    return { confirm };
   },
 });
 </script>

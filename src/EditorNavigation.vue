@@ -16,7 +16,7 @@
         <btn icon="code" @click="loadJSON" />
         <btn icon="integration_instructions" @click="saveJSON" />
         <p class="text-dot" />
-        <ButtonAlert @confirm="resetFile" />
+        <ButtonAlert message="Reset file?" @confirm="resetFile" />
       </div>
     </div>
   </div>
