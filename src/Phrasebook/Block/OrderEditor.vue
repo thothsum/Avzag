@@ -5,10 +5,8 @@
       <p class="text-dot" />
       <ButtonAlert @confirm="remove" />
     </template>
-    <Context
-      :translation="phrase.id ? null : phrase.context"
-      :blocks="vblocks"
-    />
+    <Context v-if="phrase.id" />
+    <Context v-else :blocks="vblocks" :translation="phrase.context" />
     <div class="row-1 wrap block-editor">
       <div v-for="(b, i) in blocks" :key="i + '--' + Math.random()" class="row">
         <btn icon="edit" :is-on="block === b" @click="block = b" />
