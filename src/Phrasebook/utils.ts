@@ -30,7 +30,7 @@ export function checkConditions(
         if (context[entity].has(tag)) return [-1, 0];
         continue;
       }
-      score += context[entity].has(tag) ? 1 : 0;
+      score += context[entity]?.has(tag) ? 1 : 0;
       count += 1;
     }
   return [score / count, count];

@@ -63,10 +63,9 @@ export default defineComponent({
       block.value.push(state.value);
     }
     function remove() {
-      if (state.value && block.value.length > 1) {
-        block.value.splice(toRaw(block.value).indexOf(toRaw(state.value)), 1);
-        state.value = block.value[block.value.length - 1];
-      }
+      if (!state.value) return;
+      block.value.splice(toRaw(block.value).indexOf(toRaw(state.value)), 1);
+      state.value = block.value[block.value.length - 1];
     }
     return { add, remove, glossed, state, block };
   },
