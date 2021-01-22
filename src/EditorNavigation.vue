@@ -15,8 +15,7 @@
         <btn icon="language" @click="loadLect" />
         <btn icon="code" @click="loadJSON" />
         <btn icon="integration_instructions" @click="saveJSON" />
-        <p class="text-dot" />
-        <ButtonAlert message="Reset file?" @confirm="resetFile" />
+        <ConfirmButton message="Reset file?" @confirm="resetFile" />
       </div>
     </div>
   </div>
@@ -24,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import ButtonAlert from "@/components/ButtonAlert.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
 
 import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -32,7 +31,7 @@ import { loadJSON as loadDBJSON } from "@/store";
 import { config, file, resetFile } from "@/editor";
 
 export default defineComponent({
-  components: { ButtonAlert },
+  components: { ConfirmButton },
   setup() {
     const route = useRoute();
     const router = useRouter();

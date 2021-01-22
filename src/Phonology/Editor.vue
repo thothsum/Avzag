@@ -14,7 +14,7 @@
     </EditorCard>
     <div v-if="phoneme" class="col-2 small">
       <EditorCard button="" icon="hearing" header="Phoneme">
-        <template #header><ButtonAlert @confirm="removePhoneme" /></template>
+        <template #header><ConfirmButton @confirm="removePhoneme" /></template>
         <input
           v-model="phoneme.phoneme"
           type="text"
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import ButtonAlert from "@/components/ButtonAlert.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import TableEntry from "./TableEntry.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
@@ -65,7 +65,7 @@ import { PhonemeUse } from "./types";
 import { setupEditor } from "@/editor";
 
 export default defineComponent({
-  components: { ButtonAlert, EditorCard, TableEntry, NotesEditor },
+  components: { ConfirmButton, EditorCard, TableEntry, NotesEditor },
   setup() {
     const phoneme = ref({} as PhonemeUse);
     const file = setupEditor<PhonemeUse[]>({

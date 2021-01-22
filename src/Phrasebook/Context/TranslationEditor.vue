@@ -9,7 +9,7 @@
       Translate the context tags to show localized hints when needed.
     </template>
     <template v-if="translation" #header>
-      <ButtonAlert @confirm="translation = undefined" />
+      <ConfirmButton @confirm="translation = undefined" />
     </template>
     <template v-if="translation">
       <div
@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import ButtonAlert from "@/components/ButtonAlert.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
 import { computed, defineComponent, inject, PropType, ComputedRef } from "vue";
@@ -44,7 +44,7 @@ import { ContextSource, ContextTranslation } from "../types";
 export default defineComponent({
   name: "TranslationEditor",
   components: {
-    ButtonAlert,
+    ConfirmButton,
     EditorCard,
   },
   props: {

@@ -2,9 +2,9 @@
   <div v-if="block" class="block col-2">
     <EditorCard icon="account_tree" header="States" @action="add">
       <template v-if="state" #header>
+        <ArrayCopy v-model="block" v-model:item="state" />
         <toggle v-model="glossed" icon="layers" />
-        <p class="text-dot" />
-        <ButtonAlert @confirm="remove" />
+        <ConfirmButton @confirm="remove" />
       </template>
       <div class="row-1 wrap block-editor">
         <div v-for="(s, i) in block" :key="i" class="row">
@@ -22,7 +22,8 @@
 </template>
 
 <script lang="ts">
-import ButtonAlert from "@/components/ButtonAlert.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
+import ArrayCopy from "@/components/ArrayCopy.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import ConditionsEditor from "../State/ConditionsEditor.vue";
 import TransitionEditor from "../State/TransitionEditor.vue";
@@ -36,7 +37,8 @@ import { newState } from "../utils";
 export default defineComponent({
   name: "BlockEditor",
   components: {
-    ButtonAlert,
+    ArrayCopy,
+    ConfirmButton,
     EditorCard,
     ConditionsEditor,
     TransitionEditor,

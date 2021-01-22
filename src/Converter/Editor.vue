@@ -11,8 +11,7 @@
       <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
         <template v-if="mapping" #header>
           <ArrayShift v-model="mappings" :item="mapping" />
-          <p class="text-dot" />
-          <ButtonAlert @confirm="deleteMapping" />
+          <ConfirmButton @confirm="deleteMapping" />
         </template>
         <template #caption>
           The 1st mapping should be the same as the caption. Default conversion
@@ -49,7 +48,7 @@
 
 <script lang="ts">
 import ArrayShift from "@/components/ArrayShift.vue";
-import ButtonAlert from "@/components/ButtonAlert.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
 import { computed, ref, defineComponent, watch } from "vue";
@@ -58,7 +57,7 @@ import { setupEditor } from "@/editor";
 import convert from "./convert";
 
 export default defineComponent({
-  components: { ArrayShift, ButtonAlert, EditorCard },
+  components: { ArrayShift, ConfirmButton, EditorCard },
   setup() {
     const mapping = ref({} as Mapping);
     const file = setupEditor<Converter>({

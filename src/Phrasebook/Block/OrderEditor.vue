@@ -1,9 +1,9 @@
 <template>
   <EditorCard v-if="mphrase" icon="widgets" header="Blocks" @action="add">
     <template v-if="block" #header>
+      <ArrayCopy v-model="blocks" v-model:item="block" />
       <ArrayShift v-model="blocks" :item="block" />
-      <p class="text-dot" />
-      <ButtonAlert @confirm="remove" />
+      <ConfirmButton @confirm="remove" />
     </template>
     <Context v-if="phrase.id" />
     <Context v-else :blocks="vblocks" :translation="phrase.context" />
@@ -17,9 +17,10 @@
 </template>
 
 <script lang="ts">
+import ArrayCopy from "@/components/ArrayCopy.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import ArrayShift from "@/components/ArrayShift.vue";
-import ButtonAlert from "@/components/ButtonAlert.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
 import Context from "../Context/index.vue";
 import Block from "./index.vue";
 
@@ -37,7 +38,14 @@ import { newState } from "../utils";
 
 export default defineComponent({
   name: "OrderEditor",
-  components: { EditorCard, ArrayShift, ButtonAlert, Context, Block },
+  components: {
+    ArrayCopy,
+    EditorCard,
+    ArrayShift,
+    ConfirmButton,
+    Context,
+    Block,
+  },
   props: {
     modelValue: {
       type: Array as PropType<State[] | undefined>,

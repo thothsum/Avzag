@@ -4,8 +4,7 @@
       <EditorCard icon="topic" header="sections" @action="addSection">
         <template v-if="section" #header>
           <ArrayShift v-model="file" :item="section" />
-          <p class="text-dot" />
-          <ButtonAlert @confirm="removeSection" />
+          <ConfirmButton @confirm="removeSection" />
         </template>
         <div class="col scroll">
           <div v-for="s in file" :key="s.id" class="row">
@@ -22,8 +21,7 @@
       >
         <template v-if="phrase" #header>
           <ArrayShift v-model="section.phrases" :item="phrase" />
-          <p class="text-dot" />
-          <ButtonAlert @confirm="removePhrase" />
+          <ConfirmButton @confirm="removePhrase" />
         </template>
         <div class="col scroll">
           <div v-for="p in section.phrases" :key="p.id" class="row">
@@ -47,7 +45,7 @@
 
 <script lang="ts">
 import ArrayShift from "@/components/ArrayShift.vue";
-import ButtonAlert from "@/components/ButtonAlert.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import ContextEditor from "./Context/Editor.vue";
@@ -62,7 +60,7 @@ import { createContext } from "./utils";
 export default defineComponent({
   components: {
     ArrayShift,
-    ButtonAlert,
+    ConfirmButton,
     EditorCard,
     BlocksOrderEditor,
     ContextEditor,
