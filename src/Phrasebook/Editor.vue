@@ -1,10 +1,10 @@
 <template>
   <div v-if="file && corpus" class="section col-2 small grid">
     <div class="col-2">
-      <div class="col wrap card">
-        <div class="row-1">
+      <div class="col">
+        <div class="row">
           <p class="icon">topic</p>
-          <h2 class="col-1 flex">
+          <h2 class="col flex">
             <select v-model="section">
               <option v-for="s in corpus" :key="s.name" :value="s">
                 {{ s.name }}
@@ -12,7 +12,7 @@
             </select>
           </h2>
         </div>
-        <div v-if="section" class="row-1">
+        <div v-if="section" class="row">
           <p class="icon">short_text</p>
           <select v-model="phrase">
             <option v-for="p in section.phrases" :key="p.id" :value="p">
@@ -24,9 +24,11 @@
           The source corpus is loading from what is saved on Phrasebook Corpus
           editor page.
         </p>
-        <VContext />
-        <div v-if="phrase" :key="phrase.id" class="row wrap flex">
-          <Block v-for="(b, i) in phrase.blocks" :key="i" :block="b" />
+        <div class="col card-0">
+          <VContext />
+          <div v-if="phrase" :key="phrase.id" class="row wrap flex">
+            <Block v-for="(b, i) in phrase.blocks" :key="i" :block="b" />
+          </div>
         </div>
       </div>
       <template v-if="translation">

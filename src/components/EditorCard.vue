@@ -9,7 +9,9 @@
     <p v-if="caption" class="text-caption text-faded">
       <slot name="caption" />
     </p>
-    <slot />
+    <div class="col card-0">
+      <slot />
+    </div>
   </div>
 </template>
 
