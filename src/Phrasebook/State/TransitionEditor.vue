@@ -35,7 +35,7 @@ export default defineComponent({
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
-    const transition = computed<Transition>({
+    const transition = computed({
       get: () => props.modelValue as Transition,
       set: (t) => emit("update:modelValue", t),
     });
