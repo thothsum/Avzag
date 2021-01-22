@@ -28,14 +28,14 @@ export default defineComponent({
   name: "Block",
   components: { VState },
   props: {
-    block: { type: Array as PropType<State[]>, default: () => ({}) },
+    block: { type: Array as PropType<State[]>, default: undefined },
     glossed: Boolean,
   },
   emits: ["update:modelValue"],
   setup(props) {
     const state = ref<State>();
     const requirements = computed(
-      () => checkConditions(state.value?.conditions, context.value)[0] > 0
+      () => checkConditions(state.value?.conditions, context.value)[0] !== -1
     );
     const disabled = computed(() => !state.value?.transition);
     const text = ref("");
