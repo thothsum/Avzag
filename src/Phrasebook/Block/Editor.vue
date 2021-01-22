@@ -1,6 +1,6 @@
 <template>
   <div v-if="block" class="block col-2">
-    <EditorCard icon="widgets" header="States" @action="add">
+    <EditorCard icon="account_tree" header="States" @action="add">
       <template v-if="state" #header>
         <toggle v-model="glossed" icon="layers" />
         <p class="text-dot" />

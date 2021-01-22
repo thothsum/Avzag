@@ -1,5 +1,5 @@
 <template>
-  <EditorCard v-if="mphrase" icon="account_tree" header="Blocks" @action="add">
+  <EditorCard v-if="mphrase" icon="widgets" header="Blocks" @action="add">
     <template v-if="block" #header>
       <ArrayShift v-model="blocks" :item="block" />
       <p class="text-dot" />
