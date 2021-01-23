@@ -55,7 +55,9 @@ export default defineComponent({
     const dashColors = computed(() =>
       props.state.transition && props.state.conditions
         ? Object.entries(props.state.conditions)
-            .filter(([, tags]) => Object.values(tags).includes(1))
+            .filter(([, tags]) =>
+              Object.values(tags).some(({ provide }) => provide)
+            )
             .map(([entity]) => entities.value.indexOf(entity))
             .map((i) => "colored-back-" + i)
         : []
