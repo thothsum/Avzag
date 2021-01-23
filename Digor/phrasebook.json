@@ -1,196 +1,57 @@
 {
-    "10": {
-        "blocks": [
-            {
-                "states": [
-                    {
-                        "display": [
-                            {
-                                "text": "Куд "
-                            }
-                        ],
-                        "transition": "next",
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "present"
-                            }
-                        ]
-                    },
-                    {
-                        "display": [
-                            {
-                                "text": "Кæд"
-                            }
-                        ],
-                        "transition": "next",
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "future"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "states": [
-                    {
-                        "display": [
-                            {
-                                "text": "фæццæуон"
-                            }
-                        ],
-                        "transition": "1",
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "present",
-                                "passive": true
-                            },
-                            {
-                                "entity": "actor",
-                                "tag": "singular"
-                            }
-                        ]
-                    },
-                    {
-                        "display": [
-                            {
-                                "text": "фæццæуæн"
-                            }
-                        ],
-                        "transition": "0",
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "present",
-                                "passive": true
-                            },
-                            {
-                                "entity": "actor",
-                                "tag": "plural"
-                            }
-                        ]
-                    },
-                    {
-                        "display": [
-                            {
-                                "text": "цæyæн"
-                            }
-                        ],
-                        "transition": "3",
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "future",
-                                "passive": true
-                            },
-                            {
-                                "entity": "actor",
-                                "tag": "plural"
-                            }
-                        ]
-                    },
-                    {
-                        "display": [
-                            {
-                                "text": "цæун"
-                            }
-                        ],
-                        "transition": "2",
-                        "conditions": [
-                            {
-                                "entity": "tense",
-                                "tag": "future",
-                                "passive": true
-                            },
-                            {
-                                "entity": "actor",
-                                "tag": "singular"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "states": [
-                    {
-                        "display": [
-                            {
-                                "text": "мах"
-                            }
-                        ],
-                        "conditions": [
-                            {
-                                "entity": "actor",
-                                "tag": "plural"
-                            }
-                        ]
-                    },
-                    {
-                        "display": [
-                            {
-                                "text": "æз"
-                            }
-                        ],
-                        "conditions": [
-                            {
-                                "entity": "actor",
-                                "tag": "singular"
-                            }
-                        ]
-                    }
-                ],
-                "requirements": []
-            },
-            {
-                "states": [
-                    {
-                        "display": [
-                            {
-                                "text": "уордæмæ?"
-                            }
-                        ],
-                        "transition": "next",
-                        "conditions": [
-                            {
-                                "entity": "destination",
-                                "tag": "there"
-                            }
-                        ]
-                    },
-                    {
-                        "display": [
-                            {
-                                "text": "туканмæ?"
-                            }
-                        ],
-                        "transition": "next",
-                        "conditions": [
-                            {
-                                "entity": "destination",
-                                "tag": "shop"
-                            }
-                        ]
-                    },
-                    {
-                        "display": [
-                            {
-                                "text": "хæдзарæмæ?"
-                            }
-                        ],
-                        "transition": "next",
-                        "conditions": [
-                            {
-                                "entity": "destination",
-                                "tag": "home"
-                            }
-                        ]
-                    }
-                ],
-                "requirements": []
-            }
-        ]
-    }
+  "7068a2cd-3897-4737-9435-87f655d1c71d": {
+    "blocks": [
+      [
+        {
+          "texts": [{ "plain": "Кӕд" }],
+          "transition": "next",
+          "conditions": { "tense": { "future": true } }
+        },
+        {
+          "texts": [{ "plain": "Куд" }],
+          "transition": "next",
+          "conditions": { "tense": { "present": true } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "цӕун" }],
+          "conditions": { "actor": { "singular": true } }
+        },
+        {
+          "texts": [{ "plain": "цӕуӕн" }],
+          "conditions": { "actor": { "plural": true } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "мах" }],
+          "transition": "next",
+          "conditions": { "actor": { "plural": true } }
+        },
+        {
+          "texts": [{ "plain": "ӕз" }],
+          "transition": "next",
+          "conditions": { "actor": { "singular": true } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "уордӕмӕ?" }],
+          "transition": "next",
+          "conditions": { "destination": { "there": true } }
+        },
+        {
+          "texts": [{ "plain": "туканмӕ?" }],
+          "transition": "next",
+          "conditions": { "destination": { "shop": true } }
+        },
+        {
+          "texts": [{ "plain": "хӕдзарӕмӕ?" }],
+          "transition": "next",
+          "conditions": { "destination": { "home": true } }
+        }
+      ]
+    ]
+  }
 }
