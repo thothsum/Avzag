@@ -4,8 +4,8 @@
         "samples": [
             {
                 "grapheme": "a",
-                "word": "ахеф",
-                "ipa": "aχef"
+                "word": "ах'еф",
+                "ipa": "aχˀef"
             }
         ]
     },
@@ -37,8 +37,8 @@
         "samples": [
             {
                 "grapheme": "у",
-                "word": "угас",
-                "ipa": "uɡas"
+                "word": "угвас",
+                "ipa": "uɡʷas"
             }
         ]
     },
@@ -66,8 +66,8 @@
         "phoneme": "bˤ",
         "samples": [
             {
-                "grapheme": "бъ",
-                "word": "бъамбег",
+                "grapheme": "б'",
+                "word": "б'амбег",
                 "ipa": "bˁambeɡ"
             }
         ]
@@ -106,8 +106,8 @@
         "phoneme": "pʼˤ",
         "samples": [
             {
-                "grapheme": "пӏъ",
-                "word": "пӏъаш",
+                "grapheme": "пӏ'",
+                "word": "пӏ'аш",
                 "ipa": "pʼˁaʃ"
             }
         ]
@@ -126,8 +126,8 @@
         "phoneme": "mˤ",
         "samples": [
             {
-                "grapheme": "мъ",
-                "word": "мъарттеф",
+                "grapheme": "м'",
+                "word": "м'арттеф",
                 "ipa": "mˁartef"
             }
         ]
@@ -397,8 +397,8 @@
         "samples": [
             {
                 "ipa": "wˤas",
-                "grapheme": "въ",
-                "word": "въас"
+                "grapheme": "в'",
+                "word": "в'ас"
             }
         ]
     },
@@ -426,8 +426,8 @@
         "phoneme": "qʰˤ",
         "samples": [
             {
-                "grapheme": "хъӏ",
-                "word": "хъӏард",
+                "grapheme": "хъ'",
+                "word": "хъ'ард",
                 "ipa": "qʰˤard"
             }
         ]
@@ -437,8 +437,8 @@
         "samples": [
             {
                 "ipa": "qʰˤʷaqʰˤʷ",
-                "grapheme": "хъӏв",
-                "word": "хъӏвахъӏв"
+                "grapheme": "хъ'в",
+                "word": "хъ'вахъ'в"
             }
         ]
     },
@@ -456,8 +456,8 @@
         "phoneme": "qˤ",
         "samples": [
             {
-                "grapheme": "къӏ",
-                "word": "къӏаракъӏал",
+                "grapheme": "къ'",
+                "word": "къ'аракъ'ал",
                 "ipa": "qˤaraqˤal"
             }
         ]
@@ -476,8 +476,8 @@
         "phoneme": "qʼˁ",
         "samples": [
             {
-                "grapheme": "кьӏ",
-                "word": "кьӏал",
+                "grapheme": "кь'",
+                "word": "кь'ал",
                 "ipa": "qʼˁal"
             }
         ]
@@ -506,8 +506,8 @@
         "phoneme": "ʁˤ",
         "samples": [
             {
-                "grapheme": "гъӏ",
-                "word": "гъӏаб",
+                "grapheme": "гъ'",
+                "word": "гъ'аб",
                 "ipa": "ʁˤab"
             }
         ]
@@ -516,8 +516,8 @@
         "phoneme": "χˤ",
         "samples": [
             {
-                "grapheme": "хӏъ",
-                "word": "хӏъад",
+                "grapheme": "х'",
+                "word": "х'ад",
                 "ipa": "χˤad"
             }
         ]
@@ -527,8 +527,8 @@
         "samples": [
             {
                 "ipa": "raχˤʷ",
-                "grapheme": "хӏъв",
-                "word": "рахӏъв"
+                "grapheme": "х'в",
+                "word": "рах'в"
             }
         ]
     },
@@ -576,8 +576,8 @@
         "phoneme": "uˤ",
         "samples": [
             {
-                "grapheme": "уъ",
-                "word": "уъфуд",
+                "grapheme": "у'",
+                "word": "у'фуд",
                 "ipa": "uˤfud"
             }
         ]
