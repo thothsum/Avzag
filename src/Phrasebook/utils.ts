@@ -25,11 +25,14 @@ export function checkConditions(
   let count = 0;
   for (const [entity, tags] of Object.entries(conditions))
     for (const [tag, flag] of Object.entries(tags)) {
+      count += 1;
       if (flag) {
         if (context[entity]?.has(tag))
           score += oldContext?.[entity]?.has(tag) ? 1 : 2;
-        count += 1;
-      } else if (!context[entity].has(tag)) return [-1, 0];
+      } else {
+        if (context[entity]?.has(tag)) score += 1;
+        else return [-1, 0];
+      }
     }
 
   return [score / (count || 1), count];
