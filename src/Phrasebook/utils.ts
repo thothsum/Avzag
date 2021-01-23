@@ -11,10 +11,8 @@ export function newState() {
 
 export function createContext(context: Ref<Context>, source?: ContextSource[]) {
   if (!source) return;
-  context.value = source.reduce((c, { entity }) => {
-    c[entity] = new Set();
-    return c;
-  }, {} as Context);
+  context.value = {};
+  source.forEach(({ entity }) => (context.value[entity] = new Set()));
 }
 
 export function checkConditions(

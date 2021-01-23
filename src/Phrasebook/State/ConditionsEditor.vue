@@ -4,15 +4,25 @@
       ><btn icon="clear" @click="conditions = {}"
     /></template>
     <template #caption>TODO brief explanation</template>
-    <div class="row wrap">
+    <div class="row-1 block-editor wrap">
       <div
-        v-for="{ entity, tag, color, filter } in tags"
+        v-for="({ entity, tag, color, filter }, i) in tags"
         :key="entity + '--' + tag"
         class="row"
       >
         <div class="row-0">
-          <toggle v-model="filter.provide" icon="attachment" />
-          <toggle v-model="filter.require" icon="flag" />
+          <toggle
+            v-model="filter.provide"
+            icon="attachment"
+            class="row-0"
+            @update:modelValue="apply(i)"
+          />
+          <toggle
+            v-model="filter.require"
+            icon="flag"
+            class="row-0"
+            @update:modelValue="apply(i)"
+          />
         </div>
         <p :class="color">{{ tag }}</p>
       </div>
@@ -22,7 +32,16 @@
 
 <script lang="ts">
 import EditorCard from "@/components/EditorCard.vue";
-import { computed, defineComponent, PropType, inject, ComputedRef } from "vue";
+import {
+  computed,
+  defineComponent,
+  PropType,
+  inject,
+  ComputedRef,
+  ref,
+  watch,
+  nextTick,
+} from "vue";
 import { ContextSource, Conditions, ConditionFilter } from "../types";
 
 export default defineComponent({
@@ -41,41 +60,45 @@ export default defineComponent({
       get: () => props.modelValue,
       set: (c) => emit("update:modelValue", c),
     });
-    const tags = computed({
-      get: () =>
-        (context.value ?? []).reduce(
-          (arr, { entity, tags }, i) => {
-            tags.forEach((tag) =>
-              arr.push({
-                tag,
-                entity,
-                color: "colored-dot-" + i,
-                filter: conditions.value[entity]?.[tag] ?? {},
-              })
-            );
-            return arr;
-          },
-          [] as {
-            tag: string;
-            entity: string;
-            color: string;
-            filter: ConditionFilter;
-          }[]
-        ),
-      set: (tags) =>
-        (conditions.value = tags.reduce(
-          (conditions, { tag, entity, filter }) => {
-            if (filter.provide || filter.require) {
-              if (!conditions[entity]) conditions[entity] = {};
-              conditions[entity][tag] = filter;
-            }
-            return conditions;
-          },
-          {} as Conditions
-        )),
-    });
+    const tags = ref(
+      [] as {
+        tag: string;
+        entity: string;
+        color: string;
+        filter: ConditionFilter;
+      }[]
+    );
+    watch(
+      [context, conditions],
+      ([context, conditions]) => {
+        if (!context || !conditions) return;
+        tags.value = context.flatMap(({ entity, tags }, i) =>
+          tags.map((tag) => ({
+            tag,
+            entity,
+            color: "colored-dot-" + i,
+            filter: conditions[entity]?.[tag] ?? {},
+          }))
+        );
+      },
+      { immediate: true, deep: true }
+    );
+    function apply(index: number) {
+      nextTick(() => {
+        if (!tags.value) return;
+        const { filter, entity, tag } = tags.value[index];
+        if (filter.provide || filter.require) {
+          if (!conditions.value[entity]) conditions.value[entity] = {};
+          conditions.value[entity][tag] = filter;
+        } else {
+          delete conditions.value[entity][tag];
+          if (!Object.keys(conditions.value[entity]).length)
+            delete conditions.value[entity];
+        }
+      });
+    }
 
-    return { context, conditions, tags };
+    return { context, conditions, tags, apply };
   },
 });
 </script>
