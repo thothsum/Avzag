@@ -1,8 +1,8 @@
 <template>
   <EditorCard button="" icon="tune" header="conditions">
-    <template v-if="conditions" #header
-      ><btn icon="clear" @click="conditions = {}"
-    /></template>
+    <template v-if="conditions" #header>
+      <btn icon="clear" @click="conditions = {}" />
+    </template>
     <template #caption>TODO brief explanation</template>
     <div class="row-1 block-editor wrap">
       <btn
