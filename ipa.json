@@ -73,6 +73,10 @@
       "tags": "vowel close central unrounded"
     },
     {
+      "ipa": "y",
+      "tags": "vowel close front rounded"
+    },
+    {
       "ipa": "i",
       "tags": "vowel front close unrounded"
     },
