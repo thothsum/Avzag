@@ -1,4 +1,4 @@
-export type ConditionType = { provide: boolean; require: boolean };
+export type ConditionType = { provide?: boolean; require?: boolean };
 export type Conditions = Record<string, Record<string, ConditionType>>;
 export type Text = {
   plain: string;
