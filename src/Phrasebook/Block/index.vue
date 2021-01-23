@@ -49,13 +49,8 @@ export default defineComponent({
     }
     watch(
       context,
-      (context, oldContext) => {
-        const nextState = findBestState(
-          undefined,
-          props.block,
-          context,
-          oldContext
-        );
+      (context) => {
+        const nextState = findBestState(undefined, props.block, context);
         switchState(nextState);
       },
       { immediate: true, deep: true }

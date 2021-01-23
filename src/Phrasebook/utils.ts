@@ -17,32 +17,25 @@ export function createContext(context: Ref<Context>, source?: ContextSource[]) {
 
 export function checkConditions(
   conditions: undefined | Conditions,
-  context: Context,
-  oldContext?: Context
+  context: Context
 ): [number, number] {
   if (!conditions) return [1, 0];
   let score = 0;
   let count = 0;
   for (const [entity, tags] of Object.entries(conditions))
     for (const [tag, flag] of Object.entries(tags)) {
+      const has = context[entity]?.has(tag);
+      if (!flag && !has) return [-1, 0];
+      if (has) score += 1;
       count += 1;
-      if (flag) {
-        if (context[entity]?.has(tag))
-          score += oldContext?.[entity]?.has(tag) ? 1 : 2;
-      } else {
-        if (context[entity]?.has(tag)) score += 1;
-        else return [-1, 0];
-      }
     }
-
   return [score / (count || 1), count];
 }
 
 export function findBestState(
   indexes: undefined | number[],
   states: State[],
-  context: Context,
-  oldContext?: Context
+  context: Context
 ): undefined | State {
   let state;
   let score = -1;
@@ -50,7 +43,7 @@ export function findBestState(
 
   const candidates = indexes?.map((i) => states[i]) ?? states;
   candidates.forEach((candidate) => {
-    const [s, c] = checkConditions(candidate.conditions, context, oldContext);
+    const [s, c] = checkConditions(candidate.conditions, context);
     if (score === 1 ? s === 1 && c > count : s > score) {
       state = candidate;
       score = s;
