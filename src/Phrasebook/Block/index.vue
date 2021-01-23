@@ -22,7 +22,7 @@ import {
   watch,
 } from "vue";
 import { Context, State } from "../types";
-import { applyConditions, findBestState, checkConditions } from "../utils";
+import { updateContext, findBestState, checkConditions } from "../utils";
 
 export default defineComponent({
   name: "Block",
@@ -40,18 +40,29 @@ export default defineComponent({
     const context = inject("context", {} as Ref<Context>);
 
     function switchState(nextState: undefined | State) {
+      if (toRaw(nextState) === toRaw(state.value)) return;
       const oldState = state.value;
       state.value = nextState;
-      applyConditions(oldState?.conditions, context, false);
-      applyConditions(nextState?.conditions, context, true);
+      context.value = updateContext(
+        context.value,
+        oldState?.conditions,
+        nextState?.conditions
+      );
     }
     watch(
       context,
-      (context) => {
-        const nextState = findBestState(undefined, props.block, context);
-        if (toRaw(nextState) !== toRaw(state.value)) {
-          switchState(nextState);
-        }
+      (context, oldContext) => {
+        if (toRaw(context) === toRaw(oldContext)) return;
+        const nextState = findBestState(
+          undefined,
+          props.block,
+          context,
+          oldContext
+        );
+        console.log(state.value?.texts[0].plain, nextState?.texts[0].plain, [
+          ...(Object.values(context ?? {})[0] ?? ["-"]),
+        ]);
+        switchState(nextState);
       },
       { immediate: true, deep: true }
     );
@@ -65,9 +76,9 @@ export default defineComponent({
       if (transition === "next") {
         const i = state.value ? states.indexOf(toRaw(state.value)) : -1;
         nextState = states[(i + 1) % states.length];
-      } else if (transition) {
+      } else if (transition)
         nextState = findBestState(transition, states, context.value);
-      }
+
       switchState(nextState);
       if (checkConditions(nextState?.conditions, context.value)[0] < 0)
         state.value = undefined;

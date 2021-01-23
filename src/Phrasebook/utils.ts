@@ -17,7 +17,8 @@ export function createContext(context: Ref<Context>, source?: ContextSource[]) {
 
 export function checkConditions(
   conditions: undefined | Conditions,
-  context: Context
+  context: Context,
+  oldContext?: Context
 ): [number, number] {
   if (!conditions) return [1, 0];
   let score = 0;
@@ -26,7 +27,8 @@ export function checkConditions(
     for (const [tag, { provide, require }] of Object.entries(tags)) {
       if (require && !context[entity].has(tag)) return [-1, 0];
       if (provide) {
-        score += context[entity]?.has(tag) ? 1 : 0;
+        if (context[entity]?.has(tag))
+          score += oldContext?.[entity]?.has(tag) ? 1 : 2;
         count += 1;
       }
     }
@@ -36,7 +38,8 @@ export function checkConditions(
 export function findBestState(
   indexes: undefined | number[],
   states: State[],
-  context: Context
+  context: Context,
+  oldContext?: Context
 ): undefined | State {
   let state;
   let score = 0;
@@ -44,7 +47,13 @@ export function findBestState(
 
   const candidates = indexes?.map((i) => states[i]) ?? states;
   candidates.forEach((candidate) => {
-    const [s, c] = checkConditions(candidate.conditions, context);
+    const [s, c] = checkConditions(candidate.conditions, context, oldContext);
+    console.log(
+      s,
+      c,
+      [...(Object.values(oldContext ?? {})[0] ?? ["-"])],
+      [...(Object.values(context ?? {})[0] ?? ["-"])]
+    );
     if (s >= 0 && score === 1 ? s === 1 && c >= count : s >= score) {
       state = candidate;
       score = s;
@@ -54,18 +63,29 @@ export function findBestState(
   return state;
 }
 
-export function applyConditions(
-  conditions: undefined | Conditions,
-  context: Ref<Context>,
-  positive: boolean
+export function updateContext(
+  context: Context,
+  conditionsFrom?: Conditions,
+  conditionsTo?: Conditions
 ) {
-  if (!conditions) return;
-  Object.entries(conditions).forEach(([entity, tags]) =>
-    Object.entries(tags).forEach(([tag, { provide }]) => {
-      const set = context.value[entity];
-      if (!provide || !set) return;
-      if (positive) set.add(tag);
-      else set.delete(tag);
-    })
+  const newContext = {} as Context;
+  Object.entries(context).forEach(
+    ([entity, tags]) => (newContext[entity] = new Set(tags))
   );
+
+  if (conditionsFrom)
+    Object.entries(conditionsFrom).forEach(([entity, tags]) =>
+      Object.entries(tags).forEach(([tag, { provide }]) => {
+        if (provide) newContext[entity]?.delete(tag);
+      })
+    );
+
+  if (conditionsTo)
+    Object.entries(conditionsTo).forEach(([entity, tags]) =>
+      Object.entries(tags).forEach(([tag, { provide }]) => {
+        if (provide) newContext[entity]?.add(tag);
+      })
+    );
+
+  return newContext;
 }
