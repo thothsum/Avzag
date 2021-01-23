@@ -2,8 +2,9 @@
   <div v-if="block" class="block col-2">
     <EditorCard icon="account_tree" header="States" @action="add">
       <template v-if="state" #header>
-        <ArrayCopy v-model="block" v-model:item="state" />
         <toggle v-model="glossed" icon="layers" />
+        <ArrayCopy v-model="block" v-model:item="state" />
+        <ArrayShift v-model="block" :item="state" />
         <ConfirmButton @confirm="remove" />
       </template>
       <div class="row-1 wrap block-editor">
@@ -24,6 +25,7 @@
 <script lang="ts">
 import ConfirmButton from "@/components/ConfirmButton.vue";
 import ArrayCopy from "@/components/ArrayCopy.vue";
+import ArrayShift from "@/components/ArrayShift.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import ConditionsEditor from "../State/ConditionsEditor.vue";
 import TransitionEditor from "../State/TransitionEditor.vue";
@@ -38,6 +40,7 @@ export default defineComponent({
   name: "BlockEditor",
   components: {
     ArrayCopy,
+    ArrayShift,
     ConfirmButton,
     EditorCard,
     ConditionsEditor,
