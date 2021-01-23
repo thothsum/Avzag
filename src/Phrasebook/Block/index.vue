@@ -82,7 +82,6 @@ export default defineComponent({
       } else if (transition)
         nextState = findBestState(transition, states, context.value);
 
-      console.log(nextState?.texts[0].plain);
       clicked.value = true;
       switchState(nextState);
       if (checkConditions(nextState?.conditions, context.value)[0] < 0)

@@ -51,12 +51,6 @@ export function findBestState(
   const candidates = indexes?.map((i) => states[i]) ?? states;
   candidates.forEach((candidate) => {
     const [s, c] = checkConditions(candidate.conditions, context, oldContext);
-    console.log(
-      s,
-      c,
-      [...(Object.values(oldContext ?? {})[0] ?? ["-"])],
-      [...(Object.values(context ?? {})[0] ?? ["-"])]
-    );
     if (score === 1 ? s === 1 && c > count : s > score) {
       state = candidate;
       score = s;
