@@ -11,10 +11,10 @@ export function newState() {
 
 export function createContext(context: Ref<Context>, source?: ContextSource[]) {
   if (!source) return;
-  context.value = {};
-  source.forEach(({ entity }) => {
-    context.value[entity] = new Set();
-  });
+  context.value = source.reduce((c, { entity }) => {
+    c[entity] = new Set();
+    return c;
+  }, {} as Context);
 }
 
 export function checkConditions(
@@ -25,13 +25,15 @@ export function checkConditions(
   let score = 0;
   let count = 0;
   for (const [entity, tags] of Object.entries(conditions))
-    for (const [tag, flag] of Object.entries(tags)) {
-      if (flag < 0) {
-        if (context[entity].has(tag)) return [-1, 0];
+    for (const [tag, { provide, require }] of Object.entries(tags)) {
+      if (require) {
+        if (!context[entity].has(tag)) return [-1, 0];
         continue;
       }
-      score += context[entity]?.has(tag) ? 1 : 0;
-      count += 1;
+      if (provide) {
+        score += context[entity]?.has(tag) ? 1 : 0;
+        count += 1;
+      }
     }
   return [score / count, count];
 }
@@ -46,15 +48,16 @@ export function findBestState(
   let count = 0;
 
   const candidates = indexes?.map((i) => states[i]) ?? states ?? [];
-  candidates.forEach((candidate) => {
-    if (!candidate.conditions) return;
-    const [s, c] = checkConditions(candidate.conditions, context);
-    if (score === 1 ? s === 1 && c >= count : s >= score) {
-      state = candidate;
-      score = s;
-      count = c;
-    }
-  });
+  candidates
+    .filter(({ conditions }) => conditions)
+    .forEach((candidate) => {
+      const [s, c] = checkConditions(candidate.conditions, context);
+      if (score === 1 ? s === 1 && c >= count : s >= score) {
+        state = candidate;
+        score = s;
+        count = c;
+      }
+    });
   return state ?? candidates[0];
 }
 
@@ -65,9 +68,9 @@ export function applyConditions(
 ) {
   if (!conditions) return;
   Object.entries(conditions).forEach(([entity, tags]) =>
-    Object.entries(tags).forEach(([tag, flag]) => {
+    Object.entries(tags).forEach(([tag, { provide }]) => {
       const set = context.value[entity];
-      if (flag !== 1 || !set) return;
+      if (!provide || !set) return;
       if (positive) set.add(tag);
       else set.delete(tag);
     })
