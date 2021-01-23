@@ -13,13 +13,13 @@
         <div class="row-0">
           <toggle
             v-model="filter.provide"
-            icon="attachment"
+            icon="check"
             class="row-0"
             @update:modelValue="apply(i)"
           />
           <toggle
             v-model="filter.require"
-            icon="flag"
+            icon="lock"
             class="row-0"
             @update:modelValue="apply(i)"
           />

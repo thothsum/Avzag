@@ -40,8 +40,8 @@ export function findBestState(
   indexes: undefined | number[],
   states: State[],
   context: Context
-) {
-  let state = null;
+): undefined | State {
+  let state;
   let score = 0;
   let count = 0;
 
@@ -50,13 +50,13 @@ export function findBestState(
     .filter(({ conditions }) => conditions)
     .forEach((candidate) => {
       const [s, c] = checkConditions(candidate.conditions, context);
-      if (score === 1 ? s === 1 && c >= count : s >= score) {
+      if (s >= 0 && score === 1 ? s === 1 && c >= count : s >= score) {
         state = candidate;
         score = s;
         count = c;
       }
     });
-  return state ?? candidates[0];
+  return state;
 }
 
 export function applyConditions(

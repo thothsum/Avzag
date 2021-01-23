@@ -34,26 +34,27 @@ export default defineComponent({
   emits: ["update:modelValue"],
   setup(props) {
     const state = ref<State>();
-    const requirements = computed(
-      () => checkConditions(state.value?.conditions, context.value)[0] !== -1
-    );
     const disabled = computed(() => !state.value?.transition);
     const text = ref("");
 
     const context = inject("context", {} as Ref<Context>);
 
     function switchState(nextState: undefined | State) {
-      applyConditions(state.value?.conditions, context, false);
-      applyConditions(nextState?.conditions, context, true);
+      const oldState = state.value;
       state.value = nextState;
+      applyConditions(oldState?.conditions, context, false);
+      applyConditions(nextState?.conditions, context, true);
     }
     watch(
       context,
       (context) => {
-        if (requirements.value) {
-          const nextState = findBestState(undefined, props.block, context);
-          if (toRaw(nextState) !== toRaw(state.value)) switchState(nextState);
-        } else if (state.value) switchState(undefined);
+        const nextState = findBestState(undefined, props.block, context);
+        console.log(state.value?.texts[0].plain, nextState?.texts[0].plain, [
+          ...Object.values(context ?? {})[0],
+        ]);
+        if (toRaw(nextState) !== toRaw(state.value)) {
+          switchState(nextState);
+        }
       },
       { immediate: true, deep: true }
     );
@@ -71,7 +72,8 @@ export default defineComponent({
         nextState = findBestState(transition, states, context.value);
       }
       switchState(nextState);
-      if (!requirements.value) state.value = undefined;
+      if (checkConditions(nextState?.conditions, context.value)[0] < 0)
+        state.value = undefined;
     }
 
     return {
