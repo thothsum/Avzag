@@ -86,7 +86,7 @@ export default defineComponent({
     watch(
       contextSource,
       (contextSource) => createContext(context, contextSource),
-      { immediate: true }
+      { immediate: true, deep: true }
     );
 
     watch(file, (file) => (section.value = file[file.length - 1]), {

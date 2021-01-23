@@ -50,6 +50,7 @@ export default defineComponent({
     );
 
     function add() {
+      if (!context.value) context.value = [];
       context.value.push({
         entity: "entity #" + context.value.length,
         tags: [],

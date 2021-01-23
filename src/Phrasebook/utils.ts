@@ -32,7 +32,8 @@ export function checkConditions(
         count += 1;
       }
     }
-  return [score / count, count];
+
+  return [score / (count || 1), count];
 }
 
 export function findBestState(
@@ -42,7 +43,7 @@ export function findBestState(
   oldContext?: Context
 ): undefined | State {
   let state;
-  let score = 0;
+  let score = -1;
   let count = 0;
 
   const candidates = indexes?.map((i) => states[i]) ?? states;
@@ -54,7 +55,7 @@ export function findBestState(
       [...(Object.values(oldContext ?? {})[0] ?? ["-"])],
       [...(Object.values(context ?? {})[0] ?? ["-"])]
     );
-    if (s >= 0 && score === 1 ? s === 1 && c >= count : s >= score) {
+    if (score === 1 ? s === 1 && c > count : s > score) {
       state = candidate;
       score = s;
       count = c;

@@ -52,16 +52,12 @@ export default defineComponent({
     watch(
       context,
       (context, oldContext) => {
-        if (toRaw(context) === toRaw(oldContext)) return;
         const nextState = findBestState(
           undefined,
           props.block,
           context,
           oldContext
         );
-        console.log(state.value?.texts[0].plain, nextState?.texts[0].plain, [
-          ...(Object.values(context ?? {})[0] ?? ["-"]),
-        ]);
         switchState(nextState);
       },
       { immediate: true, deep: true }
