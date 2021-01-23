@@ -1,5 +1,5 @@
 <template>
-  <EditorCard icon="widgets" header="context" @action="add">
+  <EditorCard icon="list_alt" header="context" @action="add">
     <div class="col scroll">
       <div v-for="(c, i) in context" :key="i" class="row">
         <input

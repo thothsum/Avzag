@@ -49,9 +49,6 @@ export default defineComponent({
       context,
       (context) => {
         const nextState = findBestState(undefined, props.block, context);
-        console.log(state.value?.texts[0].plain, nextState?.texts[0].plain, [
-          ...Object.values(context ?? {})[0],
-        ]);
         if (toRaw(nextState) !== toRaw(state.value)) {
           switchState(nextState);
         }

@@ -1,7 +1,7 @@
 <template>
   <EditorCard
     :button="translation ? '' : 'add'"
-    icon="format_list_bulleted"
+    icon="list_alt"
     header="context translation"
     @action="create"
   >

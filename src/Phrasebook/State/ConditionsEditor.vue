@@ -13,7 +13,7 @@
         <div class="row-0">
           <toggle
             v-model="filter.provide"
-            icon="check"
+            icon="send"
             class="row-0"
             @update:modelValue="apply(i)"
           />

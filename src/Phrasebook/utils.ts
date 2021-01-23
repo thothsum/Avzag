@@ -24,10 +24,7 @@ export function checkConditions(
   let count = 0;
   for (const [entity, tags] of Object.entries(conditions))
     for (const [tag, { provide, require }] of Object.entries(tags)) {
-      if (require) {
-        if (!context[entity].has(tag)) return [-1, 0];
-        continue;
-      }
+      if (require && !context[entity].has(tag)) return [-1, 0];
       if (provide) {
         score += context[entity]?.has(tag) ? 1 : 0;
         count += 1;
@@ -45,17 +42,15 @@ export function findBestState(
   let score = 0;
   let count = 0;
 
-  const candidates = indexes?.map((i) => states[i]) ?? states ?? [];
-  candidates
-    .filter(({ conditions }) => conditions)
-    .forEach((candidate) => {
-      const [s, c] = checkConditions(candidate.conditions, context);
-      if (s >= 0 && score === 1 ? s === 1 && c >= count : s >= score) {
-        state = candidate;
-        score = s;
-        count = c;
-      }
-    });
+  const candidates = indexes?.map((i) => states[i]) ?? states;
+  candidates.forEach((candidate) => {
+    const [s, c] = checkConditions(candidate.conditions, context);
+    if (s >= 0 && score === 1 ? s === 1 && c >= count : s >= score) {
+      state = candidate;
+      score = s;
+      count = c;
+    }
+  });
   return state;
 }
 
