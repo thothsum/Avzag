@@ -39,12 +39,16 @@ export default defineComponent({
     const texts = computed(() =>
       types.value.map((type) => props.state.texts?.map((text) => text[type]))
     );
-    watch(texts, (texts) => {
-      if (!texts) return;
-      const lines = texts.map((t) => t?.join(""));
-      const text = lines.length === 1 ? lines[0] : lines.join("\n");
-      emit("text", text);
-    });
+    watch(
+      texts,
+      (texts) => {
+        if (!texts) return;
+        const lines = texts.map((t) => t?.join(""));
+        const text = lines.length === 1 ? lines[0] : lines.join("\n");
+        emit("text", text);
+      },
+      { immediate: true, deep: true }
+    );
 
     const textColors = computed(() =>
       props.state.texts
@@ -55,9 +59,7 @@ export default defineComponent({
     const dashColors = computed(() =>
       props.state.transition && props.state.conditions
         ? Object.entries(props.state.conditions)
-            .filter(([, tags]) =>
-              Object.values(tags).some(({ provide }) => provide)
-            )
+            .filter(([, tags]) => Object.values(tags).some((flag) => flag))
             .map(([entity]) => entities.value.indexOf(entity))
             .map((i) => "colored-back-" + i)
         : []

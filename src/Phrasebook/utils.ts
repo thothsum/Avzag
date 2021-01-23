@@ -24,13 +24,12 @@ export function checkConditions(
   let score = 0;
   let count = 0;
   for (const [entity, tags] of Object.entries(conditions))
-    for (const [tag, { provide, require }] of Object.entries(tags)) {
-      if (require && !context[entity].has(tag)) return [-1, 0];
-      if (provide) {
+    for (const [tag, flag] of Object.entries(tags)) {
+      if (flag) {
         if (context[entity]?.has(tag))
           score += oldContext?.[entity]?.has(tag) ? 1 : 2;
         count += 1;
-      }
+      } else if (!context[entity].has(tag)) return [-1, 0];
     }
 
   return [score / (count || 1), count];
@@ -76,15 +75,15 @@ export function updateContext(
 
   if (conditionsFrom)
     Object.entries(conditionsFrom).forEach(([entity, tags]) =>
-      Object.entries(tags).forEach(([tag, { provide }]) => {
-        if (provide) newContext[entity]?.delete(tag);
+      Object.entries(tags).forEach(([tag, flag]) => {
+        if (flag) newContext[entity]?.delete(tag);
       })
     );
 
   if (conditionsTo)
     Object.entries(conditionsTo).forEach(([entity, tags]) =>
-      Object.entries(tags).forEach(([tag, { provide }]) => {
-        if (provide) newContext[entity]?.add(tag);
+      Object.entries(tags).forEach(([tag, flag]) => {
+        if (flag) newContext[entity]?.add(tag);
       })
     );
 

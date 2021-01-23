@@ -1,5 +1,6 @@
 <template>
   <button
+    v-show="text"
     v-if="state"
     class="small"
     :class="{ disabled, glossed }"
@@ -37,6 +38,7 @@ export default defineComponent({
     const state = ref<State>();
     const disabled = computed(() => !state.value?.transition);
     const text = ref("");
+    const clicked = ref(false);
 
     const context = inject("context", {} as Ref<Context>);
 
@@ -53,6 +55,10 @@ export default defineComponent({
     watch(
       context,
       (context, oldContext) => {
+        if (clicked.value) {
+          clicked.value = false;
+          return;
+        }
         const nextState = findBestState(
           undefined,
           props.block,
@@ -76,6 +82,8 @@ export default defineComponent({
       } else if (transition)
         nextState = findBestState(transition, states, context.value);
 
+      console.log(nextState?.texts[0].plain);
+      clicked.value = true;
       switchState(nextState);
       if (checkConditions(nextState?.conditions, context.value)[0] < 0)
         state.value = undefined;

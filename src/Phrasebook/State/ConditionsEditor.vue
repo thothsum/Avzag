@@ -5,27 +5,13 @@
     /></template>
     <template #caption>TODO brief explanation</template>
     <div class="row-1 block-editor wrap">
-      <div
-        v-for="({ entity, tag, color, filter }, i) in tags"
+      <btn
+        v-for="({ entity, tag, color }, i) in tags"
         :key="entity + '--' + tag"
-        class="row"
-      >
-        <div class="row-0">
-          <toggle
-            v-model="filter.provide"
-            icon="send"
-            class="row-0"
-            @update:modelValue="apply(i)"
-          />
-          <toggle
-            v-model="filter.require"
-            icon="lock"
-            class="row-0"
-            @update:modelValue="apply(i)"
-          />
-        </div>
-        <p :class="color">{{ tag }}</p>
-      </div>
+        :class="color"
+        :text="tag"
+        @click="toggle(i)"
+      />
     </div>
   </EditorCard>
 </template>
@@ -40,9 +26,8 @@ import {
   ComputedRef,
   ref,
   watch,
-  nextTick,
 } from "vue";
-import { ContextSource, Conditions, ConditionFilter } from "../types";
+import { ContextSource, Conditions } from "../types";
 
 export default defineComponent({
   name: "ConditionsEditor",
@@ -65,7 +50,7 @@ export default defineComponent({
         tag: string;
         entity: string;
         color: string;
-        filter: ConditionFilter;
+        flag?: boolean;
       }[]
     );
     watch(
@@ -73,32 +58,35 @@ export default defineComponent({
       ([context, conditions]) => {
         if (!context || !conditions) return;
         tags.value = context.flatMap(({ entity, tags }, i) =>
-          tags.map((tag) => ({
-            tag,
-            entity,
-            color: "colored-dot-" + i,
-            filter: conditions[entity]?.[tag] ?? {},
-          }))
+          tags.map((tag) => {
+            const flag = conditions[entity]?.[tag];
+            const border = flag === undefined ? -1 : flag ? 2 : 0;
+            return {
+              tag,
+              entity,
+              color: `colored-border-${border} colored-dot-${i}`,
+              flag: flag,
+            };
+          })
         );
       },
       { immediate: true, deep: true }
     );
-    function apply(index: number) {
-      nextTick(() => {
-        if (!tags.value) return;
-        const { filter, entity, tag } = tags.value[index];
-        if (filter.provide || filter.require) {
-          if (!conditions.value[entity]) conditions.value[entity] = {};
-          conditions.value[entity][tag] = filter;
-        } else {
-          delete conditions.value[entity][tag];
-          if (!Object.keys(conditions.value[entity]).length)
-            delete conditions.value[entity];
-        }
-      });
+    function toggle(index: number) {
+      if (!tags.value) return;
+      const { flag, entity, tag } = tags.value[index];
+      if (flag === undefined) {
+        if (!conditions.value[entity]) conditions.value[entity] = {};
+        conditions.value[entity][tag] = true;
+      } else if (flag) conditions.value[entity][tag] = false;
+      else {
+        delete conditions.value[entity][tag];
+        if (!Object.keys(conditions.value[entity]).length)
+          delete conditions.value[entity];
+      }
     }
 
-    return { context, conditions, tags, apply };
+    return { context, conditions, tags, toggle };
   },
 });
 </script>

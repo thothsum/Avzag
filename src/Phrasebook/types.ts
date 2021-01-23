@@ -1,5 +1,4 @@
-export type ConditionFilter = { provide?: boolean; require?: boolean };
-export type Conditions = Record<string, Record<string, ConditionFilter>>;
+export type Conditions = Record<string, Record<string, boolean>>;
 export type Text = {
   plain: string;
   ipa?: string;
