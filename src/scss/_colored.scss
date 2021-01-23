@@ -1,7 +1,7 @@
 :root {
-  --colored-0: #f44336;
+  --colored-0: #2196f3;
   --colored-1: #4caf50;
-  --colored-2: #2196f3;
+  --colored-2: #f44336;
   --colored-3: #ffc107;
   --colored-4: #9c27b0;
   --colored-5: #00bcd4;
@@ -9,9 +9,9 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --colored-0: #e57373;
+    --colored-0: #64b5f6;
     --colored-1: #81c784;
-    --colored-2: #64b5f6;
+    --colored-2: #e57373;
     --colored-3: #ffd54f;
     --colored-4: #ba68c8;
     --colored-5: #4dd0e1;
@@ -36,7 +36,7 @@
     border: solid $border-width $color !important;
   }
   .colored-dot-#{$i}::first-letter,
-  .colored-dot-#{$i} *::first-letter {
+  .colored-dot-#{$i} *:not(.icon)::first-letter {
     color: $color;
     font-weight: bold;
   }

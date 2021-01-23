@@ -60,29 +60,18 @@ export function findBestState(
   return state;
 }
 
-export function updateContext(
-  context: Context,
-  conditionsFrom?: Conditions,
-  conditionsTo?: Conditions
+export function applyConditions(
+  context: Ref<Context>,
+  conditions: undefined | Conditions,
+  additive: boolean
 ) {
-  const newContext = {} as Context;
-  Object.entries(context).forEach(
-    ([entity, tags]) => (newContext[entity] = new Set(tags))
+  if (!conditions || !context.value) return;
+  Object.entries(conditions).forEach(([entity, tags]) =>
+    Object.entries(tags).forEach(([tag, flag]) => {
+      const set = context.value[entity];
+      if (!flag || !set) return;
+      if (additive) set.add(tag);
+      else set.delete(tag);
+    })
   );
-
-  if (conditionsFrom)
-    Object.entries(conditionsFrom).forEach(([entity, tags]) =>
-      Object.entries(tags).forEach(([tag, flag]) => {
-        if (flag) newContext[entity]?.delete(tag);
-      })
-    );
-
-  if (conditionsTo)
-    Object.entries(conditionsTo).forEach(([entity, tags]) =>
-      Object.entries(tags).forEach(([tag, flag]) => {
-        if (flag) newContext[entity]?.add(tag);
-      })
-    );
-
-  return newContext;
 }

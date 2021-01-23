@@ -24,7 +24,7 @@ import {
   watch,
 } from "vue";
 import { Context, State } from "../types";
-import { updateContext, findBestState, checkConditions } from "../utils";
+import { applyConditions, findBestState, checkConditions } from "../utils";
 
 export default defineComponent({
   name: "Block",
@@ -43,13 +43,9 @@ export default defineComponent({
 
     function switchState(nextState: undefined | State) {
       if (toRaw(nextState) === toRaw(state.value)) return;
-      const oldState = state.value;
+      applyConditions(context, state.value?.conditions, false);
+      applyConditions(context, nextState?.conditions, true);
       state.value = nextState;
-      context.value = updateContext(
-        context.value,
-        oldState?.conditions,
-        nextState?.conditions
-      );
     }
     watch(
       context,

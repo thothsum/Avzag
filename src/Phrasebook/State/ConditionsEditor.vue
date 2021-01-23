@@ -6,9 +6,10 @@
     <template #caption>TODO brief explanation</template>
     <div class="row-1 block-editor wrap">
       <btn
-        v-for="({ entity, tag, color }, i) in tags"
+        v-for="({ entity, tag, color, icon }, i) in tags"
         :key="entity + '--' + tag"
         :class="color"
+        :icon="icon"
         :text="tag"
         @click="toggle(i)"
       />
@@ -49,6 +50,7 @@ export default defineComponent({
       [] as {
         tag: string;
         entity: string;
+        icon: string;
         color: string;
         flag?: boolean;
       }[]
@@ -60,11 +62,18 @@ export default defineComponent({
         tags.value = context.flatMap(({ entity, tags }, i) =>
           tags.map((tag) => {
             const flag = conditions[entity]?.[tag];
-            const border = flag === undefined ? -1 : flag ? 2 : 0;
+            const icon =
+              flag === undefined
+                ? "check_box_outline_blank"
+                : flag
+                ? "check_box"
+                : "indeterminate_check_box";
+
             return {
               tag,
               entity,
-              color: `colored-border-${border} colored-dot-${i}`,
+              icon,
+              color: "colored-dot-" + i,
               flag: flag,
             };
           })
