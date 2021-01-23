@@ -63,11 +63,7 @@ export default defineComponent({
           tags.map((tag) => {
             const flag = conditions[entity]?.[tag];
             const icon =
-              flag === undefined
-                ? "check_box_outline_blank"
-                : flag
-                ? "check_box"
-                : "indeterminate_check_box";
+              flag === undefined ? "arrow_right" : flag ? "send" : "lock";
 
             return {
               tag,
