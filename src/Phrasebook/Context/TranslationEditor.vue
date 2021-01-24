@@ -2,7 +2,7 @@
   <EditorCard icon="list_alt" header="context translation">
     <template #header>
       <ConfirmButton v-if="translation" @confirm="translation = undefined" />
-      <btn v-else @click="create" />
+      <btn v-else icon="add" @click="create" />
     </template>
     <template #caption>
       Translate the context tags to show localized hints when needed.

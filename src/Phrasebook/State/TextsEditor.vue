@@ -24,13 +24,14 @@
 
 <script lang="ts">
 import EditorCard from "@/components/EditorCard.vue";
+import ArrayControl from "@/components/ArrayControl.vue";
 
 import { computed, defineComponent, PropType, inject, Ref } from "vue";
 import { Text, Context } from "../types";
 
 export default defineComponent({
   name: "TextsEditor",
-  components: { EditorCard },
+  components: { EditorCard, ArrayControl },
   props: {
     modelValue: { type: Array as PropType<Text[]>, default: undefined },
   },

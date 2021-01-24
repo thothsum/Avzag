@@ -49,7 +49,8 @@ export default defineComponent({
     const tags = ref([] as string[]);
     watch(
       context,
-      (context) => (tags.value = context.map(({ tags }) => tags.join(" "))),
+      (context) =>
+        (tags.value = context?.map(({ tags }) => tags?.join(" ") ?? "") ?? []),
       { immediate: true, deep: true }
     );
 

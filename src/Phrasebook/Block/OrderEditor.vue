@@ -1,10 +1,10 @@
 <template>
   <EditorCard v-if="mphrase" icon="widgets" header="Blocks">
-    <template v-if="block" #header>
+    <template #header>
       <ArrayControl
         v-model="blocks"
         v-model:item="block"
-        :default-item="newState"
+        :default-item="() => [newState()]"
         copy
         shift
         remove

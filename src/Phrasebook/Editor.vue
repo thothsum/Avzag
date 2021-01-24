@@ -33,7 +33,7 @@
       </div>
       <template v-if="translation">
         <BlocksOrderEditor
-          :key="phrase.id"
+          :key="phrase?.id"
           v-model="block"
           v-model:phrase="translation"
         />

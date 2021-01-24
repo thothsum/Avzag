@@ -1,7 +1,7 @@
 <template>
   <div v-if="block" class="block col-2">
     <EditorCard icon="account_tree" header="States">
-      <template v-if="state" #header>
+      <template #header>
         <toggle v-model="glossed" icon="layers" />
         <ArrayControl
           v-model="block"
