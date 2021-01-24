@@ -51,7 +51,7 @@
 <script lang="ts">
 import Pairs from "./Pairs.vue";
 
-import { computed, ref, nextTick, defineComponent } from "vue";
+import { computed, ref, nextTick, defineComponent, toRaw } from "vue";
 import {
   initialize,
   converter,
@@ -74,7 +74,8 @@ export default defineComponent({
       )
     );
     const canSwap = computed(
-      () => mappings.final && fullMappings.value?.includes(mappings.final)
+      () =>
+        mappings.final && fullMappings.value?.includes(toRaw(mappings.final))
     );
 
     function displaySample() {
