@@ -9,9 +9,9 @@
         <textarea v-model="converted" readonly />
       </EditorCard>
       <EditorCard icon="call_merge" header="Mappings">
-        <template v-if="mapping" #header>
+        <template #header>
           <ArrayControl
-            v-model="mappings"
+            v-model="file.mappings"
             v-model:item="mapping"
             :default-item="{}"
             shift
@@ -22,7 +22,7 @@
           The 1st mapping should be the same as the caption. Default conversion
           is from the 1st into the 2nd mappings in the order.
         </template>
-        <div v-for="(m, i) in mappings" :key="i" class="row">
+        <div v-for="(m, i) in file.mappings" :key="i" class="row">
           <btn icon="edit" :is-on="mapping === m" @click="mapping = m" />
           <input v-model="m.name" type="text" :placeholder="'mapping #' + i" />
         </div>
@@ -30,7 +30,7 @@
     </div>
     <EditorCard v-if="mapping" icon="format_list_numbered" header="Pairs">
       <template #header>
-        <ArrayControl v-model="pairs" :default-item="[]" />
+        <ArrayControl v-model="mapping.pairs" :default-item="[]" />
       </template>
       <template #caption>
         During conversion system will consuquently go over these pairs,
@@ -38,11 +38,11 @@
         (right with left) if conversion is reversed.</template
       >
       <template #default>
-        <div v-for="(p, i) in pairs" :key="i" class="row">
-          <btn icon="add" @click="addPair(i)" />
+        <div v-for="(p, i) in mapping.pairs" :key="i" class="row">
+          <btn icon="add" @click="mapping.pairs.splice(i, 0, [])" />
           <input v-model="p[0]" type="text" placeholder="from" />
           <input v-model="p[1]" type="text" placeholder="to" />
-          <btn icon="clear" @click="deletePair(i)" />
+          <btn icon="clear" @click="mapping.pairs.splice(i, 1)" />
         </div>
       </template>
     </EditorCard>
@@ -53,7 +53,7 @@
 import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
-import { computed, ref, defineComponent, watch } from "vue";
+import { computed, ref, defineComponent } from "vue";
 import { Mapping, Converter } from "./types";
 import { setupEditor } from "@/editor";
 import convert from "./convert";
@@ -61,59 +61,27 @@ import convert from "./convert";
 export default defineComponent({
   components: { ArrayControl, EditorCard },
   setup() {
-    const mapping = ref({} as Mapping);
     const file = setupEditor<Converter>({
       defaultFile: { default: [0, 0], mappings: [] },
       filename: "converter",
       storage: "editor.converter",
     });
-    watch(
-      file,
-      ({ mappings }) => (mapping.value = mappings[mappings.length - 1]),
-      {
-        immediate: true,
-      }
-    );
+    const mapping = ref<Mapping>();
 
-    const mappings = computed(() => file.value?.mappings ?? []);
-    const pairs = computed(() => mapping.value?.pairs ?? []);
-
-    function addMapping() {
-      mapping.value = { name: "newMapping", pairs: [] };
-      mappings.value.push(mapping.value);
-    }
-    function deleteMapping() {
-      mappings.value.splice(mappings.value.indexOf(mapping.value), 1);
-      mapping.value = mappings.value[mappings.value.length - 1];
-    }
-    function addPair(index: number) {
-      mapping.value.pairs.splice(index, 0, ["", ""]);
-    }
-    function deletePair(index: number) {
-      mapping.value.pairs.splice(index, 1);
-    }
-
+    const pairs = computed(() => file.value?.mappings?.[0]?.pairs);
     const converted = computed(() => {
-      const intermediate = convert(
-        file.value?.sample ?? "",
-        mappings.value[0]?.pairs ?? []
-      );
-      return mapping.value === mappings.value[0]
+      const source = file.value?.sample ?? "";
+      if (!pairs.value) return source;
+      const intermediate = convert(source, pairs.value);
+      return mapping.value?.pairs === pairs.value
         ? intermediate
-        : convert(intermediate, pairs.value?.map(([l, r]) => [r, l]) ?? []);
+        : convert(
+            intermediate,
+            pairs.value.map(([l, r]) => [r, l])
+          );
     });
 
-    return {
-      file,
-      mappings,
-      mapping,
-      pairs,
-      addMapping,
-      deleteMapping,
-      addPair,
-      deletePair,
-      converted,
-    };
+    return { file, mapping, converted };
   },
 });
 </script>
