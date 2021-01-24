@@ -15,6 +15,7 @@
             v-model:item="mapping"
             :default-item="{}"
             shift
+            remove
           />
         </template>
         <template #caption>
