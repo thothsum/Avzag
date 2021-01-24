@@ -2,7 +2,12 @@
   <div class="section col-2 small grid">
     <EditorCard icon="view_comfy" header="Phonemes">
       <template #header>
-        <ArrayControl v-model="file" :default-item="{}" remove />
+        <ArrayControl
+          v-model="file"
+          v-model:item="phoneme"
+          :default-item="{}"
+          remove
+        />
       </template>
       <div class="row wrap">
         <TableEntry
