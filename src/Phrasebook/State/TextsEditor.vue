@@ -1,5 +1,8 @@
 <template>
-  <EditorCard icon="format_color_text" header="texts" @action="add">
+  <EditorCard icon="format_color_text" header="texts">
+    <template #header>
+      <ArrayControl v-model="texts" :default-item="{}" />
+    </template>
     <div class="col">
       <div v-for="(t, i) in texts" :key="i" class="row">
         <btn icon="palette" @click="toggle(i)" />
@@ -13,7 +16,7 @@
           />
           <input v-model="t.gloss" type="text" placeholder="gloss" />
         </div>
-        <btn icon="clear" @click="remove(i)" />
+        <btn icon="clear" @click="texts.splice(i, 1)" />
       </div>
     </div>
   </EditorCard>
@@ -46,19 +49,13 @@ export default defineComponent({
         .map((i) => "colored-" + i)
     );
 
-    function add() {
-      texts.value.push({ plain: "" });
-    }
-    function remove(i: number) {
-      texts.value.splice(i, 1);
-    }
     function toggle(i: number) {
       const text = texts.value[i];
       const e = entities.value.indexOf(text.entity ?? "");
       text.entity = entities.value[e + 1];
     }
 
-    return { texts, colors, add, remove, toggle };
+    return { texts, colors, toggle };
   },
 });
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <EditorCard button="" icon="tune" header="conditions">
+  <EditorCard icon="tune" header="conditions">
     <template v-if="conditions" #header>
       <btn icon="clear" @click="conditions = {}" />
     </template>

@@ -1,5 +1,5 @@
 <template>
-  <EditorCard button="" icon="alt_route" header="transition">
+  <EditorCard icon="alt_route" header="transition">
     <template #header>
       <div class="row">
         <btn icon="block" :is-on="mode === 0" @click="mode = 0" />

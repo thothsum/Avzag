@@ -1,5 +1,8 @@
 <template>
-  <EditorCard icon="list_alt" header="context" @action="add">
+  <EditorCard icon="list_alt" header="context">
+    <template #header>
+      <ArrayControl v-model="context" :default-item="{}" />
+    </template>
     <div class="col scroll">
       <div v-for="(c, i) in context" :key="i" class="row">
         <input
@@ -16,7 +19,7 @@
           placeholder="tags"
           @change="update(i)"
         />
-        <btn icon="clear" @click="remove(i)" />
+        <btn icon="clear" @click="context.splice(i, 1)" />
       </div>
     </div>
   </EditorCard>
@@ -24,12 +27,13 @@
 
 <script lang="ts">
 import EditorCard from "@/components/EditorCard.vue";
+import ArrayControl from "@/components/ArrayControl.vue";
 import { computed, defineComponent, PropType, ref, watch } from "vue";
 import { ContextSource } from "../types";
 
 export default defineComponent({
   name: "ContextEditor",
-  components: { EditorCard },
+  components: { EditorCard, ArrayControl },
   props: {
     modelValue: {
       type: Array as PropType<ContextSource[]>,
@@ -56,14 +60,11 @@ export default defineComponent({
         tags: [],
       });
     }
-    function remove(i: number) {
-      context.value.splice(i, 1);
-    }
     function update(i: number) {
       context.value[i].tags = tags.value[i].split(" ").filter((t) => t);
     }
 
-    return { context, tags, add, remove, update };
+    return { context, tags, add, update };
   },
 });
 </script>

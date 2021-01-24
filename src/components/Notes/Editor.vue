@@ -1,9 +1,12 @@
 <template>
-  <EditorCard icon="sticky_note_2" header="Notes" @action="add">
+  <EditorCard icon="sticky_note_2" header="Notes">
+    <template #header>
+      <ArrayControl v-model="notes" :default-item="''" />
+    </template>
     <template #caption><slot /></template>
     <div v-for="(n, i) in notes" :key="i" class="row">
       <input v-model="notes[i]" type="text" />
-      <btn icon="clear" @click="remove(i)" />
+      <btn icon="clear" @click="notes.splice(i, 1)" />
     </div>
   </EditorCard>
 </template>
@@ -11,9 +14,11 @@
 <script lang="ts">
 import { PropType, computed, defineComponent } from "vue";
 import EditorCard from "@/components/EditorCard.vue";
+import ArrayControl from "@/components/ArrayControl.vue";
 
 export default defineComponent({
-  components: { EditorCard },
+  name: "NotesEditor",
+  components: { ArrayControl, EditorCard },
   props: {
     modelValue: { type: Array as PropType<string[]>, default: undefined },
   },
@@ -23,16 +28,7 @@ export default defineComponent({
       get: () => props.modelValue,
       set: (n) => emit("update:modelValue", n),
     });
-
-    function add() {
-      if (notes.value) notes.value.push("");
-      else notes.value = [""];
-    }
-    function remove(i: number) {
-      if (notes.value) notes.value.splice(i, 1);
-    }
-
-    return { notes, add, remove };
+    return { notes };
   },
 });
 </script>

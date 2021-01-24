@@ -1,15 +1,11 @@
 <template>
-  <EditorCard
-    :button="translation ? '' : 'add'"
-    icon="list_alt"
-    header="context translation"
-    @action="create"
-  >
+  <EditorCard icon="list_alt" header="context translation">
+    <template #header>
+      <ConfirmButton v-if="translation" @confirm="translation = undefined" />
+      <btn v-else @click="create" />
+    </template>
     <template #caption>
       Translate the context tags to show localized hints when needed.
-    </template>
-    <template v-if="translation" #header>
-      <ConfirmButton @confirm="translation = undefined" />
     </template>
     <template v-if="translation">
       <div

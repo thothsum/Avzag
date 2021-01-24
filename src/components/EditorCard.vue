@@ -1,7 +1,6 @@
 <template>
   <div class="col">
     <div class="row card-0">
-      <btn v-if="button" :icon="button" @click="emit('action')" />
       <p class="icon">{{ icon }}</p>
       <h2 class="flex">{{ header }}</h2>
       <slot name="header" />

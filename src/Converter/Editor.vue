@@ -1,17 +1,21 @@
 <template>
   <div v-if="file" class="section col-2 small grid">
     <div class="col-2">
-      <EditorCard button="" icon="text_snippet" header="Sample Text">
+      <EditorCard icon="text_snippet" header="Sample Text">
         <template #caption>
           Text that will be displayed to demonstrate the converter.
         </template>
         <textarea v-model="file.sample" />
         <textarea v-model="converted" readonly />
       </EditorCard>
-      <EditorCard icon="call_merge" header="Mappings" @action="addMapping">
+      <EditorCard icon="call_merge" header="Mappings">
         <template v-if="mapping" #header>
-          <ArrayShift v-model="mappings" :item="mapping" />
-          <ConfirmButton @confirm="deleteMapping" />
+          <ArrayControl
+            v-model="mappings"
+            v-model:item="mapping"
+            :default-item="{}"
+            shift
+          />
         </template>
         <template #caption>
           The 1st mapping should be the same as the caption. Default conversion
@@ -19,16 +23,14 @@
         </template>
         <div v-for="(m, i) in mappings" :key="i" class="row">
           <btn icon="edit" :is-on="mapping === m" @click="mapping = m" />
-          <input v-model="m.name" type="text" />
+          <input v-model="m.name" type="text" :placeholder="'mapping #' + i" />
         </div>
       </EditorCard>
     </div>
-    <EditorCard
-      v-if="mapping"
-      icon="format_list_numbered"
-      header="Pairs"
-      @action="addPair(pairs.length)"
-    >
+    <EditorCard v-if="mapping" icon="format_list_numbered" header="Pairs">
+      <template #header>
+        <ArrayControl v-model="pairs" :default-item="[]" />
+      </template>
       <template #caption>
         During conversion system will consuquently go over these pairs,
         replacing text from the left with the text from the right or vise versa
@@ -47,8 +49,7 @@
 </template>
 
 <script lang="ts">
-import ArrayShift from "@/components/ArrayShift.vue";
-import ConfirmButton from "@/components/ConfirmButton.vue";
+import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
 import { computed, ref, defineComponent, watch } from "vue";
@@ -57,7 +58,7 @@ import { setupEditor } from "@/editor";
 import convert from "./convert";
 
 export default defineComponent({
-  components: { ArrayShift, ConfirmButton, EditorCard },
+  components: { ArrayControl, EditorCard },
   setup() {
     const mapping = ref({} as Mapping);
     const file = setupEditor<Converter>({

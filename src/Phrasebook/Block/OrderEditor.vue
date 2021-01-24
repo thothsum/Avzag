@@ -1,9 +1,14 @@
 <template>
-  <EditorCard v-if="mphrase" icon="widgets" header="Blocks" @action="add">
+  <EditorCard v-if="mphrase" icon="widgets" header="Blocks">
     <template v-if="block" #header>
-      <ArrayCopy v-model="blocks" v-model:item="block" />
-      <ArrayShift v-model="blocks" :item="block" />
-      <ConfirmButton @confirm="remove" />
+      <ArrayControl
+        v-model="blocks"
+        v-model:item="block"
+        :default-item="newState"
+        copy
+        shift
+        remove
+      />
     </template>
     <Context v-if="phrase.id" />
     <Context v-else :blocks="vblocks" :translation="phrase.context" />
@@ -17,35 +22,18 @@
 </template>
 
 <script lang="ts">
-import ArrayCopy from "@/components/ArrayCopy.vue";
+import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
-import ArrayShift from "@/components/ArrayShift.vue";
-import ConfirmButton from "@/components/ConfirmButton.vue";
 import Context from "../Context/index.vue";
 import Block from "./index.vue";
 
-import {
-  computed,
-  defineComponent,
-  onBeforeUpdate,
-  PropType,
-  ref,
-  toRaw,
-  watch,
-} from "vue";
+import { computed, defineComponent, onBeforeUpdate, PropType, ref } from "vue";
 import { Phrase, CorpusPhrase, State } from "../types";
 import { newState } from "../utils";
 
 export default defineComponent({
   name: "OrderEditor",
-  components: {
-    ArrayCopy,
-    EditorCard,
-    ArrayShift,
-    ConfirmButton,
-    Context,
-    Block,
-  },
+  components: { ArrayControl, EditorCard, Context, Block },
   props: {
     modelValue: {
       type: Array as PropType<State[] | undefined>,
@@ -73,28 +61,7 @@ export default defineComponent({
     const vblocks = ref([]);
     onBeforeUpdate(() => (vblocks.value = []));
 
-    function pickLast() {
-      block.value = blocks.value
-        ? blocks.value[blocks.value.length - 1]
-        : undefined;
-    }
-    watch(blocks, pickLast, {
-      immediate: true,
-    });
-
-    function add() {
-      if (!blocks.value) blocks.value = [];
-      blocks.value.push([newState()]);
-      pickLast();
-    }
-    function remove() {
-      if (!block.value) return;
-      const index = toRaw(blocks.value).indexOf(toRaw(block.value));
-      blocks.value.splice(index, 1);
-      pickLast();
-    }
-
-    return { mphrase, blocks, vblocks, block, add, remove };
+    return { mphrase, blocks, vblocks, block, newState };
   },
 });
 </script>

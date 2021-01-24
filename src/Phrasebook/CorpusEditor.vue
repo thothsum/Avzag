@@ -1,32 +1,47 @@
 <template>
   <div v-if="file" class="section col-2 small grid">
     <div class="col-2">
-      <EditorCard icon="topic" header="sections" @action="addSection">
+      <EditorCard icon="topic" header="sections">
         <template v-if="section" #header>
-          <ArrayShift v-model="file" :item="section" />
-          <ConfirmButton @confirm="removeSection" />
+          <ArrayControl
+            v-model="file"
+            v-model:item="section"
+            :default-item="() => ({ id: uuidv4() })"
+            shift
+            remove
+          />
         </template>
         <div class="col scroll">
-          <div v-for="s in file" :key="s.id" class="row">
+          <div v-for="(s, i) in file" :key="s.id" class="row">
             <btn icon="edit" :is-on="section === s" @click="section = s" />
-            <input v-model="s.name" class="flex" type="text" />
+            <input
+              v-model="s.name"
+              class="flex"
+              type="text"
+              :placeholder="'section #' + i"
+            />
           </div>
         </div>
       </EditorCard>
-      <EditorCard
-        v-if="section"
-        icon="short_text"
-        header="phrases"
-        @action="addPhrase"
-      >
+      <EditorCard v-if="section" icon="short_text" header="phrases">
         <template v-if="phrase" #header>
-          <ArrayShift v-model="section.phrases" :item="phrase" />
-          <ConfirmButton @confirm="removePhrase" />
+          <ArrayControl
+            v-model="section.phrases"
+            v-model:item="phrase"
+            :default-item="() => ({ id: uuidv4() })"
+            shift
+            remove
+          />
         </template>
         <div class="col scroll">
-          <div v-for="p in section.phrases" :key="p.id" class="row">
+          <div v-for="(p, i) in section.phrases" :key="p.id" class="row">
             <btn icon="edit" :is-on="phrase === p" @click="phrase = p" />
-            <input v-model="p.name" class="flex" type="text" />
+            <input
+              v-model="p.name"
+              class="flex"
+              type="text"
+              :placeholder="'phrase #' + i"
+            />
           </div>
         </div>
       </EditorCard>
@@ -44,14 +59,13 @@
 </template>
 
 <script lang="ts">
-import ArrayShift from "@/components/ArrayShift.vue";
-import ConfirmButton from "@/components/ConfirmButton.vue";
+import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import ContextEditor from "./Context/Editor.vue";
 import BlockEditor from "./Block/Editor.vue";
 
-import { defineComponent, ref, provide, watch, toRaw, computed } from "vue";
+import { defineComponent, ref, provide, watch, computed } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import { setupEditor } from "@/editor";
 import { State, Context, CorpusPhrase, CorpusSection } from "./types";
@@ -59,8 +73,7 @@ import { createContext } from "./utils";
 
 export default defineComponent({
   components: {
-    ArrayShift,
-    ConfirmButton,
+    ArrayControl,
     EditorCard,
     BlocksOrderEditor,
     ContextEditor,
@@ -104,48 +117,7 @@ export default defineComponent({
       { immediate: true }
     );
 
-    function addSection() {
-      const s = {
-        id: uuidv4(),
-        name: "New section",
-        phrases: [],
-      };
-      file.value.push(s);
-      section.value = s;
-    }
-    function removeSection() {
-      if (!section.value) return;
-      file.value.splice(toRaw(file.value).indexOf(toRaw(section.value)), 1);
-      section.value = file.value[file.value.length - 1];
-    }
-    function addPhrase() {
-      if (!section.value) return;
-      const p: CorpusPhrase = {
-        id: uuidv4(),
-        name: "New phrase",
-        context: [],
-        blocks: [],
-      };
-      section.value.phrases.push(p);
-      phrase.value = p;
-    }
-    function removePhrase() {
-      if (!section.value || !phrase.value) return;
-      const phrases = toRaw(section.value.phrases);
-      phrases.splice(phrases.indexOf(toRaw(phrase.value)), 1);
-      phrase.value = phrases[phrases.length - 1];
-    }
-
-    return {
-      file,
-      section,
-      phrase,
-      block,
-      addSection,
-      removeSection,
-      addPhrase,
-      removePhrase,
-    };
+    return { file, section, phrase, block, uuidv4 };
   },
 });
 </script>

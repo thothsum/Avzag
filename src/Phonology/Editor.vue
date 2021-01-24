@@ -1,6 +1,9 @@
 <template>
   <div class="section col-2 small grid">
-    <EditorCard icon="view_comfy" header="Phonemes" @action="addPhoneme">
+    <EditorCard icon="view_comfy" header="Phonemes">
+      <template #header>
+        <ArrayControl v-model="file" :default-item="{}" remove />
+      </template>
       <div class="row wrap">
         <TableEntry
           v-for="(p, i) in file"
@@ -13,8 +16,7 @@
       </div>
     </EditorCard>
     <div v-if="phoneme" class="col-2 small">
-      <EditorCard button="" icon="hearing" header="Phoneme">
-        <template #header><ConfirmButton @confirm="removePhoneme" /></template>
+      <EditorCard icon="hearing" header="Phoneme">
         <input
           v-model="phoneme.phoneme"
           type="text"
@@ -26,7 +28,10 @@
         You can add notes to clarify certain use cases or to give some
         additional info.
       </NotesEditor>
-      <EditorCard header="Samples" icon="playlist_play" @action="addSample">
+      <EditorCard header="Samples" icon="playlist_play">
+        <template #header>
+          <ArrayControl v-model="phoneme.samples" :default-item="{}" />
+        </template>
         <template #caption>
           Use cases of the phoneme within the language, defined by a letter, a
           word, and the word's ipa.
@@ -46,7 +51,7 @@
               type="text"
               placeholder="ipa"
             />
-            <btn icon="clear" @click="removeSample(i)" />
+            <btn icon="clear" @click="phoneme.samples.splice(i, 1)" />
           </div>
         </template>
       </EditorCard>
@@ -55,7 +60,7 @@
 </template>
 
 <script lang="ts">
-import ConfirmButton from "@/components/ConfirmButton.vue";
+import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import TableEntry from "./TableEntry.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
@@ -65,7 +70,7 @@ import { PhonemeUse } from "./types";
 import { setupEditor } from "@/editor";
 
 export default defineComponent({
-  components: { ConfirmButton, EditorCard, TableEntry, NotesEditor },
+  components: { ArrayControl, EditorCard, TableEntry, NotesEditor },
   setup() {
     const phoneme = ref({} as PhonemeUse);
     const file = setupEditor<PhonemeUse[]>({
@@ -81,34 +86,7 @@ export default defineComponent({
       file.value.map(({ samples }) => samples?.[0]?.grapheme)
     );
 
-    function addPhoneme() {
-      const p = { phoneme: "new" } as PhonemeUse;
-      file.value.push(p);
-      phoneme.value = p;
-    }
-    function removePhoneme() {
-      const i = file.value.indexOf(phoneme.value);
-      file.value.splice(i, 1);
-      phoneme.value = file.value[file.value.length - 1];
-    }
-
-    function addSample() {
-      if (phoneme.value.samples) phoneme.value.samples.push({});
-      else phoneme.value.samples = [{}];
-    }
-    function removeSample(index: number) {
-      if (phoneme.value.samples) phoneme.value.samples.splice(index, 1);
-    }
-
-    return {
-      file,
-      phoneme,
-      graphemes,
-      addPhoneme,
-      removePhoneme,
-      addSample,
-      removeSample,
-    };
+    return { file, phoneme, graphemes };
   },
 });
 </script>
