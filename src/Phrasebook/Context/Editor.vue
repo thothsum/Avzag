@@ -1,7 +1,7 @@
 <template>
   <EditorCard icon="list_alt" header="context">
     <template #header>
-      <ArrayControl v-model="context" :add="{}" />
+      <ArrayControl v-model="context" :add="{ entity: 'entity', tags: [] }" />
     </template>
     <div class="col scroll">
       <div v-for="(c, i) in context" :key="i" class="row">
@@ -10,7 +10,7 @@
           class="entity"
           :class="'colored-' + i"
           type="text"
-          placeholder="entity"
+          :placeholder="'entity #' + i"
         />
         <input
           v-model="tags[i]"
@@ -46,7 +46,7 @@ export default defineComponent({
       get: () => props.modelValue,
       set: (c) => emit("update:modelValue", c),
     });
-    const tags = ref([] as string[]);
+    const tags = ref<string[]>([]);
     watch(
       context,
       (context) =>
@@ -54,18 +54,11 @@ export default defineComponent({
       { immediate: true, deep: true }
     );
 
-    function add() {
-      if (!context.value) context.value = [];
-      context.value.push({
-        entity: "entity #" + context.value.length,
-        tags: [],
-      });
-    }
     function update(i: number) {
-      context.value[i].tags = tags.value[i].split(" ").filter((t) => t);
+      context.value[i].tags = tags.value[i]?.split(" ").filter((t) => t) ?? [];
     }
 
-    return { context, tags, add, update };
+    return { context, tags, update };
   },
 });
 </script>
