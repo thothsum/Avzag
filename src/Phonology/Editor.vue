@@ -2,12 +2,7 @@
   <div class="section col-2 small grid">
     <EditorCard icon="view_comfy" header="Phonemes">
       <template #header>
-        <ArrayControl
-          v-model="file"
-          v-model:item="phoneme"
-          :default-item="{}"
-          remove
-        />
+        <ArrayControl v-model="file" v-model:item="phoneme" :add="{}" remove />
       </template>
       <div class="row wrap">
         <TableEntry
@@ -35,7 +30,7 @@
       </NotesEditor>
       <EditorCard header="Samples" icon="playlist_play">
         <template #header>
-          <ArrayControl v-model="phoneme.samples" :default-item="{}" />
+          <ArrayControl v-model="phoneme.samples" :add="{}" />
         </template>
         <template #caption>
           Use cases of the phoneme within the language, defined by a letter, a

@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <btn v-if="defaultItem !== undefined" icon="add" @click="action.add" />
+    <btn v-if="add !== undefined" icon="add" @click="action.add" />
     <template v-if="array && item">
       <btn v-if="copy" icon="queue" @click="action.copy" />
       <div v-if="shift" class="row-0">
@@ -22,7 +22,7 @@ export default defineComponent({
   props: {
     modelValue: { type: Array, default: () => undefined },
     item: { type: Object, default: undefined },
-    defaultItem: {
+    add: {
       type: [Number, String, Object, Function],
       default: undefined,
     },
@@ -47,7 +47,7 @@ export default defineComponent({
       emit("update:item", array.value[array.value.length - 1]);
     }
     async function add() {
-      let item: undefined | unknown | (() => unknown) = props.defaultItem;
+      let item: undefined | unknown | (() => unknown) = props.add;
       if (!item === undefined) return;
       if (!array.value) {
         array.value = [];

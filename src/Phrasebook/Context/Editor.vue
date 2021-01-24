@@ -1,7 +1,7 @@
 <template>
   <EditorCard icon="list_alt" header="context">
     <template #header>
-      <ArrayControl v-model="context" :default-item="{}" />
+      <ArrayControl v-model="context" :add="{}" />
     </template>
     <div class="col scroll">
       <div v-for="(c, i) in context" :key="i" class="row">

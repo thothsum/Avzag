@@ -1,7 +1,7 @@
 <template>
   <EditorCard icon="format_color_text" header="texts">
     <template #header>
-      <ArrayControl v-model="texts" :default-item="{}" />
+      <ArrayControl v-model="texts" :add="{}" />
     </template>
     <div class="col">
       <div v-for="(t, i) in texts" :key="i" class="row">

@@ -13,7 +13,7 @@
           <ArrayControl
             v-model="file.mappings"
             v-model:item="mapping"
-            :default-item="{}"
+            :add="{}"
             shift
             remove
           />
@@ -30,7 +30,7 @@
     </div>
     <EditorCard v-if="mapping" icon="format_list_numbered" header="Pairs">
       <template #header>
-        <ArrayControl v-model="mapping.pairs" :default-item="[]" />
+        <ArrayControl v-model="mapping.pairs" :add="[]" />
       </template>
       <template #caption>
         During conversion system will consuquently go over these pairs,

@@ -1,7 +1,7 @@
 <template>
   <EditorCard icon="sticky_note_2" header="Notes">
     <template #header>
-      <ArrayControl v-model="notes" :default-item="''" />
+      <ArrayControl v-model="notes" :add="''" />
     </template>
     <template #caption><slot /></template>
     <div v-for="(n, i) in notes" :key="i" class="row">

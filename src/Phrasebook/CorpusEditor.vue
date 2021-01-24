@@ -6,7 +6,7 @@
           <ArrayControl
             v-model="file"
             v-model:item="section"
-            :default-item="() => ({ id: uuidv4() })"
+            :add="() => ({ id: uuidv4() })"
             shift
             remove
           />
@@ -28,7 +28,7 @@
           <ArrayControl
             v-model="section.phrases"
             v-model:item="phrase"
-            :default-item="() => ({ id: uuidv4() })"
+            :add="() => ({ id: uuidv4() })"
             shift
             remove
           />

@@ -4,7 +4,7 @@
       <ArrayControl
         v-model="blocks"
         v-model:item="block"
-        :default-item="() => [newState()]"
+        :add="() => [newState()]"
         copy
         shift
         remove
