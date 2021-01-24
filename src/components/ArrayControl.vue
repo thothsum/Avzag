@@ -7,7 +7,7 @@
         <btn icon="keyboard_arrow_up" @click="action.shift(-1)" />
         <btn icon="keyboard_arrow_down" @click="action.shift(1)" />
       </div>
-      <ConfirmButton v-if="remove" @click="action.remove" />
+      <ConfirmButton v-if="remove" @confirm="action.remove" />
     </template>
   </div>
 </template>

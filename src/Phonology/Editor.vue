@@ -13,7 +13,7 @@
         <TableEntry
           v-for="(p, i) in file"
           :key="i"
-          :selected="phoneme == p"
+          :selected="phoneme === p"
           :ipa="p.phoneme"
           :str="graphemes[i]"
           @click="phoneme = p"
@@ -70,21 +70,18 @@ import EditorCard from "@/components/EditorCard.vue";
 import TableEntry from "./TableEntry.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
 
-import { computed, ref, defineComponent, watch } from "vue";
+import { computed, ref, defineComponent } from "vue";
 import { PhonemeUse } from "./types";
 import { setupEditor } from "@/editor";
 
 export default defineComponent({
   components: { ArrayControl, EditorCard, TableEntry, NotesEditor },
   setup() {
-    const phoneme = ref({} as PhonemeUse);
+    const phoneme = ref<PhonemeUse>();
     const file = setupEditor<PhonemeUse[]>({
       defaultFile: [],
       filename: "phonology",
       storage: "editor.phonology",
-    });
-    watch(file, (file) => (phoneme.value = file[file.length - 1]), {
-      immediate: true,
     });
 
     const graphemes = computed(() =>
