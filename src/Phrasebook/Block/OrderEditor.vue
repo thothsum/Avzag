@@ -46,6 +46,10 @@ export default defineComponent({
   },
   emits: ["update:modelValue", "update:phrase"],
   setup(props, { emit }) {
+    const block = computed({
+      get: () => props.modelValue,
+      set: (b) => emit("update:modelValue", b),
+    });
     const mphrase = computed({
       get: () => props.phrase,
       set: (p) => emit("update:modelValue", p),
@@ -53,10 +57,6 @@ export default defineComponent({
     const blocks = computed({
       get: () => mphrase.value.blocks,
       set: (bs) => (mphrase.value.blocks = bs),
-    });
-    const block = computed({
-      get: () => props.modelValue,
-      set: (b) => emit("update:modelValue", b),
     });
     const vblocks = ref([]);
     onBeforeUpdate(() => (vblocks.value = []));

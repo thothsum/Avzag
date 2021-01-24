@@ -36,18 +36,15 @@ export default defineComponent({
       get: () => props.modelValue,
       set: (i) => emit("update:modelValue", i),
     });
-    watch(
-      array,
-      (array) => {
-        if (array) last();
-      },
-      { immediate: true }
-    );
+    watch(array, last, { immediate: true });
     function last() {
-      emit("update:item", array.value[array.value.length - 1]);
+      emit(
+        "update:item",
+        array.value ? array.value[array.value.length - 1] : undefined
+      );
     }
     async function add() {
-      let item: undefined | unknown | (() => unknown) = props.add;
+      let item: unknown = props.add;
       if (!item === undefined) return;
       if (!array.value) {
         array.value = [];

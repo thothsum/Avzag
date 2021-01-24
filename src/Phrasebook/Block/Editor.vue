@@ -35,7 +35,7 @@ import TransitionEditor from "../State/TransitionEditor.vue";
 import TextsEditor from "../State/TextsEditor.vue";
 import VState from "../State/index.vue";
 
-import { defineComponent, PropType, computed, ref, watch } from "vue";
+import { defineComponent, PropType, computed, ref } from "vue";
 import { State } from "../types";
 import { newState } from "../utils";
 
@@ -60,9 +60,6 @@ export default defineComponent({
     });
     const state = ref(undefined as undefined | State);
     const glossed = ref(false);
-    watch(block, (block) => (state.value = block?.[block.length - 1]), {
-      immediate: true,
-    });
 
     return { newState, glossed, state, block };
   },

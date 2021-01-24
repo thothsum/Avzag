@@ -2,7 +2,7 @@
   <div v-if="file" class="section col-2 small grid">
     <div class="col-2">
       <EditorCard icon="topic" header="sections">
-        <template v-if="section" #header>
+        <template #header>
           <ArrayControl
             v-model="file"
             v-model:item="section"
@@ -24,7 +24,7 @@
         </div>
       </EditorCard>
       <EditorCard v-if="section" icon="short_text" header="phrases">
-        <template v-if="phrase" #header>
+        <template #header>
           <ArrayControl
             v-model="section.phrases"
             v-model:item="phrase"
@@ -51,7 +51,7 @@
           v-model="block"
           v-model:phrase="phrase"
         />
-        <ContextEditor v-if="phrase" v-model="phrase.context" />
+        <ContextEditor v-model="phrase.context" />
       </template>
     </div>
     <BlockEditor v-if="block" v-model="block" />
@@ -88,9 +88,16 @@ export default defineComponent({
           : "",
       storage: "editor.phrasebookCorpus",
     });
-    const section = ref(undefined as undefined | CorpusSection);
-    const phrase = ref(undefined as undefined | CorpusPhrase);
-    const block = ref(undefined as undefined | State[]);
+    const section = ref<CorpusSection>();
+    const phrase = ref<CorpusPhrase>();
+    const block = ref<State[]>();
+    watch(file, (file) => {
+      if (!file?.length) {
+        section.value = undefined;
+        phrase.value = undefined;
+        block.value = undefined;
+      }
+    });
 
     const contextSource = computed(() => phrase.value?.context);
     const context = ref({} as Context);
@@ -100,21 +107,6 @@ export default defineComponent({
       contextSource,
       (contextSource) => createContext(context, contextSource),
       { immediate: true, deep: true }
-    );
-
-    watch(file, (file) => (section.value = file[file.length - 1]), {
-      immediate: true,
-    });
-    watch(
-      section,
-      (section) =>
-        (phrase.value = section?.phrases?.[section.phrases.length - 1]),
-      { immediate: true }
-    );
-    watch(
-      phrase,
-      (phrase) => (block.value = phrase?.blocks?.[phrase.blocks.length - 1]),
-      { immediate: true }
     );
 
     return { file, section, phrase, block, uuidv4 };
