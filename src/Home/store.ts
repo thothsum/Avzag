@@ -3,7 +3,7 @@ import { SearchState, Lect } from "./types";
 import { loadJSON } from "@/store";
 import { Query, EvaluateQuery } from "@/components/Query/types";
 
-export const catalogue = shallowRef([] as Lect[]);
+export const catalogue = shallowRef<Lect[]>([]);
 export const search = reactive({
   selected: new Set<string>(),
   visible: new Set<string>(),

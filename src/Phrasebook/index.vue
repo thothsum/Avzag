@@ -75,7 +75,7 @@ export default defineComponent({
     initialize();
 
     const context = ref({} as Context);
-    watch(phrase, (phrase) => createContext(context, phrase.context), {
+    watch(phrase, (phrase) => createContext(context, phrase?.context), {
       immediate: true,
     });
 
@@ -98,7 +98,7 @@ export default defineComponent({
     );
     function select(_section?: CorpusSection, _phrase?: CorpusPhrase) {
       if (_section) section.value = _section;
-      phrase.value = _phrase ?? section.value.phrases[0];
+      phrase.value = _phrase ?? section.value?.phrases[0];
     }
 
     return {

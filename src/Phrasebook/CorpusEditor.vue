@@ -29,6 +29,7 @@
             v-model="section.phrases"
             v-model:item="phrase"
             :default-item="() => ({ id: uuidv4() })"
+            copy
             shift
             remove
           />

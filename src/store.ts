@@ -7,7 +7,7 @@ export const root =
     ? "https://raw.githubusercontent.com/alkaitagi/Avzag/"
     : "/") + "store/";
 
-export const lects = ref([] as string[]);
+export const lects = ref<string[]>([]);
 
 export function setupStore(_lects: string[]) {
   lects.value = _lects;
