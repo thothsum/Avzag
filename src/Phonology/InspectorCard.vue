@@ -11,9 +11,9 @@
         class="row"
         @click="play(i)"
       >
-        <span class="icon">{{
-          playable[i] ? "play_arrow" : "arrow_right"
-        }}</span>
+        <span class="icon">
+          {{ playable[i] ? "play_arrow" : "arrow_right" }}
+        </span>
         <Notes class="word" :notes="[words[i]]" />
         <Notes :notes="[ipas[i]]" />
       </button>

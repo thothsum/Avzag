@@ -4,7 +4,7 @@
       <h1 class="text-ipa">{{ phoneme.ipa }}</h1>
       <p class="text-caption text-faded text-spaced">{{ phoneme.tags }}</p>
     </div>
-    <audio ref="player"></audio>
+    <audio ref="player" />
     <InspectorCard
       v-for="(u, l) of phoneme.lects"
       :key="l"
@@ -26,8 +26,9 @@ export default defineComponent({
     phoneme: { type: Object as PropType<Phoneme>, default: () => ({}) },
   },
   setup() {
-    const player = ref({} as HTMLMediaElement);
+    const player = ref<HTMLMediaElement>();
     function play(url: string) {
+      if (!player.value) return;
       player.value.src = url;
       player.value.play();
     }
