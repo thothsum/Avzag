@@ -1,0 +1,43 @@
+:root {
+  --color-background: rgb(245, 245, 245);
+  --color-foreground: rgb(255, 255, 255);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+
+  --color-text: rgb(33, 33, 33);
+
+  --color-active: rgba(0, 0, 0, 0.075);
+  --color-hover: rgba(0, 0, 0, 0.15);
+  --color-press: rgba(0, 0, 0, 0.225);
+
+  --color-highlight: rgb(30, 136, 229);
+  --color-highlight-back: rgba(30, 136, 229, 0.15);
+
+  --color-confirm: rgb(67, 160, 71);
+  --color-confirm-back: rgba(67, 160, 71, 0.15);
+
+  --color-alert: rgb(229, 57, 53);
+  --color-alert-back: rgba(229, 57, 53, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-highlight: rgb(100, 181, 246);
+    --color-highlight-back: rgba(100, 181, 246, 0.15);
+
+    --color-confirm: rgb(129, 199, 132);
+    --color-confirm-back: rgba(129, 199, 132, 0.15);
+
+    --color-alert: rgb(229, 115, 115);
+    --color-alert-back: rgba(229, 115, 115, 0.15);
+
+    --color-background: rgb(33, 33, 33);
+    --color-foreground: rgb(66, 66, 66);
+    --color-shadow: rgba(0, 0, 0, 0.9);
+
+    --color-text: rgb(255, 255, 255);
+
+    --color-active: rgba(255, 255, 255, 0.075);
+    --color-hover: rgba(255, 255, 255, 0.15);
+    --color-press: rgba(255, 255, 255, 0.225);
+  }
+}

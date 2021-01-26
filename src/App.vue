@@ -34,7 +34,7 @@ export default defineComponent({
 @import url("https://fonts.googleapis.com/css?family=Material+Icons+Outlined");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap");
 
-@import "scss/variables.css";
+@import "scss/palette";
 @import "scss/panels";
 @import "scss/scroll";
 @import "scss/text";
