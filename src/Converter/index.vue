@@ -55,7 +55,7 @@
 import Pairs from "./Pairs.vue";
 import Flag from "@/components/Flag.vue";
 
-import { computed, ref, nextTick, defineComponent, toRaw, watch } from "vue";
+import { computed, ref, nextTick, defineComponent, toRaw } from "vue";
 import {
   initialize,
   converter,

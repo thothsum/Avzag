@@ -12,7 +12,7 @@
     <Context :translation="contextTranslation" :blocks="blocks" />
     <div class="row wrap flex">
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row">
-        <p class="playback" :style="{ width: playbacks[i] + '%' }" />
+        <p class="playback" :style="{ width: playbacks[i] }" />
         <Block :ref="(el) => blocks.push(el)" :block="b" :glossed="glossed" />
       </div>
     </div>
@@ -79,13 +79,14 @@ export default defineComponent({
       },
     });
 
-    const playbacks = ref([] as number[]);
+    const playbacks = ref([] as string[]);
     watch(
       [player.playback, player.current, playing],
       ([playback, current, playing]) => {
         urls.value.forEach(
           (_u, i) =>
-            (playbacks.value[i] = playing && i === current ? playback * 100 : 0)
+            (playbacks.value[i] =
+              playing && i === current ? playback * 100 + "%" : "0")
         );
       }
     );

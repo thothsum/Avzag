@@ -21,10 +21,12 @@ audio.onended = next;
 audio.onerror = next;
 
 export async function play(_id: string, ...srcs: string[]) {
+  stop();
+
   id.value = _id;
   playing.value = true;
   current.value = -1;
-  queue.value.forEach((u) => URL.revokeObjectURL(u));
+
   queue.value = await Promise.all(
     srcs.map((s) =>
       fetch(s)
@@ -40,5 +42,7 @@ export function stop() {
   playing.value = false;
   current.value = -1;
   playback.value = 0;
+
+  queue.value.forEach((u) => URL.revokeObjectURL(u));
   queue.value.length = 0;
 }
