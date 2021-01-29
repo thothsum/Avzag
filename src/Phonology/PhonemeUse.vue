@@ -9,7 +9,7 @@
         v-for="(s, i) in fullSamples"
         :key="i"
         class="row"
-        @click="tryPlay(i)"
+        @click="play(i)"
       >
         <span class="icon">
           {{ playable[i] ? "play_arrow" : "arrow_right" }}
@@ -27,7 +27,7 @@ import Notes from "@/components/Notes/index.vue";
 import { computed, defineComponent, ref, watch, PropType } from "vue";
 import { root } from "@/store";
 import { PhonemeUse } from "./types";
-import { play } from "@/audio-player";
+import * as player from "@/audio-player";
 
 export default defineComponent({
   components: { Notes },
@@ -66,8 +66,9 @@ export default defineComponent({
     );
 
     const playable = ref([] as boolean[]);
-    function tryPlay(index: number) {
-      if (playable.value[index] && urls.value) play(urls.value[index]);
+    function play(index: number) {
+      if (playable.value[index] && urls.value)
+        player.play(props.lect, urls.value[index]);
     }
     watch(
       urls,
@@ -84,7 +85,7 @@ export default defineComponent({
     );
 
     return {
-      tryPlay,
+      play,
       playable,
       ipas,
       words,

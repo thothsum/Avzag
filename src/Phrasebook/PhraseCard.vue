@@ -14,6 +14,7 @@
         v-for="(b, i) in phrase.blocks"
         :ref="(el) => blocks.push(el)"
         :key="i"
+        :class="{ bold: i === current }"
         :glossed="glossed"
         :block="b"
       />
@@ -27,11 +28,19 @@ import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 
-import { computed, defineComponent, PropType, reactive, ref } from "vue";
+import {
+  computed,
+  defineComponent,
+  onBeforeUpdate,
+  PropType,
+  reactive,
+  ref,
+  watchEffect,
+} from "vue";
 
 import { Phrase, VBlock } from "./types";
 import { root } from "@/store";
-import { play, audio } from "@/audio-player";
+import * as player from "@/audio-player";
 
 export default defineComponent({
   components: { Context, Block, Notes },
@@ -45,6 +54,7 @@ export default defineComponent({
       props.lect ? props.phrase.context : undefined
     );
 
+    onBeforeUpdate(() => (blocks.length = 0));
     const blocks = reactive<VBlock[]>([]);
     const text = computed(() =>
       blocks
@@ -64,22 +74,23 @@ export default defineComponent({
     );
 
     const playing = computed({
-      get: () => !audio.paused,
+      get: () => player.playing.value && player.id.value === props.lect,
       set: (p) => {
-        console.log(p);
-        if (p) play(...urls.value);
-        else audio.pause();
+        if (p) player.play(props.lect, ...urls.value);
+        else stop();
       },
     });
+    const current = computed(() => (playing.value ? player.current.value : -1));
+    watchEffect(() => console.log(player.current.value, player.playing.value));
 
     return {
       glossed,
       blocks,
       copy,
-      playing,
       contextTranslation,
       urls,
-      audio,
+      playing,
+      current,
     };
   },
 });
@@ -88,5 +99,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .card {
   align-items: flex-start;
+}
+.bold {
+  font-weight: bold;
 }
 </style>

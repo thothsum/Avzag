@@ -1,23 +1,32 @@
-import { shallowReactive } from "vue";
+import { ref } from "vue";
 
-export const audio = shallowReactive(new Audio());
+export const audio = new Audio();
+export const playing = ref(false);
+export const id = ref("");
+export const current = ref(-1);
+export const queue = ref<string[]>([]);
 
-let queue: string[];
 function next() {
-  const src = queue.shift();
+  current.value += 1;
+  const src = queue.value[current.value];
   if (src) audio.src = src;
-  console.log(audio.src);
+  else if (current.value >= queue.value.length) stop();
 }
 
-audio.oncanplaythrough = () => {
-  console.log("ready");
-  audio.play();
-};
-
+audio.oncanplaythrough = audio.play;
 audio.onended = next;
+audio.onerror = next;
 
-export function play(...srcs: string[]) {
-  queue = srcs.slice();
-  console.log("queue", queue);
+export function play(_id: string, ...srcs: string[]) {
+  id.value = _id;
+  queue.value = srcs.slice();
+  playing.value = true;
   next();
+}
+
+export function stop() {
+  audio.pause();
+  queue.value.length = 0;
+  playing.value = false;
+  current.value = -1;
 }
