@@ -1,5 +1,5 @@
 <template>
-  <div v-if="phrase" class="col card">
+  <div v-if="phrase" class="col card flag">
     <div v-if="lect" class="row small wrap" style="width: 100%">
       <h2 class="flex">{{ lect }}</h2>
       <div class="row">
@@ -16,6 +16,7 @@
       </div>
     </div>
     <Notes class="text-caption" :notes="phrase.notes" />
+    <Flag :lect="lect" class="blur" />
   </div>
 </template>
 
@@ -23,6 +24,7 @@
 import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
+import Flag from "@/components/Flag.vue";
 
 import {
   computed,
@@ -39,7 +41,7 @@ import { root } from "@/store";
 import * as player from "@/audio-player";
 
 export default defineComponent({
-  components: { Context, Block, Notes },
+  components: { Context, Block, Notes, Flag },
   props: {
     lect: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },

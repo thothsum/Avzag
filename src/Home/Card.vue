@@ -1,5 +1,6 @@
 <template>
-  <div v-if="visible" class="row-1 card">
+  <div v-if="visible" class="row-1 card flag">
+    <Flag :lect="lect.name" />
     <div class="col-0">
       <h1 :class="{ 'highlight-font': selected }">
         {{ name }}
@@ -10,29 +11,28 @@
         </span>
       </p>
     </div>
-    <img :src="flag" />
   </div>
 </template>
 
 <script lang="ts">
+import Flag from "@/components/Flag.vue";
 import { computed, defineComponent, PropType } from "vue";
 import { Lect, SearchState } from "./types";
-import { root } from "@/store";
 
 export default defineComponent({
+  components: { Flag },
   props: {
     lect: { type: Object as PropType<Lect>, default: () => ({}) },
     search: { type: Object as PropType<SearchState>, default: () => ({}) },
   },
   setup(props) {
     const name = computed(() => props.lect.name);
-    const flag = computed(() => root + name.value + "/flag.png");
     const family = computed(() => props.lect.family.join(" › "));
 
     const selected = computed(() => props.search.selected.has(name.value));
     const visible = computed(() => props.search.visible.has(name.value));
 
-    return { name, flag, family, selected, visible };
+    return { name, family, selected, visible };
   },
 });
 </script>
@@ -46,27 +46,18 @@ export default defineComponent({
   min-height: 54px;
   max-height: 54px;
   background-color: var(--color-foreground);
-  position: relative;
   cursor: pointer;
-  overflow: hidden;
-  * {
-    z-index: 1;
+  img {
+    transform: translate(32%) rotate(-45deg);
+    height: 200%;
+    bottom: unset;
+    filter: unset;
   }
   &:hover img {
     transform: translate(27%) rotate(-45deg);
   }
   &:active img {
     opacity: 1;
-  }
-  img {
-    pointer-events: none;
-    z-index: 0;
-    position: absolute;
-    right: 0;
-    height: 2 * 100%;
-    transform: translate(32%) rotate(-45deg);
-    opacity: 0.5;
-    mask-image: linear-gradient(transparent, white);
   }
 }
 </style>

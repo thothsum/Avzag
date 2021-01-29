@@ -1,5 +1,6 @@
 <template>
-  <div class="col-1 card small">
+  <div class="col-1 card flag small">
+    <Flag :lect="lect" class="blur" />
     <div class="title">
       <h2 class="flex">{{ lect }}</h2>
       <p v-for="g in graphemes" :key="g" class="text-dot">{{ g }}</p>
@@ -24,13 +25,15 @@
 
 <script lang="ts">
 import Notes from "@/components/Notes/index.vue";
+import Flag from "@/components/Flag.vue";
+
 import { computed, defineComponent, ref, watch, PropType } from "vue";
 import { root } from "@/store";
 import { PhonemeUse } from "./types";
 import * as player from "@/audio-player";
 
 export default defineComponent({
-  components: { Notes },
+  components: { Notes, Flag },
   props: {
     lect: { type: String, default: "" },
     use: { type: Object as PropType<PhonemeUse>, default: () => ({}) },
