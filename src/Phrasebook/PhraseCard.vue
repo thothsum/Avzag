@@ -70,10 +70,10 @@ export default defineComponent({
     );
 
     const playing = computed({
-      get: () => !!player.playback.value && player.id.value === props.lect,
+      get: () => player.playing.value && player.id.value === props.lect,
       set: (p) => {
         if (p) player.play(props.lect, ...urls.value);
-        else stop();
+        else player.stop();
       },
     });
 
