@@ -39,7 +39,10 @@
           <btn icon="file_copy" @click="copy" />
         </div>
         <template v-if="pairs.final">
-          <textarea v-model="texts.final" readonly />
+          <div class="col flag">
+            <Flag :lect="lect" />
+            <textarea v-model="texts.final" readonly />
+          </div>
           <Pairs v-if="showPairs" :pairs="pairs.final" />
         </template>
       </div>
@@ -50,8 +53,9 @@
 
 <script lang="ts">
 import Pairs from "./Pairs.vue";
+import Flag from "@/components/Flag.vue";
 
-import { computed, ref, nextTick, defineComponent, toRaw } from "vue";
+import { computed, ref, nextTick, defineComponent, toRaw, watch } from "vue";
 import {
   initialize,
   converter,
@@ -63,9 +67,15 @@ import {
 import upload from "./upload";
 
 export default defineComponent({
-  components: { Pairs },
+  components: { Pairs, Flag },
   setup() {
     initialize();
+
+    const lect = computed(() =>
+      Object.keys(converters.value).find(
+        (l) => converter.value === converters.value[l]
+      )
+    );
 
     const showPairs = ref(false);
     const fullMappings = computed(() =>
@@ -96,6 +106,7 @@ export default defineComponent({
     }
 
     return {
+      lect,
       converters,
       converter,
       showPairs,
@@ -118,6 +129,9 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: map-get($margins, "double");
+}
+.flag img {
+  bottom: -10%;
 }
 textarea {
   height: 256px;

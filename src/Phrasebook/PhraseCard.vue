@@ -1,5 +1,6 @@
 <template>
   <div v-if="phrase" class="col card flag">
+    <Flag :lect="lect" class="blur" />
     <div v-if="lect" class="row small wrap" style="width: 100%">
       <h2 class="flex">{{ lect }}</h2>
       <div class="row">
@@ -16,7 +17,6 @@
       </div>
     </div>
     <Notes class="text-caption" :notes="phrase.notes" />
-    <Flag :lect="lect" class="blur" />
   </div>
 </template>
 
