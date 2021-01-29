@@ -9,7 +9,7 @@
         v-for="(s, i) in fullSamples"
         :key="i"
         class="row"
-        @click="play(i)"
+        @click="tryPlay(i)"
       >
         <span class="icon">
           {{ playable[i] ? "play_arrow" : "arrow_right" }}
@@ -27,6 +27,7 @@ import Notes from "@/components/Notes/index.vue";
 import { computed, defineComponent, ref, watch, PropType } from "vue";
 import { root } from "@/store";
 import { PhonemeUse } from "./types";
+import { play } from "@/audio-player";
 
 export default defineComponent({
   components: { Notes },
@@ -34,8 +35,7 @@ export default defineComponent({
     lect: { type: String, default: "" },
     use: { type: Object as PropType<PhonemeUse>, default: () => ({}) },
   },
-  emits: ["play"],
-  setup(props, { emit }) {
+  setup(props) {
     const lectRoot = computed(() => root + props.lect + "/audio/");
     const graphemes = computed(() => {
       const set = new Set(props.use.samples?.map(({ grapheme }) => grapheme));
@@ -66,8 +66,8 @@ export default defineComponent({
     );
 
     const playable = ref([] as boolean[]);
-    function play(index: number) {
-      if (playable.value[index] && urls.value) emit("play", urls.value[index]);
+    function tryPlay(index: number) {
+      if (playable.value[index] && urls.value) play(urls.value[index]);
     }
     watch(
       urls,
@@ -84,7 +84,7 @@ export default defineComponent({
     );
 
     return {
-      play,
+      tryPlay,
       playable,
       ipas,
       words,
