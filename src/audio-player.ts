@@ -20,18 +20,25 @@ audio.oncanplaythrough = audio.play;
 audio.onended = next;
 audio.onerror = next;
 
-export function play(_id: string, ...srcs: string[]) {
+export async function play(_id: string, ...srcs: string[]) {
   id.value = _id;
   playing.value = true;
-  queue.value = srcs.slice();
   current.value = -1;
+  queue.value.forEach((u) => URL.revokeObjectURL(u));
+  queue.value = await Promise.all(
+    srcs.map((s) =>
+      fetch(s)
+        .then((r) => r.blob())
+        .then((b) => URL.createObjectURL(b))
+    )
+  );
   next();
 }
 
 export function stop() {
   audio.pause();
   playing.value = false;
-  queue.value.length = 0;
   current.value = -1;
   playback.value = 0;
+  queue.value.length = 0;
 }
