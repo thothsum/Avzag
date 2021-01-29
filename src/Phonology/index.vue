@@ -17,7 +17,13 @@
         />
       </div>
     </div>
-    <Inspector :phoneme="phoneme" />
+    <div v-if="phoneme" class="col-1">
+      <div class="card col-1">
+        <h1 class="text-ipa">{{ phoneme.ipa }}</h1>
+        <p class="text-caption text-faded text-spaced">{{ phoneme.tags }}</p>
+      </div>
+      <PhonemeUse v-for="(u, l) of phoneme.lects" :key="l" :lect="l" :use="u" />
+    </div>
   </div>
 </template>
 
@@ -25,13 +31,13 @@
 import ToggleQuery from "@/components/Query/ToggleQuery.vue";
 import InputQuery from "@/components/Query/InputQuery.vue";
 import Table from "./Table.vue";
-import Inspector from "./Inspector.vue";
+import PhonemeUse from "./PhonemeUse.vue";
 
 import { ref, defineComponent } from "vue";
 import { initialize, lects, phonemes, phoneme } from "./main";
 
 export default defineComponent({
-  components: { ToggleQuery, InputQuery, Table, Inspector },
+  components: { ToggleQuery, InputQuery, Table, PhonemeUse },
   setup() {
     initialize();
 
