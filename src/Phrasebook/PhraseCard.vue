@@ -10,14 +10,10 @@
     </div>
     <Context :translation="contextTranslation" :blocks="blocks" />
     <div class="row wrap flex">
-      <Block
-        v-for="(b, i) in phrase.blocks"
-        :ref="(el) => blocks.push(el)"
-        :key="i"
-        :class="{ bold: i === current }"
-        :glossed="glossed"
-        :block="b"
-      />
+      <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row">
+        <p class="playback" :style="{ width: playbacks[i] + '%' }" />
+        <Block :ref="(el) => blocks.push(el)" :block="b" :glossed="glossed" />
+      </div>
     </div>
     <Notes class="text-caption" :notes="phrase.notes" />
   </div>
@@ -35,7 +31,7 @@ import {
   PropType,
   reactive,
   ref,
-  watchEffect,
+  watch,
 } from "vue";
 
 import { Phrase, VBlock } from "./types";
@@ -74,14 +70,23 @@ export default defineComponent({
     );
 
     const playing = computed({
-      get: () => player.playing.value && player.id.value === props.lect,
+      get: () => !!player.playback.value && player.id.value === props.lect,
       set: (p) => {
         if (p) player.play(props.lect, ...urls.value);
         else stop();
       },
     });
-    const current = computed(() => (playing.value ? player.current.value : -1));
-    watchEffect(() => console.log(player.current.value, player.playing.value));
+
+    const playbacks = ref([] as number[]);
+    watch(
+      [player.playback, player.current, playing],
+      ([playback, current, playing]) => {
+        urls.value.forEach(
+          (_u, i) =>
+            (playbacks.value[i] = playing && i === current ? playback * 100 : 0)
+        );
+      }
+    );
 
     return {
       glossed,
@@ -90,7 +95,8 @@ export default defineComponent({
       contextTranslation,
       urls,
       playing,
-      current,
+      playbacks,
+      playback: player.playback,
     };
   },
 });
@@ -100,7 +106,16 @@ export default defineComponent({
 .card {
   align-items: flex-start;
 }
-.bold {
-  font-weight: bold;
+.blocks {
+  position: relative;
+}
+.playback {
+  padding: 0;
+  background-color: var(--color-text);
+  border-radius: $border-radius $border-radius 0 0;
+  height: $border-radius;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 </style>
