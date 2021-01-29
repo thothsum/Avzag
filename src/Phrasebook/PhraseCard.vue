@@ -3,7 +3,7 @@
     <div v-if="lect" class="row small wrap" style="width: 100%">
       <h2 class="flex">{{ lect }}</h2>
       <div class="row">
-        <toggle :model-value="playing" icon="play_arrow" @click="play(true)" />
+        <toggle v-model="playing" icon="play_arrow" />
         <btn icon="content_copy" @click="copy" />
         <toggle v-model="glossed" icon="layers" />
       </div>
@@ -19,7 +19,6 @@
       />
     </div>
     <Notes class="text-caption" :notes="phrase.notes" />
-    <audio ref="player" />
   </div>
 </template>
 
@@ -28,18 +27,11 @@ import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 
-import {
-  computed,
-  defineComponent,
-  nextTick,
-  PropType,
-  reactive,
-  ref,
-  watch,
-} from "vue";
+import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
 import { Phrase, VBlock } from "./types";
 import { root } from "@/store";
+import { play, audio } from "@/audio-player";
 
 export default defineComponent({
   components: { Context, Block, Notes },
@@ -70,54 +62,24 @@ export default defineComponent({
         .map(({ state }) => state?.texts.map(({ plain }) => plain))
         .map((p) => lectRoot.value + p?.join("") + ".mp3")
     );
-    const player = ref<HTMLMediaElement>();
-    const playing = ref(false);
-    let currentUrl = -1;
-    watch(
-      player,
-      () => {
-        if (!player.value) return;
-        player.value.onplaying = () => (playing.value = true);
-        player.value.onpause = () => (playing.value = false);
-        player.value.onloadeddata = () => player.value?.play();
-        player.value.autoplay = true;
-        // player.value.onended = () => play();
-      },
-      { immediate: true }
-    );
-    async function play(restart = false) {
-      console.log(restart, playing.value);
-      // if (restart && playing.value) {
-      //   if (player.value) {
-      //     player.value.pause();
-      //     player.value.currentTime = 0;
-      //   }
-      //   currentUrl = -1;
-      //   return;
-      // }
-      currentUrl = restart ? 0 : currentUrl + 1;
-      const url = urls.value[currentUrl];
-      console.log(url);
-      if (!player.value || !url) {
-        currentUrl = -1;
-        return;
-      }
 
-      player.value.src = url;
-      player.value.load();
-      await nextTick();
-      player.value.play();
-    }
+    const playing = computed({
+      get: () => !audio.paused,
+      set: (p) => {
+        console.log(p);
+        if (p) play(...urls.value);
+        else audio.pause();
+      },
+    });
 
     return {
       glossed,
       blocks,
       copy,
-      player,
       playing,
-      play,
       contextTranslation,
       urls,
+      audio,
     };
   },
 });
