@@ -5,14 +5,16 @@
     </template>
     <template #caption>TODO brief explanation</template>
     <div class="row-1 block-editor wrap">
-      <btn
-        v-for="({ entity, tag, color, icon }, i) in tags"
+      <button
+        v-for="({ entity, tag, color, icon, flag }, i) in tags"
         :key="entity + '--' + tag"
-        :class="color"
-        :icon="icon"
-        :text="tag"
         @click="toggle(i)"
-      />
+      >
+        <p class="icon" :class="{ ['colored-' + color]: flag !== undefined }">
+          {{ icon }}
+        </p>
+        <p :class="'colored-dot-' + color">{{ tag }}</p>
+      </button>
     </div>
   </EditorCard>
 </template>
@@ -51,7 +53,7 @@ export default defineComponent({
         tag: string;
         entity: string;
         icon: string;
-        color: string;
+        color: number;
         flag?: boolean;
       }[]
     );
@@ -69,7 +71,7 @@ export default defineComponent({
               tag,
               entity,
               icon,
-              color: "colored-dot-" + i,
+              color: i,
               flag: flag,
             };
           })
