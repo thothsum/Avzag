@@ -3,7 +3,7 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Цикъкъел " }],
+          "texts": [{ "plain": "Цикъкъел", "ipa": "t͡siqːel", "gloss": "when" }],
           "transition": "next",
           "conditions": { "tense": { "future": true } }
         },
@@ -46,14 +46,14 @@
         {
           "texts": [
             { "plain": "д", "entity": "actor" },
-            { "plain": "янилдай?" }
+            { "plain": "янилдай" }
           ],
           "conditions": { "actor": { "plural": true } }
         },
         {
           "texts": [
             { "plain": "р", "entity": "actor" },
-            { "plain": "янилдай?" }
+            { "plain": "янилдай" }
           ],
           "transition": [2],
           "conditions": { "actor": { "feminine": true, "singular": false } }
@@ -61,12 +61,13 @@
         {
           "texts": [
             { "plain": "в", "entity": "actor" },
-            { "plain": "янилдай?" }
+            { "plain": "янилдай" }
           ],
           "transition": [1],
           "conditions": { "actor": { "singular": false, "masculine": true } }
         }
-      ]
+      ],
+      [{ "texts": [{ "plain": "?" }] }]
     ]
   }
 }
