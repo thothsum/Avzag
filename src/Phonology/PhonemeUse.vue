@@ -6,7 +6,8 @@
       <p v-for="g in graphemes" :key="g" class="text-dot">{{ g }}</p>
     </div>
     <div class="col-0">
-      <div v-for="(s, i) in fullSamples" :key="i" class="row-0">
+      <div v-for="(s, i) in fullSamples" :key="i" class="row-0 seeker">
+        <Seeker :check="urls[i] === player.key" :seek="player.seek" />
         <button
           class="row flex"
           :disabled="!urls[i]"
@@ -28,13 +29,14 @@
 <script lang="ts">
 import Notes from "@/components/Notes/index.vue";
 import Flag from "@/components/Flag.vue";
+import Seeker from "@/components/Seeker.vue";
 
 import { computed, defineComponent, PropType, watch, ref } from "vue";
 import { PhonemeUse } from "./types";
 import player from "@/audio-player";
 
 export default defineComponent({
-  components: { Notes, Flag },
+  components: { Notes, Flag, Seeker },
   props: {
     lect: { type: String, default: "" },
     use: { type: Object as PropType<PhonemeUse>, default: () => ({}) },
