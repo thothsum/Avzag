@@ -56,7 +56,7 @@ function stop() {
   audio.pause();
   state.playback = 0;
   state.index = -1;
-  state.url = "";
+  state.url = undefined;
   state.urls.length = 0;
   state.queue.forEach((u) => URL.revokeObjectURL(u));
   state.queue.length = 0;
