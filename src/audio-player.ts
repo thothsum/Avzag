@@ -32,13 +32,13 @@ function canPlay(result: Ref<string[]>, lect: string, files: string[]) {
     );
 }
 
-async function play(lect: string, files: string[], key?: string) {
+function play(lect: string, files: string[], key?: string) {
   stop();
   state.key = key ?? lect;
   state.timer = setInterval(seek, 100);
 
   state.queue = files
-    .map((f) => [url(lect, f)])
+    .map((f) => [lect ? url(lect, f) : f])
     .map((src, i) => {
       const track = {
         i,

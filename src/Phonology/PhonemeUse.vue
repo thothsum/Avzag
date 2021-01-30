@@ -10,9 +10,9 @@
         <button
           class="row flex"
           :disabled="!urls[i]"
-          @click="player.play(urls[i])"
+          @click="player.play(null, [urls[i]], urls[i])"
         >
-          <span class="icon" :class="{ highlight: urls[i] === player.url }">
+          <span class="icon" :class="{ highlight: urls[i] === player.key }">
             {{ urls[i] ? "play_arrow" : "arrow_right" }}
           </span>
           <Notes class="word flex" :notes="[words[i]]" />
