@@ -20,9 +20,10 @@ async function getUrls(result: Ref<string[]>, lect: string, files: string[]) {
   files
     .map((f) => `${root}${lect}/audio/${f}.mp3`)
     .map((u, i) =>
-      fetch(u, { method: "HEAD" }).then(
-        ({ ok }) => (result.value[i] = ok ? u : "")
-      )
+      fetch(u)
+        .then((r) => r.blob())
+        .then(({ type }) => type.includes("audio"))
+        .then((b) => (result.value[i] = b ? u : ""))
     );
 }
 
