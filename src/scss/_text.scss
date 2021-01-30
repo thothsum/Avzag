@@ -28,9 +28,6 @@
     opacity: map-get($opacity, "text");
   }
 }
-.text-spaced {
-  word-spacing: map-get($margins, "normal");
-}
 
 .text-dot {
   &::after {

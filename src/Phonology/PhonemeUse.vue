@@ -1,7 +1,7 @@
 <template>
   <div class="col-1 card flag small">
     <Flag :lect="lect" class="blur" />
-    <div class="title">
+    <div class="title row-0">
       <h2 class="flex">{{ lect }}</h2>
       <p v-for="g in graphemes" :key="g" class="text-dot">{{ g }}</p>
     </div>
@@ -101,10 +101,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.title {
-  display: flex;
-  justify-content: space-between;
-}
 .col-0 {
   $margin: -1 * map-get($margins, "normal");
   margin-left: $margin;
