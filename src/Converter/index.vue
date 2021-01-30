@@ -128,7 +128,7 @@ export default defineComponent({
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: map-get($margins, "double");
+  gap: map-get($margins, "normal");
 }
 .flag img {
   bottom: -10%;
