@@ -51,21 +51,16 @@ export default defineComponent({
       navigator.clipboard.writeText(text.value);
     }
 
-    const urls = ref([] as string[]);
-    watch(vblocks, (blocks) =>
-      player.getUrls(
-        urls,
-        props.lect,
-        blocks
-          .map(({ state }) => state?.texts.map(({ plain }) => plain))
-          .map((p) => "phrasebook/" + (p?.join("") ?? ""))
-      )
-    );
-
     const playing = computed({
-      get: () => player.url && urls.value.includes(player.url),
+      get: () => player.url,
       set: (p) => {
-        if (p) player.play(...urls.value);
+        if (p)
+          player.play(
+            props.lect,
+            vblocks
+              .map(({ state }) => state?.texts.map(({ plain }) => plain))
+              .map((p) => "phrasebook/" + (p?.join("") ?? ""))
+          );
         else player.stop();
       },
     });
