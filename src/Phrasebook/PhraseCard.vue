@@ -26,7 +26,7 @@ import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 import Flag from "@/components/Flag.vue";
 
-import { computed, defineComponent, PropType, ref, watch } from "vue";
+import { computed, defineComponent, PropType, reactive, ref, watch } from "vue";
 
 import { Phrase, BlockSnapshot } from "./types";
 import player from "@/audio-player";
@@ -39,10 +39,10 @@ export default defineComponent({
   },
   setup(props) {
     const glossed = ref(false);
-    const vblocks = ref([] as BlockSnapshot[]);
+    const vblocks = reactive([] as BlockSnapshot[]);
 
     const text = computed(() =>
-      vblocks.value
+      vblocks
         .filter(({ state }) => state)
         .map(({ text }) => text)
         .join(" ")
