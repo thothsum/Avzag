@@ -1,28 +1,26 @@
-import { readonly, ref } from "vue";
+import { reactive, readonly, toRefs } from "vue";
 
 const audio = new Audio();
+audio.ontimeupdate = () =>
+  (state.playback = audio.currentTime / audio.duration);
+audio.oncanplaythrough = audio.play;
+audio.onended = next;
+audio.onerror = next;
 
-const lect = ref("");
-const current = ref(-1);
-const queue = ref<string[]>([]);
-const playing = ref(false);
-const playback = ref(0);
-
-function next() {
-  if (!playing.value) return;
-  current.value += 1;
-  if (current.value >= queue.value.length) stop();
-  else audio.src = queue.value[current.value];
-}
+const state = reactive({
+  lect: "",
+  current: 1,
+  queue: [] as string[],
+  playing: false,
+  playback: 0,
+});
 
 async function play(_lect: string, ...srcs: string[]) {
   stop();
-
-  lect.value = _lect;
-  playing.value = true;
-  current.value = -1;
-
-  queue.value = await Promise.all(
+  state.lect = _lect;
+  state.playing = true;
+  state.current = -1;
+  state.queue = await Promise.all(
     srcs.map((s) =>
       fetch(s)
         .then((r) => r.blob())
@@ -32,29 +30,20 @@ async function play(_lect: string, ...srcs: string[]) {
   next();
 }
 
-function stop() {
-  audio.pause();
-  playing.value = false;
-  current.value = -1;
-  playback.value = 0;
-
-  queue.value.forEach((u) => URL.revokeObjectURL(u));
-  queue.value.length = 0;
+function next() {
+  if (!state.playing) return;
+  state.current += 1;
+  if (state.current >= state.queue.length) stop();
+  else audio.src = state.queue[state.current];
 }
 
-audio.ontimeupdate = () =>
-  (playback.value = audio.currentTime / audio.duration);
-audio.oncanplaythrough = audio.play;
-audio.onended = next;
-audio.onerror = next;
+function stop() {
+  audio.pause();
+  state.playing = false;
+  state.current = -1;
+  state.playback = 0;
+  state.queue.forEach((u) => URL.revokeObjectURL(u));
+  state.queue.length = 0;
+}
 
-export default readonly({
-  lect,
-  current,
-  queue,
-  playing,
-  playback,
-  play,
-  stop,
-  next,
-});
+export default readonly({ ...toRefs(state), play, stop, next });
