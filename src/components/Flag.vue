@@ -1,5 +1,5 @@
 <template>
-  <img :src="src" class="no-select" />
+  <img v-if="lect" :src="src" class="no-select" />
 </template>
 
 <script lang="ts">

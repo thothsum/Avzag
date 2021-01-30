@@ -1,4 +1,5 @@
-import { reactive, readonly, toRefs } from "vue";
+import { reactive, readonly, Ref, toRefs } from "vue";
+import { root } from "@/store";
 
 const audio = new Audio();
 audio.ontimeupdate = () =>
@@ -8,43 +9,57 @@ audio.onended = next;
 audio.onerror = next;
 
 const state = reactive({
-  lect: "",
-  current: 1,
-  queue: [] as string[],
-  playing: false,
   playback: 0,
+  index: -1,
+  url: undefined as undefined | string,
+  urls: [] as string[],
+  queue: [] as string[],
 });
 
-async function play(_lect: string, ...srcs: string[]) {
+async function getUrls(result: Ref<string[]>, lect: string, files: string[]) {
+  files
+    .map((f) => `${root}${lect}/audio/${f}.mp3`)
+    .map((u, i) =>
+      fetch(u, { method: "HEAD" }).then(
+        ({ ok }) => (result.value[i] = ok ? u : "")
+      )
+    );
+}
+
+async function play(...urls: string[]) {
   stop();
-  state.lect = _lect;
-  state.playing = true;
-  state.current = -1;
+  state.index = -1;
+  state.urls = urls;
+  state.url = urls[0];
   state.queue = await Promise.all(
-    srcs.map((s) =>
-      fetch(s)
+    urls.map((u) =>
+      fetch(u)
         .then((r) => r.blob())
         .then((b) => URL.createObjectURL(b))
     )
   );
   next();
+
+  return state.queue;
 }
 
 function next() {
-  if (!state.playing) return;
-  state.current += 1;
+  if (!state.url) return;
+  state.index += 1;
+  state.url = state.urls[state.index];
   state.playback = 0;
-  if (state.current >= state.queue.length) stop();
-  else audio.src = state.queue[state.current];
+  if (state.index >= state.queue.length) stop();
+  else audio.src = state.url;
 }
 
 function stop() {
   audio.pause();
-  state.playing = false;
-  state.current = -1;
   state.playback = 0;
+  state.index = -1;
+  state.url = "";
+  state.urls.length = 0;
   state.queue.forEach((u) => URL.revokeObjectURL(u));
   state.queue.length = 0;
 }
 
-export default readonly({ ...toRefs(state), play, stop, next });
+export default readonly({ ...toRefs(state), getUrls, play, stop, next });

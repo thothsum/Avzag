@@ -9,13 +9,13 @@
       <button
         v-for="(s, i) in fullSamples"
         :key="i"
-        class="row"
-        @click="play(i)"
+        class="row sample"
+        @click="player.play(urls[i])"
       >
-        <span class="icon">
-          {{ playable[i] ? "play_arrow" : "arrow_right" }}
+        <span class="icon" :class="{ highlight: urls[i] === player.url }">
+          {{ urls[i] ? "play_arrow" : "arrow_right" }}
         </span>
-        <Notes class="word" :notes="[words[i]]" />
+        <Notes class="word flex" :notes="[words[i]]" />
         <Notes :notes="[ipas[i]]" />
       </button>
     </div>
@@ -27,8 +27,7 @@
 import Notes from "@/components/Notes/index.vue";
 import Flag from "@/components/Flag.vue";
 
-import { computed, defineComponent, ref, watch, PropType } from "vue";
-import { root } from "@/store";
+import { computed, defineComponent, PropType, watch, ref } from "vue";
 import { PhonemeUse } from "./types";
 import player from "@/audio-player";
 
@@ -39,19 +38,13 @@ export default defineComponent({
     use: { type: Object as PropType<PhonemeUse>, default: () => ({}) },
   },
   setup(props) {
-    const lectRoot = computed(() => root + props.lect + "/audio/");
     const graphemes = computed(() => {
       const set = new Set(props.use.samples?.map(({ grapheme }) => grapheme));
       set.delete(undefined);
       return set;
     });
-    const fullSamples = computed(() =>
-      props.use.samples?.filter(({ word, ipa }) => word || ipa)
-    );
-    const urls = computed(() =>
-      fullSamples.value
-        ?.map(({ word, ipa }) => word?.replaceAll("*", "") ?? ipa)
-        .map((n) => lectRoot.value + n + ".mp3")
+    const fullSamples = computed(
+      () => props.use.samples?.filter(({ word, ipa }) => word || ipa) ?? []
     );
 
     function highlight(text: string, target: string) {
@@ -68,28 +61,23 @@ export default defineComponent({
       )
     );
 
-    const playable = ref([] as boolean[]);
-    function play(index: number) {
-      if (playable.value[index] && urls.value)
-        player.play(props.lect, urls.value[index]);
-    }
+    const urls = ref([] as string[]);
     watch(
-      urls,
-      (urls) => {
-        if (!urls) return;
-        playable.value = new Array(urls.length);
-        urls.forEach((u, i) =>
-          fetch(u, { method: "HEAD" }).then(
-            ({ ok }) => (playable.value[i] = ok)
-          )
-        );
-      },
+      fullSamples,
+      (samples) =>
+        player.getUrls(
+          urls,
+          props.lect,
+          samples
+            .map(({ word, ipa }) => word?.replaceAll("*", "") ?? ipa)
+            .map((f) => "phonology/" + (f ?? ""))
+        ),
       { immediate: true }
     );
 
     return {
-      play,
-      playable,
+      player,
+      urls,
       ipas,
       words,
       fullSamples,
@@ -113,9 +101,5 @@ export default defineComponent({
     margin-bottom: $margin;
     border-radius: 0 0 $border-radius $border-radius;
   }
-}
-.word {
-  flex: 1;
-  text-align: left;
 }
 </style>

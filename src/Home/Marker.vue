@@ -1,5 +1,5 @@
 <template>
-  <div ref="root" class="map-marker">
+  <div ref="root" class="map-marker text-center">
     <p class="icon" :class="{ 'highlight-font': selected }">expand_less</p>
     <h2
       :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
@@ -55,7 +55,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .map-marker {
-  text-align: center;
   text-shadow: map-get($shadows, "elevated");
 }
 .icon {

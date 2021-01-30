@@ -37,7 +37,6 @@ import {
 } from "vue";
 
 import { Phrase, VBlock } from "./types";
-import { root } from "@/store";
 import player from "@/audio-player";
 
 export default defineComponent({
@@ -64,24 +63,31 @@ export default defineComponent({
       navigator.clipboard.writeText(text.value);
     }
 
-    const lectRoot = computed(() => root + props.lect + "/phrasebook/");
-    const urls = computed(() =>
-      blocks
-        .map(({ state }) => state?.texts.map(({ plain }) => plain))
-        .map((p) => lectRoot.value + p?.join("") + ".mp3")
+    const urls = ref([] as string[]);
+    watch(
+      blocks,
+      (blocks) =>
+        player.getUrls(
+          urls,
+          props.lect,
+          blocks
+            .map(({ state }) => state?.texts.map(({ plain }) => plain))
+            .map((p) => "phrasebook/" + (p?.join("") ?? ""))
+        ),
+      { immediate: true }
     );
 
     const playing = computed({
-      get: () => player.playing && player.lect === props.lect,
+      get: () => player.url && urls.value.includes(player.url),
       set: (p) => {
-        if (p) player.play(props.lect, ...urls.value);
+        if (p) player.play(...urls.value);
         else player.stop();
       },
     });
 
     const playbacks = ref([] as string[]);
     watch(
-      [() => player.playback, () => player.current, playing],
+      [() => player.playback, () => player.index, playing],
       ([playback, current, playing], [, previous]) => {
         playbacks.value[previous] = "0";
         if (playing) playbacks.value[current] = playback * 100 + "%";
@@ -93,7 +99,6 @@ export default defineComponent({
       blocks,
       copy,
       contextTranslation,
-      urls,
       playing,
       playbacks,
     };
