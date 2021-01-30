@@ -38,7 +38,7 @@ import {
 
 import { Phrase, VBlock } from "./types";
 import { root } from "@/store";
-import * as player from "@/audio-player";
+import player from "@/audio-player";
 
 export default defineComponent({
   components: { Context, Block, Notes, Flag },
@@ -72,7 +72,7 @@ export default defineComponent({
     );
 
     const playing = computed({
-      get: () => player.playing.value && player.id.value === props.lect,
+      get: () => player.playing && player.lect === props.lect,
       set: (p) => {
         if (p) player.play(props.lect, ...urls.value);
         else player.stop();
@@ -81,7 +81,7 @@ export default defineComponent({
 
     const playbacks = ref([] as string[]);
     watch(
-      [player.playback, player.current, playing],
+      [() => player.playback, () => player.current, playing],
       ([playback, current, playing]) => {
         urls.value.forEach(
           (_u, i) =>
@@ -99,7 +99,6 @@ export default defineComponent({
       urls,
       playing,
       playbacks,
-      playback: player.playback,
     };
   },
 });

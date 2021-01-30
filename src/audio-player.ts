@@ -1,11 +1,12 @@
-import { ref } from "vue";
+import { readonly, ref } from "vue";
 
-export const audio = new Audio();
-export const id = ref("");
-export const current = ref(-1);
-export const queue = ref<string[]>([]);
-export const playing = ref(false);
-export const playback = ref(0);
+const audio = new Audio();
+
+const lect = ref("");
+const current = ref(-1);
+const queue = ref<string[]>([]);
+const playing = ref(false);
+const playback = ref(0);
 
 function next() {
   if (!playing.value) return;
@@ -14,16 +15,10 @@ function next() {
   else audio.src = queue.value[current.value];
 }
 
-audio.ontimeupdate = () =>
-  (playback.value = audio.currentTime / audio.duration);
-audio.oncanplaythrough = audio.play;
-audio.onended = next;
-audio.onerror = next;
-
-export async function play(_id: string, ...srcs: string[]) {
+async function play(_lect: string, ...srcs: string[]) {
   stop();
 
-  id.value = _id;
+  lect.value = _lect;
   playing.value = true;
   current.value = -1;
 
@@ -37,7 +32,7 @@ export async function play(_id: string, ...srcs: string[]) {
   next();
 }
 
-export function stop() {
+function stop() {
   audio.pause();
   playing.value = false;
   current.value = -1;
@@ -46,3 +41,20 @@ export function stop() {
   queue.value.forEach((u) => URL.revokeObjectURL(u));
   queue.value.length = 0;
 }
+
+audio.ontimeupdate = () =>
+  (playback.value = audio.currentTime / audio.duration);
+audio.oncanplaythrough = audio.play;
+audio.onended = next;
+audio.onerror = next;
+
+export default readonly({
+  lect,
+  current,
+  queue,
+  playing,
+  playback,
+  play,
+  stop,
+  next,
+});

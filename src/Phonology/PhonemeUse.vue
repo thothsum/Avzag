@@ -30,7 +30,7 @@ import Flag from "@/components/Flag.vue";
 import { computed, defineComponent, ref, watch, PropType } from "vue";
 import { root } from "@/store";
 import { PhonemeUse } from "./types";
-import * as player from "@/audio-player";
+import player from "@/audio-player";
 
 export default defineComponent({
   components: { Notes, Flag },
