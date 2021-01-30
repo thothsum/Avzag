@@ -7,7 +7,11 @@
     </div>
     <div class="col-0">
       <div v-for="(s, i) in fullSamples" :key="i" class="row-0">
-        <button class="row flex" @click="player.play(urls[i])">
+        <button
+          class="row flex"
+          :disabled="!urls[i]"
+          @click="player.play(urls[i])"
+        >
           <span class="icon" :class="{ highlight: urls[i] === player.url }">
             {{ urls[i] ? "play_arrow" : "arrow_right" }}
           </span>
@@ -110,5 +114,8 @@ export default defineComponent({
     margin-bottom: $margin;
     border-radius: 0 0 $border-radius $border-radius;
   }
+}
+button:disabled {
+  opacity: 1;
 }
 </style>
