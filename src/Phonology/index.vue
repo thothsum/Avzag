@@ -61,7 +61,7 @@ export default defineComponent({
 .section {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 240px;
-  gap: map-get($margins, "double");
+  gap: map-get($margins, "normal");
 }
 @media only screen and (max-width: $mobile-width) {
   .section {

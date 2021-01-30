@@ -1,7 +1,7 @@
 <template>
   <div v-if="corpus" class="section col-1">
     <div class="col-1">
-      <div class="row-1">
+      <div class="row">
         <toggle v-model="searching" icon="search" />
         <input
           v-if="searching"
@@ -119,7 +119,7 @@ export default defineComponent({
 .section {
   display: grid;
   grid-template-columns: 288px minmax(0, 1fr);
-  gap: map-get($margins, "double");
+  gap: map-get($margins, "normal");
   > :first-child {
     max-height: 640px;
   }
