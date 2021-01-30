@@ -34,6 +34,7 @@ import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
 import { Phrase, BlockSnapshot } from "./types";
 import player from "@/audio-player";
+import { phrase } from "./main";
 
 export default defineComponent({
   components: { Context, Block, Notes, Flag, Seeker },
@@ -63,7 +64,7 @@ export default defineComponent({
             props.lect,
             vblocks
               .map(({ state }) => state?.texts.map(({ plain }) => plain))
-              .map((p) => "phrasebook/" + (p?.join("") ?? ""))
+              .map((p) => `phrasebook/${phrase.value?.id}/${p?.join("") ?? ""}`)
           );
         else player.stop();
       },

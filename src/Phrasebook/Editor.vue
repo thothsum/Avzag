@@ -20,6 +20,7 @@
                 {{ p.name }}
               </option>
             </select>
+            <btn icon="fingerprint" @click="copyId" />
           </div>
         </div>
         <p class="text-faded text-caption">
@@ -131,6 +132,10 @@ export default defineComponent({
       { immediate: true }
     );
 
+    function copyId() {
+      if (phrase.value) navigator.clipboard.writeText(phrase.value.id);
+    }
+
     return {
       file,
       corpus,
@@ -138,6 +143,7 @@ export default defineComponent({
       phrase,
       translation,
       block,
+      copyId,
     };
   },
 });
