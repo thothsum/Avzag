@@ -6,18 +6,16 @@
       <p v-for="g in graphemes" :key="g" class="text-dot">{{ g }}</p>
     </div>
     <div class="col-0">
-      <button
-        v-for="(s, i) in fullSamples"
-        :key="i"
-        class="row sample"
-        @click="player.play(urls[i])"
-      >
-        <span class="icon" :class="{ highlight: urls[i] === player.url }">
-          {{ urls[i] ? "play_arrow" : "arrow_right" }}
-        </span>
-        <Notes class="word flex" :notes="[words[i]]" />
-        <Notes :notes="[ipas[i]]" />
-      </button>
+      <div v-for="(s, i) in fullSamples" :key="i" class="row-0">
+        <button class="row flex" @click="player.play(urls[i])">
+          <span class="icon" :class="{ highlight: urls[i] === player.url }">
+            {{ urls[i] ? "play_arrow" : "arrow_right" }}
+          </span>
+          <Notes class="word flex" :notes="[words[i]]" />
+          <Notes :notes="[ipas[i]]" />
+        </button>
+        <btn icon="copy" @click="copy(i)" />
+      </div>
     </div>
     <Notes class="text-caption" :notes="use.notes" />
   </div>
@@ -75,6 +73,16 @@ export default defineComponent({
       { immediate: true }
     );
 
+    function copy(i: number) {
+      navigator.clipboard.writeText(
+        [words, ipas]
+          .map(({ value }) => value[i])
+          .map((t) => t.replaceAll("*", ""))
+          .filter((t) => t)
+          .join(" ")
+      );
+    }
+
     return {
       player,
       urls,
@@ -82,6 +90,7 @@ export default defineComponent({
       words,
       fullSamples,
       graphemes,
+      copy,
     };
   },
 });

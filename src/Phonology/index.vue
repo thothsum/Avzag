@@ -60,7 +60,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 224px;
+  grid-template-columns: minmax(0, 1fr) 240px;
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {
