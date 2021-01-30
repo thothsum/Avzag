@@ -9,11 +9,15 @@
         <toggle v-model="glossed" icon="layers" />
       </div>
     </div>
-    <Context :translation="contextTranslation" :blocks="blocks" />
+    <Context :translation="contextTranslation" :blocks="vblocks" />
     <div class="row wrap flex">
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row">
         <p class="playback" :style="{ width: playbacks[i] }" />
-        <Block :ref="(el) => blocks.push(el)" :block="b" :glossed="glossed" />
+        <Block
+          :ref="(el) => (el ? vblocks.push(el) : null)"
+          :block="b"
+          :glossed="glossed"
+        />
       </div>
     </div>
     <Notes class="text-caption" :notes="phrase.notes" />
@@ -31,7 +35,6 @@ import {
   defineComponent,
   onBeforeUpdate,
   PropType,
-  reactive,
   ref,
   watch,
 } from "vue";
@@ -51,10 +54,11 @@ export default defineComponent({
       props.lect ? props.phrase.context : undefined
     );
 
-    onBeforeUpdate(() => (blocks.length = 0));
-    const blocks = reactive<VBlock[]>([]);
+    const vblocks = ref([] as VBlock[]);
+    onBeforeUpdate(() => (vblocks.value = []));
+
     const text = computed(() =>
-      blocks
+      vblocks.value
         .filter(({ state }) => state)
         .map(({ text }) => text)
         .join(" ")
@@ -65,7 +69,7 @@ export default defineComponent({
 
     const urls = ref([] as string[]);
     watch(
-      blocks,
+      vblocks,
       (blocks) =>
         player.getUrls(
           urls,
@@ -96,7 +100,7 @@ export default defineComponent({
 
     return {
       glossed,
-      blocks,
+      vblocks,
       copy,
       contextTranslation,
       playing,

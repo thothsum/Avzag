@@ -58,6 +58,7 @@ export default defineComponent({
       get: () => mphrase.value.blocks,
       set: (bs) => (mphrase.value.blocks = bs),
     });
+
     const vblocks = ref([]);
     onBeforeUpdate(() => (vblocks.value = []));
 
