@@ -82,12 +82,9 @@ export default defineComponent({
     const playbacks = ref([] as string[]);
     watch(
       [() => player.playback, () => player.current, playing],
-      ([playback, current, playing]) => {
-        urls.value.forEach(
-          (_u, i) =>
-            (playbacks.value[i] =
-              playing && i === current ? playback * 100 + "%" : "0")
-        );
+      ([playback, current, playing], [, previous]) => {
+        playbacks.value[previous] = "0";
+        if (playing) playbacks.value[current] = playback * 100 + "%";
       }
     );
 

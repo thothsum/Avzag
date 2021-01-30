@@ -33,6 +33,7 @@ async function play(_lect: string, ...srcs: string[]) {
 function next() {
   if (!state.playing) return;
   state.current += 1;
+  state.playback = 0;
   if (state.current >= state.queue.length) stop();
   else audio.src = state.queue[state.current];
 }
