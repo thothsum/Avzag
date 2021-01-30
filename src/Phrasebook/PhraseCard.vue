@@ -30,7 +30,7 @@ import Notes from "@/components/Notes/index.vue";
 import Flag from "@/components/Flag.vue";
 import Seeker from "@/components/Seeker.vue";
 
-import { computed, defineComponent, PropType, reactive, ref, watch } from "vue";
+import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
 import { Phrase, BlockSnapshot } from "./types";
 import player from "@/audio-player";
