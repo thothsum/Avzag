@@ -11,8 +11,11 @@
     </div>
     <Context :translation="lect ? phrase.context : null" :blocks="vblocks" />
     <div class="row wrap flex">
-      <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row">
-        <p class="seeker" :style="{ width: seekers[i] }" />
+      <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row seeker">
+        <Seeker
+          :check="playing && player.current?.i === i"
+          :seek="player.seek"
+        />
         <Block :block="b" :glossed="glossed" @update="vblocks[i] = $event" />
       </div>
     </div>
@@ -25,6 +28,7 @@ import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 import Flag from "@/components/Flag.vue";
+import Seeker from "@/components/Seeker.vue";
 
 import { computed, defineComponent, PropType, reactive, ref, watch } from "vue";
 
@@ -32,7 +36,7 @@ import { Phrase, BlockSnapshot } from "./types";
 import player from "@/audio-player";
 
 export default defineComponent({
-  components: { Context, Block, Notes, Flag },
+  components: { Context, Block, Notes, Flag, Seeker },
   props: {
     lect: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
@@ -65,16 +69,7 @@ export default defineComponent({
       },
     });
 
-    const seekers = ref([] as string[]);
-    watch(
-      [() => player.seek, () => player.current, playing],
-      ([seek, current, playing], [, previous]) => {
-        if (previous) seekers.value[previous.i] = "0";
-        if (playing && current) seekers.value[current.i] = seek * 100 + "%";
-      }
-    );
-
-    return { glossed, vblocks, copy, playing, seekers };
+    return { glossed, vblocks, copy, player, playing };
   },
 });
 </script>
@@ -82,17 +77,5 @@ export default defineComponent({
 <style lang="scss" scoped>
 .card {
   align-items: flex-start;
-}
-.blocks {
-  position: relative;
-}
-.seeker {
-  padding: 0;
-  background-color: var(--color-text);
-  border-radius: $border-radius $border-radius 0 0;
-  height: $border-radius;
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 </style>
