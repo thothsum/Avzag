@@ -2,19 +2,26 @@ import { reactive, readonly, Ref, toRefs } from "vue";
 import { Howl, Howler } from "howler";
 import { root } from "@/store";
 
+type Track = {
+  i: number;
+  src: string[];
+  loaded: boolean;
+  howl: Howl;
+};
+
 const state = reactive({
-  playback: 0,
-  index: -1,
-  url: undefined as undefined | string,
-  urls: [] as string[],
-  howls: [] as Howl[],
+  key: undefined as undefined | string,
+  timer: 0,
+  seek: 0,
+  current: undefined as undefined | Track,
+  queue: [] as Track[],
 });
 
 function url(lect: string, file: string) {
   return `${root}${lect}/audio/${file}.mp3`;
 }
 
-function getUrls(result: Ref<string[]>, lect: string, files: string[]) {
+function canPlay(result: Ref<string[]>, lect: string, files: string[]) {
   files
     .map((f) => url(lect, f))
     .map((u, i) =>
@@ -25,29 +32,53 @@ function getUrls(result: Ref<string[]>, lect: string, files: string[]) {
     );
 }
 
-async function play(lect: string, files: string[]) {
+async function play(lect: string, files: string[], key?: string) {
   stop();
-  state.index = -1;
-  state.howls = files
+  state.key = key ?? lect;
+  state.timer = setInterval(seek, 100);
+
+  state.queue = files
     .map((f) => [url(lect, f)])
-    .map(
-      (src, i) =>
-        new Howl({
+    .map((src, i) => {
+      const track = {
+        i,
+        src,
+        loaded: true,
+        howl: new Howl({
           src,
-          autoplay: !i,
           format: ["mp3"],
-          onend: () => state.howls[i + 1]?.play(),
-        })
-    );
-  state.howls[0].play();
+          onend: next,
+          onplayerror: next,
+        }),
+      };
+      track.howl.once("loaderror", () => (track.loaded = false));
+      return track;
+    });
+  next();
+}
+
+function next() {
+  const i = (state.current?.i ?? -1) + 1;
+  const track = state.queue[i];
+  if (track) {
+    state.current = track;
+    if (track.loaded) track.howl.play();
+    else next();
+  } else stop();
+}
+
+function seek() {
+  const howl = state.current?.howl;
+  if (howl) state.seek = <number>howl.seek() / howl.duration();
 }
 
 function stop() {
   Howler.unload();
-  state.playback = 0;
-  state.index = -1;
-  state.url = undefined;
-  state.urls.length = 0;
+  state.key = undefined;
+  state.seek = 0;
+  clearInterval(state.timer);
+  state.current = undefined;
+  state.queue.length = 0;
 }
 
-export default readonly({ ...toRefs(state), getUrls, play, stop });
+export default readonly({ ...toRefs(state), canPlay, play, stop });

@@ -12,7 +12,7 @@
     <Context :translation="lect ? phrase.context : null" :blocks="vblocks" />
     <div class="row wrap flex">
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row">
-        <p class="playback" :style="{ width: playbacks[i] }" />
+        <p class="seeker" :style="{ width: seekers[i] }" />
         <Block :block="b" :glossed="glossed" @update="vblocks[i] = $event" />
       </div>
     </div>
@@ -52,7 +52,7 @@ export default defineComponent({
     }
 
     const playing = computed({
-      get: () => player.url,
+      get: () => player.key === props.lect,
       set: (p) => {
         if (p)
           player.play(
@@ -65,16 +65,16 @@ export default defineComponent({
       },
     });
 
-    const playbacks = ref([] as string[]);
+    const seekers = ref([] as string[]);
     watch(
-      [() => player.playback, () => player.index, playing],
-      ([playback, current, playing], [, previous]) => {
-        playbacks.value[previous] = "0";
-        if (playing) playbacks.value[current] = playback * 100 + "%";
+      [() => player.seek, () => player.current, playing],
+      ([seek, current, playing], [, previous]) => {
+        if (previous) seekers.value[previous.i] = "0";
+        if (playing && current) seekers.value[current.i] = seek * 100 + "%";
       }
     );
 
-    return { glossed, vblocks, copy, playing, playbacks };
+    return { glossed, vblocks, copy, playing, seekers };
   },
 });
 </script>
@@ -86,7 +86,7 @@ export default defineComponent({
 .blocks {
   position: relative;
 }
-.playback {
+.seeker {
   padding: 0;
   background-color: var(--color-text);
   border-radius: $border-radius $border-radius 0 0;

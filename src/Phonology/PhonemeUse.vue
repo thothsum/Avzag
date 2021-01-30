@@ -67,7 +67,7 @@ export default defineComponent({
     watch(
       fullSamples,
       (samples) =>
-        player.getUrls(
+        player.canPlay(
           urls,
           props.lect,
           samples
