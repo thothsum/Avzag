@@ -13,7 +13,6 @@ const state = reactive({
   index: -1,
   url: undefined as undefined | string,
   urls: [] as string[],
-  queue: [] as string[],
 });
 
 async function getUrls(result: Ref<string[]>, lect: string, files: string[]) {
@@ -23,7 +22,7 @@ async function getUrls(result: Ref<string[]>, lect: string, files: string[]) {
       fetch(u)
         .then((r) => r.blob())
         .then(({ type }) => type.includes("audio"))
-        .then((b) => (result.value[i] = b ? u : ""))
+        .then((a) => (result.value[i] = a ? u : ""))
     );
 }
 
@@ -32,24 +31,15 @@ async function play(...urls: string[]) {
   state.index = -1;
   state.urls = urls;
   state.url = urls[0];
-  state.queue = await Promise.all(
-    urls.map((u) =>
-      fetch(u)
-        .then((r) => r.blob())
-        .then((b) => URL.createObjectURL(b))
-    )
-  );
   next();
-
-  return state.queue;
 }
 
 function next() {
-  if (!state.url) return;
+  if (!state.url) stop();
   state.index += 1;
   state.url = state.urls[state.index];
   state.playback = 0;
-  if (state.index >= state.queue.length) stop();
+  if (state.index >= state.urls.length) stop();
   else audio.src = state.url;
 }
 
@@ -59,8 +49,6 @@ function stop() {
   state.index = -1;
   state.url = undefined;
   state.urls.length = 0;
-  state.queue.forEach((u) => URL.revokeObjectURL(u));
-  state.queue.length = 0;
 }
 
 export default readonly({ ...toRefs(state), getUrls, play, stop, next });

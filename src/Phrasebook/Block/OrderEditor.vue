@@ -27,7 +27,13 @@ import EditorCard from "@/components/EditorCard.vue";
 import Context from "../Context/index.vue";
 import Block from "./index.vue";
 
-import { computed, defineComponent, onBeforeUpdate, PropType, ref } from "vue";
+import {
+  computed,
+  defineComponent,
+  onBeforeUpdate,
+  PropType,
+  reactive,
+} from "vue";
 import { Phrase, CorpusPhrase, State } from "../types";
 import { newState } from "../utils";
 
@@ -59,8 +65,8 @@ export default defineComponent({
       set: (bs) => (mphrase.value.blocks = bs),
     });
 
-    const vblocks = ref([]);
-    onBeforeUpdate(() => (vblocks.value = []));
+    const vblocks = reactive([]);
+    onBeforeUpdate(() => (vblocks.length = 0));
 
     return { mphrase, blocks, vblocks, block, newState };
   },

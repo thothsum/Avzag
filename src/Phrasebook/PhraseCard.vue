@@ -35,6 +35,7 @@ import {
   defineComponent,
   onBeforeUpdate,
   PropType,
+  reactive,
   ref,
   watch,
 } from "vue";
@@ -54,11 +55,11 @@ export default defineComponent({
       props.lect ? props.phrase.context : undefined
     );
 
-    const vblocks = ref([] as VBlock[]);
-    onBeforeUpdate(() => (vblocks.value = []));
+    const vblocks = reactive([] as VBlock[]);
+    onBeforeUpdate(() => (vblocks.length = 0));
 
     const text = computed(() =>
-      vblocks.value
+      vblocks
         .filter(({ state }) => state)
         .map(({ text }) => text)
         .join(" ")
@@ -68,17 +69,14 @@ export default defineComponent({
     }
 
     const urls = ref([] as string[]);
-    watch(
-      vblocks,
-      (blocks) =>
-        player.getUrls(
-          urls,
-          props.lect,
-          blocks
-            .map(({ state }) => state?.texts.map(({ plain }) => plain))
-            .map((p) => "phrasebook/" + (p?.join("") ?? ""))
-        ),
-      { immediate: true }
+    watch(vblocks, (blocks) =>
+      player.getUrls(
+        urls,
+        props.lect,
+        blocks
+          .map(({ state }) => state?.texts.map(({ plain }) => plain))
+          .map((p) => "phrasebook/" + (p?.join("") ?? ""))
+      )
     );
 
     const playing = computed({
