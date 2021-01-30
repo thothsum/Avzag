@@ -11,9 +11,9 @@ export type State = {
   transition: Transition;
   texts: Text[];
 };
-export type VBlock = {
-  state?: State;
+export type BlockSnapshot = {
   text: string;
+  state?: State;
 };
 
 export type ContextSource = {

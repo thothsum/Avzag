@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, inject, Ref, PropType } from "vue";
-import { Context, ContextTranslation, VBlock } from "../types";
+import { Context, ContextTranslation, BlockSnapshot } from "../types";
 
 export default defineComponent({
   name: "Context",
@@ -29,7 +29,7 @@ export default defineComponent({
       type: Object as PropType<ContextTranslation>,
       default: () => ({}),
     },
-    blocks: { type: Array as PropType<VBlock[]>, default: () => [] },
+    blocks: { type: Array as PropType<BlockSnapshot[]>, default: () => [] },
   },
   setup(props) {
     const context = inject("context", {} as Ref<Context>);

@@ -10,12 +10,11 @@
         remove
       />
     </template>
-    <Context v-if="phrase.id" />
-    <Context v-else :blocks="vblocks" :translation="phrase.context" />
+    <Context :translation="phrase.id ? null : phrase.context" />
     <div class="row-1 wrap block-editor">
       <div v-for="(b, i) in blocks" :key="i + '--' + Math.random()" class="row">
         <btn icon="edit" :is-on="block === b" @click="block = b" />
-        <Block :ref="(el) => (el ? vblocks.push(el) : null)" :block="b" />
+        <Block :block="b" />
       </div>
     </div>
   </EditorCard>
@@ -27,13 +26,7 @@ import EditorCard from "@/components/EditorCard.vue";
 import Context from "../Context/index.vue";
 import Block from "./index.vue";
 
-import {
-  computed,
-  defineComponent,
-  onBeforeUpdate,
-  PropType,
-  reactive,
-} from "vue";
+import { computed, defineComponent, PropType } from "vue";
 import { Phrase, CorpusPhrase, State } from "../types";
 import { newState } from "../utils";
 
@@ -65,10 +58,7 @@ export default defineComponent({
       set: (bs) => (mphrase.value.blocks = bs),
     });
 
-    const vblocks = reactive([]);
-    onBeforeUpdate(() => (vblocks.length = 0));
-
-    return { mphrase, blocks, vblocks, block, newState };
+    return { mphrase, blocks, block, newState };
   },
 });
 </script>

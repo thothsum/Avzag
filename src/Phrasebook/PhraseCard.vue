@@ -9,15 +9,11 @@
         <toggle v-model="glossed" icon="layers" />
       </div>
     </div>
-    <Context :translation="contextTranslation" :blocks="vblocks" />
+    <Context :translation="lect ? phrase.context : null" :blocks="vblocks" />
     <div class="row wrap flex">
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row">
         <p class="playback" :style="{ width: playbacks[i] }" />
-        <Block
-          :ref="(el) => (el ? vblocks.push(el) : null)"
-          :block="b"
-          :glossed="glossed"
-        />
+        <Block :block="b" :glossed="glossed" @update="vblocks[i] = $event" />
       </div>
     </div>
     <Notes class="text-caption" :notes="phrase.notes" />
@@ -30,17 +26,9 @@ import Block from "./Block/index.vue";
 import Notes from "@/components/Notes/index.vue";
 import Flag from "@/components/Flag.vue";
 
-import {
-  computed,
-  defineComponent,
-  onBeforeUpdate,
-  PropType,
-  reactive,
-  ref,
-  watch,
-} from "vue";
+import { computed, defineComponent, PropType, ref, watch } from "vue";
 
-import { Phrase, VBlock } from "./types";
+import { Phrase, BlockSnapshot } from "./types";
 import player from "@/audio-player";
 
 export default defineComponent({
@@ -51,15 +39,10 @@ export default defineComponent({
   },
   setup(props) {
     const glossed = ref(false);
-    const contextTranslation = computed(() =>
-      props.lect ? props.phrase.context : undefined
-    );
-
-    const vblocks = reactive([] as VBlock[]);
-    onBeforeUpdate(() => (vblocks.length = 0));
+    const vblocks = ref([] as BlockSnapshot[]);
 
     const text = computed(() =>
-      vblocks
+      vblocks.value
         .filter(({ state }) => state)
         .map(({ text }) => text)
         .join(" ")
@@ -96,14 +79,7 @@ export default defineComponent({
       }
     );
 
-    return {
-      glossed,
-      vblocks,
-      copy,
-      contextTranslation,
-      playing,
-      playbacks,
-    };
+    return { glossed, vblocks, copy, playing, playbacks };
   },
 });
 </script>

@@ -33,12 +33,20 @@ export default defineComponent({
     block: { type: Array as PropType<State[]>, default: undefined },
     glossed: Boolean,
   },
-  emits: ["update:modelValue"],
-  setup(props) {
+  emits: ["update"],
+  setup(props, { emit }) {
     const state = ref<State>();
-    const disabled = computed(() => !state.value?.transition);
     const text = ref("");
-
+    watch(
+      [state, text],
+      ([state, text]) =>
+        emit("update", {
+          state,
+          text,
+        }),
+      { immediate: true }
+    );
+    const disabled = computed(() => !state.value?.transition);
     const context = inject("context", {} as Ref<Context>);
 
     function switchState(nextState: undefined | State) {
