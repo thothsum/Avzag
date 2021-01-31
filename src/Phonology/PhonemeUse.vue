@@ -18,7 +18,7 @@
           {{ urls[i] ? "play_arrow" : "arrow_right" }}
         </span>
         <Notes class="word flex" :notes="[words[i]]" />
-        <Notes :notes="[ipas[i]]" />
+        <Notes class="text-ipa" row :notes="[ipas[i]]" />
         <btn icon="copy" @click.stop="copy(i)" />
       </button>
     </div>
@@ -117,6 +117,9 @@ export default defineComponent({
   padding-right: 0;
   &:disabled {
     opacity: 1;
+  }
+  .text-ipa {
+    gap: 0;
   }
 }
 </style>
