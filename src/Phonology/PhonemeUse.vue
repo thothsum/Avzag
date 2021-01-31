@@ -6,21 +6,21 @@
       <p v-for="g in graphemes" :key="g" class="text-dot">{{ g }}</p>
     </div>
     <div class="col-0">
-      <div v-for="(s, i) in fullSamples" :key="i" class="row-0 seeker">
+      <button
+        v-for="(s, i) in fullSamples"
+        :key="i"
+        class="row flex seeker"
+        :disabled="!urls[i]"
+        @click="player.play(null, [urls[i]], urls[i])"
+      >
         <Seeker :check="urls[i] === player.key" :seek="player.seek" />
-        <button
-          class="row flex"
-          :disabled="!urls[i]"
-          @click="player.play(null, [urls[i]], urls[i])"
-        >
-          <span class="icon">
-            {{ urls[i] ? "play_arrow" : "arrow_right" }}
-          </span>
-          <Notes class="word flex" :notes="[words[i]]" />
-          <Notes :notes="[ipas[i]]" />
-        </button>
-        <btn icon="copy" @click="copy(i)" />
-      </div>
+        <span class="icon">
+          {{ urls[i] ? "play_arrow" : "arrow_right" }}
+        </span>
+        <Notes class="word flex" :notes="[words[i]]" />
+        <Notes :notes="[ipas[i]]" />
+        <btn icon="copy" @click.stop="copy(i)" />
+      </button>
     </div>
     <Notes class="text-caption" :notes="use.notes" />
   </div>
@@ -113,7 +113,10 @@ export default defineComponent({
     border-radius: 0 0 $border-radius $border-radius;
   }
 }
-button:disabled {
-  opacity: 1;
+.seeker {
+  padding-right: 0;
+  &:disabled {
+    opacity: 1;
+  }
 }
 </style>
