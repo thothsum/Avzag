@@ -93,7 +93,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 button {
-  height: fit-content;
   padding: 0;
   &.disabled {
     padding: 0;

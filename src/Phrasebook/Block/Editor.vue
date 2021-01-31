@@ -13,7 +13,12 @@
         />
       </template>
       <div class="row-1 wrap block-editor">
-        <button v-for="(s, i) in block" :key="i" class="row" @click="state = s">
+        <button
+          v-for="(s, i) in block"
+          :key="i"
+          class="row fit-h"
+          @click="state = s"
+        >
           <p v-if="state === s" class="icon highlight-font">edit</p>
           <VState :state="s" :glossed="glossed" />
         </button>
