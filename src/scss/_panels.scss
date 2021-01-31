@@ -47,8 +47,4 @@
   background-color: var(--color-foreground);
   box-shadow: map-get($shadows, "normal");
   padding: map-get($margins, "normal");
-  &-0 {
-    @extend.card;
-    padding: map-get($margins, "half");
-  }
 }

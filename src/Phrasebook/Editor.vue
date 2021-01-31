@@ -2,7 +2,7 @@
   <div v-if="file && corpus" class="section col-2 small grid">
     <div class="col-2">
       <div class="col">
-        <div class="col card-0">
+        <div class="col">
           <div class="row">
             <p class="icon">topic</p>
             <h2 class="col flex">
@@ -23,6 +23,7 @@
             <btn icon="fingerprint" @click="copyId" />
           </div>
         </div>
+        <hr />
         <p class="text-faded text-caption">
           The source corpus is loading from what is saved on Phrasebook Corpus
           editor page.
@@ -156,7 +157,7 @@ export default defineComponent({
 }
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.5fr);
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {

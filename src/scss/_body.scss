@@ -20,8 +20,7 @@ div:empty {
 }
 
 hr {
-  height: $border-width;
-  background-color: var(--color-active);
+  border-top: var(--color-active) dashed $border-width;
 }
 
 .section {
