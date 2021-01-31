@@ -22,10 +22,15 @@
           The 1st mapping should be the same as the caption. Default conversion
           is from the 1st into the 2nd mappings in the order.
         </template>
-        <div v-for="(m, i) in file.mappings" :key="i" class="row">
-          <btn icon="edit" :is-on="mapping === m" @click="mapping = m" />
-          <input v-model="m.name" type="text" :placeholder="'mapping #' + i" />
-        </div>
+        <template v-for="(m, i) in file.mappings" :key="i" class="row">
+          <input
+            v-if="mapping === m"
+            v-model="m.name"
+            type="text"
+            :placeholder="'mapping #' + i"
+          />
+          <btn v-else :text="m.name" @click="mapping = m" />
+        </template>
       </EditorCard>
     </div>
     <EditorCard v-if="mapping" icon="format_list_numbered" header="Pairs">
