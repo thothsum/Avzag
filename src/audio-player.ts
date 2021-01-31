@@ -62,8 +62,10 @@ function next() {
   const track = state.queue[i];
   if (track) {
     state.current = track;
-    if (track.loaded) track.howl.play();
-    else next();
+    if (track.loaded) {
+      state.seek = 0;
+      track.howl.play();
+    } else next();
   } else stop();
 }
 
