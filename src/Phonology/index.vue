@@ -18,15 +18,10 @@
       </div>
     </div>
     <div v-if="phoneme" class="col-1">
-      <div class="card phoneme row wrap">
+      <div class="card header">
         <h1 class="text-ipa">{{ phoneme.ipa }}</h1>
-        <p
-          v-for="t in phoneme.tags.split(' ')"
-          :key="t"
-          class="text-caption text-faded"
-        >
-          {{ t }}
-        </p>
+        <span>&nbsp;</span>
+        <span class="text-caption text-faded">{{ phoneme.tags }}</span>
       </div>
       <PhonemeUse v-for="(u, l) of phoneme.lects" :key="l" :lect="l" :use="u" />
     </div>
@@ -69,9 +64,10 @@ export default defineComponent({
   grid-template-columns: minmax(0, 1fr) 240px;
   gap: map-get($margins, "normal");
 }
-.card.phoneme {
-  place-items: baseline;
-  * {
+.header {
+  word-spacing: map-get($margins, "half");
+  h1 {
+    display: inline;
     user-select: unset;
   }
 }
