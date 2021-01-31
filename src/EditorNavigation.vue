@@ -1,6 +1,6 @@
 <template>
   <div id="root" class="small">
-    <div class="section scroll row">
+    <div class="section row">
       <div class="row">
         <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
           <btn icon="arrow_back" @click="navigate" />
@@ -86,7 +86,7 @@ export default defineComponent({
   background-color: var(--color-foreground);
   margin: -1 * map-get($margins, "normal");
   margin-bottom: map-get($margins, "double");
-  padding: 0 map-get($margins, "half");
+  padding: map-get($margins, "half") map-get($margins, "normal");
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
   :not(.icon) {
