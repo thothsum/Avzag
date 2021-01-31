@@ -14,7 +14,7 @@
         </template>
       </template>
     </template>
-    <template v-else>…</template>
+    <p v-else class="no-select">…</p>
   </div>
 </template>
 
