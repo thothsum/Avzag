@@ -7,11 +7,14 @@
         <btn icon="star_outline" :is-on="mode === 2" @click="mode = 2" />
       </div>
     </template>
-    <div v-if="mode === 2" class="row-1 wrap block-editor">
-      <div v-for="(s, i) in states" :key="i" class="row">
-        <btn icon="check" :is-on="transition.includes(i)" @click="toggle(i)" />
+    <div v-if="mode === 2" class="row wrap">
+      <button v-for="(s, i) in states" :key="i" class="row" @click="toggle(i)">
+        <!-- <p v-if="transition.includes(i)" class="icon">arrow_right</p> -->
+        <p v-if="transition.includes(i)" class="icon highlight-font">
+          star_outline
+        </p>
         <VState :state="s" />
-      </div>
+      </button>
     </div>
   </EditorCard>
 </template>

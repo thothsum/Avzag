@@ -4,13 +4,13 @@
       <btn icon="clear" @click="conditions = {}" />
     </template>
     <template #caption>TODO brief explanation</template>
-    <div class="row-1 block-editor wrap">
+    <div class="row wrap">
       <button
         v-for="({ entity, tag, color, icon, flag }, i) in tags"
         :key="entity + '--' + tag"
         @click="toggle(i)"
       >
-        <p class="icon" :class="{ ['colored-' + color]: flag !== undefined }">
+        <p v-if="flag !== undefined" class="icon" :class="'colored-' + color">
           {{ icon }}
         </p>
         <p :class="'colored-dot-' + color">{{ tag }}</p>

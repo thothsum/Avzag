@@ -78,7 +78,6 @@ export default defineComponent({
     watch(phrase, (phrase) => createContext(context, phrase?.context), {
       immediate: true,
     });
-
     provide("context", context);
 
     const searching = ref(false);
@@ -102,6 +101,7 @@ export default defineComponent({
     }
 
     return {
+      context,
       searching,
       query,
       corpus,

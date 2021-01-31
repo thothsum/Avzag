@@ -13,10 +13,10 @@
         />
       </template>
       <div class="row-1 wrap block-editor">
-        <div v-for="(s, i) in block" :key="i" class="row">
-          <btn icon="edit" :is-on="state === s" @click="state = s" />
+        <button v-for="(s, i) in block" :key="i" class="row" @click="state = s">
+          <p v-if="state === s" class="icon highlight-font">edit</p>
           <VState :state="s" :glossed="glossed" />
-        </div>
+        </button>
       </div>
     </EditorCard>
     <template v-if="state">
