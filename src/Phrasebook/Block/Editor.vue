@@ -12,7 +12,7 @@
           remove
         />
       </template>
-      <div class="row-1 wrap block-editor">
+      <div class="row wrap">
         <button
           v-for="(s, i) in block"
           :key="i"
