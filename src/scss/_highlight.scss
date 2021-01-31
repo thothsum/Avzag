@@ -34,3 +34,8 @@
     @include highlight-font("alert");
   }
 }
+
+.highlight-outline {
+  box-shadow: 0 -1 * $border-radius 0 0 var(--color-highlight);
+  transform: translate(0, $border-radius);
+}

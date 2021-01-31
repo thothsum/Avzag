@@ -12,16 +12,16 @@
           />
         </template>
         <div class="col scroll">
-          <template v-for="(s, i) in file" :key="s.id" class="row">
-            <input
-              v-if="section === s"
-              v-model="s.name"
-              class="flex"
-              type="text"
-              :placeholder="'section #' + i"
-            />
-            <btn v-else :text="s.name" @click="section = s" />
-          </template>
+          <input
+            v-for="(s, i) in file"
+            :key="s.id"
+            v-model="s.name"
+            type="text"
+            class="selectable"
+            :placeholder="'section #' + i"
+            :readonly="section !== s"
+            @click="section = s"
+          />
         </div>
       </EditorCard>
       <EditorCard v-if="section" icon="short_text" header="phrases">
@@ -35,16 +35,16 @@
           />
         </template>
         <div class="col scroll">
-          <template v-for="(p, i) in section.phrases" :key="p.id" class="row">
-            <input
-              v-if="phrase === p"
-              v-model="p.name"
-              class="flex"
-              type="text"
-              :placeholder="'phrase #' + i"
-            />
-            <btn v-else :text="p.name" @click="phrase = p" />
-          </template>
+          <input
+            v-for="(p, i) in section.phrases"
+            :key="p.id"
+            v-model="p.name"
+            type="text"
+            class="selectable"
+            :placeholder="'phrase #' + i"
+            :readonly="phrase !== p"
+            @click="phrase = p"
+          />
         </div>
       </EditorCard>
       <template v-if="phrase">

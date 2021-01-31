@@ -36,7 +36,6 @@ export default defineComponent({
 
 @import "scss/palette";
 @import "scss/panels";
-@import "scss/scroll";
 @import "scss/text";
 @import "scss/controls";
 @import "scss/body";

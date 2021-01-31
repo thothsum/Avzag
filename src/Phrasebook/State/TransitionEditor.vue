@@ -8,11 +8,13 @@
       </div>
     </template>
     <div v-if="mode === 2" class="row wrap">
-      <button v-for="(s, i) in states" :key="i" class="row" @click="toggle(i)">
-        <!-- <p v-if="transition.includes(i)" class="icon">arrow_right</p> -->
-        <p v-if="transition.includes(i)" class="icon highlight-font">
-          star_outline
-        </p>
+      <button
+        v-for="(s, i) in states"
+        :key="i"
+        class="row"
+        :class="{ 'highlight-outline': transition.includes(i) }"
+        @click="toggle(i)"
+      >
         <VState :state="s" />
       </button>
     </div>

@@ -1,19 +1,19 @@
 <template>
   <EditorCard icon="tune" header="conditions">
-    <template v-if="conditions" #header>
+    <template #header>
       <btn icon="clear" @click="conditions = {}" />
     </template>
     <template #caption>TODO brief explanation</template>
     <div class="row wrap">
       <button
-        v-for="({ entity, tag, color, icon, flag }, i) in tags"
+        v-for="({ entity, tag, color, flag }, i) in tags"
         :key="entity + '--' + tag"
         @click="toggle(i)"
       >
-        <p v-if="flag !== undefined" class="icon" :class="'colored-' + color">
-          {{ icon }}
+        <p class="icon">
+          {{ flag === undefined ? "arrow_right" : flag ? "send" : "lock" }}
         </p>
-        <p :class="'colored-dot-' + color">{{ tag }}</p>
+        <p :class="color">{{ tag }}</p>
       </button>
     </div>
   </EditorCard>
@@ -52,8 +52,7 @@ export default defineComponent({
       [] as {
         tag: string;
         entity: string;
-        icon: string;
-        color: number;
+        color: string;
         flag?: boolean;
       }[]
     );
@@ -62,19 +61,12 @@ export default defineComponent({
       ([context, conditions]) => {
         if (!context || !conditions) return;
         tags.value = context.flatMap(({ entity, tags }, i) =>
-          tags.map((tag) => {
-            const flag = conditions[entity]?.[tag];
-            const icon =
-              flag === undefined ? "arrow_right" : flag ? "send" : "lock";
-
-            return {
-              tag,
-              entity,
-              icon,
-              color: i,
-              flag: flag,
-            };
-          })
+          tags.map((tag) => ({
+            tag,
+            entity,
+            color: "colored-dot-" + i,
+            flag: conditions[entity]?.[tag],
+          }))
         );
       },
       { immediate: true, deep: true }

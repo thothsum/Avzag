@@ -86,7 +86,7 @@ export default defineComponent({
   background-color: var(--color-foreground);
   margin: -1 * map-get($margins, "normal");
   margin-bottom: map-get($margins, "double");
-  padding: map-get($margins, "half");
+  padding: 0 map-get($margins, "half");
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
   :not(.icon) {

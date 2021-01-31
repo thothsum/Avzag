@@ -89,15 +89,15 @@ export default defineComponent({
 .dashes {
   overflow: hidden;
   border-radius: 0 0 $border-radius $border-radius;
-  height: $border-radius;
+  height: $border-width;
   width: 100%;
-  left: 0;
   justify-content: center;
   position: absolute;
+  left: 0;
   bottom: 0;
   > * {
     height: 100%;
-    width: 4 * $border-radius;
+    width: 4 * $border-width;
   }
 }
 </style>

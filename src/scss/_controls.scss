@@ -13,7 +13,6 @@ select {
   &:disabled {
     @extend .text-faded;
   }
-
   @extend .row;
 
   background-color: var(--color-active);
@@ -25,11 +24,13 @@ select {
     height: map-get($button-height, "small");
     min-height: map-get($button-height, "small");
   }
-  &:not(:disabled):hover {
-    background-color: var(--color-hover);
-  }
-  &:not(:disabled):active {
-    background-color: var(--color-press);
+  &:not(:disabled) {
+    &:hover {
+      background-color: var(--color-hover);
+    }
+    &:active {
+      background-color: var(--color-press);
+    }
   }
 }
 
@@ -71,6 +72,16 @@ input[type="text"] {
   .small & {
     height: map-get($button-height, "small");
     min-height: map-get($button-height, "small");
+  }
+
+  &.selectable {
+    &:not(:focus, :hover) {
+      border-left-color: var(--color-highlight);
+    }
+    &:read-only {
+      @extend button;
+      border-color: transparent;
+    }
   }
 }
 
