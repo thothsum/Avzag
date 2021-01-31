@@ -70,6 +70,7 @@ input[type="text"] {
   &.small,
   .small & {
     height: map-get($button-height, "small");
+    min-height: map-get($button-height, "small");
   }
 }
 

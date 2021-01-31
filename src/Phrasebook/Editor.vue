@@ -166,9 +166,3 @@ export default defineComponent({
   }
 }
 </style>
-
-<style lang="scss">
-.block-editor {
-  gap: 4px 8px;
-}
-</style>

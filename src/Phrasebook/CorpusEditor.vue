@@ -12,15 +12,16 @@
           />
         </template>
         <div class="col scroll">
-          <div v-for="(s, i) in file" :key="s.id" class="row">
-            <btn icon="edit" :is-on="section === s" @click="section = s" />
+          <template v-for="(s, i) in file" :key="s.id" class="row">
             <input
+              v-if="section === s"
               v-model="s.name"
               class="flex"
               type="text"
               :placeholder="'section #' + i"
             />
-          </div>
+            <btn v-else :text="s.name" @click="section = s" />
+          </template>
         </div>
       </EditorCard>
       <EditorCard v-if="section" icon="short_text" header="phrases">
@@ -34,15 +35,16 @@
           />
         </template>
         <div class="col scroll">
-          <div v-for="(p, i) in section.phrases" :key="p.id" class="row">
-            <btn icon="edit" :is-on="phrase === p" @click="phrase = p" />
+          <template v-for="(p, i) in section.phrases" :key="p.id" class="row">
             <input
+              v-if="phrase === p"
               v-model="p.name"
               class="flex"
               type="text"
               :placeholder="'phrase #' + i"
             />
-          </div>
+            <btn v-else :text="p.name" @click="phrase = p" />
+          </template>
         </div>
       </EditorCard>
       <template v-if="phrase">
@@ -128,12 +130,6 @@ export default defineComponent({
   .grid {
     grid-template-columns: 100%;
   }
-}
-</style>
-
-<style lang="scss">
-.block-editor {
-  gap: 4px 8px;
 }
 </style>
 

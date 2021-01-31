@@ -11,7 +11,7 @@
       />
     </template>
     <Context :translation="phrase.id ? null : phrase.context" />
-    <div class="row-1 wrap block-editor">
+    <div class="row-1 wrap blocks">
       <div v-for="(b, i) in blocks" :key="i + '--' + Math.random()" class="row">
         <btn icon="edit" :is-on="block === b" @click="block = b" />
         <Block :block="b" />
@@ -62,3 +62,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.blocks {
+  gap: 4px 8px;
+}
+</style>
