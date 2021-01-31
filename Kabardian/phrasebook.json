@@ -96,7 +96,7 @@
           }
         }
       ],
-      [{ "texts": [{ "plain": "?" }] }]
+      [{ "texts": [{ "plain": "?" }], "conditions": {} }]
     ],
     "context": {
       "tense": {},
