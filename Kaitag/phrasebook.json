@@ -48,7 +48,7 @@
             { "plain": "д", "entity": "actor" },
             { "plain": "янилдай" }
           ],
-          "conditions": { "actor": { "plural": true } }
+          "conditions": { "actor": { "plural": false } }
         },
         {
           "texts": [
