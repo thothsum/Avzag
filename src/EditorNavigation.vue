@@ -1,6 +1,6 @@
 <template>
   <div id="root" class="small">
-    <div class="section scroll row-1">
+    <div class="section scroll row">
       <div class="row">
         <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
           <btn icon="arrow_back" @click="navigate" />
