@@ -1,6 +1,6 @@
 <template>
   <div class="col">
-    <div class="row">
+    <div class="row header">
       <p class="icon">{{ icon }}</p>
       <h2 class="flex">{{ header }}</h2>
       <slot name="header" />
@@ -35,5 +35,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .text-caption:empty {
   display: none;
+}
+.header {
+  min-height: map-get($button-height, "small");
 }
 </style>
