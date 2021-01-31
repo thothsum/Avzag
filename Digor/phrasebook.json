@@ -52,7 +52,7 @@
           "conditions": { "destination": { "home": true } }
         }
       ],
-      [{ "texts": [{ "plain": "?" }] }]
+      [{ "texts": [{ "plain": "?" }], "conditions": {} }]
     ]
   }
 }

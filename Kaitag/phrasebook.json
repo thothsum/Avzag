@@ -67,7 +67,7 @@
           "conditions": { "actor": { "singular": false, "masculine": true } }
         }
       ],
-      [{ "texts": [{ "plain": "?" }] }]
+      [{ "texts": [{ "plain": "?" }], "conditions": {} }]
     ]
   }
 }
