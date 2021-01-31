@@ -5,7 +5,7 @@
     </template>
     <template #caption><slot /></template>
     <div v-for="(n, i) in notes" :key="i" class="row">
-      <input v-model="notes[i]" type="text" />
+      <input v-model="notes[i]" type="text" :placeholder="'note #' + i" />
       <btn icon="clear" @click="notes.splice(i, 1)" />
     </div>
   </EditorCard>
