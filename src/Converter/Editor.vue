@@ -79,11 +79,11 @@ export default defineComponent({
       const source = file.value?.sample ?? "";
       if (!pairs.value) return source;
       const intermediate = convert(source, pairs.value);
-      return mapping.value?.pairs === pairs.value
+      return !mapping.value?.pairs
         ? intermediate
         : convert(
             intermediate,
-            pairs.value.map(([l, r]) => [r, l])
+            mapping.value.pairs.map(([l, r]) => [r, l])
           );
     });
 
