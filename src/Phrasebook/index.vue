@@ -101,7 +101,6 @@ export default defineComponent({
     }
 
     return {
-      context,
       searching,
       query,
       corpus,
