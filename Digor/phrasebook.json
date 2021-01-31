@@ -37,21 +37,22 @@
       ],
       [
         {
-          "texts": [{ "plain": "уордӕмӕ?" }],
+          "texts": [{ "plain": "уордӕмӕ" }],
           "transition": "next",
           "conditions": { "destination": { "there": true } }
         },
         {
-          "texts": [{ "plain": "туканмӕ?" }],
+          "texts": [{ "plain": "туканмӕ" }],
           "transition": "next",
           "conditions": { "destination": { "shop": true } }
         },
         {
-          "texts": [{ "plain": "хӕдзарӕмӕ?" }],
+          "texts": [{ "plain": "хӕдзарӕмӕ" }],
           "transition": "next",
           "conditions": { "destination": { "home": true } }
         }
-      ]
+      ],
+      [{ "texts": [{ "plain": "?" }], "conditions": {} }]
     ]
   }
 }
