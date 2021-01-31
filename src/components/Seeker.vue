@@ -32,5 +32,6 @@ p {
   position: absolute;
   left: 0;
   top: 0;
+  transition: 0.4 * $transition;
 }
 </style>
