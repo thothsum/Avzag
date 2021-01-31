@@ -20,6 +20,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 button {
+  place-content: center;
   width: 46px;
   height: 40px;
   &.highlight,
