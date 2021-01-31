@@ -55,12 +55,16 @@ export default defineComponent({
       applyConditions(context, nextState?.conditions, true);
       state.value = nextState;
     }
+
+    const watching = computed(() => {
+      const entities = props.block.flatMap(({ conditions }) =>
+        Object.keys(conditions)
+      );
+      return [...new Set(entities)].map((e) => context.value[e]);
+    });
     watch(
-      context,
-      (context) => {
-        const nextState = findBestState(undefined, props.block, context);
-        switchState(nextState);
-      },
+      watching,
+      () => switchState(findBestState(undefined, props.block, context.value)),
       { immediate: true, deep: true }
     );
 
