@@ -23,9 +23,9 @@
       </div>
     </EditorCard>
     <template v-if="state">
-      <TextsEditor v-model="state.texts" />
       <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="block" />
+      <TextsEditor v-model="state.texts" />
     </template>
   </div>
 </template>
