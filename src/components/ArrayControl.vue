@@ -3,10 +3,10 @@
     <btn v-if="add !== undefined" icon="add" @click="action.add" />
     <template v-if="array && item">
       <btn v-if="copy" icon="queue" @click="action.copy" />
-      <div v-if="shiftTwo" class="row-0">
+      <template v-if="shiftTwo">
         <btn icon="keyboard_arrow_up" @click="action.shift(-1)" />
         <btn icon="keyboard_arrow_down" @click="action.shift(1)" />
-      </div>
+      </template>
       <btn
         v-else-if="shift"
         icon="keyboard_arrow_right"
