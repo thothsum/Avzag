@@ -108,6 +108,24 @@ export default defineComponent({
 });
 </script>
 
+<style lang="scss">
+.mapboxgl-ctrl {
+  &-attrib {
+    background-color: var(--color-active) !important;
+    border-radius: 0;
+    border-top-left-radius: $border-radius;
+  }
+  a {
+    opacity: 0.4;
+    color: var(--color-text);
+    &:hover {
+      opacity: 1;
+      background-color: transparent;
+    }
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 $margin: -1 * map-get($margins, "normal");
 
