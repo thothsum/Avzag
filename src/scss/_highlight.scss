@@ -68,7 +68,7 @@
   &alt- {
     @extend .select-;
     &::before {
-      border-style: dotted;
+      border-style: dashed;
     }
     @include select(".select-alt-");
   }
