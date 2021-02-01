@@ -115,6 +115,9 @@ export default defineComponent({
 }
 .seeker {
   padding-right: 0;
+  button {
+    border-radius: 0;
+  }
   &:disabled {
     opacity: 1;
   }
