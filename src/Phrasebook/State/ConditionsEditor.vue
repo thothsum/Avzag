@@ -6,14 +6,12 @@
     <template #caption>TODO brief explanation</template>
     <div class="row wrap">
       <button
-        v-for="({ entity, tag, color, flag }, i) in tags"
+        v-for="({ entity, tag, color, select }, i) in tags"
         :key="entity + '--' + tag"
+        :class="'select-' + select"
         @click="toggle(i)"
       >
-        <p class="icon">
-          {{ flag === undefined ? "arrow_right" : flag ? "send" : "lock" }}
-        </p>
-        <p :class="color">{{ tag }}</p>
+        <span :class="color">{{ tag }}</span>
       </button>
     </div>
   </EditorCard>
@@ -53,6 +51,7 @@ export default defineComponent({
         tag: string;
         entity: string;
         color: string;
+        select: string;
         flag?: boolean;
       }[]
     );
@@ -61,12 +60,17 @@ export default defineComponent({
       ([context, conditions]) => {
         if (!context || !conditions) return;
         tags.value = context.flatMap(({ entity, tags }, i) =>
-          tags.map((tag) => ({
-            tag,
-            entity,
-            color: "colored-dot-" + i,
-            flag: conditions[entity]?.[tag],
-          }))
+          tags.map((tag) => {
+            const flag = conditions[entity]?.[tag];
+            return {
+              tag,
+              entity,
+              color: "colored-dot-" + i,
+              select:
+                flag === undefined ? "false" : (flag ? "" : "alt-") + "true",
+              flag,
+            };
+          })
         );
       },
       { immediate: true, deep: true }

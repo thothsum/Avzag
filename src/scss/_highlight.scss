@@ -38,20 +38,38 @@
 @mixin select($self) {
   &false {
     @extend #{$self};
-    border-top-color: var(--color-press);
+    &::before {
+      border-color: var(--color-press);
+    }
   }
   &true {
     @extend #{$self};
-    border-top-color: var(--color-highlight);
+    &::before {
+      border-color: var(--color-highlight);
+    }
   }
 }
 
 .select- {
-  border-top: $border-radius solid;
-  &dash- {
+  position: relative;
+  &::before {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-top: solid transparent;
+    border-radius: $border-radius;
+    border-top-width: $border-width;
+    content: "";
+  }
+  &alt- {
     @extend .select-;
-    border-style: dashed;
-    @include select(".select-dash-");
+    &::before {
+      border-style: dotted;
+    }
+    @include select(".select-alt-");
   }
   @include select(".select-");
 }

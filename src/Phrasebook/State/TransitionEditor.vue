@@ -12,7 +12,7 @@
         v-for="(s, i) in states"
         :key="i"
         class="col"
-        :class="{ 'highlight-outline': transition.includes(i) }"
+        :class="'select-' + transition.includes(i)"
         @click="toggle(i)"
       >
         <VState :state="s" />

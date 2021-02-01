@@ -38,6 +38,5 @@
   .colored-dot-#{$i}::first-letter,
   .colored-dot-#{$i} *:not(.icon)::first-letter {
     color: $color;
-    font-weight: bold;
   }
 }
