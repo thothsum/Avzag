@@ -115,8 +115,11 @@ export default defineComponent({
     border-radius: 0;
     border-top-left-radius: $border-radius;
   }
+  .mapboxgl-ctrl-attrib-button {
+    opacity: 0.6;
+  }
   a {
-    opacity: 0.4;
+    opacity: 0.6;
     color: var(--color-text);
     &:hover {
       opacity: 1;
