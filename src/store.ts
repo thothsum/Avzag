@@ -1,13 +1,11 @@
 import { ref } from "vue";
 
 let key: symbol;
-
-export const root =
-  (process.env.NODE_ENV === "production" && process.env.STORE !== "local"
-    ? "https://raw.githubusercontent.com/alkaitagi/Avzag/"
-    : "/") + "store/";
-
 export const lects = ref<string[]>([]);
+export const root =
+  process.env.NODE_ENV === "production" || process.env.VUE_APP_STORE !== "local"
+    ? "https://raw.githubusercontent.com/alkaitagi/Avzag/store/"
+    : "/store/";
 
 export function setupStore(_lects: string[]) {
   lects.value = _lects;
