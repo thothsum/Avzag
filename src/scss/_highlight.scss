@@ -62,7 +62,7 @@
     border-top: solid transparent;
     border-radius: $border-radius;
     border-top-width: $border-width;
-    transition: $transition;
+    transition: border-color $transition;
     content: "";
   }
   &alt- {
