@@ -2,7 +2,6 @@
   <div v-if="block" class="block col-2">
     <EditorCard icon="account_tree" header="States">
       <template #header>
-        <toggle v-model="glossed" icon="layers" />
         <ArrayControl
           v-model="block"
           v-model:item="state"
@@ -16,11 +15,10 @@
         <button
           v-for="(s, i) in block"
           :key="i"
-          class="fit-h"
           :class="'select-' + (state === s)"
           @click="state = s"
         >
-          <VState :state="s" :glossed="glossed" />
+          <VState :state="s" />
         </button>
       </div>
     </EditorCard>
@@ -64,9 +62,8 @@ export default defineComponent({
       set: (b) => emit("update:modelValue", b),
     });
     const state = ref(undefined as undefined | State);
-    const glossed = ref(false);
 
-    return { newState, glossed, state, block };
+    return { newState, state, block };
   },
 });
 </script>
