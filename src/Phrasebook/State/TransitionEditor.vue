@@ -11,7 +11,7 @@
       <button
         v-for="(s, i) in states"
         :key="i"
-        class="row"
+        class="col"
         :class="{ 'highlight-outline': transition.includes(i) }"
         @click="toggle(i)"
       >

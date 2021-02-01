@@ -16,8 +16,8 @@
         <button
           v-for="(s, i) in block"
           :key="i"
-          class="row fit-h"
-          :class="{ 'highlight-outline': state === s }"
+          class="fit-h"
+          :class="'select-' + (state === s)"
           @click="state = s"
         >
           <VState :state="s" :glossed="glossed" />
