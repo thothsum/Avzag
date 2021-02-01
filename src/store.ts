@@ -3,7 +3,7 @@ import { ref } from "vue";
 let key: symbol;
 
 export const root =
-  (process.env.NODE_ENV === "production"
+  (process.env.NODE_ENV === "production" && process.env.STORE !== "local"
     ? "https://raw.githubusercontent.com/alkaitagi/Avzag/"
     : "/") + "store/";
 
