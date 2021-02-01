@@ -34,9 +34,14 @@ function bindResize() {
 }
 
 export function createMap(container = "map") {
-  mapboxgl.accessToken = process.env.VUE_APP_MAP_TOKEN;
-  map = new mapboxgl.Map({ container, minZoom: 2, maxZoom: 10 });
-  map.doubleClickZoom.disable();
+  map = new mapboxgl.Map({
+    container,
+    minZoom: 2,
+    maxZoom: 10,
+    doubleClickZoom: false,
+    accessToken:
+      "pk.eyJ1IjoiYWxrYWl0YWdpIiwiYSI6ImNrZngwYTlqZjA1Mm4ycm5rcW94YmV4bHoifQ.c--QtLURoBAPTqqrLGZ0qQ",
+  });
 
   bindCamera();
   bindTheme();
