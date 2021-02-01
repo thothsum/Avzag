@@ -56,14 +56,14 @@ export default defineComponent({
       state.value = nextState;
     }
 
-    const watching = computed(() => {
+    const entities = computed(() => {
       const entities = props.block.flatMap(({ conditions }) =>
         Object.keys(conditions)
       );
       return [...new Set(entities)].map((e) => context.value[e]);
     });
     watch(
-      watching,
+      entities,
       () => switchState(findBestState(undefined, props.block, context.value)),
       { immediate: true, deep: true }
     );
