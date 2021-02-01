@@ -18,7 +18,7 @@ const state = reactive({
 });
 
 function url(lect: string, file: string) {
-  return `${root}${lect}/audio/${file}.mp3`;
+  return `${root}${lect}/audio/${file}.m4a`;
 }
 
 function canPlay(result: Ref<string[]>, lect: string, files: string[]) {
@@ -46,7 +46,6 @@ function play(lect: string, files: string[], key?: string) {
         loaded: true,
         howl: new Howl({
           src,
-          format: ["mp3"],
           onend: next,
           onplayerror: next,
         }),
