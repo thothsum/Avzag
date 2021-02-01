@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/404.html"
   },
   {
-    "revision": "23d58901fb44a7bf8d60",
+    "revision": "18f2ab340ee87992975c",
     "url": "/css/app.91d8ce00.css"
   },
   {
@@ -64,12 +64,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/icon.png"
   },
   {
-    "revision": "a3071bbf4d045e2d99e0d3728d172471",
+    "revision": "03ba53bd088a8a7abf48443723ff4ffa",
     "url": "/index.html"
   },
   {
-    "revision": "23d58901fb44a7bf8d60",
-    "url": "/js/app.b0408985.js"
+    "revision": "18f2ab340ee87992975c",
+    "url": "/js/app.741ed039.js"
   },
   {
     "revision": "3c1327c9b48b2531122e",
