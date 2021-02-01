@@ -3,10 +3,15 @@
     <btn v-if="add !== undefined" icon="add" @click="action.add" />
     <template v-if="array && item">
       <btn v-if="copy" icon="queue" @click="action.copy" />
-      <div v-if="shift" class="row-0">
+      <div v-if="shiftTwo" class="row-0">
         <btn icon="keyboard_arrow_up" @click="action.shift(-1)" />
         <btn icon="keyboard_arrow_down" @click="action.shift(1)" />
       </div>
+      <btn
+        v-else-if="shift"
+        icon="keyboard_arrow_right"
+        @click="action.shift(1)"
+      />
       <ConfirmButton v-if="remove" @confirm="action.remove" />
     </template>
   </div>
@@ -28,6 +33,7 @@ export default defineComponent({
     },
     copy: Boolean,
     shift: Boolean,
+    shiftTwo: Boolean,
     remove: Boolean,
   },
   emits: ["update:modelValue", "update:item"],

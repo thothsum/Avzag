@@ -14,7 +14,7 @@
             v-model="file.mappings"
             v-model:item="mapping"
             :add="{}"
-            shift
+            shift-two
             remove
           />
         </template>

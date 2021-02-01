@@ -7,7 +7,7 @@
             v-model="file"
             v-model:item="section"
             :add="() => ({ id: uuidv4() })"
-            shift
+            shift-two
             remove
           />
         </template>
@@ -30,7 +30,7 @@
             v-model="section.phrases"
             v-model:item="phrase"
             :add="() => ({ id: uuidv4() })"
-            shift
+            shift-two
             remove
           />
         </template>
