@@ -10,7 +10,7 @@ type Track = {
 };
 
 const state = reactive({
-  key: undefined as undefined | string,
+  key: null as null | string,
   timer: 0,
   seek: 0,
   current: undefined as undefined | Track,
@@ -76,7 +76,7 @@ function seek() {
 
 function stop() {
   Howler.unload();
-  state.key = undefined;
+  state.key = null;
   state.seek = 0;
   clearInterval(state.timer);
   state.current = undefined;
