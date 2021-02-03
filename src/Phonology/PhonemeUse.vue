@@ -10,10 +10,11 @@
         <Seeker :check="urls[i] === player.key" :seek="player.seek" />
         <btn
           :disabled="!urls[i]"
+          :is-on="urls[i] === player.key"
           icon="play_arrow"
           @click="player.play(null, [urls[i]])"
         />
-        <Notes class="word" :notes="[words[i]]" />
+        <Notes class="word flex" :notes="[words[i]]" />
         <Notes class="text-ipa" row :notes="[ipas[i]]" />
       </div>
     </div>
