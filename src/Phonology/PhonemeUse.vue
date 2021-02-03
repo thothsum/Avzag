@@ -5,22 +5,17 @@
       <h2 class="flex">{{ lect }}</h2>
       <p v-for="g in graphemes" :key="g" class="text-dot">{{ g }}</p>
     </div>
-    <div class="col-0">
-      <button
-        v-for="(s, i) in fullSamples"
-        :key="i"
-        class="row flex seeker"
-        :disabled="!urls[i]"
-        @click="player.play(null, [urls[i]])"
-      >
+    <div class="col">
+      <div v-for="(s, i) in fullSamples" :key="i" class="row-1 flex seeker">
         <Seeker :check="urls[i] === player.key" :seek="player.seek" />
-        <span class="icon">
-          {{ urls[i] ? "play_arrow" : "arrow_right" }}
-        </span>
-        <Notes class="word flex" :notes="[words[i]]" />
+        <btn
+          :disabled="!urls[i]"
+          icon="play_arrow"
+          @click="player.play(null, [urls[i]])"
+        />
+        <Notes class="word" :notes="[words[i]]" />
         <Notes class="text-ipa" row :notes="[ipas[i]]" />
-        <btn icon="copy" @click.stop="copy(i)" />
-      </button>
+      </div>
     </div>
     <Notes class="text-caption" :notes="use.notes" />
   </div>
@@ -103,26 +98,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.col-0 {
-  $margin: -1 * map-get($margins, "normal");
-  margin-left: $margin;
-  margin-right: $margin;
-  border-radius: 0;
-  &:last-child {
-    margin-bottom: $margin;
-    border-radius: 0 0 $border-radius $border-radius;
-  }
-}
-.seeker {
-  padding-right: 0;
-  button {
-    border-radius: 0;
-  }
-  &:disabled {
-    opacity: 1;
-  }
-  .text-ipa {
-    gap: 0;
-  }
+.seeker .text-ipa {
+  gap: 0;
 }
 </style>
