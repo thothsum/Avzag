@@ -46,6 +46,7 @@ function play(lect: string, files: string[], key?: string) {
         loaded: true,
         howl: new Howl({
           src,
+          format: ["m4a"],
           onend: next,
           onplayerror: next,
         }),
