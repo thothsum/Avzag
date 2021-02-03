@@ -11,7 +11,7 @@
         :key="i"
         class="row flex seeker"
         :disabled="!urls[i]"
-        @click="player.play(null, [urls[i]], urls[i])"
+        @click="player.play(null, [urls[i]])"
       >
         <Seeker :check="urls[i] === player.key" :seek="player.seek" />
         <span class="icon">
