@@ -13,6 +13,7 @@
     <div class="row wrap flex">
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row seeker">
         <Seeker
+          v-if="vblocks[i]?.state"
           :check="playing && player.current?.i === i"
           :seek="player.seek"
         />

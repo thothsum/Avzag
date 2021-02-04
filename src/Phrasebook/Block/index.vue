@@ -97,7 +97,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 button {
-  padding: 0;
+  height: fit-content;
   &.disabled {
     padding: 0;
     background-color: transparent;
@@ -106,9 +106,6 @@ button {
       background-color: transparent;
     }
     cursor: default;
-  }
-  &:not(.disabled) > * {
-    padding: 0 map-get($margins, "normal");
   }
 }
 </style>
