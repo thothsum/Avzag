@@ -1,13 +1,5 @@
 .scroll {
   overflow: auto;
-  margin: -1 * map-get($margins, "half");
-  padding: map-get($margins, "half");
-  &-hidden {
-    @extend .scroll;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
 }
 
 .wrap {
@@ -27,7 +19,6 @@
 
   &-0 {
     @extend #{$self};
-    overflow: hidden;
     gap: 0;
     > * {
       border-radius: 0;

@@ -17,6 +17,7 @@ select {
 
   background-color: var(--color-active);
   height: map-get($button-height, "normal");
+  min-height: map-get($button-height, "normal");
   padding: 0 map-get($margins, "normal");
 
   &.small,

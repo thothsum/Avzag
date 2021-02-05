@@ -17,7 +17,7 @@
           <InputQuery v-model="query" placeholder="Search languages..." />
           <btn icon="arrow_forward" :disabled="empty" @click="load" />
         </div>
-        <div class="row scroll-hidden">
+        <div class="row scroll">
           <p v-if="empty" id="placeholder">
             Click on the map or use the input field above.
           </p>

@@ -123,7 +123,7 @@ export default defineComponent({
 }
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.5fr);
   gap: map-get($margins, "double");
 }
 @media only screen and (max-width: $mobile-width) {

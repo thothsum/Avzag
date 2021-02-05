@@ -1,17 +1,15 @@
 <template>
   <div id="root">
-    <div class="section">
-      <div class="row scroll">
-        <router-link
-          v-for="{ icon, text, name } in menus"
-          :key="name ?? text ?? icon"
-          v-slot="{ isActive, navigate }"
-          custom
-          :to="{ name: name ?? text }"
-        >
-          <btn :icon="icon" :text="text" :is-on="isActive" @click="navigate" />
-        </router-link>
-      </div>
+    <div class="section row scroll">
+      <router-link
+        v-for="{ icon, text, name } in menus"
+        :key="name ?? text ?? icon"
+        v-slot="{ isActive, navigate }"
+        custom
+        :to="{ name: name ?? text }"
+      >
+        <btn :icon="icon" :text="text" :is-on="isActive" @click="navigate" />
+      </router-link>
     </div>
   </div>
   <router-view />
@@ -39,7 +37,7 @@ export default defineComponent({
   background-color: var(--color-foreground);
   margin: -1 * map-get($margins, "normal");
   margin-bottom: map-get($margins, "double");
-  padding: 0 map-get($margins, "normal");
+  padding: map-get($margins, "half") map-get($margins, "normal");
   border-radius: 0;
   box-shadow: map-get($shadows, "elevated");
   :not(.icon) {

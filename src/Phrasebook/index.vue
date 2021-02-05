@@ -22,8 +22,8 @@
           </select>
         </h2>
       </div>
-      <div class="scroll">
-        <div v-if="searching" class="col">
+      <div class="scroll col-0 phrases">
+        <template v-if="searching">
           <div v-for="(ps, s) of phrases" :key="s" class="col">
             <h2>{{ corpus[s].name }}</h2>
             <div class="col-0">
@@ -36,8 +36,8 @@
               />
             </div>
           </div>
-        </div>
-        <div v-else class="col-0">
+        </template>
+        <template v-else>
           <btn
             v-for="p in phrases"
             :key="p.id"
@@ -45,7 +45,7 @@
             :is-on="phrase === p"
             @click="select(null, p)"
           />
-        </div>
+        </template>
       </div>
     </div>
     <div v-if="phrase" :key="phrase.id" class="col-1">
@@ -119,16 +119,16 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 288px minmax(0, 1fr);
   gap: map-get($margins, "normal");
-  > :first-child {
-    max-height: 640px;
-  }
+}
+.phrases {
+  max-height: 640px;
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
-    > :first-child {
-      max-height: 320px;
-    }
     grid-template-columns: 100%;
+  }
+  .phrases {
+    max-height: 240px;
   }
 }
 </style>
