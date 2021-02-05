@@ -4,10 +4,10 @@ import { root } from "@/store";
 
 type Track = {
   i: number;
+  src: string;
   seek: number;
-  src: string[];
   error?: boolean;
-  howl: Howl;
+  howl?: Howl;
 };
 
 const state = reactive({
@@ -38,15 +38,16 @@ function play(lect: string, files: string[], key?: string) {
   state.timer = setInterval(seek, 50);
 
   state.queue = files
-    .filter((f) => f)
-    .map((f) => [lect ? url(lect, f) : f])
+    .map((f) => (lect ? url(lect, f) : f))
     .map((src, i) => {
       const track: Track = {
         i,
         src,
         seek: 0,
-        howl: new Howl({
-          src,
+      };
+      if (src)
+        track.howl = new Howl({
+          src: [src],
           format: ["m4a"],
           onplay: () => (state.current = track),
           onend: () => next(i),
@@ -55,23 +56,23 @@ function play(lect: string, files: string[], key?: string) {
             if (!state.current || toRaw(state.current) === track) next(i);
             else track.error = true;
           },
-        }),
-      };
+        });
       return track;
     });
   next(-1);
 }
 
 function next(i: number) {
+  if (state.current) state.current.seek = 0;
   const track = state.queue[i + 1];
   state.current = track;
-  if (!track) stop();
+  if (!track?.howl) stop();
   else if (track.error) next(i + 1);
   else track.howl.play();
 }
 
 function seek() {
-  if (!state.current) return;
+  if (!state.current?.howl) return;
   const howl = state.current.howl;
   state.current.seek = <number>howl.seek() / howl.duration();
 }

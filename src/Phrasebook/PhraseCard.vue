@@ -14,8 +14,8 @@
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row seeker">
         <Seeker
           v-if="vblocks[i]?.state"
-          :check="playing && player.current?.i === i"
-          :seek="player.current?.seek"
+          :check="playing"
+          :seek="player.queue[i]?.seek"
         />
         <Block :block="b" :glossed="glossed" @update="vblocks[i] = $event" />
       </div>
