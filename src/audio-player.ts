@@ -1,18 +1,18 @@
-import { reactive, readonly, Ref, toRefs } from "vue";
+import { reactive, readonly, Ref, toRaw, toRefs } from "vue";
 import { Howl, Howler } from "howler";
 import { root } from "@/store";
 
 type Track = {
   i: number;
+  seek: number;
   src: string[];
-  loaded: boolean;
+  error?: boolean;
   howl: Howl;
 };
 
 const state = reactive({
   key: null as null | string,
   timer: 0,
-  seek: 0,
   current: undefined as undefined | Track,
   queue: [] as Track[],
 });
@@ -41,44 +41,44 @@ function play(lect: string, files: string[], key?: string) {
     .filter((f) => f)
     .map((f) => [lect ? url(lect, f) : f])
     .map((src, i) => {
-      const track = {
+      const track: Track = {
         i,
         src,
-        loaded: true,
+        seek: 0,
         howl: new Howl({
           src,
           format: ["m4a"],
-          onend: next,
-          onplayerror: next,
+          onplay: () => (state.current = track),
+          onend: () => next(i),
+          onplayerror: () => next(i),
+          onloaderror: () => {
+            if (!state.current || toRaw(state.current) === track) next(i);
+            else track.error = true;
+          },
         }),
       };
-      track.howl.once("loaderror", () => (track.loaded = false));
       return track;
     });
-  next();
+  next(-1);
 }
 
-function next() {
-  const i = (state.current?.i ?? -1) + 1;
-  const track = state.queue[i];
-  if (track) {
-    state.current = track;
-    if (track.loaded) {
-      state.seek = 0;
-      track.howl.play();
-    } else next();
-  } else stop();
+function next(i: number) {
+  const track = state.queue[i + 1];
+  state.current = track;
+  if (!track) stop();
+  else if (track.error) next(i + 1);
+  else track.howl.play();
 }
 
 function seek() {
-  const howl = state.current?.howl;
-  if (howl) state.seek = <number>howl.seek() / howl.duration();
+  if (!state.current) return;
+  const howl = state.current.howl;
+  state.current.seek = <number>howl.seek() / howl.duration();
 }
 
 function stop() {
   Howler.unload();
   state.key = null;
-  state.seek = 0;
   clearInterval(state.timer);
   state.current = undefined;
   state.queue.length = 0;

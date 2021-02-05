@@ -15,7 +15,7 @@
         <Seeker
           v-if="vblocks[i]?.state"
           :check="playing && player.current?.i === i"
-          :seek="player.seek"
+          :seek="player.current?.seek"
         />
         <Block :block="b" :glossed="glossed" @update="vblocks[i] = $event" />
       </div>
