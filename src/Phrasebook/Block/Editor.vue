@@ -2,6 +2,7 @@
   <div v-if="block" class="block col-2">
     <EditorCard icon="account_tree" header="States">
       <template #header>
+        <toggle v-if="state" v-model="state.implicit" icon="visibility_off" />
         <ArrayControl
           v-model="block"
           v-model:item="state"

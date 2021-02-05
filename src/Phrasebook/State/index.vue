@@ -1,5 +1,8 @@
 <template>
-  <div class="display row" :class="{ glossed: canGloss }">
+  <div
+    class="display row"
+    :class="{ glossed: canGloss, 'text-faded': state?.implicit }"
+  >
     <div class="segments">
       <p v-for="(type, i) in types" :key="type" :class="'text-' + type">
         <span v-for="(text, j) in texts[i]" :key="j" :class="textColors[j]">
