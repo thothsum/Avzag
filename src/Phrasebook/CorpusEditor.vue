@@ -56,7 +56,7 @@
         <ContextEditor v-model="phrase.context" />
       </template>
     </div>
-    <BlockEditor v-if="block" v-model="block" />
+    <BlockEditor v-if="block" :key="phrase?.id" v-model="block" />
   </div>
 </template>
 

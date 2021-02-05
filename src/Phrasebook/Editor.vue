@@ -45,7 +45,7 @@
         <ContextTranslationEditor v-model="translation.context" />
       </template>
     </div>
-    <BlockEditor v-if="block" v-model="block" />
+    <BlockEditor v-if="block" :key="phrase?.id" v-model="block" />
   </div>
 </template>
 
