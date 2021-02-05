@@ -64,8 +64,12 @@ export default defineComponent({
           player.play(
             props.lect,
             vblocks
-              .map(({ state }) => state?.texts.map(({ plain }) => plain))
-              .map((p) => `phrasebook/${phrase.value?.id}/${p?.join("") ?? ""}`)
+              .map(
+                ({ state }) =>
+                  state?.audio ??
+                  state?.texts.map(({ plain }) => plain)?.join("")
+              )
+              .map((p) => `phrasebook/${phrase.value?.id}/${p ?? ""}`)
           );
         else player.stop();
       },

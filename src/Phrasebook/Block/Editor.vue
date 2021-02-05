@@ -2,7 +2,6 @@
   <div v-if="block" class="block col-2">
     <EditorCard icon="account_tree" header="States">
       <template #header>
-        <toggle v-if="state" v-model="state.implicit" icon="visibility_off" />
         <ArrayControl
           v-model="block"
           v-model:item="state"
@@ -27,6 +26,18 @@
       <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="block" />
       <TextsEditor v-model="state.texts" />
+      <EditorCard icon="miscellaneous_services" header="miscellaneous">
+        <template #header>
+          <div class="row">
+            <input
+              v-model="state.audio"
+              type="text"
+              placeholder="audio filename override"
+            />
+            <toggle v-if="state" v-model="state.implicit" icon="opacity" />
+          </div>
+        </template>
+      </EditorCard>
     </template>
   </div>
 </template>
