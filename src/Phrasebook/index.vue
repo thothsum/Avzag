@@ -22,30 +22,28 @@
           </select>
         </h2>
       </div>
-      <div class="scroll col-0 phrases">
-        <template v-if="searching">
-          <div v-for="(ps, s) of phrases" :key="s" class="col">
-            <h2>{{ corpus[s].name }}</h2>
-            <div class="col-0">
-              <btn
-                v-for="p in ps"
-                :key="p"
-                :text="corpus[s].phrases[p].name"
-                :is-on="phrase === corpus[s].phrases[p]"
-                @click="select(corpus[s], corpus[s].phrases[p])"
-              />
-            </div>
+      <div v-if="searching" class="scroll col phrases">
+        <template v-for="(ps, s) of phrases" :key="s" class="col">
+          <h2>{{ corpus[s].name }}</h2>
+          <div class="col-0">
+            <btn
+              v-for="p in ps"
+              :key="p"
+              :text="corpus[s].phrases[p].name"
+              :is-on="phrase === corpus[s].phrases[p]"
+              @click="select(corpus[s], corpus[s].phrases[p])"
+            />
           </div>
         </template>
-        <template v-else>
-          <btn
-            v-for="p in phrases"
-            :key="p.id"
-            :text="p.name"
-            :is-on="phrase === p"
-            @click="select(null, p)"
-          />
-        </template>
+      </div>
+      <div v-else class="scroll col-0 phrases">
+        <btn
+          v-for="p in phrases"
+          :key="p.id"
+          :text="p.name"
+          :is-on="phrase === p"
+          @click="select(null, p)"
+        />
       </div>
     </div>
     <div v-if="phrase" :key="phrase.id" class="col-1">
