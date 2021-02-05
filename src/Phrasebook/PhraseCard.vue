@@ -69,7 +69,10 @@ export default defineComponent({
                 state?.audio === null
                   ? null
                   : state?.audio ??
-                    state?.texts.map(({ plain }) => plain)?.join("")
+                    state?.texts
+                      .map(({ plain }) => plain)
+                      ?.join("")
+                      .toLowerCase()
               )
               .map((p) =>
                 p === null ? "" : `phrasebook/${phrase.value?.id}/${p ?? ""}`
