@@ -67,7 +67,466 @@
           "conditions": { "actor": { "singular": false, "masculine": true } }
         }
       ],
-      [{ "texts": [{ "plain": "?" }], "conditions": {} }]
+      [
+        {
+          "texts": [{ "plain": "?" }],
+          "conditions": {},
+          "implicit": false,
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "11290a1d-ca8b-468d-9b63-6bf83f5b477a": {
+    "blocks": [
+      [
+        {
+          "texts": [
+            { "plain": "Кулпет", "gloss": "family", "ipa": "kulpet" },
+            { "plain": "и", "gloss": "-DIR", "ipa": "-i" }
+          ],
+          "transition": "next",
+          "conditions": { "recipient": { "family": true } }
+        },
+        {
+          "texts": [
+            { "plain": "Уртакъ", "gloss": "friend", "ipa": "urtɑq" },
+            { "plain": "къа", "ipa": "-qɑ", "gloss": "-PL" },
+            { "ipa": "-j", "plain": "й", "gloss": "-DIR" }
+          ],
+          "transition": "next",
+          "conditions": { "recipient": { "friends": true } }
+        },
+        {
+          "texts": [
+            { "plain": "Микӏаил", "gloss": "Michael", "ipa": "mikʼail" },
+            { "plain": "жи", "gloss": "-DIR", "ipa": "-ʒi" }
+          ],
+          "transition": "next",
+          "conditions": { "recipient": { "name": true } }
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "салам", "ipa": "sɑlɑm", "gloss": "greet" },
+            { "plain": "те", "ipa": "-te", "gloss": "-PL" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "д", "ipa": "d-", "gloss": "PL-" },
+            { "plain": "урс", "gloss": "tell", "ipa": "urs" },
+            { "plain": "а", "gloss": "-2.IMP", "ipa": "-ɑ" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "94f9e79a-c01b-40de-a493-8eadfc499ca7": {
+    "blocks": [
+      [
+        {
+          "texts": [{ "plain": "И", "gloss": "2.SG", "ipa": "ʔi" }],
+          "transition": "next",
+          "conditions": { "person": { "singular": true } },
+          "implicit": true
+        },
+        {
+          "texts": [{ "plain": "Нишша", "gloss": "2.PL", "ipa": "niʃːɑ" }],
+          "transition": "next",
+          "conditions": { "person": { "plural": true } },
+          "implicit": true
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "в", "ipa": "β", "gloss": "M-", "entity": "person" },
+            { "plain": "алгь", "gloss": "?", "ipa": "ɑlh" },
+            { "plain": "ун", "ipa": "un", "gloss": "-PST" },
+            { "plain": "де", "ipa": "de", "gloss": "-2.SG" },
+            { "plain": "в", "ipa": "β", "gloss": "-Q" }
+          ],
+          "transition": [1],
+          "conditions": { "person": { "singular": false, "male": true } }
+        },
+        {
+          "texts": [
+            { "plain": "р", "ipa": "r", "gloss": "F-", "entity": "person" },
+            { "plain": "алгь", "gloss": "?", "ipa": "ɑlh" },
+            { "plain": "ун", "ipa": "un", "gloss": "-PST" },
+            { "plain": "де", "ipa": "de", "gloss": "-2.SG" },
+            { "plain": "в", "ipa": "β", "gloss": "-Q" }
+          ],
+          "transition": [0],
+          "conditions": { "person": { "singular": false, "female": true } }
+        },
+        {
+          "texts": [
+            { "plain": "д", "ipa": "d", "gloss": "PL-", "entity": "person" },
+            { "plain": "алгь", "gloss": "?", "ipa": "ɑlh" },
+            { "plain": "ун", "ipa": "un", "gloss": "-PST" },
+            { "plain": "да", "ipa": "dɑ", "gloss": "-2.PL" },
+            { "plain": "в", "ipa": "β", "gloss": "-Q" }
+          ],
+          "conditions": { "person": { "plural": false } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "noSpace": true,
+          "audio": null
+        }
+      ]
+    ]
+  },
+  "6b741253-a925-4e1f-8679-f9c627b3b5cb": {
+    "blocks": [
+      [
+        {
+          "texts": [{ "plain": "Гӏяхӏ", "gloss": "good", "ipa": "ʡɑˤħ" }],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "чирка", "ipa": "t͡ʃirkɑ", "gloss": "morning" }],
+          "transition": "next",
+          "conditions": { "time": { "morning": true } }
+        },
+        {
+          "texts": [{ "plain": "баре", "ipa": "bɑre", "gloss": "day" }],
+          "transition": "next",
+          "conditions": { "time": { "day": true } }
+        },
+        {
+          "texts": [{ "plain": "нисна", "ipa": "nisnɑ", "gloss": "evening" }],
+          "transition": "next",
+          "conditions": { "time": { "evening": true } }
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "бигьав", "ipa": "bihɑβ", "gloss": "let-it-be" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ],
+    "notes": []
+  },
+  "59b630b6-0415-42d3-80c0-c724207dc10c": {
+    "blocks": [
+      [
+        {
+          "texts": [
+            { "plain": "Гӏяхӏле", "gloss": "good.ADV", "ipa": "ʡɑˤħle" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "калга", "ipa": "kɑlgɑ", "gloss": "stay" },
+            { "gloss": "-2", "ipa": "-be", "plain": "бе" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "8c75a252-3bdf-4b50-91d1-31b02fe74967": {
+    "blocks": [
+      [
+        {
+          "texts": [
+            { "plain": "Дярххя", "ipa": "dɑˤrχːɑˤ", "gloss": "night.ADV" },
+            { "plain": "-дучче", "ipa": "-dut͡ʃːe", "gloss": "-night" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "гӏяхӏ", "ipa": "ʡɑˤħ", "gloss": "good.ADJ" },
+            { "plain": "д", "gloss": "-PL", "ipa": "-d" },
+            { "plain": "игьав", "gloss": "-let-it-be", "ipa": "-ihɑβ" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "681cf96a-ca04-4b20-83ac-8fb3d9082ed0": {
+    "blocks": [
+      [
+        {
+          "texts": [{ "plain": "Цӏил", "ipa": "t͡sʼil", "gloss": "then" }],
+          "conditions": { "time": { "later": true } },
+          "transition": "next"
+        },
+        {
+          "texts": [
+            { "plain": "Гъурш", "ipa": "ʁurʃ", "gloss": "tomorrow" },
+            { "gloss": "-GEN", "ipa": "-lɑ", "plain": "ла" }
+          ],
+          "transition": "next",
+          "conditions": { "time": { "tomorrow": true } }
+        }
+      ],
+      [
+        {
+          "texts": [
+            {
+              "plain": "чидаганда",
+              "ipa": "t͡ʃidɑgɑndɑ",
+              "gloss": "we-will-see"
+            }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "4df5ef4a-ab55-44fb-887e-5606f271be15": {
+    "blocks": [
+      [
+        {
+          "texts": [{ "plain": "Ду", "ipa": "du", "gloss": "1.SG" }],
+          "transition": "next",
+          "conditions": { "subject": { "singular": true } }
+        },
+        {
+          "texts": [{ "plain": "Нисса", "ipa": "nisːɑ", "gloss": "1.PL.EXCL" }],
+          "transition": "next",
+          "conditions": { "subject": { "plural": true } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "цӏакьле", "ipa": "t͡sʼɑqʼle", "gloss": "very" }],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "къугъа", "gloss": "joy", "ipa": "quʁɑ" },
+            { "plain": "л", "ipa": "-l", "gloss": "-ADJ" },
+            { "plain": "да", "gloss": "-1", "ipa": "-dɑ" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "и", "ipa": "ʔi", "gloss": "2.SG" }],
+          "transition": "next",
+          "conditions": { "person": { "singular": true } }
+        },
+        {
+          "texts": [{ "plain": "нишша", "ipa": "niʃːɑ", "gloss": "2.PL" }],
+          "transition": "next",
+          "conditions": { "person": { "plural": true } }
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi" },
+            { "plain": "в", "ipa": "β", "gloss": "M-", "entity": "person" },
+            { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
+            { "gloss": "-INF", "plain": "ара", "ipa": "ɑrɑ" }
+          ],
+          "transition": [1],
+          "conditions": { "person": { "singular": false, "male": true } }
+        },
+        {
+          "texts": [
+            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi" },
+            { "plain": "р", "ipa": "r", "gloss": "F-", "entity": "person" },
+            { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
+            { "gloss": "-INF", "plain": "ара", "ipa": "ɑrɑ" }
+          ],
+          "transition": [0],
+          "conditions": { "person": { "singular": false, "female": true } }
+        },
+        {
+          "texts": [
+            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi" },
+            { "plain": "д", "ipa": "dɑ", "gloss": "PL-", "entity": "person" },
+            { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
+            { "gloss": "-INF", "plain": "ара", "ipa": "ɑrɑ" }
+          ],
+          "conditions": { "person": { "plural": false } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "36c1507b-72ed-4c81-8fbb-6f290d54fac5": {
+    "blocks": [
+      [
+        {
+          "texts": [
+            { "plain": "Цигле", "ipa": "t͡sigle", "gloss": "how" },
+            { "plain": "де", "gloss": "-2.SG", "ipa": "de" },
+            { "plain": "й", "gloss": "-Q", "ipa": "j" }
+          ],
+          "transition": "next",
+          "conditions": { "person": { "singular": true } }
+        },
+        {
+          "texts": [
+            { "plain": "Цигле", "ipa": "t͡sigle", "gloss": "how" },
+            { "plain": "да", "gloss": "-2.PL", "ipa": "dɑ" },
+            { "plain": "й", "gloss": "-Q", "ipa": "j" }
+          ],
+          "transition": "next",
+          "conditions": { "person": { "plural": true } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "?" }],
+          "conditions": {},
+          "implicit": false,
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "7f71c61d-b9f6-46e0-888d-eb15b7b04646": {
+    "blocks": [
+      [
+        {
+          "texts": [
+            { "plain": "Баркалла", "ipa": "bɑrkɑllɑ", "gloss": "thanks" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "," }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "гӏяхӏ", "gloss": "good", "ipa": "ʡɑˤħ" },
+            { "plain": "ле", "ipa": "le", "gloss": "-ADJ" },
+            { "plain": "да", "gloss": "-1.SG", "ipa": "dɑ" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "." }],
+          "conditions": {},
+          "audio": null,
+          "implicit": false,
+          "noSpace": true
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "И", "gloss": "2.SG", "ipa": "ʔi" },
+            { "plain": "ла", "ipa": "-lɑ", "gloss": "-GEN" }
+          ],
+          "transition": "next",
+          "conditions": { "person": { "singular": true } }
+        },
+        {
+          "texts": [
+            { "plain": "Нишша", "gloss": "2.PL", "ipa": "nʃːiɑ" },
+            { "plain": "ла", "ipa": "-lɑ", "gloss": "-GEN" }
+          ],
+          "transition": "next",
+          "conditions": { "person": { "plural": true } }
+        }
+      ],
+      [
+        {
+          "texts": [
+            { "plain": "цигле", "ipa": "t͡sigle", "gloss": "how" },
+            { "plain": "й", "ipa": "j", "gloss": "-Q" }
+          ],
+          "conditions": {}
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "?" }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
     ]
   }
 }
