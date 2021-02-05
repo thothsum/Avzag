@@ -116,13 +116,7 @@
               "conditions": {}
             }
           ],
-          [
-            {
-              "texts": [{ "plain": "." }],
-              "transition": "next",
-              "conditions": {}
-            }
-          ]
+          [{ "texts": [{ "plain": "." }], "conditions": {} }]
         ]
       },
       {
