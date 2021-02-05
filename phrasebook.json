@@ -41,11 +41,16 @@
       {
         "id": "59b630b6-0415-42d3-80c0-c724207dc10c",
         "name": "Goodbye.",
+        "blocks": [[{ "texts": [{ "plain": "Goodbye." }], "conditions": {} }]],
+        "context": [{ "entity": "person", "tags": ["singular", "plural"] }]
+      },
+      {
+        "id": "8c75a252-3bdf-4b50-91d1-31b02fe74967",
+        "name": "Good night.",
         "blocks": [
-          [{ "texts": [{ "plain": "Goodbye." }], "conditions": {} }],
-          [{ "texts": [{ "plain": " Good night." }], "conditions": {} }]
+          [{ "texts": [{ "plain": "Good night." }], "conditions": {} }]
         ],
-        "context": []
+        "context": [{ "entity": "person", "tags": ["singular", "plural"] }]
       },
       {
         "id": "681cf96a-ca04-4b20-83ac-8fb3d9082ed0",
