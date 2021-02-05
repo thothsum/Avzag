@@ -86,7 +86,6 @@ export default defineComponent({
   flex-direction: column;
   p {
     display: flex;
-    place-content: center;
   }
 }
 .dashes {
