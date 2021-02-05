@@ -1,6 +1,6 @@
 <template>
   <div class="col">
-    <div class="row header">
+    <div class="row header wrap">
       <p class="icon">{{ icon }}</p>
       <h2 class="flex">{{ header }}</h2>
       <slot name="header" />
