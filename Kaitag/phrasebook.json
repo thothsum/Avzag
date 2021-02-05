@@ -345,12 +345,14 @@
         {
           "texts": [{ "plain": "Ду", "ipa": "du", "gloss": "1.SG" }],
           "transition": "next",
-          "conditions": { "subject": { "singular": true } }
+          "conditions": { "subject": { "singular": true } },
+          "implicit": true
         },
         {
           "texts": [{ "plain": "Нисса", "ipa": "nisːɑ", "gloss": "1.PL.EXCL" }],
           "transition": "next",
-          "conditions": { "subject": { "plural": true } }
+          "conditions": { "subject": { "plural": true } },
+          "implicit": true
         }
       ],
       [
