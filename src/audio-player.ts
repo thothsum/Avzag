@@ -38,6 +38,7 @@ function play(lect: string, files: string[], key?: string) {
   state.timer = setInterval(seek, 50);
 
   state.queue = files
+    .filter((f) => f)
     .map((f) => [lect ? url(lect, f) : f])
     .map((src, i) => {
       const track = {

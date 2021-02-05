@@ -29,14 +29,21 @@
       <EditorCard icon="miscellaneous_services" header="miscellaneous">
         <template #header>
           <div class="row">
-            <input
-              v-model="state.audio"
-              type="text"
-              placeholder="audio filename override"
+            <btn
+              icon="music_off"
+              :is-on="state.audio === null"
+              @click="state.audio = state.audio === null ? '' : null"
             />
-            <toggle v-if="state" v-model="state.implicit" icon="opacity" />
+            <toggle v-model="state.implicit" icon="opacity" />
+            <toggle v-model="state.noSpace" icon="compress" />
           </div>
         </template>
+        <input
+          v-if="state.audio !== null"
+          v-model="state.audio"
+          type="text"
+          placeholder="audio filename override, by default - plain text value"
+        />
       </EditorCard>
     </template>
   </div>

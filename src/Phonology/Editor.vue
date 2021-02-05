@@ -17,14 +17,12 @@
     </EditorCard>
     <div v-if="phoneme" class="col-2 small">
       <EditorCard icon="hearing" header="Phoneme">
-        <template #header>
-          <input
-            v-model="phoneme.phoneme"
-            type="text"
-            class="text-ipa"
-            placeholder="phoneme"
-          />
-        </template>
+        <input
+          v-model="phoneme.phoneme"
+          type="text"
+          class="text-ipa"
+          placeholder="phoneme"
+        />
       </EditorCard>
       <NotesEditor v-model="phoneme.notes">
         You can add notes to clarify certain use cases or to give some

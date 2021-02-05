@@ -50,8 +50,9 @@ export default defineComponent({
     const text = computed(() =>
       vblocks
         .filter(({ state }) => state)
-        .map(({ text }) => text)
-        .join(" ")
+        .map(({ text, state }) => (state?.noSpace ? "" : " ") + text)
+        .join("")
+        .trim()
     );
     function copy() {
       navigator.clipboard.writeText(text.value);
@@ -64,12 +65,15 @@ export default defineComponent({
           player.play(
             props.lect,
             vblocks
-              .map(
-                ({ state }) =>
-                  state?.audio ??
-                  state?.texts.map(({ plain }) => plain)?.join("")
+              .map(({ state }) =>
+                state?.audio === null
+                  ? null
+                  : state?.audio ??
+                    state?.texts.map(({ plain }) => plain)?.join("")
               )
-              .map((p) => `phrasebook/${phrase.value?.id}/${p ?? ""}`)
+              .map((p) =>
+                p === null ? "" : `phrasebook/${phrase.value?.id}/${p ?? ""}`
+              )
           );
         else player.stop();
       },

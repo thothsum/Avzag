@@ -11,7 +11,8 @@ export type State = {
   transition: Transition;
   texts: Text[];
   implicit?: boolean;
-  audio?: string;
+  audio?: null | string;
+  noSpace?: boolean;
 };
 export type BlockSnapshot = {
   text: string;
