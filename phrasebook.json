@@ -6,7 +6,12 @@
       {
         "id": "94f9e79a-c01b-40de-a493-8eadfc499ca7",
         "name": "Hello.",
-        "context": [{ "entity": "person", "tags": ["singular", "plural"] }],
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural", "male", "female"]
+          }
+        ],
         "blocks": [[{ "texts": [{ "plain": "Hello." }], "conditions": {} }]]
       },
       {
