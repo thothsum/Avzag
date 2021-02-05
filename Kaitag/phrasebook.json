@@ -355,12 +355,6 @@
       ],
       [
         {
-          "texts": [{ "plain": "цӏакьле", "ipa": "t͡sʼɑqʼle", "gloss": "very" }],
-          "conditions": {}
-        }
-      ],
-      [
-        {
           "texts": [
             { "plain": "къугъа", "gloss": "joy", "ipa": "quʁɑ" },
             { "plain": "л", "ipa": "-l", "gloss": "-ADJ" },
