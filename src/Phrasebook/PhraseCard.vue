@@ -35,12 +35,12 @@ import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
 import { Phrase, BlockSnapshot } from "./types";
 import player from "@/audio-player";
-import { phrase } from "./main";
 
 export default defineComponent({
   components: { Context, Block, Notes, Flag, Seeker },
   props: {
     lect: { type: String, default: "" },
+    path: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
   },
   setup(props) {
@@ -74,9 +74,7 @@ export default defineComponent({
                       ?.join("")
                       .toLowerCase()
               )
-              .map((p) =>
-                p === null ? "" : `phrasebook/${phrase.value?.id}/${p ?? ""}`
-              )
+              .map((p) => (p === null ? "" : props.path + (p ?? "")))
           );
         else player.stop();
       },

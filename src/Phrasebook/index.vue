@@ -52,6 +52,7 @@
         v-for="(p, n) of phrasebooks"
         :key="n"
         :lect="n"
+        :path="path"
         :phrase="p[phrase.id]"
       />
     </div>
@@ -80,6 +81,12 @@ export default defineComponent({
 
     const searching = ref(false);
     const query = ref("");
+    const path = computed(() => {
+      const folders = ["phrasebook", section.value?.name, phrase.value?.name];
+      return folders.every((f) => f)
+        ? folders.map((f) => f + "/").join("")
+        : "";
+    });
 
     const phrases = computed(() =>
       searching.value
@@ -107,6 +114,7 @@ export default defineComponent({
       select,
       phrases,
       phrasebooks,
+      path,
     };
   },
 });
