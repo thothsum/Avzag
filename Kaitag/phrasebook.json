@@ -380,30 +380,30 @@
       [
         {
           "texts": [
-            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi" },
-            { "plain": "в", "ipa": "β", "gloss": "M-", "entity": "person" },
+            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi-" },
+            { "plain": "в", "ipa": "β-", "gloss": "M-", "entity": "person" },
             { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
-            { "gloss": "-INF", "plain": "ара", "ipa": "ɑrɑ" }
+            { "gloss": "-INF", "plain": "ара", "ipa": "-ɑrɑ" }
           ],
           "transition": [1],
           "conditions": { "person": { "singular": false, "male": true } }
         },
         {
           "texts": [
-            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi" },
-            { "plain": "р", "ipa": "r", "gloss": "F-", "entity": "person" },
+            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi-" },
+            { "plain": "р", "ipa": "r-", "gloss": "F-", "entity": "person" },
             { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
-            { "gloss": "-INF", "plain": "ара", "ipa": "ɑrɑ" }
+            { "gloss": "-INF", "plain": "ара", "ipa": "-ɑrɑ" }
           ],
           "transition": [0],
           "conditions": { "person": { "singular": false, "female": true } }
         },
         {
           "texts": [
-            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi" },
-            { "plain": "д", "ipa": "dɑ", "gloss": "PL-", "entity": "person" },
+            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi-" },
+            { "plain": "д", "ipa": "dɑ-", "gloss": "PL-", "entity": "person" },
             { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
-            { "gloss": "-INF", "plain": "ара", "ipa": "ɑrɑ" }
+            { "gloss": "-INF", "plain": "ара", "ipa": "-ɑrɑ" }
           ],
           "conditions": { "person": { "plural": false } }
         }
@@ -424,8 +424,8 @@
         {
           "texts": [
             { "plain": "Цигле", "ipa": "t͡sigle", "gloss": "how" },
-            { "plain": "де", "gloss": "-2.SG", "ipa": "de" },
-            { "plain": "й", "gloss": "-Q", "ipa": "j" }
+            { "plain": "де", "gloss": "-2.SG", "ipa": "-e" },
+            { "plain": "й", "gloss": "-Q", "ipa": "-j" }
           ],
           "transition": "next",
           "conditions": { "person": { "singular": true } }
@@ -433,8 +433,8 @@
         {
           "texts": [
             { "plain": "Цигле", "ipa": "t͡sigle", "gloss": "how" },
-            { "plain": "да", "gloss": "-2.PL", "ipa": "dɑ" },
-            { "plain": "й", "gloss": "-Q", "ipa": "j" }
+            { "plain": "да", "gloss": "-2.PL", "ipa": "-dɑ" },
+            { "plain": "й", "gloss": "-Q", "ipa": "-j" }
           ],
           "transition": "next",
           "conditions": { "person": { "plural": true } }
@@ -473,8 +473,8 @@
         {
           "texts": [
             { "plain": "гӏяхӏ", "gloss": "good", "ipa": "ʡɑˤħ" },
-            { "plain": "ле", "ipa": "le", "gloss": "-ADJ" },
-            { "plain": "да", "gloss": "-1.SG", "ipa": "dɑ" }
+            { "plain": "ле", "ipa": "-le", "gloss": "-ADJ" },
+            { "plain": "да", "gloss": "-1.SG", "ipa": "-dɑ" }
           ],
           "conditions": {}
         }
@@ -510,7 +510,7 @@
         {
           "texts": [
             { "plain": "цигле", "ipa": "t͡sigle", "gloss": "how" },
-            { "plain": "й", "ipa": "j", "gloss": "-Q" }
+            { "plain": "й", "ipa": "-j", "gloss": "-Q" }
           ],
           "conditions": {}
         }
