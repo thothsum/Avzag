@@ -28,34 +28,61 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Дæ" }],
+          "texts": [
+            { "plain": "Дæ", "entity": "person" },
+            { "plain": "ра̀йсом" }
+          ],
           "transition": "next",
-          "conditions": { "person": { "singular": true } }
+          "conditions": {
+            "person": { "singular": true },
+            "time": { "morning": true }
+          }
         },
         {
-          "texts": [{ "plain": "Уæ" }],
+          "texts": [{ "plain": "Дæ", "entity": "person" }, { "plain": "бон" }],
           "transition": "next",
-          "conditions": { "person": { "plural": true } }
+          "conditions": {
+            "person": { "singular": true },
+            "time": { "day": true }
+          }
+        },
+        {
+          "texts": [{ "plain": "Дѐ", "entity": "person" }, { "plain": "’зæр" }],
+          "transition": "next",
+          "conditions": {
+            "person": { "singular": true },
+            "time": { "evening": true }
+          }
+        },
+        {
+          "texts": [
+            { "plain": "Уæ", "entity": "person" },
+            { "plain": "ра̀йсом" }
+          ],
+          "transition": "next",
+          "conditions": {
+            "person": { "plural": true },
+            "time": { "morning": true }
+          }
+        },
+        {
+          "texts": [{ "plain": "Уæ", "entity": "person" }, { "plain": "бо̀н" }],
+          "transition": "next",
+          "conditions": {
+            "person": { "plural": true },
+            "time": { "day": true }
+          }
+        },
+        {
+          "texts": [{ "plain": "Уѐ", "entity": "person" }, { "plain": "’зæр" }],
+          "transition": "next",
+          "conditions": {
+            "person": { "plural": true },
+            "time": { "evening": true }
+          }
         }
       ],
-      [
-        {
-          "texts": [{ "plain": "ра̀йсом" }],
-          "transition": "next",
-          "conditions": { "time": { "morning": true } }
-        },
-        {
-          "texts": [{ "plain": "бон" }],
-          "transition": "next",
-          "conditions": { "time": { "day": true } }
-        },
-        {
-          "texts": [{ "plain": "изæр" }],
-          "transition": "next",
-          "conditions": { "time": { "evening": true } }
-        }
-      ],
-      [{ "texts": [{ "plain": "хорз" }], "conditions": {} }],
+      [{ "texts": [{ "plain": "хо̀рз" }], "conditions": {} }],
       [
         {
           "texts": [{ "plain": "!" }],
@@ -65,5 +92,7 @@
         }
       ]
     ]
-  }
+  },
+  "7068a2cd-3897-4737-9435-87f655d1c71d": { "blocks": [] },
+  "11290a1d-ca8b-468d-9b63-6bf83f5b477a": { "blocks": [] }
 }
