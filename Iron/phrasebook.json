@@ -103,12 +103,12 @@
           "conditions": { "recipient": { "family": true } }
         },
         {
-          "texts": [{ "plain": "Æмбæлттæн" }],
+          "texts": [{ "plain": "Æмбæлттæниу" }],
           "transition": "next",
           "conditions": { "recipient": { "friends": true } }
         },
         {
-          "texts": [{ "plain": "Михаилæн" }],
+          "texts": [{ "plain": "Михаилæниу" }],
           "transition": "next",
           "conditions": { "recipient": { "name": true } }
         }
