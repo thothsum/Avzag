@@ -262,7 +262,7 @@
       ],
       [
         {
-          "texts": [{ "plain": "Дæумæ̀та̀" }],
+          "texts": [{ "plain": "Дæумæ̀та" }],
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
