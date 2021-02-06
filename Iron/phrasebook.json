@@ -1,0 +1,69 @@
+{
+  "94f9e79a-c01b-40de-a493-8eadfc499ca7": {
+    "blocks": [
+      [{ "texts": [{ "plain": "Дзæбæ̀х" }], "conditions": {} }],
+      [
+        {
+          "texts": [{ "plain": "у̀" }],
+          "transition": "next",
+          "conditions": { "person": { "singular": true } }
+        },
+        {
+          "texts": [{ "plain": "у̀т" }],
+          "transition": "next",
+          "conditions": { "person": { "plural": true } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "!" }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "6b741253-a925-4e1f-8679-f9c627b3b5cb": {
+    "blocks": [
+      [
+        {
+          "texts": [{ "plain": "Дæ" }],
+          "transition": "next",
+          "conditions": { "person": { "singular": true } }
+        },
+        {
+          "texts": [{ "plain": "Уæ" }],
+          "transition": "next",
+          "conditions": { "person": { "plural": true } }
+        }
+      ],
+      [
+        {
+          "texts": [{ "plain": "ра̀йсом" }],
+          "transition": "next",
+          "conditions": { "time": { "morning": true } }
+        },
+        {
+          "texts": [{ "plain": "бон" }],
+          "transition": "next",
+          "conditions": { "time": { "day": true } }
+        },
+        {
+          "texts": [{ "plain": "изæр" }],
+          "transition": "next",
+          "conditions": { "time": { "evening": true } }
+        }
+      ],
+      [{ "texts": [{ "plain": "хорз" }], "conditions": {} }],
+      [
+        {
+          "texts": [{ "plain": "!" }],
+          "conditions": {},
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  }
+}
