@@ -165,7 +165,7 @@
           "conditions": { "time": { "tomorrow": true } }
         }
       ],
-      [{ "texts": [{ "plain": "!" }], "transition": "next", "conditions": {} }]
+      [{ "texts": [{ "plain": "!" }], "conditions": {} }]
     ]
   },
   "4df5ef4a-ab55-44fb-887e-5606f271be15": {
