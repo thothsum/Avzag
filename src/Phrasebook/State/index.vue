@@ -82,6 +82,9 @@ export default defineComponent({
   }
 }
 .segments {
+  :not(.text-ipa) {
+    font-family: sans-serif !important;
+  }
   display: flex;
   flex-direction: column;
   p {
