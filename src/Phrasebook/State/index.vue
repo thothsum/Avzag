@@ -82,13 +82,13 @@ export default defineComponent({
   }
 }
 .segments {
-  :not(.text-ipa) {
-    font-family: sans-serif !important;
-  }
   display: flex;
   flex-direction: column;
   p {
     display: flex;
+    &:not(.text-plain) > :not(:last-child)::after {
+      content: "-";
+    }
   }
 }
 .dashes {
