@@ -7,7 +7,7 @@ to be done...
 ## Contacts
 
 [Magomed](https://twitter.com/alkaitagi) - technical issues.  
-[Azamat](https://twitter.com/alkaitagi) - language contents.  
+[Azamat](https://twitter.com/ABirmamit) - language contents.  
 Telegram [channel](https://t.me/avzag) with announcements.
 
 ## Credits
