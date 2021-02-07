@@ -3,34 +3,34 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Дэ" }],
+          "text": { "plain": "Дэ" },
           "transition": "next",
           "conditions": { "actor": { "plural": true } }
         },
         {
-          "texts": [{ "plain": "Сэ" }],
+          "text": { "plain": "Сэ" },
           "transition": "next",
           "conditions": { "actor": { "singular": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "тыкуэным" }],
+          "text": { "plain": "тыкуэным" },
           "transition": "next",
           "conditions": { "destination": { "shop": true } }
         },
         {
-          "texts": [{ "plain": "унэм" }],
+          "text": { "plain": "унэм" },
           "transition": [2, 3],
           "conditions": { "destination": { "home": true } }
         },
         {
-          "texts": [{ "plain": "абы" }],
+          "text": { "plain": "абы" },
           "transition": [0],
           "conditions": { "destination": { "there": true } }
         },
         {
-          "texts": [{ "plain": "абы" }, { "plain": "кӏэ", "entity": "tense" }],
+          "text": { "plain": "абыкӏэ" },
           "transition": [0],
           "conditions": {
             "tense": { "present": false },
@@ -40,63 +40,48 @@
       ],
       [
         {
-          "texts": [{ "plain": "дэпщэщ" }],
+          "text": { "plain": "дэпщэщ" },
           "transition": "next",
           "conditions": { "tense": { "future": true } }
         },
         {
-          "texts": [{ "plain": "дау" }],
+          "text": { "plain": "дау" },
           "transition": "next",
           "conditions": { "tense": { "present": true } }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "ды", "entity": "actor" },
-            { "plain": "зэры", "entity": "tense" },
-            { "plain": "кӏуэныр" }
-          ],
+          "text": { "plain": "дызэрыкӏуэныр" },
           "conditions": {
             "tense": { "present": false },
             "actor": { "plural": false }
           }
         },
         {
-          "texts": [
-            { "plain": "сы", "entity": "actor" },
-            { "plain": "зэры", "entity": "tense" },
-            { "plain": "кӏуэныр" }
-          ],
+          "text": { "plain": "сызэрыкӏуэныр" },
           "conditions": {
             "tense": { "present": false },
             "actor": { "singular": false }
           }
         },
         {
-          "texts": [
-            { "plain": "ды", "entity": "actor" },
-            { "plain": "щы", "entity": "tense" },
-            { "plain": "кӏуэныр" }
-          ],
+          "text": { "plain": "дыщыкӏуэныр" },
+
           "conditions": {
             "tense": { "future": false },
             "actor": { "plural": false }
           }
         },
         {
-          "texts": [
-            { "plain": "сы", "entity": "actor" },
-            { "plain": "щы", "entity": "tense" },
-            { "plain": "кӏуэныр" }
-          ],
+          "text": { "plain": "сыщыкӏуэныр" },
           "conditions": {
             "tense": { "future": false },
             "actor": { "singular": false }
           }
         }
       ],
-      [{ "texts": [{ "plain": "?" }], "conditions": {} }]
+      [{ "text": { "plain": "?" }, "conditions": {} }]
     ],
     "context": {
       "tense": {},

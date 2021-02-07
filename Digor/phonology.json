@@ -32,7 +32,7 @@
     {
         "phoneme": "e",
         "notes": [
-            "<э> is used only in recent Russian loanwords."
+            "*э* is used only in recent Russian loanwords."
         ],
         "samples": [
             {
@@ -98,7 +98,7 @@
     {
         "phoneme": "b",
         "notes": [
-            "Only when <б> is in the last position."
+            "Only when *б* is in the last position."
         ],
         "samples": [
             {
@@ -179,7 +179,7 @@
     {
         "phoneme": "tʰ",
         "notes": [
-            "Only when <д> is in the last position."
+            "Only when *д* is in the last position."
         ],
         "samples": [
             {
@@ -237,7 +237,7 @@
             },
             {
                 "grapheme": "г",
-                "word": "сил*г*оймаг",
+                "word": "сил^г^оймаг",
                 "ipa": "silgojmakʰ"
             }
         ]
@@ -263,7 +263,7 @@
     {
         "phoneme": "kʰ",
         "notes": [
-            "Only when <г> is in the last position."
+            "Only when *г* is in the last position."
         ],
         "samples": [
             {
@@ -428,7 +428,7 @@
     {
         "phoneme": "f",
         "notes": [
-            "Only when <в> is in the last position."
+            "Only when *в* is in the last position."
         ],
         "samples": [
             {
@@ -499,7 +499,7 @@
     {
         "phoneme": "χ",
         "notes": [
-            "Only when <гъ> is in the last position."
+            "Only when *гъ* is in the last position."
         ],
         "samples": [
             {
@@ -577,7 +577,7 @@
         "phoneme": "s",
         "notes": [
             "Palatalized into /ʃ/ before /i/, /e/ in Chikola speech.",
-            "Only when <з> is in the last position."
+            "Only when *з* is in the last position."
         ],
         "samples": [
             {

@@ -1,37 +1,27 @@
 {
   "94f9e79a-c01b-40de-a493-8eadfc499ca7": {
     "blocks": [
-      [{ "texts": [{ "plain": "Дзæбæ̀х" }], "conditions": {} }],
+      [{ "text": { "plain": "Дзæб*æ*х" } }],
       [
         {
-          "texts": [{ "plain": "у̀" }],
+          "text": { "plain": "*у*" },
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "у̀т" }],
+          "text": { "plain": "*у*т" },
           "transition": "next",
           "conditions": { "person": { "plural": true } }
         }
       ],
-      [
-        {
-          "texts": [{ "plain": "!" }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ]
+      [{ "text": { "plain": "!" }, "audio": null, "noSpace": true }]
     ]
   },
   "6b741253-a925-4e1f-8679-f9c627b3b5cb": {
     "blocks": [
       [
         {
-          "texts": [
-            { "plain": "Дæ", "entity": "person" },
-            { "plain": "ра̀йсом" }
-          ],
+          "text": { "plain": "Дæр*а*йсом" },
           "transition": "next",
           "conditions": {
             "person": { "singular": true },
@@ -39,7 +29,7 @@
           }
         },
         {
-          "texts": [{ "plain": "Дæ", "entity": "person" }, { "plain": "бо̀н" }],
+          "text": { "plain": "Дæб*о*н" },
           "transition": "next",
           "conditions": {
             "person": { "singular": true },
@@ -47,7 +37,7 @@
           }
         },
         {
-          "texts": [{ "plain": "Дѐ", "entity": "person" }, { "plain": "’зæр" }],
+          "text": { "plain": "Д*е*’зæр" },
           "transition": "next",
           "conditions": {
             "person": { "singular": true },
@@ -55,10 +45,7 @@
           }
         },
         {
-          "texts": [
-            { "plain": "Уæ", "entity": "person" },
-            { "plain": "ра̀йсом" }
-          ],
+          "text": { "plain": "Уæр*а*йсом" },
           "transition": "next",
           "conditions": {
             "person": { "plural": true },
@@ -66,7 +53,7 @@
           }
         },
         {
-          "texts": [{ "plain": "Уæ", "entity": "person" }, { "plain": "бо̀н" }],
+          "text": { "plain": "Уæб*о*н" },
           "transition": "next",
           "conditions": {
             "person": { "plural": true },
@@ -74,7 +61,7 @@
           }
         },
         {
-          "texts": [{ "plain": "Уѐ", "entity": "person" }, { "plain": "’зæр" }],
+          "text": { "plain": "Уе’з*æ*р" },
           "transition": "next",
           "conditions": {
             "person": { "plural": true },
@@ -82,15 +69,8 @@
           }
         }
       ],
-      [{ "texts": [{ "plain": "хо̀рз" }], "conditions": {} }],
-      [
-        {
-          "texts": [{ "plain": "!" }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ]
+      [{ "text": { "plain": "х*о*рз" } }],
+      [{ "text": { "plain": "!" }, "audio": null, "noSpace": true }]
     ]
   },
   "7068a2cd-3897-4737-9435-87f655d1c71d": { "blocks": [] },
@@ -98,188 +78,132 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Бѝнонтæниу" }],
+          "text": { "plain": "Б*и*нонтæниу" },
           "transition": "next",
           "conditions": { "recipient": { "family": true } }
         },
         {
-          "texts": [{ "plain": "Æмбæлттæниу" }],
+          "text": { "plain": "Æмб*æ*лттæниу" },
           "transition": "next",
           "conditions": { "recipient": { "friends": true } }
         },
         {
-          "texts": [{ "plain": "Михаилæниу" }],
+          "text": { "plain": "Миха*и*лæниу" },
           "transition": "next",
           "conditions": { "recipient": { "name": true } }
         }
       ],
-      [{ "texts": [{ "plain": "салæ̀мттæ" }], "conditions": {} }],
-      [{ "texts": [{ "plain": "ра̀тт" }], "conditions": {} }],
-      [
-        {
-          "texts": [{ "plain": "!" }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ]
+      [{ "text": { "plain": "сал*æ*мттæ" } }],
+      [{ "text": { "plain": "р*а*тт" } }],
+      [{ "text": { "plain": "!" }, "audio": null, "noSpace": true }]
     ]
   },
   "59b630b6-0415-42d3-80c0-c724207dc10c": {
     "blocks": [
-      [{ "texts": [{ "plain": "Фѐмбæдмæ" }], "conditions": {} }],
-      [
-        {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
-          "noSpace": true,
-          "audio": null
-        }
-      ]
+      [{ "text": { "plain": "Ф*е*мбæдмæ" } }],
+      [{ "text": { "plain": "." }, "noSpace": true, "audio": null }]
     ]
   },
   "8c75a252-3bdf-4b50-91d1-31b02fe74967": {
     "blocks": [
-      [{ "texts": [{ "plain": "Хæрзæ̀хсæв" }], "conditions": {} }],
-      [
-        {
-          "texts": [{ "plain": "!" }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ]
+      [{ "text": { "plain": "Хæрз*æ*хсæв" } }],
+      [{ "text": { "plain": "!" }, "audio": null, "noSpace": true }]
     ]
   },
   "681cf96a-ca04-4b20-83ac-8fb3d9082ed0": {
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Фѐмбæлдзыстæм" }],
+          "text": { "plain": "Ф*е*мбæлдзыстæм" },
           "transition": "next",
           "conditions": { "time": { "later": true } }
         },
         {
-          "texts": [{ "plain": "Ра̀йсоммæ" }],
+          "text": { "plain": "Р*а*йсоммæ" },
           "transition": "next",
           "conditions": { "time": { "tomorrow": true } }
         }
       ],
-      [{ "texts": [{ "plain": "!" }], "conditions": {} }]
+      [{ "text": { "plain": "!" } }]
     ]
   },
   "4df5ef4a-ab55-44fb-887e-5606f271be15": {
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Æхсы̀згонмыну" }],
+          "text": { "plain": "Æхс*ы*згонмыну" },
           "transition": "next",
           "conditions": { "subject": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "Æхсы̀згонныну" }],
+          "text": { "plain": "Æхс*ы*згонныну" },
           "transition": "next",
           "conditions": { "subject": { "plural": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "дæфѐнд" }],
+          "text": { "plain": "дæф*е*нд" },
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "уæфѐнд" }],
+          "text": { "plain": "уæф*е*нд" },
           "transition": "next",
           "conditions": { "person": { "plural": true } }
         }
       ],
-      [
-        {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ]
+      [{ "text": { "plain": "." }, "audio": null, "noSpace": true }]
     ]
   },
   "36c1507b-72ed-4c81-8fbb-6f290d54fac5": {
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Куыдтæ̀дæ" }],
+          "text": { "plain": "Куыдт*æ*дæ" },
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "Куыдтæ̀стут" }],
+          "text": { "plain": "Куыдт*æ*стут" },
           "transition": "next",
           "conditions": { "person": { "plural": true } }
         }
       ],
-      [
-        {
-          "texts": [{ "plain": "?" }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ]
+      [{ "text": { "plain": "?" }, "audio": null, "noSpace": true }]
     ]
   },
   "7f71c61d-b9f6-46e0-888d-eb15b7b04646": {
     "blocks": [
       [
         {
-          "texts": [{ "plain": "А̀лцыдæрмæм" }],
+          "text": { "plain": "Алцыдæрмæм" },
           "transition": "next",
           "conditions": { "subject": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "А̀лцыдæрнæм" }],
+          "text": { "plain": "Алцыдæрнæм" },
           "transition": "next",
           "conditions": { "subject": { "plural": true } }
         }
       ],
-      [{ "texts": [{ "plain": "дзæбæ̀ху" }], "conditions": {} }],
+      [{ "text": { "plain": "дзæб*æ*ху" } }],
+      [{ "text": { "plain": "," }, "audio": null, "noSpace": true }],
+      [{ "text": { "plain": "б*у*зныг" } }],
+      [{ "text": { "plain": "." }, "audio": null, "noSpace": true }],
       [
         {
-          "texts": [{ "plain": "," }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ],
-      [{ "texts": [{ "plain": "бу̀зныг" }], "conditions": {} }],
-      [
-        {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ],
-      [
-        {
-          "texts": [{ "plain": "Дæумæ̀та" }],
+          "text": { "plain": "Дæум*æ*та" },
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "Сыма̀хмæта" }],
+          "text": { "plain": "Сым*а*хмæта" },
           "transition": "next",
           "conditions": { "person": { "plural": true } }
         }
       ],
-      [
-        {
-          "texts": [{ "plain": "?" }],
-          "conditions": {},
-          "audio": null,
-          "noSpace": true
-        }
-      ]
+      [{ "text": { "plain": "?" }, "audio": null, "noSpace": true }]
     ]
   }
 }

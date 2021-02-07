@@ -3,74 +3,64 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Цикъкъел", "ipa": "t͡siqːel", "gloss": "when" }],
+          "text": { "plain": "Цикъкъел", "ipa": "t͡siqːel", "glossed": "when" },
           "transition": "next",
           "conditions": { "tense": { "future": true } }
         },
         {
-          "texts": [{ "plain": "Цигле" }],
+          "text": { "plain": "Цигле" },
           "transition": "next",
           "conditions": { "tense": { "present": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "нисса" }],
+          "text": { "plain": "нисса" },
           "transition": "next",
           "conditions": { "actor": { "plural": true } }
         },
         {
-          "texts": [{ "plain": "ду" }],
+          "text": { "plain": "ду" },
           "transition": "next",
           "conditions": { "actor": { "singular": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "гьетин" }],
+          "text": { "plain": "гьетин" },
           "transition": "next",
           "conditions": { "destination": { "there": true } }
         },
         {
-          "texts": [{ "plain": "хъили" }],
+          "text": { "plain": "хъили" },
           "transition": "next",
           "conditions": { "destination": { "home": true } }
         },
         {
-          "texts": [{ "plain": "тукенцци" }],
+          "text": { "plain": "тукенцци" },
           "transition": "next",
           "conditions": { "destination": { "shop": true } }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "д", "entity": "actor" },
-            { "plain": "янилдай" }
-          ],
+          "text": { "plain": "дянилдай" },
           "conditions": { "actor": { "plural": false } }
         },
         {
-          "texts": [
-            { "plain": "р", "entity": "actor" },
-            { "plain": "янилдай" }
-          ],
+          "text": { "plain": "рянилдай" },
           "transition": [2],
           "conditions": { "actor": { "feminine": true, "singular": false } }
         },
         {
-          "texts": [
-            { "plain": "в", "entity": "actor" },
-            { "plain": "янилдай" }
-          ],
+          "text": { "plain": "вянилдай" },
           "transition": [1],
           "conditions": { "actor": { "singular": false, "masculine": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "?" }],
-          "conditions": {},
+          "text": { "plain": "?" },
           "implicit": false,
           "audio": null,
           "noSpace": true
@@ -82,54 +72,54 @@
     "blocks": [
       [
         {
-          "texts": [
-            { "plain": "Кулпет", "gloss": "family", "ipa": "kulpet" },
-            { "plain": "и", "gloss": "-DIR", "ipa": "-i" }
-          ],
+          "text": {
+            "plain": "Кулпети",
+            "ipa": "kulpet-i",
+            "glossed": "family-DIR"
+          },
           "transition": "next",
           "conditions": { "recipient": { "family": true } }
         },
         {
-          "texts": [
-            { "plain": "Уртакъ", "gloss": "friend", "ipa": "urtɑq" },
-            { "plain": "къа", "ipa": "-qɑ", "gloss": "-PL" },
-            { "ipa": "-j", "plain": "й", "gloss": "-DIR" }
-          ],
+          "text": {
+            "plain": "Уртакъкъай",
+            "ipa": "urtɑqːɑj",
+            "glossed": "friend-PL-DIR"
+          },
           "transition": "next",
           "conditions": { "recipient": { "friends": true } }
         },
         {
-          "texts": [
-            { "plain": "Микӏаил", "gloss": "Michael", "ipa": "mikʼail" },
-            { "plain": "жи", "gloss": "-DIR", "ipa": "-ʒi" }
-          ],
+          "text": {
+            "plain": "Микӏаилжи",
+            "glossed": "Michael-DIR",
+            "ipa": "mikʼail-ʒi"
+          },
           "transition": "next",
           "conditions": { "recipient": { "name": true } }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "салам", "ipa": "sɑlɑm", "gloss": "greet" },
-            { "plain": "те", "ipa": "-te", "gloss": "-PL" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "саламте",
+            "ipa": "sɑlɑm-te",
+            "glossed": "greet-PL"
+          }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "д", "ipa": "d-", "gloss": "PL-" },
-            { "plain": "урс", "gloss": "tell", "ipa": "urs" },
-            { "plain": "а", "gloss": "-2.IMP", "ipa": "-ɑ" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "дурса",
+            "ipa": "d-urs-ɑ",
+            "glossed": "PL-tell-2.IMP"
+          }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "audio": null,
           "noSpace": true
         }
@@ -140,13 +130,13 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "И", "gloss": "2.SG", "ipa": "ʔi" }],
+          "text": { "plain": "И", "glossed": "2.SG", "ipa": "ʔi" },
           "transition": "next",
           "conditions": { "person": { "singular": true } },
           "implicit": true
         },
         {
-          "texts": [{ "plain": "Нишша", "gloss": "2.PL", "ipa": "niʃːɑ" }],
+          "text": { "plain": "Нишша", "glossed": "2.PL", "ipa": "niʃːɑ" },
           "transition": "next",
           "conditions": { "person": { "plural": true } },
           "implicit": true
@@ -154,42 +144,35 @@
       ],
       [
         {
-          "texts": [
-            { "plain": "в", "ipa": "β", "gloss": "M-", "entity": "person" },
-            { "plain": "алгь", "gloss": "?", "ipa": "ɑlh" },
-            { "plain": "ун", "ipa": "un", "gloss": "-PST" },
-            { "plain": "де", "ipa": "de", "gloss": "-2.SG" },
-            { "plain": "в", "ipa": "β", "gloss": "-Q" }
-          ],
+          "text": {
+            "plain": "валгьундев",
+            "glossed": "M-?-PST-2.SG-Q",
+            "ipa": "β-ɑlh-un-de-β"
+          },
           "transition": [1],
           "conditions": { "person": { "singular": false, "male": true } }
         },
         {
-          "texts": [
-            { "plain": "р", "ipa": "r", "gloss": "F-", "entity": "person" },
-            { "plain": "алгь", "gloss": "?", "ipa": "ɑlh" },
-            { "plain": "ун", "ipa": "un", "gloss": "-PST" },
-            { "plain": "де", "ipa": "de", "gloss": "-2.SG" },
-            { "plain": "в", "ipa": "β", "gloss": "-Q" }
-          ],
+          "text": {
+            "plain": "ралгьундев",
+            "glossed": "F-?-PST-2.SG-Q",
+            "ipa": "r-ɑlh-un-de-β"
+          },
           "transition": [0],
           "conditions": { "person": { "singular": false, "female": true } }
         },
         {
-          "texts": [
-            { "plain": "д", "ipa": "d", "gloss": "PL-", "entity": "person" },
-            { "plain": "алгь", "gloss": "?", "ipa": "ɑlh" },
-            { "plain": "ун", "ipa": "un", "gloss": "-PST" },
-            { "plain": "да", "ipa": "dɑ", "gloss": "-2.PL" },
-            { "plain": "в", "ipa": "β", "gloss": "-Q" }
-          ],
+          "text": {
+            "plain": "далгьундев",
+            "glossed": "P-?-PST-2.SG-Q",
+            "ipa": "d-ɑlh-un-de-β"
+          },
           "conditions": { "person": { "plural": false } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "noSpace": true,
           "audio": null
         }
@@ -200,39 +183,34 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Гӏяхӏ", "gloss": "good", "ipa": "ʡɑˤħ" }],
-          "conditions": {}
+          "text": { "plain": "Гӏяхӏ", "glossed": "good", "ipa": "ʡɑˤħ" }
         }
       ],
       [
         {
-          "texts": [{ "plain": "чирка", "ipa": "t͡ʃirkɑ", "gloss": "morning" }],
+          "text": { "plain": "чирка", "ipa": "t͡ʃirkɑ", "glossed": "morning" },
           "transition": "next",
           "conditions": { "time": { "morning": true } }
         },
         {
-          "texts": [{ "plain": "баре", "ipa": "bɑre", "gloss": "day" }],
+          "text": { "plain": "баре", "ipa": "bɑre", "glossed": "day" },
           "transition": "next",
           "conditions": { "time": { "day": true } }
         },
         {
-          "texts": [{ "plain": "нисна", "ipa": "nisnɑ", "gloss": "evening" }],
+          "text": { "plain": "нисна", "ipa": "nisnɑ", "glossed": "evening" },
           "transition": "next",
           "conditions": { "time": { "evening": true } }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "бигьав", "ipa": "bihɑβ", "gloss": "let-it-be" }
-          ],
-          "conditions": {}
+          "text": { "plain": "бигьав", "ipa": "bihɑβ", "glossed": "let.it.be" }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "audio": null,
           "noSpace": true
         }
@@ -244,25 +222,25 @@
     "blocks": [
       [
         {
-          "texts": [
-            { "plain": "Гӏяхӏле", "gloss": "good.ADV", "ipa": "ʡɑˤħle" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "Гӏяхӏле",
+            "glossed": "good.ADV",
+            "ipa": "ʡɑˤħle"
+          }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "калга", "ipa": "kɑlgɑ", "gloss": "stay" },
-            { "gloss": "-2", "ipa": "-be", "plain": "бе" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "калгаbe",
+            "ipa": "kɑlgɑ-be",
+            "glossed": "stay-2"
+          }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "audio": null,
           "noSpace": true
         }
@@ -273,27 +251,25 @@
     "blocks": [
       [
         {
-          "texts": [
-            { "plain": "Дярххя", "ipa": "dɑˤrχːɑˤ", "gloss": "night.ADV" },
-            { "plain": "-дучче", "ipa": "-dut͡ʃːe", "gloss": "-night" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "Дярххя-дучче",
+            "ipa": "dɑˤrχːɑˤ-dut͡ʃːe",
+            "glossed": "night.ADV-night"
+          }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "гӏяхӏ", "ipa": "ʡɑˤħ", "gloss": "good.ADJ" },
-            { "plain": "д", "gloss": "-PL", "ipa": "-d" },
-            { "plain": "игьав", "gloss": "-let-it-be", "ipa": "-ihɑβ" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "гӏяхӏдигьав",
+            "ipa": "ʡɑˤħ-d-ihɑβ",
+            "glossed": "good.ADJ-PL-let.it.be"
+          }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "audio": null,
           "noSpace": true
         }
@@ -304,35 +280,32 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Цӏил", "ipa": "t͡sʼil", "gloss": "then" }],
+          "text": { "plain": "Цӏил", "ipa": "t͡sʼil", "glossed": "then" },
           "conditions": { "time": { "later": true } },
           "transition": "next"
         },
         {
-          "texts": [
-            { "plain": "Гъурш", "ipa": "ʁurʃ", "gloss": "tomorrow" },
-            { "gloss": "-GEN", "ipa": "-lɑ", "plain": "ла" }
-          ],
+          "text": {
+            "plain": "Гъуршла",
+            "ipa": "ʁurʃ-lɑ",
+            "glossed": "tomorrow-GEN"
+          },
           "transition": "next",
           "conditions": { "time": { "tomorrow": true } }
         }
       ],
       [
         {
-          "texts": [
-            {
-              "plain": "чидаганда",
-              "ipa": "t͡ʃidɑgɑndɑ",
-              "gloss": "we-will-see"
-            }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "чидаганда",
+            "ipa": "t͡ʃidɑgɑndɑ",
+            "glossed": "we.will.see"
+          }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "audio": null,
           "noSpace": true
         }
@@ -343,13 +316,13 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Ду", "ipa": "du", "gloss": "1.SG" }],
+          "text": { "plain": "Ду", "ipa": "du", "glossed": "1.SG" },
           "transition": "next",
           "conditions": { "subject": { "singular": true } },
           "implicit": true
         },
         {
-          "texts": [{ "plain": "Нисса", "ipa": "nisːɑ", "gloss": "1.PL.EXCL" }],
+          "text": { "plain": "Нисса", "ipa": "nisːɑ", "glossed": "1.PL.EXCL" },
           "transition": "next",
           "conditions": { "subject": { "plural": true } },
           "implicit": true
@@ -357,61 +330,56 @@
       ],
       [
         {
-          "texts": [
-            { "plain": "къугъа", "gloss": "joy", "ipa": "quʁɑ" },
-            { "plain": "л", "ipa": "-l", "gloss": "-ADJ" },
-            { "plain": "да", "gloss": "-1", "ipa": "-dɑ" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "къугъалда",
+            "glossed": "joy-ADJ-1",
+            "ipa": "quʁɑ-l-dɑ"
+          }
         }
       ],
       [
         {
-          "texts": [{ "plain": "и", "ipa": "ʔi", "gloss": "2.SG" }],
+          "text": { "plain": "и", "ipa": "ʔi", "glossed": "2.SG" },
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "нишша", "ipa": "niʃːɑ", "gloss": "2.PL" }],
+          "text": { "plain": "нишша", "ipa": "niʃːɑ", "glossed": "2.PL" },
           "transition": "next",
           "conditions": { "person": { "plural": true } }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi-" },
-            { "plain": "в", "ipa": "β-", "gloss": "M-", "entity": "person" },
-            { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
-            { "gloss": "-INF", "plain": "ара", "ipa": "-ɑrɑ" }
-          ],
+          "text": {
+            "plain": "чивагара",
+            "glossed": "above-M-be(?)-INF",
+            "ipa": "t͡ʃi-β-ɑg-ɑrɑ"
+          },
           "transition": [1],
           "conditions": { "person": { "singular": false, "male": true } }
         },
         {
-          "texts": [
-            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi-" },
-            { "plain": "р", "ipa": "r-", "gloss": "F-", "entity": "person" },
-            { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
-            { "gloss": "-INF", "plain": "ара", "ipa": "-ɑrɑ" }
-          ],
+          "text": {
+            "plain": "чирагара",
+            "glossed": "above-F-be(?)-INF",
+            "ipa": "t͡ʃi-r-ɑg-ɑrɑ"
+          },
           "transition": [0],
           "conditions": { "person": { "singular": false, "female": true } }
         },
         {
-          "texts": [
-            { "plain": "чи", "gloss": "above-", "ipa": "t͡ʃi-" },
-            { "plain": "д", "ipa": "dɑ-", "gloss": "PL-", "entity": "person" },
-            { "plain": "аг", "gloss": "be(?)", "ipa": "ɑg" },
-            { "gloss": "-INF", "plain": "ара", "ipa": "-ɑrɑ" }
-          ],
+          "text": {
+            "plain": "чидагара",
+            "glossed": "above-P-be(?)-INF",
+            "ipa": "t͡ʃi-d-ɑg-ɑrɑ"
+          },
           "conditions": { "person": { "plural": false } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "audio": null,
           "noSpace": true
         }
@@ -422,28 +390,27 @@
     "blocks": [
       [
         {
-          "texts": [
-            { "plain": "Цигле", "ipa": "t͡sigle", "gloss": "how" },
-            { "plain": "де", "gloss": "-2.SG", "ipa": "-e" },
-            { "plain": "й", "gloss": "-Q", "ipa": "-j" }
-          ],
+          "text": {
+            "plain": "Цигледей",
+            "ipa": "t͡sigle-de-j",
+            "glossed": "how-2.SG-Q"
+          },
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
         {
-          "texts": [
-            { "plain": "Цигле", "ipa": "t͡sigle", "gloss": "how" },
-            { "plain": "да", "gloss": "-2.PL", "ipa": "-dɑ" },
-            { "plain": "й", "gloss": "-Q", "ipa": "-j" }
-          ],
+          "text": {
+            "plain": "Цигледей",
+            "ipa": "t͡sigle-dɑ-j",
+            "glossed": "how-2.PL-Q"
+          },
           "transition": "next",
           "conditions": { "person": { "plural": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "?" }],
-          "conditions": {},
+          "text": { "plain": "?" },
           "implicit": false,
           "audio": null,
           "noSpace": true
@@ -455,34 +422,32 @@
     "blocks": [
       [
         {
-          "texts": [
-            { "plain": "Баркалла", "ipa": "bɑrkɑllɑ", "gloss": "thanks" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "Баркалла",
+            "ipa": "bɑrkɑllɑ",
+            "glossed": "thanks"
+          }
         }
       ],
       [
         {
-          "texts": [{ "plain": "," }],
-          "conditions": {},
+          "text": { "plain": "," },
           "audio": null,
           "noSpace": true
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "гӏяхӏ", "gloss": "good", "ipa": "ʡɑˤħ" },
-            { "plain": "ле", "ipa": "-le", "gloss": "-ADJ" },
-            { "plain": "да", "gloss": "-1.SG", "ipa": "-dɑ" }
-          ],
-          "conditions": {}
+          "text": {
+            "plain": "гӏяхӏледа",
+            "glossed": "good-ADV-1",
+            "ipa": "ʡɑˤħ-le-dɑ"
+          }
         }
       ],
       [
         {
-          "texts": [{ "plain": "." }],
-          "conditions": {},
+          "text": { "plain": "." },
           "audio": null,
           "implicit": false,
           "noSpace": true
@@ -490,35 +455,28 @@
       ],
       [
         {
-          "texts": [
-            { "plain": "И", "gloss": "2.SG", "ipa": "ʔi" },
-            { "plain": "ла", "ipa": "-lɑ", "gloss": "-GEN" }
-          ],
+          "text": { "plain": "Ила", "glossed": "2.SG-GEN", "ipa": "ʔi-lɑ" },
           "transition": "next",
           "conditions": { "person": { "singular": true } }
         },
         {
-          "texts": [
-            { "plain": "Нишша", "gloss": "2.PL", "ipa": "nʃːiɑ" },
-            { "plain": "ла", "ipa": "-lɑ", "gloss": "-GEN" }
-          ],
+          "text": {
+            "plain": "Нишшала",
+            "glossed": "2.PL-GEN",
+            "ipa": "nʃːiɑ-lɑ"
+          },
           "transition": "next",
           "conditions": { "person": { "plural": true } }
         }
       ],
       [
         {
-          "texts": [
-            { "plain": "цигле", "ipa": "t͡sigle", "gloss": "how" },
-            { "plain": "й", "ipa": "-j", "gloss": "-Q" }
-          ],
-          "conditions": {}
+          "text": { "plain": "циглей", "ipa": "t͡sigle-j", "glossed": "how-Q" }
         }
       ],
       [
         {
-          "texts": [{ "plain": "?" }],
-          "conditions": {},
+          "text": { "plain": "?" },
           "audio": null,
           "noSpace": true
         }
