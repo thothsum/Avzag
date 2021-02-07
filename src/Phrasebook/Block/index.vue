@@ -46,7 +46,9 @@ export default defineComponent({
         }),
       { immediate: true }
     );
-    const disabled = computed(() => !state.value?.transition);
+    const disabled = computed(
+      () => !state.value?.transition || props.block.length < 2
+    );
     const context = inject("context", {} as Ref<Context>);
 
     function switchState(nextState: undefined | State) {

@@ -4,7 +4,6 @@ import { Context, State, Conditions, ContextSource } from "./types";
 export function newState() {
   return {
     texts: [{ plain: "new state" }],
-    transition: "next",
     conditions: {},
   } as State;
 }
