@@ -6,7 +6,7 @@
     <div class="col">
       <div v-for="(t, i) in texts" :key="i" class="row">
         <btn icon="palette" @click="toggle(i)" />
-        <div class="row" :class="colors[i]">
+        <div class="row" :class="highlights[i]">
           <input v-model="t.plain" type="text" placeholder="plain" />
           <input
             v-model="t.ipa"
@@ -44,19 +44,25 @@ export default defineComponent({
       get: () => props.modelValue,
       set: (t) => emit("update:modelValue", t),
     });
-    const colors = computed(() =>
-      texts.value
-        ?.map(({ entity }) => entities.value.indexOf(entity ?? ""))
-        .map((i) => "colored-" + i)
+    const highlights = computed(() =>
+      texts.value?.map(({ highlight }) =>
+        highlight === true
+          ? "b"
+          : "colored-" + entities.value.indexOf(highlight ?? "")
+      )
     );
 
     function toggle(i: number) {
       const text = texts.value[i];
-      const e = entities.value.indexOf(text.entity ?? "");
-      text.entity = entities.value[e + 1];
+      if (text.highlight === true) text.highlight = entities.value[0];
+      else if (text.highlight) {
+        const j = entities.value.indexOf(text.highlight ?? "");
+        text.highlight = entities.value[j + 1];
+        if (!text.highlight) delete text.highlight;
+      } else text.highlight = true;
     }
 
-    return { texts, colors, toggle };
+    return { texts, highlights, toggle };
   },
 });
 </script>

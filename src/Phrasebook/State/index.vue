@@ -5,7 +5,7 @@
   >
     <div class="segments">
       <p v-for="(type, i) in types" :key="type" :class="'text-' + type">
-        <span v-for="(text, j) in texts[i]" :key="j" :class="textColors[j]">
+        <span v-for="(text, j) in texts[i]" :key="j" :class="textHighlights[j]">
           {{ text }}
         </span>
       </p>
@@ -53,11 +53,12 @@ export default defineComponent({
       { immediate: true, deep: true }
     );
 
-    const textColors = computed(() =>
-      props.state.texts
-        .map(({ entity }) => entity ?? "")
-        .map((e) => entities.value.indexOf(e))
-        .map((i) => "colored-" + i)
+    const textHighlights = computed(() =>
+      props.state.texts.map(({ highlight }) =>
+        highlight === true
+          ? "b"
+          : "colored-" + entities.value.indexOf(highlight ?? "")
+      )
     );
     const dashColors = computed(() =>
       props.state.transition && props.state.conditions
@@ -68,7 +69,7 @@ export default defineComponent({
         : []
     );
 
-    return { types, texts, canGloss, textColors, dashColors };
+    return { types, texts, canGloss, textHighlights, dashColors };
   },
 });
 </script>

@@ -3,7 +3,7 @@ export type Text = {
   plain: string;
   ipa?: string;
   gloss?: string;
-  entity?: string;
+  highlight?: true | string;
 };
 export type Transition = undefined | "next" | number[];
 export type State = {

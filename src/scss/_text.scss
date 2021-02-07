@@ -5,6 +5,11 @@
   text-align: left;
 }
 
+.b,
+.b * {
+  font-weight: bold;
+}
+
 .text-caption,
 .text-caption * {
   font-size: map-get($font-sizes, "small");
