@@ -8,6 +8,7 @@
       :key="type"
       :class="'text-' + type"
       :notes="[texts[i]]"
+      row
     />
     <div class="row dashes">
       <p v-for="(c, i) in dashColors" :key="i" :class="c" />

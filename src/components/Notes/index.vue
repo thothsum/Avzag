@@ -18,6 +18,7 @@ import { computed, PropType, defineComponent, watchEffect } from "vue";
 import { PieceDisplay, Piece } from "./types";
 
 export default defineComponent({
+  name: "Notes",
   props: {
     notes: { type: Array as PropType<string[]>, default: () => [] },
     row: Boolean,
