@@ -21,7 +21,7 @@ function generateSearchSources() {
       [
         name,
         ...blocksToStrings(blocks),
-        ...pbs.flatMap((p) => blocksToStrings(p[id].blocks)),
+        ...pbs.flatMap((p) => blocksToStrings(p[id]?.blocks ?? [])),
       ]
         .join(" ")
         .toLowerCase()
