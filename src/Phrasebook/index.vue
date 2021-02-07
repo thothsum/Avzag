@@ -88,13 +88,29 @@ export default defineComponent({
         : "";
     });
 
+    const searchSource = computed(() =>
+      corpus.value.map(({ phrases }) =>
+        phrases.map(({ name, blocks }) =>
+          [
+            name,
+            blocks.map((states) =>
+              states
+                .map((state) => state.texts.map(({ plain }) => plain).join(" "))
+                .join(" ")
+            ),
+          ]
+            .join(" ")
+            .toLowerCase()
+        )
+      )
+    );
     const phrases = computed(() =>
       searching.value
         ? corpus.value.reduce((result, section, index) => {
             result[index] = section.phrases
-              .map((phrase, index) => [phrase, index] as [CorpusPhrase, number])
-              .filter(([phrase]) => phrase.name.includes(query.value))
-              .map(([, index]) => index);
+              .map((_, i) => i)
+              .filter((i) => searchSource.value[index][i].includes(query.value))
+              .map((i) => i);
             if (!result[index].length) delete result[index];
             return result;
           }, {} as Record<number, number[]>)
