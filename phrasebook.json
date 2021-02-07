@@ -68,10 +68,7 @@
           [{ "texts": [{ "plain": "See" }], "conditions": {} }],
           [
             {
-              "texts": [
-                { "plain": "y", "entity": "person" },
-                { "plain": "ou" }
-              ],
+              "texts": [{ "plain": "you" }],
               "conditions": {}
             }
           ],
@@ -119,10 +116,7 @@
           [{ "texts": [{ "plain": "glad to see" }], "conditions": {} }],
           [
             {
-              "texts": [
-                { "plain": "y", "entity": "person" },
-                { "plain": "ou" }
-              ],
+              "texts": [{ "plain": "you" }],
               "conditions": {}
             }
           ],
@@ -136,10 +130,7 @@
           [{ "texts": [{ "plain": "How are" }], "conditions": {} }],
           [
             {
-              "texts": [
-                { "plain": "y", "entity": "person" },
-                { "plain": "ou?" }
-              ],
+              "texts": [{ "plain": "you?" }],
               "conditions": {}
             }
           ]
@@ -166,10 +157,7 @@
           [{ "texts": [{ "plain": "And" }], "conditions": {} }],
           [
             {
-              "texts": [
-                { "plain": "y", "entity": "person" },
-                { "plain": "ou" }
-              ],
+              "texts": [{ "plain": "you" }],
               "conditions": {}
             }
           ],
