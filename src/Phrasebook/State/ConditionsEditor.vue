@@ -1,7 +1,7 @@
 <template>
   <EditorCard icon="tune" header="conditions">
     <template #header>
-      <btn icon="clear" @click="conditions = {}" />
+      <btn icon="clear" @click="conditions = undefined" />
     </template>
     <template #caption>TODO brief explanation</template>
     <div class="row wrap">
@@ -58,10 +58,10 @@ export default defineComponent({
     watch(
       [context, conditions],
       ([context, conditions]) => {
-        if (!context || !conditions) return;
+        if (!context) return;
         tags.value = context.flatMap(({ entity, tags }, i) =>
           tags.map((tag) => {
-            const flag = conditions[entity]?.[tag];
+            const flag = conditions?.[entity]?.[tag];
             return {
               tag,
               entity,
@@ -78,15 +78,17 @@ export default defineComponent({
     function toggle(index: number) {
       if (!tags.value) return;
       const { flag, entity, tag } = tags.value[index];
+      const cnd = conditions.value ?? ({} as Conditions);
+
       if (flag === undefined) {
-        if (!conditions.value[entity]) conditions.value[entity] = {};
-        conditions.value[entity][tag] = true;
-      } else if (flag) conditions.value[entity][tag] = false;
+        if (!cnd[entity]) cnd[entity] = {};
+        cnd[entity][tag] = true;
+      } else if (flag) cnd[entity][tag] = false;
       else {
-        delete conditions.value[entity][tag];
-        if (!Object.keys(conditions.value[entity]).length)
-          delete conditions.value[entity];
+        delete cnd[entity][tag];
+        if (!Object.keys(cnd[entity]).length) delete cnd[entity];
       }
+      conditions.value = cnd;
     }
 
     return { context, conditions, tags, toggle };

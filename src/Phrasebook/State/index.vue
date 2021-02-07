@@ -3,13 +3,12 @@
     class="display row"
     :class="{ glossed: canGloss, 'text-faded': state?.implicit }"
   >
-    <div class="segments">
-      <p v-for="(type, i) in types" :key="type" :class="'text-' + type">
-        <span v-for="(text, j) in texts[i]" :key="j" :class="textColors[j]">
-          {{ text }}
-        </span>
-      </p>
-    </div>
+    <Notes
+      v-for="(type, i) in types"
+      :key="type"
+      :class="'text-' + type"
+      :notes="[texts[i]]"
+    />
     <div class="row dashes">
       <p v-for="(c, i) in dashColors" :key="i" :class="c" />
     </div>
@@ -17,11 +16,13 @@
 </template>
 
 <script lang="ts">
+import Notes from "@/components/Notes/index.vue";
 import { computed, defineComponent, inject, PropType, Ref, watch } from "vue";
 import { Context, State } from "../types";
 
 export default defineComponent({
   name: "State",
+  components: { Notes },
   props: {
     state: { type: Object as PropType<State>, default: () => ({}) },
     glossed: { type: Boolean, default: false },
@@ -33,32 +34,26 @@ export default defineComponent({
     const canGloss = computed(
       () =>
         props.glossed &&
-        props.state.texts.some(({ ipa, gloss }) => ipa || gloss)
+        props.state &&
+        (props.state.text.ipa || props.state.text.glossed)
     );
 
-    const types = computed<("plain" | "ipa" | "gloss")[]>(() =>
-      canGloss.value ? ["ipa", "gloss"] : ["plain"]
+    const types = computed<("plain" | "ipa" | "glossed")[]>(() =>
+      canGloss.value ? ["ipa", "glossed"] : props.state?.text ? ["plain"] : []
     );
     const texts = computed(() =>
-      types.value.map((type) => props.state.texts?.map((text) => text[type]))
+      types.value.map((type) => props.state.text[type])
     );
     watch(
       texts,
       (texts) => {
         if (!texts) return;
-        const lines = texts.map((t) => t?.join(""));
-        const text = lines.length === 1 ? lines[0] : lines.join("\n");
-        emit("text", text);
+        const text = texts.length === 1 ? texts[0] : texts.join("\n");
+        emit("text", text?.replaceAll("*", ""));
       },
       { immediate: true, deep: true }
     );
 
-    const textColors = computed(() =>
-      props.state.texts
-        .map(({ entity }) => entity ?? "")
-        .map((e) => entities.value.indexOf(e))
-        .map((i) => "colored-" + i)
-    );
     const dashColors = computed(() =>
       props.state.transition && props.state.conditions
         ? Object.entries(props.state.conditions)
@@ -68,7 +63,7 @@ export default defineComponent({
         : []
     );
 
-    return { types, texts, canGloss, textColors, dashColors };
+    return { types, texts, canGloss, dashColors };
   },
 });
 </script>
@@ -79,16 +74,6 @@ export default defineComponent({
   position: relative;
   &.glossed {
     height: map-get($button-height, "normal") + map-get($margins, "normal");
-  }
-}
-.segments {
-  display: flex;
-  flex-direction: column;
-  p {
-    display: flex;
-    &:not(.text-plain) > :not(:last-child)::after {
-      content: "-";
-    }
   }
 }
 .dashes {

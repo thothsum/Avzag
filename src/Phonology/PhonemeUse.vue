@@ -14,8 +14,17 @@
           icon="play_arrow"
           @click="player.play(null, [urls[i]])"
         />
-        <Notes class="word flex" :notes="[words[i]]" />
-        <Notes class="text-ipa" row :notes="[ipas[i]]" />
+        <Notes
+          class="word flex"
+          :notes="[words[i]]"
+          @texts="setTexts(i, 0, $event[0])"
+        />
+        <Notes
+          class="text-ipa"
+          :notes="[ipas[i]]"
+          row
+          @texts="setTexts(i, 1, $event[0])"
+        />
       </div>
     </div>
     <Notes class="text-caption" :notes="use.notes" />
@@ -48,7 +57,7 @@ export default defineComponent({
     );
 
     function highlight(text: string, target: string) {
-      return text.includes("*") ? text : text.replaceAll(target, `*${target}*`);
+      return text.includes("^") ? text : text.replaceAll(target, `^${target}^`);
     }
     const words = computed(() =>
       fullSamples.value?.map(({ word, grapheme }) =>
@@ -61,29 +70,25 @@ export default defineComponent({
       )
     );
 
+    const texts = ref([] as string[][]);
+    function setTexts(i: number, j: number, text: string) {
+      if (!texts.value[i]) texts.value[i] = [];
+      texts.value[i][j] = text;
+    }
+
     const urls = ref([] as string[]);
     watch(
-      fullSamples,
-      (samples) =>
+      texts,
+      (texts) =>
         player.canPlay(
           urls,
           props.lect,
-          samples
-            .map(({ word, ipa }) => word?.replaceAll("*", "") ?? ipa)
+          texts
+            .map(([word, ipa]) => word ?? ipa)
             .map((f) => "phonology/" + (f ?? ""))
         ),
-      { immediate: true }
+      { immediate: true, deep: true }
     );
-
-    function copy(i: number) {
-      navigator.clipboard.writeText(
-        [words, ipas]
-          .map(({ value }) => value[i])
-          .map((t) => t.replaceAll("*", ""))
-          .filter((t) => t)
-          .join(" ")
-      );
-    }
 
     return {
       player,
@@ -92,7 +97,7 @@ export default defineComponent({
       words,
       fullSamples,
       graphemes,
-      copy,
+      setTexts,
     };
   },
 });

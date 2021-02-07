@@ -6,7 +6,7 @@
         <span v-else-if="display === 'highlight'" class="highlight-font">
           {{ text }}
         </span>
-        <b v-else-if="display === 'grapheme'">{{ text }}</b>
+        <b v-else-if="display === 'bold'">{{ text }}</b>
         <span v-else class="text-ipa">{{ text }}</span>
       </template>
     </p>
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { computed, PropType, defineComponent } from "vue";
+import { computed, PropType, defineComponent, watchEffect } from "vue";
 import { PieceDisplay, Piece } from "./types";
 
 export default defineComponent({
@@ -22,25 +22,23 @@ export default defineComponent({
     notes: { type: Array as PropType<string[]>, default: () => [] },
     row: Boolean,
   },
-  setup(props) {
-    function isWrapped(text: string, start: string, end: string) {
-      return text[0] === start && text[text.length - 1] === end;
-    }
+  emits: ["texts"],
+  setup(props, { emit }) {
     function toPiece(text: string): Piece {
-      const patterns = [
-        ["*", "*", "highlight"],
-        ["/", "/", "phoneme"],
-        ["<", ">", "grapheme"],
-      ] as [string, string, PieceDisplay][];
+      const syntax = [
+        ["^", "highlight"],
+        ["/", "phoneme"],
+        ["*", "bold"],
+      ] as [string, PieceDisplay][];
 
-      for (const [start, end, display] of patterns) {
-        if (isWrapped(text, start, end))
+      for (const [mark, display] of syntax) {
+        if (text.startsWith(mark) && text.endsWith(mark))
           return { text: text.slice(1, -1), display };
       }
       return { text, display: "plain" };
     }
     const pieces = computed(() => {
-      const separator = /(\/[^/]+\/|<[^<>]+>|\*[^*]+\*)/g;
+      const separator = /(\/[^/]+\/|\^[^^]+\^|\*[^*]+\*)/g;
       return props.notes
         .map((n) =>
           n
@@ -50,6 +48,13 @@ export default defineComponent({
         )
         .filter((n) => n.length);
     });
+    watchEffect(() =>
+      emit(
+        "texts",
+        pieces.value.map((p) => p.map(({ text }) => text).join(""))
+      )
+    );
+
     return { pieces };
   },
 });

@@ -60,7 +60,7 @@ export default defineComponent({
 
     const entities = computed(() => {
       const entities = props.block.flatMap(({ conditions }) =>
-        Object.keys(conditions)
+        conditions ? Object.keys(conditions) : []
       );
       return [...new Set(entities)].map((e) => context.value[e]);
     });

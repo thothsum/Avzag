@@ -3,8 +3,7 @@ import { Context, State, Conditions, ContextSource } from "./types";
 
 export function newState() {
   return {
-    texts: [{ plain: "new state" }],
-    conditions: {},
+    text: { plain: "new state" },
   } as State;
 }
 

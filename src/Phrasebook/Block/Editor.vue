@@ -25,7 +25,22 @@
     <template v-if="state">
       <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="block" />
-      <TextsEditor v-model="state.texts" />
+      <EditorCard icon="text_format" header="text">
+        <div class="row">
+          <input v-model="state.text.plain" type="text" placeholder="plain" />
+          <input
+            v-model="state.text.ipa"
+            class="text-ipa"
+            type="text"
+            placeholder="ipa"
+          />
+          <input
+            v-model="state.text.glossed"
+            type="text"
+            placeholder="glossed"
+          />
+        </div>
+      </EditorCard>
       <EditorCard icon="miscellaneous_services" header="miscellaneous">
         <template #header>
           <div class="row">
@@ -54,7 +69,6 @@ import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
 import ConditionsEditor from "../State/ConditionsEditor.vue";
 import TransitionEditor from "../State/TransitionEditor.vue";
-import TextsEditor from "../State/TextsEditor.vue";
 import VState from "../State/index.vue";
 
 import { defineComponent, PropType, computed, ref } from "vue";
@@ -69,7 +83,6 @@ export default defineComponent({
     ConditionsEditor,
     TransitionEditor,
     VState,
-    TextsEditor,
   },
   props: {
     modelValue: { type: Array as PropType<State[]>, default: undefined },

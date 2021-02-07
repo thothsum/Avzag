@@ -69,10 +69,7 @@ export default defineComponent({
                 state?.audio === null
                   ? null
                   : state?.audio ??
-                    state?.texts
-                      .map(({ plain }) => plain)
-                      ?.join("")
-                      .toLowerCase()
+                    state?.text.plain.replaceAll("*", "").toLowerCase()
               )
               .map((p) => (p === null ? "" : props.path + (p ?? "")))
           );

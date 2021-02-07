@@ -2,14 +2,13 @@ export type Conditions = Record<string, Record<string, boolean>>;
 export type Text = {
   plain: string;
   ipa?: string;
-  gloss?: string;
-  entity?: string;
+  glossed?: string;
 };
 export type Transition = undefined | "next" | number[];
 export type State = {
-  conditions: Conditions;
-  transition: Transition;
-  texts: Text[];
+  text: Text;
+  conditions?: Conditions;
+  transition?: Transition;
   implicit?: boolean;
   audio?: null | string;
   noSpace?: boolean;

@@ -10,7 +10,7 @@ export const searchSources = ref([] as string[][]);
 
 function blocksToStrings(blocks: State[][]) {
   return blocks.flatMap((states) =>
-    states.map((state) => state.texts.map(({ plain }) => plain).join(""))
+    states.map((state) => state.text.plain.replaceAll("*", ""))
   );
 }
 function generateSearchSources() {
