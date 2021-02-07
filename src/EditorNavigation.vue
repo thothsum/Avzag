@@ -73,7 +73,7 @@ export default defineComponent({
       if (f) file.value = f;
     }
     function saveJSON() {
-      navigator.clipboard.writeText(JSON.stringify(file.value));
+      navigator.clipboard.writeText(JSON.stringify(file.value, null, 2) + "\n");
     }
 
     return { menu, menus, loadLect, loadJSON, saveJSON, resetFile };
