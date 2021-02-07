@@ -64,7 +64,14 @@ import PhraseCard from "./PhraseCard.vue";
 
 import { computed, ref, watch, defineComponent, provide } from "vue";
 
-import { corpus, section, phrase, phrasebooks, initialize } from "./main";
+import {
+  corpus,
+  section,
+  phrase,
+  phrasebooks,
+  initialize,
+  searchSources,
+} from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
 import { createContext } from "./utils";
 
@@ -88,28 +95,14 @@ export default defineComponent({
         : "";
     });
 
-    const searchSource = computed(() =>
-      corpus.value.map(({ phrases }) =>
-        phrases.map(({ name, blocks }) =>
-          [
-            name,
-            blocks.map((states) =>
-              states
-                .map((state) => state.texts.map(({ plain }) => plain).join(" "))
-                .join(" ")
-            ),
-          ]
-            .join(" ")
-            .toLowerCase()
-        )
-      )
-    );
     const phrases = computed(() =>
       searching.value
         ? corpus.value.reduce((result, section, index) => {
             result[index] = section.phrases
               .map((_, i) => i)
-              .filter((i) => searchSource.value[index][i].includes(query.value))
+              .filter((i) =>
+                searchSources.value[index][i].includes(query.value)
+              )
               .map((i) => i);
             if (!result[index].length) delete result[index];
             return result;
