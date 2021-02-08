@@ -2,8 +2,9 @@
   <button
     v-show="text"
     v-if="state"
+    ref="button"
     class="small"
-    :class="{ disabled, glossed }"
+    :class="{ disabled, glossed, blink }"
     @click="move"
   >
     <VState :glossed="glossed" :state="state" @text="text = $event" />
@@ -87,12 +88,13 @@ export default defineComponent({
         state.value = undefined;
     }
 
-    return {
-      move,
-      state,
-      disabled,
-      text,
-    };
+    const blink = ref(false);
+    watch(state, () => {
+      blink.value = false;
+      setTimeout(() => (blink.value = true), 10);
+    });
+
+    return { blink, move, state, disabled, text };
   },
 });
 </script>
@@ -108,6 +110,15 @@ button {
       background-color: transparent;
     }
     cursor: default;
+  }
+}
+.blink {
+  animation: blink 4 * $transition;
+}
+@keyframes blink {
+  from {
+    background-color: var(--color-shadow);
+    border-radius: $border-radius;
   }
 }
 </style>
