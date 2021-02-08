@@ -7,7 +7,7 @@
     </div>
     <div class="col">
       <div v-for="(s, i) in fullSamples" :key="i" class="row-1 flex seeker">
-        <Seeker :check="urls[i] === player.key" :seek="player.seek" />
+        <Seeker :check="urls[i] === player.key" :seek="player.current?.seek" />
         <btn
           :disabled="!urls[i]"
           :is-on="urls[i] === player.key"
@@ -22,7 +22,6 @@
         <Notes
           class="text-ipa"
           :notes="[ipas[i]]"
-          row
           @texts="setTexts(i, 1, $event[0])"
         />
       </div>

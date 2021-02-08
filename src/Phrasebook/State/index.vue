@@ -4,11 +4,9 @@
     :class="{ glossed: canGloss, 'text-faded': state?.implicit }"
   >
     <Notes
-      v-for="(type, i) in types"
-      :key="type"
-      :class="'text-' + type"
-      :notes="[texts[i]]"
-      row
+      class="col-0"
+      :notes="texts"
+      @texts="emit('text', $event.join('\n'))"
     />
     <div class="row dashes">
       <p v-for="(c, i) in dashColors" :key="i" :class="c" />
@@ -18,7 +16,7 @@
 
 <script lang="ts">
 import Notes from "@/components/Notes/index.vue";
-import { computed, defineComponent, inject, PropType, Ref, watch } from "vue";
+import { computed, defineComponent, inject, PropType, Ref } from "vue";
 import { Context, State } from "../types";
 
 export default defineComponent({
@@ -39,21 +37,14 @@ export default defineComponent({
         (props.state.text.ipa || props.state.text.glossed)
     );
 
-    const types = computed<("plain" | "ipa" | "glossed")[]>(() =>
-      canGloss.value ? ["ipa", "glossed"] : props.state?.text ? ["plain"] : []
-    );
-    const texts = computed(() =>
-      types.value.map((type) => props.state.text[type])
-    );
-    watch(
-      texts,
-      (texts) => {
-        if (!texts) return;
-        const text = texts.length === 1 ? texts[0] : texts.join("\n");
-        emit("text", text?.replaceAll("*", ""));
-      },
-      { immediate: true, deep: true }
-    );
+    const texts = computed(() => {
+      const texts = [] as string[];
+      if (canGloss.value) {
+        if (props.state.text.ipa) texts.push("/" + props.state.text.ipa + "/");
+        if (props.state.text.glossed) texts.push(props.state.text.glossed);
+      } else texts.push(props.state.text.plain);
+      return texts;
+    });
 
     const dashColors = computed(() =>
       props.state.transition && props.state.conditions
@@ -64,7 +55,7 @@ export default defineComponent({
         : []
     );
 
-    return { types, texts, canGloss, dashColors };
+    return { texts, canGloss, dashColors, emit };
   },
 });
 </script>

@@ -65,11 +65,10 @@ export default defineComponent({
           player.play(
             props.lect,
             vblocks
-              .map(({ state }) =>
+              .map(({ state, text }) =>
                 state?.audio === null
                   ? null
-                  : state?.audio ??
-                    state?.text.plain.replaceAll("*", "").toLowerCase()
+                  : state?.audio ?? text.toLowerCase()
               )
               .map((p) => (p === null ? "" : props.path + (p ?? "")))
           );

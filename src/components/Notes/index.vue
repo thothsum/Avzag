@@ -1,5 +1,5 @@
 <template>
-  <div v-if="notes.length" :class="row ? 'row' : 'col'">
+  <div v-if="notes.length" class="col">
     <p v-for="(ps, i) in pieces" :key="i">
       <template v-for="({ text, display }, j) in ps" :key="j">
         <span v-if="display === 'plain'">{{ text }}</span>
@@ -21,7 +21,6 @@ export default defineComponent({
   name: "Notes",
   props: {
     notes: { type: Array as PropType<string[]>, default: () => [] },
-    row: Boolean,
   },
   emits: ["texts"],
   setup(props, { emit }) {
