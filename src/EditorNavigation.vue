@@ -1,6 +1,6 @@
 <template>
   <div id="root" class="small">
-    <div class="section row">
+    <div class="section row scroll">
       <div class="row">
         <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
           <btn icon="arrow_back" @click="navigate" />
@@ -11,7 +11,7 @@
           </option>
         </select>
       </div>
-      <div class="row controls">
+      <div class="row">
         <btn icon="language" @click="loadLect" />
         <btn icon="code" @click="loadJSON" />
         <btn icon="integration_instructions" @click="saveJSON" />
@@ -93,16 +93,7 @@ export default defineComponent({
     font-weight: bold;
   }
 }
-.controls {
-  flex: 1;
-  justify-content: flex-end;
-}
-select {
-  flex: 0;
-}
-@media only screen and (max-width: $mobile-width) {
-  #root .section {
-    flex-flow: column;
-  }
+.section {
+  justify-content: space-between;
 }
 </style>
