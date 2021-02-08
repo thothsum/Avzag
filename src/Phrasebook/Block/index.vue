@@ -118,7 +118,6 @@ button {
 @keyframes blink {
   from {
     background-color: var(--color-shadow);
-    border-radius: $border-radius;
   }
 }
 </style>
