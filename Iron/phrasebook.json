@@ -177,12 +177,12 @@
     "blocks": [
       [
         {
-          "text": { "plain": "Алцыдæрмæм" },
+          "text": { "plain": "*А*лцыдæрмæм" },
           "transition": "next",
           "conditions": { "subject": { "singular": true } }
         },
         {
-          "text": { "plain": "Алцыдæрнæм" },
+          "text": { "plain": "*А*лцыдæрнæм" },
           "transition": "next",
           "conditions": { "subject": { "plural": true } }
         }
