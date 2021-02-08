@@ -27,7 +27,6 @@ function generateSearchSources() {
         .toLowerCase()
     )
   );
-  console.log(searchSources);
 }
 
 export const initialize = getInitializer(async () => {
