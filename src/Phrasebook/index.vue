@@ -3,12 +3,10 @@
     <div class="col-1">
       <div class="row">
         <toggle v-model="searching" icon="search" />
-        <input
+        <InputQuery
           v-if="searching"
           v-model="query"
-          class="flex"
-          type="text"
-          placeholder="Search all phrases..."
+          placeholder="Search in English & translations"
         />
         <h2 v-else class="col-1 flex">
           <select
@@ -61,6 +59,7 @@
 
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
+import InputQuery from "@/components/Query/InputQuery.vue";
 
 import { computed, ref, watch, defineComponent, provide } from "vue";
 
@@ -74,9 +73,10 @@ import {
 } from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
 import { createContext } from "./utils";
+import { Query, EvaluateQuery } from "@/components/Query/types";
 
 export default defineComponent({
-  components: { PhraseCard },
+  components: { PhraseCard, InputQuery },
   setup() {
     initialize();
 
@@ -85,9 +85,6 @@ export default defineComponent({
       immediate: true,
     });
     provide("context", context);
-
-    const searching = ref(false);
-    const query = ref("");
     const path = computed(() => {
       const folders = ["phrasebook", section.value?.name, phrase.value?.name];
       return folders.every((f) => f)
@@ -95,13 +92,16 @@ export default defineComponent({
         : "";
     });
 
+    const searching = ref(false);
+    const query = ref<Query>({});
+
     const phrases = computed(() =>
       searching.value
         ? corpus.value.reduce((result, section, index) => {
             result[index] = section.phrases
               .map((_, i) => i)
               .filter((i) =>
-                searchSources.value[index][i].includes(query.value)
+                EvaluateQuery(searchSources.value[index][i], query.value)
               )
               .map((i) => i);
             if (!result[index].length) delete result[index];
