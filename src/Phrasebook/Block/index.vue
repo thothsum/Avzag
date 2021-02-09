@@ -91,7 +91,7 @@ export default defineComponent({
     const flash = ref(false);
     watch(state, () => {
       flash.value = false;
-      setTimeout(() => (flash.value = true), 10);
+      setTimeout(() => (flash.value = true), 50);
     });
 
     return { flash, move, state, disabled, text };
@@ -113,10 +113,10 @@ button {
   }
 }
 .flash {
-  animation: flash 4 * $transition;
+  animation: flash 2 * $transition;
 }
 @keyframes flash {
-  from {
+  50% {
     background-color: var(--color-press);
   }
 }
