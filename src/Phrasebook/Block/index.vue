@@ -4,7 +4,7 @@
     v-if="state"
     ref="button"
     class="small"
-    :class="{ disabled, glossed, blink }"
+    :class="{ disabled, glossed, flash }"
     @click="move"
   >
     <VState :glossed="glossed" :state="state" @text="text = $event" />
@@ -88,13 +88,13 @@ export default defineComponent({
         state.value = undefined;
     }
 
-    const blink = ref(false);
+    const flash = ref(false);
     watch(state, () => {
-      blink.value = false;
-      setTimeout(() => (blink.value = true), 10);
+      flash.value = false;
+      setTimeout(() => (flash.value = true), 10);
     });
 
-    return { blink, move, state, disabled, text };
+    return { flash, move, state, disabled, text };
   },
 });
 </script>
@@ -112,12 +112,12 @@ button {
     cursor: default;
   }
 }
-.blink {
-  animation: blink 4 * $transition;
+.flash {
+  animation: flash 4 * $transition;
 }
-@keyframes blink {
+@keyframes flash {
   from {
-    background-color: var(--color-shadow);
+    background-color: var(--color-press);
   }
 }
 </style>
