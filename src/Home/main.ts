@@ -1,4 +1,4 @@
-import { ref, shallowRef, reactive, computed, watchEffect } from "vue";
+import { ref, shallowRef, reactive, computed, watch } from "vue";
 import { SearchState, Lect } from "./types";
 import { loadJSON } from "@/store";
 import { Query, EvaluateQuery } from "@/components/Query/types";
@@ -10,15 +10,14 @@ export const search = reactive({
 } as SearchState);
 export const query = ref<Query>({});
 
-const tags = computed(
-  () =>
-    catalogue.value?.map(({ name, tags, family }) =>
-      [name, tags ?? "", family].flat().join(" ").toLowerCase()
-    ) ?? []
+const tags = computed(() =>
+  catalogue.value.map(({ name, tags, family }) =>
+    [name, tags ?? "", family].flat().join(" ").toLowerCase()
+  )
 );
-watchEffect(() =>
-  tags.value.forEach((t, i) => {
-    const name = catalogue.value?.[i].name;
+watch(tags, (tags) =>
+  tags.forEach((t, i) => {
+    const name = catalogue.value[i].name;
     if (!name) return;
 
     if (EvaluateQuery(t, query.value, true)) search.visible.add(name);
@@ -34,7 +33,7 @@ export async function reset() {
       .then((ks) => ks.find((k) => k.includes("avzag-precache")))
       .then((k) => caches.delete(k ?? ""));
 
-  catalogue.value = await loadJSON("catalogue");
+  catalogue.value = await loadJSON("catalogue", []);
   search.selected.clear();
   search.visible.clear();
   query.value = {};

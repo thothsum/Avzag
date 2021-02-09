@@ -20,10 +20,10 @@ export function getInitializer(callback: () => Promise<unknown>) {
   };
 }
 
-export async function loadJSON(filename: string) {
+export async function loadJSON(filename: string, defaultValue?: unknown) {
   return await fetch(root + filename + ".json")
     .then((r) => r.json())
-    .catch(() => undefined);
+    .catch(() => defaultValue);
 }
 export async function loadLectsJSON<T>(filename: string) {
   const files = {} as Record<string, T>;

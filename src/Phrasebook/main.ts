@@ -11,7 +11,7 @@ export const searchSources = ref([] as string[][]);
 watch(lects, async () => {
   corpus.value = [];
   phrasebooks.value = {};
-  corpus.value = await loadJSON("phrasebook");
+  corpus.value = await loadJSON("phrasebook", []);
   phrasebooks.value = await loadLectsJSON<Phrasebook>("phrasebook");
 
   generateSearchSources();
