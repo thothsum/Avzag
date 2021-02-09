@@ -22,35 +22,26 @@ watch(converter, (converter) => {
   texts.initial = "";
 });
 export const pairs = computed(() => ({
-  initial: mappings.initial?.pairs as undefined | Pairs,
-  final: mappings.final?.pairs.map(([l, r]) => [r, l]) as undefined | Pairs,
+  initial: (mappings.initial?.pairs ?? []) as Pairs,
+  final: (mappings.final?.pairs.map(([l, r]) => [r, l]) ?? []) as Pairs,
 }));
-
-export const texts = reactive({
-  initial: "",
-  intermediate: computed(() =>
-    pairs.value.initial
-      ? convert(texts.initial, pairs.value.initial)
-      : texts.initial
-  ),
-  final: computed(() =>
-    pairs.value.final
-      ? convert(texts.intermediate, pairs.value.final)
-      : texts.intermediate
-  ),
-}) as {
-  initial: string;
-  intermediate: string;
-  final: string;
-};
 
 watch(
   () => pairs.value.initial,
-  (pairs) =>
-    (texts.initial = pairs
-      ? convert(
-          texts.intermediate,
-          pairs.map(([l, r]) => [r, l])
-        )
-      : texts.intermediate)
+  (pairs, oldPairs) => {
+    texts.initial = convert(
+      convert(texts.initial, oldPairs),
+      pairs.map(([l, r]) => [r, l])
+    );
+  }
 );
+
+export const texts = reactive({
+  initial: "",
+  final: computed(() =>
+    convert(convert(texts.initial, pairs.value.initial), pairs.value.final)
+  ),
+}) as {
+  initial: string;
+  final: string;
+};

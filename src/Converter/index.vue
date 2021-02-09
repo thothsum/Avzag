@@ -83,9 +83,7 @@ export default defineComponent({
       const mapping = mappings.initial;
       mappings.initial = converter.value?.mappings[0];
       texts.initial = converter.value?.sample ?? "";
-      nextTick(() => {
-        mappings.initial = mapping;
-      });
+      nextTick(() => (mappings.initial = mapping));
     }
     function swap() {
       const mapping = mappings.initial;
