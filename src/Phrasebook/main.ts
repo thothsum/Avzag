@@ -3,12 +3,14 @@ import { ref, shallowRef, watch } from "vue";
 import { CorpusPhrase, CorpusSection, Phrasebook, State } from "./types";
 
 export const corpus = shallowRef<CorpusSection[]>([]);
-export const phrasebooks = shallowRef<Record<string, Phrasebook>>();
+export const phrasebooks = shallowRef<Record<string, Phrasebook>>({});
 export const section = shallowRef<CorpusSection>();
 export const phrase = shallowRef<CorpusPhrase>();
 export const searchSources = ref([] as string[][]);
 
 watch(lects, async () => {
+  corpus.value = [];
+  phrasebooks.value = {};
   corpus.value = await loadJSON("phrasebook");
   phrasebooks.value = await loadLectsJSON<Phrasebook>("phrasebook");
 

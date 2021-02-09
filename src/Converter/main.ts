@@ -3,10 +3,10 @@ import { loadLectsJSON, lects } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 
-export const converters = shallowRef<Record<string, Converter>>();
+export const converters = shallowRef<Record<string, Converter>>({});
 watch(lects, async () => {
-  converter.value = undefined;
   console.log("start fetching converters");
+  converter.value = undefined;
   converters.value = await loadLectsJSON<Converter>("converter");
 });
 

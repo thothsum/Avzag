@@ -1,16 +1,19 @@
-import { loadJSON, loadLectsJSON, lects } from "@/store";
-import { shallowRef, watch } from "vue";
+import { loadJSON, loadLectsJSON, lects as allLects } from "@/store";
+import { shallowRef, watch, ref } from "vue";
 import { IPARegistry, Phoneme, PhonemeUse } from "./types";
 
 let registry: IPARegistry;
 
-export const phonemes = shallowRef<Phoneme[]>();
+export const phonemes = shallowRef<Phoneme[]>([]);
 export const phoneme = shallowRef<Phoneme>();
+export const lects = ref<string[]>([]);
 
-watch(lects, async () => {
+watch(allLects, async () => {
+  phonemes.value.length = 0;
   registry = await loadJSON("ipa");
-  const phonemes = await loadLectsJSON<PhonemeUse[]>("phonology");
-  collectPhonemes(phonemes);
+  const uses = await loadLectsJSON<PhonemeUse[]>("phonology");
+  lects.value = Object.keys(uses);
+  collectPhonemes(uses);
 });
 
 function collectTags(phomene: string) {

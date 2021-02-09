@@ -67,20 +67,14 @@ import {
 } from "vue";
 import { useRouter } from "vue-router";
 import { setupStore } from "@/store";
-import { initialize, catalogue, search, query } from "./main";
+import { reset, catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
 export default defineComponent({
   components: { Marker, Card, InputQuery },
   setup() {
-    if (navigator.onLine)
-      caches
-        .keys()
-        .then((ks) => ks.find((k) => k.includes("avzag-precache")))
-        .then((k) => caches.delete(k ?? ""));
-
+    reset();
     const router = useRouter();
-    initialize();
     onMounted(() => createMap());
 
     const empty = computed(() => !search.selected.size);

@@ -35,13 +35,11 @@ import Table from "./Table.vue";
 import PhonemeUse from "./PhonemeUse.vue";
 
 import { ref, defineComponent } from "vue";
-import { initialize, lects, phonemes, phoneme } from "./main";
+import { phonemes, phoneme, lects } from "./main";
 
 export default defineComponent({
   components: { ToggleQuery, InputQuery, Table, PhonemeUse },
   setup() {
-    initialize();
-
     const categories = ["vowel", "consonant"];
     const lectQuery = ref({});
     const featureQuery = ref({});

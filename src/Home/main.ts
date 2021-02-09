@@ -26,9 +26,15 @@ watchEffect(() =>
   })
 );
 
-export async function initialize() {
-  if (!catalogue.value.length) catalogue.value = await loadJSON("catalogue");
+export async function reset() {
+  catalogue.value.length = 0;
+  if (navigator.onLine)
+    await caches
+      .keys()
+      .then((ks) => ks.find((k) => k.includes("avzag-precache")))
+      .then((k) => caches.delete(k ?? ""));
 
+  catalogue.value = await loadJSON("catalogue");
   search.selected.clear();
   search.visible.clear();
   query.value = {};

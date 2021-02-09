@@ -64,7 +64,7 @@ export default defineComponent({
   components: { Pairs, Flag },
   setup() {
     const lect = computed(() =>
-      Object.keys(converters.value ?? {}).find(
+      Object.keys(converters.value).find(
         (l) => converter.value === converters.value?.[l]
       )
     );
