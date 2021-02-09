@@ -1,5 +1,5 @@
 <template>
-  <div v-if="phonemes" class="section">
+  <div class="section">
     <div class="col-1 scroll">
       <ToggleQuery v-model="lectQuery" :labels="lects" />
       <InputQuery

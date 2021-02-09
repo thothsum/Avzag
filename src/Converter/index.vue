@@ -1,5 +1,5 @@
 <template>
-  <div v-if="converters" class="section col-1">
+  <div class="section col-1">
     <div v-if="Object.keys(converters).length > 1" class="row small">
       <btn
         v-for="(c, n) of converters"
@@ -49,7 +49,6 @@
     </div>
     <h2 v-else>Selected languages have no converters.</h2>
   </div>
-  <h1 v-else>Loading...</h1>
 </template>
 
 <script lang="ts">

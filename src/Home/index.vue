@@ -1,5 +1,5 @@
 <template>
-  <div v-if="catalogue" id="root">
+  <div id="root">
     <div class="map-container">
       <div id="map" />
       <Marker

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="corpus" class="section col-1">
+  <div class="section col-1">
     <div class="col-1">
       <div class="row">
         <toggle v-model="searching" icon="search" />
