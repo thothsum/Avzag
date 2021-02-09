@@ -1,5 +1,5 @@
-import { getInitializer, loadJSON, loadLectsJSON } from "@/store";
-import { ref, shallowRef } from "vue";
+import { loadJSON, loadLectsJSON, lects } from "@/store";
+import { ref, shallowRef, watch } from "vue";
 import { CorpusPhrase, CorpusSection, Phrasebook, State } from "./types";
 
 export const corpus = shallowRef<CorpusSection[]>([]);
@@ -7,6 +7,15 @@ export const phrasebooks = shallowRef<Record<string, Phrasebook>>();
 export const section = shallowRef<CorpusSection>();
 export const phrase = shallowRef<CorpusPhrase>();
 export const searchSources = ref([] as string[][]);
+
+watch(lects, async () => {
+  corpus.value = await loadJSON("phrasebook");
+  phrasebooks.value = await loadLectsJSON<Phrasebook>("phrasebook");
+
+  generateSearchSources();
+  section.value = corpus.value[0];
+  phrase.value = section.value.phrases[0];
+});
 
 function blocksToStrings(blocks: State[][]) {
   return blocks.flatMap((states) =>
@@ -28,12 +37,3 @@ function generateSearchSources() {
     )
   );
 }
-
-export const initialize = getInitializer(async () => {
-  corpus.value = await loadJSON("phrasebook");
-  phrasebooks.value = await loadLectsJSON<Phrasebook>("phrasebook");
-
-  generateSearchSources();
-  section.value = corpus.value[0];
-  phrase.value = section.value.phrases[0];
-});
