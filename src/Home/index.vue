@@ -67,7 +67,7 @@ import {
 } from "vue";
 import { useRouter } from "vue-router";
 import { setupStore } from "@/store";
-import { initialize, catalogue, search, query } from "./store";
+import { initialize, catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
 export default defineComponent({
