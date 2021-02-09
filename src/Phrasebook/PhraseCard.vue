@@ -5,8 +5,8 @@
       <h2 class="flex">{{ lect }}</h2>
       <div class="row">
         <toggle v-model="playing" icon="play_arrow" />
-        <btn icon="content_copy" @click="copy" />
-        <toggle v-model="glossed" icon="layers" />
+        <btn icon="assignment" @click="copy" />
+        <toggle v-model="glossed" icon="segment" />
       </div>
     </div>
     <Context :translation="lect ? phrase.context : null" :blocks="vblocks" />

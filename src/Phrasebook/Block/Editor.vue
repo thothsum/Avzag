@@ -25,7 +25,7 @@
     <template v-if="state">
       <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="block" />
-      <EditorCard icon="text_format" header="text">
+      <EditorCard icon="segment" header="text">
         <div class="row">
           <input v-model="state.text.plain" type="text" placeholder="plain" />
           <input
