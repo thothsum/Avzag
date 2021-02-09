@@ -73,7 +73,11 @@ import { createMap } from "./map";
 export default defineComponent({
   components: { Marker, Card, InputQuery },
   setup() {
-    if (navigator.onLine) caches.delete("avzag-precache-v2-https://avzag.app");
+    if (navigator.onLine)
+      caches
+        .keys()
+        .then((ks) => ks.find((k) => k.includes("avzag-precache")))
+        .then((k) => caches.delete(k ?? ""));
 
     const router = useRouter();
     initialize();
