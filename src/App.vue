@@ -5,7 +5,7 @@
 <script lang="ts">
 import { watchEffect, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { setupStore } from "./store";
+import { lects } from "./store";
 
 import "./Phonology/main";
 import "./Converter/main";
@@ -23,10 +23,9 @@ export default defineComponent({
           : { name: "Home" }
       );
     }
-    if (route.name !== "Home") {
-      const lects = JSON.parse(localStorage.lects ?? "[]");
-      setupStore(lects);
-    }
+    if (route.name !== "Home")
+      lects.value = JSON.parse(localStorage.lects ?? "[]");
+
     watchEffect(() => {
       if (route.name) localStorage.url = route.path;
     });

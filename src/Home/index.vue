@@ -66,7 +66,7 @@ import {
   defineComponent,
 } from "vue";
 import { useRouter } from "vue-router";
-import { setupStore } from "@/store";
+import { lects } from "@/store";
 import { reset, catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
@@ -85,7 +85,7 @@ export default defineComponent({
       else search.selected.add(name);
     }
     function load() {
-      setupStore([...search.selected]);
+      lects.value = [...search.selected];
       router.push({ name: "Phonology" });
     }
 
