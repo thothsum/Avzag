@@ -7,6 +7,8 @@ import { watchEffect, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { setupStore } from "./store";
 
+import * as converter from "./Converter/main";
+
 export default defineComponent({
   setup() {
     const route = useRoute();
@@ -26,6 +28,8 @@ export default defineComponent({
     watchEffect(() => {
       if (route.name) localStorage.url = route.path;
     });
+
+    return { converter };
   },
 });
 </script>

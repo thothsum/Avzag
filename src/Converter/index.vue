@@ -49,6 +49,7 @@
     </div>
     <h2 v-else>Selected languages have no converters.</h2>
   </div>
+  <h1 v-else>Loading...</h1>
 </template>
 
 <script lang="ts">
@@ -56,24 +57,15 @@ import Pairs from "./Pairs.vue";
 import Flag from "@/components/Flag.vue";
 
 import { computed, ref, nextTick, defineComponent, toRaw } from "vue";
-import {
-  initialize,
-  converter,
-  converters,
-  texts,
-  mappings,
-  pairs,
-} from "./main";
+import { converter, converters, texts, mappings, pairs } from "./main";
 import upload from "./upload";
 
 export default defineComponent({
   components: { Pairs, Flag },
   setup() {
-    initialize();
-
     const lect = computed(() =>
-      Object.keys(converters.value).find(
-        (l) => converter.value === converters.value[l]
+      Object.keys(converters.value ?? {}).find(
+        (l) => converter.value === converters.value?.[l]
       )
     );
 

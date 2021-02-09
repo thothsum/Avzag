@@ -12,8 +12,8 @@ const reader = new FileReader();
 function read(file?: File) {
   if (!file) return;
   reader.onload = ({ target }) => {
-    if (pairs.initial && typeof target?.result === "string")
-      download(file.name, convert(target.result, pairs.initial));
+    if (pairs.value.initial && typeof target?.result === "string")
+      download(file.name, convert(target.result, pairs.value.initial));
   };
   reader.readAsText(file);
 }
