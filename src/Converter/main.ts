@@ -5,7 +5,6 @@ import convert from "./convert";
 
 export const converters = shallowRef<Record<string, Converter>>({});
 watch(lects, async () => {
-  console.log("start fetching converters");
   converters.value = {};
   converters.value = await loadLectsJSON<Converter>("converter");
 });
