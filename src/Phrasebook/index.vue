@@ -89,12 +89,12 @@ export default defineComponent({
     const phrases = computed(() =>
       searching.value
         ? corpus.value.reduce((result, section, index) => {
-            result[index] = section.phrases
-              .map((_, i) => i)
-              .filter((i) =>
-                EvaluateQuery(searchSources.value[index][i], query.value)
-              )
-              .map((i) => i);
+            result[index] = section.phrases.reduce((arr, _, i) => {
+              if (EvaluateQuery(searchSources.value[index][i], query.value))
+                arr.push(i);
+              return arr;
+            }, [] as number[]);
+
             if (!result[index].length) delete result[index];
             return result;
           }, {} as Record<number, number[]>)
