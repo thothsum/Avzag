@@ -3,56 +3,56 @@
     "blocks": [
       [
         {
-          "texts": [{ "plain": "Кӕд" }],
+          "text": { "plain": "Кӕд" },
           "transition": "next",
           "conditions": { "tense": { "future": true } }
         },
         {
-          "texts": [{ "plain": "Куд" }],
+          "text": { "plain": "Куд" },
           "transition": "next",
           "conditions": { "tense": { "present": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "цӕун" }],
+          "text": { "plain": "цӕун" },
           "conditions": { "actor": { "singular": true } }
         },
         {
-          "texts": [{ "plain": "цӕуӕн" }],
+          "text": { "plain": "цӕуӕн" },
           "conditions": { "actor": { "plural": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "мах" }],
+          "text": { "plain": "мах" },
           "transition": "next",
           "conditions": { "actor": { "plural": true } }
         },
         {
-          "texts": [{ "plain": "ӕз" }],
+          "text": { "plain": "ӕз" },
           "transition": "next",
           "conditions": { "actor": { "singular": true } }
         }
       ],
       [
         {
-          "texts": [{ "plain": "уордӕмӕ" }],
+          "text": { "plain": "уордӕмӕ" },
           "transition": "next",
           "conditions": { "destination": { "there": true } }
         },
         {
-          "texts": [{ "plain": "туканмӕ" }],
+          "text": { "plain": "туканмӕ" },
           "transition": "next",
           "conditions": { "destination": { "shop": true } }
         },
         {
-          "texts": [{ "plain": "хӕдзарӕмӕ" }],
+          "text": { "plain": "хӕдзарӕмӕ" },
           "transition": "next",
           "conditions": { "destination": { "home": true } }
         }
       ],
-      [{ "texts": [{ "plain": "?" }], "conditions": {} }]
+      [{ "text": { "plain": "?" } }]
     ]
   }
 }
