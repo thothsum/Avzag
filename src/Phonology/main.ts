@@ -10,6 +10,7 @@ export const lects = ref<string[]>([]);
 
 watch(allLects, async () => {
   phonemes.value.length = 0;
+  lects.value.length = 0;
   registry = await loadJSON("ipa", {});
   const uses = await loadLectsJSON<PhonemeUse[]>("phonology");
   lects.value = Object.keys(uses);
