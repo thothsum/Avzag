@@ -844,7 +844,7 @@
         },
         {
           "text": {
-            "plain": "тидин",
+            "plain": "Тидин",
             "ipa": "ˈtʰ idin",
             "glossed": "he-GEN"
           },
@@ -942,18 +942,30 @@
             "plain": "Зе",
             "ipa": "ze",
             "glossed": "i-GEN"
+          },
+          "transition": "next",
+          "conditions": {
+            "person": {
+              "first": true
+            }
           }
         },
         {
           "text": {
-            "plain": "тидин",
+            "plain": "Тидин",
             "ipa": "ˈtʰ idin",
             "glossed": "he-GEN"
+          },
+          "transition": "next",
+          "conditions": {
+            "person": {
+              "third": true
+            }
           }
         },
         {
           "text": {
-            "plain": "зун",
+            "plain": "Зун",
             "ipa": "zun",
             "glossed": "i-NOM"
           }
@@ -965,26 +977,38 @@
             "plain": "ттур",
             "ipa": "tːur",
             "glossed": "name"
-          }
+          },
+          "conditions": {
+            "part": {
+              "name": true
+            }
+          },
+          "transition": "next"
         },
         {
           "text": {
             "plain": "тухумдиъас",
             "ipa": "tʰuˈχumdiˀas",
             "glossed": "family-INEL"
-          }
+          },
+          "conditions": {
+            "part": {
+              "surname": true
+            }
+          },
+          "transition": "next"
         }
       ],
       [
         {
           "text": {
-            "plain": "Ilyas",
+            "plain": "Илйас",
             "ipa": "ilˈjas"
           }
         },
         {
           "text": {
-            "plain": "Maryam",
+            "plain": "Марйам",
             "ipa": "marˈjam"
           }
         }
@@ -1341,9 +1365,9 @@
         },
         {
           "text": {
-            "plain": "ве чӏал",
-            "ipa": "we t͡ʃʼal",
-            "glossed": ""
+            "plain": "ве",
+            "ipa": "we",
+            "glossed": "you-GEN"
           },
           "conditions": {
             "language": {
@@ -1351,6 +1375,20 @@
             }
           },
           "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "чӏал",
+            "ipa": "t͡ʃʼal",
+            "glossed": "language"
+          },
+          "conditions": {
+            "language": {
+              "your": true
+            }
+          }
         }
       ],
       [
