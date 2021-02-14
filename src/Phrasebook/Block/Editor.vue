@@ -25,7 +25,7 @@
     <template v-if="state">
       <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="block" />
-      <EditorCard icon="segment" header="text">
+      <EditorCard :key="Math.random()" icon="segment" header="text">
         <div class="row">
           <input v-model="state.text.plain" type="text" placeholder="plain" />
           <input
@@ -41,7 +41,11 @@
           />
         </div>
       </EditorCard>
-      <EditorCard icon="miscellaneous_services" header="miscellaneous">
+      <EditorCard
+        :key="Math.random()"
+        icon="miscellaneous_services"
+        header="miscellaneous"
+      >
         <template #header>
           <div class="row">
             <btn
