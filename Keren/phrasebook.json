@@ -1375,6 +1375,19 @@
             }
           },
           "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Турк",
+            "ipa": "tʰurkʰ",
+            "glossed": "Turkish"
+          },
+          "transition": "next",
+          "conditions": {
+            "language": {
+              "Turkish": true
+            }
+          }
         }
       ],
       [
