@@ -706,7 +706,7 @@
       [
         {
           "text": {
-            "plain": ","
+            "plain": "."
           },
           "audio": null,
           "noSpace": true
@@ -715,7 +715,7 @@
       [
         {
           "text": {
-            "plain": "ваъ",
+            "plain": "Ваъ",
             "ipa": "waʔ",
             "glossed": "no"
           }
@@ -724,7 +724,7 @@
       [
         {
           "text": {
-            "plain": ","
+            "plain": "."
           },
           "audio": null,
           "noSpace": true
@@ -733,7 +733,7 @@
       [
         {
           "text": {
-            "plain": "сакьурай",
+            "plain": "Сакьурай",
             "ipa": "ˈsaqʼuraj",
             "glossed": "thanks"
           }
@@ -742,7 +742,7 @@
       [
         {
           "text": {
-            "plain": ","
+            "plain": "."
           },
           "audio": null,
           "noSpace": true
@@ -751,7 +751,7 @@
       [
         {
           "text": {
-            "plain": "аферин",
+            "plain": "Аферин",
             "ipa": "ˈaferin"
           }
         }
@@ -1095,6 +1095,15 @@
             "plain": "ва",
             "ipa": "wa",
             "glossed": "Q"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ти",
+            "ipa": "tʰi",
+            "glossed": "that"
           }
         }
       ],
