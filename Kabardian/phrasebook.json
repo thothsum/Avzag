@@ -1,92 +1,123 @@
 {
-  "7068a2cd-3897-4737-9435-87f655d1c71d": {
+  "94f9e79a-c01b-40de-a493-8eadfc499ca7": {
     "blocks": [
       [
         {
-          "text": { "plain": "Дэ" },
-          "transition": "next",
-          "conditions": { "actor": { "plural": true } }
-        },
-        {
-          "text": { "plain": "Сэ" },
-          "transition": "next",
-          "conditions": { "actor": { "singular": true } }
-        }
-      ],
-      [
-        {
-          "text": { "plain": "тыкуэным" },
-          "transition": "next",
-          "conditions": { "destination": { "shop": true } }
-        },
-        {
-          "text": { "plain": "унэм" },
-          "transition": [2, 3],
-          "conditions": { "destination": { "home": true } }
-        },
-        {
-          "text": { "plain": "абы" },
-          "transition": [0],
-          "conditions": { "destination": { "there": true } }
-        },
-        {
-          "text": { "plain": "абыкӏэ" },
-          "transition": [0],
-          "conditions": {
-            "tense": { "present": false },
-            "destination": { "there": true }
+          "text": {
+            "plain": "Фӏэхъус"
           }
         }
       ],
       [
         {
-          "text": { "plain": "дэпщэщ" },
-          "transition": "next",
-          "conditions": { "tense": { "future": true } }
+          "text": {
+            "plain": "."
+          },
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "6b741253-a925-4e1f-8679-f9c627b3b5cb": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Уи"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          },
+          "transition": "next"
         },
         {
-          "text": { "plain": "дау" },
-          "transition": "next",
-          "conditions": { "tense": { "present": true } }
+          "text": {
+            "plain": "Фи"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
         }
       ],
       [
         {
-          "text": { "plain": "дызэрыкӏуэныр" },
+          "text": {
+            "plain": "пщэдджыжь"
+          },
+          "transition": "next",
           "conditions": {
-            "tense": { "present": false },
-            "actor": { "plural": false }
+            "time": {
+              "morning": true
+            }
           }
         },
         {
-          "text": { "plain": "сызэрыкӏуэныр" },
+          "text": {
+            "plain": "махуэ"
+          },
           "conditions": {
-            "tense": { "present": false },
-            "actor": { "singular": false }
-          }
+            "time": {
+              "day": true
+            }
+          },
+          "transition": "next"
         },
         {
-          "text": { "plain": "дыщыкӏуэныр" },
-
+          "text": {
+            "plain": "пщыхьэщхьэ"
+          },
           "conditions": {
-            "tense": { "future": false },
-            "actor": { "plural": false }
-          }
-        },
+            "time": {
+              "evening": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
         {
-          "text": { "plain": "сыщыкӏуэныр" },
-          "conditions": {
-            "tense": { "future": false },
-            "actor": { "singular": false }
+          "text": {
+            "plain": "фӏыуэ",
+            "ipa": "fʼə-wa",
+            "glossed": "good-?"
           }
         }
       ],
-      [{ "text": { "plain": "?" }, "conditions": {} }]
-    ],
-    "context": {
-      "tense": {},
-      "actor": { "masculine": "цӏыхубз", "feminine": "цӏыхухъу" },
-      "destination": {}
-    }
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "59b630b6-0415-42d3-80c0-c724207dc10c": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Фӏыкӏэ"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "noSpace": true,
+          "audio": null
+        }
+      ]
+    ]
   }
 }
