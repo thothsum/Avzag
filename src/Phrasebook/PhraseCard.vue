@@ -1,5 +1,5 @@
 <template>
-  <div v-if="phrase" class="col card flag">
+  <div v-if="phrase?.blocks?.length" class="col card flag">
     <Flag :lect="lect" class="blur" />
     <div v-if="lect" class="row small wrap" style="width: 100%">
       <h2 class="flex">{{ lect }}</h2>
@@ -9,7 +9,7 @@
         <toggle v-model="glossed" icon="segment" />
       </div>
     </div>
-    <Context :translation="lect ? phrase.context : null" :blocks="vblocks" />
+    <Context :translation="contextTranslation" :blocks="vblocks" />
     <div class="row wrap flex">
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row seeker">
         <Seeker
@@ -46,6 +46,9 @@ export default defineComponent({
   setup(props) {
     const glossed = ref(false);
     const vblocks = reactive([] as BlockSnapshot[]);
+    const contextTranslation = computed(() =>
+      props.lect && !glossed.value ? props.phrase.context : null
+    );
 
     const text = computed(() =>
       vblocks
@@ -76,7 +79,7 @@ export default defineComponent({
       },
     });
 
-    return { glossed, vblocks, copy, player, playing };
+    return { glossed, vblocks, copy, player, playing, contextTranslation };
   },
 });
 </script>
