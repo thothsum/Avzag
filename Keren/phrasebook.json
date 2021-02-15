@@ -854,17 +854,6 @@
             }
           },
           "transition": "next"
-        },
-        {
-          "text": {
-            "plain": "Вун",
-            "ipa": "wun",
-            "glossed": "you-NOM"
-          },
-          "conditions": {},
-          "transition": [
-            2
-          ]
         }
       ],
       [
@@ -883,9 +872,9 @@
         },
         {
           "text": {
-            "plain": "тухумдиъас",
-            "ipa": "tuˈxumdiˀas",
-            "glossed": "family-INEL"
+            "plain": "тухумдин ттур",
+            "ipa": "tuˈxumdin ttur",
+            "glossed": "family-GEN name-NOM"
           },
           "conditions": {
             "part": {
@@ -902,16 +891,6 @@
             "ipa": "fiʃ",
             "glossed": "who"
           }
-        },
-        {
-          "text": {
-            "plain": "найи",
-            "ipa": "naˈji",
-            "glossed": "which"
-          },
-          "transition": [
-            1
-          ]
         }
       ],
       [
@@ -962,13 +941,6 @@
               "third": true
             }
           }
-        },
-        {
-          "text": {
-            "plain": "Зун",
-            "ipa": "zun",
-            "glossed": "i-NOM"
-          }
         }
       ],
       [
@@ -987,9 +959,9 @@
         },
         {
           "text": {
-            "plain": "тухумдиъас",
-            "ipa": "tʰuˈχumdiˀas",
-            "glossed": "family-INEL"
+            "plain": "тухумдин ттур",
+            "ipa": "tʰuˈχumdin ttur",
+            "glossed": "family-DAT ttur-NOM "
           },
           "conditions": {
             "part": {
