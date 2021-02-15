@@ -1,486 +1,115 @@
 [
   {
-    "id": "b9fe76a8-7fab-4c26-9ef9-52cbeea114b9",
-    "name": "Greeting & Parting",
-    "phrases": [
-      {
-        "id": "94f9e79a-c01b-40de-a493-8eadfc499ca7",
-        "name": "Hello",
-        "context": [
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
-          }
-        ],
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "Hello."
-              }
-            }
-          ]
-        ]
-      },
-      {
-        "id": "6b741253-a925-4e1f-8679-f9c627b3b5cb",
-        "name": "Good time of day",
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "Good"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "morning"
-              },
-              "transition": "next",
-              "conditions": {
-                "time": {
-                  "morning": true
-                }
-              }
-            },
-            {
-              "text": {
-                "plain": "day"
-              },
-              "transition": "next",
-              "conditions": {
-                "time": {
-                  "day": true
-                }
-              }
-            },
-            {
-              "text": {
-                "plain": "evening"
-              },
-              "transition": "next",
-              "conditions": {
-                "time": {
-                  "evening": true
-                }
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "."
-              }
-            }
-          ]
-        ],
-        "context": [
-          {
-            "entity": "time",
-            "tags": [
-              "morning",
-              "day",
-              "evening"
-            ]
-          },
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "59b630b6-0415-42d3-80c0-c724207dc10c",
-        "name": "Goodbye",
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "Goodbye."
-              }
-            }
-          ]
-        ],
-        "context": [
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "8c75a252-3bdf-4b50-91d1-31b02fe74967",
-        "name": "Good night",
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "Good night."
-              }
-            }
-          ]
-        ],
-        "context": [
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "681cf96a-ca04-4b20-83ac-8fb3d9082ed0",
-        "name": "See you later",
-        "context": [
-          {
-            "entity": "time",
-            "tags": [
-              "later",
-              "tomorrow"
-            ]
-          },
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
-          }
-        ],
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "See"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "you"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "later"
-              },
-              "transition": "next",
-              "conditions": {
-                "time": {
-                  "later": true
-                }
-              }
-            },
-            {
-              "text": {
-                "plain": "tomorrow"
-              },
-              "transition": "next",
-              "conditions": {
-                "time": {
-                  "tomorrow": true
-                }
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "."
-              }
-            }
-          ]
-        ]
-      },
-      {
-        "id": "4df5ef4a-ab55-44fb-887e-5606f271be15",
-        "context": [
-          {
-            "entity": "subject",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
-          },
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
-          }
-        ],
-        "name": "Glad to see you",
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "I'm"
-              },
-              "transition": "next",
-              "conditions": {
-                "subject": {
-                  "singular": true
-                }
-              }
-            },
-            {
-              "text": {
-                "plain": "We're"
-              },
-              "transition": "next",
-              "conditions": {
-                "subject": {
-                  "plural": true
-                }
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "glad to see"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "you"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "."
-              }
-            }
-          ]
-        ]
-      },
-      {
-        "id": "36c1507b-72ed-4c81-8fbb-6f290d54fac5",
-        "name": "How are you",
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "How are"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "you?"
-              }
-            }
-          ]
-        ],
-        "context": [
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "7f71c61d-b9f6-46e0-888d-eb15b7b04646",
-        "name": "Fine, thanks",
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "I'm"
-              },
-              "transition": "next",
-              "conditions": {
-                "subject": {
-                  "singular": true
-                }
-              }
-            },
-            {
-              "text": {
-                "plain": "We're"
-              },
-              "transition": "next",
-              "conditions": {
-                "subject": {
-                  "plural": true
-                }
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "fine, thanks."
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "And"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "you"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "?"
-              }
-            }
-          ]
-        ],
-        "context": [
-          {
-            "entity": "subject",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
-          },
-          {
-            "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "11290a1d-ca8b-468d-9b63-6bf83f5b477a",
-        "name": "Send greetings",
-        "blocks": [
-          [
-            {
-              "text": {
-                "plain": "Send greetings to"
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "the family"
-              },
-              "transition": "next",
-              "conditions": {
-                "recipient": {
-                  "family": true
-                }
-              }
-            },
-            {
-              "text": {
-                "plain": "friends"
-              },
-              "transition": "next",
-              "conditions": {
-                "recipient": {
-                  "friends": true
-                }
-              }
-            },
-            {
-              "text": {
-                "plain": "Michael"
-              },
-              "transition": "next",
-              "conditions": {
-                "recipient": {
-                  "name": true
-                }
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": "."
-              }
-            }
-          ]
-        ],
-        "context": [
-          {
-            "entity": "recipient",
-            "tags": [
-              "family",
-              "friends",
-              "name"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "ef0206cd-8ff5-4d38-af1c-996d3dc2c8f5",
     "name": "Basic Communication",
     "phrases": [
       {
         "id": "9243fcf4-d249-49ce-badf-4433c9e76c37",
-        "name": "Yes, no, good, thanks, you're welcome",
+        "name": "Yes, no, good",
         "blocks": [
           [
             {
               "text": {
-                "plain": "Yes. No. Good. Thanks. You're welcome."
+                "plain": "Yes. No. Good."
               },
               "audio": "erferf"
+            }
+          ]
+        ],
+        "context": []
+      },
+      {
+        "id": "6c33c4e3-78db-41af-855e-f9fbfc4953ef",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Please, help"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "me"
+              },
+              "conditions": {
+                "object": {
+                  "singular": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "us"
+              },
+              "conditions": {
+                "object": {
+                  "plural": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              },
+              "noSpace": true
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "subject",
+            "tags": ["singular", "plural"]
+          },
+          {
+            "entity": "object",
+            "tags": ["singular", "plural"]
+          }
+        ],
+        "name": "Please, help"
+      },
+      {
+        "id": "fa265107-c71d-49d8-a747-e8189ac3fd8b",
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ],
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Thank you for help."
+              }
+            }
+          ]
+        ],
+        "name": "Thank you"
+      },
+      {
+        "id": "7b7220a2-b7e3-45b5-abc6-3e68d49b4f39",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "You're welcome."
+              }
             }
           ]
         ],
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
-        ]
+        ],
+        "name": "You're welcome"
       },
       {
         "id": "73e3b59c-ed78-47d6-93c2-c62cd3049f3c",
@@ -497,21 +126,11 @@
         "context": [
           {
             "entity": "subject",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           },
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           }
         ]
       },
@@ -599,19 +218,11 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "second",
-              "third",
-              "male",
-              "female"
-            ]
+            "tags": ["second", "third", "male", "female"]
           },
           {
             "entity": "part",
-            "tags": [
-              "name",
-              "surname"
-            ]
+            "tags": ["name", "surname"]
           }
         ]
       },
@@ -719,19 +330,11 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "first",
-              "third",
-              "male",
-              "female"
-            ]
+            "tags": ["first", "third", "male", "female"]
           },
           {
             "entity": "part",
-            "tags": [
-              "name",
-              "surname"
-            ]
+            "tags": ["name", "surname"]
           }
         ]
       },
@@ -782,10 +385,7 @@
         "context": [
           {
             "entity": "repeat",
-            "tags": [
-              "slowly",
-              "again"
-            ]
+            "tags": ["slowly", "again"]
           }
         ]
       },
@@ -795,10 +395,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ],
         "blocks": [
@@ -915,20 +512,11 @@
         "context": [
           {
             "entity": "language",
-            "tags": [
-              "English",
-              "Russian",
-              "Arabic",
-              "Japanese",
-              "Turkish"
-            ]
+            "tags": ["English", "Russian", "Arabic", "Japanese", "Turkish"]
           },
           {
             "entity": "skill",
-            "tags": [
-              "understand",
-              "speak"
-            ]
+            "tags": ["understand", "speak"]
           }
         ]
       },
@@ -1101,7 +689,7 @@
           [
             {
               "text": {
-                "plain": "understand it."
+                "plain": "understand."
               }
             }
           ]
@@ -1109,17 +697,11 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           },
           {
             "entity": "verb",
-            "tags": [
-              "do",
-              "not"
-            ]
+            "tags": ["do", "not"]
           }
         ]
       },
@@ -1170,10 +752,412 @@
         "context": [
           {
             "entity": "pronoun",
-            "tags": [
-              "this",
-              "that"
-            ]
+            "tags": ["this", "that"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b9fe76a8-7fab-4c26-9ef9-52cbeea114b9",
+    "name": "Greeting & Parting",
+    "phrases": [
+      {
+        "id": "94f9e79a-c01b-40de-a493-8eadfc499ca7",
+        "name": "Hello",
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural", "male", "female"]
+          }
+        ],
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Hello."
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "6b741253-a925-4e1f-8679-f9c627b3b5cb",
+        "name": "Good time of day",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Good"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "morning"
+              },
+              "transition": "next",
+              "conditions": {
+                "time": {
+                  "morning": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "day"
+              },
+              "transition": "next",
+              "conditions": {
+                "time": {
+                  "day": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "evening"
+              },
+              "transition": "next",
+              "conditions": {
+                "time": {
+                  "evening": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "time",
+            "tags": ["morning", "day", "evening"]
+          },
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ]
+      },
+      {
+        "id": "59b630b6-0415-42d3-80c0-c724207dc10c",
+        "name": "Goodbye",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Goodbye."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ]
+      },
+      {
+        "id": "8c75a252-3bdf-4b50-91d1-31b02fe74967",
+        "name": "Good night",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Good night."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ]
+      },
+      {
+        "id": "681cf96a-ca04-4b20-83ac-8fb3d9082ed0",
+        "name": "See you later",
+        "context": [
+          {
+            "entity": "time",
+            "tags": ["later", "tomorrow"]
+          },
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ],
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "See"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "you"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "later"
+              },
+              "transition": "next",
+              "conditions": {
+                "time": {
+                  "later": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "tomorrow"
+              },
+              "transition": "next",
+              "conditions": {
+                "time": {
+                  "tomorrow": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "4df5ef4a-ab55-44fb-887e-5606f271be15",
+        "context": [
+          {
+            "entity": "subject",
+            "tags": ["singular", "plural", "male", "female"]
+          },
+          {
+            "entity": "person",
+            "tags": ["singular", "plural", "male", "female"]
+          }
+        ],
+        "name": "Glad to see you",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "I'm"
+              },
+              "transition": "next",
+              "conditions": {
+                "subject": {
+                  "singular": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "We're"
+              },
+              "transition": "next",
+              "conditions": {
+                "subject": {
+                  "plural": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "glad to see"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "you"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "36c1507b-72ed-4c81-8fbb-6f290d54fac5",
+        "name": "How are you",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "How are"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "you?"
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ]
+      },
+      {
+        "id": "7f71c61d-b9f6-46e0-888d-eb15b7b04646",
+        "name": "Fine, thanks",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "I'm"
+              },
+              "transition": "next",
+              "conditions": {
+                "subject": {
+                  "singular": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "We're"
+              },
+              "transition": "next",
+              "conditions": {
+                "subject": {
+                  "plural": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "fine, thanks."
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "And"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "you"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "?"
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "subject",
+            "tags": ["singular", "plural", "male", "female"]
+          },
+          {
+            "entity": "person",
+            "tags": ["singular", "plural", "male", "female"]
+          }
+        ]
+      },
+      {
+        "id": "11290a1d-ca8b-468d-9b63-6bf83f5b477a",
+        "name": "Send greetings",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Send greetings to"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "the family"
+              },
+              "transition": "next",
+              "conditions": {
+                "recipient": {
+                  "family": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "friends"
+              },
+              "transition": "next",
+              "conditions": {
+                "recipient": {
+                  "friends": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "Michael"
+              },
+              "transition": "next",
+              "conditions": {
+                "recipient": {
+                  "name": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "recipient",
+            "tags": ["family", "friends", "name"]
           }
         ]
       }
@@ -1189,27 +1173,15 @@
         "context": [
           {
             "entity": "tense",
-            "tags": [
-              "present",
-              "future"
-            ]
+            "tags": ["present", "future"]
           },
           {
             "entity": "actor",
-            "tags": [
-              "singular",
-              "plural",
-              "feminine",
-              "masculine"
-            ]
+            "tags": ["singular", "plural", "feminine", "masculine"]
           },
           {
             "entity": "destination",
-            "tags": [
-              "there",
-              "home",
-              "shop"
-            ]
+            "tags": ["there", "home", "shop"]
           }
         ],
         "blocks": [
