@@ -861,7 +861,109 @@
     ]
   },
   "73e3b59c-ed78-47d6-93c2-c62cd3049f3c": {
-    "blocks": []
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Черверхе"
+          },
+          "conditions": {
+            "person": {
+              "singular": true,
+              "male": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Черрерхе"
+          },
+          "conditions": {
+            "person": {
+              "female": true,
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Чердерхвай"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": ","
+          },
+          "noSpace": true,
+          "audio": null
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "дами",
+            "ipa": "dɑmi",
+            "glossed": "1.SG.DAT"
+          },
+          "conditions": {
+            "subject": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "ниссай",
+            "ipa": "nisːɑ-j",
+            "glossed": "1.PL-DAT"
+          },
+          "conditions": {
+            "subject": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "абиккан",
+            "ipa": "ɑ-бикк-ан",
+            "glossed": "NEG-want-ADJ"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "агур",
+            "ipa": "ɑg-ur",
+            "glossed": "happen-PST"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
   },
   "6c33c4e3-78db-41af-855e-f9fbfc4953ef": {
     "blocks": [
@@ -1371,7 +1473,7 @@
       [
         {
           "text": {
-            "plain": "гьеж",
+            "plain": "гьел",
             "glossed": "this",
             "ipa": "heʒ"
           }
