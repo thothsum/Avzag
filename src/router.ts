@@ -25,43 +25,43 @@ const routes = [
     component: Navigation,
     children: [
       {
-        path: "/phonology",
+        path: "phonology",
         name: "Phonology",
         component: Phonology,
       },
       {
-        path: "/converter",
+        path: "converter",
         name: "Converter",
         component: Converter,
       },
       {
-        path: "/phrasebook",
+        path: "phrasebook",
         name: "Phrasebook",
         component: Phrasebook,
       },
     ],
   },
   {
-    path: "/editor",
+    path: "/editor/",
     component: EditorNavigation,
     children: [
       {
-        path: "/editor/phonology",
+        path: "phonology",
         name: "PhonologyEditor",
         component: PhonologyEditor,
       },
       {
-        path: "/editor/converter",
+        path: "converter",
         name: "ConverterEditor",
         component: ConverterEditor,
       },
       {
-        path: "/editor/phrasebook",
+        path: "phrasebook",
         name: "PhrasebookEditor",
         component: PhrasebookEditor,
       },
       {
-        path: "/editor/phrasebook/corpus",
+        path: "phrasebook/corpus",
         name: "PhrasebookCorpusEditor",
         component: PhrasebookCorpusEditor,
       },
