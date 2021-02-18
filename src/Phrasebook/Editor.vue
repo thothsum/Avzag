@@ -80,11 +80,10 @@ export default defineComponent({
   },
   setup() {
     const corpus = ref([] as CorpusSection[]);
-    try {
-      corpus.value = JSON.parse(localStorage["editor.phrasebookCorpus"]);
-    } catch {
+    corpus.value = JSON.parse(localStorage["editor.phrasebookCorpus"] ?? "[]");
+    if (!corpus.value.length)
       loadJSON("phrasebook").then((j) => (corpus.value = j));
-    }
+
     const section = ref(undefined as undefined | CorpusSection);
     const phrase = ref(undefined as undefined | CorpusPhrase);
     const translation = ref({} as Phrase);
