@@ -5,7 +5,10 @@ import { onUnmounted } from "vue";
 export let map: mapboxgl.Map;
 
 function bindCamera() {
-  const camera = { center: new mapboxgl.LngLat(0, 0), zoom: 5 };
+  const camera = {
+    center: new mapboxgl.LngLat(45, 43),
+    zoom: 5,
+  };
 
   if (localStorage.camera)
     Object.assign(camera, JSON.parse(localStorage.camera));
