@@ -119,5 +119,395 @@
         }
       ]
     ]
+  },
+  "7068a2cd-3897-4737-9435-87f655d1c71d": {
+    "blocks": []
+  },
+  "11290a1d-ca8b-468d-9b63-6bf83f5b477a": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Уи"
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "recipient": {
+              "name": false
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "унагъуэм"
+          },
+          "conditions": {
+            "recipient": {
+              "family": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "ныбжьэгъухэм"
+          },
+          "conditions": {
+            "recipient": {
+              "friends": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Михаил"
+          },
+          "conditions": {
+            "recipient": {
+              "name": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "сэлам"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "схуехыж"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "8c75a252-3bdf-4b50-91d1-31b02fe74967": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Уи",
+            "ipa": ".",
+            "glossed": "."
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Фи",
+            "ipa": ".",
+            "glossed": "."
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "жэщ"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "фIы"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ухъу"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ]
+    ]
+  },
+  "681cf96a-ca04-4b20-83ac-8fb3d9082ed0": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Итӏанэ"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "дызэхуэзэн"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ]
+    ]
+  },
+  "4df5ef4a-ab55-44fb-887e-5606f271be15": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Узэрыслъагъур"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Фызэрыслъагъур"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "си"
+          },
+          "conditions": {
+            "subject": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "ди"
+          },
+          "conditions": {
+            "subject": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гуапэщ"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "36c1507b-72ed-4c81-8fbb-6f290d54fac5": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Дау"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ущыт"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "фыщыт"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "7f71c61d-b9f6-46e0-888d-eb15b7b04646": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Хъэрзынэщ"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": ","
+          },
+          "noSpace": true
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "упсэу"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "фыпсэу"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "Уэ"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Фэ"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "дау"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ущыт"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "фыщыт"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          },
+          "noSpace": true
+        }
+      ]
+    ],
+    "notes": []
   }
 }
