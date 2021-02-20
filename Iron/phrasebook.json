@@ -775,30 +775,201 @@
         {
           "text": {
             "plain": "Дæн*о*м"
-          }
+          },
+          "conditions": {
+            "person": {
+              "second": true
+            },
+            "part": {
+              "name": true
+            }
+          },
+          "transition": "next"
         },
         {
           "text": {
             "plain": "Дæм*ы*ггаг"
+          },
+          "conditions": {
+            "person": {
+              "second": true
+            },
+            "part": {
+              "surname": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Йæн*о*м"
+          },
+          "conditions": {
+            "person": {
+              "third": true
+            },
+            "part": {
+              "name": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Йæм*ы*ггаг"
+          },
+          "conditions": {
+            "person": {
+              "third": true
+            },
+            "part": {
+              "surname": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": " куыд*у*"
+          },
+          "conditions": {
+            "part": {
+              "name": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "кæм*æ*йу"
+          },
+          "conditions": {
+            "part": {
+              "surname": true
+            }
           }
         }
       ],
       [
         {
           "text": {
-            "plain": " куыду"
+            "plain": "?"
           },
-          "conditions": {
-            "person": {
-              "second": true
-            }
-          }
+          "audio": null,
+          "noSpace": true
         }
       ]
     ]
   },
   "09adbfbc-9c4e-4170-8bc6-5e760e072bb4": {
-    "blocks": []
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Мæн*о*м"
+          },
+          "conditions": {
+            "person": {
+              "first": true
+            },
+            "part": {
+              "name": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Йæн*о*м"
+          },
+          "conditions": {
+            "person": {
+              "third": true
+            },
+            "part": {
+              "name": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Мæм*ы*ггаг"
+          },
+          "conditions": {
+            "person": {
+              "first": true
+            },
+            "part": {
+              "surname": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Йæм*ы*ггаг"
+          },
+          "conditions": {
+            "person": {
+              "third": true
+            },
+            "part": {
+              "surname": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "Ил*а*су"
+          },
+          "conditions": {
+            "person": {
+              "male": true
+            },
+            "part": {
+              "name": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "М*а*рияу"
+          },
+          "conditions": {
+            "person": {
+              "female": true
+            },
+            "part": {
+              "name": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Ил*а*стæйу"
+          },
+          "conditions": {
+            "part": {
+              "surname": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
   },
   "808c69de-3f4e-4b64-83e7-badfb6d74b97": {
     "blocks": [
