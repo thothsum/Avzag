@@ -948,9 +948,9 @@
       [
         {
           "text": {
-            "plain": "агур",
-            "ipa": "ɑg-ur",
-            "glossed": "happen-PST"
+            "plain": "баривда",
+            "ipa": "b-ɑr-iβ-dɑ",
+            "glossed": "N-do-PST-1"
           }
         }
       ],
@@ -1356,25 +1356,16 @@
       [
         {
           "text": {
-            "plain": "бурсара",
-            "ipa": "burs-ara",
-            "glossed": "tell-INF"
+            "plain": "бурсакква",
+            "ipa": "burs-a-kːʷɑ",
+            "glossed": "tell-2.IMP-HORT"
           }
         }
       ],
       [
         {
           "text": {
-            "plain": "аргулев",
-            "ipa": "ɑrg-ul-eβ",
-            "glossed": "happen-PRS-Q"
-          }
-        }
-      ],
-      [
-        {
-          "text": {
-            "plain": "?"
+            "plain": "."
           },
           "noSpace": true
         }
@@ -1558,9 +1549,243 @@
     ]
   },
   "a4f5c91c-fa71-43b8-ac9f-0ad191043243": {
-    "blocks": []
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Дул",
+            "ipa": "dul",
+            "glossed": "1.SG.ERG"
+          },
+          "implicit": true
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ила",
+            "ipa": "ʔi-lɑ",
+            "glossed": "2.SG-GEN"
+          },
+          "conditions": {
+            "language": {
+              "your": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Ингилиз",
+            "ipa": "ingiliz",
+            "glossed": "English"
+          },
+          "conditions": {
+            "language": {
+              "English": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Гӏярус",
+            "ipa": "ʡɑˤrus",
+            "glossed": "Russian"
+          },
+          "conditions": {
+            "language": {
+              "Russian": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Гӏярав",
+            "ipa": "ʡɑˤrɑβ",
+            "glossed": "Arabic"
+          },
+          "conditions": {
+            "language": {
+              "Arabic": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Йапун",
+            "ipa": "jɑpun",
+            "glossed": "Japanese"
+          },
+          "conditions": {
+            "language": {
+              "Japanese": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Турклан",
+            "ipa": "turk-lɑn",
+            "glossed": "Turk-PERS"
+          },
+          "conditions": {
+            "language": {
+              "Turkish": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гъай"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гӏяхӏле",
+            "ipa": "ʡɑˤħ-le",
+            "glossed": "good-ADV"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "адаргьид",
+            "ipa": "ɑ-d-ɑrh-id",
+            "glossed": "NEG-N.PL-know-1.FUT"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          },
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
   },
   "f6453d18-92b1-4518-9137-73793d43564b": {
-    "blocks": []
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Ингилиз"
+          },
+          "conditions": {
+            "language": {
+              "English": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Гӏярус"
+          },
+          "conditions": {
+            "language": {
+              "Russian": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Гӏярав"
+          },
+          "conditions": {
+            "language": {
+              "Arabic": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Йапун"
+          },
+          "conditions": {
+            "language": {
+              "Japanese": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "Турклан"
+          },
+          "conditions": {
+            "language": {
+              "Turkish": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гъай",
+            "ipa": "ʁɑj-li",
+            "glossed": "language-ERG"
+          },
+          "conditions": {
+            "skill": {
+              "understand": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "даргьулдев",
+            "ipa": "d-ɑrh-ul-de-β",
+            "glossed": "N.PL-know-PRS-2.SG-Q"
+          },
+          "conditions": {
+            "skill": {
+              "speak": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "иргъулдев",
+            "ipa": "irʁ-ul-de-β",
+            "glossed": "understand-PRS-2.SG-Q"
+          },
+          "conditions": {
+            "skill": {
+              "understand": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          },
+          "audio": null,
+          "noSpace": true
+        }
+      ]
+    ]
   }
 }
