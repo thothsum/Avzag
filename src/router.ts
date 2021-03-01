@@ -41,7 +41,7 @@ const routes = [
         component: Phrasebook,
       },
       {
-        path: "/dictionary",
+        path: "dictionary",
         name: "Dictionary",
         component: Dictionary,
       },
