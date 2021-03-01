@@ -8,6 +8,7 @@ const EditorNavigation = () => import("@/EditorNavigation.vue");
 const Phonology = () => import("@/Phonology/index.vue");
 const Converter = () => import("@/Converter/index.vue");
 const Phrasebook = () => import("@/Phrasebook/index.vue");
+const Dictionary = () => import("@/Dictionary/index.vue");
 
 const PhonologyEditor = () => import("@/Phonology/Editor.vue");
 const ConverterEditor = () => import("@/Converter/Editor.vue");
@@ -38,6 +39,11 @@ const routes = [
         path: "phrasebook",
         name: "Phrasebook",
         component: Phrasebook,
+      },
+      {
+        path: "/dictionary",
+        name: "Dictionary",
+        component: Dictionary,
       },
     ],
   },

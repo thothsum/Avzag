@@ -25,7 +25,8 @@ export default defineComponent({
         { icon: "arrow_back", name: "Home" },
         { icon: "audiotrack", text: "Phonology" },
         { icon: "sync_alt", text: "Converter" },
-        { icon: "book", text: "Phrasebook" },
+        { icon: "chat", text: "Phrasebook" },
+        { icon: "book", text: "Dictionary" },
       ],
     };
   },
