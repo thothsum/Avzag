@@ -127,7 +127,7 @@ export default defineComponent({
   gap: map-get($margins, "normal");
 }
 .phrases {
-  max-height: 640px;
+  max-height: 440px;
 }
 @media only screen and (max-width: $mobile-width) {
   .section {
