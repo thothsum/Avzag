@@ -1,9 +1,13 @@
 <template>
-  <div class="card col small">
-    <toggle v-model="expanded.card">{{ entry.forms[0].text.plain }}</toggle>
+  <div class="col small">
+    <toggle v-model="expanded.card" class="card">{{
+      entry.forms[0].text.plain
+    }}</toggle>
     <template v-if="expanded.card">
-      <div class="col-0">
+      <h2 class="header">
         <toggle v-model="expanded.forms" text="Forms" class="flex" />
+      </h2>
+      <div class="col-0 card">
         <temaplate v-if="expanded.forms">
           <div v-for="(f, i) in entry.forms" :key="i" class="col-0">
             <p class="row">
@@ -15,14 +19,16 @@
           </div>
         </temaplate>
       </div>
-      <div v-if="entry.samples" class="col-0">
+      <h2 class="header">
         <toggle v-model="expanded.samples" text="Samples" class="flex" />
+      </h2>
+      <div v-if="entry.samples" class="col-0 card">
         <temaplate v-if="expanded.samples">
           <div v-for="(s, i) in entry.samples" :key="i" class="col-0">
             <p>{{ s.text.plain }}</p>
             <p class="text-faded text-caption">{{ s.translation }}</p>
-          </div></temaplate
-        >
+          </div>
+        </temaplate>
       </div>
     </template>
   </div>
