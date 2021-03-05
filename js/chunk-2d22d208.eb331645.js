@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d22d208"],{f5be:function(n,e,c){"use strict";c.r(e);var t=c("7a23"),i={class:"section"},o=Object(t["g"])("h1",null,"Ævzag Dictionary. Coming when ready.",-1);function r(n,e){return Object(t["r"])(),Object(t["d"])("div",i,[o])}const a={};a.render=r;e["default"]=a}}]);
