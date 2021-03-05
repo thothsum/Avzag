@@ -21,14 +21,14 @@ function searchByMeaning(query?: string) {
 }
 
 export function search(lect: string, query: string) {
-  return searchByMeaning(
-    lect
-      ? dictionaries.value[lect].find(({ forms }) =>
-          forms
-            .map(({ text }) => text.plain)
-            .join(" ")
-            .includes(query)
-        )?.meaning.primary
-      : query
+  if (!query) return dictionaries.value;
+  if (!lect) return searchByMeaning(query);
+
+  const entry = dictionaries.value[lect].find(({ forms }) =>
+    forms
+      .map(({ text }) => text.plain)
+      .join(" ")
+      .includes(query)
   );
+  return searchByMeaning(entry?.meaning.primary);
 }
