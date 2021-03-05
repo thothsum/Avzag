@@ -12,7 +12,7 @@
       <input v-model="query" type="text" />
     </div>
     <div class="row-2 lects">
-      <div v-for="(es, l) of entries" :key="l" class="col-2 lect">
+      <div v-for="(es, l) of entries" :key="l" class="col lect">
         <template v-if="es.length">
           <h2>{{ l }}</h2>
           <EntryCard v-for="(e, i) in es" :key="i" :entry="e" />

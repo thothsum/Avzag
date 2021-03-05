@@ -1,21 +1,29 @@
 <template>
   <div class="col small">
-    <div class="row">
-      <p class="flex">{{ entry.forms[0].text.plain }}</p>
+    <div v-if="expand" class="row">
+      <btn icon="expand_less" @click="expand = 0" />
+      <p class="flex">{{ plain }}</p>
       <btn
         icon="format_list_bulleted"
         :text="expand === 1 ? 'forms' : ''"
         :is-on="expand === 1"
-        @click="expand = expand === 1 ? 0 : 1"
+        @click="expand = 1"
       />
       <btn
         icon="speaker_notes"
         :text="expand === 2 ? 'samples' : ''"
         :is-on="expand === 2"
-        @click="expand = expand === 2 ? 0 : 2"
+        @click="expand = 2"
       />
     </div>
-    <div v-if="expand" class="col-0 card">
+    <btn
+      v-else
+      class="flex"
+      :is-on="expand"
+      :text="plain"
+      @click="expand = expand ? 0 : 1"
+    />
+    <div v-if="expand" class="col card">
       <template v-if="expand === 1">
         <div v-for="(f, i) in entry.forms" :key="i" class="col-0">
           <p class="row">
@@ -37,16 +45,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from "vue";
+import { computed, defineComponent, PropType, ref } from "vue";
 import { Entry } from "./types";
 
 export default defineComponent({
   name: "EntryCard",
   props: { entry: { type: Object as PropType<Entry>, default: undefined } },
-  setup() {
+  setup(props) {
     const expand = ref(0);
-
-    return { expand };
+    const plain = computed(() => props.entry.forms[0].text.plain);
+    return { expand, plain };
   },
 });
 </script>
