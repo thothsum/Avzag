@@ -1,6 +1,16 @@
 <template>
   <div class="section col-2">
-    <input v-model="query" type="text" />
+    <div class="row">
+      <h2>
+        <select v-model="lect">
+          <option value="">English</option>
+          <option v-for="l in lects" :key="l" :value="l">
+            {{ l }}
+          </option>
+        </select>
+      </h2>
+      <input v-model="query" type="text" />
+    </div>
     <div class="row-2 lects">
       <div v-for="(es, l) of entries" :key="l" class="col-2 lect">
         <h2>{{ l }}</h2>
@@ -13,6 +23,7 @@
 <script lang="ts">
 import { computed, defineComponent, ref } from "vue";
 import { dictionaries } from "./main";
+import { lects } from "@/store";
 import { Entry } from "./types";
 import EntryCard from "./EntryCard.vue";
 
@@ -20,6 +31,7 @@ export default defineComponent({
   components: { EntryCard },
   setup() {
     const query = ref("");
+    const lect = ref("");
 
     const entries = computed(() =>
       Object.entries(query.value ? dictionaries.value : {})
@@ -32,7 +44,7 @@ export default defineComponent({
         }, {} as Record<string, Entry[]>)
     );
 
-    return { query, entries };
+    return { query, entries, lects, lect };
   },
 });
 </script>
