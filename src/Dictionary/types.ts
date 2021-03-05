@@ -1,3 +1,8 @@
+export type Meaning = {
+  primary: string;
+  secondary?: string;
+};
+
 export type Text = {
   plain: string;
   ipa?: string;
@@ -10,8 +15,14 @@ export type Sample = {
 };
 
 export type Form = {
-  source: Text;
-  translation: string;
+  text: Text;
   grammar: string;
+};
+
+export type Entry = {
+  meaning: Meaning;
+  forms: Form[];
   samples: Sample[];
+  etymology?: string;
+  related?: string[];
 };
