@@ -13,8 +13,10 @@
     </div>
     <div class="row-2 lects">
       <div v-for="(es, l) of entries" :key="l" class="col-2 lect">
-        <h2>{{ l }}</h2>
-        <EntryCard v-for="(e, i) in es" :key="i" :entry="e" />
+        <template v-if="es.length">
+          <h2>{{ l }}</h2>
+          <EntryCard v-for="(e, i) in es" :key="i" :entry="e" />
+        </template>
       </div>
     </div>
   </div>
@@ -22,9 +24,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from "vue";
-import { dictionaries } from "./main";
+import { search } from "./main";
 import { lects } from "@/store";
-import { Entry } from "./types";
 import EntryCard from "./EntryCard.vue";
 
 export default defineComponent({
@@ -33,16 +34,7 @@ export default defineComponent({
     const query = ref("");
     const lect = ref("");
 
-    const entries = computed(() =>
-      Object.entries(query.value ? dictionaries.value : {})
-        .filter(([, d]) => d)
-        .reduce((entries, [lect, dictionary]) => {
-          entries[lect] = dictionary.filter(({ meaning }) =>
-            meaning.primary.includes(query.value)
-          );
-          return entries;
-        }, {} as Record<string, Entry[]>)
-    );
+    const entries = computed(() => search(lect.value, query.value));
 
     return { query, entries, lects, lect };
   },
