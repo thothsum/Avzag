@@ -1,5 +1,5 @@
 <template>
-  <div class="col">
+  <div v-if="entry" class="col">
     <div v-if="expand" class="row">
       <btn icon="close" @click="expand = 0" />
       <p class="flex">{{ plain }}</p>
@@ -60,7 +60,7 @@ export default defineComponent({
   props: { entry: { type: Object as PropType<Entry>, default: undefined } },
   setup(props) {
     const expand = ref(0);
-    const plain = computed(() => props.entry.forms[0].text.plain);
+    const plain = computed(() => props.entry?.forms[0].text.plain);
     return { expand, plain };
   },
 });
