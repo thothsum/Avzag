@@ -1,23 +1,14 @@
 <template>
-  <div class="section col-2">
-    <div class="row">
-      <h2>
-        <select v-model="lect">
-          <option value="">English</option>
-          <option v-for="l in lects" :key="l" :value="l">
-            {{ l }}
-          </option>
-        </select>
-      </h2>
-      <input v-model="query" type="text" />
-    </div>
-    <div class="row-2 lects">
-      <div v-for="(es, l) of entries" :key="l" class="col lect">
-        <template v-if="es.length">
+  <div class="section row-2 lects small">
+    <div v-for="(es, l) of entries" :key="l" class="col lect">
+      <template v-if="es.length">
+        <div class="col-1 card flag">
+          <Flag :lect="l" class="blur" />
           <h2>{{ l }}</h2>
-          <EntryCard v-for="(e, i) in es" :key="i" :entry="e" />
-        </template>
-      </div>
+          <!-- <input type="text" /> -->
+        </div>
+        <EntryCard v-for="(e, i) in es" :key="i" :entry="e" />
+      </template>
     </div>
   </div>
 </template>
@@ -27,9 +18,10 @@ import { computed, defineComponent, ref } from "vue";
 import { search } from "./main";
 import { lects } from "@/store";
 import EntryCard from "./EntryCard.vue";
+import Flag from "@/components/Flag.vue";
 
 export default defineComponent({
-  components: { EntryCard },
+  components: { EntryCard, Flag },
   setup() {
     const query = ref("");
     const lect = ref("");
