@@ -19,14 +19,14 @@
     <btn
       v-else
       class="flex"
-      :is-on="expand"
+      :is-on="!!expand"
       :text="plain"
       @click="expand = expand ? 0 : 1"
     />
     <div v-if="expand" class="col card">
       <template v-if="expand === 1">
         <div v-for="(f, i) in entry.forms" :key="i" class="col-0">
-          <p class="row">
+          <p class="row-1">
             <span>{{ f.text.plain }}</span>
             <span class="text-ipa">{{ f.text.ipa }}</span>
             <span>{{ f.text.glossed }}</span>
