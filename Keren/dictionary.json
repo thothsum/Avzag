@@ -1,60 +1,2713 @@
 [
   {
     "meaning": {
-      "primary": "heart",
-      "secondary": "body organ anatomical noun"
+      "primary": "I"
     },
     "forms": [
       {
-        "text": { "plain": "иркӏв" }
+        "text": {
+          "plain": "зун"
+        }
       }
     ]
   },
   {
-    "meaning": { "primary": "cat", "secondary": "animal noun" },
+    "meaning": {
+      "primary": "you (singular)"
+    },
     "forms": [
       {
-        "text": { "plain": "гитан" }
+        "text": {
+          "plain": "вун"
+        }
       }
     ]
   },
   {
-    "meaning": { "primary": "home", "secondary": "building noun" },
+    "meaning": {
+      "primary": "he"
+    },
     "forms": [
       {
-        "text": { "plain": "хал" }
+        "text": {
+          "plain": "ти"
+        }
       }
     ]
   },
   {
-    "meaning": { "primary": "head", "secondary": "body anatomical" },
+    "meaning": {
+      "primary": "it"
+    },
     "forms": [
       {
-        "text": { "plain": "кӏил" }
+        "text": {
+          "plain": "ти"
+        }
       }
     ]
   },
   {
-    "meaning": { "primary": "sleep", "secondary": "noun" },
+    "meaning": {
+      "primary": "we"
+    },
     "forms": [
       {
-        "text": { "plain": "гӏамкӏ" }
+        "text": {
+          "plain": "чин"
+        }
       }
     ]
   },
   {
-    "meaning": { "primary": "to sleep", "secondary": "verb" },
+    "meaning": {
+      "primary": "you (plural)"
+    },
     "forms": [
       {
-        "text": { "plain": "гъархьас" }
+        "text": {
+          "plain": "чвун"
+        }
       }
     ]
   },
   {
-    "meaning": { "primary": "sleepless", "secondary": "adjective" },
+    "meaning": {
+      "primary": "they"
+    },
     "forms": [
       {
-        "text": { "plain": "ахун хъудаф" }
+        "text": {
+          "plain": "тивар"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "this"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ми"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "that"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ти"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "here"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "мисаъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "there"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тисаъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "who"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фиш"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "what"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фи"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "where"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "нандиъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "when"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "мус"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "how"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фиштти"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "not"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "да-"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "all"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "вари"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "many"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ппара"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "some"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "саса"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "few"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "чӏукь"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "other"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "сайи"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "one"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "сад"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "two"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кь'уд"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "three"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хьибуд"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "four"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йакьуд"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "five"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ӏуфуд"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "big"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "бабаф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "long"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йерхеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "wide"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "аркь'еф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "thick"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "къалинф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "heavy"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "уркь'еф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "small"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "бицӏиф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "short"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "жикъкъеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "narrow"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ишккеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "thin"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кӏесалф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "woman"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хумбеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "man"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "идем"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "person"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "инсан"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "child"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "шиникӏв"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "wife"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хьир"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "husband"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "шув"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "mother"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "бав"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "father"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дад"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "animal"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "нахччир"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "fish"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "чӏекӏ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "bird"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йакӏв"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "dog"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тула"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "louse"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "нет"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "snake"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "илан"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "worm"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "милахъ'в"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "tree"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дар"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "forest"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дар"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "stick"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тӏул"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "fruit"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йемиш"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "seed"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тум"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "leaf"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "пӏ'аш"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "root"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "бун"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "bark"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "къарк"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "flower"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тук"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "grass"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "чӏир"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "rope"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гатӏил"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "skin"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хам"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "meat"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йак"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "blood"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "иъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "bone"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ирк"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "fat"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "мав"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "egg"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъ'арагъ'ал"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "horn"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кӏарч"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "tail"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "руж"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "feather"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "пурцӏ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "hair"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "чӏар"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "head"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кӏил"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "ear"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йабур"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "eye"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ул"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "nose"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хъ'вахъ'в"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "mouth"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "сив"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "tooth"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "силев"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "tongue"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "мез"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "fingernail"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кирк"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "foot"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ццам"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "leg"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "лак"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "knee"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кьвакьв"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "hand"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хил"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "wing"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "х'ар"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "belly"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фун"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "guts"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "рудар"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "neck"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гардан"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "back"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ут"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "breast"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "мухур"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "heart"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "иркӏв"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "liver"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "лекӏ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to drink"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ухас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to eat"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гӏутӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to bite"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кьацӏ ъикӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to suck"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "супӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to spit"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тфу кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to vomit"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "жуьрх'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to blow"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "уф цӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to breathe"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "нафас дивас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to laugh"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "алхъ'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to see"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "агвас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to hear"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ун в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to know"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "х'ар в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to think"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фикир кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to smell"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ниъ в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to fear"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гучӏ в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to sleep"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъархьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to live"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йашамиш в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to die"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кӏес"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to kill"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кӏес кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to fight"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кикъвас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to hunt"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъ'урчас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to hit"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йарх'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to cut"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "атӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to split"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кьатӏ кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to stab"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ачарх'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to scratch"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "чӏуркӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to dig"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "рукӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to swim"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "сирнав кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to fly"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гьалгас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to walk"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "руцас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to come"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "адес"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to lie"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фатхьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to sit"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "укьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to stand"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъузас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to turn"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "даркас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to fall"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "лархьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to give"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "цӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to hold"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фацас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to squeeze"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "чӏакь'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to rub"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тӏишас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to wash"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гӏуччас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to wipe"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "латтарх'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to pull"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дивас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to push"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хъ'арх'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to throw"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хъатас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to tie"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ъитӏас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to sew"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дукьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to count"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хисаб кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to say"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to sing"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "магӏни кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to play"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дурух'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to float"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хьеттал алдий в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to flow"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "svel"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to freeze"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "меркв в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to swell"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тӏах'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "sun"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "рагъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "moon"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ваз"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "star"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "х'ад"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "water"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хьед"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "rain"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "угъал"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "river"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "лецӏв"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "lake"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гӏур"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "sea"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хӏул"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "salt"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кь'ал"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "stone"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъван"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "sand"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "къум"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "dust"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "руг"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "earth"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "жил"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "cloud"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "къири"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "fog"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "диф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "sky"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "зав"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "wind"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тереб"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "snow"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ибхь"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "ice"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "меркв"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "smoke"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кум"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "fire"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "цӏай"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "ash"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "рухъ'"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to burn"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "угвас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "road"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "рахъ'"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "mountain"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "сув"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "red"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "иреф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "green"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъазеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "yellow"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хъ'ухъ'еф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "white"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "жагварф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "black"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кӏареф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "night"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гӏуш"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "day"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "йагъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "year"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ис"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "warm"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кучеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "cold"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ругъуф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "full"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ацӏуф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "new"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "цӏайеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "old"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "цӏуреф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "good"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ижеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "bad"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кь'айеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "rotten"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "утӏуф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "dirty"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "куруф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "straight"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дихьеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "round"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "лурцуф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "sharp"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "х'уттеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "dull"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "къ'уреф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "smooth"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "м'аллеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "wet"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кь'ашуф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "dry"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "рукъкъуф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "correct"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "дуз"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "near"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "къвалав"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "far"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "вархайиъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "right"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гӏулжанф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "left"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "чапп'улф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "at"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "-в"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "in"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "-ъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "with"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "-хъ хъай"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "and"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "-на"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "if"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "-чин"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "because"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фас пучин"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "name"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ттур"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to go"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "в'ас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to do"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "house"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хал"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "bitter"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кьулкьулф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "yesterday"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "накь"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "navel"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фунин хутӏ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to hide"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "жин кьас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to carry"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "ant"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "зебз"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "heavy"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "уркь'еф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to take"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гъушас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "thigh"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "агъ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "wood"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кӏур"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to cry"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "гӏашас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "sweet"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "иттеф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "shade"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ахъ'"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "hard"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "уркь'еф"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to crush"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "рух'ас"
+        }
       }
     ]
   }
