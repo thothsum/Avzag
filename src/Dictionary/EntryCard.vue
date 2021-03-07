@@ -3,7 +3,7 @@
     <div class="row">
       <btn
         class="flex"
-        :is-on="expand"
+        :is-on="expand > 0"
         :text="plain"
         @click="expand = expand ? 0 : 1"
       />
