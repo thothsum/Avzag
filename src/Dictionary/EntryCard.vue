@@ -1,29 +1,22 @@
 <template>
   <div v-if="entry" class="col">
-    <div v-if="expand" class="row">
-      <btn icon="close" @click="expand = 0" />
-      <p class="flex">{{ plain }}</p>
-      <btn icon="info" :is-on="expand === 1" @click="expand = 1" />
+    <div class="row">
       <btn
-        icon="format_list_bulleted"
-        :is-on="expand === 2"
-        @click="expand = 2"
+        class="flex"
+        :is-on="expand"
+        :text="plain"
+        @click="expand = expand ? 0 : 1"
       />
-      <btn icon="speaker_notes" :is-on="expand === 3" @click="expand = 3" />
+      <template v-if="expand">
+        <btn icon="info" :is-on="expand === 1" @click="expand = 1" />
+        <btn
+          icon="format_list_bulleted"
+          :is-on="expand === 2"
+          @click="expand = 2"
+        />
+        <btn icon="speaker_notes" :is-on="expand === 3" @click="expand = 3" />
+      </template>
     </div>
-    <button
-      v-else
-      class="flex col-0 entry-item"
-      @click="expand = expand ? 0 : 1"
-    >
-      <p>
-        {{ plain }}
-        <span class="text-faded">— {{ entry.meaning.primary }}</span>
-      </p>
-      <p class="text-caption text-faded">
-        {{ entry.meaning.secondary }}
-      </p>
-    </button>
     <div v-if="expand" class="col card">
       <template v-if="expand === 1">
         <h2>Info</h2>

@@ -1,6 +1,6 @@
 <template>
   <div class="section col-2 small">
-    <div class="row-2 lects">
+    <div class="row-2 lects fill">
       <div class="col lect">
         <h2>Avzag Dictionary</h2>
         <input v-model="query" type="text" />
@@ -41,8 +41,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .lects {
   align-items: baseline;
+  &.fill {
+    align-items: stretch;
+  }
 }
 .lect {
-  width: 320px;
+  width: 256px;
+  &:first-child {
+    width: 192px;
+  }
 }
 </style>
