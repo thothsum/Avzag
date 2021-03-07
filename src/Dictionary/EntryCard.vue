@@ -18,12 +18,10 @@
       </template>
     </div>
     <div v-if="expand" class="col card">
-      <template v-if="expand === 1">
-        <h2>Info</h2>
-        <p>{{ entry.meaning.primary }}</p>
+      <template v-if="expand === 1 && entry.explanation">
+        <p>{{ entry.explanation }}</p>
       </template>
       <template v-else-if="expand === 2">
-        <h2>Forms</h2>
         <div v-for="(f, i) in entry.forms" :key="i" class="col-0">
           {{ f.text.plain }}
           <!-- <span class="text-ipa">{{ f.text.ipa }}</span> -->
@@ -32,7 +30,6 @@
         </div>
       </template>
       <template v-else-if="expand === 3">
-        <h2>Samples</h2>
         <div v-for="(s, i) in entry.samples" :key="i" class="col-0">
           <p>{{ s.text.plain }}</p>
           <p class="text-faded text-caption">{{ s.translation }}</p>
