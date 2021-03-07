@@ -109,6 +109,32 @@
   },
   {
     "meaning": {
+      "primary": "that"
+    },
+    "explanation": "Object or person far above.",
+    "forms": [
+      {
+        "text": {
+          "plain": "гьекӏ"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "that"
+    },
+    "explanation": "Object or person far below.",
+    "forms": [
+      {
+        "text": {
+          "plain": "гьех"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
       "primary": "here"
     },
     "forms": [
@@ -596,7 +622,8 @@
         "text": {
           "plain": "бизи",
           "ipa": "biˈzi"
-        }
+        },
+        "grammar": "singular"
       },
       {
         "text": {
