@@ -1,13 +1,16 @@
 <template>
   <div class="section col small">
     <div class="row-2 lects fill">
-      <div class="col lect">
+      <div class="col card lect">
         Search by meaning
-        <input v-model="query" type="text" />
+        <input v-if="!lect" v-model="query" class="flex" type="text" />
+        <div v-else><btn icon="search" @click="lect = ''" /></div>
       </div>
-      <div v-for="(_, l) of dictionaries" :key="l" class="col lect flag">
+      <div v-for="(_, l) of dictionaries" :key="l" class="col card lect flag">
         <Flag :lect="l" class="blur" />
-        <h2>{{ l }}</h2>
+        <h2 class="flex">{{ l }}</h2>
+        <input v-if="lect === l" v-model="query" type="text" />
+        <div v-else><btn icon="search" @click="lect = l" /></div>
       </div>
     </div>
     <template v-for="(ind, m) of searchResult" :key="m">
