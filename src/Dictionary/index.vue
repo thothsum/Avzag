@@ -1,22 +1,27 @@
 <template>
-  <div class="section row-2 lects small">
-    <div v-for="(es, l) of entries" :key="l" class="col lect">
-      <template v-if="es.length">
-        <div class="col-1 card flag">
-          <Flag :lect="l" class="blur" />
-          <h2>{{ l }}</h2>
-          <!-- <input type="text" /> -->
-        </div>
+  <div class="section col-2 small">
+    <div class="row-2 lects">
+      <div class="col lect">
+        <h2>Avzag Dictionary</h2>
+        <input v-model="query" type="text" />
+      </div>
+      <div v-for="(_, l) of dictionaries" :key="l" class="col lect card flag">
+        <Flag :lect="l" class="blur" />
+        <h2>{{ l }}</h2>
+      </div>
+    </div>
+    <div v-for="(ind, m) of searchResult" :key="m" class="row-2 lects">
+      <i class="lect">{{ m }}</i>
+      <div v-for="(es, l) of ind" :key="l" class="col lect">
         <EntryCard v-for="(e, i) in es" :key="i" :entry="e" />
-      </template>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref } from "vue";
-import { search } from "./main";
-import { lects } from "@/store";
+import { search, dictionaries } from "./main";
 import EntryCard from "./EntryCard.vue";
 import Flag from "@/components/Flag.vue";
 
@@ -26,9 +31,9 @@ export default defineComponent({
     const query = ref("");
     const lect = ref("");
 
-    const entries = computed(() => search(lect.value, query.value));
+    const searchResult = computed(() => search(lect.value, query.value));
 
-    return { query, entries, lects, lect };
+    return { dictionaries, query, lect, searchResult };
   },
 });
 </script>
