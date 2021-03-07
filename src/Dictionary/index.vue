@@ -11,7 +11,7 @@
           @click="lect = ''"
         />
       </div>
-      <div v-for="(_, l) of dictionaries" :key="l" class="col card lect flag">
+      <div v-for="l in lects" :key="l" class="col card lect flag">
         <Flag :lect="l" class="blur" />
         <h2 class="flex">{{ l }}</h2>
         <input v-if="lect === l" v-model="query" type="text" />
@@ -23,15 +23,16 @@
         />
       </div>
     </div>
-    <template v-for="(ind, m) of searchResult" :key="m">
-      <hr />
-      <div class="row-1 lects">
-        <i class="lect text-faded">{{ m }}</i>
-        <div v-for="(es, l) of ind" :key="l" class="col lect">
-          <EntryCard v-for="(e, i) in es" :key="i" :entry="e" />
-        </div>
+    <div v-for="(ind, m) of searchResult" :key="m" class="row-1 lects">
+      <div class="col lect">
+        <hr />
+        <i class="text-faded">{{ m }}</i>
       </div>
-    </template>
+      <div v-for="l in lects" :key="l" class="col lect">
+        <hr />
+        <EntryCard v-for="(e, i) in ind[l]" :key="i" :entry="e" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -46,13 +47,14 @@ export default defineComponent({
   setup() {
     const queries = reactive({} as Record<string, string>);
     const lect = ref("");
+    const lects = computed(() => Object.keys(dictionaries.value));
     const query = computed({
       get: () => queries[lect.value],
       set: (q) => (queries[lect.value] = q),
     });
 
     const searchResult = computed(() => search(lect.value, query.value));
-    return { dictionaries, query, lect, searchResult };
+    return { dictionaries, lects, query, lect, searchResult };
   },
 });
 </script>
