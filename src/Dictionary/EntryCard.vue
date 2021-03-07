@@ -25,12 +25,10 @@
       <template v-else-if="expand === 2">
         <h2>Forms</h2>
         <div v-for="(f, i) in entry.forms" :key="i" class="col-0">
-          <p class="row-1">
-            <span>{{ f.text.plain }}</span>
-            <span class="text-ipa">{{ f.text.ipa }}</span>
-            <span>{{ f.text.glossed }}</span>
-          </p>
-          <p class="text-faded text-caption">{{ f.grammar }}</p>
+          {{ f.text.plain }}
+          <!-- <span class="text-ipa">{{ f.text.ipa }}</span> -->
+          {{ f.text.glossed }}
+          <span class="text-faded text-caption">{{ f.grammar }}</span>
         </div>
       </template>
       <template v-else-if="expand === 3">
