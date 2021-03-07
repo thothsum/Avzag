@@ -9,19 +9,17 @@ watch(lects, async () => {
 });
 
 function searchByMeaning(meaning: string, search: Search = {}) {
-  if (meaning) {
-    const entries = Object.entries(dictionaries.value).reduce(
-      (entries, [lect, dictionary]) => {
-        const filtered = dictionary.filter((entry) =>
-          entry.meaning.primary.includes(meaning)
-        );
-        if (filtered.length) entries[lect] = filtered;
-        return entries;
-      },
-      {} as Record<string, Entry[]>
-    );
-    if (Object.keys(entries).length) search[meaning] = entries;
-  }
+  if (meaning)
+    Object.entries(dictionaries.value).forEach(([lect, dictionary]) => {
+      dictionary
+        .filter((entry) => entry.meaning.primary.includes(meaning))
+        .forEach((entry) => {
+          const meaning = entry.meaning.primary;
+          if (!search[meaning]) search[meaning] = {};
+          if (!search[meaning][lect]) search[meaning][lect] = [];
+          search[meaning][lect].push(entry);
+        });
+    });
   return search;
 }
 
