@@ -58,6 +58,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.section {
+  $margin: map-get($margins, "normal");
+  overflow-x: auto;
+  padding: $margin;
+  margin: -$margin;
+  max-width: unset;
+  width: calc(100% + 16px);
+}
 .lects {
   align-items: baseline;
   &.fill {
@@ -66,8 +74,10 @@ export default defineComponent({
 }
 .lect {
   width: 256px;
+  min-width: 256px;
   &:first-child {
     width: 192px;
+    min-width: 192px;
   }
 }
 </style>
