@@ -8,11 +8,15 @@ watch(lects, async () => {
   dictionaries.value = await loadLectsJSON<Entry[]>("dictionary");
 });
 
-function searchByMeaning(meaning: string, search: Search = {}) {
+function searchByMeaning(meaning: string, strict = false, search: Search = {}) {
   if (meaning)
     Object.entries(dictionaries.value).forEach(([lect, dictionary]) => {
       dictionary
-        .filter((entry) => entry.meaning.primary.includes(meaning))
+        .filter((entry) =>
+          strict
+            ? entry.meaning.primary === meaning
+            : entry.meaning.primary.includes(meaning)
+        )
         .forEach((entry) => {
           const meaning = entry.meaning.primary;
           if (!search[meaning]) search[meaning] = {};
@@ -32,7 +36,7 @@ export function search(lect: string, query: string): Search {
         )
         .map(({ meaning }) => meaning.primary)
         .reduce(
-          (search, meaning) => searchByMeaning(meaning, search),
+          (search, meaning) => searchByMeaning(meaning, true, search),
           {} as Search
         );
 }
