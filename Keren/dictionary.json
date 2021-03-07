@@ -1,0 +1,61 @@
+[
+  {
+    "meaning": {
+      "primary": "heart",
+      "secondary": "body organ anatomical noun"
+    },
+    "forms": [
+      {
+        "text": { "plain": "иркӏв" }
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "cat", "secondary": "animal noun" },
+    "forms": [
+      {
+        "text": { "plain": "гитан" }
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "home", "secondary": "building noun" },
+    "forms": [
+      {
+        "text": { "plain": "хал" }
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "head", "secondary": "body anatomical" },
+    "forms": [
+      {
+        "text": { "plain": "кӏил" }
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "sleep", "secondary": "noun" },
+    "forms": [
+      {
+        "text": { "plain": "гӏамкӏ" }
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "to sleep", "secondary": "verb" },
+    "forms": [
+      {
+        "text": { "plain": "гъархьас" }
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "sleepless", "secondary": "adjective" },
+    "forms": [
+      {
+        "text": { "plain": "ахун хъудаф" }
+      }
+    ]
+  }
+]

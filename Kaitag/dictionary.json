@@ -1,0 +1,123 @@
+[
+  {
+    "meaning": {
+      "primary": "heart",
+      "secondary": "body organ anatomical noun"
+    },
+    "forms": [
+      {
+        "text": { "plain": "урчӏе", "ipa": "ˈurt͡ʃʼe" },
+        "grammar": "noun nominative"
+      },
+      { "text": { "plain": "урчӏелла" }, "grammar": "noun genitive" },
+      { "text": { "plain": "урчӏелли" }, "grammar": "noun ergative" }
+    ]
+  },
+  {
+    "meaning": { "primary": "cat", "secondary": "animal noun" },
+    "forms": [
+      {
+        "text": { "plain": "бизи", "ipa": "biˈzi" },
+        "grammar": "noun nominative"
+      },
+      { "text": { "plain": "бизила" }, "grammar": "noun genitive" },
+      { "text": { "plain": "бизилли" }, "grammar": "noun ergative" }
+    ],
+    "samples": [
+      {
+        "text": {
+          "plain": "Бизилли гваца буцив.",
+          "ipa": "biˈzi-lli gʷɑt͡sɑ b-ut͡s-iβ",
+          "glossed": "biˈzi-ERG mouse N-catch-PST.3"
+        },
+        "translation": "Cat caught a mouse."
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "home", "secondary": "building noun" },
+    "forms": [
+      {
+        "text": { "plain": "хъале", "ipa": "ˈqʰɑle" },
+        "grammar": "noun nominative"
+      },
+      {
+        "text": { "plain": "хъалла", "ipa": "ˈqʰɑllɑ" },
+        "grammar": "noun genitive"
+      },
+      {
+        "text": { "plain": "хъили", "ipa": "qʰiˈli" },
+        "grammar": "noun locative"
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "head", "secondary": "body anatomical" },
+    "forms": [
+      {
+        "text": { "plain": "бекӏ", "ipa": "bekʼ" },
+        "grammar": "noun nominative"
+      },
+      {
+        "text": { "plain": "бекӏла", "ipa": "ˈbekʼlɑ" },
+        "grammar": "noun genitive"
+      },
+      {
+        "text": { "plain": "бекӏцци", "ipa": "ˈbekʼt͡sːi" },
+        "grammar": "noun locative"
+      }
+    ]
+  },
+  {
+    "meaning": { "primary": "sleep", "secondary": "noun" },
+    "forms": [
+      {
+        "text": { "plain": "анкӏала", "ipa": "ɑnˈkʼɑlɑ" },
+        "grammar": "noun nominative"
+      }
+    ],
+    "related": ["анкӏалабарара", "анкӏалаакквар"]
+  },
+  {
+    "meaning": { "primary": "to sleep", "secondary": "verb" },
+    "forms": [
+      {
+        "text": { "plain": "анкӏалабарара", "ipa": "ɑnˈkʼɑlɑˌbɑrɑrɑ" },
+        "grammar": "verb infinitive"
+      },
+      {
+        "text": { "plain": "анкӏалабарахара", "ipa": "ɑnˈkʼɑlɑˌbɑrɑχɑrɑ" },
+        "grammar": "verb infinitive causative"
+      }
+    ],
+    "related": ["анкӏала"]
+  },
+  {
+    "meaning": { "primary": "to sleep", "secondary": "verb" },
+    "forms": [
+      {
+        "text": { "plain": "уссана", "ipa": "uˈsːɑnɑˈ" },
+        "grammar": "masculine"
+      },
+      {
+        "text": { "plain": "уссахана", "ipa": "uˈsːɑχɑnɑˈ" },
+        "grammar": "masculine causative"
+      },
+      {
+        "text": { "plain": "руссана", "ipa": "ruˈsːɑnɑˈ" },
+        "grammar": "feminine"
+      }
+    ],
+    "related": ["анкӏала"]
+  },
+  {
+    "meaning": { "primary": "sleepless", "secondary": "adjective" },
+    "forms": [
+      {
+        "text": { "plain": "анкӏалаакквар", "ipa": "ɑnˈkʼɑlɑʔɑˌkːʷɑr" },
+        "grammar": "adjective nominative"
+      }
+    ],
+    "related": ["анкӏала"]
+  }
+]
