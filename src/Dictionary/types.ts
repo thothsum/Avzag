@@ -23,6 +23,7 @@ export type Entry = {
   meaning: Meaning;
   forms: Form[];
   samples: Sample[];
+  explanation?: string;
   etymology?: string;
   related?: string[];
 };
