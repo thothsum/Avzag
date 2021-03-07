@@ -42,6 +42,12 @@
     "tags": "Western Samur"
   },
   {
+    "name": "Kiurin",
+    "point": [48.289682, 42.070616],
+    "family": ["Northeast Caucasian", "Lezgic", "Lezgi"],
+    "tags": "Eastern Samur"
+  },
+  {
     "name": "Georgian",
     "point": [44.796125, 41.688855],
     "family": ["South Caucasian", "Kartvelian"],
