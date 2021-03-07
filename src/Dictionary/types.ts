@@ -26,3 +26,5 @@ export type Entry = {
   etymology?: string;
   related?: string[];
 };
+
+export type Search = Record<string, Record<string, Entry[]>>;

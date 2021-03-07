@@ -1,6 +1,6 @@
 import { loadLectsJSON, lects } from "@/store";
 import { shallowRef, watch } from "vue";
-import { Entry } from "./types";
+import { Entry, Search } from "./types";
 
 export const dictionaries = shallowRef<Record<string, Entry[]>>({});
 watch(lects, async () => {
@@ -8,27 +8,33 @@ watch(lects, async () => {
   dictionaries.value = await loadLectsJSON<Entry[]>("dictionary");
 });
 
-function searchByMeaning(query?: string) {
-  if (!query) return {};
-  return Object.entries(dictionaries.value)
-    .filter(([, d]) => d)
-    .reduce((entries, [lect, dictionary]) => {
-      entries[lect] = dictionary.filter(({ meaning }) =>
-        meaning.primary.includes(query)
-      );
-      return entries;
-    }, {} as Record<string, Entry[]>);
+function searchByMeaning(meaning: string, search: Search = {}) {
+  if (meaning) {
+    const entries = Object.entries(dictionaries.value).reduce(
+      (entries, [lect, dictionary]) => {
+        const filtered = dictionary.filter((entry) =>
+          entry.meaning.primary.includes(meaning)
+        );
+        if (filtered.length) entries[lect] = filtered;
+        return entries;
+      },
+      {} as Record<string, Entry[]>
+    );
+    if (Object.keys(entries).length) search[meaning] = entries;
+  }
+  return search;
 }
 
-export function search(lect: string, query: string) {
-  if (!query) return dictionaries.value;
-  if (!lect) return searchByMeaning(query);
-
-  const entry = dictionaries.value[lect].find(({ forms }) =>
-    forms
-      .map(({ text }) => text.plain)
-      .join(" ")
-      .includes(query)
-  );
-  return searchByMeaning(entry?.meaning.primary);
+export function search(lect: string, query: string): Search {
+  return !query || !lect
+    ? searchByMeaning(query)
+    : dictionaries.value[lect]
+        .filter(({ forms }) =>
+          forms.some(({ text }) => text.plain.includes(query))
+        )
+        .map(({ meaning }) => meaning.primary)
+        .reduce(
+          (search, meaning) => searchByMeaning(meaning, search),
+          {} as Search
+        );
 }
