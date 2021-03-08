@@ -2048,5 +2048,197 @@
       }
     ],
     "translation": "name"
+  },
+  {
+    "meaning": {
+      "primary": "to go"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "фин"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to do"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "авун"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "House"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кIвал"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "it"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ам"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "navel"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "пицI"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to hide"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кIеви хьун"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to carry"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "тухун"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "ant"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "цегв"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to take"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кьабулун"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "thigh"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "ятур"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "wood"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кIарас"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to run"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "катун"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "sweet"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кIани"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "shadow"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "хъен"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "hard"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "кIеви"
+        }
+      }
+    ]
+  },
+  {
+    "meaning": {
+      "primary": "to crush"
+    },
+    "forms": [
+      {
+        "text": {
+          "plain": "куьлуь авун"
+        }
+      }
+    ]
   }
 ]
