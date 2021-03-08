@@ -1,8 +1,11 @@
 <template>
   <div class="section col small">
     <div class="row-1 lects fill">
-      <div class="col card lect">
-        English
+      <div class="col lect">
+        <select v-model="queryMode">
+          <option value="translation">Translation</option>
+          <option value="tag">Tag</option>
+        </select>
         <input v-if="!lect" v-model="query" type="text" />
         <btn
           v-else
@@ -46,6 +49,7 @@ export default defineComponent({
   components: { EntryCard, Flag },
   setup() {
     const queries = reactive({} as Record<string, string>);
+    const queryMode = ref("translation");
     const lect = ref("");
     const lects = computed(() => Object.keys(dictionaries.value));
     const query = computed({
@@ -53,8 +57,10 @@ export default defineComponent({
       set: (q) => (queries[lect.value] = q),
     });
 
-    const searchResult = computed(() => search(lect.value, query.value));
-    return { dictionaries, lects, query, lect, searchResult };
+    const searchResult = computed(() =>
+      search(lect.value, query.value, queryMode.value)
+    );
+    return { dictionaries, lects, query, queryMode, lect, searchResult };
   },
 });
 </script>

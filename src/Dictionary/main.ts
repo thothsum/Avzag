@@ -8,15 +8,29 @@ watch(lects, async () => {
   dictionaries.value = await loadLectsJSON<Entry[]>("dictionary");
 });
 
-function queryDictionaries(query: string, strict = false, search: Search = {}) {
+function checkEntry(
+  entry: Entry,
+  query: string,
+  queryMode = "translation",
+  strict = false
+) {
+  return queryMode === "tag"
+    ? !!entry.tags?.includes(query)
+    : strict
+    ? entry.translation === query
+    : entry.translation.includes(query);
+}
+
+function queryDictionaries(
+  query: string,
+  queryMode = "translation",
+  strict = false,
+  search: Search = {}
+) {
   if (query)
     Object.entries(dictionaries.value).forEach(([lect, dictionary]) => {
       dictionary
-        .filter((entry) =>
-          strict
-            ? entry.translation === query
-            : entry.translation.includes(query)
-        )
+        .filter((entry) => checkEntry(entry, query, queryMode, strict))
         .forEach((entry) => {
           const translation = entry.translation;
           if (!search[translation]) search[translation] = {};
@@ -27,16 +41,21 @@ function queryDictionaries(query: string, strict = false, search: Search = {}) {
   return search;
 }
 
-export function search(lect: string, query: string): Search {
+export function search(
+  lect: string,
+  query: string,
+  queryMode = "translation"
+): Search {
   return !query || !lect
-    ? queryDictionaries(query)
+    ? queryDictionaries(query, queryMode)
     : dictionaries.value[lect]
         .filter(({ forms }) =>
           forms.some(({ text }) => text.plain.includes(query))
         )
         .map(({ translation }) => translation)
         .reduce(
-          (search, translation) => queryDictionaries(translation, true, search),
+          (search, translation) =>
+            queryDictionaries(translation, "translation", true, search),
           {} as Search
         );
 }
