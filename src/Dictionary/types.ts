@@ -16,9 +16,9 @@ export type Form = {
 
 export type Entry = {
   translation: string;
-  tags: string;
   forms: Form[];
-  samples: Sample[];
+  samples?: Sample[];
+  tags?: string;
   explanation?: string;
   etymology?: string;
   related?: string[];
