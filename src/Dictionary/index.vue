@@ -10,7 +10,7 @@
         <btn
           v-else
           icon="search"
-          :text="`Search by meaning...`"
+          :text="`Search in English...`"
           @click="lect = ''"
         />
       </div>
