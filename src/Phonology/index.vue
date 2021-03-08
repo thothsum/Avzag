@@ -18,7 +18,7 @@
       </div>
     </div>
     <div v-if="phoneme" class="col-1">
-      <div class="card header">
+      <div class="header">
         <h1 class="text-ipa">{{ phoneme.ipa }}</h1>
         <span>&nbsp;</span>
         <span class="text-caption text-faded">{{ phoneme.tags }}</span>

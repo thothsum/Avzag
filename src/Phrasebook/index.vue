@@ -45,7 +45,7 @@
       </div>
     </div>
     <div v-if="phrase" :key="phrase.id" class="col-1">
-      <PhraseCard :phrase="phrase" />
+      <PhraseCard :phrase="phrase" flat />
       <PhraseCard
         v-for="(p, n) of phrasebooks"
         :key="n"

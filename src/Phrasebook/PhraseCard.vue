@@ -1,5 +1,5 @@
 <template>
-  <div v-if="phrase?.blocks?.length" class="col card flag">
+  <div v-if="phrase?.blocks?.length" class="col flag" :class="{ card: !flat }">
     <Flag :lect="lect" class="blur" />
     <div v-if="lect" class="row small wrap" style="width: 100%">
       <h2 class="flex">{{ lect }}</h2>
@@ -42,6 +42,7 @@ export default defineComponent({
     lect: { type: String, default: "" },
     path: { type: String, default: "" },
     phrase: { type: Object as PropType<Phrase>, default: undefined },
+    flat: Boolean,
   },
   setup(props) {
     const glossed = ref(false);
