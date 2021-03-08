@@ -8,20 +8,20 @@ watch(lects, async () => {
   dictionaries.value = await loadLectsJSON<Entry[]>("dictionary");
 });
 
-function searchByMeaning(meaning: string, strict = false, search: Search = {}) {
-  if (meaning)
+function queryDictionaries(query: string, strict = false, search: Search = {}) {
+  if (query)
     Object.entries(dictionaries.value).forEach(([lect, dictionary]) => {
       dictionary
         .filter((entry) =>
           strict
-            ? entry.meaning.primary === meaning
-            : entry.meaning.primary.includes(meaning)
+            ? entry.translation === query
+            : entry.translation.includes(query)
         )
         .forEach((entry) => {
-          const meaning = entry.meaning.primary;
-          if (!search[meaning]) search[meaning] = {};
-          if (!search[meaning][lect]) search[meaning][lect] = [];
-          search[meaning][lect].push(entry);
+          const translation = entry.translation;
+          if (!search[translation]) search[translation] = {};
+          if (!search[translation][lect]) search[translation][lect] = [];
+          search[translation][lect].push(entry);
         });
     });
   return search;
@@ -29,14 +29,14 @@ function searchByMeaning(meaning: string, strict = false, search: Search = {}) {
 
 export function search(lect: string, query: string): Search {
   return !query || !lect
-    ? searchByMeaning(query)
+    ? queryDictionaries(query)
     : dictionaries.value[lect]
         .filter(({ forms }) =>
           forms.some(({ text }) => text.plain.includes(query))
         )
-        .map(({ meaning }) => meaning.primary)
+        .map(({ translation }) => translation)
         .reduce(
-          (search, meaning) => searchByMeaning(meaning, true, search),
+          (search, translation) => queryDictionaries(translation, true, search),
           {} as Search
         );
 }

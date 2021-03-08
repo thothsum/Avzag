@@ -1,8 +1,3 @@
-export type Meaning = {
-  primary: string;
-  secondary?: string;
-};
-
 export type Text = {
   plain: string;
   ipa?: string;
@@ -20,7 +15,8 @@ export type Form = {
 };
 
 export type Entry = {
-  meaning: Meaning;
+  translation: string;
+  tags: string;
   forms: Form[];
   samples: Sample[];
   explanation?: string;
