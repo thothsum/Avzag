@@ -26,7 +26,7 @@
     <div v-for="(ind, m) of searchResult" :key="m" class="row-1 lects">
       <div class="col lect">
         <hr />
-        <i class="text-faded">{{ m }}</i>
+        <i class="text-faded translation">{{ m }}</i>
       </div>
       <div v-for="l in lects" :key="l" class="col lect">
         <hr />
@@ -60,6 +60,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.translation {
+  line-height: map-get($button-height, "small");
+}
 .section {
   $margin: map-get($margins, "normal");
   overflow-x: auto;
