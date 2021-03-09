@@ -2050,195 +2050,163 @@
     "translation": "name"
   },
   {
-    "meaning": {
-      "primary": "to go"
-    },
     "forms": [
       {
         "text": {
           "plain": "фин"
         }
       }
-    ]
+    ],
+    "translation": "to go"
   },
   {
-    "meaning": {
-      "primary": "to do"
-    },
     "forms": [
       {
         "text": {
           "plain": "авун"
         }
       }
-    ]
+    ],
+    "translation": "to do"
   },
   {
-    "meaning": {
-      "primary": "House"
-    },
     "forms": [
       {
         "text": {
           "plain": "кIвал"
         }
       }
-    ]
+    ],
+    "translation": "House"
   },
   {
-    "meaning": {
-      "primary": "it"
-    },
     "forms": [
       {
         "text": {
           "plain": "ам"
         }
       }
-    ]
+    ],
+    "translation": "it"
   },
   {
-    "meaning": {
-      "primary": "navel"
-    },
     "forms": [
       {
         "text": {
           "plain": "пицI"
         }
       }
-    ]
+    ],
+    "translation": "navel"
   },
   {
-    "meaning": {
-      "primary": "to hide"
-    },
     "forms": [
       {
         "text": {
           "plain": "кIеви хьун"
         }
       }
-    ]
+    ],
+    "translation": "to hide"
   },
   {
-    "meaning": {
-      "primary": "to carry"
-    },
     "forms": [
       {
         "text": {
           "plain": "тухун"
         }
       }
-    ]
+    ],
+    "translation": "to carry"
   },
   {
-    "meaning": {
-      "primary": "ant"
-    },
     "forms": [
       {
         "text": {
           "plain": "цегв"
         }
       }
-    ]
+    ],
+    "translation": "ant"
   },
   {
-    "meaning": {
-      "primary": "to take"
-    },
     "forms": [
       {
         "text": {
           "plain": "кьабулун"
         }
       }
-    ]
+    ],
+    "translation": "to take"
   },
   {
-    "meaning": {
-      "primary": "thigh"
-    },
     "forms": [
       {
         "text": {
           "plain": "ятур"
         }
       }
-    ]
+    ],
+    "translation": "thigh"
   },
   {
-    "meaning": {
-      "primary": "wood"
-    },
     "forms": [
       {
         "text": {
           "plain": "кIарас"
         }
       }
-    ]
+    ],
+    "translation": "wood"
   },
   {
-    "meaning": {
-      "primary": "to run"
-    },
     "forms": [
       {
         "text": {
           "plain": "катун"
         }
       }
-    ]
+    ],
+    "translation": "to run"
   },
   {
-    "meaning": {
-      "primary": "sweet"
-    },
     "forms": [
       {
         "text": {
           "plain": "кIани"
         }
       }
-    ]
+    ],
+    "translation": "sweet"
   },
   {
-    "meaning": {
-      "primary": "shadow"
-    },
     "forms": [
       {
         "text": {
           "plain": "хъен"
         }
       }
-    ]
+    ],
+    "translation": "shadow"
   },
   {
-    "meaning": {
-      "primary": "hard"
-    },
     "forms": [
       {
         "text": {
           "plain": "кIеви"
         }
       }
-    ]
+    ],
+    "translation": "hard"
   },
   {
-    "meaning": {
-      "primary": "to crush"
-    },
     "forms": [
       {
         "text": {
           "plain": "куьлуь авун"
         }
       }
-    ]
+    ],
+    "translation": "to crush"
   }
 ]
