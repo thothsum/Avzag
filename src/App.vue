@@ -10,6 +10,7 @@ import { lects } from "./store";
 import "./Phonology/main";
 import "./Converter/main";
 import "./Phrasebook/main";
+import "./Dictionary/main";
 
 export default defineComponent({
   setup() {
