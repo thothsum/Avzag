@@ -124,7 +124,7 @@ export default defineComponent({
 .section {
   display: grid;
   grid-template-columns: 288px minmax(0, 1fr);
-  gap: map-get($margins, "normal");
+  gap: map-get($margins, "double");
 }
 .phrases {
   max-height: 440px;
