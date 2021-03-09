@@ -7,12 +7,7 @@
           <option value="tag">Tag</option>
         </select>
         <input v-if="!lect" v-model="query" type="text" />
-        <btn
-          v-else
-          icon="search"
-          text="Search in English..."
-          @click="lect = ''"
-        />
+        <btn v-else icon="search" text="Search..." @click="lect = ''" />
       </div>
       <div v-for="l in lects" :key="l" class="col card lect flag">
         <Flag :lect="l" class="blur" />
