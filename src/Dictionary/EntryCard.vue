@@ -1,27 +1,24 @@
 <template>
-  <div v-if="entry" class="col">
+  <div v-if="entry && expand >= 0" class="col">
     <div class="row">
       <btn
-        class="flex"
-        :is-on="expand > 0"
-        :text="plain"
-        @click="expand = expand ? 0 : 1"
+        v-for="([t, i], j) in views"
+        :key="i"
+        :icon="i"
+        :text="expand === j ? t : ''"
+        :class="expand === j && 'highlight flex'"
+        @click="expand = expand === j ? -1 : j"
       />
-      <template v-if="expand">
-        <btn icon="info" :is-on="expand === 1" @click="expand = 1" />
-        <btn
-          icon="format_list_bulleted"
-          :is-on="expand === 2"
-          @click="expand = 2"
-        />
-        <btn icon="speaker_notes" :is-on="expand === 3" @click="expand = 3" />
-      </template>
     </div>
-    <div v-if="expand" class="col card">
-      <template v-if="expand === 1 && entry.explanation">
-        <p>{{ entry.explanation }}</p>
+    <div v-if="expand >= 0" class="col card">
+      <template v-if="expand === 0">
+        <p class="col-0">
+          {{ entry.forms[0].text.plain }}
+          <span class="text-ipa">{{ entry.forms[0].text.ipa }}</span>
+        </p>
+        <p>{{ entry?.explanation }}</p>
       </template>
-      <template v-else-if="expand === 2">
+      <template v-else-if="expand === 1">
         <div v-for="(f, i) in entry.forms" :key="i" class="col-0">
           {{ f.text.plain }}
           <!-- <span class="text-ipa">{{ f.text.ipa }}</span> -->
@@ -29,7 +26,7 @@
           <span class="text-faded text-caption">{{ f.grammar }}</span>
         </div>
       </template>
-      <template v-else-if="expand === 3">
+      <template v-else-if="expand === 2">
         <div v-for="(s, i) in entry.samples" :key="i" class="col-0">
           <p>{{ s.text.plain }}</p>
           <p class="text-faded text-caption">{{ s.translation }}</p>
@@ -37,6 +34,7 @@
       </template>
     </div>
   </div>
+  <btn v-else-if="entry" :text="plain" @click="expand = 0" />
 </template>
 
 <script lang="ts">
@@ -47,9 +45,14 @@ export default defineComponent({
   name: "EntryCard",
   props: { entry: { type: Object as PropType<Entry>, default: undefined } },
   setup(props) {
-    const expand = ref(0);
+    const expand = ref(-1);
+    const views = [
+      ["Info", "info"],
+      ["Forms", "tune"],
+      ["Samples", "speaker_notes"],
+    ];
     const plain = computed(() => props.entry?.forms[0].text.plain);
-    return { expand, plain };
+    return { expand, plain, views };
   },
 });
 </script>
