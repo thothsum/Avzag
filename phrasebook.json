@@ -1164,6 +1164,1202 @@
     ]
   },
   {
+    "id": "aee5390b-dd12-4067-ad2c-d36c827846ce",
+    "name": "On a market",
+    "phrases": [
+      {
+        "id": "8e32efed-72eb-46a3-831b-da57d58bf3d7",
+        "name": "How to get to the shop?",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "How can"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "I"
+              },
+              "conditions": {
+                "entity": {
+                  "singular": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "we"
+              },
+              "conditions": {
+                "entity": {
+                  "plural": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "get to the"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "shop"
+              },
+              "transition": "next",
+              "conditions": {
+                "destination": {
+                  "shop": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "market"
+              },
+              "conditions": {
+                "destination": {
+                  "market": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "?"
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "entity",
+            "tags": ["singular", "plural", "male", "female"]
+          },
+          {
+            "entity": "destination",
+            "tags": ["shop", "market"]
+          }
+        ]
+      },
+      {
+        "id": "9e33775f-330d-4d15-b340-b8b1c9d1608a",
+        "name": "When does it open?",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "When does it"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "open"
+              },
+              "conditions": {
+                "state": {
+                  "open": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "close"
+              },
+              "conditions": {
+                "state": {
+                  "close": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "?"
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "state",
+            "tags": ["open", "close"]
+          }
+        ]
+      },
+      {
+        "id": "216d2524-5af4-4c3a-bfc8-456bd799d0a3",
+        "name": "It works from 9 till 18",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "It works from"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "8"
+              },
+              "conditions": {
+                "open": {
+                  "8": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "9"
+              },
+              "conditions": {
+                "open": {
+                  "9": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "till"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "18"
+              },
+              "conditions": {
+                "close": {
+                  "18": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "19"
+              },
+              "conditions": {
+                "close": {
+                  "19": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "open",
+            "tags": ["8", "9"]
+          },
+          {
+            "entity": "close",
+            "tags": ["18", "19"]
+          }
+        ]
+      },
+      {
+        "id": "89293a88-4a26-4786-81f0-ed87b0b580a4",
+        "name": "Do you have bread?",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Do"
+              },
+              "conditions": {
+                "person": {
+                  "second": false
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "Does"
+              },
+              "conditions": {
+                "person": {
+                  "third": false
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "you"
+              },
+              "conditions": {
+                "person": {
+                  "second": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "it"
+              },
+              "conditions": {
+                "person": {
+                  "third": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "have"
+              },
+              "conditions": {}
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "bread"
+              },
+              "conditions": {
+                "product": {
+                  "bread": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "chicken"
+              },
+              "conditions": {
+                "product": {
+                  "chicken": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "rice"
+              },
+              "conditions": {
+                "product": {
+                  "rice": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "?"
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["second", "third"]
+          },
+          {
+            "entity": "product",
+            "tags": ["bread", "chicken", "rice"]
+          }
+        ]
+      },
+      {
+        "id": "1f2ee44c-bc95-488f-9f4c-4f3e3baa646f",
+        "name": "Where are clothes sold here?",
+        "context": [
+          {
+            "entity": "product",
+            "tags": ["food", "clothe"]
+          }
+        ],
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Where are"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "food"
+              },
+              "conditions": {
+                "product": {
+                  "food": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "clothes"
+              },
+              "conditions": {
+                "product": {
+                  "clothe": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "sold here?"
+              },
+              "conditions": {
+                "kind": {
+                  "foods": true
+                }
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "09cb2776-5a01-45df-bd0c-5ff3fb12c747",
+        "name": "What do you want to buy?",
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ],
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "What do you want to buy?"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "a592307a-f549-49d5-bab6-b228ade2b335",
+        "name": "I need to take a hat ",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "I need to take"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "a hat"
+              },
+              "transition": "next",
+              "conditions": {
+                "product": {
+                  "hat": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "shoes"
+              },
+              "transition": "next",
+              "conditions": {
+                "product": {
+                  "shoes": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "a shirt"
+              },
+              "transition": "next",
+              "conditions": {
+                "product": {
+                  "shirt": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "product",
+            "tags": ["hat", "shoes", "shirt"]
+          }
+        ]
+      },
+      {
+        "id": "a3dfc8f8-d36a-497d-a9e5-500b04122a86",
+        "name": "How much does it cost?",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "How much does"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "it"
+              },
+              "conditions": {
+                "product": {
+                  "it": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "book"
+              },
+              "conditions": {
+                "product": {
+                  "book": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "apple"
+              },
+              "conditions": {
+                "product": {
+                  "apple": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "meat"
+              },
+              "conditions": {
+                "product": {
+                  "meat": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "cost?"
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "product",
+            "tags": ["it", "book", "apple", "meat"]
+          }
+        ]
+      },
+      {
+        "id": "e91539ff-ec8d-4a10-86d6-904def5d0b85",
+        "name": "One kilo for 400",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Half"
+              },
+              "transition": "next",
+              "conditions": {
+                "weight": {
+                  "half": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "One"
+              },
+              "transition": "next",
+              "conditions": {
+                "weight": {
+                  "one": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "Two"
+              },
+              "transition": "next",
+              "conditions": {
+                "weight": {
+                  "two": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "kilo for"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "300"
+              },
+              "conditions": {
+                "price": {
+                  "300": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "350"
+              },
+              "conditions": {
+                "price": {
+                  "350": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "400"
+              },
+              "conditions": {
+                "price": {
+                  "400": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "450"
+              },
+              "conditions": {
+                "price": {
+                  "450": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "weight",
+            "tags": ["half", "one", "two"]
+          },
+          {
+            "entity": "price",
+            "tags": ["300", "350", "400", "450"]
+          }
+        ]
+      },
+      {
+        "id": "fbef674d-6c81-4ef2-bb44-b10d8865a738",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "How much do you need?"
+              }
+            }
+          ]
+        ],
+        "name": "How much do you need?",
+        "context": [
+          {
+            "entity": "person",
+            "tags": ["singular", "plural"]
+          }
+        ]
+      },
+      {
+        "id": "798270f8-e522-4b94-a5b9-bdad8f3958ca",
+        "context": [
+          {
+            "entity": "action",
+            "tags": ["give", "weigh"]
+          },
+          {
+            "entity": "person",
+            "tags": ["singular", "plural", "first", "third", "male", "female"]
+          },
+          {
+            "entity": "weight",
+            "tags": ["1", "2", "3", "4", "5"]
+          }
+        ],
+        "name": "Give me two",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Give"
+              },
+              "conditions": {
+                "action": {
+                  "give": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "Weigh"
+              },
+              "conditions": {
+                "action": {
+                  "weigh": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "me"
+              },
+              "conditions": {
+                "person": {
+                  "first": true,
+                  "singular": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "us"
+              },
+              "conditions": {
+                "person": {
+                  "plural": true,
+                  "first": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "him"
+              },
+              "conditions": {
+                "person": {
+                  "third": true,
+                  "singular": true,
+                  "male": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "her"
+              },
+              "conditions": {
+                "person": {
+                  "third": true,
+                  "singular": true,
+                  "female": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "them"
+              },
+              "conditions": {
+                "person": {
+                  "plural": true,
+                  "singular": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "one"
+              },
+              "conditions": {
+                "weight": {
+                  "1": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "two"
+              },
+              "conditions": {
+                "weight": {
+                  "2": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "three"
+              },
+              "conditions": {
+                "weight": {
+                  "3": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "four"
+              },
+              "conditions": {
+                "weight": {
+                  "4": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "five"
+              },
+              "conditions": {
+                "weight": {
+                  "5": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "kilo"
+              },
+              "conditions": {
+                "action": {
+                  "weigh": false
+                },
+                "weight": {
+                  "1": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "kilos"
+              },
+              "conditions": {
+                "action": {
+                  "weigh": false
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "2b645135-32cb-4a94-b070-8bc9ee23ed08",
+        "name": "Add a few",
+        "context": [
+          {
+            "entity": "action",
+            "tags": ["add", "remove"]
+          },
+          {
+            "entity": "quantity",
+            "tags": ["one", "few", "little", "50", "100"]
+          }
+        ],
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Add"
+              },
+              "conditions": {
+                "action": {
+                  "add": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "Remove"
+              },
+              "conditions": {
+                "action": {
+                  "remove": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "one"
+              },
+              "conditions": {
+                "quantity": {
+                  "one": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "a few"
+              },
+              "conditions": {
+                "quantity": {
+                  "one": true,
+                  "few": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "a little"
+              },
+              "conditions": {
+                "quantity": {
+                  "little": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "50 gram"
+              },
+              "conditions": {
+                "quantity": {
+                  "50": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "100 gram"
+              },
+              "conditions": {
+                "quantity": {
+                  "100": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "."
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "eee55630-3512-494e-84c6-209123a1b77a",
+        "name": "Do you have another one?",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Do you have"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "a"
+              }
+            },
+            {
+              "text": {
+                "plain": ""
+              },
+              "conditions": {
+                "type": {
+                  "another": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "another"
+              },
+              "conditions": {
+                "type": {
+                  "another": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "different"
+              },
+              "transition": "next",
+              "conditions": {
+                "type": {
+                  "different": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "smaller"
+              },
+              "transition": "next",
+              "conditions": {
+                "type": {
+                  "smaller": true
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "bigger"
+              },
+              "transition": "next",
+              "conditions": {
+                "type": {
+                  "bigger": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "one"
+              }
+            },
+            {
+              "text": {
+                "plain": "color"
+              },
+              "conditions": {
+                "type": {
+                  "different": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "?"
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "type",
+            "tags": ["another", "different", "smaller", "bigger"]
+          }
+        ]
+      },
+      {
+        "id": "e807c93c-6ab0-4b4e-af21-61827bebbb88",
+        "name": "Can I try on this?",
+        "context": [
+          {
+            "entity": "action",
+            "tags": ["try", "taste"]
+          }
+        ],
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "Can I"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "try on"
+              },
+              "conditions": {
+                "action": {
+                  "try": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "taste"
+              },
+              "conditions": {
+                "action": {
+                  "taste": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "this?"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "id": "596f06ae-cd91-42a4-adf7-45ad1acdf145",
+        "name": "I like it",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "I"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "like"
+              },
+              "conditions": {
+                "mode": {
+                  "do": true
+                }
+              },
+              "transition": "next"
+            },
+            {
+              "text": {
+                "plain": "don't like"
+              },
+              "conditions": {
+                "mode": {
+                  "not": true
+                }
+              },
+              "transition": "next"
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "it."
+              }
+            }
+          ]
+        ],
+        "context": [
+          {
+            "entity": "mode",
+            "tags": ["do", "not"]
+          }
+        ]
+      },
+      {
+        "id": "4602f2c6-0040-4759-96f0-f0829bb17ae6",
+        "name": "What is it made of?",
+        "blocks": [
+          [
+            {
+              "text": {
+                "plain": "What is it made of?"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
     "id": "0b855fe2-5da6-4b47-9de8-cf9ec7fc2163",
     "name": "Navigation",
     "phrases": [
