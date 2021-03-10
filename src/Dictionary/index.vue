@@ -63,10 +63,10 @@ export default defineComponent({
     const searchResult = computed(() =>
       search(
         lect.value,
-        (query.value ?? "")
-          .toLowerCase()
+        query.value
+          ?.toLowerCase()
           .split(",")
-          .map((q) => q.trim()),
+          .map((q) => q.trim()) ?? [],
         queryMode.value
       )
     );
