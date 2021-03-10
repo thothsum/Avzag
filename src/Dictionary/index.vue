@@ -116,6 +116,11 @@ export default defineComponent({
 //   max-width: unset;
 //   width: calc(100% + 16px);
 // }
+@media only screen and (max-width: $mobile-width) {
+  .section {
+    overflow-x: auto;
+  }
+}
 .lects {
   align-items: baseline;
   &.fill {
