@@ -11,16 +11,15 @@ watch(lects, async () => {
   dictionaryMeta.value = await loadJSON("dictionary");
 });
 
-function queryDictionaries(query: string[], queryMode = "translation") {
-  const search = {} as Search;
-  query.forEach((q) =>
+function queryDictionaries(query: string[], queryMode: string) {
+  return query.reduce((search, query) => {
     Object.entries(dictionaries.value).forEach(([lect, dictionary]) => {
       dictionary
         .filter((entry) =>
-          (queryMode === "tag"
+          (queryMode === "Tags"
             ? entry.tags ?? ""
             : entry.translation
-          )?.includes(q)
+          )?.includes(query)
         )
         .forEach((entry) => {
           const translation = entry.translation;
@@ -28,9 +27,9 @@ function queryDictionaries(query: string[], queryMode = "translation") {
           if (!search[translation][lect]) search[translation][lect] = [];
           search[translation][lect].push(entry);
         });
-    })
-  );
-  return search;
+    });
+    return search;
+  }, {} as Search);
 }
 
 function findTranslations(lect: string, query: string[]) {
@@ -44,9 +43,9 @@ function findTranslations(lect: string, query: string[]) {
 export function search(
   lect: string,
   query: string[],
-  queryMode = "translation"
+  queryMode = "Translation"
 ): Search {
   return !lect
     ? queryDictionaries(query, queryMode)
-    : queryDictionaries(findTranslations(lect, query), "translation");
+    : queryDictionaries(findTranslations(lect, query), "Translation");
 }
