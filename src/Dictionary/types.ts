@@ -24,4 +24,6 @@ export type Entry = {
   related?: string[];
 };
 
+export type DictionaryMeta = { lists: Record<string, string[]> };
+
 export type Search = Record<string, Record<string, Entry[]>>;

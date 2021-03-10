@@ -1,11 +1,14 @@
-import { loadLectsJSON, lects } from "@/store";
+import { loadLectsJSON, loadJSON, lects } from "@/store";
 import { shallowRef, watch } from "vue";
-import { Entry, Search } from "./types";
+import { Entry, Search, DictionaryMeta } from "./types";
 
+export const dictionaryMeta = shallowRef<DictionaryMeta>();
 export const dictionaries = shallowRef<Record<string, Entry[]>>({});
 watch(lects, async () => {
   dictionaries.value = {};
+  dictionaryMeta.value = undefined;
   dictionaries.value = await loadLectsJSON<Entry[]>("dictionary");
+  dictionaryMeta.value = await loadJSON("dictionary");
 });
 
 function checkEntry(
@@ -43,14 +46,18 @@ function queryDictionaries(
 
 export function search(
   lect: string,
-  query: string,
+  query: string[],
   queryMode = "translation"
 ): Search {
-  return !query || !lect
-    ? queryDictionaries(query, queryMode)
+  return !lect
+    ? query.reduce(
+        (search, translation) =>
+          queryDictionaries(translation, queryMode, true, search),
+        {} as Search
+      )
     : dictionaries.value[lect]
         .filter(({ forms }) =>
-          forms.some(({ text }) => text.plain.includes(query))
+          forms.some(({ text }) => query.some((q) => text.plain.includes(q)))
         )
         .map(({ translation }) => translation)
         .reduce(
