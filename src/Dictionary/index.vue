@@ -66,7 +66,8 @@ export default defineComponent({
         query.value
           ?.toLowerCase()
           .split(",")
-          .map((q) => q.trim()) ?? [],
+          .map((q) => q.trim())
+          .filter((q) => q) ?? [],
         queryMode.value
       )
     );

@@ -11,37 +11,34 @@ watch(lects, async () => {
   dictionaryMeta.value = await loadJSON("dictionary");
 });
 
-function checkEntry(
-  entry: Entry,
-  query: string,
-  queryMode = "translation",
-  strict = false
-) {
-  return queryMode === "tag"
-    ? !!entry.tags?.includes(query)
-    : strict
-    ? entry.translation === query
-    : entry.translation.includes(query);
-}
-
-function queryDictionaries(
-  query: string,
-  queryMode = "translation",
-  strict = false,
-  search: Search = {}
-) {
-  if (query)
+function queryDictionaries(query: string[], queryMode = "translation") {
+  const search = {} as Search;
+  query.forEach((q) =>
     Object.entries(dictionaries.value).forEach(([lect, dictionary]) => {
       dictionary
-        .filter((entry) => checkEntry(entry, query, queryMode, strict))
+        .filter((entry) =>
+          (queryMode === "tag"
+            ? entry.tags ?? ""
+            : entry.translation
+          )?.includes(q)
+        )
         .forEach((entry) => {
           const translation = entry.translation;
           if (!search[translation]) search[translation] = {};
           if (!search[translation][lect]) search[translation][lect] = [];
           search[translation][lect].push(entry);
         });
-    });
+    })
+  );
   return search;
+}
+
+function findTranslations(lect: string, query: string[]) {
+  return dictionaries.value[lect]
+    .filter(({ forms }) =>
+      forms.some(({ text }) => query.some((q) => text.plain.includes(q)))
+    )
+    .map(({ translation }) => translation);
 }
 
 export function search(
@@ -50,19 +47,6 @@ export function search(
   queryMode = "translation"
 ): Search {
   return !lect
-    ? query.reduce(
-        (search, translation) =>
-          queryDictionaries(translation, queryMode, true, search),
-        {} as Search
-      )
-    : dictionaries.value[lect]
-        .filter(({ forms }) =>
-          forms.some(({ text }) => query.some((q) => text.plain.includes(q)))
-        )
-        .map(({ translation }) => translation)
-        .reduce(
-          (search, translation) =>
-            queryDictionaries(translation, "translation", true, search),
-          {} as Search
-        );
+    ? queryDictionaries(query, queryMode)
+    : queryDictionaries(findTranslations(lect, query), "translation");
 }
