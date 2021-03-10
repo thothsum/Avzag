@@ -1,35 +1,51 @@
 <template>
   <div class="section col small">
-    <div class="row-1 lects fill">
+    <div class="row-2 lects fill">
       <div class="col lect">
-        <select v-model="queryMode" class="flex" style="font-weight: bold">
-          <option value="translation">Translation</option>
-          <option value="list">List</option>
-          <option value="tag">Tag</option>
-        </select>
-        <select v-if="queryMode === 'list'" v-model="query">
+        <div class="row">
+          <btn
+            v-for="[t, i] in queryModes"
+            :key="t"
+            :text="queryMode === t ? t : ''"
+            :icon="i"
+            :class="queryMode === t && 'highlight flex'"
+            @click="
+              () => {
+                queryMode = t;
+                lect = '';
+              }
+            "
+          />
+        </div>
+        <select v-if="queryMode === 'Lists'" v-model="queries['']">
           <option v-for="(l, n) in dictionaryMeta.lists" :key="n" :value="l">
             {{ n }}
           </option>
         </select>
-        <template v-else>
-          <input v-if="!lect" v-model="query" type="text" />
-          <btn v-else icon="search" text="Search..." @click="lect = ''" />
-        </template>
+        <input
+          v-else
+          v-model="queries['']"
+          class="selectable"
+          type="text"
+          placeholder="Search..."
+          :readonly="!!lect"
+          @click="lect = ''"
+        />
       </div>
-      <div v-for="l in lects" :key="l" class="col card lect flag">
+      <div v-for="l in lects" :key="l" class="col lect flag">
         <Flag :lect="l" class="blur" />
         <h2 class="flex">{{ l }}</h2>
-        <input v-if="lect === l" v-model="query" type="text" />
-        <btn
-          v-else
-          icon="search"
-          :text="`Search by ${l} form...`"
+        <input
+          v-model="queries[l]"
+          class="selectable"
+          type="text"
+          :placeholder="`Search by ${l} form...`"
+          :readonly="lect !== l"
           @click="lect = l"
         />
       </div>
     </div>
-    <div v-for="(ind, m) of searchResult" :key="m" class="row-1 lects">
+    <div v-for="(ind, m) of searchResult" :key="m" class="row-2 lects">
       <div class="col lect">
         <hr />
         <i class="text-faded translation">{{ m }}</i>
@@ -52,18 +68,14 @@ export default defineComponent({
   components: { EntryCard, Flag },
   setup() {
     const queries = reactive({} as Record<string, string>);
-    const queryMode = ref("translation");
+    const queryMode = ref("Translations");
     const lect = ref("");
     const lects = computed(() => Object.keys(dictionaries.value));
-    const query = computed({
-      get: () => queries[lect.value],
-      set: (q) => (queries[lect.value] = q),
-    });
 
     const searchResult = computed(() =>
       search(
         lect.value,
-        query.value
+        queries[lect.value]
           ?.toLowerCase()
           .split(",")
           .map((q) => q.trim())
@@ -71,10 +83,18 @@ export default defineComponent({
         queryMode.value
       )
     );
+
+    const queryModes = [
+      ["Translations", "bookmark_border"],
+      ["Tags", "label"],
+      ["Lists", "format_list_bulleted"],
+    ];
+
     return {
+      queryModes,
       dictionaries,
       lects,
-      query,
+      queries,
       queryMode,
       lect,
       searchResult,
@@ -103,11 +123,10 @@ export default defineComponent({
   }
 }
 .lect {
-  width: 256px;
-  min-width: 256px;
-  &:first-child {
-    width: 192px;
-    min-width: 192px;
-  }
+  width: 192px;
+  min-width: 192px;
+}
+.flag h2 {
+  line-height: map-get($button-height, "small");
 }
 </style>
