@@ -108,14 +108,14 @@ export default defineComponent({
 .translation {
   line-height: map-get($button-height, "small");
 }
-.section {
-  $margin: map-get($margins, "normal");
-  overflow-x: auto;
-  padding: $margin;
-  margin: -$margin;
-  max-width: unset;
-  width: calc(100% + 16px);
-}
+// .section {
+//   $margin: map-get($margins, "normal");
+//   overflow-x: auto;
+//   padding: $margin;
+//   margin: -$margin;
+//   max-width: unset;
+//   width: calc(100% + 16px);
+// }
 .lects {
   align-items: baseline;
   &.fill {
