@@ -28,7 +28,11 @@ export default defineComponent({
       lects.value = JSON.parse(localStorage.lects ?? "[]");
 
     watchEffect(() => {
-      if (route.name) localStorage.url = route.path;
+      const name = route.name as string;
+      if (!name) return;
+      localStorage.url = route.path;
+      if (["Phonology", "Converter", "Phrasebook", "Dictionary"].includes(name))
+        localStorage.urlUser = route.path;
     });
   },
 });

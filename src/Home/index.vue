@@ -86,7 +86,11 @@ export default defineComponent({
     }
     function load() {
       lects.value = [...search.selected];
-      router.push({ name: "Phonology" });
+      router.push(
+        localStorage.urlUser
+          ? { path: localStorage.urlUser }
+          : { name: "Phonology" }
+      );
     }
 
     watch(
