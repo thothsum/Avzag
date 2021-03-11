@@ -1,20 +1,17 @@
 <template>
-  <div class="row text-caption wrap">
+  <div v-if="any" class="row text-caption wrap context" :class="{ reverse }">
     <div class="icon">info</div>
-    <template v-if="any">
-      <template v-for="(tags, i) of translated" :key="i">
-        <template v-if="tags.length" class="row-0 wrap">
-          <p
-            v-for="tag in tags"
-            :key="tag + '--' + i"
-            :class="'colored-dot-' + i"
-          >
-            {{ tag }}
-          </p>
-        </template>
+    <template v-for="(tags, i) of translated" :key="i">
+      <template v-if="tags.length" class="row-0 wrap">
+        <p
+          v-for="tag in tags"
+          :key="tag + '--' + i"
+          :class="'colored-dot-' + i"
+        >
+          {{ tag }}
+        </p>
       </template>
     </template>
-    <p v-else class="no-select">…</p>
   </div>
 </template>
 
@@ -30,6 +27,7 @@ export default defineComponent({
       default: () => ({}),
     },
     blocks: { type: Array as PropType<BlockSnapshot[]>, default: () => [] },
+    reverse: Boolean,
   },
   setup(props) {
     const context = inject("context", {} as Ref<Context>);
@@ -67,10 +65,18 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.context.reverse {
+  flex-flow: row-reverse;
+  p:not(:first-of-type)::after {
+    content: ",";
+  }
+}
+.context:not(.reverse) {
+  p:not(:last-of-type)::after {
+    content: ",";
+  }
+}
 div.icon {
   font-size: map-get($font-sizes, "small");
-}
-p:not(:last-child)::after {
-  content: ",";
 }
 </style>

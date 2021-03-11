@@ -1,15 +1,19 @@
 <template>
   <div v-if="phrase?.blocks?.length" class="col flag" :class="{ card: !flat }">
     <Flag :lect="lect" class="blur" />
-    <div v-if="lect" class="row small wrap" style="width: 100%">
-      <h2 class="flex">{{ lect }}</h2>
-      <div class="row">
+    <div class="row small wrap" style="width: 100%">
+      <h2 v-if="lect" class="flex">{{ lect }}</h2>
+      <Context
+        :translation="contextTranslation"
+        :blocks="vblocks"
+        :reverse="!!lect"
+      />
+      <div v-if="lect" class="row">
         <toggle v-model="playing" icon="play_arrow" />
         <btn icon="assignment" @click="copy" />
         <toggle v-model="glossed" icon="segment" />
       </div>
     </div>
-    <Context :translation="contextTranslation" :blocks="vblocks" />
     <div class="row wrap flex">
       <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row seeker">
         <Seeker
