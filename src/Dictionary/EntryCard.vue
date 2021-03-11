@@ -16,7 +16,7 @@
           {{ entry.forms[0].text.plain }}
           <span class="text-ipa">{{ entry.forms[0].text.ipa }}</span>
         </p>
-        <p>{{ entry?.explanation }}</p>
+        <p v-if="entry.explanation">{{ entry.explanation }}</p>
       </template>
       <template v-else-if="expand === 1">
         <div v-for="(f, i) in entry.forms" :key="i" class="col-0">
