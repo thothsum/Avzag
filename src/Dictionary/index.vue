@@ -1,6 +1,6 @@
 <template>
   <div class="section col small">
-    <div class="row-2 lects fill">
+    <div class="row-1 lects fill">
       <div class="col lect">
         <div class="row">
           <btn
@@ -45,7 +45,7 @@
         />
       </div>
     </div>
-    <div v-for="(ind, m) of searchResult" :key="m" class="row-2 lects">
+    <div v-for="(ind, m) of searchResult" :key="m" class="row-1 lects">
       <div class="col lect">
         <hr />
         <i class="text-faded translation">{{ m }}</i>
