@@ -1636,23 +1636,105 @@
       },
       {
         "id": "a3dfc8f8-d36a-497d-a9e5-500b04122a86",
-        "name": "How much does it cost?",
+        "name": "How much is this?",
         "blocks": [
           [
             {
               "text": {
-                "plain": "How much does"
+                "plain": "How much is"
               }
             }
           ],
           [
             {
               "text": {
-                "plain": "it"
+                "plain": ""
               },
               "conditions": {
                 "product": {
-                  "it": true
+                  "this": false
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "the"
+              },
+              "conditions": {
+                "product": {
+                  "book": false
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "half a kilo"
+              },
+              "conditions": {
+                "weight": {
+                  "half": true
+                }
+              },
+              "transition": [3]
+            },
+            {
+              "text": {
+                "plain": "one kilo"
+              },
+              "conditions": {
+                "weight": {
+                  "one": true
+                }
+              },
+              "transition": [4]
+            },
+            {
+              "text": {
+                "plain": "two kilos"
+              },
+              "transition": [2],
+              "conditions": {
+                "weight": {
+                  "two": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": ""
+              },
+              "conditions": {
+                "product": {
+                  "this": false
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": ""
+              },
+              "conditions": {
+                "product": {
+                  "book": false
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "of"
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "this"
+              },
+              "conditions": {
+                "product": {
+                  "this": true
                 }
               },
               "transition": "next"
@@ -1670,7 +1752,7 @@
             },
             {
               "text": {
-                "plain": "apple"
+                "plain": "apples"
               },
               "conditions": {
                 "product": {
@@ -1694,7 +1776,7 @@
           [
             {
               "text": {
-                "plain": "cost?"
+                "plain": "?"
               }
             }
           ]
@@ -1702,7 +1784,11 @@
         "context": [
           {
             "entity": "product",
-            "tags": ["it", "book", "apple", "meat"]
+            "tags": ["this", "book", "apple", "meat"]
+          },
+          {
+            "entity": "weight",
+            "tags": ["half", "one", "two"]
           }
         ]
       },

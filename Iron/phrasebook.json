@@ -1336,5 +1336,134 @@
         }
       ]
     ]
+  },
+  "a3dfc8f8-d36a-497d-a9e5-500b04122a86": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Цæйаргъу"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "this": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "book": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "килæйырдæг"
+          },
+          "conditions": {
+            "weight": {
+              "half": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "иукилæ"
+          },
+          "conditions": {
+            "weight": {
+              "one": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "дыууæкилæйы"
+          },
+          "conditions": {
+            "weight": {
+              "two": true
+            }
+          },
+          "transition": [2]
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "*а*й"
+          },
+          "conditions": {
+            "product": {
+              "this": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "ч*и*ныг"
+          },
+          "conditions": {
+            "product": {
+              "book": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "фæткъу*ы*"
+          },
+          "conditions": {
+            "product": {
+              "apple": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "дзидз*а*"
+          },
+          "conditions": {
+            "product": {
+              "meat": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          },
+          "noSpace": true
+        }
+      ]
+    ]
+  },
+  "4602f2c6-0040-4759-96f0-f0829bb17ae6": {
+    "blocks": []
+  },
+  "fbef674d-6c81-4ef2-bb44-b10d8865a738": {
+    "blocks": []
+  },
+  "9e33775f-330d-4d15-b340-b8b1c9d1608a": {
+    "blocks": []
   }
 }

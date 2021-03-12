@@ -1787,5 +1787,157 @@
         }
       ]
     ]
+  },
+  "a3dfc8f8-d36a-497d-a9e5-500b04122a86": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Гьуналжия"
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "this": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "book": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "букье"
+          },
+          "conditions": {
+            "weight": {
+              "half": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "ца"
+          },
+          "conditions": {
+            "weight": {
+              "one": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "чӏвел"
+          },
+          "conditions": {
+            "weight": {
+              "two": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "this": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "book": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "кила"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гьеж"
+          },
+          "conditions": {
+            "product": {
+              "this": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "тавтар"
+          },
+          "conditions": {
+            "product": {
+              "book": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "гьинцела"
+          },
+          "conditions": {
+            "product": {
+              "apple": true
+            }
+          },
+          "transition": "next"
+        },
+        {
+          "text": {
+            "plain": "дигла"
+          },
+          "conditions": {
+            "product": {
+              "meat": true
+            }
+          },
+          "transition": "next"
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          },
+          "noSpace": true
+        }
+      ]
+    ]
   }
 }
