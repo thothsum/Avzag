@@ -87,7 +87,9 @@
     "context": {
       "person": {
         "male": "хъулъфыгъ",
-        "female": "бзылъфыгъ"
+        "female": "бзылъфыгъ",
+        "singular": "зы",
+        "plural": "тӏу"
       }
     }
   },
