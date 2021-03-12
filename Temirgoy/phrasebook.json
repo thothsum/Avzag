@@ -83,7 +83,13 @@
           "noSpace": true
         }
       ]
-    ]
+    ],
+    "context": {
+      "person": {
+        "male": "хъулъфыгъ",
+        "female": "бзылъфыгъ"
+      }
+    }
   },
   "6b741253-a925-4e1f-8679-f9c627b3b5cb": {
     "blocks": [
