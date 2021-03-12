@@ -1697,7 +1697,8 @@
         }
       }
     ],
-    "translation": "red"
+    "translation": "red",
+    "tags": "color"
   },
   {
     "forms": [
@@ -1707,7 +1708,8 @@
         }
       }
     ],
-    "translation": "green"
+    "translation": "green",
+    "tags": "color"
   },
   {
     "forms": [
@@ -1717,7 +1719,8 @@
         }
       }
     ],
-    "translation": "yellow"
+    "translation": "yellow",
+    "tags": "color"
   },
   {
     "forms": [
@@ -1727,7 +1730,8 @@
         }
       }
     ],
-    "translation": "white"
+    "translation": "white",
+    "tags": "color"
   },
   {
     "forms": [
@@ -1737,7 +1741,8 @@
         }
       }
     ],
-    "translation": "black"
+    "translation": "black",
+    "tags": "color"
   },
   {
     "forms": [
