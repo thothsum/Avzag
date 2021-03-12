@@ -1,5 +1,6 @@
 {
   "lists": {
-    "body parts": "head, hand, nech, back"
+    "Body parts": "head, neck, back, hand, foot",
+    "One to five": "one, two, three, four, five"
   }
 }
