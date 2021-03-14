@@ -47,7 +47,8 @@ export default defineComponent({
     });
 
     const dashColors = computed(() =>
-      props.state.transition && props.state.conditions
+      (!props.state.transition || props.state.transition.length) &&
+      props.state.conditions
         ? Object.entries(props.state.conditions)
             .filter(([, tags]) => Object.values(tags).some((flag) => flag))
             .map(([entity]) => entities.value.indexOf(entity))
