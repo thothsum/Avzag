@@ -16,6 +16,7 @@ export type State = {
 export type BlockSnapshot = {
   text: string;
   state?: State;
+  show: boolean;
 };
 
 export type ContextSource = {

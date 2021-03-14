@@ -15,12 +15,13 @@
       </div>
     </div>
     <div class="row wrap flex">
-      <div v-for="(b, i) in phrase.blocks" :key="i" class="blocks row seeker">
-        <Seeker
-          v-if="vblocks[i]?.state"
-          :check="playing"
-          :seek="player.queue[i]?.seek"
-        />
+      <div
+        v-for="(b, i) in phrase.blocks"
+        v-show="vblocks[i]?.show"
+        :key="i"
+        class="blocks row seeker"
+      >
+        <Seeker :check="playing" :seek="player.queue[i]?.seek" />
         <Block :block="b" :glossed="glossed" @update="vblocks[i] = $event" />
       </div>
     </div>

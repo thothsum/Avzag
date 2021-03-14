@@ -1,6 +1,6 @@
 <template>
   <button
-    v-show="text"
+    v-show="show"
     v-if="state"
     ref="button"
     class="small"
@@ -38,13 +38,10 @@ export default defineComponent({
   setup(props, { emit }) {
     const state = ref<State>();
     const text = ref("");
+    const show = computed(() => state.value && text.value);
     watch(
       [state, text],
-      ([state, text]) =>
-        emit("update", {
-          state,
-          text,
-        }),
+      ([state, text]) => emit("update", { state, text, show }),
       { immediate: true }
     );
     const disabled = computed(
@@ -94,7 +91,7 @@ export default defineComponent({
       setTimeout(() => (flash.value = true), 50);
     });
 
-    return { flash, move, state, disabled, text };
+    return { flash, move, state, disabled, text, show };
   },
 });
 </script>
