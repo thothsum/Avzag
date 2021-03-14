@@ -2,12 +2,11 @@
   <EditorCard icon="alt_route" header="transition">
     <template #header>
       <div class="row">
-        <btn icon="block" :is-on="mode === 0" @click="mode = 0" />
-        <btn icon="arrow_forward" :is-on="mode === 1" @click="mode = 1" />
-        <btn icon="star_outline" :is-on="mode === 2" @click="mode = 2" />
+        <btn icon="navigate_next" :is-on="!bestOf" @click="bestOf = false" />
+        <btn icon="star_outline" :is-on="bestOf" @click="bestOf = true" />
       </div>
     </template>
-    <div v-if="mode === 2" class="row wrap">
+    <div v-if="bestOf" class="row wrap">
       <button
         v-for="(s, i) in states"
         :key="i"
@@ -32,10 +31,7 @@ export default defineComponent({
   name: "TransitionEditor",
   components: { EditorCard, VState },
   props: {
-    modelValue: {
-      type: [Array, String],
-      default: undefined,
-    },
+    modelValue: { type: Array, default: undefined },
     states: { type: Array as PropType<State[]>, default: () => [] },
   },
   emits: ["update:modelValue"],
@@ -44,9 +40,9 @@ export default defineComponent({
       get: () => props.modelValue as Transition,
       set: (t) => emit("update:modelValue", t),
     });
-    const mode = computed({
-      get: () => (transition.value ? (transition.value === "next" ? 1 : 2) : 0),
-      set: (m) => (transition.value = m ? (m === 1 ? "next" : []) : undefined),
+    const bestOf = computed({
+      get: () => Array.isArray(transition.value),
+      set: (b) => (transition.value = b ? [] : undefined),
     });
 
     function toggle(stateIndex: number) {
@@ -55,7 +51,7 @@ export default defineComponent({
       if (index < 0) transition.value.push(stateIndex);
       else transition.value.splice(index, 1);
     }
-    return { transition, mode, toggle };
+    return { transition, bestOf, toggle };
   },
 });
 </script>

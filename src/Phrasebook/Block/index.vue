@@ -44,8 +44,10 @@ export default defineComponent({
       ([state, text]) => emit("update", { state, text, show }),
       { immediate: true }
     );
+    const transition = computed(() => state.value?.transition);
     const disabled = computed(
-      () => !state.value?.transition || props.block.length < 2
+      () =>
+        props.block.length < 2 || (transition.value && !transition.value.length)
     );
     const context = inject("context", {} as Ref<Context>);
 
@@ -70,15 +72,15 @@ export default defineComponent({
 
     function move() {
       if (disabled.value) return;
-      const transition = state.value?.transition;
       const states = props.block;
       let nextState;
 
-      if (transition === "next") {
+      if (transition.value)
+        nextState = findBestState(transition.value, states, context.value);
+      else {
         const i = state.value ? states.indexOf(toRaw(state.value)) : -1;
         nextState = states[(i + 1) % states.length];
-      } else if (transition)
-        nextState = findBestState(transition, states, context.value);
+      }
 
       switchState(nextState);
       if (checkConditions(nextState?.conditions, context.value)[0] < 0)

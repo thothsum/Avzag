@@ -1,5 +1,5 @@
 import { Ref } from "vue";
-import { Context, State, Conditions, ContextSource } from "./types";
+import { Context, State, Conditions, ContextSource, Transition } from "./types";
 
 export function newState() {
   return {
@@ -31,7 +31,7 @@ export function checkConditions(
 }
 
 export function findBestState(
-  indexes: undefined | number[],
+  indexes: Transition,
   states: State[],
   context: Context
 ): undefined | State {

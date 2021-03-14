@@ -4,7 +4,7 @@ export type Text = {
   ipa?: string;
   glossed?: string;
 };
-export type Transition = undefined | "next" | number[];
+export type Transition = undefined | number[];
 export type State = {
   text: Text;
   conditions?: Conditions;
