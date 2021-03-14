@@ -3,56 +3,111 @@
     "blocks": [
       [
         {
-          "text": { "plain": "Кӕд" },
-          "transition": "next",
-          "conditions": { "tense": { "future": true } }
+          "text": {
+            "plain": "Кӕд"
+          },
+          "conditions": {
+            "tense": {
+              "future": true
+            }
+          }
         },
         {
-          "text": { "plain": "Куд" },
-          "transition": "next",
-          "conditions": { "tense": { "present": true } }
+          "text": {
+            "plain": "Куд"
+          },
+          "conditions": {
+            "tense": {
+              "present": true
+            }
+          }
         }
       ],
       [
         {
-          "text": { "plain": "цӕун" },
-          "conditions": { "actor": { "singular": true } }
+          "text": {
+            "plain": "цӕун"
+          },
+          "conditions": {
+            "actor": {
+              "singular": true
+            }
+          },
+          "transition": []
         },
         {
-          "text": { "plain": "цӕуӕн" },
-          "conditions": { "actor": { "plural": true } }
+          "text": {
+            "plain": "цӕуӕн"
+          },
+          "conditions": {
+            "actor": {
+              "plural": true
+            }
+          },
+          "transition": []
         }
       ],
       [
         {
-          "text": { "plain": "мах" },
-          "transition": "next",
-          "conditions": { "actor": { "plural": true } }
+          "text": {
+            "plain": "мах"
+          },
+          "conditions": {
+            "actor": {
+              "plural": true
+            }
+          }
         },
         {
-          "text": { "plain": "ӕз" },
-          "transition": "next",
-          "conditions": { "actor": { "singular": true } }
+          "text": {
+            "plain": "ӕз"
+          },
+          "conditions": {
+            "actor": {
+              "singular": true
+            }
+          }
         }
       ],
       [
         {
-          "text": { "plain": "уордӕмӕ" },
-          "transition": "next",
-          "conditions": { "destination": { "there": true } }
+          "text": {
+            "plain": "уордӕмӕ"
+          },
+          "conditions": {
+            "destination": {
+              "there": true
+            }
+          }
         },
         {
-          "text": { "plain": "туканмӕ" },
-          "transition": "next",
-          "conditions": { "destination": { "shop": true } }
+          "text": {
+            "plain": "туканмӕ"
+          },
+          "conditions": {
+            "destination": {
+              "shop": true
+            }
+          }
         },
         {
-          "text": { "plain": "хӕдзарӕмӕ" },
-          "transition": "next",
-          "conditions": { "destination": { "home": true } }
+          "text": {
+            "plain": "хӕдзарӕмӕ"
+          },
+          "conditions": {
+            "destination": {
+              "home": true
+            }
+          }
         }
       ],
-      [{ "text": { "plain": "?" } }]
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
     ]
   }
 }

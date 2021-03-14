@@ -38,8 +38,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -49,8 +48,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -58,7 +56,6 @@
           "text": {
             "plain": "пщэдджыжь"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "morning": true
@@ -73,8 +70,7 @@
             "time": {
               "day": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -84,8 +80,7 @@
             "time": {
               "evening": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -137,7 +132,8 @@
         {
           "text": {
             "plain": "Уи"
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -147,7 +143,8 @@
             "recipient": {
               "name": false
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -159,8 +156,7 @@
             "recipient": {
               "family": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -170,8 +166,7 @@
             "recipient": {
               "friends": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -181,8 +176,7 @@
             "recipient": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -222,8 +216,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -235,8 +228,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -305,8 +297,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -316,8 +307,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -329,8 +319,7 @@
             "subject": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -340,8 +329,7 @@
             "subject": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -379,8 +367,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -390,8 +377,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -430,8 +416,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -441,8 +426,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -461,8 +445,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -472,8 +455,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -492,8 +474,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -503,8 +484,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -536,8 +516,7 @@
             "pronoun": {
               "this": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -547,8 +526,7 @@
             "pronoun": {
               "that": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -632,8 +610,7 @@
             "object": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -643,8 +620,7 @@
             "object": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -675,8 +651,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -686,8 +661,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -711,8 +685,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -722,8 +695,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -766,8 +738,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -777,8 +748,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -797,8 +767,7 @@
             "subject": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -808,8 +777,7 @@
             "subject": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -840,8 +808,7 @@
             "person": {
               "second": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -851,8 +818,7 @@
             "person": {
               "third": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -876,8 +842,7 @@
             "part": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -887,8 +852,7 @@
             "part": {
               "surname": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -912,8 +876,7 @@
             "person": {
               "first": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -923,8 +886,7 @@
             "person": {
               "third": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -936,7 +898,8 @@
             "person": {
               "first": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -946,14 +909,16 @@
             "person": {
               "third": false
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
         {
           "text": {
             "plain": "цӏэр"
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -963,8 +928,7 @@
             "part": {
               "surname": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -976,7 +940,8 @@
             "part": {
               "name": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -986,7 +951,8 @@
             "part": {
               "surname": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -999,7 +965,8 @@
             "person": {
               "female": true
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -1029,8 +996,7 @@
             "skill": {
               "speak": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1043,8 +1009,7 @@
             "skill": {
               "understand": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1057,8 +1022,7 @@
             "skill": {
               "speak": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1071,8 +1035,7 @@
             "skill": {
               "understand": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1085,8 +1048,7 @@
             "skill": {
               "speak": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1099,8 +1061,7 @@
             "skill": {
               "understand": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1113,8 +1074,7 @@
             "skill": {
               "speak": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1127,8 +1087,7 @@
             "skill": {
               "understand": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1141,8 +1100,7 @@
             "skill": {
               "speak": false
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1155,8 +1113,7 @@
             "skill": {
               "understand": false
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1168,8 +1125,7 @@
             "skill": {
               "speak": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1179,8 +1135,7 @@
             "skill": {
               "understand": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1203,8 +1158,7 @@
             "language": {
               "your": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1214,8 +1168,7 @@
             "language": {
               "English": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1225,8 +1178,7 @@
             "language": {
               "Russian": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1236,8 +1188,7 @@
             "language": {
               "Arabic": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1247,8 +1198,7 @@
             "language": {
               "Japanese": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1258,8 +1208,7 @@
             "language": {
               "Turkish": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1338,8 +1287,7 @@
             "verb": {
               "not": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1352,8 +1300,7 @@
             "verb": {
               "not": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1366,8 +1313,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1380,8 +1326,7 @@
             "verb": {
               "do": true
             }
-          },
-          "transition": "next"
+          }
         }
       ]
     ]

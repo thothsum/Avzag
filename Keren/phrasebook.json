@@ -29,7 +29,6 @@
             "ipa": "χizandis",
             "glossed": "family-DAT"
           },
-          "transition": "next",
           "conditions": {
             "recipient": {
               "family": true
@@ -42,7 +41,6 @@
             "ipa": "dustːaris",
             "glossed": "friend-DAT"
           },
-          "transition": "next",
           "conditions": {
             "recipient": {
               "friends": true
@@ -55,7 +53,6 @@
             "ipa": "mikʼailas",
             "glossed": "michael-DAT"
           },
-          "transition": "next",
           "conditions": {
             "recipient": {
               "name": true
@@ -83,7 +80,6 @@
             "ipa": "salam",
             "glossed": "hello"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -98,7 +94,6 @@
             "ipa": "salam-ar",
             "glossed": "hello-PL"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -125,7 +120,6 @@
             "plain": "Сабахирар",
             "ipa": "sabaχirar"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "morning": true
@@ -138,7 +132,6 @@
             "plain": "Абат",
             "ipa": "abat"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "day": true
@@ -151,7 +144,6 @@
             "glossed": "evening-GEN",
             "ipa": "daħalan"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "evening": true
@@ -164,7 +156,8 @@
           "text": {
             "plain": "хайирияр",
             "ipa": "χajrijar"
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -174,7 +167,8 @@
             "time": {
               "morning": false
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -258,7 +252,6 @@
             "plain": "Хуппай",
             "ipa": "χupːaj "
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "later": true
@@ -270,7 +263,6 @@
             "plain": "Багагь",
             "ipa": "bagah"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "tomorrow": true
@@ -306,7 +298,6 @@
             "ipa": "zun",
             "glossed": "I-SG"
           },
-          "transition": "next",
           "conditions": {
             "subject": {
               "singular": true
@@ -319,7 +310,6 @@
             "glossed": "we-PL",
             "ipa": "t͡ʃ in"
           },
-          "transition": "next",
           "conditions": {
             "subject": {
               "plural": true
@@ -343,7 +333,6 @@
             "ipa": "wun",
             "glossed": "you-SG"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -356,7 +345,6 @@
             "ipa": "t͡ʃʷun",
             "glossed": "you-PL"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -402,7 +390,6 @@
             "ipa": "wun",
             "glossed": "you-SG"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -415,7 +402,6 @@
             "ipa": "t͡ʃʷun",
             "glossed": "you-PL"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -443,7 +429,6 @@
             "ipa": "zun",
             "glossed": "I-SG"
           },
-          "transition": "next",
           "conditions": {
             "subject": {
               "singular": true
@@ -456,7 +441,6 @@
             "ipa": "t͡ʃin",
             "glossed": "we-PL"
           },
-          "transition": "next",
           "conditions": {
             "subject": {
               "plural": true
@@ -516,7 +500,6 @@
             "ipa": "wun",
             "glossed": "you-SG"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -529,7 +512,6 @@
             "ipa": "t͡ʃʷun",
             "glossed": "you-PL"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -597,8 +579,7 @@
             "pronoun": {
               "this": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -606,7 +587,6 @@
             "ipa": "tʰidis",
             "glossed": "that-DAT"
           },
-          "transition": "next",
           "conditions": {
             "pronoun": {
               "that": true
@@ -638,8 +618,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -651,8 +630,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -666,8 +644,7 @@
             "verb": {
               "do": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -679,8 +656,7 @@
             "verb": {
               "not": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -835,7 +811,6 @@
             "ipa": "we",
             "glossed": "you-GEN"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "second": true
@@ -852,8 +827,7 @@
             "person": {
               "third": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -867,8 +841,7 @@
             "part": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -922,7 +895,6 @@
             "ipa": "ze",
             "glossed": "i-GEN"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "first": true
@@ -935,7 +907,6 @@
             "ipa": "ˈtʰ idin",
             "glossed": "he-GEN"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "third": true
@@ -954,8 +925,7 @@
             "part": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -967,8 +937,7 @@
             "part": {
               "surname": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -976,13 +945,15 @@
           "text": {
             "plain": "Илйас",
             "ipa": "ilˈjas"
-          }
+          },
+          "transition": []
         },
         {
           "text": {
             "plain": "Марйам",
             "ipa": "marˈjam"
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -1026,8 +997,7 @@
             "repeat": {
               "again": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1039,8 +1009,7 @@
             "repeat": {
               "slowly": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1148,7 +1117,6 @@
             "ipa": "ʕuˈrus",
             "glossed": "russian"
           },
-          "transition": "next",
           "conditions": {
             "language": {
               "Russian": true
@@ -1165,8 +1133,7 @@
             "language": {
               "Arabic": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1178,8 +1145,7 @@
             "language": {
               "Japanese": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1191,8 +1157,7 @@
             "language": {
               "Turkish": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1204,8 +1169,7 @@
             "language": {
               "English": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1228,15 +1192,13 @@
             "skill": {
               "speak": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
             "plain": "гъавурдархьайа",
             "ipa": "ˈʁavurdaxaja"
           },
-          "transition": "next",
           "conditions": {
             "skill": {
               "understand": true
@@ -1299,7 +1261,6 @@
             "ipa": "ingiliz",
             "glossed": "English"
           },
-          "transition": "next",
           "conditions": {
             "language": {
               "English": true
@@ -1312,7 +1273,6 @@
             "ipa": "ʕurus",
             "glossed": "Russian"
           },
-          "transition": "next",
           "conditions": {
             "language": {
               "Russian": true
@@ -1324,7 +1284,6 @@
             "plain": "Гӏараб",
             "ipa": "ʕarab"
           },
-          "transition": "next",
           "conditions": {
             "language": {
               "Arabic": true
@@ -1341,8 +1300,7 @@
             "language": {
               "Japanese": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1354,8 +1312,7 @@
             "language": {
               "your": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1363,7 +1320,6 @@
             "ipa": "tʰurkʰ",
             "glossed": "Turkish"
           },
-          "transition": "next",
           "conditions": {
             "language": {
               "Turkish": true

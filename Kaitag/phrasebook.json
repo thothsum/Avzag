@@ -8,7 +8,6 @@
             "ipa": "t͡siqːel",
             "glossed": "when"
           },
-          "transition": "next",
           "conditions": {
             "tense": {
               "future": true
@@ -19,7 +18,6 @@
           "text": {
             "plain": "Цигле"
           },
-          "transition": "next",
           "conditions": {
             "tense": {
               "present": true
@@ -32,7 +30,6 @@
           "text": {
             "plain": "нисса"
           },
-          "transition": "next",
           "conditions": {
             "actor": {
               "plural": true
@@ -43,7 +40,6 @@
           "text": {
             "plain": "ду"
           },
-          "transition": "next",
           "conditions": {
             "actor": {
               "singular": true
@@ -56,7 +52,6 @@
           "text": {
             "plain": "гьетин"
           },
-          "transition": "next",
           "conditions": {
             "destination": {
               "there": true
@@ -67,7 +62,6 @@
           "text": {
             "plain": "хъили"
           },
-          "transition": "next",
           "conditions": {
             "destination": {
               "home": true
@@ -78,7 +72,6 @@
           "text": {
             "plain": "тукенцци"
           },
-          "transition": "next",
           "conditions": {
             "destination": {
               "shop": true
@@ -95,7 +88,8 @@
             "actor": {
               "plural": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -160,7 +154,6 @@
             "ipa": "kulpet-i",
             "glossed": "family-DIR"
           },
-          "transition": "next",
           "conditions": {
             "recipient": {
               "family": true
@@ -173,7 +166,6 @@
             "ipa": "urtɑqːɑj",
             "glossed": "friend-PL-DIR"
           },
-          "transition": "next",
           "conditions": {
             "recipient": {
               "friends": true
@@ -186,7 +178,6 @@
             "glossed": "Michael-DIR",
             "ipa": "mikʼail-ʒi"
           },
-          "transition": "next",
           "conditions": {
             "recipient": {
               "name": true
@@ -232,7 +223,6 @@
             "glossed": "2.SG",
             "ipa": "ʔi"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -246,7 +236,6 @@
             "glossed": "2.PL",
             "ipa": "niʃːɑ"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -294,7 +283,8 @@
             "person": {
               "plural": false
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -326,7 +316,6 @@
             "ipa": "t͡ʃirkɑ",
             "glossed": "morning"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "morning": true
@@ -339,7 +328,6 @@
             "ipa": "bɑre",
             "glossed": "day"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "day": true
@@ -352,7 +340,6 @@
             "ipa": "nisnɑ",
             "glossed": "evening"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "evening": true
@@ -456,8 +443,7 @@
             "time": {
               "later": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -465,7 +451,6 @@
             "ipa": "ʁurʃ-lɑ",
             "glossed": "tomorrow-GEN"
           },
-          "transition": "next",
           "conditions": {
             "time": {
               "tomorrow": true
@@ -502,7 +487,6 @@
             "ipa": "du",
             "glossed": "1.SG"
           },
-          "transition": "next",
           "conditions": {
             "subject": {
               "singular": true
@@ -516,7 +500,6 @@
             "ipa": "nisːɑ",
             "glossed": "1.PL.EXCL"
           },
-          "transition": "next",
           "conditions": {
             "subject": {
               "plural": true
@@ -541,7 +524,6 @@
             "ipa": "ʔi",
             "glossed": "2.SG"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -554,7 +536,6 @@
             "ipa": "niʃːɑ",
             "glossed": "2.PL"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -601,7 +582,8 @@
             "person": {
               "plural": false
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -624,7 +606,6 @@
             "ipa": "t͡sigle-de-j",
             "glossed": "how-2.SG-Q"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -637,7 +618,6 @@
             "ipa": "t͡sigle-dɑ-j",
             "glossed": "how-2.PL-Q"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -703,7 +683,6 @@
             "glossed": "2.SG-GEN",
             "ipa": "ʔi-lɑ"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -716,7 +695,6 @@
             "glossed": "2.PL-GEN",
             "ipa": "nʃːiɑ-lɑ"
           },
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -753,7 +731,6 @@
             "glossed": "this-DAT",
             "ipa": "heʒ-ej"
           },
-          "transition": "next",
           "conditions": {
             "pronoun": {
               "this": true
@@ -770,8 +747,7 @@
             "pronoun": {
               "that": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -872,8 +848,7 @@
               "singular": true,
               "male": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -884,8 +859,7 @@
               "female": true,
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -895,8 +869,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -919,8 +892,7 @@
             "subject": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -932,8 +904,7 @@
             "subject": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -979,7 +950,6 @@
               "singular": true
             }
           },
-          "transition": "next",
           "implicit": true
         },
         {
@@ -988,7 +958,6 @@
             "ipa": "nisːa-j",
             "glossed": "1.PL.EXCL-DAT"
           },
-          "transition": "next",
           "conditions": {
             "object": {
               "plural": true
@@ -1031,8 +1000,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1044,8 +1012,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1121,8 +1088,7 @@
             "person": {
               "second": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1134,8 +1100,7 @@
             "person": {
               "third": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1147,8 +1112,7 @@
             "part": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1160,8 +1124,7 @@
             "part": {
               "surname": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1207,8 +1170,7 @@
             "part": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1223,8 +1185,7 @@
             "part": {
               "surname": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1239,8 +1200,7 @@
             "part": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1255,8 +1215,7 @@
             "part": {
               "surname": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1273,7 +1232,8 @@
             "part": {
               "name": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -1288,7 +1248,8 @@
             "person": {
               "female": true
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -1300,7 +1261,8 @@
             "part": {
               "surname": false
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -1336,8 +1298,7 @@
             "repeat": {
               "slowly": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1349,8 +1310,7 @@
             "repeat": {
               "again": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1386,8 +1346,7 @@
               "singular": true
             }
           },
-          "implicit": false,
-          "transition": "next"
+          "implicit": false
         },
         {
           "text": {
@@ -1400,8 +1359,7 @@
               "plural": true
             }
           },
-          "implicit": false,
-          "transition": "next"
+          "implicit": false
         }
       ],
       [
@@ -1415,8 +1373,7 @@
             "verb": {
               "do": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1428,8 +1385,7 @@
             "verb": {
               "not": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1490,7 +1446,6 @@
             "glossed": "2.SG"
           },
           "implicit": true,
-          "transition": "next",
           "conditions": {
             "person": {
               "singular": true
@@ -1504,7 +1459,6 @@
             "glossed": "2.PL"
           },
           "implicit": true,
-          "transition": "next",
           "conditions": {
             "person": {
               "plural": true
@@ -1523,7 +1477,8 @@
             "person": {
               "singular": true
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -1535,7 +1490,8 @@
             "person": {
               "plural": true
             }
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -1571,8 +1527,7 @@
             "language": {
               "your": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1584,8 +1539,7 @@
             "language": {
               "English": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1597,8 +1551,7 @@
             "language": {
               "Russian": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1610,8 +1563,7 @@
             "language": {
               "Arabic": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1623,8 +1575,7 @@
             "language": {
               "Japanese": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1636,8 +1587,7 @@
             "language": {
               "Turkish": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1687,8 +1637,7 @@
             "language": {
               "English": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1698,8 +1647,7 @@
             "language": {
               "Russian": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1709,8 +1657,7 @@
             "language": {
               "Arabic": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1720,8 +1667,7 @@
             "language": {
               "Japanese": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1731,8 +1677,7 @@
             "language": {
               "Turkish": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1760,8 +1705,7 @@
             "skill": {
               "speak": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1773,8 +1717,7 @@
             "skill": {
               "understand": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1794,12 +1737,14 @@
         {
           "text": {
             "plain": "Гьуналжия"
-          }
+          },
+          "transition": []
         },
         {
           "text": {
             "plain": ""
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -1811,7 +1756,8 @@
             "product": {
               "this": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -1821,7 +1767,8 @@
             "product": {
               "book": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -1831,8 +1778,7 @@
             "weight": {
               "half": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1842,8 +1788,7 @@
             "weight": {
               "one": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1853,8 +1798,7 @@
             "weight": {
               "two": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -1866,7 +1810,8 @@
             "product": {
               "this": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
@@ -1876,12 +1821,14 @@
             "product": {
               "book": false
             }
-          }
+          },
+          "transition": []
         },
         {
           "text": {
             "plain": "кила"
-          }
+          },
+          "transition": []
         }
       ],
       [
@@ -1893,8 +1840,7 @@
             "product": {
               "this": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1904,8 +1850,7 @@
             "product": {
               "book": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1915,8 +1860,7 @@
             "product": {
               "apple": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -1926,8 +1870,7 @@
             "product": {
               "meat": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [

@@ -23,8 +23,7 @@
             "recipient": {
               "name": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -34,8 +33,7 @@
             "recipient": {
               "family": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -45,8 +43,7 @@
             "recipient": {
               "friends": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -107,8 +104,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -121,8 +117,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -135,8 +130,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -149,8 +143,7 @@
             "time": {
               "day": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -163,8 +156,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -177,8 +169,7 @@
             "time": {
               "evening": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
@@ -216,8 +207,7 @@
             "person": {
               "singular": true
             }
-          },
-          "transition": "next"
+          }
         },
         {
           "text": {
@@ -227,8 +217,7 @@
             "person": {
               "plural": true
             }
-          },
-          "transition": "next"
+          }
         }
       ],
       [
