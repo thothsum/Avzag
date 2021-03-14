@@ -46,12 +46,10 @@ export default defineComponent({
       )
     );
     const singleLect = computed(() => {
-      let single = "";
-      for (const [lect, flag] of Object.entries(props.lectQuery))
-        if (flag)
-          if (!single) single = lect;
-          else break;
-      return single;
+      const lects = Object.entries(props.lectQuery)
+        .filter(([, f]) => f)
+        .map(([l]) => l);
+      return lects[1] ? lects[0] : "";
     });
     const graphemes = computed(() =>
       singleLect.value
