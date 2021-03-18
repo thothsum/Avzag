@@ -23,10 +23,6 @@
           </div>
         </div>
         <hr />
-        <p class="text-faded text-caption">
-          The source corpus is loading from what is saved on Phrasebook Corpus
-          editor page.
-        </p>
         <VContext />
         <div v-if="phrase" :key="phrase.id" class="row wrap flex">
           <Block v-for="(b, i) in phrase.blocks" :key="i" :block="b" />
