@@ -6,9 +6,6 @@
       <slot name="header" />
     </div>
     <hr />
-    <p v-if="caption" class="text-caption text-faded">
-      <slot name="caption" />
-    </p>
     <div class="col">
       <slot />
     </div>
@@ -24,10 +21,6 @@ export default defineComponent({
     button: { type: String, default: "add" },
     icon: { type: String, default: "" },
     header: { type: String, default: "" },
-  },
-  emits: ["action"],
-  setup(_, { emit, slots }) {
-    return { emit, caption: slots.caption };
   },
 });
 </script>

@@ -32,10 +32,6 @@
         <template #header>
           <ArrayControl v-model="phoneme.samples" :add="{}" />
         </template>
-        <template #caption>
-          Use cases of the phoneme within the language, defined by a letter, a
-          word, and the word's ipa.
-        </template>
         <template #default>
           <div v-for="(s, i) in phoneme.samples" :key="i" class="row sample">
             <input v-model="s.grapheme" type="text" placeholder="grapheme" />

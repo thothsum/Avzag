@@ -3,7 +3,6 @@
     <template #header>
       <btn icon="clear" @click="conditions = undefined" />
     </template>
-    <template #caption>TODO brief explanation</template>
     <div class="row wrap">
       <button
         v-for="({ entity, tag, color, select }, i) in tags"

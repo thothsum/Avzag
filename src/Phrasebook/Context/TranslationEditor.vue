@@ -4,9 +4,6 @@
       <ConfirmButton v-if="translation" @confirm="translation = undefined" />
       <btn v-else icon="add" @click="create" />
     </template>
-    <template #caption>
-      Translate the context tags to show localized hints when needed.
-    </template>
     <template v-if="translation">
       <div
         v-for="({ entity, tags }, i) in context"

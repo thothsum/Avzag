@@ -2,9 +2,6 @@
   <div v-if="file" class="section col-2 small grid">
     <div class="col-2">
       <EditorCard icon="text_snippet" header="Sample Text">
-        <template #caption>
-          Text that will be displayed to demonstrate the converter.
-        </template>
         <textarea v-model="file.sample" />
         <textarea v-model="converted" readonly />
       </EditorCard>
@@ -17,10 +14,6 @@
             shift-two
             remove
           />
-        </template>
-        <template #caption>
-          The 1st mapping should be the same as the caption. Default conversion
-          is from the 1st into the 2nd mappings in the order.
         </template>
         <input
           v-for="(m, i) in file.mappings"
@@ -38,11 +31,6 @@
       <template #header>
         <ArrayControl v-model="mapping.pairs" :add="[]" />
       </template>
-      <template #caption>
-        During conversion system will consuquently go over these pairs,
-        replacing text from the left with the text from the right or vise versa
-        (right with left) if conversion is reversed.</template
-      >
       <template #default>
         <div v-for="(p, i) in mapping.pairs" :key="i" class="row">
           <btn icon="add" @click="mapping.pairs.splice(i, 0, [])" />
