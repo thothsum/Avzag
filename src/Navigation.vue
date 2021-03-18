@@ -4,11 +4,10 @@
       <router-link
         v-for="{ icon, text, name } in menus"
         :key="name ?? text ?? icon"
-        v-slot="{ isActive, navigate }"
-        custom
+        v-slot="{ isActive }"
         :to="{ name: name ?? text }"
       >
-        <btn :icon="icon" :text="text" :is-on="isActive" @click="navigate" />
+        <btn :icon="icon" :text="text" :is-on="isActive" />
       </router-link>
     </div>
   </div>

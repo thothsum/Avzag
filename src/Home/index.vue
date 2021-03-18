@@ -31,13 +31,21 @@
         </div>
       </div>
       <div class="col-1 scroll">
-        <div v-if="about" id="about" class="col-1 card text-center">
+        <div v-if="about" id="about" class="col-1 card text-center small">
           <h1>Ævzag</h1>
           <div class="row-1 wrap center">
-            <router-link to="/editor/phonology">Editor tools</router-link>
-            <a href="https://github.com/alkaitagi/Avzag#contacts">Contacts</a>
-            <a href="https://github.com/alkaitagi/Avzag#credits">Credits</a>
-            <a href="https://github.com/alkaitagi/Avzag">GitHub</a>
+            <router-link to="/editor/phonology">
+              <btn icon="construction" text="Editor" />
+            </router-link>
+            <a href="https://github.com/alkaitagi/Avzag#contacts" class="wrap">
+              <btn icon="feedback" text="Contacts" />
+            </a>
+            <a href="https://github.com/alkaitagi/Avzag#credits" class="wrap">
+              <btn icon="groups" text="Credits" />
+            </a>
+            <a href="https://github.com/alkaitagi/Avzag" class="wrap">
+              <btn icon="code" text="Repository" />
+            </a>
           </div>
         </div>
         <Card

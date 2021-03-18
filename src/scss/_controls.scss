@@ -1,6 +1,5 @@
 button,
-select,
-a {
+select {
   user-select: none;
   cursor: pointer;
   &:disabled {
@@ -87,14 +86,5 @@ input[type="text"] {
 }
 
 a {
-  padding: 0 map-get($margins, "normal");
-  position: relative;
-  text-decoration: var(--color-highlight) underline;
-  line-height: map-get($button-height, "small");
-  &:hover {
-    background-color: var(--color-highlight-back);
-  }
-  &:active {
-    color: var(--color-highlight);
-  }
+  text-decoration: none;
 }

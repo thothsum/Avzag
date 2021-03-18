@@ -2,14 +2,17 @@
   <div id="root" class="small">
     <div class="section row scroll">
       <div class="row">
-        <router-link v-slot="{ navigate }" custom :to="{ name: 'Home' }">
-          <btn icon="arrow_back" @click="navigate" />
+        <router-link to="/home">
+          <btn icon="arrow_back" />
         </router-link>
         <select v-model="menu">
           <option v-for="{ text, name } in menus" :key="name" :value="name">
             {{ text }}
           </option>
         </select>
+        <a href="https://github.com/alkaitagi/Avzag/wiki" class="wrap">
+          <btn icon="help_outline" />
+        </a>
       </div>
       <div class="row">
         <btn icon="language" @click="loadLect" />
