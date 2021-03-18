@@ -37,8 +37,8 @@
             <router-link to="/editor/phonology">
               <btn icon="construction" text="Editor" />
             </router-link>
-            <a href="https://github.com/alkaitagi/Avzag#contacts" class="wrap">
-              <btn icon="feedback" text="Contacts" />
+            <a href="https://t.me/avzag" class="wrap">
+              <btn icon="forum" text="Channel" />
             </a>
             <a href="https://github.com/alkaitagi/Avzag#credits" class="wrap">
               <btn icon="groups" text="Credits" />
