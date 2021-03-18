@@ -59,7 +59,7 @@ export default defineComponent({
     const text = computed(() =>
       vblocks
         .filter(({ state }) => state)
-        .map(({ text }) => ([":,.?!"].includes(text) ? "" : " ") + text)
+        .map(({ text }) => (":,.?!".includes(text) ? "" : " ") + text)
         .join("")
         .trim()
     );
