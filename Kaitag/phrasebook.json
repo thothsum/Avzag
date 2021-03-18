@@ -121,9 +121,7 @@
           "text": {
             "plain": "?"
           },
-          "implicit": false,
-          "audio": null,
-          "noSpace": true
+          "implicit": false
         }
       ]
     ],
@@ -207,9 +205,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -291,9 +287,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -360,9 +354,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ],
@@ -392,9 +384,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -423,9 +413,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -471,9 +459,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -590,9 +576,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -630,9 +614,7 @@
           "text": {
             "plain": "?"
           },
-          "implicit": false,
-          "audio": null,
-          "noSpace": true
+          "implicit": false
         }
       ]
     ]
@@ -652,9 +634,7 @@
         {
           "text": {
             "plain": ","
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -671,9 +651,8 @@
           "text": {
             "plain": "."
           },
-          "audio": null,
-          "implicit": false,
-          "noSpace": true
+
+          "implicit": false
         }
       ],
       [
@@ -715,9 +694,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -772,8 +749,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -793,9 +769,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ],
       [
@@ -811,9 +785,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ],
       [
@@ -829,9 +801,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -876,9 +846,7 @@
         {
           "text": {
             "plain": ","
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ],
       [
@@ -929,9 +897,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -979,9 +945,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ],
@@ -1037,9 +1001,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1068,9 +1030,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1140,9 +1100,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ],
@@ -1278,9 +1236,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -1326,8 +1282,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1392,9 +1347,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ],
@@ -1430,8 +1383,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1498,8 +1450,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1619,9 +1570,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1724,9 +1673,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1877,8 +1824,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "noSpace": true
+          }
         }
       ]
     ]

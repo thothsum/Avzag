@@ -64,9 +64,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -84,9 +82,7 @@
             "person": {
               "singular": true
             }
-          },
-          "audio": "",
-          "noSpace": false
+          }
         },
         {
           "text": {
@@ -105,9 +101,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -175,9 +169,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -206,9 +198,7 @@
         {
           "text": {
             "plain": "!"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -237,9 +227,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -282,9 +270,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -365,9 +351,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -413,9 +397,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -470,9 +452,7 @@
         {
           "text": {
             "plain": ","
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -488,9 +468,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -532,9 +510,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -598,9 +574,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -683,9 +657,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -701,9 +673,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -719,9 +689,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -736,9 +704,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -767,9 +733,7 @@
         {
           "text": {
             "plain": ","
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -794,9 +758,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ],
@@ -879,9 +841,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -969,9 +929,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1052,9 +1010,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1092,9 +1048,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1219,9 +1173,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1354,9 +1306,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1403,9 +1353,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]

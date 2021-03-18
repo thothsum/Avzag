@@ -34,9 +34,7 @@
         {
           "text": {
             "plain": "!"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ],
@@ -140,9 +138,7 @@
         {
           "text": {
             "plain": "!"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -202,9 +198,7 @@
         {
           "text": {
             "plain": "!"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -222,9 +216,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -242,9 +234,7 @@
         {
           "text": {
             "plain": "!"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -332,9 +322,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -367,9 +355,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -409,9 +395,7 @@
         {
           "text": {
             "plain": ","
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -425,9 +409,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -456,9 +438,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -498,9 +478,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": "",
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -518,9 +496,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ],
       [
@@ -534,9 +510,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ],
       [
@@ -550,9 +524,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -609,9 +581,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "noSpace": true,
-          "audio": null
+          }
         }
       ]
     ]
@@ -629,9 +599,7 @@
         {
           "text": {
             "plain": ","
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ],
       [
@@ -692,9 +660,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -712,9 +678,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -739,9 +703,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -830,9 +792,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -938,9 +898,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1005,9 +963,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1119,9 +1075,7 @@
         {
           "text": {
             "plain": "."
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1206,9 +1160,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1248,9 +1200,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1283,9 +1233,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "audio": null,
-          "noSpace": true
+          }
         }
       ]
     ]
@@ -1351,9 +1299,7 @@
               "two": true
             }
           },
-          "transition": [
-            2
-          ]
+          "transition": [2]
         }
       ],
       [
@@ -1402,8 +1348,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "noSpace": true
+          }
         }
       ]
     ]

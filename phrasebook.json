@@ -9,12 +9,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           }
         ],
         "blocks": [
@@ -81,18 +76,11 @@
         "context": [
           {
             "entity": "time",
-            "tags": [
-              "morning",
-              "day",
-              "evening"
-            ]
+            "tags": ["morning", "day", "evening"]
           },
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ]
       },
@@ -111,10 +99,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ]
       },
@@ -133,10 +118,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ]
       },
@@ -146,17 +128,11 @@
         "context": [
           {
             "entity": "time",
-            "tags": [
-              "later",
-              "tomorrow"
-            ]
+            "tags": ["later", "tomorrow"]
           },
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ],
         "blocks": [
@@ -210,21 +186,11 @@
         "context": [
           {
             "entity": "subject",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           },
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           }
         ],
         "name": "Glad to see you",
@@ -296,10 +262,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ]
       },
@@ -361,21 +324,11 @@
         "context": [
           {
             "entity": "subject",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           },
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           }
         ]
       },
@@ -433,11 +386,7 @@
         "context": [
           {
             "entity": "recipient",
-            "tags": [
-              "family",
-              "friends",
-              "name"
-            ]
+            "tags": ["family", "friends", "name"]
           }
         ]
       }
@@ -455,8 +404,7 @@
             {
               "text": {
                 "plain": "Yes. No. Good."
-              },
-              "audio": "erferf"
+              }
             }
           ]
         ],
@@ -498,25 +446,18 @@
             {
               "text": {
                 "plain": "."
-              },
-              "noSpace": true
+              }
             }
           ]
         ],
         "context": [
           {
             "entity": "subject",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           },
           {
             "entity": "object",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ],
         "name": "Please, help"
@@ -526,10 +467,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ],
         "blocks": [
@@ -557,10 +495,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ],
         "name": "You're welcome"
@@ -580,21 +515,11 @@
         "context": [
           {
             "entity": "subject",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           },
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           }
         ]
       },
@@ -669,27 +594,18 @@
             {
               "text": {
                 "plain": "?"
-              },
-              "noSpace": true
+              }
             }
           ]
         ],
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "second",
-              "third",
-              "male",
-              "female"
-            ]
+            "tags": ["second", "third", "male", "female"]
           },
           {
             "entity": "part",
-            "tags": [
-              "name",
-              "surname"
-            ]
+            "tags": ["name", "surname"]
           }
         ]
       },
@@ -786,27 +702,18 @@
             {
               "text": {
                 "plain": "."
-              },
-              "noSpace": true
+              }
             }
           ]
         ],
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "first",
-              "third",
-              "male",
-              "female"
-            ]
+            "tags": ["first", "third", "male", "female"]
           },
           {
             "entity": "part",
-            "tags": [
-              "name",
-              "surname"
-            ]
+            "tags": ["name", "surname"]
           }
         ]
       },
@@ -847,18 +754,14 @@
             {
               "text": {
                 "plain": "?"
-              },
-              "noSpace": true
+              }
             }
           ]
         ],
         "context": [
           {
             "entity": "repeat",
-            "tags": [
-              "slowly",
-              "again"
-            ]
+            "tags": ["slowly", "again"]
           }
         ]
       },
@@ -868,10 +771,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ],
         "blocks": [
@@ -973,28 +873,18 @@
             {
               "text": {
                 "plain": "?"
-              },
-              "noSpace": true
+              }
             }
           ]
         ],
         "context": [
           {
             "entity": "language",
-            "tags": [
-              "English",
-              "Russian",
-              "Arabic",
-              "Japanese",
-              "Turkish"
-            ]
+            "tags": ["English", "Russian", "Arabic", "Japanese", "Turkish"]
           },
           {
             "entity": "skill",
-            "tags": [
-              "understand",
-              "speak"
-            ]
+            "tags": ["understand", "speak"]
           }
         ]
       },
@@ -1165,17 +1055,11 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           },
           {
             "entity": "verb",
-            "tags": [
-              "do",
-              "not"
-            ]
+            "tags": ["do", "not"]
           }
         ]
       },
@@ -1216,18 +1100,14 @@
             {
               "text": {
                 "plain": "?"
-              },
-              "noSpace": true
+              }
             }
           ]
         ],
         "context": [
           {
             "entity": "pronoun",
-            "tags": [
-              "this",
-              "that"
-            ]
+            "tags": ["this", "that"]
           }
         ]
       }
@@ -1310,19 +1190,11 @@
         "context": [
           {
             "entity": "entity",
-            "tags": [
-              "singular",
-              "plural",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "male", "female"]
           },
           {
             "entity": "destination",
-            "tags": [
-              "shop",
-              "market"
-            ]
+            "tags": ["shop", "market"]
           }
         ]
       },
@@ -1370,10 +1242,7 @@
         "context": [
           {
             "entity": "state",
-            "tags": [
-              "open",
-              "close"
-            ]
+            "tags": ["open", "close"]
           }
         ]
       },
@@ -1450,17 +1319,11 @@
         "context": [
           {
             "entity": "open",
-            "tags": [
-              "8",
-              "9"
-            ]
+            "tags": ["8", "9"]
           },
           {
             "entity": "close",
-            "tags": [
-              "18",
-              "19"
-            ]
+            "tags": ["18", "19"]
           }
         ]
       },
@@ -1565,18 +1428,11 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "second",
-              "third"
-            ]
+            "tags": ["second", "third"]
           },
           {
             "entity": "product",
-            "tags": [
-              "bread",
-              "chicken",
-              "rice"
-            ]
+            "tags": ["bread", "chicken", "rice"]
           }
         ]
       },
@@ -1586,10 +1442,7 @@
         "context": [
           {
             "entity": "product",
-            "tags": [
-              "food",
-              "clothe"
-            ]
+            "tags": ["food", "clothe"]
           }
         ],
         "blocks": [
@@ -1642,10 +1495,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ],
         "blocks": [
@@ -1712,11 +1562,7 @@
         "context": [
           {
             "entity": "product",
-            "tags": [
-              "hat",
-              "shoes",
-              "shirt"
-            ]
+            "tags": ["hat", "shoes", "shirt"]
           }
         ]
       },
@@ -1763,9 +1609,7 @@
                   "half": true
                 }
               },
-              "transition": [
-                3
-              ]
+              "transition": [3]
             },
             {
               "text": {
@@ -1776,17 +1620,13 @@
                   "one": true
                 }
               },
-              "transition": [
-                4
-              ]
+              "transition": [4]
             },
             {
               "text": {
                 "plain": "two kilos"
               },
-              "transition": [
-                2
-              ],
+              "transition": [2],
               "conditions": {
                 "weight": {
                   "two": true
@@ -1877,20 +1717,11 @@
         "context": [
           {
             "entity": "product",
-            "tags": [
-              "this",
-              "book",
-              "apple",
-              "meat"
-            ]
+            "tags": ["this", "book", "apple", "meat"]
           },
           {
             "entity": "weight",
-            "tags": [
-              "half",
-              "one",
-              "two"
-            ]
+            "tags": ["half", "one", "two"]
           }
         ]
       },
@@ -1990,20 +1821,11 @@
         "context": [
           {
             "entity": "weight",
-            "tags": [
-              "half",
-              "one",
-              "two"
-            ]
+            "tags": ["half", "one", "two"]
           },
           {
             "entity": "price",
-            "tags": [
-              "300",
-              "350",
-              "400",
-              "450"
-            ]
+            "tags": ["300", "350", "400", "450"]
           }
         ]
       },
@@ -2022,10 +1844,7 @@
         "context": [
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural"
-            ]
+            "tags": ["singular", "plural"]
           }
         ]
       },
@@ -2034,31 +1853,15 @@
         "context": [
           {
             "entity": "action",
-            "tags": [
-              "give",
-              "weigh"
-            ]
+            "tags": ["give", "weigh"]
           },
           {
             "entity": "person",
-            "tags": [
-              "singular",
-              "plural",
-              "first",
-              "third",
-              "male",
-              "female"
-            ]
+            "tags": ["singular", "plural", "first", "third", "male", "female"]
           },
           {
             "entity": "weight",
-            "tags": [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5"
-            ]
+            "tags": ["1", "2", "3", "4", "5"]
           }
         ],
         "name": "Give me two",
@@ -2238,20 +2041,11 @@
         "context": [
           {
             "entity": "action",
-            "tags": [
-              "add",
-              "remove"
-            ]
+            "tags": ["add", "remove"]
           },
           {
             "entity": "quantity",
-            "tags": [
-              "one",
-              "few",
-              "little",
-              "50",
-              "100"
-            ]
+            "tags": ["one", "few", "little", "50", "100"]
           }
         ],
         "blocks": [
@@ -2441,12 +2235,7 @@
         "context": [
           {
             "entity": "type",
-            "tags": [
-              "another",
-              "different",
-              "smaller",
-              "bigger"
-            ]
+            "tags": ["another", "different", "smaller", "bigger"]
           }
         ]
       },
@@ -2456,10 +2245,7 @@
         "context": [
           {
             "entity": "action",
-            "tags": [
-              "try",
-              "taste"
-            ]
+            "tags": ["try", "taste"]
           }
         ],
         "blocks": [
@@ -2545,10 +2331,7 @@
         "context": [
           {
             "entity": "mode",
-            "tags": [
-              "do",
-              "not"
-            ]
+            "tags": ["do", "not"]
           }
         ]
       },
@@ -2577,27 +2360,15 @@
         "context": [
           {
             "entity": "tense",
-            "tags": [
-              "present",
-              "future"
-            ]
+            "tags": ["present", "future"]
           },
           {
             "entity": "actor",
-            "tags": [
-              "singular",
-              "plural",
-              "feminine",
-              "masculine"
-            ]
+            "tags": ["singular", "plural", "feminine", "masculine"]
           },
           {
             "entity": "destination",
-            "tags": [
-              "there",
-              "home",
-              "shop"
-            ]
+            "tags": ["there", "home", "shop"]
           }
         ],
         "blocks": [
@@ -2728,9 +2499,7 @@
             {
               "text": {
                 "plain": "?"
-              },
-              "noSpace": true,
-              "audio": null
+              }
             }
           ]
         ]
