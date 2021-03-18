@@ -59,7 +59,7 @@ export default defineComponent({
     const text = computed(() =>
       vblocks
         .filter(({ state }) => state)
-        .map(({ text, state }) => (state?.noSpace ? "" : " ") + text)
+        .map(({ text }) => ([":,.?!"].includes(text) ? "" : " ") + text)
         .join("")
         .trim()
     );
@@ -74,11 +74,7 @@ export default defineComponent({
           player.play(
             props.lect,
             vblocks
-              .map(({ state, text }) =>
-                state?.audio === null
-                  ? null
-                  : state?.audio ?? text.toLowerCase()
-              )
+              .map(({ text }) => text.toLowerCase())
               .map((p) => (p === null ? "" : props.path + (p ?? "")))
           );
         else player.stop();

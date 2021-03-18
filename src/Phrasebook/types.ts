@@ -10,8 +10,6 @@ export type State = {
   conditions?: Conditions;
   transition?: Transition;
   implicit?: boolean;
-  audio?: null | string;
-  noSpace?: boolean;
 };
 export type BlockSnapshot = {
   text: string;

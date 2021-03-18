@@ -26,6 +26,9 @@
       <ConditionsEditor v-model="state.conditions" />
       <TransitionEditor v-model="state.transition" :states="block" />
       <EditorCard :key="Math.random()" icon="segment" header="text">
+        <template #header>
+          <toggle v-model="state.implicit" icon="opacity" />
+        </template>
         <div class="row">
           <input v-model="state.text.plain" type="text" placeholder="plain" />
           <input
@@ -40,29 +43,6 @@
             placeholder="glossed"
           />
         </div>
-      </EditorCard>
-      <EditorCard
-        :key="Math.random()"
-        icon="miscellaneous_services"
-        header="miscellaneous"
-      >
-        <template #header>
-          <div class="row">
-            <btn
-              icon="music_off"
-              :is-on="state.audio === null"
-              @click="state.audio = state.audio === null ? '' : null"
-            />
-            <toggle v-model="state.implicit" icon="opacity" />
-            <toggle v-model="state.noSpace" icon="compress" />
-          </div>
-        </template>
-        <input
-          v-if="state.audio !== null"
-          v-model="state.audio"
-          type="text"
-          placeholder="audio filename override, by default - plain text value"
-        />
       </EditorCard>
     </template>
   </div>
