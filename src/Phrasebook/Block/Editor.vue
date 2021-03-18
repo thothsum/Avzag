@@ -23,8 +23,6 @@
       </div>
     </EditorCard>
     <template v-if="state">
-      <ConditionsEditor v-model="state.conditions" />
-      <TransitionEditor v-model="state.transition" :states="block" />
       <EditorCard :key="Math.random()" icon="segment" header="text">
         <template #header>
           <toggle v-model="state.implicit" icon="opacity" />
@@ -44,6 +42,8 @@
           />
         </div>
       </EditorCard>
+      <ConditionsEditor v-model="state.conditions" />
+      <TransitionEditor v-model="state.transition" :states="block" />
     </template>
   </div>
 </template>
