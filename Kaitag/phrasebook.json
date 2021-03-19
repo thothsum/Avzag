@@ -120,8 +120,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "implicit": false
+          }
         }
       ]
     ],
@@ -223,8 +222,7 @@
             "person": {
               "singular": true
             }
-          },
-          "implicit": true
+          }
         },
         {
           "text": {
@@ -236,8 +234,7 @@
             "person": {
               "plural": true
             }
-          },
-          "implicit": true
+          }
         }
       ],
       [
@@ -477,8 +474,7 @@
             "subject": {
               "singular": true
             }
-          },
-          "implicit": true
+          }
         },
         {
           "text": {
@@ -490,8 +486,7 @@
             "subject": {
               "plural": true
             }
-          },
-          "implicit": true
+          }
         }
       ],
       [
@@ -613,8 +608,7 @@
         {
           "text": {
             "plain": "?"
-          },
-          "implicit": false
+          }
         }
       ]
     ]
@@ -650,9 +644,7 @@
         {
           "text": {
             "plain": "."
-          },
-
-          "implicit": false
+          }
         }
       ],
       [
@@ -915,8 +907,7 @@
             "object": {
               "singular": true
             }
-          },
-          "implicit": true
+          }
         },
         {
           "text": {
@@ -928,8 +919,7 @@
             "object": {
               "plural": true
             }
-          },
-          "implicit": true
+          }
         }
       ],
       [
@@ -1300,8 +1290,7 @@
             "person": {
               "singular": true
             }
-          },
-          "implicit": false
+          }
         },
         {
           "text": {
@@ -1313,8 +1302,7 @@
             "person": {
               "plural": true
             }
-          },
-          "implicit": false
+          }
         }
       ],
       [
@@ -1397,7 +1385,6 @@
             "ipa": "ʔi",
             "glossed": "2.SG"
           },
-          "implicit": true,
           "conditions": {
             "person": {
               "singular": true
@@ -1410,7 +1397,6 @@
             "ipa": "niʃːɑ",
             "glossed": "2.PL"
           },
-          "implicit": true,
           "conditions": {
             "person": {
               "plural": true
@@ -1463,8 +1449,7 @@
             "plain": "Дул",
             "ipa": "dul",
             "glossed": "1.SG.ERG"
-          },
-          "implicit": true
+          }
         }
       ],
       [
@@ -1827,6 +1812,884 @@
           }
         }
       ]
+    ]
+  },
+  "4602f2c6-0040-4759-96f0-f0829bb17ae6": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "new state"
+          }
+        }
+      ]
+    ]
+  },
+  "8e32efed-72eb-46a3-831b-da57d58bf3d7": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Цигле"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "дами"
+          },
+          "conditions": {
+            "entity": {
+              "singular": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "ниссай"
+          },
+          "conditions": {
+            "entity": {
+              "plural": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "тукенцци"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "вянара"
+          },
+          "conditions": {
+            "entity": {
+              "singular": false,
+              "male": true
+            }
+          },
+          "transition": [1]
+        },
+        {
+          "text": {
+            "plain": "рянара"
+          },
+          "conditions": {
+            "entity": {
+              "singular": false,
+              "female": true
+            }
+          },
+          "transition": [0]
+        },
+        {
+          "text": {
+            "plain": "дянара"
+          },
+          "conditions": {
+            "entity": {
+              "plural": false
+            }
+          },
+          "transition": []
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "аргулей?"
+          }
+        }
+      ]
+    ]
+  },
+  "9e33775f-330d-4d15-b340-b8b1c9d1608a": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Цикъкъкел"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ачбиргьулей"
+          },
+          "conditions": {
+            "state": {
+              "open": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "девгабиргьулей"
+          },
+          "conditions": {
+            "state": {
+              "close": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
+    ]
+  },
+  "216d2524-5af4-4c3a-bfc8-456bd799d0a3": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Сягӏят"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гаъццирттин"
+          },
+          "conditions": {
+            "open": {
+              "8": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "ирчӏамццирттин"
+          },
+          "conditions": {
+            "open": {
+              "9": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "new state"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ]
+    ]
+  },
+  "89293a88-4a26-4786-81f0-ed87b0b580a4": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Нишшала"
+          },
+          "conditions": {
+            "person": {
+              "second": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Гьетин"
+          },
+          "conditions": {
+            "person": {
+              "third": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "чӏвакьва"
+          },
+          "conditions": {
+            "product": {
+              "bread": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "гӏяркьвя"
+          },
+          "conditions": {
+            "product": {
+              "chicken": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "биринж"
+          },
+          "conditions": {
+            "product": {
+              "rice": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "бив"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
+    ]
+  },
+  "1f2ee44c-bc95-488f-9f4c-4f3e3baa646f": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Квацци"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гьежин"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "дуканте"
+          },
+          "conditions": {
+            "product": {
+              "food": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "палтарте"
+          },
+          "conditions": {
+            "product": {
+              "clothe": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "дирцулей"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
+    ]
+  },
+  "09cb2776-5a01-45df-bd0c-5ff3fb12c747": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Этти"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Нишшай"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ци"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гьассара"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "биккулдей"
+          },
+          "conditions": {
+            "person": {
+              "singular": false
+            }
+          },
+          "transition": []
+        },
+        {
+          "text": {
+            "plain": "биккулдай"
+          },
+          "conditions": {
+            "person": {
+              "plural": false
+            }
+          },
+          "transition": []
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
+    ]
+  },
+  "a592307a-f549-49d5-bab6-b228ade2b335": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Дами"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "хъати"
+          },
+          "conditions": {
+            "product": {
+              "hat": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "ттипри"
+          },
+          "conditions": {
+            "product": {
+              "shoes": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "ккуртте"
+          },
+          "conditions": {
+            "product": {
+              "shirt": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гьассара"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "биккулда"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ]
+    ]
+  },
+  "e91539ff-ec8d-4a10-86d6-904def5d0b85": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Букье"
+          },
+          "conditions": {
+            "weight": {
+              "half": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Ца"
+          },
+          "conditions": {
+            "weight": {
+              "one": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Чӏвел"
+          },
+          "conditions": {
+            "weight": {
+              "two": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "кила"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гӏявдаршжице"
+          },
+          "conditions": {
+            "price": {
+              "300": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "гӏявдаршлум шуцӏалжице"
+          },
+          "conditions": {
+            "price": {
+              "350": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "угъдаршжице"
+          },
+          "conditions": {
+            "price": {
+              "400": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "шударшлум шуцӏалжице"
+          },
+          "conditions": {
+            "price": {
+              "550": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ]
+    ]
+  },
+  "fbef674d-6c81-4ef2-bb44-b10d8865a738": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Гьуна"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "этти"
+          },
+          "conditions": {
+            "person": {
+              "singular": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "нишшай"
+          },
+          "conditions": {
+            "person": {
+              "plural": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "бажилей"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
+    ]
+  },
+  "798270f8-e522-4b94-a5b9-bdad8f3958ca": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Гьакка"
+          },
+          "conditions": {
+            "action": {
+              "give": true
+            },
+            "person": {
+              "first": false
+            }
+          },
+          "transition": [2]
+        },
+        {
+          "text": {
+            "plain": "Бекка"
+          },
+          "conditions": {
+            "action": {
+              "give": true
+            },
+            "person": {
+              "third": false
+            }
+          },
+          "transition": [2]
+        },
+        {
+          "text": {
+            "plain": "Кувца"
+          },
+          "conditions": {
+            "action": {
+              "weigh": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "дами"
+          },
+          "conditions": {
+            "person": {
+              "singular": true,
+              "first": true
+            }
+          },
+          "transition": [2]
+        },
+        {
+          "text": {
+            "plain": "дами"
+          },
+          "conditions": {
+            "person": {
+              "singular": true,
+              "first": true
+            },
+            "action": {
+              "weigh": false
+            }
+          },
+          "transition": [2]
+        },
+        {
+          "text": {
+            "plain": "ниссай"
+          },
+          "conditions": {
+            "person": {
+              "plural": true,
+              "first": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "гьетей"
+          },
+          "conditions": {
+            "person": {
+              "third": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "ца"
+          },
+          "conditions": {
+            "weight": {
+              "1": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "чӏвел"
+          },
+          "conditions": {
+            "weight": {
+              "2": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "гӏябал"
+          },
+          "conditions": {
+            "weight": {
+              "3": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "угъал"
+          },
+          "conditions": {
+            "weight": {
+              "4": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "швел"
+          },
+          "conditions": {
+            "weight": {
+              "5": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "кила"
+          },
+          "conditions": {
+            "action": {
+              "weigh": false
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ]
+    ]
+  },
+  "2b645135-32cb-4a94-b070-8bc9ee23ed08": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "new state"
+          }
+        }
+      ]
+    ]
+  },
+  "eee55630-3512-494e-84c6-209123a1b77a": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Дикӏар"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "куцла"
+          },
+          "conditions": {
+            "type": {
+              "another": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "рангла"
+          },
+          "conditions": {
+            "type": {
+              "different": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Хвалал"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "бив"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
+    ]
+  },
+  "e807c93c-6ab0-4b4e-af21-61827bebbb88": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Хӏясивбарара"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "хайрибиргьулев"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
+          }
+        }
+      ]
+    ]
+  },
+  "596f06ae-cd91-42a4-adf7-45ad1acdf145": {
+    "blocks": [
+      [
+        {
+          "text": {
+            "plain": "Дами"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гӏяхӏкабирццулце"
+          },
+          "conditions": {
+            "mode": {
+              "do": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "гӏяхӏакабирццулце"
+          },
+          "conditions": {
+            "mode": {
+              "not": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
+          }
+        }
+      ]
+    ],
+    "notes": [
+      "An alternative way to negate a verb would be _гӏяхӏкабирццул акку_."
     ]
   }
 }
