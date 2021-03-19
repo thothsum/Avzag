@@ -40,7 +40,7 @@ export default defineComponent({
       return { text, display: "plain" };
     }
     const pieces = computed(() => {
-      const separator = /(\/[^/]+\/|\^[^^]+\^|\*[^*]+\*|\*[^_]+\*)/g;
+      const separator = /(\/[^/]+\/|\^[^^]+\^|\*[^*]+\*|_[^_]+_)/g;
       return props.notes
         .map((n) =>
           n
