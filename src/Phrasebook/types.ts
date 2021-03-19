@@ -9,7 +9,6 @@ export type State = {
   text: Text;
   conditions?: Conditions;
   transition?: Transition;
-  implicit?: boolean;
 };
 export type BlockSnapshot = {
   text: string;

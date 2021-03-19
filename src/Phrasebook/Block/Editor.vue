@@ -24,9 +24,6 @@
     </EditorCard>
     <template v-if="state">
       <EditorCard :key="Math.random()" icon="segment" header="text">
-        <template #header>
-          <toggle v-model="state.implicit" icon="opacity" />
-        </template>
         <div class="row">
           <input v-model="state.text.plain" type="text" placeholder="plain" />
           <input

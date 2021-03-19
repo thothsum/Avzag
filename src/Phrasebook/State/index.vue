@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="display row"
-    :class="{ glossed: canGloss, 'text-faded': state?.implicit }"
-  >
+  <div class="display row" :class="{ glossed: canGloss }">
     <Notes
       class="col-0"
       :notes="texts"
