@@ -1442,7 +1442,7 @@
         "context": [
           {
             "entity": "product",
-            "tags": ["food", "clothe"]
+            "tags": ["foods", "clothes"]
           }
         ],
         "blocks": [
@@ -1456,11 +1456,11 @@
           [
             {
               "text": {
-                "plain": "food"
+                "plain": "foods"
               },
               "conditions": {
                 "product": {
-                  "food": true
+                  "foods": true
                 }
               }
             },
@@ -1470,7 +1470,7 @@
               },
               "conditions": {
                 "product": {
-                  "clothe": true
+                  "clothes": true
                 }
               }
             }
@@ -1479,11 +1479,6 @@
             {
               "text": {
                 "plain": "sold here?"
-              },
-              "conditions": {
-                "kind": {
-                  "foods": true
-                }
               }
             }
           ]
