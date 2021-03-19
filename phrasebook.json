@@ -1289,21 +1289,21 @@
           [
             {
               "text": {
-                "plain": "18"
+                "plain": "16"
               },
               "conditions": {
                 "close": {
-                  "18": true
+                  "16": true
                 }
               }
             },
             {
               "text": {
-                "plain": "19"
+                "plain": "17"
               },
               "conditions": {
                 "close": {
-                  "19": true
+                  "17": true
                 }
               }
             }
@@ -1323,7 +1323,7 @@
           },
           {
             "entity": "close",
-            "tags": ["18", "19"]
+            "tags": ["16", "17"]
           }
         ]
       },
