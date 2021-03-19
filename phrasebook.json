@@ -2175,7 +2175,7 @@
               },
               "conditions": {
                 "type": {
-                  "different": true
+                  "color": true
                 }
               }
             },
@@ -2213,7 +2213,7 @@
               },
               "conditions": {
                 "type": {
-                  "different": true
+                  "color": true
                 }
               },
               "transition": []
@@ -2230,7 +2230,7 @@
         "context": [
           {
             "entity": "type",
-            "tags": ["another", "different", "smaller", "bigger"]
+            "tags": ["another", "color", "smaller", "bigger"]
           }
         ]
       },
