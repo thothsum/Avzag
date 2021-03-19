@@ -1819,7 +1819,28 @@
       [
         {
           "text": {
-            "plain": "new state"
+            "plain": "Цилла"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "барибилей"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гьеж"
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "?"
           }
         }
       ]
@@ -2073,14 +2094,14 @@
       [
         {
           "text": {
-            "plain": "Квацци"
+            "plain": "Гьежин"
           }
         }
       ],
       [
         {
           "text": {
-            "plain": "гьежин"
+            "plain": "квацци"
           }
         }
       ],
@@ -2354,7 +2375,7 @@
       [
         {
           "text": {
-            "plain": "Гьуна"
+            "plain": "дажилей"
           }
         }
       ],
@@ -2383,7 +2404,7 @@
       [
         {
           "text": {
-            "plain": "бажилей"
+            "plain": "дажилей"
           }
         }
       ],
@@ -2448,23 +2469,7 @@
               "singular": true,
               "first": true
             }
-          },
-          "transition": [2]
-        },
-        {
-          "text": {
-            "plain": "дами"
-          },
-          "conditions": {
-            "person": {
-              "singular": true,
-              "first": true
-            },
-            "action": {
-              "weigh": false
-            }
-          },
-          "transition": [2]
+          }
         },
         {
           "text": {
@@ -2566,7 +2571,7 @@
       [
         {
           "text": {
-            "plain": "new state"
+            "plain": "Ца-чӏвел"
           }
         }
       ]
@@ -2578,6 +2583,27 @@
         {
           "text": {
             "plain": "Дикӏар"
+          },
+          "transition": []
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "type": {
+              "smaller": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "type": {
+              "bigger": false
+            }
           }
         }
       ],
@@ -2604,7 +2630,22 @@
         },
         {
           "text": {
-            "plain": "Хвалал"
+            "plain": "Никӏвагван"
+          },
+          "conditions": {
+            "type": {
+              "smaller": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Хвалагван"
+          },
+          "conditions": {
+            "type": {
+              "bigger": true
+            }
           }
         }
       ],
@@ -2636,7 +2677,7 @@
       [
         {
           "text": {
-            "plain": "хайрибиргьулев"
+            "plain": "хайрибиргьарув"
           }
         }
       ],
@@ -2661,7 +2702,7 @@
       [
         {
           "text": {
-            "plain": "гӏяхӏкабирццулце"
+            "plain": "гӏяхӏкабиццур"
           },
           "conditions": {
             "mode": {
@@ -2671,7 +2712,7 @@
         },
         {
           "text": {
-            "plain": "гӏяхӏакабирццулце"
+            "plain": "гӏяхӏакабиццур"
           },
           "conditions": {
             "mode": {
@@ -2687,9 +2728,6 @@
           }
         }
       ]
-    ],
-    "notes": [
-      "An alternative way to negate a verb would be _гӏяхӏкабирццул акку_."
     ]
   }
 }
