@@ -7,6 +7,7 @@
           {{ text }}
         </span>
         <b v-else-if="display === 'bold'">{{ text }}</b>
+        <i v-else-if="display === 'italic'">{{ text }}</i>
         <span v-else class="text-ipa">{{ text }}</span>
       </template>
     </p>
@@ -29,6 +30,7 @@ export default defineComponent({
         ["^", "highlight"],
         ["/", "phoneme"],
         ["*", "bold"],
+        ["_", "italic"],
       ] as [string, PieceDisplay][];
 
       for (const [mark, display] of syntax) {
@@ -38,7 +40,7 @@ export default defineComponent({
       return { text, display: "plain" };
     }
     const pieces = computed(() => {
-      const separator = /(\/[^/]+\/|\^[^^]+\^|\*[^*]+\*)/g;
+      const separator = /(\/[^/]+\/|\^[^^]+\^|\*[^*]+\*|\*[^_]+\*)/g;
       return props.notes
         .map((n) =>
           n
