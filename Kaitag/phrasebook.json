@@ -123,24 +123,7 @@
           }
         }
       ]
-    ],
-    "context": {
-      "tense": {
-        "present": "гьана",
-        "future": "цӏил"
-      },
-      "actor": {
-        "singular": "ца",
-        "plural": "гӏявра",
-        "feminine": "хьулум",
-        "masculine": "мургул"
-      },
-      "destination": {
-        "there": "гьет",
-        "home": "хъале",
-        "shop": "тукен"
-      }
-    }
+    ]
   },
   "11290a1d-ca8b-468d-9b63-6bf83f5b477a": {
     "blocks": [
@@ -1840,7 +1823,7 @@
       [
         {
           "text": {
-            "plain": "?"
+            "plain": "."
           }
         }
       ]
@@ -1975,27 +1958,123 @@
       [
         {
           "text": {
-            "plain": "Сягӏят"
+            "plain": "Чиркалла"
+          },
+          "transition": []
+        },
+        {
+          "text": {
+            "plain": "Дажелла"
+          },
+          "conditions": {
+            "open": {
+              "12": false
+            }
+          },
+          "transition": []
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "сягӏят"
           }
         }
       ],
       [
         {
           "text": {
-            "plain": "гаъццирттин"
+            "plain": "верцциртин"
           },
           "conditions": {
             "open": {
-              "8": true
+              "7": true
             }
           }
         },
         {
           "text": {
-            "plain": "ирчӏамццирттин"
+            "plain": "вецциртин"
           },
           "conditions": {
             "open": {
+              "10": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "вецӏнучӏулцциртин"
+          },
+          "conditions": {
+            "open": {
+              "12": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "эрилла"
+          },
+          "conditions": {
+            "close": {
+              "2": false
+            }
+          },
+          "transition": []
+        },
+        {
+          "text": {
+            "plain": "нисналла"
+          },
+          "transition": [],
+          "conditions": {
+            "close": {
+              "6": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "дярххяла"
+          },
+          "conditions": {
+            "close": {
+              "9": false
+            }
+          },
+          "transition": []
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "чӏвел"
+          },
+          "conditions": {
+            "close": {
+              "2": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "реккал"
+          },
+          "conditions": {
+            "close": {
+              "6": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "ирчӏамал"
+          },
+          "conditions": {
+            "close": {
               "9": true
             }
           }
@@ -2004,7 +2083,7 @@
       [
         {
           "text": {
-            "plain": "new state"
+            "plain": "дикарай"
           }
         }
       ],
@@ -2094,14 +2173,14 @@
       [
         {
           "text": {
-            "plain": "Гьежин"
+            "plain": "Квацци"
           }
         }
       ],
       [
         {
           "text": {
-            "plain": "квацци"
+            "plain": "гьежин"
           }
         }
       ],
@@ -2375,7 +2454,7 @@
       [
         {
           "text": {
-            "plain": "дажилей"
+            "plain": "Гьуна"
           }
         }
       ],
@@ -2404,7 +2483,7 @@
       [
         {
           "text": {
-            "plain": "дажилей"
+            "plain": "бажилей"
           }
         }
       ],
@@ -2469,7 +2548,23 @@
               "singular": true,
               "first": true
             }
-          }
+          },
+          "transition": [2]
+        },
+        {
+          "text": {
+            "plain": "дами"
+          },
+          "conditions": {
+            "person": {
+              "singular": true,
+              "first": true
+            },
+            "action": {
+              "weigh": false
+            }
+          },
+          "transition": [2]
         },
         {
           "text": {
@@ -2571,7 +2666,119 @@
       [
         {
           "text": {
-            "plain": "Ца-чӏвел"
+            "plain": "Ца"
+          },
+          "conditions": {
+            "quantity": {
+              "one": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Чумилра"
+          },
+          "conditions": {
+            "quantity": {
+              "few": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Цаникӏва"
+          },
+          "conditions": {
+            "quantity": {
+              "little": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Шуцӏали"
+          },
+          "conditions": {
+            "quantity": {
+              "50": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "Даршал"
+          },
+          "conditions": {
+            "quantity": {
+              "100": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "гирам"
+          },
+          "transition": []
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "quantity": {
+              "one": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "quantity": {
+              "few": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "quantity": {
+              "little": false
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "чикадара"
+          },
+          "conditions": {
+            "action": {
+              "add": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "чергьасса"
+          },
+          "conditions": {
+            "action": {
+              "remove": true
+            }
+          }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "."
           }
         }
       ]
@@ -2583,27 +2790,6 @@
         {
           "text": {
             "plain": "Дикӏар"
-          },
-          "transition": []
-        },
-        {
-          "text": {
-            "plain": ""
-          },
-          "conditions": {
-            "type": {
-              "smaller": false
-            }
-          }
-        },
-        {
-          "text": {
-            "plain": ""
-          },
-          "conditions": {
-            "type": {
-              "bigger": false
-            }
           }
         }
       ],
@@ -2630,22 +2816,7 @@
         },
         {
           "text": {
-            "plain": "Никӏвагван"
-          },
-          "conditions": {
-            "type": {
-              "smaller": true
-            }
-          }
-        },
-        {
-          "text": {
-            "plain": "Хвалагван"
-          },
-          "conditions": {
-            "type": {
-              "bigger": true
-            }
+            "plain": "Хвалал"
           }
         }
       ],
@@ -2677,7 +2848,7 @@
       [
         {
           "text": {
-            "plain": "хайрибиргьарув"
+            "plain": "хайрибиргьулев"
           }
         }
       ],
@@ -2702,7 +2873,7 @@
       [
         {
           "text": {
-            "plain": "гӏяхӏкабиццур"
+            "plain": "гӏяхӏкабирццулце"
           },
           "conditions": {
             "mode": {
@@ -2712,7 +2883,7 @@
         },
         {
           "text": {
-            "plain": "гӏяхӏакабиццур"
+            "plain": "гӏяхӏакабирццулце"
           },
           "conditions": {
             "mode": {
@@ -2728,6 +2899,9 @@
           }
         }
       ]
+    ],
+    "notes": [
+      "An alternative way to negate a verb would be _гӏяхӏкабирццул акку_."
     ]
   }
 }
