@@ -1694,7 +1694,7 @@
           },
           "conditions": {
             "action": {
-              "weigh": true
+              "weigh": false
             }
           },
           "transition": []
@@ -2198,6 +2198,29 @@
           "conditions": {
             "weight": {
               "two": true
+            }
+          },
+          "transition": [
+            0
+          ]
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "this": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "book": false
             }
           }
         }
