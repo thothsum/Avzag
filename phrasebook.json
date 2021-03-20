@@ -2083,7 +2083,6 @@
               },
               "conditions": {
                 "quantity": {
-                  "one": true,
                   "few": true
                 }
               }
