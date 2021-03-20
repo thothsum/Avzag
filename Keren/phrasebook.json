@@ -2416,7 +2416,22 @@
       [
         {
           "text": {
+            "plain": "мидис"
+          },
+          "conditions": {
+            "action": {
+              "try": true
+            }
+          }
+        },
+        {
+          "text": {
             "plain": "ми"
+          },
+          "conditions": {
+            "action": {
+              "taste": true
+            }
           }
         }
       ],
