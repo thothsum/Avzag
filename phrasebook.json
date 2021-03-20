@@ -1248,7 +1248,7 @@
       },
       {
         "id": "216d2524-5af4-4c3a-bfc8-456bd799d0a3",
-        "name": "It works from 9 till 17",
+        "name": "It works from 7 AM till 9 PM",
         "blocks": [
           [
             {
@@ -1260,22 +1260,39 @@
           [
             {
               "text": {
-                "plain": "8"
+                "plain": "7"
               },
               "conditions": {
                 "open": {
-                  "8": true
+                  "7": true
                 }
               }
             },
             {
               "text": {
-                "plain": "9"
+                "plain": "10"
               },
               "conditions": {
                 "open": {
-                  "9": true
+                  "10": true
                 }
+              }
+            },
+            {
+              "text": {
+                "plain": "12"
+              },
+              "conditions": {
+                "open": {
+                  "12": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "AM"
               }
             }
           ],
@@ -1289,22 +1306,39 @@
           [
             {
               "text": {
-                "plain": "16"
+                "plain": "2"
               },
               "conditions": {
                 "close": {
-                  "16": true
+                  "2": true
                 }
               }
             },
             {
               "text": {
-                "plain": "17"
+                "plain": "6"
               },
               "conditions": {
                 "close": {
-                  "17": true
+                  "6": true
                 }
+              }
+            },
+            {
+              "text": {
+                "plain": "9"
+              },
+              "conditions": {
+                "close": {
+                  "9": true
+                }
+              }
+            }
+          ],
+          [
+            {
+              "text": {
+                "plain": "PM"
               }
             }
           ],
@@ -1319,11 +1353,11 @@
         "context": [
           {
             "entity": "open",
-            "tags": ["8", "9"]
+            "tags": ["7", "10", "12"]
           },
           {
             "entity": "close",
-            "tags": ["16", "17"]
+            "tags": ["2", "6", "9"]
           }
         ]
       },
