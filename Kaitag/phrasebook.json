@@ -1665,33 +1665,14 @@
       [
         {
           "text": {
-            "plain": ""
-          },
-          "conditions": {
-            "product": {
-              "this": false
-            }
-          },
-          "transition": []
-        },
-        {
-          "text": {
-            "plain": ""
-          },
-          "conditions": {
-            "product": {
-              "book": false
-            }
-          },
-          "transition": []
-        },
-        {
-          "text": {
             "plain": "букье"
           },
           "conditions": {
             "weight": {
               "half": true
+            },
+            "product": {
+              "weighted": false
             }
           }
         },
@@ -1702,6 +1683,9 @@
           "conditions": {
             "weight": {
               "one": true
+            },
+            "product": {
+              "weighted": false
             }
           }
         },
@@ -1712,6 +1696,9 @@
           "conditions": {
             "weight": {
               "two": true
+            },
+            "product": {
+              "weighted": false
             }
           }
         }
@@ -1719,31 +1706,13 @@
       [
         {
           "text": {
-            "plain": ""
-          },
-          "conditions": {
-            "product": {
-              "this": false
-            }
-          },
-          "transition": []
-        },
-        {
-          "text": {
-            "plain": ""
-          },
-          "conditions": {
-            "product": {
-              "book": false
-            }
-          },
-          "transition": []
-        },
-        {
-          "text": {
             "plain": "кила"
           },
-          "transition": []
+          "conditions": {
+            "product": {
+              "weighted": false
+            }
+          }
         }
       ],
       [
@@ -1773,7 +1742,8 @@
           },
           "conditions": {
             "product": {
-              "apple": true
+              "apple": true,
+              "weighted": true
             }
           }
         },
@@ -1783,7 +1753,8 @@
           },
           "conditions": {
             "product": {
-              "meat": true
+              "meat": true,
+              "weighted": true
             }
           }
         }

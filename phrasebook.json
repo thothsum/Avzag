@@ -1609,15 +1609,46 @@
           [
             {
               "text": {
-                "plain": ""
+                "plain": "half a kilo"
               },
               "conditions": {
+                "weight": {
+                  "half": true
+                },
                 "product": {
-                  "this": false
+                  "weighted": false
                 }
-              },
-              "transition": []
+              }
             },
+            {
+              "text": {
+                "plain": "one kilo"
+              },
+              "conditions": {
+                "weight": {
+                  "one": true
+                },
+                "product": {
+                  "weighted": false
+                }
+              }
+            },
+            {
+              "text": {
+                "plain": "two kilos"
+              },
+              "transition": [0],
+              "conditions": {
+                "weight": {
+                  "two": true
+                },
+                "product": {
+                  "weighted": false
+                }
+              }
+            }
+          ],
+          [
             {
               "text": {
                 "plain": "the"
@@ -1631,66 +1662,14 @@
             },
             {
               "text": {
-                "plain": "half a kilo"
-              },
-              "conditions": {
-                "weight": {
-                  "half": true
-                }
-              },
-              "transition": [3]
-            },
-            {
-              "text": {
-                "plain": "one kilo"
-              },
-              "conditions": {
-                "weight": {
-                  "one": true
-                }
-              },
-              "transition": [4]
-            },
-            {
-              "text": {
-                "plain": "two kilos"
-              },
-              "transition": [2],
-              "conditions": {
-                "weight": {
-                  "two": true
-                }
-              }
-            }
-          ],
-          [
-            {
-              "text": {
-                "plain": ""
-              },
-              "conditions": {
-                "product": {
-                  "this": false
-                }
-              },
-              "transition": []
-            },
-            {
-              "text": {
-                "plain": ""
-              },
-              "conditions": {
-                "product": {
-                  "book": false
-                }
-              },
-              "transition": []
-            },
-            {
-              "text": {
                 "plain": "of"
               },
-              "transition": []
+              "transition": [],
+              "conditions": {
+                "product": {
+                  "weighted": false
+                }
+              }
             }
           ],
           [
@@ -1720,7 +1699,8 @@
               },
               "conditions": {
                 "product": {
-                  "apple": true
+                  "apple": true,
+                  "weighted": true
                 }
               }
             },
@@ -1730,7 +1710,8 @@
               },
               "conditions": {
                 "product": {
-                  "meat": true
+                  "meat": true,
+                  "weighted": true
                 }
               }
             }
@@ -1746,7 +1727,7 @@
         "context": [
           {
             "entity": "product",
-            "tags": ["this", "book", "apple", "meat"]
+            "tags": ["this", "book", "apple", "meat", "weighted"]
           },
           {
             "entity": "weight",

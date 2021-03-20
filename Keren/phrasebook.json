@@ -2197,54 +2197,52 @@
       [
         {
           "text": {
-            "plain": "Сур килав"
+            "plain": "Сур"
           },
           "conditions": {
             "weight": {
               "half": true
+            },
+            "product": {
+              "weighted": false
             }
           }
         },
         {
           "text": {
-            "plain": "Са килав"
+            "plain": "Са"
           },
           "conditions": {
             "weight": {
               "one": true
+            },
+            "product": {
+              "weighted": false
             }
           }
         },
         {
           "text": {
-            "plain": "Кь'у килав"
+            "plain": "Кь'у"
           },
           "conditions": {
             "weight": {
               "two": true
-            }
-          },
-          "transition": [
-            0
-          ]
-        },
-        {
-          "text": {
-            "plain": ""
-          },
-          "conditions": {
+            },
             "product": {
-              "this": false
+              "weighted": false
             }
           }
-        },
+        }
+      ],
+      [
         {
           "text": {
-            "plain": ""
+            "plain": "килав"
           },
           "conditions": {
             "product": {
-              "book": false
+              "weighted": false
             }
           }
         }
@@ -2276,7 +2274,8 @@
           },
           "conditions": {
             "product": {
-              "apple": true
+              "apple": true,
+              "weighted": true
             }
           }
         },
@@ -2286,7 +2285,8 @@
           },
           "conditions": {
             "product": {
-              "meat": true
+              "meat": true,
+              "weighted": true
             }
           }
         }
