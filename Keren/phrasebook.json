@@ -1921,21 +1921,33 @@
       [
         {
           "text": {
-            "plain": "муйайилас"
+            "plain": "йерийилас"
           },
           "conditions": {
             "open": {
+              "7": true,
               "8": true
             }
           }
         },
         {
           "text": {
-            "plain": "йарчӏуйилас"
+            "plain": "ицӏуйилас"
           },
           "conditions": {
             "open": {
-              "9": true
+              "9": true,
+              "10": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "цӏекь'уйилас"
+          },
+          "conditions": {
+            "open": {
+              "12": true
             }
           }
         }
@@ -1943,21 +1955,33 @@
       [
         {
           "text": {
-            "plain": "йакьуйилдагьан"
+            "plain": "кь'уйилдагьан"
           },
           "conditions": {
             "close": {
+              "2": true,
               "16": true
             }
           }
         },
         {
           "text": {
-            "plain": "ӏуфуйилдагьан"
+            "plain": "йерхьийилдагьан"
           },
           "conditions": {
             "close": {
+              "6": true,
               "17": true
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": "йарчӏуйилдагьан"
+          },
+          "conditions": {
+            "close": {
+              "9": true
             }
           }
         }
