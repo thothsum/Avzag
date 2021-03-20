@@ -1563,6 +1563,9 @@
           "conditions": {
             "weight": {
               "1": true
+            },
+            "action": {
+              "give": false
             }
           }
         },
@@ -1573,6 +1576,9 @@
           "conditions": {
             "weight": {
               "2": true
+            },
+            "action": {
+              "give": false
             }
           }
         },
@@ -1583,6 +1589,9 @@
           "conditions": {
             "weight": {
               "3": true
+            },
+            "action": {
+              "give": false
             }
           }
         },
@@ -1593,6 +1602,9 @@
           "conditions": {
             "weight": {
               "4": true
+            },
+            "action": {
+              "give": false
             }
           }
         },
@@ -1603,33 +1615,89 @@
           "conditions": {
             "weight": {
               "5": true
+            },
+            "action": {
+              "give": false
             }
           }
         },
         {
           "text": {
-            "plain": "са килав"
+            "plain": "са"
+          },
+          "conditions": {
+            "weight": {
+              "1": true
+            },
+            "action": {
+              "weigh": false
+            }
           }
         },
         {
           "text": {
-            "plain": "кь'у килав"
+            "plain": "кь'у"
+          },
+          "conditions": {
+            "weight": {
+              "2": true
+            },
+            "action": {
+              "weigh": false
+            }
           }
         },
         {
           "text": {
-            "plain": "хьибу килав"
+            "plain": "хьибу"
+          },
+          "conditions": {
+            "weight": {
+              "3": true
+            },
+            "action": {
+              "weigh": false
+            }
           }
         },
         {
           "text": {
-            "plain": "йакьу килав"
+            "plain": "йакьу"
+          },
+          "conditions": {
+            "weight": {
+              "4": true
+            },
+            "action": {
+              "weigh": false
+            }
           }
         },
         {
           "text": {
-            "plain": "ӏуфу килав"
+            "plain": "ӏуфу"
+          },
+          "conditions": {
+            "weight": {
+              "5": true
+            },
+            "action": {
+              "weigh": false
+            }
           }
+        }
+      ],
+      [
+        {
+          "text": {
+            "plain": "килав"
+          },
+          "conditions": {
+            "action": {
+              "weigh": false
+            }
+          },
+          "transition": []
         }
       ],
       [
@@ -2068,7 +2136,7 @@
         },
         {
           "text": {
-            "plain": "бархӏам"
+            "plain": "кӏукӏ"
           },
           "conditions": {
             "product": {
@@ -2130,6 +2198,29 @@
           "conditions": {
             "weight": {
               "two": true
+            }
+          },
+          "transition": [
+            0
+          ]
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "this": false
+            }
+          }
+        },
+        {
+          "text": {
+            "plain": ""
+          },
+          "conditions": {
+            "product": {
+              "book": false
             }
           }
         }
@@ -2416,7 +2507,22 @@
       [
         {
           "text": {
+            "plain": "мидис"
+          },
+          "conditions": {
+            "action": {
+              "try": true
+            }
+          }
+        },
+        {
+          "text": {
             "plain": "ми"
+          },
+          "conditions": {
+            "action": {
+              "taste": true
+            }
           }
         }
       ],
