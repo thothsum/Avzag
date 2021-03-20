@@ -1925,8 +1925,7 @@
           },
           "conditions": {
             "open": {
-              "7": true,
-              "8": true
+              "7": true
             }
           }
         },
@@ -1936,7 +1935,6 @@
           },
           "conditions": {
             "open": {
-              "9": true,
               "10": true
             }
           }
@@ -1959,8 +1957,7 @@
           },
           "conditions": {
             "close": {
-              "2": true,
-              "16": true
+              "2": true
             }
           }
         },
@@ -1970,8 +1967,7 @@
           },
           "conditions": {
             "close": {
-              "6": true,
-              "17": true
+              "6": true
             }
           }
         },
@@ -2232,7 +2228,10 @@
             "product": {
               "weighted": false
             }
-          }
+          },
+          "transition": [
+            0
+          ]
         }
       ],
       [
