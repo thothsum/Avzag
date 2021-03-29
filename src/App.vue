@@ -25,7 +25,7 @@ export default defineComponent({
       );
     }
     if (route.name !== "Home")
-      lects.value = JSON.parse(localStorage.lects ?? "[]");
+      lects.value = JSON.parse(localStorage.lects ?? "[Kaitag]");
 
     watchEffect(() => {
       const name = route.name as string;
