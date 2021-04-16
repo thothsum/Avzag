@@ -14,15 +14,15 @@ Telegram [channel](https://t.me/avzag) with announcements.
 
 ### Circassian
 
-Kabardian voiceover by **Azamat Birmamitov**. 
+Kabardian voiceover by **Azamat Birmamitov**.
 
 ### Dargin
 
 Akusha voiceover by **Sabina Halalmagomedova**.  
-Kaitag voiceover by **Magomed Magomedov**.  
+Kaitag voiceover by **Magomed Magomedov**.
 
 ### Ossetian
 
 Under the supervision of **Roman Xugati**.  
 Digor voiceover by **Vadim Tsallati**.  
-Iron voiceover by **Zaurbek Tokati**.  
+Iron voiceover by **Zaurbek Tokati**.
