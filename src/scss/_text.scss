@@ -33,6 +33,13 @@
   }
 }
 
+.text-tags,
+.text-tags * {
+  @extend .text-caption;
+  @extend .text-faded;
+  word-spacing: map-get($margins, "quarter");
+}
+
 .text-dot {
   &::after {
     opacity: map-get($opacity, "text");

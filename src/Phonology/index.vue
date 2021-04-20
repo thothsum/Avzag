@@ -21,7 +21,7 @@
       <div class="header">
         <h1 class="text-ipa">{{ phoneme.ipa }}</h1>
         <span>&nbsp;</span>
-        <span class="text-caption text-faded">{{ phoneme.tags }}</span>
+        <span class="text-tags">{{ phoneme.tags }}</span>
       </div>
       <PhonemeUse v-for="(u, l) of phoneme.lects" :key="l" :lect="l" :use="u" />
     </div>
