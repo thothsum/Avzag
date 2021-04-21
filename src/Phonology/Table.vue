@@ -49,7 +49,7 @@ export default defineComponent({
       const lects = Object.entries(props.lectQuery)
         .filter(([, f]) => f)
         .map(([l]) => l);
-      return lects[1] ? lects[0] : "";
+      return lects.length === 1 ? lects[0] : "";
     });
     const graphemes = computed(() =>
       singleLect.value
