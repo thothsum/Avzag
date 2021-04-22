@@ -6,7 +6,7 @@
       @texts="emit('text', $event.join('\n'))"
     />
     <div class="row dashes">
-      <p v-for="(c, i) in dashColors" :key="i" :class="c" />
+      <hr v-for="(c, i) in dashColors" :key="i" :class="c" />
     </div>
   </div>
 </template>
