@@ -12,6 +12,15 @@
     "@vue/prettier",
     "@vue/prettier/@typescript-eslint"
   ],
+  "overrides": [
+    {
+      "files": "**/worker-loader.d.ts",
+      "rules": {
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "error"
+      }
+    }
+  ],
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
