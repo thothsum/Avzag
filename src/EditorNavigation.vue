@@ -32,7 +32,7 @@ import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { loadJSON as loadDBJSON } from "@/store";
 import { config, file, resetFile } from "@/editor";
-import { uploadFile, downloadFile } from "@/file-maganer";
+import { uploadFile, downloadFile } from "@/file-manager";
 
 export default defineComponent({
   components: { ConfirmButton },

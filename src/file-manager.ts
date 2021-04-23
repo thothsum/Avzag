@@ -5,13 +5,15 @@ export function downloadFile(
   filename: string,
   promptExtension?: string
 ) {
+  if (promptExtension) {
+    filename = window.prompt("Save file as", filename) ?? "";
+    if (filename) filename += promptExtension;
+    else return;
+  }
   link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(content);
-  link.download = promptExtension
-    ? window.prompt("Save file as", filename) + promptExtension
-    : filename;
+  link.download = filename;
   link.click();
 }
-
 const reader = new FileReader();
 const input = document.createElement("input");
 input.type = "file";
