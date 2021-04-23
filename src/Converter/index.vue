@@ -20,7 +20,7 @@
           </select>
           <btn v-if="texts.initial" icon="clear" @click="texts.initial = ''" />
           <btn v-else icon="text_snippet" @click="displaySample" />
-          <btn icon="publish" @click="upload" />
+          <btn icon="publish" @click="convertFile" />
           <btn v-if="canSwap" icon="swap_horiz" @click="swap" />
         </div>
         <template v-if="pairs.initial">
@@ -57,7 +57,8 @@ import Flag from "@/components/Flag.vue";
 
 import { computed, ref, nextTick, defineComponent, toRaw } from "vue";
 import { converter, converters, texts, mappings, pairs } from "./main";
-import upload from "./upload";
+import { uploadFile, downloadFile } from "@/file-maganer";
+import convert from "./convert";
 
 export default defineComponent({
   components: { Pairs, Flag },
@@ -94,6 +95,17 @@ export default defineComponent({
       navigator.clipboard.writeText(texts.final);
     }
 
+    function convertFile() {
+      uploadFile(
+        (c, n) =>
+          downloadFile(
+            convert(c, pairs.value.initial),
+            `${mappings.final?.name} - ${n}`
+          ),
+        ".txt"
+      );
+    }
+
     return {
       lect,
       converters,
@@ -101,7 +113,7 @@ export default defineComponent({
       showPairs,
       canSwap,
       swap,
-      upload,
+      convertFile,
       fullMappings,
       copy,
       displaySample,
