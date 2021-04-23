@@ -15,9 +15,9 @@
         </a>
       </div>
       <div class="row">
-        <btn icon="language" @click="loadLect" />
-        <btn icon="code" @click="loadJSON" />
-        <btn icon="integration_instructions" @click="saveJSON" />
+        <btn icon="cloud_download" @click="loadLect" />
+        <btn icon="file_upload" @click="loadJSON" />
+        <btn icon="file_download" @click="saveJSON" />
         <ConfirmButton message="Reset file?" @confirm="resetFile" />
       </div>
     </div>
@@ -67,9 +67,7 @@ export default defineComponent({
         const lect = window.prompt("Enter lect name");
         if (!lect) return;
         json = await loadDBJSON(lect + "/" + config.filename);
-      } else {
-        json = await loadDBJSON(config.filename());
-      }
+      } else json = await loadDBJSON(config.filename());
       if (json) file.value = json;
     }
     function loadJSON() {
