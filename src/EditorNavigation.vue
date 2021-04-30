@@ -16,7 +16,7 @@
       </div>
       <div class="row">
         <template v-if="menu !== 'phrasebookCorpusEditor'">
-          <select :modelValue="lect" @change="changeLect($event.target)">
+          <select v-model="lect" @change="$event.target.value = lect">
             <option value="" v-text="'[Custom]'" />
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
@@ -37,7 +37,7 @@
 <script lang="ts">
 import ConfirmButton from "@/components/ConfirmButton.vue";
 
-import { ref, watch, defineComponent } from "vue";
+import { ref, watch, defineComponent, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { loadJSON } from "@/store";
 import { lect, resetFile, pullLect, uploadJSON, downloadJSON } from "@/editor";
@@ -53,11 +53,13 @@ export default defineComponent({
       (c) => (lects.value = c.map((l: Lect) => l.name))
     );
     const lects = ref([] as string[]);
-    function changeLect(target: { value: string }) {
-      if (window.confirm("Changing language will discard all local edits!"))
-        lect.value = target.value;
-      else target.value = lect.value;
-    }
+    const lect_ = computed({
+      get: () => lect.value,
+      set: (l) => {
+        if (window.confirm("Changing language will discard all local edits!"))
+          lect.value = l;
+      },
+    });
 
     const menus = [
       {
@@ -92,9 +94,8 @@ export default defineComponent({
       uploadJSON,
       downloadJSON,
       resetFile,
-      lect,
+      lect: lect_,
       lects,
-      changeLect,
     };
   },
 });

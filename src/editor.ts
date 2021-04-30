@@ -29,6 +29,7 @@ watch(
   () => {
     storage.getItem(config.value.filename).then((f) => {
       if (f) file.value = f;
+      else if (lect.value) pullLect();
       else resetFile();
     });
   },
