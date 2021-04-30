@@ -15,6 +15,7 @@
         </select>
       </div>
       <div class="row">
+        <p class="icon">sync_disabled</p>
         <template v-if="!config.global">
           <select v-model="lect" @change="$event.target.value = lect">
             <option value="" v-text="'[Custom]'" />

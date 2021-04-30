@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { watch, ref, toRaw, onBeforeUnmount } from "vue";
+import { watch, ref, toRaw, onBeforeUnmount, computed } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
 import { pushToStore } from "./gh-manager";
 import { loadJSON } from "./store";
@@ -38,11 +38,12 @@ export function configure(value: Config) {
 }
 
 export const file = ref();
+const path = computed(
+  () => (config.value.global ? "" : lect.value + "/") + config.value.filename
+);
 
 export async function pullLect() {
-  let filename = config.value.filename;
-  if (!config.value.global) filename = lect.value + "/" + filename;
-  const json = await loadJSON(filename);
+  const json = await loadJSON(path.value);
   if (json) file.value = json;
   else resetFile();
 }
@@ -55,15 +56,12 @@ export function downloadJSON() {
   downloadFile(JSON.stringify(file.value, null, 2), filename);
 }
 export function pushLect() {
-  let filename = config.value.filename + ".json";
   let branch = config.value.filename;
-  if (!config.value.global) {
-    filename = lect.value + "/" + filename;
-    branch = lect.value + "-" + branch;
-  }
+  if (!config.value.global) branch = lect.value + "-" + branch;
+
   pushToStore(
     JSON.stringify(file.value, null, 2),
-    filename,
+    path.value + ".json",
     window.prompt("Enter optional comment") ?? "",
     branch
   );
