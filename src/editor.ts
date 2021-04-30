@@ -21,10 +21,15 @@ function addRecord(name: string) {
 }
 function changeRecord(name: string) {
   const t = Date.now();
-  if (dirty.value[name]) {
-    if (!dirty.value[name].skip) dirty.value[name].changed = t;
-  } else dirty.value[name] = { added: t, changed: t };
-  return dirty.value[name];
+  let r = dirty.value[name];
+  if (r) {
+    if (r.skip) delete r.skip;
+    else r.changed = t;
+  } else {
+    r = { added: t, changed: t };
+    dirty.value[name] = r;
+  }
+  return r;
 }
 storage.getItem<Record<string, CacheRecord>>("dirty").then((d) => {
   if (d) dirty.value = d;
