@@ -54,7 +54,7 @@ import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
 import { defineComponent, ref, watch, provide, computed } from "vue";
 import { loadJSON } from "@/store";
-import { configure, file } from "@/editor";
+import { configure, file, storage } from "@/editor";
 import { State, Context, CorpusPhrase, CorpusSection, Phrase } from "./types";
 import { createContext } from "./utils";
 
@@ -73,9 +73,10 @@ export default defineComponent({
       filename: "phrasebook",
     });
     const corpus = ref([] as CorpusSection[]);
-    corpus.value = JSON.parse(localStorage["editor.phrasebookCorpus"] ?? "[]");
-    if (!corpus.value.length)
-      loadJSON("phrasebook").then((j) => (corpus.value = j));
+    storage.getItem<CorpusSection[]>("phrasebookCorpus").then(async (c) => {
+      if (c) corpus.value = c;
+      else corpus.value = await loadJSON<CorpusSection[]>("phrasebook");
+    });
 
     const section = ref(undefined as undefined | CorpusSection);
     const phrase = ref(undefined as undefined | CorpusPhrase);

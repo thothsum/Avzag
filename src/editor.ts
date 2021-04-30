@@ -32,7 +32,7 @@ export function configure(value: Config) {
   onBeforeUnmount(fileWatch);
   storage.getItem(config.value.filename).then((f) => {
     if (f) file.value = f;
-    else if (lect.value) pullLect().then((j) => !!j || resetFile());
+    else if (lect.value || config.value.global) pullLect();
     else resetFile();
   });
 }
@@ -44,7 +44,7 @@ export async function pullLect() {
   if (!config.value.global) filename = lect.value + "/" + filename;
   const json = await loadJSON(filename);
   if (json) file.value = json;
-  return json;
+  else resetFile();
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
