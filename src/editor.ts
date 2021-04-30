@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { watch, ref, toRaw, onBeforeUnmount, computed, nextTick } from "vue";
+import { watch, ref, toRaw, onBeforeUnmount, computed } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
 import { pushToStore } from "./gh-manager";
 import StorageCache from "./storage-cache";
@@ -16,12 +16,9 @@ export const lect = ref<string>();
 async function loadLect() {
   const l = await storage.getItem<string>("lect");
   if (l) lect.value = l;
-  console.log("lect", l);
   watch(
     () => lect.value,
     async () => {
-      console.log("reset", toRaw(lect.value));
-      await storage.ready();
       await storage.clear();
       await storage.setItem("lect", toRaw(lect.value));
       cache.records.value = {};
@@ -34,7 +31,6 @@ async function loadLect() {
 export const file = ref();
 async function loadFile() {
   const f = await storage.getItem(path.value);
-  console.log("file", f);
   if (f) file.value = f;
   else if (lect.value || config.value.global) pullLect();
   else resetFile();

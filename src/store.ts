@@ -13,6 +13,7 @@ watch(
   () => lects.value,
   async () => {
     await storage.clear();
+    cache.records.value = {};
     storage.setItem("lects", toRaw(lects.value));
   }
 );
