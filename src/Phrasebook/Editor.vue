@@ -75,7 +75,7 @@ export default defineComponent({
     const corpus = ref([] as CorpusSection[]);
     storage.getItem<CorpusSection[]>("phrasebookCorpus").then(async (c) => {
       if (c) corpus.value = c;
-      else corpus.value = await loadJSON<CorpusSection[]>("phrasebook");
+      else corpus.value = await loadJSON<CorpusSection[]>("phrasebookCorpus");
     });
 
     const section = ref(undefined as undefined | CorpusSection);
@@ -87,37 +87,24 @@ export default defineComponent({
     const context = ref({} as Context);
     provide("contextSource", contextSource);
     provide("context", context);
-    watch(
-      contextSource,
-      (contextSource) => createContext(context, contextSource),
-      { immediate: true }
+    watch(contextSource, (contextSource) =>
+      createContext(context, contextSource)
     );
 
-    watch(corpus, (corpus) => (section.value = corpus[corpus.length - 1]), {
-      immediate: true,
+    watch(corpus, (corpus) => (section.value = corpus[corpus.length - 1]));
+    watch(section, (section) => {
+      if (section?.phrases)
+        phrase.value = section.phrases[section.phrases.length - 1];
     });
-    watch(
-      section,
-      (section) => {
-        if (section?.phrases)
-          phrase.value = section.phrases[section.phrases.length - 1];
-      },
-      { immediate: true }
-    );
-    watch(
-      [phrase, file],
-      ([phrase]) => {
-        if (!phrase) return;
-        if (!file.value[phrase.id]) file.value[phrase.id] = { blocks: [] };
-        translation.value = file.value[phrase.id];
-      },
-      { immediate: true }
-    );
+    watch([phrase, file], ([phrase]) => {
+      if (!phrase) return;
+      if (!file.value[phrase.id]) file.value[phrase.id] = { blocks: [] };
+      translation.value = file.value[phrase.id];
+    });
     watch(
       translation,
       (translation) =>
-        (block.value = translation?.blocks?.[translation.blocks.length - 1]),
-      { immediate: true }
+        (block.value = translation?.blocks?.[translation.blocks.length - 1])
     );
 
     return {
