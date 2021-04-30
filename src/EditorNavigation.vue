@@ -22,12 +22,12 @@
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
           <template v-if="lect">
+            <btn icon="cloud_upload" @click="pushLect" />
             <ConfirmButton
               icon="cloud_download"
               message="Local edits will be lost!"
               @confirm="pullLect"
             />
-            <btn icon="cloud_upload" @click="pushLect" />
           </template>
         </template>
         <btn icon="file_upload" @click="uploadJSON" />
