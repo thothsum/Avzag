@@ -19,13 +19,19 @@ export async function resetStorage() {
 export const cache = new StorageCache(storage, "cache", () => checkOutdated());
 async function checkOutdated() {
   if (await storage.getItem("newData")) return;
-  for (const [key, time] of Object.entries(toRaw(cache.records.value)))
-    if ((await lastCommitTime(key)) > time.added) {
-      console.log("outdated");
-      storage.setItem("newData", true);
-      return;
-    }
-  console.log("no outdated");
+  const paths = [];
+  for (const [path, { added }] of Object.entries(cache.records.value)) {
+    const updated = await lastCommitTime(path);
+    if (updated > added) paths.push(path);
+  }
+
+  if (paths.length)
+    if (confirm("New data available. Download?")) {
+      paths.forEach((p) => delete cache.records.value[p]);
+      await storage.removeItem("newData");
+      await storage.ready();
+      location.reload();
+    } else await storage.setItem("newData", true);
 }
 
 export async function loadJSON<T>(
