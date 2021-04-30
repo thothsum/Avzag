@@ -10,7 +10,6 @@ export const root =
 
 export const storage = localforage.createInstance({ name: "userland" });
 export async function resetStorage() {
-  console.log("reset storage");
   await storage.clear();
   cache.records.value = {};
   storage.setItem("lects", toRaw(lects.value));
@@ -24,7 +23,6 @@ async function checkOutdated() {
     const updated = await lastCommitTime(path);
     if (updated > added) paths.push(path);
   }
-
   if (paths.length)
     if (confirm("New data available. Download?")) {
       paths.forEach((p) => delete cache.records.value[p]);
@@ -40,7 +38,7 @@ export async function loadJSON<T>(
   ignoreCache = false
 ) {
   async function justFetch() {
-    return await fetch(root + path)
+    return await fetch(root + path, { cache: "no-store" })
       .then((r) => r.json())
       .then((j) => j as T)
       .catch(() => defaultValue as T);
