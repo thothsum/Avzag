@@ -21,7 +21,7 @@
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
           <template v-if="lect">
-            <btn icon="download" @click="pullLect(true)" />
+            <btn icon="cloud_download" @click="pullLect(true)" />
             <btn icon="cloud_upload" @click="pushLect" />
           </template>
         </template>
