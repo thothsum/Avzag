@@ -1,51 +1,46 @@
 import localforage from "localforage";
-import { watch, ref, toRaw, onBeforeUnmount, computed, reactive } from "vue";
+import { watch, ref, toRaw, onBeforeUnmount, computed, nextTick } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
 import { pushToStore } from "./gh-manager";
 import StorageCache from "./storage-cache";
 import { loadJSON } from "./store";
 
 export const storage = localforage.createInstance({ name: "editor" });
-const cache = reactive(new StorageCache(storage));
+const cache = new StorageCache(storage);
 export const isDirty = computed(() => {
-  const r = cache.records[path.value];
+  const r = cache.records.value[path.value];
   return r && r.changed > r.added;
 });
 
-export const lect = ref("");
-storage.getItem<string>("lect").then((l) => {
+export const lect = ref<string>();
+async function loadLect() {
+  const l = await storage.getItem<string>("lect");
   if (l) lect.value = l;
+  console.log("lect", l);
   watch(
     () => lect.value,
     async () => {
+      console.log("reset", toRaw(lect.value));
+      await storage.ready();
       await storage.clear();
       await storage.setItem("lect", toRaw(lect.value));
+      cache.records.value = {};
       if (lect.value) pullLect();
       else resetFile();
     }
   );
-});
-
-type Config = { default: unknown; filename: string; global?: boolean };
-export const config = ref({
-  default: undefined,
-  filename: "",
-} as Config);
-export function configure(value: Config) {
-  config.value = value;
-  file.value = undefined;
-  const fileWatch = watch(file, saveFile, { deep: true });
-  onBeforeUnmount(fileWatch);
-  storage.getItem(path.value).then((f) => {
-    if (f) file.value = f;
-    else if (lect.value || config.value.global) pullLect();
-    else resetFile();
-    cache.addRecord(path.value);
-    cache.records[path.value].skip = true;
-  });
 }
 
 export const file = ref();
+async function loadFile() {
+  const f = await storage.getItem(path.value);
+  console.log("file", f);
+  if (f) file.value = f;
+  else if (lect.value || config.value.global) pullLect();
+  else resetFile();
+  cache.addRecord(path.value);
+  cache.records.value[path.value].skip = true;
+}
 const path = computed(() => {
   let path = config.value.filename + ".json";
   const root = toRaw(lect.value) || "Custom";
@@ -53,11 +48,25 @@ const path = computed(() => {
   return path;
 });
 
+type Config = { default: unknown; filename: string; global?: boolean };
+export const config = ref({
+  default: undefined,
+  filename: "",
+} as Config);
+export async function configure(value: Config) {
+  config.value = value;
+  file.value = undefined;
+  const fileWatch = watch(file, saveFile, { deep: true });
+  onBeforeUnmount(fileWatch);
+  if (lect.value === undefined) await loadLect();
+  loadFile();
+}
+
 export async function pullLect() {
-  const json = await loadJSON(path.value);
+  const json = await loadJSON(path.value, undefined, true);
   if (json) file.value = json;
   else resetFile();
-  delete cache.records[path.value];
+  delete cache.records.value[path.value];
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));

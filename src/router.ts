@@ -61,7 +61,7 @@ export const editorRoutes = [
     component: PhrasebookEditor,
   },
   {
-    path: "phrasebook/corpus",
+    path: "phrasebookСorpus",
     title: "Phrasebook Corpus",
     name: "phrasebookCorpusEditor",
     component: PhrasebookCorpusEditor,

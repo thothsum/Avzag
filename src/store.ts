@@ -1,7 +1,6 @@
 import localforage from "localforage";
-import { reactive, ref, toRaw, watch } from "vue";
+import { ref, toRaw, watch } from "vue";
 import StorageCache from "./storage-cache";
-import { useRoute } from "vue-router";
 
 export const lects = ref([] as string[]);
 export const root =
@@ -9,7 +8,7 @@ export const root =
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export const storage = localforage.createInstance({ name: "userland" });
-const cache = reactive(new StorageCache(storage));
+const cache = new StorageCache(storage);
 watch(
   () => lects.value,
   async () => {
@@ -18,9 +17,11 @@ watch(
   }
 );
 
-const route = useRoute();
-
-export async function loadJSON<T>(path: string, defaultValue?: T) {
+export async function loadJSON<T>(
+  path: string,
+  defaultValue?: T,
+  ignoreCache = false
+) {
   async function justFetch() {
     return await fetch(root + path)
       .then((r) => r.json())
@@ -28,7 +29,7 @@ export async function loadJSON<T>(path: string, defaultValue?: T) {
       .catch(() => defaultValue as T);
   }
   if (!path.endsWith(".json")) path += ".json";
-  if ((route.name as string).includes("editor")) return await justFetch();
+  if (ignoreCache) return await justFetch();
   if (cache.addRecord(path)) await storage.setItem(path, await justFetch());
   else if (cache.addRecord("newData")) console.log("new data detected");
   return (await storage.getItem<T>(path)) as T;
