@@ -24,8 +24,8 @@ export default defineComponent({
     modelValue: { type: Object as PropType<Phoneme>, default: undefined },
     phonemes: { type: Array as PropType<Phoneme[]>, default: () => [] },
     filter: { type: String, default: "" },
-    lectQuery: { type: Object as PropType<Query>, default: "" },
-    featureQuery: { type: Object as PropType<Query>, default: "" },
+    lectQuery: { type: Object as PropType<Query>, default: () => ({}) },
+    featureQuery: { type: Object as PropType<Query>, default: () => ({}) },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
