@@ -56,10 +56,7 @@ export function downloadJSON() {
 }
 export function pushLect() {
   let filename = config.value.filename + ".json";
-  let branch =
-    lect.value +
-    "-" +
-    new Date().toISOString().slice(0, -1).replaceAll(/\D/g, ".");
+  let branch = config.value.filename;
   if (!config.value.global) {
     filename = lect.value + "/" + filename;
     branch = lect.value + "-" + branch;

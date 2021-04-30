@@ -40,6 +40,7 @@ export async function pushToStore(
   branch: string
 ) {
   content = btoa(unescape(encodeURIComponent(content)));
+  branch += "-" + Date.now();
   await createBranch(branch);
   const sha = await getFileSha(path);
   await octokit.repos.createOrUpdateFileContents({
@@ -54,7 +55,7 @@ export async function pushToStore(
   await octokit.pulls.create({
     owner,
     repo,
-    title: message,
+    title: message ?? branch,
     head: branch,
     base: "store",
   });
