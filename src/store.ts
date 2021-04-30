@@ -19,3 +19,23 @@ export async function loadLectsJSON<T>(path: string, lects_?: string[]) {
   }
   return files;
 }
+
+// export class JSONCache {
+//   storage: LocalForage;
+//   records: Record<string, { added?: number, changed?: number}>
+//   export const isDirty = computed(() => !!dirty.value[config.value.filename]);
+//   constructor(storage: LocalForage) {
+//     this.storage = storage;
+//     records =
+//     this.isDirty =
+//   }
+// storage.getItem<Record<string, boolean>>("dirty").then((d) => {
+//   if (d) dirty.value = d;
+//   watch(
+//     () => dirty.value,
+//     () => storage.setItem("dirty", toRaw(dirty.value)),
+//     { deep: true }
+//   );
+// });
+// let setDirty = false;
+// }

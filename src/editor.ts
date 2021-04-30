@@ -6,9 +6,27 @@ import { loadJSON } from "./store";
 
 export const storage = localforage.createInstance({ name: "editor" });
 
-export const dirty = ref({} as Record<string, boolean>);
-export const isDirty = computed(() => !!dirty.value[config.value.filename]);
-storage.getItem<Record<string, boolean>>("dirty").then((d) => {
+type CacheRecord = { added: number; changed: number; skip?: boolean };
+export const dirty = ref({} as Record<string, CacheRecord>);
+export const isDirty = computed(() => {
+  const r = dirty.value[config.value.filename];
+  return r && r.changed > r.added;
+});
+function addRecord(name: string) {
+  if (!dirty.value[name]) {
+    const t = Date.now();
+    dirty.value[name] = { added: t, changed: t };
+  }
+  return dirty.value[name];
+}
+function changeRecord(name: string) {
+  const t = Date.now();
+  if (dirty.value[name]) {
+    if (!dirty.value[name].skip) dirty.value[name].changed = t;
+  } else dirty.value[name] = { added: t, changed: t };
+  return dirty.value[name];
+}
+storage.getItem<Record<string, CacheRecord>>("dirty").then((d) => {
   if (d) dirty.value = d;
   watch(
     () => dirty.value,
@@ -16,7 +34,6 @@ storage.getItem<Record<string, boolean>>("dirty").then((d) => {
     { deep: true }
   );
 });
-let setDirty = false;
 
 export const lect = ref("");
 storage.getItem<string>("lect").then((l) => {
@@ -43,10 +60,10 @@ export function configure(value: Config) {
   const fileWatch = watch(file, saveFile, { deep: true });
   onBeforeUnmount(fileWatch);
   storage.getItem(config.value.filename).then((f) => {
-    setDirty = false;
     if (f) file.value = f;
     else if (lect.value || config.value.global) pullLect();
     else resetFile();
+    addRecord(config.value.filename).skip = true;
   });
 }
 
@@ -56,11 +73,10 @@ const path = computed(
 );
 
 export async function pullLect() {
-  setDirty = false;
   const json = await loadJSON(path.value);
   if (json) file.value = json;
   else resetFile();
-  dirty.value[config.value.filename] = false;
+  delete dirty.value[config.value.filename];
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
@@ -85,7 +101,5 @@ export function resetFile() {
 }
 export function saveFile() {
   storage.setItem(config.value.filename, toRaw(file.value));
-  if (!setDirty) setDirty = true;
-  else if (!dirty.value[config.value.filename])
-    dirty.value[config.value.filename] = true;
+  changeRecord(config.value.filename);
 }
