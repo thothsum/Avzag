@@ -54,7 +54,6 @@ import {
   pushLect,
   config,
   isDirty,
-  dirty,
 } from "@/editor";
 import { Lect } from "./Home/types";
 
@@ -91,7 +90,6 @@ export default defineComponent({
       lects,
       config,
       isDirty,
-      dirty,
     };
   },
 });

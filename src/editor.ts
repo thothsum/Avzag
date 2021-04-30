@@ -1,43 +1,15 @@
 import localforage from "localforage";
-import { watch, ref, toRaw, onBeforeUnmount, computed } from "vue";
+import { watch, ref, toRaw, onBeforeUnmount, computed, reactive } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
 import { pushToStore } from "./gh-manager";
+import StorageCache from "./storage-cache";
 import { loadJSON } from "./store";
 
 export const storage = localforage.createInstance({ name: "editor" });
-
-type CacheRecord = { added: number; changed: number; skip?: boolean };
-export const dirty = ref({} as Record<string, CacheRecord>);
+const cache = reactive(new StorageCache(storage));
 export const isDirty = computed(() => {
-  const r = dirty.value[path.value];
+  const r = cache.records[path.value];
   return r && r.changed > r.added;
-});
-function addRecord(name: string) {
-  if (!dirty.value[name]) {
-    const t = Date.now();
-    dirty.value[name] = { added: t, changed: t };
-  }
-  return dirty.value[name];
-}
-function changeRecord(name: string) {
-  const t = Date.now();
-  let r = dirty.value[name];
-  if (r) {
-    if (r.skip) delete r.skip;
-    else r.changed = t;
-  } else {
-    r = { added: t, changed: t };
-    dirty.value[name] = r;
-  }
-  return r;
-}
-storage.getItem<Record<string, CacheRecord>>("dirty").then((d) => {
-  if (d) dirty.value = d;
-  watch(
-    () => dirty.value,
-    () => storage.setItem("dirty", toRaw(dirty.value)),
-    { deep: true }
-  );
 });
 
 export const lect = ref("");
@@ -68,7 +40,7 @@ export function configure(value: Config) {
     if (f) file.value = f;
     else if (lect.value || config.value.global) pullLect();
     else resetFile();
-    addRecord(path.value).skip = true;
+    cache.addRecord(path.value).skip = true;
   });
 }
 
@@ -84,7 +56,7 @@ export async function pullLect() {
   const json = await loadJSON(path.value);
   if (json) file.value = json;
   else resetFile();
-  delete dirty.value[path.value];
+  delete cache.records[path.value];
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
@@ -105,5 +77,5 @@ export function resetFile() {
 }
 export function saveFile() {
   storage.setItem(path.value, toRaw(file.value));
-  changeRecord(path.value);
+  cache.changeRecord(path.value);
 }
