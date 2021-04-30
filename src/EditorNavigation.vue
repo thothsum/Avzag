@@ -21,7 +21,11 @@
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
           <template v-if="lect">
-            <btn icon="cloud_download" @click="pullLect(true)" />
+            <ConfirmButton
+              icon="cloud_download"
+              message="Local edits will be lost!"
+              @confirm="pullLect"
+            />
             <btn icon="cloud_upload" @click="pushLect" />
           </template>
         </template>
@@ -36,11 +40,17 @@
 
 <script lang="ts">
 import ConfirmButton from "@/components/ConfirmButton.vue";
-
 import { ref, watch, defineComponent, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { loadJSON } from "@/store";
-import { lect, resetFile, pullLect, uploadJSON, downloadJSON } from "@/editor";
+import {
+  lect,
+  resetFile,
+  pullLect,
+  uploadJSON,
+  downloadJSON,
+  pushLect,
+} from "@/editor";
 import { Lect } from "./Home/types";
 
 export default defineComponent({
@@ -81,10 +91,6 @@ export default defineComponent({
     ];
     const menu = ref((route.name ?? menus[0].name) as string);
     watch(menu, (menu) => router.push({ name: menu }));
-
-    function pushLect() {
-      console.log("not yet");
-    }
 
     return {
       menu,

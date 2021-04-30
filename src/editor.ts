@@ -1,6 +1,7 @@
 import localforage from "localforage";
 import { watch, ref, toRaw, WatchStopHandle, onBeforeUnmount } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
+import { pushToStore } from "./gh-manager";
 import { loadJSON } from "./store";
 
 export const storage = localforage.createInstance({ name: "editor" });
@@ -25,7 +26,7 @@ const config = ref({
 } as Config);
 export function configure(value: Config) {
   config.value = value;
-  console.log("config change");
+  file.value = undefined;
   fileWatch = watch(file, saveFile, { deep: true });
   onBeforeUnmount(fileWatch);
   storage.getItem(config.value.filename).then((f) => {
@@ -38,8 +39,7 @@ export function configure(value: Config) {
 export const file = ref();
 let fileWatch: WatchStopHandle;
 
-export async function pullLect(ask?: boolean) {
-  if (ask && !window.confirm("Local edits will be lost!")) return;
+export async function pullLect() {
   let filename = config.value.filename;
   if (!config.value.global) filename = lect.value + "/" + filename;
   const json = await loadJSON(filename);
@@ -53,19 +53,23 @@ export function downloadJSON() {
     (toRaw(lect.value) ?? "Custom") + "-" + config.value.filename + ".json";
   downloadFile(JSON.stringify(file.value, null, 2), filename);
 }
-// function pushLect() {
-//   const branch = [
-//     menu.value,
-//     lect.value,
-//     new Date().toISOString().slice(0, -1).replaceAll(/\D/g, "."),
-//   ].join("-");
-//   pushToStore(
-//     JSON.stringify(file.value, null, 2) + "\n",
-//     lect.value + "/dictionary.json",
-//     window.prompt("Enter optional comment") ?? "",
-//     branch
-//   );
-// }
+export function pushLect() {
+  let filename = config.value.filename + ".json";
+  let branch =
+    lect.value +
+    "-" +
+    new Date().toISOString().slice(0, -1).replaceAll(/\D/g, ".");
+  if (!config.value.global) {
+    filename = lect.value + "/" + filename;
+    branch = lect.value + "-" + branch;
+  }
+  pushToStore(
+    JSON.stringify(file.value, null, 2),
+    filename,
+    window.prompt("Enter optional comment") ?? "",
+    branch
+  );
+}
 export function resetFile() {
   file.value = JSON.parse(JSON.stringify(config.value.default));
 }

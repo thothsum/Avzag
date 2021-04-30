@@ -1,6 +1,6 @@
 <template>
   <btn
-    class="highlight-font-alert"
+    :class="{ 'highlight-font-alert': icon === 'delete' }"
     :icon="icon"
     :text="text"
     @click="confirm"
