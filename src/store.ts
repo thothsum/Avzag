@@ -6,7 +6,8 @@ export const root =
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export async function loadJSON<T>(path: string, defaultValue?: T) {
-  return await fetch(root + path + ".json")
+  if (!path.endsWith(".json")) path += ".json";
+  return await fetch(root + path)
     .then((r) => r.json())
     .then((j) => j as T)
     .catch(() => defaultValue as T);

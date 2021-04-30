@@ -74,7 +74,7 @@ export function configure(value: Config) {
 
 export const file = ref();
 const path = computed(() => {
-  let path = config.value.filename;
+  let path = config.value.filename + ".json";
   const root = toRaw(lect.value) || "Custom";
   if (root) path = root + "/" + path;
   return path;
@@ -90,12 +90,12 @@ export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
 }
 export function downloadJSON() {
-  downloadFile(JSON.stringify(file.value, null, 2), path.value + ".json");
+  downloadFile(JSON.stringify(file.value, null, 2), path.value);
 }
 export function pushLect() {
   pushToStore(
     JSON.stringify(file.value, null, 2),
-    path.value + ".json",
+    path.value,
     window.prompt("Enter optional comment", path.value) as string,
     path.value
   );
