@@ -5,17 +5,17 @@
         <router-link to="/home">
           <btn icon="arrow_back" />
         </router-link>
-        <select v-model="menu">
+        <select v-model="routeName">
           <option
-            v-for="{ text, name } in menus"
+            v-for="{ title, name } in editorRoutes"
             :key="name"
             :value="name"
-            v-text="text"
+            v-text="title"
           />
         </select>
       </div>
       <div class="row">
-        <template v-if="menu !== 'phrasebookCorpusEditor'">
+        <template v-if="!config.global">
           <select v-model="lect" @change="$event.target.value = lect">
             <option value="" v-text="'[Custom]'" />
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
@@ -43,6 +43,7 @@ import ConfirmButton from "@/components/ConfirmButton.vue";
 import { ref, watch, defineComponent, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { loadJSON } from "@/store";
+import { editorRoutes } from "@/router";
 import {
   lect,
   resetFile,
@@ -50,6 +51,7 @@ import {
   uploadJSON,
   downloadJSON,
   pushLect,
+  config,
 } from "@/editor";
 import { Lect } from "./Home/types";
 
@@ -70,31 +72,12 @@ export default defineComponent({
           lect.value = l;
       },
     });
-
-    const menus = [
-      {
-        text: "Phonology",
-        name: "phonologyEditor",
-      },
-      {
-        text: "Converter",
-        name: "converterEditor",
-      },
-      {
-        text: "Phrasebook",
-        name: "phrasebookEditor",
-      },
-      {
-        text: "Phrasebook Corpus",
-        name: "phrasebookCorpusEditor",
-      },
-    ];
-    const menu = ref((route.name ?? menus[0].name) as string);
-    watch(menu, (menu) => router.push({ name: menu }));
+    const routeName = ref((route.name as string) ?? editorRoutes[0].name);
+    watch(routeName, () => router.push({ name: routeName.value }));
 
     return {
-      menu,
-      menus,
+      routeName,
+      editorRoutes,
       pullLect,
       pushLect,
       uploadJSON,
@@ -102,6 +85,7 @@ export default defineComponent({
       resetFile,
       lect: lect_,
       lects,
+      config,
     };
   },
 });

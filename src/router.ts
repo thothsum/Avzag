@@ -15,6 +15,59 @@ const ConverterEditor = () => import("@/Converter/Editor.vue");
 const PhrasebookEditor = () => import("@/Phrasebook/Editor.vue");
 const PhrasebookCorpusEditor = () => import("@/Phrasebook/CorpusEditor.vue");
 
+export const userRoutes = [
+  {
+    path: "phonology",
+    name: "phonology",
+    icon: "audiotrack",
+    component: Phonology,
+  },
+  {
+    path: "converter",
+    name: "converter",
+    icon: "sync_alt",
+    component: Converter,
+  },
+  {
+    path: "phrasebook",
+    name: "phrasebook",
+    icon: "chat",
+    component: Phrasebook,
+  },
+  {
+    path: "dictionary",
+    name: "dictionary",
+    icon: "book",
+    component: Dictionary,
+  },
+];
+export const editorRoutes = [
+  {
+    path: "phonology",
+    title: "Phonology",
+    name: "phonologyEditor",
+    component: PhonologyEditor,
+  },
+  {
+    path: "converter",
+    title: "Converter",
+    name: "converterEditor",
+    component: ConverterEditor,
+  },
+  {
+    path: "phrasebook",
+    title: "Phrasebook",
+    name: "phrasebookEditor",
+    component: PhrasebookEditor,
+  },
+  {
+    path: "phrasebook/corpus",
+    title: "Phrasebook Corpus",
+    name: "phrasebookCorpusEditor",
+    component: PhrasebookCorpusEditor,
+  },
+];
+
 const routes = [
   {
     path: "/home",
@@ -24,54 +77,12 @@ const routes = [
   {
     path: "/",
     component: Navigation,
-    children: [
-      {
-        path: "phonology",
-        name: "phonology",
-        component: Phonology,
-      },
-      {
-        path: "converter",
-        name: "converter",
-        component: Converter,
-      },
-      {
-        path: "phrasebook",
-        name: "phrasebook",
-        component: Phrasebook,
-      },
-      {
-        path: "dictionary",
-        name: "dictionary",
-        component: Dictionary,
-      },
-    ],
+    children: userRoutes,
   },
   {
     path: "/editor/",
     component: EditorNavigation,
-    children: [
-      {
-        path: "phonology",
-        name: "phonologyEditor",
-        component: PhonologyEditor,
-      },
-      {
-        path: "converter",
-        name: "converterEditor",
-        component: ConverterEditor,
-      },
-      {
-        path: "phrasebook",
-        name: "phrasebookEditor",
-        component: PhrasebookEditor,
-      },
-      {
-        path: "phrasebook/corpus",
-        name: "phrasebookCorpusEditor",
-        component: PhrasebookCorpusEditor,
-      },
-    ],
+    children: editorRoutes,
   },
   {
     path: "/:pathMatch(.*)",

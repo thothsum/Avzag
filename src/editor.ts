@@ -21,7 +21,7 @@ storage.getItem<string>("lect").then((l) => {
 });
 
 type Config = { default: unknown; filename: string; global?: boolean };
-const config = ref({
+export const config = ref({
   default: undefined,
   filename: "",
 } as Config);
