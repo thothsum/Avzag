@@ -55,13 +55,10 @@ import convert from "./convert";
 export default defineComponent({
   components: { ArrayControl, EditorCard },
   setup() {
-    console.log("converter setup");
     configure({
       default: { default: [0, 0], mappings: [] },
       filename: "converter",
     });
-    console.log("converter end");
-
     const mapping = ref<Mapping>();
     const pairs = computed(() => file.value?.mappings?.[0]?.pairs);
     const converted = computed(() => {

@@ -68,13 +68,10 @@ import { configure, file } from "@/editor";
 export default defineComponent({
   components: { ArrayControl, EditorCard, TableEntry, NotesEditor },
   setup() {
-    console.log("phonology setup");
     configure({
       default: [],
       filename: "phonology",
     });
-    console.log("phonology end");
-
     const phoneme = ref<PhonemeUse>();
     const graphemes = computed(() =>
       file.value.map((f: PhonemeUse) => f.samples?.[0]?.grapheme)

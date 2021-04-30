@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { watch, ref, toRaw, WatchStopHandle, onBeforeUnmount } from "vue";
+import { watch, ref, toRaw, onBeforeUnmount } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
 import { pushToStore } from "./gh-manager";
 import { loadJSON } from "./store";
@@ -15,6 +15,7 @@ storage.getItem<string>("lect").then((l) => {
       await storage.clear();
       await storage.setItem("lect", toRaw(lect.value));
       if (lect.value) pullLect();
+      else resetFile();
     }
   );
 });
@@ -27,23 +28,23 @@ const config = ref({
 export function configure(value: Config) {
   config.value = value;
   file.value = undefined;
-  fileWatch = watch(file, saveFile, { deep: true });
+  const fileWatch = watch(file, saveFile, { deep: true });
   onBeforeUnmount(fileWatch);
   storage.getItem(config.value.filename).then((f) => {
     if (f) file.value = f;
-    else if (lect.value) pullLect();
+    else if (lect.value) pullLect().then((j) => !!j || resetFile());
     else resetFile();
   });
 }
 
 export const file = ref();
-let fileWatch: WatchStopHandle;
 
 export async function pullLect() {
   let filename = config.value.filename;
   if (!config.value.global) filename = lect.value + "/" + filename;
   const json = await loadJSON(filename);
   if (json) file.value = json;
+  return json;
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
