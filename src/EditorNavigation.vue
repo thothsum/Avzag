@@ -15,14 +15,14 @@
         </select>
       </div>
       <div class="row">
-        <p class="icon">sync_disabled</p>
+        <p v-if="isDirty" class="icon">sync_disabled</p>
         <template v-if="!config.global">
           <select v-model="lect" @change="$event.target.value = lect">
             <option value="" v-text="'[Custom]'" />
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
           <template v-if="lect">
-            <btn icon="cloud_upload" @click="pushLect" />
+            <btn v-if="isDirty" icon="publish" @click="pushLect" />
             <ConfirmButton
               icon="cloud_download"
               message="Local edits will be lost!"
@@ -53,10 +53,13 @@ import {
   downloadJSON,
   pushLect,
   config,
+  isDirty,
+  dirty,
 } from "@/editor";
 import { Lect } from "./Home/types";
 
 export default defineComponent({
+  name: "EditorNavigation",
   components: { ConfirmButton },
   setup() {
     const route = useRoute();
@@ -87,6 +90,8 @@ export default defineComponent({
       lect: lect_,
       lects,
       config,
+      isDirty,
+      dirty,
     };
   },
 });
