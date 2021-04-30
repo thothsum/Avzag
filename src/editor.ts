@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { watch, ref, toRaw } from "vue";
+import { watch, ref, toRaw, WatchStopHandle, onBeforeUnmount } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
 import { loadJSON } from "./store";
 
@@ -18,26 +18,25 @@ storage.getItem<string>("lect").then((l) => {
   );
 });
 
-type Config = {
-  default: unknown;
-  filename: string;
-  global?: boolean;
-};
-export const config = ref({ default: undefined, filename: "" } as Config);
-watch(
-  () => config.value,
-  () => {
-    storage.getItem(config.value.filename).then((f) => {
-      if (f) file.value = f;
-      else if (lect.value) pullLect();
-      else resetFile();
-    });
-  },
-  { deep: true }
-);
+type Config = { default: unknown; filename: string; global?: boolean };
+const config = ref({
+  default: undefined,
+  filename: "",
+} as Config);
+export function configure(value: Config) {
+  config.value = value;
+  console.log("config change");
+  fileWatch = watch(file, saveFile, { deep: true });
+  onBeforeUnmount(fileWatch);
+  storage.getItem(config.value.filename).then((f) => {
+    if (f) file.value = f;
+    else if (lect.value) pullLect();
+    else resetFile();
+  });
+}
 
 export const file = ref();
-watch(file, saveFile, { deep: true });
+let fileWatch: WatchStopHandle;
 
 export async function pullLect(ask?: boolean) {
   if (ask && !window.confirm("Local edits will be lost!")) return;

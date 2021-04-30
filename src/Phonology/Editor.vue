@@ -1,5 +1,5 @@
 <template>
-  <div class="section col-2 small grid">
+  <div v-if="file" class="section col-2 small grid">
     <EditorCard icon="view_comfy" header="Phonemes">
       <template #header>
         <ArrayControl v-model="file" v-model:item="phoneme" :add="{}" remove />
@@ -63,21 +63,22 @@ import NotesEditor from "@/components/Notes/Editor.vue";
 
 import { computed, ref, defineComponent } from "vue";
 import { PhonemeUse } from "./types";
-import { config, file } from "@/editor";
+import { configure, file } from "@/editor";
 
 export default defineComponent({
   components: { ArrayControl, EditorCard, TableEntry, NotesEditor },
   setup() {
-    const phoneme = ref<PhonemeUse>();
-    config.value = {
+    console.log("phonology setup");
+    configure({
       default: [],
       filename: "phonology",
-    };
+    });
+    console.log("phonology end");
 
+    const phoneme = ref<PhonemeUse>();
     const graphemes = computed(() =>
       file.value.map((f: PhonemeUse) => f.samples?.[0]?.grapheme)
     );
-
     return { file, phoneme, graphemes };
   },
 });

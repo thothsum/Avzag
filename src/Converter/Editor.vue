@@ -49,18 +49,20 @@ import EditorCard from "@/components/EditorCard.vue";
 
 import { computed, ref, defineComponent } from "vue";
 import { Mapping } from "./types";
-import { config, file } from "@/editor";
+import { configure, file } from "@/editor";
 import convert from "./convert";
 
 export default defineComponent({
   components: { ArrayControl, EditorCard },
   setup() {
-    config.value = {
+    console.log("converter setup");
+    configure({
       default: { default: [0, 0], mappings: [] },
       filename: "converter",
-    };
-    const mapping = ref<Mapping>();
+    });
+    console.log("converter end");
 
+    const mapping = ref<Mapping>();
     const pairs = computed(() => file.value?.mappings?.[0]?.pairs);
     const converted = computed(() => {
       const source = file.value?.sample ?? "";
@@ -73,7 +75,6 @@ export default defineComponent({
             mapping.value.pairs.map(([l, r]) => [r, l])
           );
     });
-
     return { file, mapping, converted };
   },
 });
