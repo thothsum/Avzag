@@ -39,7 +39,7 @@ export const file = ref();
 watch(file, saveFile, { deep: true });
 
 export async function pullLect(ask?: boolean) {
-  if (ask && !window.confirm("Local edits will be lost.")) return;
+  if (ask && !window.confirm("Local edits will be lost!")) return;
   let filename = config.value.filename;
   if (!config.value.global) filename = lect.value + "/" + filename;
   const json = await loadJSON(filename);

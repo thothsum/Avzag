@@ -21,7 +21,7 @@
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
           <template v-if="lect">
-            <btn icon="sync" @click="pullLect(true)" />
+            <btn icon="download" @click="pullLect(true)" />
             <btn icon="cloud_upload" @click="pushLect" />
           </template>
         </template>
@@ -54,7 +54,7 @@ export default defineComponent({
     );
     const lects = ref([] as string[]);
     function changeLect(target: { value: string }) {
-      if (window.confirm("Chaning lect will discard all local edits!"))
+      if (window.confirm("Changing language will discard all local edits!"))
         lect.value = target.value;
       else target.value = lect.value;
     }
