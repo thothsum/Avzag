@@ -76,7 +76,7 @@ export function pushLect() {
   pushToStore(
     JSON.stringify(file.value, null, 2),
     path.value + ".json",
-    window.prompt("Enter optional comment") ?? "",
+    window.prompt("Enter optional comment", branch) as string,
     branch
   );
 }

@@ -55,7 +55,7 @@ export async function pushToStore(
   await octokit.pulls.create({
     owner,
     repo,
-    title: message ?? branch,
+    title: message,
     head: branch,
     base: "store",
   });
