@@ -8,11 +8,14 @@ export default class StorageCache {
     this.storage = storage;
     this.records = {};
 
-    storage.getItem<Record<string, Stamp>>(name).then((d) => {
-      if (d) this.records = d;
+    storage.getItem<Record<string, Stamp>>(name).then((r) => {
+      if (r) this.records = r;
       watch(
         () => this.records,
-        () => storage.setItem(name, toRaw(this.records)),
+        () => {
+          console.log(toRaw(this.records));
+          storage.setItem(name, toRaw(this.records));
+        },
         { deep: true }
       );
     });
@@ -22,8 +25,9 @@ export default class StorageCache {
     if (!this.records[key]) {
       const t = Date.now();
       this.records[key] = { added: t, changed: t };
+      return true;
     }
-    return this.records[key];
+    return false;
   }
 
   changeRecord(key: string) {

@@ -40,7 +40,8 @@ export function configure(value: Config) {
     if (f) file.value = f;
     else if (lect.value || config.value.global) pullLect();
     else resetFile();
-    cache.addRecord(path.value).skip = true;
+    cache.addRecord(path.value);
+    cache.records[path.value].skip = true;
   });
 }
 
