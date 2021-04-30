@@ -1,9 +1,9 @@
 import { ref, shallowRef, reactive, computed } from "vue";
 import { SearchState, Lect } from "./types";
-import { loadJSON } from "@/store";
+import { loadJSON, resetStorage } from "@/store";
 import { Query, EvaluateQuery } from "@/components/Query/types";
 
-export const catalogue = shallowRef<Lect[]>([]);
+export const catalogue = shallowRef([] as Lect[]);
 export const search = reactive({
   selected: new Set<string>(),
   visible: computed(() =>
@@ -13,7 +13,7 @@ export const search = reactive({
     }, new Set<string>())
   ),
 }) as SearchState;
-export const query = ref<Query>({});
+export const query = ref({} as Query);
 
 const tags = computed(() =>
   catalogue.value.map(({ name, tags, family }) =>
@@ -22,13 +22,8 @@ const tags = computed(() =>
 );
 
 export async function reset() {
+  await resetStorage();
   catalogue.value.length = 0;
-  if (navigator.onLine)
-    await caches
-      .keys()
-      .then((ks) => ks.find((k) => k.includes("avzag-precache")))
-      .then((k) => caches.delete(k ?? ""));
-
   query.value = {};
   catalogue.value = await loadJSON("catalogue", []);
   search.selected.clear();

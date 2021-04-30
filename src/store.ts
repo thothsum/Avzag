@@ -1,5 +1,6 @@
 import localforage from "localforage";
-import { ref, toRaw, watch } from "vue";
+import { ref, toRaw } from "vue";
+import { lastCommitTime } from "./gh-manager";
 import StorageCache from "./storage-cache";
 
 export const lects = ref([] as string[]);
@@ -8,15 +9,24 @@ export const root =
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export const storage = localforage.createInstance({ name: "userland" });
-const cache = new StorageCache(storage);
-watch(
-  () => lects.value,
-  async () => {
-    await storage.clear();
-    cache.records.value = {};
-    storage.setItem("lects", toRaw(lects.value));
-  }
-);
+export async function resetStorage() {
+  console.log("reset storage");
+  await storage.clear();
+  cache.records.value = {};
+  storage.setItem("lects", toRaw(lects.value));
+}
+
+export const cache = new StorageCache(storage, "cache", () => checkOutdated());
+async function checkOutdated() {
+  if (await storage.getItem("newData")) return;
+  for (const [key, time] of Object.entries(toRaw(cache.records.value)))
+    if ((await lastCommitTime(key)) > time.added) {
+      console.log("outdated");
+      storage.setItem("newData", true);
+      return;
+    }
+  console.log("no outdated");
+}
 
 export async function loadJSON<T>(
   path: string,
@@ -31,8 +41,11 @@ export async function loadJSON<T>(
   }
   if (!path.endsWith(".json")) path += ".json";
   if (ignoreCache) return await justFetch();
-  if (cache.addRecord(path)) await storage.setItem(path, await justFetch());
-  else if (cache.addRecord("newData")) console.log("new data detected");
+  if (cache.addRecord(path)) {
+    const f = await justFetch();
+    await storage.setItem(path, f);
+    return f;
+  }
   return (await storage.getItem<T>(path)) as T;
 }
 export async function loadLectsJSON<T>(path: string, lects_?: string[]) {

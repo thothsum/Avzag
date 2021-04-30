@@ -74,7 +74,7 @@ import {
   defineComponent,
 } from "vue";
 import { useRouter } from "vue-router";
-import { lects } from "@/store";
+import { lects, storage } from "@/store";
 import { reset, catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
@@ -104,14 +104,12 @@ export default defineComponent({
     watch(
       catalogue,
       () =>
-        (search.selected = new Set(
-          JSON.parse(localStorage.lects ?? "[]") as string[]
-        )),
+        storage
+          .getItem<string>("lects")
+          .then((ls) => (search.selected = new Set(ls ?? []))),
       { immediate: true }
     );
-    onUnmounted(
-      () => (localStorage.lects = JSON.stringify([...search.selected]))
-    );
+    onUnmounted(() => storage.setItem("lects", [...search.selected]));
 
     return { catalogue, query, search, empty, about, toggleLect, load };
   },

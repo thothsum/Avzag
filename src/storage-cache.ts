@@ -4,7 +4,7 @@ type Stamp = { added: number; changed: number; skip?: boolean };
 export default class StorageCache {
   storage: LocalForage;
   records: Ref<Record<string, Stamp>>;
-  constructor(storage: LocalForage, name = "cache") {
+  constructor(storage: LocalForage, name = "cache", callback?: () => void) {
     this.storage = storage;
     this.records = ref({} as Record<string, Stamp>);
     storage.getItem<Record<string, Stamp>>(name).then((r) => {
@@ -14,6 +14,7 @@ export default class StorageCache {
         () => storage.setItem(name, toRaw(this.records.value)),
         { deep: true }
       );
+      callback?.();
     });
   }
 

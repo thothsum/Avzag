@@ -67,7 +67,8 @@ export async function lastCommitTime(path: string) {
     repo: "avzag",
     sha: "store",
     path: path,
+    per_page: 1,
   });
-  const time = commits.data[0].commit.committer?.date;
+  const time = commits.data[0]?.commit.committer?.date;
   return new Date(time ?? 0).getTime();
 }
