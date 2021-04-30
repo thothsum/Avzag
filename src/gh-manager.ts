@@ -39,8 +39,8 @@ export async function pushToStore(
   message: string,
   branch: string
 ) {
-  content = btoa(unescape(encodeURIComponent(content)));
-  branch += "-" + Date.now();
+  content = btoa(unescape(encodeURIComponent(content + "\n")));
+  branch = encodeURI(branch + "-" + Date.now());
   await createBranch(branch);
   const sha = await getFileSha(path);
   await octokit.repos.createOrUpdateFileContents({

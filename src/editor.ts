@@ -9,7 +9,7 @@ export const storage = localforage.createInstance({ name: "editor" });
 type CacheRecord = { added: number; changed: number; skip?: boolean };
 export const dirty = ref({} as Record<string, CacheRecord>);
 export const isDirty = computed(() => {
-  const r = dirty.value[config.value.filename];
+  const r = dirty.value[path.value];
   return r && r.changed > r.added;
 });
 function addRecord(name: string) {
@@ -59,47 +59,46 @@ export function configure(value: Config) {
   file.value = undefined;
   const fileWatch = watch(file, saveFile, { deep: true });
   onBeforeUnmount(fileWatch);
-  storage.getItem(config.value.filename).then((f) => {
+  storage.getItem(path.value).then((f) => {
     if (f) file.value = f;
     else if (lect.value || config.value.global) pullLect();
     else resetFile();
-    addRecord(config.value.filename).skip = true;
+    addRecord(path.value).skip = true;
   });
 }
 
 export const file = ref();
-const path = computed(
-  () => (config.value.global ? "" : lect.value + "/") + config.value.filename
-);
+const path = computed(() => {
+  let path = config.value.filename;
+  const root = toRaw(lect.value) || "Custom";
+  if (root) path = root + "/" + path;
+  return path;
+});
 
 export async function pullLect() {
   const json = await loadJSON(path.value);
   if (json) file.value = json;
   else resetFile();
-  delete dirty.value[config.value.filename];
+  delete dirty.value[path.value];
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
 }
 export function downloadJSON() {
-  const filename =
-    (toRaw(lect.value) ?? "Custom") + "-" + config.value.filename + ".json";
-  downloadFile(JSON.stringify(file.value, null, 2), filename);
+  downloadFile(JSON.stringify(file.value, null, 2), path.value + ".json");
 }
 export function pushLect() {
-  let branch = config.value.filename;
-  if (!config.value.global) branch = lect.value + "-" + branch;
   pushToStore(
     JSON.stringify(file.value, null, 2),
     path.value + ".json",
-    window.prompt("Enter optional comment", branch) as string,
-    branch
+    window.prompt("Enter optional comment", path.value) as string,
+    path.value
   );
 }
 export function resetFile() {
   file.value = JSON.parse(JSON.stringify(config.value.default));
 }
 export function saveFile() {
-  storage.setItem(config.value.filename, toRaw(file.value));
-  changeRecord(config.value.filename);
+  storage.setItem(path.value, toRaw(file.value));
+  changeRecord(path.value);
 }
