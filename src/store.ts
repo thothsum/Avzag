@@ -1,4 +1,3 @@
-// import { Octokit } from "@octokit/rest";
 import { ref } from "vue";
 
 export const lects = ref<string[]>([]);
@@ -20,17 +19,3 @@ export async function loadLectsJSON<T>(path: string, lects_?: string[]) {
   }
   return files;
 }
-
-// const octokit = new Octokit();
-// async function isOutdated(path: string) {
-//   const commits = await octokit.repos.listCommits({
-//     owner: "IU-MAP",
-//     repo: "avzag",
-//     sha: "store",
-//     path: path,
-//   });
-//   const time = commits.data[0].commit.committer?.date;
-//   if (!time) return;
-//   const timestamp = new Date(time).getTime();
-//   console.log(root + path, time);
-// }

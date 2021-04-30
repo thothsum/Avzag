@@ -60,3 +60,14 @@ export async function pushToStore(
     base: "store",
   });
 }
+
+export async function lastCommitTime(path: string) {
+  const commits = await octokit.repos.listCommits({
+    owner: "IU-MAP",
+    repo: "avzag",
+    sha: "store",
+    path: path,
+  });
+  const time = commits.data[0].commit.committer?.date;
+  return new Date(time ?? 0).getTime();
+}
