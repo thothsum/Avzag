@@ -54,15 +54,8 @@ import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
 import { defineComponent, ref, watch, provide, computed } from "vue";
 import { loadJSON } from "@/store";
-import { setupEditor } from "@/editor";
-import {
-  State,
-  Context,
-  CorpusPhrase,
-  CorpusSection,
-  Phrase,
-  Phrasebook,
-} from "./types";
+import { config, file } from "@/editor";
+import { State, Context, CorpusPhrase, CorpusSection, Phrase } from "./types";
 import { createContext } from "./utils";
 
 export default defineComponent({
@@ -84,11 +77,10 @@ export default defineComponent({
     const phrase = ref(undefined as undefined | CorpusPhrase);
     const translation = ref({} as Phrase);
     const block = ref(undefined as undefined | State[]);
-    const file = setupEditor<Phrasebook>({
-      defaultFile: {},
+    config.value = {
+      default: {},
       filename: "phrasebook",
-      storage: "editor.phrasebook",
-    });
+    };
 
     const contextSource = computed(() => phrase.value?.context);
     const context = ref({} as Context);

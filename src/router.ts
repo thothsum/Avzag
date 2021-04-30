@@ -18,7 +18,7 @@ const PhrasebookCorpusEditor = () => import("@/Phrasebook/CorpusEditor.vue");
 const routes = [
   {
     path: "/home",
-    name: "Home",
+    name: "home",
     component: Home,
   },
   {
@@ -27,22 +27,22 @@ const routes = [
     children: [
       {
         path: "phonology",
-        name: "Phonology",
+        name: "phonology",
         component: Phonology,
       },
       {
         path: "converter",
-        name: "Converter",
+        name: "converter",
         component: Converter,
       },
       {
         path: "phrasebook",
-        name: "Phrasebook",
+        name: "phrasebook",
         component: Phrasebook,
       },
       {
         path: "dictionary",
-        name: "Dictionary",
+        name: "dictionary",
         component: Dictionary,
       },
     ],
@@ -53,22 +53,22 @@ const routes = [
     children: [
       {
         path: "phonology",
-        name: "PhonologyEditor",
+        name: "phonologyEditor",
         component: PhonologyEditor,
       },
       {
         path: "converter",
-        name: "ConverterEditor",
+        name: "converterEditor",
         component: ConverterEditor,
       },
       {
         path: "phrasebook",
-        name: "PhrasebookEditor",
+        name: "phrasebookEditor",
         component: PhrasebookEditor,
       },
       {
         path: "phrasebook/corpus",
-        name: "PhrasebookCorpusEditor",
+        name: "phrasebookCorpusEditor",
         component: PhrasebookCorpusEditor,
       },
     ],
@@ -76,7 +76,7 @@ const routes = [
   {
     path: "/:pathMatch(.*)",
     redirect: {
-      name: "Home",
+      name: "home",
     },
   },
 ] as RouteRecordRaw[];

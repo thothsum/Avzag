@@ -48,18 +48,17 @@ import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
 
 import { computed, ref, defineComponent } from "vue";
-import { Mapping, Converter } from "./types";
-import { setupEditor } from "@/editor";
+import { Mapping } from "./types";
+import { config, file } from "@/editor";
 import convert from "./convert";
 
 export default defineComponent({
   components: { ArrayControl, EditorCard },
   setup() {
-    const file = setupEditor<Converter>({
-      defaultFile: { default: [0, 0], mappings: [] },
+    config.value = {
+      default: { default: [0, 0], mappings: [] },
       filename: "converter",
-      storage: "editor.converter",
-    });
+    };
     const mapping = ref<Mapping>();
 
     const pairs = computed(() => file.value?.mappings?.[0]?.pairs);

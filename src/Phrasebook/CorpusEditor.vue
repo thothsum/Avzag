@@ -69,7 +69,7 @@ import BlockEditor from "./Block/Editor.vue";
 
 import { defineComponent, ref, provide, watch, computed } from "vue";
 import { v4 as uuidv4 } from "uuid";
-import { setupEditor } from "@/editor";
+import { config, file } from "@/editor";
 import { State, Context, CorpusPhrase, CorpusSection } from "./types";
 import { createContext } from "./utils";
 
@@ -82,14 +82,11 @@ export default defineComponent({
     BlockEditor,
   },
   setup() {
-    const file = setupEditor<CorpusSection[]>({
-      defaultFile: [],
-      filename: () =>
-        window.confirm("You're resetting phrasebook corpus.")
-          ? "phrasebook"
-          : "",
-      storage: "editor.phrasebookCorpus",
-    });
+    config.value = {
+      default: [],
+      filename: "phrasebookCorpus",
+      global: true,
+    };
     const section = ref<CorpusSection>();
     const phrase = ref<CorpusPhrase>();
     const block = ref<State[]>();

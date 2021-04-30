@@ -63,20 +63,19 @@ import NotesEditor from "@/components/Notes/Editor.vue";
 
 import { computed, ref, defineComponent } from "vue";
 import { PhonemeUse } from "./types";
-import { setupEditor } from "@/editor";
+import { config, file } from "@/editor";
 
 export default defineComponent({
   components: { ArrayControl, EditorCard, TableEntry, NotesEditor },
   setup() {
     const phoneme = ref<PhonemeUse>();
-    const file = setupEditor<PhonemeUse[]>({
-      defaultFile: [],
+    config.value = {
+      default: [],
       filename: "phonology",
-      storage: "editor.phonology",
-    });
+    };
 
     const graphemes = computed(() =>
-      file.value.map(({ samples }) => samples?.[0]?.grapheme)
+      file.value.map((f: PhonemeUse) => f.samples?.[0]?.grapheme)
     );
 
     return { file, phoneme, graphemes };

@@ -21,11 +21,11 @@ export default defineComponent({
   setup() {
     return {
       menus: [
-        { icon: "arrow_back", name: "Home" },
-        { icon: "audiotrack", text: "Phonology" },
-        { icon: "sync_alt", text: "Converter" },
-        { icon: "chat", text: "Phrasebook" },
-        { icon: "book", text: "Dictionary" },
+        { icon: "arrow_back", name: "home" },
+        { icon: "audiotrack", text: "phonology" },
+        { icon: "sync_alt", text: "converter" },
+        { icon: "chat", text: "phrasebook" },
+        { icon: "book", text: "dictionary" },
       ],
     };
   },
