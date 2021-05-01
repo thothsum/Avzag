@@ -22,13 +22,14 @@ const tags = computed(() =>
 );
 
 export async function reset() {
-  await resetStorage();
-  if (navigator.onLine)
+  if (navigator.onLine) {
+    console.log("resetting storage");
+    await resetStorage();
     await caches
       .keys()
       .then((ks) => ks.find((k) => k.includes("avzag-precache")))
       .then((k) => caches.delete(k ?? ""));
-
+  }
   catalogue.value.length = 0;
   query.value = {};
   catalogue.value = await loadJSON("catalogue", []);

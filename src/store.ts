@@ -8,7 +8,7 @@ export const root =
   (process.env.VUE_APP_STORE as string) ??
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
-export const storage = localforage.createInstance({ name: "userland" });
+export const storage = localforage.createInstance({ name: "user" });
 export async function resetStorage() {
   await storage.clear();
   cache.records.value = {};
@@ -22,6 +22,7 @@ async function checkOutdated() {
   for (const [path, { added }] of Object.entries(cache.records.value)) {
     const updated = await lastCommitTime(path);
     if (updated > added) paths.push(path);
+    console.log("cache time of", path, updated - added);
   }
   if (paths.length)
     if (confirm("New data available. Download?")) {
@@ -46,6 +47,7 @@ export async function loadJSON<T>(
   if (!path.endsWith(".json")) path += ".json";
   if (ignoreCache) return await justFetch();
   if (cache.addRecord(path)) {
+    console.log("cached", path);
     const f = await justFetch();
     await storage.setItem(path, f);
     return f;

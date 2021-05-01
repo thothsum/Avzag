@@ -65,14 +65,7 @@ import Marker from "./Marker.vue";
 import Card from "./Card.vue";
 import InputQuery from "@/components/Query/InputQuery.vue";
 
-import {
-  computed,
-  onMounted,
-  onUnmounted,
-  ref,
-  watch,
-  defineComponent,
-} from "vue";
+import { computed, onMounted, ref, defineComponent } from "vue";
 import { useRouter } from "vue-router";
 import { lects, storage } from "@/store";
 import { reset, catalogue, search, query } from "./main";
@@ -81,7 +74,6 @@ import { createMap } from "./map";
 export default defineComponent({
   components: { Marker, Card, InputQuery },
   setup() {
-    reset();
     const router = useRouter();
     onMounted(() => createMap());
 
@@ -94,22 +86,16 @@ export default defineComponent({
     }
     function load() {
       lects.value = [...search.selected];
+      storage.setItem("lects", lects);
       router.push(
         localStorage.urlUser
           ? { path: localStorage.urlUser }
           : { name: "phonology" }
       );
     }
-
-    watch(
-      catalogue,
-      () =>
-        storage
-          .getItem<string>("lects")
-          .then((ls) => (search.selected = new Set(ls ?? []))),
-      { immediate: true }
-    );
-    onUnmounted(() => storage.setItem("lects", [...search.selected]));
+    reset()
+      .then(() => storage.getItem<string[]>("lects"))
+      .then((ls) => (lects.value = ls ?? ["Kaitag"]));
 
     return { catalogue, query, search, empty, about, toggleLect, load };
   },

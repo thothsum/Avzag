@@ -17,14 +17,14 @@ export default defineComponent({
     const route = useRoute();
     const router = useRouter();
 
-    if (!route.name || route.name === "Home") {
+    if (!route.name || route.name === "home") {
       router.push(
         localStorage.url && localStorage.url !== route.path
           ? { path: localStorage.url }
-          : { name: "Home" }
+          : { name: "home" }
       );
     }
-    if (route.name !== "Home")
+    if (route.name !== "home")
       storage
         .getItem<string[]>("lects")
         .then((ls) => (lects.value = ls ?? ["Kaitag"]));
@@ -33,7 +33,7 @@ export default defineComponent({
       const name = route.name as string;
       if (!name) return;
       localStorage.url = route.path;
-      if (["Phonology", "Converter", "Phrasebook", "Dictionary"].includes(name))
+      if (["phonology", "converter", "phrasebook", "dictionary"].includes(name))
         localStorage.urlUser = route.path;
     });
   },

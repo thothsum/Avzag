@@ -1,18 +1,21 @@
 import { Octokit } from "@octokit/rest";
 
 const octokit = new Octokit({ auth: process.env.VUE_APP_GH_TOKEN });
-const owner = "alkaitagi";
-const repo = "avzag";
+const args = {
+  owner: "alkaitagi",
+  repo: "avzag",
+  headers: {
+    cache: "no-store",
+  },
+};
 
 async function createBranch(name: string) {
   const store = await octokit.repos.getBranch({
-    owner,
-    repo,
+    ...args,
     branch: "store",
   });
   await octokit.git.createRef({
-    owner,
-    repo,
+    ...args,
     ref: "refs/heads/" + name,
     sha: store.data.commit.sha,
   });
@@ -25,8 +28,7 @@ async function getFileSha(path: string) {
 
   const tree = await octokit.git
     .getTree({
-      owner,
-      repo,
+      ...args,
       tree_sha: "store:" + folders,
     })
     .catch(() => undefined);
@@ -44,8 +46,7 @@ export async function pushToStore(
   await createBranch(branch);
   const sha = await getFileSha(path);
   await octokit.repos.createOrUpdateFileContents({
-    owner,
-    repo,
+    ...args,
     path,
     content,
     message,
@@ -53,8 +54,7 @@ export async function pushToStore(
     sha,
   });
   await octokit.pulls.create({
-    owner,
-    repo,
+    ...args,
     title: message,
     head: branch,
     base: "store",
@@ -63,8 +63,7 @@ export async function pushToStore(
 
 export async function lastCommitTime(path: string) {
   const commits = await octokit.repos.listCommits({
-    owner: "IU-MAP",
-    repo: "avzag",
+    ...args,
     sha: "store",
     path: path,
     per_page: 1,
