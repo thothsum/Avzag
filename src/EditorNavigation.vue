@@ -22,9 +22,10 @@
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
           <template v-if="lect">
-            <btn v-if="isDirty" icon="publish" @click="pushLect" />
+            <btn :disabled="!isDirty" icon="cloud_upload" @click="pushLect" />
             <ConfirmButton
-              icon="cloud_download"
+              :disabled="!isDirty"
+              icon="settings_backup_restore"
               message="Local edits will be lost!"
               @confirm="pullLect"
             />
