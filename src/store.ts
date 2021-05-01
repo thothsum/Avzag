@@ -13,10 +13,10 @@ export const cache = new StorageCache(storage, "cache", () =>
   storage
     .getItem<string[]>("lects")
     .then((ls) => (lects.value = ls ?? ["Kaitag"]))
-    .then(() => checkOutdated())
+    .then(() => checkOutdated(true))
 );
 
-export async function checkOutdated() {
+export async function checkOutdated(alert = false) {
   const entries = Object.entries(cache.records.value).filter(
     ([p]) => !p.includes("/") || lects.value.some((l) => p.startsWith(l))
   );
@@ -25,9 +25,10 @@ export async function checkOutdated() {
     const updated = await lastCommitTime(path);
     if (Date.now() - 300000 > updated && updated > added) outdated.push(path);
   }
-  if (outdated.length && Object.keys(cache.records.value).length) {
+  if (outdated.length) {
     console.log("cleaning outdated cache", outdated);
-    window.alert("New data is available, reloading...");
+    if (alert && Object.keys(cache.records.value).length)
+      window.alert("New data is available, reloading...");
     outdated?.forEach((p) => delete cache.records.value[p]);
     location.reload();
   }
