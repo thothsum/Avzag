@@ -86,7 +86,6 @@ export default defineComponent({
     onMounted(() => createMap());
     onUnmounted(async () => {
       lects.value = [...search.selected];
-      console.log(toRaw(lects.value));
       await storage.setItem("lects", toRaw(lects.value));
       await checkOutdated();
     });
