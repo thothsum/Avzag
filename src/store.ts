@@ -9,11 +9,11 @@ export const root =
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export const storage = localforage.createInstance({ name: "user" });
-const cache = new StorageCache(storage, "cache", () =>
+export const cache = new StorageCache(storage, "cache", () =>
   storage
     .getItem<string[]>("lects")
     .then((ls) => (lects.value = ls ?? ["Kaitag"]))
-    .then(() => checkOutdated(false))
+    .then(() => checkOutdated(true))
 );
 
 export async function checkOutdated(prompt = false) {
@@ -26,8 +26,8 @@ export async function checkOutdated(prompt = false) {
     if (updated > added) outdated.push(path);
   }
 
-  console.log("outdated cache", outdated);
   if (outdated.length) {
+    console.log("outdated cache", outdated);
     prompt =
       prompt &&
       !!Object.keys(cache.records.value).length &&
@@ -46,7 +46,6 @@ export async function cleanOutdated() {
     console.log("cleaning outdated cache", outdated);
     outdated?.forEach((p) => delete cache.records.value[p]);
     await storage.removeItem("outdated");
-    await storage.ready();
   }
 }
 

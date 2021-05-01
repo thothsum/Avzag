@@ -19,12 +19,10 @@ export default class StorageCache {
   }
 
   addRecord(key: string) {
-    if (!this.records.value[key]) {
-      const t = Date.now();
-      this.records.value[key] = { added: t, changed: t };
-      return true;
-    }
-    return false;
+    if (this.records.value[key]) return false;
+    const t = Date.now();
+    this.records.value[key] = { added: t, changed: t };
+    return true;
   }
 
   changeRecord(key: string) {
