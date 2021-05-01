@@ -49,26 +49,16 @@ export async function cleanOutdated() {
   }
 }
 
-export async function loadJSON<T>(
-  path: string,
-  defaultValue?: T,
-  ignoreCache = false
-) {
-  async function justFetch() {
-    return await fetch(root + path, { cache: "no-store" })
-      .then((r) => r.json())
-      .then((j) => j as T)
-      .catch(() => defaultValue as T);
-  }
+export async function loadJSON<T>(path: string, defaultValue?: T) {
   if (!path.endsWith(".json")) path += ".json";
-  if (ignoreCache) return await justFetch();
-  if (cache.addRecord(path)) {
-    console.log("cached", path);
-    const f = await justFetch();
-    await storage.setItem(path, f);
-    return f;
-  }
-  return (await storage.getItem<T>(path)) as T;
+  if (!cache.addRecord(path)) return (await storage.getItem<T>(path)) as T;
+  console.log("cached", path);
+  const f = await fetch(root + path, { cache: "no-store" })
+    .then((r) => r.json())
+    .then((j) => j as T)
+    .catch(() => defaultValue as T);
+  await storage.setItem(path, f);
+  return f;
 }
 export async function loadLectsJSON<T>(path: string, lects_?: string[]) {
   const files = {} as Record<string, T>;

@@ -56,7 +56,7 @@ export async function configure(value: Config) {
 }
 
 export async function pullLect() {
-  const json = await loadJSON(path.value, undefined, true);
+  const json = await loadJSON(path.value, undefined);
   if (json) file.value = json;
   else resetFile();
   delete cache.records.value[path.value];
