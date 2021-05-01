@@ -13,10 +13,10 @@ export const cache = new StorageCache(storage, "cache", () =>
   storage
     .getItem<string[]>("lects")
     .then((ls) => (lects.value = ls ?? ["Kaitag"]))
-    .then(() => checkOutdated(true))
+    .then(() => checkOutdated())
 );
 
-export async function checkOutdated(prompt = false) {
+export async function checkOutdated() {
   const entries = Object.entries(cache.records.value).filter(
     ([p]) => !p.includes("/") || lects.value.some((l) => p.startsWith(l))
   );
@@ -25,27 +25,11 @@ export async function checkOutdated(prompt = false) {
     const updated = await lastCommitTime(path);
     if (Date.now() - 300000 > updated && updated > added) outdated.push(path);
   }
-
-  if (outdated.length) {
-    console.log("outdated cache", outdated);
-    prompt =
-      prompt &&
-      !!Object.keys(cache.records.value).length &&
-      !(await storage.getItem<string[]>("outdated"))?.length;
-    await storage.setItem("outdated", outdated);
-    if (prompt && confirm("New data available. Download?")) {
-      await cleanOutdated();
-      location.reload();
-    }
-  }
-}
-
-export async function cleanOutdated() {
-  const outdated = await storage.getItem<string[]>("outdated");
-  if (outdated) {
+  if (outdated.length && Object.keys(cache.records.value).length) {
     console.log("cleaning outdated cache", outdated);
+    window.alert("New data is available, reloading...");
     outdated?.forEach((p) => delete cache.records.value[p]);
-    await storage.removeItem("outdated");
+    location.reload();
   }
 }
 

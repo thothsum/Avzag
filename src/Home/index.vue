@@ -75,14 +75,7 @@ import {
   onUnmounted,
 } from "vue";
 import { useRouter } from "vue-router";
-import {
-  cache,
-  checkOutdated,
-  cleanOutdated,
-  lects,
-  loadJSON,
-  storage,
-} from "@/store";
+import { cache, checkOutdated, lects, loadJSON, storage } from "@/store";
 import { catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
@@ -96,7 +89,6 @@ export default defineComponent({
       console.log(toRaw(lects.value));
       await storage.setItem("lects", toRaw(lects.value));
       await checkOutdated();
-      await cleanOutdated();
     });
     watch(
       lects,
