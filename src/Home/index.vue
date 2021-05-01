@@ -93,9 +93,10 @@ export default defineComponent({
           : { name: "phonology" }
       );
     }
-    reset()
-      .then(() => storage.getItem<string[]>("lects"))
-      .then((ls) => (lects.value = ls ?? ["Kaitag"]));
+    storage
+      .getItem<string[]>("lects")
+      .then((ls) => (lects.value = ls ?? ["Kaitag"]))
+      .then(() => reset());
 
     return { catalogue, query, search, empty, about, toggleLect, load };
   },
