@@ -23,7 +23,7 @@ export async function checkOutdated(prompt = false) {
   const outdated = [];
   for (const [path, { added }] of entries) {
     const updated = await lastCommitTime(path);
-    if (updated > added + 10000) outdated.push(path);
+    if (updated > added + 600000) outdated.push(path);
   }
 
   if (outdated.length) {
