@@ -1,6 +1,5 @@
 import { ref, shallowRef, reactive, computed } from "vue";
 import { SearchState, Lect } from "./types";
-import { loadJSON, resetStorage } from "@/store";
 import { Query, EvaluateQuery } from "@/components/Query/types";
 
 export const catalogue = shallowRef([] as Lect[]);
@@ -20,18 +19,3 @@ const tags = computed(() =>
     [name, tags ?? "", family].flat().join(" ").toLowerCase()
   )
 );
-
-export async function reset() {
-  if (navigator.onLine) {
-    console.log("resetting storage");
-    await resetStorage();
-    await caches
-      .keys()
-      .then((ks) => ks.find((k) => k.includes("avzag-precache")))
-      .then((k) => caches.delete(k ?? ""));
-  }
-  catalogue.value.length = 0;
-  query.value = {};
-  catalogue.value = await loadJSON("catalogue", []);
-  search.selected.clear();
-}

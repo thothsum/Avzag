@@ -10,7 +10,7 @@ export default class StorageCache {
     storage.getItem<Record<string, Stamp>>(name).then((r) => {
       if (r) this.records.value = r;
       watch(
-        () => this.records.value,
+        this.records,
         () => storage.setItem(name, toRaw(this.records.value)),
         { deep: true }
       );

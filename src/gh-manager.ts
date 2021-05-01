@@ -4,9 +4,6 @@ const octokit = new Octokit({ auth: process.env.VUE_APP_GH_TOKEN });
 const args = {
   owner: "alkaitagi",
   repo: "avzag",
-  headers: {
-    cache: "no-store",
-  },
 };
 
 async function createBranch(name: string) {

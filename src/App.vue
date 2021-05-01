@@ -5,8 +5,8 @@
 <script lang="ts">
 import { watchEffect, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { lects, storage } from "./store";
 
+import "./store";
 import "./Phonology/main";
 import "./Converter/main";
 import "./Phrasebook/main";
@@ -24,10 +24,6 @@ export default defineComponent({
           : { name: "home" }
       );
     }
-    if (route.name !== "home")
-      storage
-        .getItem<string[]>("lects")
-        .then((ls) => (lects.value = ls ?? ["Kaitag"]));
 
     watchEffect(() => {
       const name = route.name as string;

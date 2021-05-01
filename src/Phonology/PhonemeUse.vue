@@ -78,13 +78,13 @@ export default defineComponent({
     const urls = ref([] as string[]);
     watch(
       texts,
-      (texts) =>
+      () =>
         player.canPlay(
           urls,
           props.lect,
-          texts
+          texts.value
             .map(([word, ipa]) => word ?? ipa)
-            .map((f) => "phonology/" + (f ?? ""))
+            .map((f) => (f ? "phonology/" + f : f))
         ),
       { immediate: true, deep: true }
     );

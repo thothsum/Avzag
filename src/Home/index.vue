@@ -65,10 +65,10 @@ import Marker from "./Marker.vue";
 import Card from "./Card.vue";
 import InputQuery from "@/components/Query/InputQuery.vue";
 
-import { computed, onMounted, ref, defineComponent, toRaw } from "vue";
+import { computed, ref, defineComponent, toRaw, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
-import { lects, storage } from "@/store";
-import { reset, catalogue, search, query } from "./main";
+import { lects, loadJSON, storage } from "@/store";
+import { catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
 export default defineComponent({
@@ -76,6 +76,7 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     onMounted(() => createMap());
+    loadJSON("catalogue", []).then((j) => (catalogue.value = j));
 
     const empty = computed(() => !search.selected.size);
     const about = ref(false);
@@ -86,17 +87,21 @@ export default defineComponent({
     }
     function load() {
       lects.value = [...search.selected];
-      storage.setItem("lects", toRaw(lects.value));
       router.push(
         localStorage.urlUser
           ? { path: localStorage.urlUser }
           : { name: "phonology" }
       );
     }
-    storage
-      .getItem<string[]>("lects")
-      .then((ls) => (lects.value = ls ?? ["Kaitag"]))
-      .then(() => reset());
+    watch(
+      lects,
+      () => {
+        if (!search.selected.size && lects.value.length)
+          lects.value.forEach((l) => toggleLect(l));
+        storage.setItem("lects", toRaw(lects.value));
+      },
+      { immediate: true }
+    );
 
     return { catalogue, query, search, empty, about, toggleLect, load };
   },

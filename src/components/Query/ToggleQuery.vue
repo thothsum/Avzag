@@ -48,11 +48,9 @@ export default defineComponent({
       if (props.labels.length === 1) return { [props.labels[0]]: true };
       return {};
     });
-    watch(
-      () => props.labels,
-      () => (query.value = defaultQuery.value),
-      { immediate: true }
-    );
+    watch(props.labels, () => (query.value = defaultQuery.value), {
+      immediate: true,
+    });
 
     return { query, highlights, visible, toggle };
   },

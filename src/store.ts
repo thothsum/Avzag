@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { ref, toRaw } from "vue";
+import { ref, watch } from "vue";
 import { lastCommitTime } from "./gh-manager";
 import StorageCache from "./storage-cache";
 
@@ -9,24 +9,28 @@ export const root =
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export const storage = localforage.createInstance({ name: "user" });
-export async function resetStorage() {
-  await storage.clear();
-  cache.records.value = {};
-  storage.setItem("lects", toRaw(lects.value));
-}
+const cache = new StorageCache(storage, "cache", () => {
+  watch(lects, checkOutdated);
+  storage
+    .getItem<string[]>("lects")
+    .then((ls) => (lects.value = ls ?? ["Kaitag"]));
+});
 
-export const cache = new StorageCache(storage, "cache", () => checkOutdated());
 async function checkOutdated() {
   if (await storage.getItem("newData")) return;
-  const paths = [];
-  for (const [path, { added }] of Object.entries(cache.records.value)) {
+  const outdated = [];
+  const entries = Object.entries(cache.records.value).filter(
+    ([p]) => !p.includes("/") || lects.value.some((l) => p.startsWith(l))
+  );
+  console.log("checking outdated cache");
+  for (const [path, { added }] of entries) {
     const updated = await lastCommitTime(path);
-    if (updated > added) paths.push(path);
-    console.log("cache time of", path, updated - added);
+    if (updated > added) outdated.push(path);
+    console.log(updated > added, path);
   }
-  if (paths.length)
+  if (outdated.length)
     if (confirm("New data available. Download?")) {
-      paths.forEach((p) => delete cache.records.value[p]);
+      outdated.forEach((p) => delete cache.records.value[p]);
       await storage.removeItem("newData");
       await storage.ready();
       location.reload();
