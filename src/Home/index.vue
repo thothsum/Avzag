@@ -93,14 +93,19 @@ export default defineComponent({
     onMounted(() => createMap());
     onUnmounted(async () => {
       lects.value = [...search.selected];
+      console.log(toRaw(lects.value));
       await storage.setItem("lects", toRaw(lects.value));
       await checkOutdated();
       await cleanOutdated();
     });
-    watch(lects, () => {
-      if (!search.selected.size && lects.value.length)
-        lects.value.forEach((l) => search.selected.add(l));
-    });
+    watch(
+      lects,
+      () => {
+        if (!search.selected.size && lects.value.length)
+          lects.value.forEach((l) => search.selected.add(l));
+      },
+      { immediate: true }
+    );
 
     delete cache.records.value["catalogue.json"];
     loadJSON("catalogue", []).then((j) => (catalogue.value = j));
