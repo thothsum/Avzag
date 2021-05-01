@@ -1,7 +1,6 @@
 <template>
   <div id="root">
     <div class="section row scroll">
-      TEST
       <router-link to="/home">
         <btn icon="arrow_back" />
       </router-link>
