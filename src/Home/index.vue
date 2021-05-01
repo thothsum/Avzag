@@ -65,7 +65,7 @@ import Marker from "./Marker.vue";
 import Card from "./Card.vue";
 import InputQuery from "@/components/Query/InputQuery.vue";
 
-import { computed, onMounted, ref, defineComponent } from "vue";
+import { computed, onMounted, ref, defineComponent, toRaw } from "vue";
 import { useRouter } from "vue-router";
 import { lects, storage } from "@/store";
 import { reset, catalogue, search, query } from "./main";
@@ -86,7 +86,7 @@ export default defineComponent({
     }
     function load() {
       lects.value = [...search.selected];
-      storage.setItem("lects", lects);
+      storage.setItem("lects", toRaw(lects.value));
       router.push(
         localStorage.urlUser
           ? { path: localStorage.urlUser }
