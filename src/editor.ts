@@ -15,7 +15,7 @@ export const isDirty = computed(() => {
 export const lect = ref<string>();
 async function loadLect() {
   const l = await storage.getItem<string>("lect");
-  if (l) lect.value = l;
+  lect.value = l ?? "";
   watch(lect, async () => {
     await storage.clear();
     await storage.setItem("lect", toRaw(lect.value));
