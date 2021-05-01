@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import { ref, watch } from "vue";
+import { ref } from "vue";
 import { lastCommitTime } from "./gh-manager";
 import StorageCache from "./storage-cache";
 
@@ -9,32 +9,45 @@ export const root =
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export const storage = localforage.createInstance({ name: "user" });
-const cache = new StorageCache(storage, "cache", () => {
-  watch(lects, checkOutdated);
+const cache = new StorageCache(storage, "cache", () =>
   storage
     .getItem<string[]>("lects")
-    .then((ls) => (lects.value = ls ?? ["Kaitag"]));
-});
+    .then((ls) => (lects.value = ls ?? ["Kaitag"]))
+    .then(() => checkOutdated(false))
+);
 
-async function checkOutdated() {
-  if (await storage.getItem("newData")) return;
-  const outdated = [];
+export async function checkOutdated(prompt = false) {
   const entries = Object.entries(cache.records.value).filter(
     ([p]) => !p.includes("/") || lects.value.some((l) => p.startsWith(l))
   );
-  console.log("checking outdated cache");
+  const outdated = [];
   for (const [path, { added }] of entries) {
     const updated = await lastCommitTime(path);
     if (updated > added) outdated.push(path);
-    console.log(updated > added, path);
   }
-  if (outdated.length)
-    if (confirm("New data available. Download?")) {
-      outdated.forEach((p) => delete cache.records.value[p]);
-      await storage.removeItem("newData");
-      await storage.ready();
+
+  console.log("outdated cache", outdated);
+  if (outdated.length) {
+    prompt =
+      prompt &&
+      !!Object.keys(cache.records.value).length &&
+      !(await storage.getItem<string[]>("outdated"))?.length;
+    await storage.setItem("outdated", outdated);
+    if (prompt && confirm("New data available. Download?")) {
+      await cleanOutdated();
       location.reload();
-    } else await storage.setItem("newData", true);
+    }
+  }
+}
+
+export async function cleanOutdated() {
+  const outdated = await storage.getItem<string[]>("outdated");
+  if (outdated) {
+    console.log("cleaning outdated cache", outdated);
+    outdated?.forEach((p) => delete cache.records.value[p]);
+    await storage.removeItem("outdated");
+    await storage.ready();
+  }
 }
 
 export async function loadJSON<T>(

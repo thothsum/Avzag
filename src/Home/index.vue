@@ -67,7 +67,13 @@ import InputQuery from "@/components/Query/InputQuery.vue";
 
 import { computed, ref, defineComponent, toRaw, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
-import { lects, loadJSON, storage } from "@/store";
+import {
+  checkOutdated,
+  cleanOutdated,
+  lects,
+  loadJSON,
+  storage,
+} from "@/store";
 import { catalogue, search, query } from "./main";
 import { createMap } from "./map";
 
@@ -85,8 +91,10 @@ export default defineComponent({
       if (search.selected.has(name)) search.selected.delete(name);
       else search.selected.add(name);
     }
-    function load() {
+    async function load() {
       lects.value = [...search.selected];
+      await checkOutdated();
+      await cleanOutdated();
       router.push(
         localStorage.urlUser
           ? { path: localStorage.urlUser }
