@@ -4,9 +4,6 @@
       <router-link to="/home">
         <btn icon="arrow_back" />
       </router-link>
-      <router-link to="/home">
-        <btn icon="arrow_back" />
-      </router-link>
       <router-link
         v-for="{ icon, name } in userRoutes"
         :key="name"
