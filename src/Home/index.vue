@@ -65,7 +65,15 @@ import Marker from "./Marker.vue";
 import Card from "./Card.vue";
 import InputQuery from "@/components/Query/InputQuery.vue";
 
-import { computed, ref, defineComponent, toRaw, onMounted, watch } from "vue";
+import {
+  computed,
+  ref,
+  defineComponent,
+  toRaw,
+  onMounted,
+  watch,
+  onUnmounted,
+} from "vue";
 import { useRouter } from "vue-router";
 import {
   cache,
@@ -83,6 +91,17 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     onMounted(() => createMap());
+    onUnmounted(async () => {
+      lects.value = [...search.selected];
+      await storage.setItem("lects", toRaw(lects.value));
+      await checkOutdated();
+      await cleanOutdated();
+    });
+    watch(lects, () => {
+      if (!search.selected.size && lects.value.length)
+        lects.value.forEach((l) => search.selected.add(l));
+    });
+
     delete cache.records.value["catalogue.json"];
     loadJSON("catalogue", []).then((j) => (catalogue.value = j));
 
@@ -93,25 +112,13 @@ export default defineComponent({
       if (search.selected.has(name)) search.selected.delete(name);
       else search.selected.add(name);
     }
-    async function load() {
-      lects.value = [...search.selected];
+    function load() {
       router.push(
         localStorage.urlUser
           ? { path: localStorage.urlUser }
           : { name: "phonology" }
       );
-      await checkOutdated();
-      await cleanOutdated();
     }
-    watch(
-      lects,
-      () => {
-        if (!search.selected.size && lects.value.length)
-          lects.value.forEach((l) => toggleLect(l));
-        storage.setItem("lects", toRaw(lects.value));
-      },
-      { immediate: true }
-    );
 
     return { catalogue, query, search, empty, about, toggleLect, load };
   },
