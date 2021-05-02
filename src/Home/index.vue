@@ -85,7 +85,7 @@ export default defineComponent({
     const router = useRouter();
     onMounted(() => createMap());
     onUnmounted(async () => {
-      cache.changeRecord("lects");
+      cache.update("lects");
       lects.value = [...search.selected];
       await storage.setItem("lects", toRaw(lects.value));
       await checkOutdated();

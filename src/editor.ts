@@ -14,12 +14,12 @@ import { loadJSON, cache as storeCache } from "./store";
 
 export const storage = localforage.createInstance({ name: "editor" });
 const cache = new StorageCache(storage);
-export const isDirty = computed(() => cache.getRecordChange(path.value));
+export const isDirty = computed(() => cache.updateOf(path.value));
 export const isOutdated = computed(
   () =>
     lect.value &&
     isDirty.value &&
-    isDirty.value < storeCache.getRecordChange(path.value)
+    isDirty.value < storeCache.updateOf(path.value)
 );
 
 export const lect = ref<string>();
@@ -29,7 +29,7 @@ async function loadLect() {
   watch(lect, async () => {
     await storage.clear();
     await storage.setItem("lect", toRaw(lect.value));
-    cache.records.value = {};
+    cache.clean();
     if (lect.value) pullLect();
     else resetFile();
   });
@@ -42,7 +42,7 @@ async function skipSaving(action: () => void, drop = true) {
   fileWatch = undefined;
   action();
   if (drop) {
-    delete cache.records.value[path.value];
+    cache.delete(path.value);
     await storage.removeItem(path.value);
   }
   if (!fileWatch) fileWatch = watch(file, saveFile, { deep: true });
@@ -57,7 +57,7 @@ const path = computed(() => {
 async function loadFile() {
   const f = await storage.getItem(path.value);
   if (f) {
-    skipSaving(() => (file.value = f), false);
+    await skipSaving(() => (file.value = f), false);
     await loadJSON(path.value, undefined);
   } else await pullLect();
 }
@@ -67,9 +67,8 @@ export function resetFile() {
   );
 }
 export function saveFile() {
-  console.log("saving");
   storage.setItem(path.value, toRaw(file.value));
-  cache.changeRecord(path.value);
+  cache.update(path.value);
 }
 
 type Config = { default: unknown; filename: string; global?: boolean };
