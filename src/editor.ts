@@ -37,34 +37,31 @@ async function loadLect() {
 }
 
 export const file = ref();
+let fileWatch: undefined | WatchStopHandle;
+async function dropFile(action: () => void) {
+  fileWatch?.();
+  fileWatch = undefined;
+  action();
+  delete cache.records.value[path.value];
+  await storage.removeItem(path.value);
+  if (!fileWatch) fileWatch = watch(file, saveFile, { deep: true });
+}
 const path = computed(() => {
   let path = config.value.filename + ".json";
   const root = toRaw(lect.value) || "Custom";
   if (root) path = root + "/" + path;
   return path;
 });
-let fileWatch: WatchStopHandle;
-async function bypassWatch(
-  action: () => Promise<void> | void,
-  dropFile = true
-) {
-  fileWatch?.();
-  await action();
-  if (dropFile) {
-    delete cache.records.value[path.value];
-    storage.removeItem(path.value);
-  }
-  if (!fileWatch) fileWatch = watch(file, saveFile, { deep: true });
-}
 
 async function loadFile() {
   const f = await storage.getItem(path.value);
-  if (f) file.value = f;
-  else if (lect.value || config.value.global) pullLect();
-  else resetFile();
+  if (f) {
+    file.value = f;
+    fileWatch = watch(file, saveFile, { deep: true });
+  } else await pullLect();
 }
 export function resetFile() {
-  bypassWatch(
+  dropFile(
     () => (file.value = JSON.parse(JSON.stringify(config.value.default)))
   );
 }
@@ -83,7 +80,7 @@ export async function configure(value: Config) {
   file.value = undefined;
   onBeforeUnmount(() => fileWatch?.());
   if (lect.value === undefined) await loadLect();
-  bypassWatch(loadFile, false);
+  await loadFile();
 }
 
 export function pushLect() {
@@ -95,11 +92,9 @@ export function pushLect() {
   );
 }
 export async function pullLect() {
-  bypassWatch(async () => {
-    const f = await loadJSON(path.value, undefined);
-    if (f) file.value = f;
-    else resetFile();
-  });
+  const f = await loadJSON(path.value, undefined);
+  if (f) await dropFile(() => (file.value = f));
+  else resetFile();
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
