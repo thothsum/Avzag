@@ -18,7 +18,7 @@
         <p v-if="isOutdated" class="icon">schedule</p>
         <p v-if="isDirty" class="icon">edit</p>
         <template v-if="!config.global">
-          <select v-model="lect" @change="$event.target.value = lect">
+          <select v-model="lect" @change="$event.target.value = lect ?? ''">
             <option :value="''" v-text="'[Custom]'" />
             <option v-for="l in lects" :key="l" :value="l" v-text="l" />
           </select>
