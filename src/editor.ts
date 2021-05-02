@@ -30,8 +30,7 @@ async function loadLect() {
     await storage.clear();
     await storage.setItem("lect", toRaw(lect.value));
     cache.clean();
-    if (lect.value) pullLect();
-    else resetFile();
+    resetFile();
   });
 }
 
@@ -59,12 +58,7 @@ async function loadFile() {
   if (f) {
     await skipSaving(() => (file.value = f), false);
     await loadJSON(path.value, undefined);
-  } else await pullLect();
-}
-export function resetFile() {
-  skipSaving(
-    () => (file.value = JSON.parse(JSON.stringify(config.value.default)))
-  );
+  } else await resetFile();
 }
 export function saveFile() {
   storage.setItem(path.value, toRaw(file.value));
@@ -84,7 +78,7 @@ export async function configure(value: Config) {
   await loadFile();
 }
 
-export function pushLect() {
+export function pushFile() {
   pushToStore(
     JSON.stringify(file.value, null, 2),
     path.value,
@@ -92,10 +86,12 @@ export function pushLect() {
     path.value
   );
 }
-export async function pullLect() {
-  const f = await loadJSON(path.value, undefined);
-  if (f) await skipSaving(() => (file.value = f));
-  else resetFile();
+export async function resetFile() {
+  await skipSaving(async () => {
+    const f = await loadJSON(path.value, undefined);
+    if (f) await skipSaving(() => (file.value = f));
+    else file.value = JSON.parse(JSON.stringify(config.value.default));
+  });
 }
 export function uploadJSON() {
   uploadFile((c) => (file.value = JSON.parse(c)));
