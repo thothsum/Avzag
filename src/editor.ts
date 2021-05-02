@@ -14,14 +14,13 @@ import { loadJSON, cache as storeCache } from "./store";
 
 export const storage = localforage.createInstance({ name: "editor" });
 const cache = new StorageCache(storage);
-export const isDirty = computed(() => {
-  const r = cache.records.value[path.value];
-  return r && r.changed > r.added;
-});
-export const isOutdated = computed(() => {
-  const added = cache.records.value[path.value]?.added;
-  return added && storeCache.getRecordChange(path.value) > added;
-});
+export const isDirty = computed(() => cache.getRecordChange(path.value));
+export const isOutdated = computed(
+  () =>
+    lect.value &&
+    isDirty.value &&
+    isDirty.value < storeCache.getRecordChange(path.value)
+);
 
 export const lect = ref<string>();
 async function loadLect() {
@@ -38,12 +37,14 @@ async function loadLect() {
 
 export const file = ref();
 let fileWatch: undefined | WatchStopHandle;
-async function dropFile(action: () => void) {
+async function skipSaving(action: () => void, drop = true) {
   fileWatch?.();
   fileWatch = undefined;
   action();
-  delete cache.records.value[path.value];
-  await storage.removeItem(path.value);
+  if (drop) {
+    delete cache.records.value[path.value];
+    await storage.removeItem(path.value);
+  }
   if (!fileWatch) fileWatch = watch(file, saveFile, { deep: true });
 }
 const path = computed(() => {
@@ -56,16 +57,17 @@ const path = computed(() => {
 async function loadFile() {
   const f = await storage.getItem(path.value);
   if (f) {
-    file.value = f;
-    fileWatch = watch(file, saveFile, { deep: true });
+    skipSaving(() => (file.value = f), false);
+    await loadJSON(path.value, undefined);
   } else await pullLect();
 }
 export function resetFile() {
-  dropFile(
+  skipSaving(
     () => (file.value = JSON.parse(JSON.stringify(config.value.default)))
   );
 }
 export function saveFile() {
+  console.log("saving");
   storage.setItem(path.value, toRaw(file.value));
   cache.changeRecord(path.value);
 }
@@ -93,7 +95,7 @@ export function pushLect() {
 }
 export async function pullLect() {
   const f = await loadJSON(path.value, undefined);
-  if (f) await dropFile(() => (file.value = f));
+  if (f) await skipSaving(() => (file.value = f));
   else resetFile();
 }
 export function uploadJSON() {
