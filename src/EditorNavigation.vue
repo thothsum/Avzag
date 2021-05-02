@@ -15,6 +15,7 @@
         </select>
       </div>
       <div class="row">
+        <p v-if="isOutdated" class="icon">schedule</p>
         <p v-if="isDirty" class="icon">edit</p>
         <template v-if="!config.global">
           <select v-model="lect" @change="$event.target.value = lect">
@@ -55,6 +56,7 @@ import {
   pushLect,
   config,
   isDirty,
+  isOutdated,
 } from "@/editor";
 import { Lect } from "./Home/types";
 
@@ -91,6 +93,7 @@ export default defineComponent({
       lects,
       config,
       isDirty,
+      isOutdated,
     };
   },
 });
