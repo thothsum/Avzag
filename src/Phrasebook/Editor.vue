@@ -97,7 +97,7 @@ export default defineComponent({
         phrase.value = section.phrases[section.phrases.length - 1];
     });
     watch([phrase, file], ([phrase]) => {
-      if (!phrase) return;
+      if (!phrase || !file.value) return;
       if (!file.value[phrase.id]) file.value[phrase.id] = { blocks: [] };
       translation.value = file.value[phrase.id];
     });
