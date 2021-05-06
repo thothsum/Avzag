@@ -178,7 +178,10 @@ export default defineComponent({
     const lect = ref("l");
     const query = ref("");
     watch([query, lect], () => searcher.search(lect.value, query.value));
-    watch(editorLect, () => (entry.value = undefined));
+    watch(editorLect, () => {
+      entry.value = undefined;
+      query.value = "";
+    });
 
     const entry = ref();
     const usecase = ref();
