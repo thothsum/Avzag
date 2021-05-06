@@ -106,7 +106,7 @@ export default class Searcher {
     );
   }
 
-  async sleep(ms = 100) {
+  async sleep(ms = 10) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
