@@ -161,7 +161,7 @@ import TagsInput from "@/components/TagsInput.vue";
 import Seeker from "@/components/Seeker.vue";
 
 import { ref, defineComponent, computed, watch } from "vue";
-import { configure, file } from "@/editor";
+import { configure, file, lect as editorLect } from "@/editor";
 import { Entry } from "./types";
 import Searcher from "./search";
 
@@ -173,12 +173,13 @@ export default defineComponent({
     const dictionary = computed(() => ({
       l: file.value as Entry[],
     }));
+    const searcher = new Searcher(dictionary);
 
     const lect = ref("l");
     const query = ref("");
     watch([query, lect], () => searcher.search(lect.value, query.value));
+    watch(editorLect, () => (entry.value = undefined));
 
-    const searcher = new Searcher(dictionary);
     const entry = ref();
     const usecase = ref();
     const form = ref();
