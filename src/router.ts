@@ -14,6 +14,7 @@ const PhonologyEditor = () => import("@/Phonology/Editor.vue");
 const ConverterEditor = () => import("@/Converter/Editor.vue");
 const PhrasebookEditor = () => import("@/Phrasebook/Editor.vue");
 const PhrasebookCorpusEditor = () => import("@/Phrasebook/CorpusEditor.vue");
+const DictionaryEditor = () => import("@/Dictionary/Editor.vue");
 
 export const userRoutes = [
   {
@@ -65,6 +66,12 @@ export const editorRoutes = [
     title: "Phrasebook Corpus",
     name: "phrasebookCorpusEditor",
     component: PhrasebookCorpusEditor,
+  },
+  {
+    path: "dictionary",
+    title: "Dictionary",
+    name: "dictionaryEditor",
+    component: DictionaryEditor,
   },
 ];
 
