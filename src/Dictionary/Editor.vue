@@ -1,6 +1,8 @@
 <template>
   <div v-if="file" class="section small grid">
     <div class="col">
+      <btn icon="add" text="New word" @click="newEntry" />
+      <hr />
       <div class="row seeker">
         <btn
           class="flex"
@@ -173,6 +175,15 @@ export default defineComponent({
     const form = ref();
     const sample = ref();
 
+    function newEntry() {
+      const e = {
+        forms: [{ plain: "a form" }],
+        uses: [{ meaning: "word" }],
+      };
+      (file.value as Entry[]).push(e);
+      entry.value = e;
+    }
+
     return {
       file,
       entry,
@@ -183,6 +194,7 @@ export default defineComponent({
       progress: searcher.progress,
       lect,
       query,
+      newEntry,
     };
   },
 });
