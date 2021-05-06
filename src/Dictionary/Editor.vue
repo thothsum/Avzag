@@ -1,7 +1,15 @@
 <template>
   <div v-if="file" class="section small grid">
     <div class="col">
-      <btn icon="add" text="New word" @click="newEntry" />
+      <div class="row">
+        <btn class="flex" icon="add" text="New word" @click="newEntry" />
+        <ConfirmButton
+          :disabled="!entry"
+          class="flex"
+          text="Delete"
+          @click="deleteEntry"
+        />
+      </div>
       <hr />
       <div class="row seeker">
         <btn
@@ -156,6 +164,7 @@
 <script lang="ts">
 import ArrayControl from "@/components/ArrayControl.vue";
 import EditorCard from "@/components/EditorCard.vue";
+import ConfirmButton from "@/components/ConfirmButton.vue";
 import NotesEditor from "@/components/Notes/Editor.vue";
 import TagsInput from "@/components/TagsInput.vue";
 import Seeker from "@/components/Seeker.vue";
@@ -166,7 +175,14 @@ import { Entry } from "./types";
 import Searcher from "./search";
 
 export default defineComponent({
-  components: { EditorCard, ArrayControl, NotesEditor, TagsInput, Seeker },
+  components: {
+    EditorCard,
+    ArrayControl,
+    NotesEditor,
+    TagsInput,
+    Seeker,
+    ConfirmButton,
+  },
   setup() {
     configure({ default: [], filename: "dictionary" });
 
@@ -196,6 +212,12 @@ export default defineComponent({
       (file.value as Entry[]).push(e);
       entry.value = e;
     }
+    function deleteEntry() {
+      const arr = file.value as Entry[];
+      arr.splice(arr.indexOf(entry.value), 1);
+      entry.value = undefined;
+      searcher.search(lect.value, query.value);
+    }
 
     return {
       file,
@@ -208,6 +230,7 @@ export default defineComponent({
       lect,
       query,
       newEntry,
+      deleteEntry,
     };
   },
 });
@@ -216,7 +239,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .grid {
   display: grid;
-  grid-template-columns: 192px minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: 208px minmax(0, 1fr) minmax(0, 1fr);
   gap: map-get($margins, "double");
 }
 .sample input {
