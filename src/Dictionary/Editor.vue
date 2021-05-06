@@ -50,7 +50,7 @@
     <template v-if="entry">
       <div class="col-2">
         <EditorCard icon="tag" header="Tags">
-          <TagsInput v-model="entry.tags" />
+          <TagsInput v-model="entry.tags" placeholder="Grammatical tags" />
         </EditorCard>
         <NotesEditor v-model="entry.notes" />
         <EditorCard icon="tune" header="Forms">
@@ -103,8 +103,17 @@
         <template v-if="usecase">
           <EditorCard icon="lightbulb" header="Concept">
             <div class="row">
-              <input v-model="usecase.meaning" style="flex: 0.5" type="text" />
-              <TagsInput v-model="usecase.tags" class="flex" />
+              <input
+                v-model="usecase.meaning"
+                placeholder="Meaning"
+                style="flex: 0.5"
+                type="text"
+              />
+              <TagsInput
+                v-model="usecase.tags"
+                placeholder="Semantic tags"
+                class="flex"
+              />
             </div>
           </EditorCard>
           <NotesEditor v-model="usecase.notes" />
