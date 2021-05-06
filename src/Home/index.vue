@@ -99,13 +99,13 @@ export default defineComponent({
       { immediate: true }
     );
 
-    if (navigator.onLine)
+    if (navigator.onLine) {
+      delete cache.records.value["catalogue.json"];
       caches
         .keys()
         .then((ks) => ks.find((k) => k.includes("avzag-precache")))
         .then((k) => caches.delete(k ?? ""));
-
-    delete cache.records.value["catalogue.json"];
+    }
     loadJSON("catalogue", []).then((j) => (catalogue.value = j));
 
     const empty = computed(() => !search.selected.size);
