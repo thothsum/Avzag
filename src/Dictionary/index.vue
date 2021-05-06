@@ -104,7 +104,7 @@ export default defineComponent({
 
     onUnmounted(() => {
       expandedEntries.clear();
-      searcher.search("stop");
+      searcher.search();
     });
 
     watch([query, lect], () => searcher.search(lect.value, query.value));

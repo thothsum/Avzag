@@ -169,7 +169,7 @@ import NotesEditor from "@/components/Notes/Editor.vue";
 import TagsInput from "@/components/TagsInput.vue";
 import Seeker from "@/components/Seeker.vue";
 
-import { ref, defineComponent, computed, watch } from "vue";
+import { ref, defineComponent, computed, watch, onUnmounted } from "vue";
 import { configure, file, lect as editorLect } from "@/editor";
 import { Entry } from "./types";
 import Searcher from "./search";
@@ -190,6 +190,7 @@ export default defineComponent({
       l: file.value as Entry[],
     }));
     const searcher = new Searcher(dictionary);
+    onUnmounted(() => searcher.search());
 
     const lect = ref("l");
     const query = ref("");
