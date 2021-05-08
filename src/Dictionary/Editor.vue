@@ -12,22 +12,6 @@
       </div>
       <hr />
       <div class="row seeker">
-        <btn
-          class="flex"
-          icon="lightbulb"
-          text="Meanings"
-          :is-on="!lect"
-          @click="lect = ''"
-        />
-        <btn
-          class="flex"
-          icon="tune"
-          text="Forms"
-          :is-on="!!lect"
-          @click="lect = 'l'"
-        />
-      </div>
-      <div class="row seeker">
         <Seeker :seek="progress['l']" />
         <input
           v-model="query"
@@ -46,7 +30,7 @@
         >
           <i class="text-faded" v-text="m" />
           <btn
-            v-for="(e, i) in es['l']"
+            v-for="(e, i) in es['editor']"
             :key="i"
             :text="e.forms[0].plain"
             :is-on="entry === e"
@@ -169,8 +153,8 @@ import NotesEditor from "@/components/Notes/Editor.vue";
 import TagsInput from "@/components/TagsInput.vue";
 import Seeker from "@/components/Seeker.vue";
 
-import { ref, defineComponent, computed, watch, onUnmounted } from "vue";
-import { configure, file, lect as editorLect } from "@/editor";
+import { ref, defineComponent, computed, watch } from "vue";
+import { configure, file, lect } from "@/editor";
 import { Entry } from "./types";
 import Searcher from "./search";
 
@@ -185,17 +169,15 @@ export default defineComponent({
   },
   setup() {
     configure({ default: [], filename: "dictionary" });
+    const searcher = new Searcher(
+      computed(() => ({
+        editor: file.value as Entry[],
+      }))
+    );
 
-    const dictionary = computed(() => ({
-      l: file.value as Entry[],
-    }));
-    const searcher = new Searcher(dictionary);
-    onUnmounted(() => searcher.search());
-
-    const lect = ref("l");
     const query = ref("");
-    watch([query, lect], () => searcher.search(lect.value, query.value));
-    watch(editorLect, () => {
+    watch([query], () => searcher.search("editor", query.value));
+    watch(lect, () => {
       entry.value = undefined;
       query.value = "";
     });
@@ -217,7 +199,7 @@ export default defineComponent({
       const arr = file.value as Entry[];
       arr.splice(arr.indexOf(entry.value), 1);
       entry.value = undefined;
-      searcher.search(lect.value, query.value);
+      searcher.search("editor", query.value);
     }
 
     return {
@@ -228,7 +210,6 @@ export default defineComponent({
       sample,
       results: searcher.results,
       progress: searcher.progress,
-      lect,
       query,
       newEntry,
       deleteEntry,
