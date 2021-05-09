@@ -3,7 +3,7 @@
     <div class="section row">
       <toggle v-model="scholar" icon="school" />
       <toggle v-model="list" icon="format_list_bulleted" />
-      <select v-if="list" v-model="queries['']">
+      <select v-if="list && !lect" v-model="queries['']">
         <option
           v-for="l in lists"
           :key="l.name"
