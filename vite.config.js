@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import viteComponents from "vite-plugin-components";
+import ViteComponents from "vite-plugin-components";
+import { VitePWA } from "vite-plugin-pwa";
 import { resolve } from "path";
 
 export default defineConfig({
@@ -16,5 +17,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [vue(), viteComponents()],
+  plugins: [vue(), ViteComponents(), VitePWA({ registerType: "autoUpdate" })],
 });

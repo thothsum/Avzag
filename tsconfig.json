@@ -13,8 +13,8 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "outDir": "dist",
-    "types": ["node", "vite/client"],
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "types": ["node", "vite/client", "vite-plugin-pwa/client"],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost", "webworker"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
