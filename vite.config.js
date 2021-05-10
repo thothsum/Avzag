@@ -17,5 +17,22 @@ export default defineConfig({
       },
     },
   },
-  plugins: [vue(), ViteComponents(), VitePWA({ registerType: "autoUpdate" })],
+  plugins: [
+    vue(),
+    ViteComponents(),
+    VitePWA({
+      registerType: "autoUpdate",
+      manifest: {
+        name: "Avzag",
+        themeColor: "#4A4A4A",
+        icons: [
+          {
+            src: "icon.png",
+            type: "image/png",
+            sizes: "512x512",
+          },
+        ],
+      },
+    }),
+  ],
 });
