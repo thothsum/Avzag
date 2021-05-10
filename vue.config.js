@@ -3,19 +3,6 @@ module.exports = {
   configureWebpack: {
     devtool: "source-map",
   },
-  chainWebpack: (config) =>
-    config.module
-      .rule("web-worker")
-      .test("/.worker.(c|m)?js$/i")
-      .use("worker")
-      .loader("worker-loader")
-      .end()
-      .use("babel")
-      .loader("babel-loader")
-      .options({
-        presets: ["@babel/preset-env"],
-      })
-      .end(),
   css: {
     loaderOptions: {
       scss: {

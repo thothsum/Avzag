@@ -3,10 +3,10 @@ import { ref } from "vue";
 import { lastCommitTime } from "./gh-manager";
 import StorageCache from "./storage-cache";
 
-const dev = process.env.NODE_ENV !== "production";
+const dev = import.meta.env.DEV;
 export const lects = ref([] as string[]);
 export const root =
-  (process.env.VUE_APP_STORE as string) ??
+  (import.meta.env.VITE_STORE as string) ??
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export const storage = localforage.createInstance({ name: "user" });
