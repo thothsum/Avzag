@@ -1,7 +1,7 @@
 import localforage from "localforage";
 import { ref } from "vue";
-import { lastCommitTime } from "./gh-manager";
-import StorageCache from "./storage-cache";
+import { lastCommitTime } from "@/gh-manager";
+import StorageCache from "@/storage-cache";
 
 export const lects = ref([] as string[]);
 export const root =

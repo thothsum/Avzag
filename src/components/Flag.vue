@@ -33,6 +33,7 @@ img {
   right: 0;
   opacity: 0.4;
   mask-image: linear-gradient(transparent, white);
+  -webkit-mask-image: linear-gradient(transparent, white);
   bottom: -30%;
   height: 112px;
   transform: translate(30%) rotate(-45deg);

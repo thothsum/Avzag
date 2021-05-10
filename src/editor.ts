@@ -1,9 +1,9 @@
 import localforage from "localforage";
 import { watch, ref, toRaw, computed, WatchStopHandle } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
-import { pushToStore } from "./gh-manager";
-import StorageCache from "./storage-cache";
-import { loadJSON, cache as storeCache } from "./store";
+import { pushToStore } from "@/gh-manager";
+import StorageCache from "@/storage-cache";
+import { loadJSON, cache as storeCache } from "@/store";
 
 export const storage = localforage.createInstance({ name: "editor" });
 const cache = new StorageCache(storage);
