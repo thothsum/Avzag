@@ -1,4 +1,4 @@
-import { loadJSON, loadLectsJSON, lects as allLects } from "src/store";
+import { loadJSON, loadLectsJSON, lects as allLects } from "@/store";
 import { shallowRef, watch, ref } from "vue";
 import { IPARegistry, Phoneme, PhonemeUse } from "./types";
 

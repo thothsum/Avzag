@@ -31,16 +31,11 @@
 </template>
 
 <script lang="ts">
-import Notes from "src/components/Notes/index.vue";
-import Flag from "src/components/Flag.vue";
-import Seeker from "src/components/Seeker.vue";
-
 import { computed, defineComponent, PropType, watch, ref } from "vue";
 import { PhonemeUse } from "./types";
-import player from "src/audio-player";
+import player from "@/audio-player";
 
 export default defineComponent({
-  components: { Notes, Flag, Seeker },
   props: {
     lect: { type: String, default: "" },
     use: { type: Object as PropType<PhonemeUse>, default: () => ({}) },

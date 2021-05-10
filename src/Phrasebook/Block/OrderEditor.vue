@@ -21,8 +21,6 @@
 </template>
 
 <script lang="ts">
-import ArrayControl from "src/c/components/ArrayControl.vue";
-import EditorCard from "src/c/components/EditorCard.vue";
 import Context from "../Context/index.vue";
 import Block from "./index.vue";
 
@@ -32,7 +30,7 @@ import { newState } from "../utils";
 
 export default defineComponent({
   name: "OrderEditor",
-  components: { ArrayControl, EditorCard, Context, Block },
+  components: { Context, Block },
   props: {
     modelValue: {
       type: Array as PropType<State[] | undefined>,

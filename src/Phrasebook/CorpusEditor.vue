@@ -61,22 +61,18 @@
 </template>
 
 <script lang="ts">
-import ArrayControl from "src/components/ArrayControl.vue";
-import EditorCard from "src/components/EditorCard.vue";
 import BlocksOrderEditor from "./Block/OrderEditor.vue";
 import ContextEditor from "./Context/Editor.vue";
 import BlockEditor from "./Block/Editor.vue";
 
 import { defineComponent, ref, provide, watch, computed } from "vue";
 import { v4 as uuidv4 } from "uuid";
-import { configure, file } from "src/editor";
+import { configure, file } from "@/editor";
 import { State, Context, CorpusPhrase, CorpusSection } from "./types";
 import { createContext } from "./utils";
 
 export default defineComponent({
   components: {
-    ArrayControl,
-    EditorCard,
     BlocksOrderEditor,
     ContextEditor,
     BlockEditor,

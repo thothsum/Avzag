@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { userRoutes } from "src/router";
+import { userRoutes } from "@/router";
 
 export default defineComponent({
   setup() {

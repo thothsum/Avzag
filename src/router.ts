@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
-const Home = () => import("src/Home/index.vue");
+const Home = () => import("./Home/index.vue");
 
-const Navigation = () => import("src/Navigation.vue");
-const EditorNavigation = () => import("src/EditorNavigation.vue");
+const Navigation = () => import("./Navigation.vue");
+const EditorNavigation = () => import("./EditorNavigation.vue");
 
-const Phonology = () => import("src/Phonology/index.vue");
-const Converter = () => import("src/Converter/index.vue");
-const Phrasebook = () => import("src/Phrasebook/index.vue");
-const Dictionary = () => import("src/Dictionary/index.vue");
+const Phonology = () => import("./Phonology/index.vue");
+const Converter = () => import("./Converter/index.vue");
+const Phrasebook = () => import("./Phrasebook/index.vue");
+const Dictionary = () => import("./Dictionary/index.vue");
 
-const PhonologyEditor = () => import("src/Phonology/Editor.vue");
-const ConverterEditor = () => import("src/Converter/Editor.vue");
-const PhrasebookEditor = () => import("src/Phrasebook/Editor.vue");
-const PhrasebookCorpusEditor = () => import("src/Phrasebook/CorpusEditor.vue");
-const DictionaryEditor = () => import("src/Dictionary/Editor.vue");
+const PhonologyEditor = () => import("./Phonology/Editor.vue");
+const ConverterEditor = () => import("./Converter/Editor.vue");
+const PhrasebookEditor = () => import("./Phrasebook/Editor.vue");
+const PhrasebookCorpusEditor = () => import("./Phrasebook/CorpusEditor.vue");
+const DictionaryEditor = () => import("./Dictionary/Editor.vue");
 
 export const userRoutes = [
   {

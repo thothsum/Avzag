@@ -1,6 +1,6 @@
 import { reactive, readonly, Ref, toRaw, toRefs } from "vue";
 import { Howl, Howler } from "howler";
-import { root } from "src/store";
+import { root } from "@/store";
 
 type Track = {
   i: number;

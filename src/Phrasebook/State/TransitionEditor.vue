@@ -21,7 +21,6 @@
 </template>
 
 <script lang="ts">
-import EditorCard from "src/components/EditorCard.vue";
 import VState from "./index.vue";
 
 import { computed, defineComponent, PropType } from "vue";
@@ -29,7 +28,7 @@ import { Transition, State } from "../types";
 
 export default defineComponent({
   name: "TransitionEditor",
-  components: { EditorCard, VState },
+  components: { VState },
   props: {
     modelValue: { type: Array, default: undefined },
     states: { type: Array as PropType<State[]>, default: () => [] },

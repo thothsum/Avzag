@@ -83,13 +83,11 @@ import {
 } from "vue";
 import { dictionaryMeta, dictionaries } from "./main";
 import MeaningRow from "./MeaningRow.vue";
-import Flag from "src/components/Flag.vue";
-import Seeker from "src/components/Seeker.vue";
 import { Entry } from "./types";
 import Searcher from "./search";
 
 export default defineComponent({
-  components: { MeaningRow, Flag, Seeker },
+  components: { MeaningRow },
   setup() {
     const searcher = new Searcher(dictionaries);
 

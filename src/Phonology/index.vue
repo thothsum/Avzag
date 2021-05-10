@@ -29,8 +29,6 @@
 </template>
 
 <script lang="ts">
-import ToggleQuery from "src/components/Query/ToggleQuery.vue";
-import InputQuery from "src/components/Query/InputQuery.vue";
 import Table from "./Table.vue";
 import PhonemeUse from "./PhonemeUse.vue";
 
@@ -38,7 +36,7 @@ import { ref, defineComponent } from "vue";
 import { phonemes, phoneme, lects } from "./main";
 
 export default defineComponent({
-  components: { ToggleQuery, InputQuery, Table, PhonemeUse },
+  components: { Table, PhonemeUse },
   setup() {
     const categories = ["vowel", "consonant"];
     const lectQuery = ref({});

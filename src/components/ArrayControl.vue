@@ -14,12 +14,10 @@
 </template>
 
 <script lang="ts">
-import ConfirmButton from "src/components/ConfirmButton.vue";
 import { defineComponent, toRaw, computed, watch, nextTick } from "vue";
 
 export default defineComponent({
   name: "ArrayControl",
-  components: { ConfirmButton },
   props: {
     modelValue: { type: Array, default: () => undefined },
     item: { type: Object, default: undefined },

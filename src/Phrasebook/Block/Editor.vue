@@ -46,8 +46,6 @@
 </template>
 
 <script lang="ts">
-import ArrayControl from "src/components/ArrayControl.vue";
-import EditorCard from "src/components/EditorCard.vue";
 import ConditionsEditor from "../State/ConditionsEditor.vue";
 import TransitionEditor from "../State/TransitionEditor.vue";
 import VState from "../State/index.vue";
@@ -59,8 +57,6 @@ import { newState } from "../utils";
 export default defineComponent({
   name: "BlockEditor",
   components: {
-    ArrayControl,
-    EditorCard,
     ConditionsEditor,
     TransitionEditor,
     VState,

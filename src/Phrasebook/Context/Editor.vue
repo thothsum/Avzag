@@ -26,14 +26,11 @@
 </template>
 
 <script lang="ts">
-import EditorCard from "src/components/EditorCard.vue";
-import ArrayControl from "src/components/ArrayControl.vue";
 import { computed, defineComponent, PropType, ref, watch } from "vue";
 import { ContextSource } from "../types";
 
 export default defineComponent({
   name: "ContextEditor",
-  components: { EditorCard, ArrayControl },
   props: {
     modelValue: {
       type: Array as PropType<ContextSource[]>,

@@ -3,10 +3,9 @@ import { ref } from "vue";
 import { lastCommitTime } from "./gh-manager";
 import StorageCache from "./storage-cache";
 
-const dev = import.meta.env.DEV;
 export const lects = ref([] as string[]);
 export const root =
-  (import.meta.env.VITE_STORE as string) ??
+  import.meta.env.VITE_STORE ??
   "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
 
 export const storage = localforage.createInstance({ name: "user" });
@@ -37,7 +36,8 @@ export async function checkOutdated(alert = false) {
 
 export async function loadJSON<T>(path: string, defaultValue?: T) {
   if (!path.endsWith(".json")) path += ".json";
-  if (!dev && !cache.add(path)) return (await storage.getItem<T>(path)) as T;
+  if (!import.meta.env.DEV && !cache.add(path))
+    return (await storage.getItem<T>(path)) as T;
   console.log("cached", path);
   const f = await fetch(root + path, { cache: "no-store" })
     .then((r) => r.json())

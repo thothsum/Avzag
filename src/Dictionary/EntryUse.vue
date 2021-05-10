@@ -30,11 +30,9 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Use } from "./types";
-import Notes from "src/components/Notes/index.vue";
 
 export default defineComponent({
   name: "EntryUse",
-  components: { Notes },
   props: {
     scholar: Boolean,
     use: { type: Object as PropType<Use>, default: undefined },

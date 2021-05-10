@@ -37,11 +37,10 @@
 </template>
 
 <script lang="ts">
-import ConfirmButton from "src/components/ConfirmButton.vue";
 import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { loadJSON } from "src/store";
-import { editorRoutes } from "src/router";
+import { loadJSON } from "@/store";
+import { editorRoutes } from "@/router";
 import {
   lect,
   resetFile,
@@ -51,12 +50,11 @@ import {
   config,
   isDirty,
   isOutdated,
-} from "src/editor";
+} from "@/editor";
 import { Lect } from "./Home/types";
 
 export default defineComponent({
   name: "EditorNavigation",
-  components: { ConfirmButton },
   setup() {
     const route = useRoute();
     const router = useRouter();

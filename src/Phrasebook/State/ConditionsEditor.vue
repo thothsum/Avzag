@@ -17,7 +17,6 @@
 </template>
 
 <script lang="ts">
-import EditorCard from "src/components/EditorCard.vue";
 import {
   computed,
   defineComponent,
@@ -31,7 +30,6 @@ import { ContextSource, Conditions } from "../types";
 
 export default defineComponent({
   name: "ConditionsEditor",
-  components: { EditorCard },
   props: {
     modelValue: { type: Object as PropType<Conditions>, default: undefined },
   },

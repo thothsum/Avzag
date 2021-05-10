@@ -12,10 +12,13 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
     "outDir": "dist",
-    "types": ["vite/client"],
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "types": ["node", "vite/client"],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",

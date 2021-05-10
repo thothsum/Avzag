@@ -12,13 +12,11 @@
 </template>
 
 <script lang="ts">
-import Notes from "src/components/Notes/index.vue";
 import { computed, defineComponent, inject, PropType, Ref } from "vue";
 import { Context, State } from "../types";
 
 export default defineComponent({
   name: "State",
-  components: { Notes },
   props: {
     state: { type: Object as PropType<State>, default: () => ({}) },
     glossed: { type: Boolean, default: false },

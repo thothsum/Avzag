@@ -12,12 +12,9 @@
 
 <script lang="ts">
 import { PropType, computed, defineComponent } from "vue";
-import EditorCard from "src/components/EditorCard.vue";
-import ArrayControl from "src/components/ArrayControl.vue";
 
 export default defineComponent({
   name: "NotesEditor",
-  components: { ArrayControl, EditorCard },
   props: {
     modelValue: { type: Array as PropType<string[]>, default: undefined },
   },

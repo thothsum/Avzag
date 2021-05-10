@@ -59,17 +59,16 @@
 
 <script lang="ts">
 import PhraseCard from "./PhraseCard.vue";
-import InputQuery from "src/c/components/Query/InputQuery.vue";
 
 import { computed, ref, watch, defineComponent, provide } from "vue";
 
 import { corpus, section, phrase, phrasebooks, searchSources } from "./main";
 import { Context, CorpusPhrase, CorpusSection } from "./types";
 import { createContext } from "./utils";
-import { Query, EvaluateQuery } from "src/components/Query/types";
+import { Query, EvaluateQuery } from "@/components/Query/types";
 
 export default defineComponent({
-  components: { PhraseCard, InputQuery },
+  components: { PhraseCard },
   setup() {
     const context = ref({} as Context);
     watch(phrase, (phrase) => createContext(context, phrase?.context), {

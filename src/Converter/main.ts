@@ -1,5 +1,5 @@
 import { computed, reactive, shallowRef, watch } from "vue";
-import { loadLectsJSON, lects } from "src/store";
+import { loadLectsJSON, lects } from "@/store";
 import { Mapping, Converter, Pairs } from "./types";
 import convert from "./convert";
 

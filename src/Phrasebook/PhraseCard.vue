@@ -32,17 +32,14 @@
 <script lang="ts">
 import Context from "./Context/index.vue";
 import Block from "./Block/index.vue";
-import Notes from "src/components/Notes/index.vue";
-import Flag from "src/components/Flag.vue";
-import Seeker from "src/components/Seeker.vue";
 
 import { computed, defineComponent, PropType, reactive, ref } from "vue";
 
 import { Phrase, BlockSnapshot } from "./types";
-import player from "src/audio-player";
+import player from "@/audio-player";
 
 export default defineComponent({
-  components: { Context, Block, Notes, Flag, Seeker },
+  components: { Context, Block },
   props: {
     lect: { type: String, default: "" },
     path: { type: String, default: "" },

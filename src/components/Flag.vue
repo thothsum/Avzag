@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent, computed } from "vue";
-import { root } from "src/store";
+import { root } from "@/store";
 
 export default defineComponent({
   props: { lect: { type: String, default: "" } },
