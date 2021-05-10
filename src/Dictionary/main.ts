@@ -1,4 +1,4 @@
-import { loadJSON, lects, loadLectsJSON } from "@/store";
+import { loadJSON, lects, loadLectsJSON } from "src/store";
 import { shallowRef, watch } from "vue";
 import { DictionaryMeta, Entry } from "./types";
 

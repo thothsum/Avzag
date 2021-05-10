@@ -54,8 +54,8 @@
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, inject, watch } from "vue";
 import { Entry } from "./types";
-import Flag from "@/components/Flag.vue";
-import Notes from "@/components/Notes/index.vue";
+import Flag from "src/components/Flag.vue";
+import Notes from "src/components/Notes/index.vue";
 import EntryUse from "./EntryUse.vue";
 
 export default defineComponent({

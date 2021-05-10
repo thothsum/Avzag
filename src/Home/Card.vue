@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import Flag from "@/components/Flag.vue";
+import Flag from "src/components/Flag.vue";
 import { computed, defineComponent, PropType } from "vue";
 import { Lect, SearchState } from "./types";
 

@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import Notes from "@/components/Notes/index.vue";
+import Notes from "src/components/Notes/index.vue";
 import { computed, defineComponent, inject, PropType, Ref } from "vue";
 import { Context, State } from "../types";
 

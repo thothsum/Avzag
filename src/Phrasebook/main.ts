@@ -1,4 +1,4 @@
-import { loadJSON, loadLectsJSON, lects } from "@/store";
+import { loadJSON, loadLectsJSON, lects } from "src/store";
 import { ref, shallowRef, watch } from "vue";
 import { CorpusPhrase, CorpusSection, Phrasebook, State } from "./types";
 

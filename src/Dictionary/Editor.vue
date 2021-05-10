@@ -146,15 +146,15 @@
 </template>
 
 <script lang="ts">
-import ArrayControl from "@/components/ArrayControl.vue";
-import EditorCard from "@/components/EditorCard.vue";
-import ConfirmButton from "@/components/ConfirmButton.vue";
-import NotesEditor from "@/components/Notes/Editor.vue";
-import TagsInput from "@/components/TagsInput.vue";
-import Seeker from "@/components/Seeker.vue";
+import ArrayControl from "src/components/ArrayControl.vue";
+import EditorCard from "src/components/EditorCard.vue";
+import ConfirmButton from "src/components/ConfirmButton.vue";
+import NotesEditor from "src/components/Notes/Editor.vue";
+import TagsInput from "src/components/TagsInput.vue";
+import Seeker from "src/components/Seeker.vue";
 
 import { ref, defineComponent, computed, watch } from "vue";
-import { configure, file, lect } from "@/editor";
+import { configure, file, lect } from "src/editor";
 import { Entry } from "./types";
 import Searcher from "./search";
 

@@ -31,13 +31,13 @@
 </template>
 
 <script lang="ts">
-import Notes from "@/components/Notes/index.vue";
-import Flag from "@/components/Flag.vue";
-import Seeker from "@/components/Seeker.vue";
+import Notes from "src/components/Notes/index.vue";
+import Flag from "src/components/Flag.vue";
+import Seeker from "src/components/Seeker.vue";
 
 import { computed, defineComponent, PropType, watch, ref } from "vue";
 import { PhonemeUse } from "./types";
-import player from "@/audio-player";
+import player from "src/audio-player";
 
 export default defineComponent({
   components: { Notes, Flag, Seeker },

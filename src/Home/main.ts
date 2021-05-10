@@ -1,6 +1,6 @@
 import { ref, shallowRef, reactive, computed } from "vue";
 import { SearchState, Lect } from "./types";
-import { Query, EvaluateQuery } from "@/components/Query/types";
+import { Query, EvaluateQuery } from "src/components/Query/types";
 
 export const catalogue = shallowRef([] as Lect[]);
 export const search = reactive({

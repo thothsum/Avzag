@@ -29,8 +29,8 @@
 </template>
 
 <script lang="ts">
-import ToggleQuery from "@/components/Query/ToggleQuery.vue";
-import InputQuery from "@/components/Query/InputQuery.vue";
+import ToggleQuery from "src/components/Query/ToggleQuery.vue";
+import InputQuery from "src/components/Query/InputQuery.vue";
 import Table from "./Table.vue";
 import PhonemeUse from "./PhonemeUse.vue";
 

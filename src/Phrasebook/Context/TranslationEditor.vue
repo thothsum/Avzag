@@ -28,8 +28,8 @@
 </template>
 
 <script lang="ts">
-import ConfirmButton from "@/components/ConfirmButton.vue";
-import EditorCard from "@/components/EditorCard.vue";
+import ConfirmButton from "src/components/ConfirmButton.vue";
+import EditorCard from "src/components/EditorCard.vue";
 
 import { computed, defineComponent, inject, PropType, ComputedRef } from "vue";
 import { ContextSource, ContextTranslation } from "../types";

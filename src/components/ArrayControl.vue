@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import ConfirmButton from "@/components/ConfirmButton.vue";
+import ConfirmButton from "src/components/ConfirmButton.vue";
 import { defineComponent, toRaw, computed, watch, nextTick } from "vue";
 
 export default defineComponent({

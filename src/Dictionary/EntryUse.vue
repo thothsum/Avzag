@@ -30,7 +30,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Use } from "./types";
-import Notes from "@/components/Notes/index.vue";
+import Notes from "src/components/Notes/index.vue";
 
 export default defineComponent({
   name: "EntryUse",

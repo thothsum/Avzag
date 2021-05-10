@@ -53,11 +53,11 @@
 
 <script lang="ts">
 import Pairs from "./Pairs.vue";
-import Flag from "@/components/Flag.vue";
+import Flag from "src/components/Flag.vue";
 
 import { computed, ref, nextTick, defineComponent, toRaw } from "vue";
 import { converter, converters, texts, mappings, pairs } from "./main";
-import { uploadFile, downloadFile } from "@/file-manager";
+import { uploadFile, downloadFile } from "src/file-manager";
 import convert from "./convert";
 
 export default defineComponent({

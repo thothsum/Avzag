@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import EditorCard from "@/components/EditorCard.vue";
+import EditorCard from "src/components/EditorCard.vue";
 import {
   computed,
   defineComponent,

@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import { PropType, computed, defineComponent } from "vue";
-import EditorCard from "@/components/EditorCard.vue";
-import ArrayControl from "@/components/ArrayControl.vue";
+import EditorCard from "src/components/EditorCard.vue";
+import ArrayControl from "src/components/ArrayControl.vue";
 
 export default defineComponent({
   name: "NotesEditor",

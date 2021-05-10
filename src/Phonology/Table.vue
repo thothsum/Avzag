@@ -15,7 +15,7 @@
 <script lang="ts">
 import { computed, PropType, defineComponent } from "vue";
 import TableEntry from "./TableEntry.vue";
-import { Query, EvaluateQuery } from "@/components/Query/types";
+import { Query, EvaluateQuery } from "src/components/Query/types";
 import { Phoneme } from "./types";
 
 export default defineComponent({
@@ -66,7 +66,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/_panels";
+@import "src/scss/_panels";
 $item-width: 46px;
 $item-height: 40px;
 

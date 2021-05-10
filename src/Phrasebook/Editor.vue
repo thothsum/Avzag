@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import NotesEditor from "@/components/Notes/Editor.vue";
+import NotesEditor from "src/components/Notes/Editor.vue";
 import VContext from "./Context/index.vue";
 import Block from "./Block/index.vue";
 import BlocksOrderEditor from "./Block/OrderEditor.vue";
@@ -53,8 +53,8 @@ import BlockEditor from "./Block/Editor.vue";
 import ContextTranslationEditor from "./Context/TranslationEditor.vue";
 
 import { defineComponent, ref, watch, provide, computed } from "vue";
-import { loadJSON } from "@/store";
-import { configure, file, storage } from "@/editor";
+import { loadJSON } from "src/store";
+import { configure, file, storage } from "src/editor";
 import { State, Context, CorpusPhrase, CorpusSection, Phrase } from "./types";
 import { createContext } from "./utils";
 

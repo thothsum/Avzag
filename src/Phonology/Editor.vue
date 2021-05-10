@@ -56,14 +56,14 @@
 </template>
 
 <script lang="ts">
-import ArrayControl from "@/components/ArrayControl.vue";
-import EditorCard from "@/components/EditorCard.vue";
+import ArrayControl from "src/components/ArrayControl.vue";
+import EditorCard from "src/components/EditorCard.vue";
 import TableEntry from "./TableEntry.vue";
-import NotesEditor from "@/components/Notes/Editor.vue";
+import NotesEditor from "src/components/Notes/Editor.vue";
 
 import { computed, ref, defineComponent } from "vue";
 import { PhonemeUse } from "./types";
-import { configure, file } from "@/editor";
+import { configure, file } from "src/editor";
 
 export default defineComponent({
   components: { ArrayControl, EditorCard, TableEntry, NotesEditor },

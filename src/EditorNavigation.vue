@@ -37,11 +37,11 @@
 </template>
 
 <script lang="ts">
-import ConfirmButton from "@/components/ConfirmButton.vue";
+import ConfirmButton from "src/components/ConfirmButton.vue";
 import { ref, watch, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { loadJSON } from "@/store";
-import { editorRoutes } from "@/router";
+import { loadJSON } from "src/store";
+import { editorRoutes } from "src/router";
 import {
   lect,
   resetFile,
@@ -51,7 +51,7 @@ import {
   config,
   isDirty,
   isOutdated,
-} from "@/editor";
+} from "src/editor";
 import { Lect } from "./Home/types";
 
 export default defineComponent({

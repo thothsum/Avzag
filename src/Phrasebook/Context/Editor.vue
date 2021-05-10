@@ -26,8 +26,8 @@
 </template>
 
 <script lang="ts">
-import EditorCard from "@/components/EditorCard.vue";
-import ArrayControl from "@/components/ArrayControl.vue";
+import EditorCard from "src/components/EditorCard.vue";
+import ArrayControl from "src/components/ArrayControl.vue";
 import { computed, defineComponent, PropType, ref, watch } from "vue";
 import { ContextSource } from "../types";
 

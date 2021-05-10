@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import EditorCard from "@/components/EditorCard.vue";
+import EditorCard from "src/components/EditorCard.vue";
 import VState from "./index.vue";
 
 import { computed, defineComponent, PropType } from "vue";

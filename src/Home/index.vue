@@ -63,7 +63,7 @@
 <script lang="ts">
 import Marker from "./Marker.vue";
 import Card from "./Card.vue";
-import InputQuery from "@/components/Query/InputQuery.vue";
+import InputQuery from "src/components/Query/InputQuery.vue";
 
 import {
   computed,
@@ -75,7 +75,7 @@ import {
   onUnmounted,
 } from "vue";
 import { useRouter } from "vue-router";
-import { cache, checkOutdated, lects, loadJSON, storage } from "@/store";
+import { cache, checkOutdated, lects, loadJSON, storage } from "src/store";
 import { catalogue, search, query } from "./main";
 import { createMap } from "./map";
 

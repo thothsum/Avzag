@@ -44,12 +44,12 @@
 </template>
 
 <script lang="ts">
-import ArrayControl from "@/components/ArrayControl.vue";
-import EditorCard from "@/components/EditorCard.vue";
+import ArrayControl from "src/components/ArrayControl.vue";
+import EditorCard from "src/components/EditorCard.vue";
 
 import { computed, ref, defineComponent } from "vue";
 import { Mapping } from "./types";
-import { configure, file } from "@/editor";
+import { configure, file } from "src/editor";
 import convert from "./convert";
 
 export default defineComponent({

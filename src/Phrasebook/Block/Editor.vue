@@ -46,8 +46,8 @@
 </template>
 
 <script lang="ts">
-import ArrayControl from "@/components/ArrayControl.vue";
-import EditorCard from "@/components/EditorCard.vue";
+import ArrayControl from "src/components/ArrayControl.vue";
+import EditorCard from "src/components/EditorCard.vue";
 import ConditionsEditor from "../State/ConditionsEditor.vue";
 import TransitionEditor from "../State/TransitionEditor.vue";
 import VState from "../State/index.vue";
