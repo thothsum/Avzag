@@ -3,10 +3,9 @@
   "version": "0.6.0",
   "private": true,
   "scripts": {
-    "serve": "vite serve",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint src"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
   },
   "dependencies": {
     "@octokit/rest": "^18.5.3",

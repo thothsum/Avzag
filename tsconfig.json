@@ -14,9 +14,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "outDir": "dist",
-    "paths": {
-      "@/*": ["src/*"]
-    },
+    "types": ["vite/client"],
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
