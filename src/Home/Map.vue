@@ -33,7 +33,7 @@ export default defineComponent({
         maxZoom: 10,
         zoomControl: false,
         doubleClickZoom: false,
-      }).setView([51.505, -0.09], 13);
+      });
       layer = L.tileLayer("", {
         subdomains: "abcd",
         attribution:
