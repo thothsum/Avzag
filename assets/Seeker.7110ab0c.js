@@ -1,0 +1,1 @@
+import{e,d as s,o as t,h as a,A as d}from"./vendor.c8bf7c27.js";var o=e({props:{seek:{type:Number,default:0},check:{type:Boolean,default:!0}},setup:e=>({width:s((()=>e.check?100*e.seek+"%":"0"))})});const r=d()(((e,s,d,o,r,c)=>(t(),a("hr",{style:{width:e.width}},null,4))));o.render=r,o.__scopeId="data-v-7413b378";export{o as _};

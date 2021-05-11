@@ -1,0 +1,1 @@
+.flag{position:relative;overflow:hidden}.flag :not(img){z-index:1}img[data-v-078554fb]{pointer-events:none;z-index:0;position:absolute;right:0;opacity:.4;mask-image:linear-gradient(transparent,#fff);-webkit-mask-image:linear-gradient(transparent,#fff);bottom:-30%;height:112px;transform:translate(30%) rotate(-45deg);filter:blur(1.5px)}
