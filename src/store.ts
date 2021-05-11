@@ -1,6 +1,5 @@
 import localforage from "localforage";
 import { ref } from "vue";
-import { lastCommitTime } from "@/gh-manager";
 import StorageCache from "@/storage-cache";
 
 export const lects = ref([] as string[]);
@@ -32,6 +31,13 @@ export async function checkOutdated(alert = false) {
     outdated?.forEach((p) => cache.delete(p));
     location.reload();
   }
+}
+async function lastCommitTime(path: string) {
+  const url = "http://localhost:5001/avzag-languages/us-central1/cm?";
+  const query = new URLSearchParams({ path });
+  return await fetch(url + query)
+    .then((r) => r.text())
+    .then((t) => Number(t));
 }
 
 export async function loadJSON<T>(path: string, defaultValue?: T) {

@@ -1,7 +1,6 @@
 import localforage from "localforage";
 import { watch, ref, toRaw, computed, WatchStopHandle } from "vue";
 import { downloadFile, uploadFile } from "./file-manager";
-import { pushToStore } from "@/gh-manager";
 import StorageCache from "@/storage-cache";
 import { loadJSON, cache as storeCache } from "@/store";
 
@@ -49,12 +48,15 @@ export async function configure(value: Config) {
 }
 
 export function pushFile() {
-  pushToStore(
-    JSON.stringify(file.value, null, 2),
-    path.value,
-    window.prompt("Enter optional comment:", path.value) as string,
-    path.value
-  );
+  const url = "http://localhost:5001/avzag-languages/us-central1/pr?";
+  const query = new URLSearchParams({
+    path: path.value,
+    message: window.prompt("Enter optional comment:", path.value) as string,
+  });
+  fetch(url + query, {
+    method: "POST",
+    body: JSON.stringify(file.value, null, 2),
+  }).then((r) => alert(r.ok ? "Pull request was created." : "Error."));
 }
 export async function resetFile(checkStorage = true) {
   fileWatch?.();
