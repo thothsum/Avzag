@@ -1,15 +1,19 @@
 <template>
   <div id="root">
-    <div class="map-container">
-      <div id="map" />
-      <Marker
-        v-for="l in catalogue"
-        :key="l.name"
-        :lect="l"
-        :search="search"
-        @click="toggleLect(l.name)"
-      />
-    </div>
+    <Map :catalogue="catalogue">
+      <template #default="{ map }">
+        <template v-if="map">
+          <Marker
+            v-for="l in catalogue"
+            :key="l.name"
+            :map="map"
+            :lect="l"
+            :search="search"
+            @click="toggleLect(l.name)"
+          />
+        </template>
+      </template>
+    </Map>
     <div id="ui" class="col-1">
       <div id="top" class="col-1 card">
         <div class="row-1">
@@ -61,28 +65,19 @@
 </template>
 
 <script lang="ts">
-import Marker from "./Marker.vue";
 import Card from "./Card.vue";
+import Map from "./Map.vue";
+import Marker from "./Marker.vue";
 
-import {
-  computed,
-  ref,
-  defineComponent,
-  toRaw,
-  onMounted,
-  watch,
-  onUnmounted,
-} from "vue";
+import { computed, ref, defineComponent, toRaw, watch, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { cache, checkOutdated, lects, loadJSON, storage } from "@/store";
 import { catalogue, search, query } from "./main";
-import { createMap } from "./map";
 
 export default defineComponent({
-  components: { Marker, Card },
+  components: { Card, Map, Marker },
   setup() {
     const router = useRouter();
-    onMounted(() => createMap());
     onUnmounted(async () => {
       cache.update("lects");
       lects.value = [...search.selected];
@@ -160,12 +155,6 @@ $margin: -1 * map-get($margins, "normal");
     top: $margin;
   }
 }
-.map-container,
-#map {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-}
 #ui {
   padding: -$margin;
   height: 100vh;
@@ -184,11 +173,6 @@ $margin: -1 * map-get($margins, "normal");
 }
 #placeholder {
   line-height: map-get($button-height, "small");
-}
-.marker {
-  h2 {
-    text-shadow: map-get($shadows, "elevated");
-  }
 }
 @media only screen and (max-width: $mobile-width) {
   #ui {

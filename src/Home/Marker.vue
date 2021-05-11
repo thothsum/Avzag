@@ -1,47 +1,53 @@
 <template>
-  <div ref="root" class="map-marker text-center">
-    <p class="icon" :class="{ 'highlight-font': selected }">expand_less</p>
-    <h2
-      :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
-      @click="emit('click')"
-    >
-      {{ name }}
-    </h2>
+  <div ref="div" class="div">
+    <div class="marker text-center">
+      <p class="icon" :class="{ 'highlight-font': selected }">expand_less</p>
+      <h2
+        :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
+        @click="emit('click')"
+      >
+        {{ name }}
+      </h2>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import L from "leaflet";
 import {
   ref,
   computed,
   defineComponent,
   PropType,
-  nextTick,
   onUnmounted,
+  onMounted,
 } from "vue";
 import { Lect, SearchState } from "./types";
-import mapboxgl from "mapbox-gl";
-import { map } from "./map";
 
 export default defineComponent({
   props: {
+    map: { type: Object as PropType<L.Map>, default: undefined },
     lect: { type: Object as PropType<Lect>, default: () => ({}) },
     search: { type: Object as PropType<SearchState>, default: () => ({}) },
   },
   emits: ["click"],
   setup(props, { emit }) {
-    const root = ref<HTMLElement>();
-    let marker: mapboxgl.Marker;
-    nextTick(() => {
-      if (map.value) {
-        marker = new mapboxgl.Marker({
-          element: root.value,
-          anchor: "top",
-        })
-          .setLngLat(props.lect.point)
-          .addTo(map.value);
-      }
-    });
+    const div = ref({} as HTMLElement);
+    let marker: L.Marker;
+    onMounted(
+      () =>
+        (marker = L.marker(props.lect.point, {
+          icon: L.divIcon({ html: div.value, className: "" }),
+        }).addTo(props.map))
+      // if (map.value) {
+      //   marker = new mapboxgl.Marker({
+      //     element: root.value,
+      //     anchor: "top",
+      //   })
+      //     .setLngLat(props.lect.point)
+      //     .addTo(map.value);
+      // }
+    );
     onUnmounted(() => marker?.remove());
 
     const name = computed(() => props.lect.name);
@@ -50,13 +56,20 @@ export default defineComponent({
       () => props.search.visible.size && !props.search.visible.has(name.value)
     );
 
-    return { emit, root, name, selected, faded };
+    return { emit, div, name, selected, faded };
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.map-marker {
+.div {
+  position: relative;
+  * {
+    transition: $transition;
+  }
+}
+.marker {
+  position: absolute;
   text-shadow: map-get($shadows, "elevated");
 }
 .icon {
@@ -69,6 +82,7 @@ h2 {
   padding-bottom: $border-width;
   border-bottom: $border-width dashed transparent;
   border-radius: 0;
+  text-shadow: map-get($shadows, "elevated");
   &:hover {
     border-color: var(--color-text);
   }
