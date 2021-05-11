@@ -1,13 +1,11 @@
 <template>
-  <div ref="div" class="div">
-    <div class="marker text-center">
-      <p class="icon" :class="{ 'highlight-font': selected }">expand_less</p>
-      <h2
-        :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
-        @click="emit('click')"
-        v-text="name"
-      />
-    </div>
+  <div ref="div" class="text-center">
+    <p class="icon" :class="{ 'highlight-font': selected }">expand_less</p>
+    <h2
+      :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
+      @click="emit('click')"
+      v-text="name"
+    />
   </div>
 </template>
 
@@ -33,20 +31,14 @@ export default defineComponent({
   setup(props, { emit }) {
     const div = ref({} as HTMLElement);
     let marker: L.Marker;
-    onMounted(
-      () =>
-        (marker = L.marker(props.lect.point, {
-          icon: L.divIcon({ html: div.value, className: "" }),
-        }).addTo(props.map))
-      // if (map.value) {
-      //   marker = new mapboxgl.Marker({
-      //     element: root.value,
-      //     anchor: "top",
-      //   })
-      //     .setLngLat(props.lect.point)
-      //     .addTo(map.value);
-      // }
-    );
+    onMounted(() => {
+      marker = L.marker(props.lect.point, {
+        icon: L.divIcon({
+          html: div.value,
+          className: "marker",
+        }),
+      }).addTo(props.map);
+    });
     onUnmounted(() => marker?.remove());
 
     const name = computed(() => props.lect.name);
@@ -60,17 +52,19 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.div {
-  position: relative;
+<style lang="scss">
+.marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: map-get($shadows, "elevated");
   * {
     transition: $transition;
   }
 }
-.marker {
-  position: absolute;
-  text-shadow: map-get($shadows, "elevated");
-}
+</style>
+
+<style lang="scss" scoped>
 .icon {
   line-height: 30%;
   margin-bottom: map-get($margins, "half");
