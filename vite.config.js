@@ -19,7 +19,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    ViteComponents(),
+    ViteComponents({ deep: true }),
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
