@@ -30,7 +30,8 @@ export default defineComponent({
 
     onMounted(() => {
       map.value = L.map(div.value, {
-        zoomSnap: 0.5,
+        minZoom: 3,
+        maxZoom: 10,
         zoomControl: false,
         doubleClickZoom: false,
       }).setView([51.505, -0.09], 13);
