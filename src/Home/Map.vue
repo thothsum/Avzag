@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import L, { LatLng } from "leaflet";
 
 import {
   defineComponent,
@@ -20,10 +20,13 @@ import { Lect } from "./types";
 export default defineComponent({
   props: {
     catalogue: { type: Array as PropType<Lect[]>, default: () => [] },
+    storageKey: { type: String, default: "camera" },
   },
-  setup() {
+  setup(props) {
     const div = ref({} as HTMLElement);
     const map = shallowRef<L.Map>();
+    const camera = { center: new LatLng(43, 45), zoom: 5 };
+    let layer: L.TileLayer;
 
     onMounted(() => {
       map.value = L.map(div.value, {
@@ -32,28 +35,47 @@ export default defineComponent({
         doubleClickZoom: false,
       }).setView([51.505, -0.09], 13);
       layer = L.tileLayer("", {
-        accessToken:
-          "6F94UuT7990iq8Z5yQpnbyujlm0Zr7bZkJwMshoaTEtYnsabLMp2EttcF6fCoW10",
         subdomains: "abcd",
-        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps',
+        attribution:
+          '<a href="https://www.jawg.io" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors',
       }).addTo(map.value);
+
       bindTheme();
+      bindCamera();
     });
 
-    let layer: L.TileLayer;
-    function setStyle({ matches }: MediaQueryList | MediaQueryListEvent) {
-      layer?.setUrl(
-        `https://{s}.tile.jawg.io/jawg-${
-          matches ? "dark" : "light"
-        }/{z}/{x}/{y}{r}.png`
-      );
-    }
     function bindTheme() {
+      function setStyle({ matches }: MediaQueryList | MediaQueryListEvent) {
+        const theme = matches ? "dark" : "light";
+        const token =
+          "6F94UuT7990iq8Z5yQpnbyujlm0Zr7bZkJwMshoaTEtYnsabLMp2EttcF6fCoW10";
+        layer?.setUrl(
+          `https://tile.jawg.io/jawg-${theme}/{z}/{x}/{y}.png?access-token=${token}`
+        );
+      }
       const query = window.matchMedia("(prefers-color-scheme: dark)");
       query.addEventListener("change", setStyle);
       setStyle(query);
       onUnmounted(() => query.removeEventListener("change", setStyle));
     }
+
+    function bindCamera() {
+      if (!props.storageKey || !map.value) return;
+      if (localStorage.camera)
+        Object.assign(camera, JSON.parse(localStorage[props.storageKey]));
+
+      map.value.setView(camera.center, camera.zoom);
+      map.value.on("move", () => {
+        if (map.value) camera.center = map.value.getCenter();
+      });
+      map.value.on("zoom", () => {
+        if (map.value) camera.zoom = map.value.getZoom();
+      });
+    }
+    onUnmounted(() => {
+      if (props.storageKey)
+        localStorage[props.storageKey] = JSON.stringify(camera);
+    });
 
     return { div, map };
   },

@@ -5,9 +5,8 @@
       <h2
         :class="{ 'highlight-font': selected && !faded, 'text-faded': faded }"
         @click="emit('click')"
-      >
-        {{ name }}
-      </h2>
+        v-text="name"
+      />
     </div>
   </div>
 </template>
