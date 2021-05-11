@@ -20,9 +20,8 @@ import { Lect } from "./types";
 export default defineComponent({
   props: {
     catalogue: { type: Array as PropType<Lect[]>, default: () => [] },
-    storageKey: { type: String, default: "camera" },
   },
-  setup(props) {
+  setup() {
     const div = ref({} as HTMLElement);
     const map = shallowRef<L.Map>();
     const camera = { center: new LatLng(43, 45), zoom: 5 };
@@ -61,9 +60,9 @@ export default defineComponent({
     }
 
     function bindCamera() {
-      if (!props.storageKey || !map.value) return;
+      if (!map.value) return;
       if (localStorage.camera)
-        Object.assign(camera, JSON.parse(localStorage[props.storageKey]));
+        Object.assign(camera, JSON.parse(localStorage.camera));
 
       map.value.setView(camera.center, camera.zoom);
       map.value.on("move", () => {
@@ -73,10 +72,7 @@ export default defineComponent({
         if (map.value) camera.zoom = map.value.getZoom();
       });
     }
-    onUnmounted(() => {
-      if (props.storageKey)
-        localStorage[props.storageKey] = JSON.stringify(camera);
-    });
+    onUnmounted(() => (localStorage.camera = JSON.stringify(camera)));
 
     return { div, map };
   },
