@@ -17,7 +17,7 @@
       <div class="row">
         <template v-if="lect">
           <p v-if="isOutdated" class="icon">schedule</p>
-          <btn :disabled="!isDirty" icon="cloud_upload" @click="pushFile" />
+          <!-- <btn :disabled="!isDirty" icon="cloud_upload" @click="pushFile" /> -->
         </template>
         <select v-if="!config.global" v-model="lect">
           <option value="" v-text="'[Custom]'" />
