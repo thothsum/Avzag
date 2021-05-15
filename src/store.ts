@@ -21,7 +21,13 @@ export async function checkOutdated(alert = false) {
   );
   const outdated = [];
   for (const [path, edited] of entries) {
-    const updated = await lastCommitTime(path);
+    const updated = await fetch(
+      "https://europe-west1-avzag-languages.cloudfunctions.net/lastCommit?" +
+        new URLSearchParams({ path })
+    )
+      .then((r) => r.text())
+      .then((t) => Number(t));
+
     if (Date.now() - 300000 > updated && updated > edited) outdated.push(path);
   }
   if (outdated.length) {
@@ -31,15 +37,6 @@ export async function checkOutdated(alert = false) {
     outdated?.forEach((p) => cache.delete(p));
     location.reload();
   }
-}
-export async function lastCommitTime(path: string) {
-  const url =
-    "https://api.github.com/repos/alkaitagi/avzag/commits?" +
-    new URLSearchParams({ path: path, sha: "store", per_page: "1" });
-
-  const commits = await fetch(url).then((r) => r.json());
-  const time = commits[0]?.commit.committer?.date;
-  return new Date(time ?? 0).getTime();
 }
 
 export async function loadJSON<T>(path: string, defaultValue?: T) {
