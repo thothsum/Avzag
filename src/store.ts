@@ -32,12 +32,14 @@ export async function checkOutdated(alert = false) {
     location.reload();
   }
 }
-async function lastCommitTime(path: string) {
-  const url = "http://localhost:5001/avzag-languages/us-central1/cm?";
-  const query = new URLSearchParams({ path });
-  return await fetch(url + query)
-    .then((r) => r.text())
-    .then((t) => Number(t));
+export async function lastCommitTime(path: string) {
+  const url =
+    "https://api.github.com/repos/alkaitagi/avzag/commits?" +
+    new URLSearchParams({ path: path, sha: "store", per_page: "1" });
+
+  const commits = await fetch(url).then((r) => r.json());
+  const time = commits[0]?.commit.committer?.date;
+  return new Date(time ?? 0).getTime();
 }
 
 export async function loadJSON<T>(path: string, defaultValue?: T) {
