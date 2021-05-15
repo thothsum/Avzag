@@ -48,15 +48,15 @@ export async function configure(value: Config) {
 }
 
 export function pushFile() {
-  const url = "http://localhost:5001/avzag-languages/us-central1/pr?";
-  const query = new URLSearchParams({
-    path: path.value,
-    message: window.prompt("Enter optional comment:", path.value) as string,
-  });
-  fetch(url + query, {
-    method: "POST",
-    body: JSON.stringify(file.value, null, 2),
-  }).then((r) => alert(r.ok ? "Pull request was created." : "Error."));
+  // const url = "http://localhost:5001/avzag-languages/us-central1/pr?";
+  // const query = new URLSearchParams({
+  //   path: path.value,
+  //   message: window.prompt("Enter optional comment:", path.value) as string,
+  // });
+  // fetch(url + query, {
+  //   method: "POST",
+  //   body: JSON.stringify(file.value, null, 2),
+  // }).then((r) => alert(r.ok ? "Pull request was created." : "Error."));
 }
 export async function resetFile(checkStorage = true) {
   fileWatch?.();
