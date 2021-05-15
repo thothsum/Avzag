@@ -22,7 +22,6 @@ export async function checkOutdated(alert = false) {
   const outdated = [];
   for (const [path, edited] of entries) {
     const updated = await lastCommit(path);
-    console.log(updated);
     if (Date.now() - 300000 > updated && updated > edited) outdated.push(path);
   }
   if (outdated.length) {
