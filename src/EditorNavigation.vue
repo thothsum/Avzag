@@ -16,7 +16,9 @@
       </div>
       <div class="row">
         <template v-if="lect">
-          <p v-if="isOutdated" class="icon">schedule</p>
+          <p v-if="isOutdated" class="icon highlight-font-alert">
+            sync_problem
+          </p>
           <!-- <btn :disabled="!isDirty" icon="cloud_upload" @click="pushFile" /> -->
         </template>
         <select v-if="!config.global" v-model="lect">
