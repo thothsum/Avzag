@@ -1,13 +1,16 @@
 <template>
   <div v-if="file" class="section small grid">
     <div class="col">
+      <p v-if="entry && !validEntry" class="highlight-font-alert">
+        Entry must have at least form or meaning to be saved.
+      </p>
       <div class="row">
         <btn class="flex" icon="add" text="New word" @click="newEntry" />
         <ConfirmButton
           :disabled="!entry"
           class="flex"
           text="Delete"
-          @click="deleteEntry"
+          @click="() => deleteEntry(entry, true)"
         />
       </div>
       <hr />
@@ -50,7 +53,7 @@
             <ArrayControl
               v-model="entry.forms"
               v-model:item="form"
-              :add="() => ({ plain: 'from #' + entry.forms.length })"
+              :add="() => ({ plain: '' })"
               shift-two
               remove
             />
@@ -77,7 +80,7 @@
             <ArrayControl
               v-model="entry.uses"
               v-model:item="usecase"
-              :add="() => ({ meaning: 'meaning #' + entry.uses.length })"
+              :add="() => ({ meaning: '' })"
               shift-two
               remove
             />
@@ -168,28 +171,51 @@ export default defineComponent({
     });
 
     const entry = ref();
-    const usecase = ref();
+    watch(file, () => {
+      entry.value = undefined;
+    });
+    const validEntry = computed(() => {
+      const e = entry.value as Entry;
+      return e?.forms.some((f) => f.plain) || e?.uses.some((u) => u.meaning);
+    });
+    watch([entry, validEntry], ([entry, valid], [oEntry, oValid]) => {
+      if (entry && entry === oEntry && valid !== oValid)
+        if (valid) (file.value as Entry[]).push(entry);
+        else deleteEntry(entry);
+    });
+
     const form = ref();
+    watch(entry, () => {
+      if (!entry.value) form.value = undefined;
+    });
+    const usecase = ref();
+    watch(entry, () => {
+      if (!entry.value) usecase.value = undefined;
+    });
     const sample = ref();
+    watch(usecase, () => {
+      if (!usecase.value) sample.value = undefined;
+    });
 
     function newEntry() {
-      const e = {
-        forms: [{ plain: "a form" }],
-        uses: [{ meaning: "word" }],
+      entry.value = {
+        forms: [{ plain: "" }],
+        uses: [{ meaning: "" }],
       };
-      (file.value as Entry[]).push(e);
-      entry.value = e;
     }
-    function deleteEntry() {
+    function deleteEntry(ent: Entry, del = false) {
       const arr = file.value as Entry[];
-      arr.splice(arr.indexOf(entry.value), 1);
-      entry.value = undefined;
-      searcher.search("editor", query.value);
+      arr.splice(arr.indexOf(ent), 1);
+      if (del) {
+        entry.value = undefined;
+        searcher.search("editor", query.value);
+      }
     }
 
     return {
       file,
       entry,
+      validEntry,
       usecase,
       form,
       sample,
