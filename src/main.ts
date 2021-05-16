@@ -6,7 +6,12 @@ import Btn from "@/components/Btn.vue";
 import Toggle from "@/components/Toggle.vue";
 
 import { registerSW } from "virtual:pwa-register";
-registerSW();
+const updateSW = registerSW({
+  onNeedRefresh() {
+    refreshSW();
+  },
+});
+const refreshSW = () => updateSW();
 
 const app = createApp(App);
 app.component("Btn", Btn);
