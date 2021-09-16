@@ -41,7 +41,7 @@
             <router-link to="/editor/phonology">
               <btn icon="construction" text="Editor" />
             </router-link>
-            <a href="https://t.me/avdan" class="wrap">
+            <a href="https://t.me/studioraxys" class="wrap">
               <btn icon="forum" text="Channel" />
             </a>
             <a href="https://github.com/alkaitagi/avzag#credits" class="wrap">
