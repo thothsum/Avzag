@@ -44,10 +44,10 @@
             <a href="https://t.me/raxysstudios" class="wrap">
               <btn icon="forum" text="Channel" />
             </a>
-            <a href="https://github.com/alkaitagi/avzag#credits" class="wrap">
+            <a href="https://github.com/raxysstudios/avzag_deprecated#credits" class="wrap">
               <btn icon="groups" text="Credits" />
             </a>
-            <a href="https://github.com/alkaitagi/avzag" class="wrap">
+            <a href="https://github.com/raxysstudios/avzag_deprecated" class="wrap">
               <btn icon="code" text="Repository" />
             </a>
           </div>
