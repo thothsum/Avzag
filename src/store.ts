@@ -5,7 +5,7 @@ import StorageCache from "@/storage-cache";
 export const lects = ref([] as string[]);
 export const root =
   import.meta.env.VITE_STORE ??
-  "https://raw.githubusercontent.com/alkaitagi/avzag/store/";
+  "https://raw.githubusercontent.com/raxysstudios/avzag_deprecated/store/";
 
 export const storage = localforage.createInstance({ name: "user" });
 export const cache = new StorageCache(storage, "cache", () =>
@@ -35,7 +35,7 @@ export async function checkOutdated(alert = false) {
 async function lastCommit(path: string) {
   let time = 0;
   if (path) {
-    const url = "https://api.github.com/repos/alkaitagi/avzag/commits";
+    const url = "https://api.github.com/repos/raxysstudios/avzag_deprecated/commits";
     const params = new URLSearchParams({ path, sha: "store", per_page: "1" });
     const commits = await fetch(url + "?" + params).then((r) => r.json());
     const date = commits[0]?.commit.committer?.date;
