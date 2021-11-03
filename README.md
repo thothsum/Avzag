@@ -2,8 +2,6 @@
 
 This repository is deprecated and soon will be archived. The project continues at https://github.com/raxysstudios/avzag.
 
-to be done...
-
 ## Contacts
 
 [Magomed](https://twitter.com/alkaitagi) - technical issues.  
