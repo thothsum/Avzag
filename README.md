@@ -1,6 +1,6 @@
 # Avzag
 
-## Project setup
+This repository is deprecated and soon will be archived. The project continues at https://github.com/raxysstudios/avzag.
 
 to be done...
 
