@@ -1,6 +1,7 @@
 # Avzag
 
-This repository is deprecated and soon will be archived. The project continues at https://github.com/raxysstudios/avzag.
+
+**[Deprecation]** The project's legacy continues at various other repos: https://github.com/raxysstudios.
 
 ## Contacts
 
